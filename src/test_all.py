@@ -26,7 +26,7 @@ for file in files:
         print(f" --> testing file: {file}")
         assert '.json' in file, 'the file does not seem to have a .json in it: ' + file
         file_path = tasks_path + file
-        with open(file_path, 'r') as f:
+        with open(file_path, 'r', encoding="utf8") as f:
             data = json.load(f)
             for key in expected_keys:
                 assert key in data, f'did not find the key: {key}'
