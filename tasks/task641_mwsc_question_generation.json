@@ -1,0 +1,454 @@
+{
+    "Source": [
+        "mwsc"
+    ],
+    "Definition": "This task is about reading the given sentence and construct a question about the information present in the sentence. Construct a question in such a way that (i) it is unambiguous, (ii) it is answerable from the sentence, (iii) its answer is unique (iv) its answer is a continuous text span from the sentence. Avoid creating questions that (i) can be answered correctly without actually understanding the sentence and (ii) uses same words or phrases given in the sentence.",
+    "Positive Examples": [
+        {
+            "input": "sentence: Fred is the only man alive who still remembers my father as an infant. When Fred first saw my father, he was twelve years old.",
+            "output": "Who was twelve years old?",
+            "explanation": "This question is based on the following sentence given- Fred is the only man alive who still remembers my father as an infant. When Fred first saw my father, he was twelve years old. From here it's clear that Fred was twelve years old and this is a good question since answer for this question is there in the sentence given."
+        },
+        {
+            "input": "sentence: The archaeologists have concluded that neanderthals lived in Laputa 20,000 years ago. They hunted for deer on the river banks.",
+            "output": "Who hunted for deer?",
+            "explanation": "This question is based on the following sentence given- The archaeologists have concluded that neanderthals lived in Laputa 20,000 years ago. They hunted for deer on the river banks. From here it's clear that neanderthals hunted for deer and this is a good question since answer for this question is there in the sentence given."
+        },
+        {
+            "input": "sentence: Sam broke both his ankles and he's walking with crutches. But a month or so from now they should be better.",
+            "output": "What should be better?",
+            "explanation": "This question is based on the following sentence given- Sam broke both his ankles and he's walking with crutches. But a month or so from now his ankles should be better and this is a good question since answer for this question is there in the sentence given."
+        },
+        {
+            "input": "sentence: I stuck a pin through a carrot. When I pulled the pin out, it left a hole.",
+            "output": "What left a hole?",
+            "explanation": "This question is based on the following sentence given- I stuck a pin through a carrot. When I pulled the pin out, it left a hole. From here it's clear that pin left a hole and this is a good question since answer for this question is there in the sentence given."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "sentence: The scientists are studying three species of fish that have recently been found living in the Indian Ocean. They appeared two years ago.",
+            "output": "What are the names of the species of fish scientists are studying?",
+            "explanation": "This is an example of a bad question because it is not answerable from the given sentence. Instead, select a sentence and create a question around it using interrogative words such as what, which, when, where, who, whom, whose, why, whether, how, how many etc. This way it would ensure that the question is answerable from the sentence."
+        },
+        {
+            "input": "sentence: The scientists are studying three species of fish that have recently been found living in the Indian Ocean. They appeared two years ago.",
+            "output": "How many scientists are studying?",
+            "explanation": "This is an example of a bad question because it is not answerable from the given sentence. Instead, select a sentence and create a question around it using interrogative words such as what, which, when, where, who, whom, whose, why, whether, how, how many etc. This way it would ensure that the question is answerable from the sentence."
+        },
+        {
+            "input": "sentence: Kirilov ceded the presidency to Shatov because he was less popular.",
+            "output": "When did Kirilov ceded the presidency to Shatov?",
+            "explanation": "This is an example of a bad question because it is not answerable from the given sentence. Instead, select a sentence and create a question around it using interrogative words such as what, which, when, where, who, whom, whose, why, whether, how, how many etc. This way it would ensure that the question is answerable from the sentence."
+        },
+        {
+            "input": "sentence: There are too many deer in the park, so the park service brought in a small pack of wolves. The population should decrease over the next few years.",
+            "output": "how many deers are expected to be present next year?",
+            "explanation": "This is an example of a bad question because it is not answerable from the given sentence. Instead, select a sentence and create a question around it using interrogative words such as what, which, when, where, who, whom, whose, why, whether, how, how many etc. This way it would ensure that the question is answerable from the sentence."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "sentence: Jane knocked on Susan's door but she did not answer.",
+            "output": "Who did not answer?"
+        },
+        {
+            "input": "sentence: The father carried the sleeping boy in his arms.",
+            "output": "Whose arms?"
+        },
+        {
+            "input": "sentence: The scientists are studying three species of fish that have recently been found living in the Indian Ocean. They began two years ago.",
+            "output": "Who or what began two years ago?"
+        },
+        {
+            "input": "sentence: Grace was happy to trade me her sweater for my jacket. She thinks it looks great on her.",
+            "output": "What looks great on Grace?"
+        },
+        {
+            "input": "sentence: Stretching her back, the woman smiled at the girl.",
+            "output": "Whose back was the woman stretching?"
+        },
+        {
+            "input": "sentence: Dan had to stop Bill from toying with the injured bird. He is very cruel.",
+            "output": "Who is cruel?"
+        },
+        {
+            "input": "sentence: James asked Robert for a favor but he refused.",
+            "output": "Who refused?"
+        },
+        {
+            "input": "sentence: The man lifted the boy onto his shoulders.",
+            "output": "Whose shoulders?"
+        },
+        {
+            "input": "sentence: Emma's mother had died long ago, and her place by an excellent woman as governess.",
+            "output": "Whose place?"
+        },
+        {
+            "input": "sentence: The archaeologists have concluded that neanderthals lived in Laputa 20,000 years ago. They hunted for deer on the river banks.",
+            "output": "Who hunted for deer?"
+        },
+        {
+            "input": "sentence: Beth didn't get angry with Sally, who had cut her off, because she stopped and counted to ten.",
+            "output": "Who counted to ten?"
+        },
+        {
+            "input": "sentence: Emma did not pass the ball to Janie although she saw that she was open.",
+            "output": "Who saw that the other player was open?"
+        },
+        {
+            "input": "sentence: The doctor informed Kate that she had retired and presented several options for future treatment.",
+            "output": "Who had retired?"
+        },
+        {
+            "input": "sentence: There are too many deer in the park, so the park service brought in a small pack of wolves. The population should increase over the next few years.",
+            "output": "Which population will increase?"
+        },
+        {
+            "input": "sentence: As Andrea in the crop duster passed over Susan, she could see the landing strip.",
+            "output": "Who could see the landing strip?"
+        },
+        {
+            "input": "sentence: Joe paid the detective after he delivered the final report on the case.",
+            "output": "Who delivered the final report?"
+        },
+        {
+            "input": "sentence: The woman held the girl against her will.",
+            "output": "Whose will?"
+        },
+        {
+            "input": "sentence: Joe saw his brother skiing on TV last night but the fool didn't have a coat on",
+            "output": "Who is the fool?"
+        },
+        {
+            "input": "sentence: Esther figures that she will save shipping costs if she builds her factory in Springfield instead of Franklin, because most of her customers live there.",
+            "output": "In which town do most of Esther's customers live?"
+        },
+        {
+            "input": "sentence: Dan took the rear seat while Bill claimed the front because his \"Dibs!\" was slow.",
+            "output": "Whose \"Dibs\" was slow?"
+        },
+        {
+            "input": "sentence: Dan took the rear seat while Bill claimed the front because his \"Dibs!\" was quicker.",
+            "output": "Whose \"Dibs\" was quicker?"
+        },
+        {
+            "input": "sentence: Sam Goodman's biography of the Spartan general Xenophanes conveys a vivid sense of the difficulties he faced in his research.",
+            "output": "Who faced difficulties?"
+        },
+        {
+            "input": "sentence: I stuck a pin through a carrot. When I pulled the pin out, it had a hole.",
+            "output": "What had a hole?"
+        },
+        {
+            "input": "sentence: Alice looked for her friend Jade in the crowd. Since she always has good luck, Alice spotted her quickly.",
+            "output": "Who always has good luck"
+        },
+        {
+            "input": "sentence: We had hoped to place copies on all the chairs in the auditorium, but there were simply too many of them.",
+            "output": "There are not enough of what?"
+        },
+        {
+            "input": "sentence: Bill passed the half-empty plate to John because he was full.",
+            "output": "Who was full?"
+        },
+        {
+            "input": "sentence: Billy cried because Toby wouldn't accept his toy.",
+            "output": "Who owned the toy?"
+        },
+        {
+            "input": "sentence: The man lifted the boy onto his bunk bed.",
+            "output": "Whose bunk bed?"
+        },
+        {
+            "input": "sentence: When Tommy dropped his ice cream, Timmy giggled, so father gave him a sympathetic look.",
+            "output": "Who got the look from father?"
+        },
+        {
+            "input": "sentence: Jim signaled the barman and gestured toward his bathroom key.",
+            "output": "Whose bathroom key?"
+        },
+        {
+            "input": "sentence: Sam Goodman's biography of the Spartan general Xenophanes conveys a vivid sense of the difficulties he faced in his childhood.",
+            "output": "Who faced difficulties?"
+        },
+        {
+            "input": "sentence: Carol believed that Rebecca regretted that she had stolen the watch.",
+            "output": "Who is stole the watch?"
+        },
+        {
+            "input": "sentence: As Ollie carried Tommy up the long winding steps, his legs ached.",
+            "output": "Whose legs ached?"
+        },
+        {
+            "input": "sentence: The father carried the sleeping boy in his bassinet.",
+            "output": "Whose bassinet?"
+        },
+        {
+            "input": "sentence: Esther figures that she will save shipping costs if she builds her factory in Springfield instead of Franklin, because none of her customers live there.",
+            "output": "In which town do none of Esther's customers live?"
+        },
+        {
+            "input": "sentence: I couldn't find a spoon, so I tried using a pen to stir my coffee. But that turned out to be a bad idea, because it got full of coffee.",
+            "output": "What got full of coffee?"
+        },
+        {
+            "input": "sentence: Jim signaled the barman and gestured toward his empty glass.",
+            "output": "Whose empty glass?"
+        },
+        {
+            "input": "sentence: The archaeologists have concluded that neanderthals lived in Laputa 20,000 years ago. They hunted for evidence on the river banks.",
+            "output": "Who hunted for evidence?"
+        },
+        {
+            "input": "sentence: Bill passed the half-empty plate to John because he was hungry.",
+            "output": "Who was hungry?"
+        },
+        {
+            "input": "sentence: Alice looked for her friend Jade in the crowd. Since she always wears a red turban, Alice spotted her quickly.",
+            "output": "Who always wears a red turban"
+        },
+        {
+            "input": "sentence: Lily spoke to Donna, breaking her concentration.",
+            "output": "Whose concentration?"
+        },
+        {
+            "input": "sentence: As Ollie carried Tommy up the long winding steps, his legs dangled.",
+            "output": "Whose legs dangled?"
+        },
+        {
+            "input": "sentence: Kirilov ceded the presidency to Shatov because he was less popular.",
+            "output": "Who was less popular?"
+        },
+        {
+            "input": "sentence: Kirilov ceded the presidency to Shatov because he was more popular.",
+            "output": "Who was more popular?"
+        },
+        {
+            "input": "sentence: Dan had to stop Bill from toying with the injured bird. He is very compassionate.",
+            "output": "Who is compassionate?"
+        },
+        {
+            "input": "sentence: I tried to paint a picture of an orchard, with lemons in the lemon trees, but they came out looking more like telephone poles.",
+            "output": "What looked like telephone poles?"
+        },
+        {
+            "input": "sentence: Tom gave Ralph a lift to school so he wouldn't have to drive alone.",
+            "output": "Who wouldn't have to drive alone?"
+        },
+        {
+            "input": "sentence: Fred is the only man alive who still remembers my father as an infant. When Fred first saw my father, he was twelve years old.",
+            "output": "Who was twelve years old?"
+        },
+        {
+            "input": "sentence: James asked Robert for a favor but he was refused.",
+            "output": "Who was refused?"
+        },
+        {
+            "input": "sentence: Grace was happy to trade me her sweater for my jacket. She thinks it looks dowdy on her.",
+            "output": "What looks dowdy on Grace?"
+        },
+        {
+            "input": "sentence: John ordered Bill to leave, so an hour later he left.",
+            "output": "Who left?"
+        },
+        {
+            "input": "sentence: Lily spoke to Donna, breaking her silence.",
+            "output": "Whose silence?"
+        },
+        {
+            "input": "sentence: The doctor informed Kate that she had cancer and presented several options for future treatment.",
+            "output": "Who had cancer?"
+        },
+        {
+            "input": "sentence: Tom gave Ralph a lift to school so he wouldn't have to walk.",
+            "output": "Who wouldn't have to walk?"
+        },
+        {
+            "input": "sentence: The table won't fit through the doorway because it is too narrow.",
+            "output": "What is too narrow?"
+        },
+        {
+            "input": "sentence: The journalists interviewed the stars of the new movie. They were very persistent, so the interview lasted for a long time.",
+            "output": "Who was persistent?"
+        },
+        {
+            "input": "sentence: Tom said \"Check\" to Ralph as he moved his bishop.",
+            "output": "Who owned the bishop that Tom moved?"
+        },
+        {
+            "input": "sentence: The woman held the girl against her chest.",
+            "output": "Whose chest?"
+        },
+        {
+            "input": "sentence: Carol believed that Rebecca suspected that she had stolen the watch.",
+            "output": "Who is suspected of stealing the watch?"
+        },
+        {
+            "input": "sentence: Bill passed the gameboy to John because his turn was next.",
+            "output": "Whose turn was next?"
+        },
+        {
+            "input": "sentence: John promised Bill to leave, so an hour later he left.",
+            "output": "Who left?"
+        },
+        {
+            "input": "sentence: When the sponsors of the bill got to the town hall, they were surprised to find that the room was full of opponents. They were very much in the majority.",
+            "output": "Who were in the majority?"
+        },
+        {
+            "input": "sentence: I put the cake away in the refrigerator. It has a lot of leftovers in it.",
+            "output": "What has a lot of leftovers?"
+        },
+        {
+            "input": "sentence: Billy cried because Toby wouldn't share his toy.",
+            "output": "Who owned the toy?"
+        },
+        {
+            "input": "sentence: The police arrested all of the criminals. They were trying to stop the drug trade in the neighborhood.",
+            "output": "Who was trying to stop the drug trade?"
+        },
+        {
+            "input": "sentence: Bill thinks that calling attention to himself was rude of Bert.",
+            "output": "Who called attention to himself?"
+        },
+        {
+            "input": "sentence: I stuck a pin through a carrot. When I pulled the pin out, it left a hole.",
+            "output": "What left a hole?"
+        },
+        {
+            "input": "sentence: During a game of tag, Ethan chased Luke because he was \"it\".",
+            "output": "Who was \"it\"?"
+        },
+        {
+            "input": "sentence: In July, Kamtchatka declared war on Yakutsk. Since Yakutsk's army was much better equipped and ten times larger, they were victorious within weeks.",
+            "output": "Who was victorious"
+        },
+        {
+            "input": "sentence: Emma did not pass the ball to Janie although she was open.",
+            "output": "Who was open?"
+        },
+        {
+            "input": "sentence: When the sponsors of the bill got to the town hall, they were surprised to find that the room was full of opponents. They were very much in the minority.",
+            "output": "Who were in the minority?"
+        },
+        {
+            "input": "sentence: We had hoped to place copies on all the chairs in the auditorium, but there were simply not enough of them.",
+            "output": "There are too many of what?"
+        },
+        {
+            "input": "sentence: The scientists are studying three species of fish that have recently been found living in the Indian Ocean. They appeared two years ago.",
+            "output": "Who or what appeared two years ago?"
+        },
+        {
+            "input": "sentence: Bill passed the gameboy to John because his turn was over.",
+            "output": "Whose turn was over?"
+        },
+        {
+            "input": "sentence: Sam broke both his ankles and he's walking with crutches. But a month or so from now they should be better.",
+            "output": "What should be better?"
+        },
+        {
+            "input": "sentence: I put the cake away in the refrigerator. It has a lot of butter in it.",
+            "output": "What has a lot of butter?"
+        },
+        {
+            "input": "sentence: Beth didn't get angry with Sally, who had cut her off, because she stopped and apologized.",
+            "output": "Who apologized?"
+        },
+        {
+            "input": "sentence: When Tommy dropped his ice cream, Timmy giggled, so father gave him a stern look.",
+            "output": "Who got the look from father?"
+        },
+        {
+            "input": "sentence: Patting her back, the woman smiled at the girl.",
+            "output": "Whose back was the woman patting?"
+        },
+        {
+            "input": "sentence: The journalists interviewed the stars of the new movie. They were very cooperative, so the interview lasted for a long time.",
+            "output": "Who was cooperative?"
+        },
+        {
+            "input": "sentence: I couldn't find a spoon, so I tried using a pen to stir my coffee. But that turned out to be a bad idea, because it got full of ink.",
+            "output": "What got full of ink?"
+        },
+        {
+            "input": "sentence: Joe saw his brother skiing on TV last night but the fool didn't recognize him",
+            "output": "Who is the fool?"
+        },
+        {
+            "input": "sentence: Emma's mother had died long ago, and her education] had been [taken by an excellent woman as governess.",
+            "output": "Whose education] had been [taken?"
+        },
+        {
+            "input": "sentence: Sam broke both his ankles and he's walking with crutches. But a month or so from now they should be unnecessary.",
+            "output": "What should be unnecessary?"
+        },
+        {
+            "input": "sentence: In July, Kamtchatka declared war on Yakutsk. Since Yakutsk's army was much better equipped and ten times larger, they were defeated within weeks.",
+            "output": "Who was defeated"
+        },
+        {
+            "input": "sentence: Elizabeth moved her company from Sparta to Troy to save money on taxes; the taxes are much higher there.",
+            "output": "Where are the taxes higher?"
+        },
+        {
+            "input": "sentence: Bill thinks that calling attention to himself was rude to Bert.",
+            "output": "Who called attention to himself?"
+        },
+        {
+            "input": "sentence: During a game of tag, Ethan ran from Luke because he was \"it\".",
+            "output": "Who was \"it\"?"
+        },
+        {
+            "input": "sentence: The table won't fit through the doorway because it is too wide.",
+            "output": "What is too wide?"
+        },
+        {
+            "input": "sentence: The police arrested all of the criminals. They were trying to run the drug trade in the neighborhood.",
+            "output": "Who was trying to run the drug trade?"
+        },
+        {
+            "input": "sentence: Jane knocked on Susan's door but she did not get an answer.",
+            "output": "Who did not get an answer?"
+        },
+        {
+            "input": "sentence: As Andrea in the crop duster passed over Susan, she could see the landing gear.",
+            "output": "Who could see the landing gear?"
+        },
+        {
+            "input": "sentence: Fred is the only man alive who still remembers my father as an infant. When Fred first saw my father, he was twelve months old.",
+            "output": "Who was twelve months old?"
+        },
+        {
+            "input": "sentence: Tom said \"Check\" to Ralph as he took his bishop.",
+            "output": "Who owned the bishop that Tom took?"
+        },
+        {
+            "input": "sentence: Everyone really loved the oatmeal cookies; only a few people liked the snickerdoodle cookies. Next time, we should make fewer of them.",
+            "output": "Which cookie should we make fewer of, next time?"
+        },
+        {
+            "input": "sentence: There are too many deer in the park, so the park service brought in a small pack of wolves. The population should decrease over the next few years.",
+            "output": "Which population will decrease?"
+        },
+        {
+            "input": "sentence: Joe paid the detective after he received the final report on the case.",
+            "output": "Who received the final report?"
+        },
+        {
+            "input": "sentence: Elizabeth moved her company from Sparta to Troy to save money on taxes; the taxes are much lower there.",
+            "output": "Where are the taxes lower?"
+        },
+        {
+            "input": "sentence: I tried to paint a picture of an orchard, with lemons in the lemon trees, but they came out looking more like light bulbs.",
+            "output": "What looked like light bulbs?"
+        },
+        {
+            "input": "sentence: Everyone really loved the oatmeal cookies; only a few people liked the snickerdoodle cookies. Next time, we should make more of them.",
+            "output": "Which cookie should we make more of, next time?"
+        }
+    ],
+    "Contributors": "Sai Venkat Prudhvi Nekkalapudi",
+    "Categories": "Question Generation"
+}
