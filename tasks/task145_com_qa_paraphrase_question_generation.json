@@ -3,44 +3,44 @@
         "Arut Selvan Dhanasekaran"
     ],
     "Source": [
-        "com_qa"
+        "https://huggingface.co/datasets/com_qa"
     ],
     "Categories": [
         "Question Generation"
     ],
-    "Definition": "Given a question, create questions that are rephrasals of the original question. Additional contextual information if available can be used to frame the questions. The questions should be created in such a way that the answer for all the generated questions is same.",
+    "Definition": "Given a question, generate a paraphrase of that question wihout changing the meaning of the input question",
     "Positive Examples": [
         {
             "input": "Question: what places in africa do people speak french?",
-            "output": "[\"where in africa do people speak french?\", \"what countries in africa speak french?\", \"where in africa do people speak french?\"]",
-            "explanation": "The generated questions mean the same as the input question and the answer will be the same for all the questions"
+            "output": "where in africa do people speak french?",
+            "explanation": "The generated question means the same as the input question and the answer will be the same"
         },
         {
             "input": "Question: hitler became chancellor of germany in what year?",
-            "output": "[\"what year did hitler become chancellor of germany?\", \"what year was hitler elected the chancellor of germany?\", \"in which year did hitler become the chancellor of germany?\", \"what year did adolf hitler become chancellor for germany?\", \"which date did hitler become chancellor of germany?\"]",
-            "explanation": "The answer for all the generated questions and the given question can be given by a single date"
+            "output": "In which year did hitler become the chancellor of germany?",
+            "explanation": "The answer for the generated question and the given question can be given by a single date"
         },
         {
             "input": "Question: mandeville lousiana zip code?",
-            "output": "[\"what is the zip code for mandeville louisiana?\", \"what is mandeville louisiana 9 digit zip code?\"]",
-            "explanation": "The rephrased questions exactly means the same as the given question even though some additional contextual information was used in one of the questions created."
+            "output": "what is the zip code for mandeville louisiana?",
+            "explanation": "The rephrased question exactly means the same as the given question."
         }
     ],
     "Negative Examples": [
         {
             "input": "Question: How long is the Nile river?",
-            "output": "[\"Is Nile the longest river?\"]",
+            "output": "Is Nile the longest river?",
             "explanation": "The question created changes the meaning of the input question and the answer is not the same for the questions"
         },
         {
             "input": "Question: Who is the first football player to win seven balon d'ors?",
-            "output": "[\"Who won the first balon dor?\", \"who is the first football player?\"]",
-            "explanation": "The generated questions don't mean the same as the original questions and the answers are different for each question."
+            "output": "Who won the first balon dor?",
+            "explanation": "The generated question don't mean the same as the original question and the answers are different for each question."
         },
         {
             "input": "Question: How Vitamin C helps the human body?",
-            "output": "[\"How vitamins help humans?\", \"Does Vitamin C help the human body?\"]",
-            "explanation": "One of the questions created generalises a specific question. The other changes the meaning of the given question."
+            "output": "Does Vitamin C help the human body?",
+            "explanation": "The generated question changed the meaning of the given question."
         }
     ],
     "Instances": [
@@ -60,16 +60,6 @@
             "input": "Question: who plays james potter in the harry potter films?",
             "output": [
                 "who is james potter the harry potter father?"
-            ]
-        },
-        {
-            "input": "Question: When did hitler became chancellor of germany in what year?",
-            "output": [
-                "what year did hitler become chancellor of germany?",
-                "what year was hitler elected the chancellor of germany?",
-                "in which year did hitler become the chancellor of germany?",
-                "what year did adolf hitler become chancellor for germany?",
-                "which date did hitler become chancellor of germany?"
             ]
         },
         {

@@ -3,44 +3,44 @@
         "Arut Selvan Dhanasekaran"
     ],
     "Source": [
-        "com_qa"
+        "https://huggingface.co/datasets/com_qa"
     ],
     "Categories": [
         "Question Generation"
     ],
-    "Definition": "An answer is given. Generate questions directly related to that answer. Don't create questions on topics indirectly related to the given answer. The questions generated should be directly or partially answered by the given answer.",
+    "Definition": "An answer is given. Generate a question for which the given answer is either a direct or partial answer.",
     "Positive Examples": [
         {
             "input": "Answer: victoria woodhull",
-            "output": "[\"who was the first women to run for presidency in the us?\", \"who was the first women to run for the us president?\", \"which women was the first to run for president in the us?\", \"first women to run for presidency of the usa?\"]",
-            "explanation": "The given answer directly answers all the generated questions"
+            "output": "who was the first women to run for presidency in the us?",
+            "explanation": "The given answer directly answers the generated question"
         },
         {
             "input": "Answer: atlanta",
-            "output": "[\"Top 3 largest citites in Georgia?\"]",
-            "explanation": "Although the answer doesn't directly answer the question, the given answer is a partial answer to the generated question and relates directly to it."
+            "output": "Top 3 largest citites in Georgia?",
+            "explanation": "Although the answer doesn't directly answer the question, the given answer is a partial answer to the generated question."
         },
         {
             "input": "Answer: united states presidential election, 1860",
-            "output": "[\"when was abraham lincoln voted for president?\", \"when was president lincoln voted president?\", \"when was lincoln president?\"]",
-            "explanation": "The questions generated can be answered by the given answer"
+            "output": "when was abraham lincoln voted for president?",
+            "explanation": "The question generated can be answered by the given answer"
         }
     ],
     "Negative Examples": [
         {
             "input": "Answer: Infrared rays",
-            "output": "[\"X rays are in which part of the electromagnetic spectrum?\"]",
+            "output": "X rays are in which part of the electromagnetic spectrum?",
             "explanation": "The question and the answer is a part of a broader topic but they're not directly related"
         },
         {
             "input": "Answer: Coca Cola",
-            "output": "[\"Are soft drinks harmful to health?\", \"Is Pepsi better?\"]",
-            "explanation": "The questions are indirectly related to the given answer but in no way the given answer directly or indirectly answers the generated questions"
+            "output": "Are soft drinks harmful to health?",
+            "explanation": "The question is indirectly related to the given answer but in no way the given answer directly or indirectly answers the generated question"
         },
         {
             "input": "Answer: Martin Luther King",
-            "output": "[\"Who is the first African-American president of USA?\", \"How prevalent was racial inequality in the 2000s?\"]",
-            "explanation": "The answer and questions are not directly related and the answer doesn't even indirectly answer the questions generated"
+            "output": "Who is the first African-American president of USA?",
+            "explanation": "The generated question is not answered by the given answer"
         }
     ],
     "Instances": [
