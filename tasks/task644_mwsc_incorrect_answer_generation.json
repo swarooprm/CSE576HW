@@ -5,640 +5,640 @@
     "Definition": "In this task, based on the given sentence and question, you are asked to create an incorrect answer. The incorrect answer should be in string format and multiple incorrect answers are not allowed. Need only one incorrect answer ( for example 'incorrect_answer' ). Avoid complex vocabulary and keep it as simple as possible. Answer the questions using coreference resolution. coreference resolution is the task of clustering mentions in text that refer to the same underlying real world entities. For example let's take a sentence 'I voted for Obama because he was most aligned with my values, she said.' Here in this example 'I', 'my', and 'she' belong to the same cluster and 'Obama' and 'he' belong to the same cluster. Now let's discuss another example , original sentence: 'I voted for Trump because he was most aligned with my values',John said. Now here is the same sentence with resolved coreferences: 'John voted for Trump because Trump was most aligned with John's values',John said. ",
     "Positive Examples": [
         {
-            "input": "sentence: The foxes are getting in at night and attacking the chickens. I shall have to guard them. Question: What do I have to guard?",
+            "input": "Sentence: The foxes are getting in at night and attacking the chickens. I shall have to guard them. Question: What do I have to guard?",
             "output": "foxes",
             "explanation": "The given sentence clearly states that the foxes are getting in at night and attacking the chickens and these chickens need to guarded. Therefore, the answer is chickens. This is a positive example as the answer foxes is incorrect and incomplete."
         },
         {
-            "input": "sentence: The foxes are getting in at night and attacking the chickens. I shall have to kill them. Question: What do I have to kill?",
+            "input": "Sentence: The foxes are getting in at night and attacking the chickens. I shall have to kill them. Question: What do I have to kill?",
             "output": "chickens",
             "explanation": "The given sentence clearly states that the foxes are getting in at night and attacking the chickens and these foxes need to be killed. Therefore, the answer is foxes. This is a positive example as the answer chickens is incorrect and incomplete."
         },
         {
-            "input": "sentence: Mary tucked her daughter Anne into bed, so that she could work. Question: Who is going to work?",
+            "input": "Sentence: Mary tucked her daughter Anne into bed, so that she could work. Question: Who is going to work?",
             "output": "Mary's Sister",
             "explanation": "The given sentence clearly states that the Mary tucked her daughter Anne into bed, so that she could work. Therefore, the answer is Mary. This is a positive example as the answer Mary's Sister is incorrect and incomplete."
         }
     ],
     "Negative Examples": [
         {
-            "input": "sentence: The lawyer asked the witness a question, but he was reluctant to answer it. Question: Who was reluctant to answer the question?",
+            "input": "Sentence: The lawyer asked the witness a question, but he was reluctant to answer it. Question: Who was reluctant to answer the question?",
             "output": "witness",
             "explanation": "The given sentence clearly states that the lawyer asked the witness a question, but the witness was unwilling to answer it. Therefore, the answer is witness. This is a negative example as the answer is correct and complete."
         },
         {
-            "input": "sentence: The lawyer asked the witness a question, but he was reluctant to repeat it. Question: Who was reluctant to repeat the question?",
+            "input": "Sentence: The lawyer asked the witness a question, but he was reluctant to repeat it. Question: Who was reluctant to repeat the question?",
             "output": "layer",
             "explanation": "The given sentence clearly states that the lawyer asked the witness a question and the layer was unwilling to repeat the question. Therefore, the answer is layer. This is a negative example as the answer is correct and complete."
         },
         {
-            "input": "sentence: Frank felt crushed when his longtime rival Bill revealed that he was the winner of the competition. Question: Who was the winner of the competition?",
+            "input": "Sentence: Frank felt crushed when his longtime rival Bill revealed that he was the winner of the competition. Question: Who was the winner of the competition?",
             "output": "Bill",
             "explanation": "The given sentence clearly states that Frank felt upset when his longtime rival Bill disclosed that he was the winner of the competition. Therefore, the answer is Bill. This is a negative example as the answer is correct and complete."
         },
         {
-            "input": "sentence: Frank felt vindicated when his longtime rival Bill revealed that he was the winner of the competition. Question: Who was the winner of the competition?",
+            "input": "Sentence: Frank felt vindicated when his longtime rival Bill revealed that he was the winner of the competition. Question: Who was the winner of the competition?",
             "output": "Frank",
             "explanation": "The given sentence clearly states that Frank felt justified when his longtime rival Bill revealed that he was the winner of the competition. Therefore, the answer is Frank. This is a negative example as the answer is correct and complete."
         }
     ],
     "Instances": [
         {
-            "input": "sentence: Dan took the rear seat while Bill claimed the front because his \"Dibs!\" was quicker. Question: Whose \"Dibs\" was quicker?",
+            "input": "Sentence: Dan took the rear seat while Bill claimed the front because his \"Dibs!\" was quicker. Question: Whose \"Dibs\" was quicker?",
             "output": [
                 "Dan's"
             ]
         },
         {
-            "input": "sentence: The scientists are studying three species of fish that have recently been found living in the Indian Ocean. They began two years ago. Question: Who or what began two years ago?",
+            "input": "Sentence: The scientists are studying three species of fish that have recently been found living in the Indian Ocean. They began two years ago. Question: Who or what began two years ago?",
             "output": [
                 "fish"
             ]
         },
         {
-            "input": "sentence: The father carried the sleeping boy in his arms. Question: Whose arms?",
+            "input": "Sentence: The father carried the sleeping boy in his arms. Question: Whose arms?",
             "output": [
                 "boy"
             ]
         },
         {
-            "input": "sentence: Sam Goodman's biography of the Spartan general Xenophanes conveys a vivid sense of the difficulties he faced in his childhood. Question: Who faced difficulties?",
+            "input": "Sentence: Sam Goodman's biography of the Spartan general Xenophanes conveys a vivid sense of the difficulties he faced in his childhood. Question: Who faced difficulties?",
             "output": [
                 "Sam"
             ]
         },
         {
-            "input": "sentence: Alice looked for her friend Jade in the crowd. Since she always has good luck, Alice spotted her quickly. Question: Who always has good luck",
+            "input": "Sentence: Alice looked for her friend Jade in the crowd. Since she always has good luck, Alice spotted her quickly. Question: Who always has good luck",
             "output": [
                 "Jade"
             ]
         },
         {
-            "input": "sentence: The woman held the girl against her will. Question: Whose will?",
+            "input": "Sentence: The woman held the girl against her will. Question: Whose will?",
             "output": [
                 "woman's"
             ]
         },
         {
-            "input": "sentence: Tom said \"Check\" to Ralph as he took his bishop. Question: Who owned the bishop that Tom took?",
+            "input": "Sentence: Tom said \"Check\" to Ralph as he took his bishop. Question: Who owned the bishop that Tom took?",
             "output": [
                 "Tom"
             ]
         },
         {
-            "input": "sentence: Joe paid the detective after he received the final report on the case. Question: Who received the final report?",
+            "input": "Sentence: Joe paid the detective after he received the final report on the case. Question: Who received the final report?",
             "output": [
                 " detective"
             ]
         },
         {
-            "input": "sentence: Jim signaled the barman and gestured toward his bathroom key. Question: Whose bathroom key?",
+            "input": "Sentence: Jim signaled the barman and gestured toward his bathroom key. Question: Whose bathroom key?",
             "output": [
                 "Jim's"
             ]
         },
         {
-            "input": "sentence: Patting her back, the woman smiled at the girl. Question: Whose back was the woman patting?",
+            "input": "Sentence: Patting her back, the woman smiled at the girl. Question: Whose back was the woman patting?",
             "output": [
                 "woman's"
             ]
         },
         {
-            "input": "sentence: The man lifted the boy onto his shoulders. Question: Whose shoulders?",
+            "input": "Sentence: The man lifted the boy onto his shoulders. Question: Whose shoulders?",
             "output": [
                 "boy's"
             ]
         },
         {
-            "input": "sentence: We had hoped to place copies on all the chairs in the auditorium, but there were simply too many of them. Question: There are not enough of what?",
+            "input": "Sentence: We had hoped to place copies on all the chairs in the auditorium, but there were simply too many of them. Question: There are not enough of what?",
             "output": [
                 "chairs"
             ]
         },
         {
-            "input": "sentence: When the sponsors of the bill got to the town hall, they were surprised to find that the room was full of opponents. They were very much in the majority. Question: Who were in the majority?",
+            "input": "Sentence: When the sponsors of the bill got to the town hall, they were surprised to find that the room was full of opponents. They were very much in the majority. Question: Who were in the majority?",
             "output": [
                 "sponsors"
             ]
         },
         {
-            "input": "sentence: Billy cried because Toby wouldn't share his toy. Question: Who owned the toy?",
+            "input": "Sentence: Billy cried because Toby wouldn't share his toy. Question: Who owned the toy?",
             "output": [
                 "Billy"
             ]
         },
         {
-            "input": "sentence: Everyone really loved the oatmeal cookies; only a few people liked the snickerdoodle cookies. Next time, we should make more of them. Question: Which cookie should we make more of, next time?",
+            "input": "Sentence: Everyone really loved the oatmeal cookies; only a few people liked the snickerdoodle cookies. Next time, we should make more of them. Question: Which cookie should we make more of, next time?",
             "output": [
                 "snickerdoodle"
             ]
         },
         {
-            "input": "sentence: The police arrested all of the criminals. They were trying to stop the drug trade in the neighborhood. Question: Who was trying to stop the drug trade?",
+            "input": "Sentence: The police arrested all of the criminals. They were trying to stop the drug trade in the neighborhood. Question: Who was trying to stop the drug trade?",
             "output": [
                 "criminals"
             ]
         },
         {
-            "input": "sentence: The doctor informed Kate that she had cancer and presented several options for future treatment. Question: Who had cancer?",
+            "input": "Sentence: The doctor informed Kate that she had cancer and presented several options for future treatment. Question: Who had cancer?",
             "output": [
                 "doctor"
             ]
         },
         {
-            "input": "sentence: Bill passed the half-empty plate to John because he was full. Question: Who was full?",
+            "input": "Sentence: Bill passed the half-empty plate to John because he was full. Question: Who was full?",
             "output": [
                 "John"
             ]
         },
         {
-            "input": "sentence: We had hoped to place copies on all the chairs in the auditorium, but there were simply not enough of them. Question: There are too many of what?",
+            "input": "Sentence: We had hoped to place copies on all the chairs in the auditorium, but there were simply not enough of them. Question: There are too many of what?",
             "output": [
                 "copies"
             ]
         },
         {
-            "input": "sentence: Everyone really loved the oatmeal cookies; only a few people liked the snickerdoodle cookies. Next time, we should make fewer of them. Question: Which cookie should we make fewer of, next time?",
+            "input": "Sentence: Everyone really loved the oatmeal cookies; only a few people liked the snickerdoodle cookies. Next time, we should make fewer of them. Question: Which cookie should we make fewer of, next time?",
             "output": [
                 "oatmeal"
             ]
         },
         {
-            "input": "sentence: When the sponsors of the bill got to the town hall, they were surprised to find that the room was full of opponents. They were very much in the minority. Question: Who were in the minority?",
+            "input": "Sentence: When the sponsors of the bill got to the town hall, they were surprised to find that the room was full of opponents. They were very much in the minority. Question: Who were in the minority?",
             "output": [
                 "opponents"
             ]
         },
         {
-            "input": "sentence: Joe saw his brother skiing on TV last night but the fool didn't recognize him Question: Who is the fool?",
+            "input": "Sentence: Joe saw his brother skiing on TV last night but the fool didn't recognize him Question: Who is the fool?",
             "output": [
                 "brother"
             ]
         },
         {
-            "input": "sentence: Dan had to stop Bill from toying with the injured bird. He is very cruel. Question: Who is cruel?",
+            "input": "Sentence: Dan had to stop Bill from toying with the injured bird. He is very cruel. Question: Who is cruel?",
             "output": [
                 "Dan"
             ]
         },
         {
-            "input": "sentence: When Tommy dropped his ice cream, Timmy giggled, so father gave him a stern look. Question: Who got the look from father?",
+            "input": "Sentence: When Tommy dropped his ice cream, Timmy giggled, so father gave him a stern look. Question: Who got the look from father?",
             "output": [
                 "Tommy"
             ]
         },
         {
-            "input": "sentence: The journalists interviewed the stars of the new movie. They were very persistent, so the interview lasted for a long time. Question: Who was persistent?",
+            "input": "Sentence: The journalists interviewed the stars of the new movie. They were very persistent, so the interview lasted for a long time. Question: Who was persistent?",
             "output": [
                 "stars"
             ]
         },
         {
-            "input": "sentence: Beth didn't get angry with Sally, who had cut her off, because she stopped and apologized. Question: Who apologized?",
+            "input": "Sentence: Beth didn't get angry with Sally, who had cut her off, because she stopped and apologized. Question: Who apologized?",
             "output": [
                 "Beth"
             ]
         },
         {
-            "input": "sentence: Grace was happy to trade me her sweater for my jacket. She thinks it looks great on her. Question: What looks great on Grace?",
+            "input": "Sentence: Grace was happy to trade me her sweater for my jacket. She thinks it looks great on her. Question: What looks great on Grace?",
             "output": [
                 "sweater"
             ]
         },
         {
-            "input": "sentence: Kirilov ceded the presidency to Shatov because he was less popular. Question: Who was less popular?",
+            "input": "Sentence: Kirilov ceded the presidency to Shatov because he was less popular. Question: Who was less popular?",
             "output": [
                 "Shatov"
             ]
         },
         {
-            "input": "sentence: Sam Goodman's biography of the Spartan general Xenophanes conveys a vivid sense of the difficulties he faced in his research. Question: Who faced difficulties?",
+            "input": "Sentence: Sam Goodman's biography of the Spartan general Xenophanes conveys a vivid sense of the difficulties he faced in his research. Question: Who faced difficulties?",
             "output": [
                 "Xenophanes"
             ]
         },
         {
-            "input": "sentence: Tom gave Ralph a lift to school so he wouldn't have to drive alone. Question: Who wouldn't have to drive alone?",
+            "input": "Sentence: Tom gave Ralph a lift to school so he wouldn't have to drive alone. Question: Who wouldn't have to drive alone?",
             "output": [
                 "Ralph"
             ]
         },
         {
-            "input": "sentence: The woman held the girl against her chest. Question: Whose chest?",
+            "input": "Sentence: The woman held the girl against her chest. Question: Whose chest?",
             "output": [
                 "girl's"
             ]
         },
         {
-            "input": "sentence: Tom gave Ralph a lift to school so he wouldn't have to walk. Question: Who wouldn't have to walk?",
+            "input": "Sentence: Tom gave Ralph a lift to school so he wouldn't have to walk. Question: Who wouldn't have to walk?",
             "output": [
                 "Tom"
             ]
         },
         {
-            "input": "sentence: Billy cried because Toby wouldn't accept his toy. Question: Who owned the toy?",
+            "input": "Sentence: Billy cried because Toby wouldn't accept his toy. Question: Who owned the toy?",
             "output": [
                 "Toby"
             ]
         },
         {
-            "input": "sentence: Stretching her back, the woman smiled at the girl. Question: Whose back was the woman stretching?",
+            "input": "Sentence: Stretching her back, the woman smiled at the girl. Question: Whose back was the woman stretching?",
             "output": [
                 "girl's"
             ]
         },
         {
-            "input": "sentence: Jim signaled the barman and gestured toward his empty glass. Question: Whose empty glass?",
+            "input": "Sentence: Jim signaled the barman and gestured toward his empty glass. Question: Whose empty glass?",
             "output": [
                 " barman's"
             ]
         },
         {
-            "input": "sentence: Alice looked for her friend Jade in the crowd. Since she always wears a red turban, Alice spotted her quickly. Question: Who always wears a red turban",
+            "input": "Sentence: Alice looked for her friend Jade in the crowd. Since she always wears a red turban, Alice spotted her quickly. Question: Who always wears a red turban",
             "output": [
                 "Alice"
             ]
         },
         {
-            "input": "sentence: The archaeologists have concluded that neanderthals lived in Laputa 20,000 years ago. They hunted for evidence on the river banks. Question: Who hunted for evidence?",
+            "input": "Sentence: The archaeologists have concluded that neanderthals lived in Laputa 20,000 years ago. They hunted for evidence on the river banks. Question: Who hunted for evidence?",
             "output": [
                 "neanderthals"
             ]
         },
         {
-            "input": "sentence: Lily spoke to Donna, breaking her silence. Question: Whose silence?",
+            "input": "Sentence: Lily spoke to Donna, breaking her silence. Question: Whose silence?",
             "output": [
                 "Donna's"
             ]
         },
         {
-            "input": "sentence: Emma's mother had died long ago, and her place by an excellent woman as governess. Question: Whose place?",
+            "input": "Sentence: Emma's mother had died long ago, and her place by an excellent woman as governess. Question: Whose place?",
             "output": [
                 "Emma's"
             ]
         },
         {
-            "input": "sentence: As Ollie carried Tommy up the long winding steps, his legs ached. Question: Whose legs ached?",
+            "input": "Sentence: As Ollie carried Tommy up the long winding steps, his legs ached. Question: Whose legs ached?",
             "output": [
                 "Tommy"
             ]
         },
         {
-            "input": "sentence: John ordered Bill to leave, so an hour later he left. Question: Who left?",
+            "input": "Sentence: John ordered Bill to leave, so an hour later he left. Question: Who left?",
             "output": [
                 "John"
             ]
         },
         {
-            "input": "sentence: Jane knocked on Susan's door but she did not get an answer. Question: Who did not get an answer?",
+            "input": "Sentence: Jane knocked on Susan's door but she did not get an answer. Question: Who did not get an answer?",
             "output": [
                 "Susan"
             ]
         },
         {
-            "input": "sentence: The journalists interviewed the stars of the new movie. They were very cooperative, so the interview lasted for a long time. Question: Who was cooperative?",
+            "input": "Sentence: The journalists interviewed the stars of the new movie. They were very cooperative, so the interview lasted for a long time. Question: Who was cooperative?",
             "output": [
                 "journalists"
             ]
         },
         {
-            "input": "sentence: Dan took the rear seat while Bill claimed the front because his \"Dibs!\" was slow. Question: Whose \"Dibs\" was slow?",
+            "input": "Sentence: Dan took the rear seat while Bill claimed the front because his \"Dibs!\" was slow. Question: Whose \"Dibs\" was slow?",
             "output": [
                 "Bill's"
             ]
         },
         {
-            "input": "sentence: I stuck a pin through a carrot. When I pulled the pin out, it had a hole. Question: What had a hole?",
+            "input": "Sentence: I stuck a pin through a carrot. When I pulled the pin out, it had a hole. Question: What had a hole?",
             "output": [
                 "pin"
             ]
         },
         {
-            "input": "sentence: James asked Robert for a favor but he was refused. Question: Who was refused?",
+            "input": "Sentence: James asked Robert for a favor but he was refused. Question: Who was refused?",
             "output": [
                 "Robert"
             ]
         },
         {
-            "input": "sentence: The archaeologists have concluded that neanderthals lived in Laputa 20,000 years ago. They hunted for deer on the river banks. Question: Who hunted for deer?",
+            "input": "Sentence: The archaeologists have concluded that neanderthals lived in Laputa 20,000 years ago. They hunted for deer on the river banks. Question: Who hunted for deer?",
             "output": [
                 "archaeologists"
             ]
         },
         {
-            "input": "sentence: I tried to paint a picture of an orchard, with lemons in the lemon trees, but they came out looking more like telephone poles. Question: What looked like telephone poles?",
+            "input": "Sentence: I tried to paint a picture of an orchard, with lemons in the lemon trees, but they came out looking more like telephone poles. Question: What looked like telephone poles?",
             "output": [
                 "lemons"
             ]
         },
         {
-            "input": "sentence: I tried to paint a picture of an orchard, with lemons in the lemon trees, but they came out looking more like light bulbs. Question: What looked like light bulbs?",
+            "input": "Sentence: I tried to paint a picture of an orchard, with lemons in the lemon trees, but they came out looking more like light bulbs. Question: What looked like light bulbs?",
             "output": [
                 "trees"
             ]
         },
         {
-            "input": "sentence: The doctor informed Kate that she had retired and presented several options for future treatment. Question: Who had retired?",
+            "input": "Sentence: The doctor informed Kate that she had retired and presented several options for future treatment. Question: Who had retired?",
             "output": [
                 "Kate"
             ]
         },
         {
-            "input": "sentence: In July, Kamtchatka declared war on Yakutsk. Since Yakutsk's army was much better equipped and ten times larger, they were victorious within weeks. Question: Who was victorious",
+            "input": "Sentence: In July, Kamtchatka declared war on Yakutsk. Since Yakutsk's army was much better equipped and ten times larger, they were victorious within weeks. Question: Who was victorious",
             "output": [
                 "Kamchatka"
             ]
         },
         {
-            "input": "sentence: Carol believed that Rebecca regretted that she had stolen the watch. Question: Who is stole the watch?",
+            "input": "Sentence: Carol believed that Rebecca regretted that she had stolen the watch. Question: Who is stole the watch?",
             "output": [
                 "Carol"
             ]
         },
         {
-            "input": "sentence: There are too many deer in the park, so the park service brought in a small pack of wolves. The population should increase over the next few years. Question: Which population will increase?",
+            "input": "Sentence: There are too many deer in the park, so the park service brought in a small pack of wolves. The population should increase over the next few years. Question: Which population will increase?",
             "output": [
                 "deer"
             ]
         },
         {
-            "input": "sentence: Esther figures that she will save shipping costs if she builds her factory in Springfield instead of Franklin, because none of her customers live there. Question: In which town do none of Esther's customers live?",
+            "input": "Sentence: Esther figures that she will save shipping costs if she builds her factory in Springfield instead of Franklin, because none of her customers live there. Question: In which town do none of Esther's customers live?",
             "output": [
                 "Springfield"
             ]
         },
         {
-            "input": "sentence: Bill thinks that calling attention to himself was rude to Bert. Question: Who called attention to himself?",
+            "input": "Sentence: Bill thinks that calling attention to himself was rude to Bert. Question: Who called attention to himself?",
             "output": [
                 "Bert"
             ]
         },
         {
-            "input": "sentence: As Andrea in the crop duster passed over Susan, she could see the landing gear. Question: Who could see the landing gear?",
+            "input": "Sentence: As Andrea in the crop duster passed over Susan, she could see the landing gear. Question: Who could see the landing gear?",
             "output": [
                 "Andrea"
             ]
         },
         {
-            "input": "sentence: When Tommy dropped his ice cream, Timmy giggled, so father gave him a sympathetic look. Question: Who got the look from father?",
+            "input": "Sentence: When Tommy dropped his ice cream, Timmy giggled, so father gave him a sympathetic look. Question: Who got the look from father?",
             "output": [
                 "Timmy"
             ]
         },
         {
-            "input": "sentence: There are too many deer in the park, so the park service brought in a small pack of wolves. The population should decrease over the next few years. Question: Which population will decrease?",
+            "input": "Sentence: There are too many deer in the park, so the park service brought in a small pack of wolves. The population should decrease over the next few years. Question: Which population will decrease?",
             "output": [
                 "wolves"
             ]
         },
         {
-            "input": "sentence: Sam broke both his ankles and he's walking with crutches. But a month or so from now they should be better. Question: What should be better?",
+            "input": "Sentence: Sam broke both his ankles and he's walking with crutches. But a month or so from now they should be better. Question: What should be better?",
             "output": [
                 "crutches"
             ]
         },
         {
-            "input": "sentence: Dan had to stop Bill from toying with the injured bird. He is very compassionate. Question: Who is compassionate?",
+            "input": "Sentence: Dan had to stop Bill from toying with the injured bird. He is very compassionate. Question: Who is compassionate?",
             "output": [
                 "Bill"
             ]
         },
         {
-            "input": "sentence: Lily spoke to Donna, breaking her concentration. Question: Whose concentration?",
+            "input": "Sentence: Lily spoke to Donna, breaking her concentration. Question: Whose concentration?",
             "output": [
                 " Lily's"
             ]
         },
         {
-            "input": "sentence: Tom said \"Check\" to Ralph as he moved his bishop. Question: Who owned the bishop that Tom moved?",
+            "input": "Sentence: Tom said \"Check\" to Ralph as he moved his bishop. Question: Who owned the bishop that Tom moved?",
             "output": [
                 "Ralph"
             ]
         },
         {
-            "input": "sentence: Grace was happy to trade me her sweater for my jacket. She thinks it looks dowdy on her. Question: What looks dowdy on Grace?",
+            "input": "Sentence: Grace was happy to trade me her sweater for my jacket. She thinks it looks dowdy on her. Question: What looks dowdy on Grace?",
             "output": [
                 "jacket"
             ]
         },
         {
-            "input": "sentence: In July, Kamtchatka declared war on Yakutsk. Since Yakutsk's army was much better equipped and ten times larger, they were defeated within weeks. Question: Who was defeated",
+            "input": "Sentence: In July, Kamtchatka declared war on Yakutsk. Since Yakutsk's army was much better equipped and ten times larger, they were defeated within weeks. Question: Who was defeated",
             "output": [
                 "Yakutsk"
             ]
         },
         {
-            "input": "sentence: The scientists are studying three species of fish that have recently been found living in the Indian Ocean. They appeared two years ago. Question: Who or what appeared two years ago?",
+            "input": "Sentence: The scientists are studying three species of fish that have recently been found living in the Indian Ocean. They appeared two years ago. Question: Who or what appeared two years ago?",
             "output": [
                 "scientists"
             ]
         },
         {
-            "input": "sentence: I stuck a pin through a carrot. When I pulled the pin out, it left a hole. Question: What left a hole?",
+            "input": "Sentence: I stuck a pin through a carrot. When I pulled the pin out, it left a hole. Question: What left a hole?",
             "output": [
                 "carrot"
             ]
         },
         {
-            "input": "sentence: Bill thinks that calling attention to himself was rude of Bert. Question: Who called attention to himself?",
+            "input": "Sentence: Bill thinks that calling attention to himself was rude of Bert. Question: Who called attention to himself?",
             "output": [
                 "Bill"
             ]
         },
         {
-            "input": "sentence: Sam broke both his ankles and he's walking with crutches. But a month or so from now they should be unnecessary. Question: What should be unnecessary?",
+            "input": "Sentence: Sam broke both his ankles and he's walking with crutches. But a month or so from now they should be unnecessary. Question: What should be unnecessary?",
             "output": [
                 "ankles"
             ]
         },
         {
-            "input": "sentence: Esther figures that she will save shipping costs if she builds her factory in Springfield instead of Franklin, because most of her customers live there. Question: In which town do most of Esther's customers live?",
+            "input": "Sentence: Esther figures that she will save shipping costs if she builds her factory in Springfield instead of Franklin, because most of her customers live there. Question: In which town do most of Esther's customers live?",
             "output": [
                 "Franklin"
             ]
         },
         {
-            "input": "sentence: I put the cake away in the refrigerator. It has a lot of leftovers in it. Question: What has a lot of leftovers?",
+            "input": "Sentence: I put the cake away in the refrigerator. It has a lot of leftovers in it. Question: What has a lot of leftovers?",
             "output": [
                 "cake"
             ]
         },
         {
-            "input": "sentence: Joe saw his brother skiing on TV last night but the fool didn't have a coat on Question: Who is the fool?",
+            "input": "Sentence: Joe saw his brother skiing on TV last night but the fool didn't have a coat on Question: Who is the fool?",
             "output": [
                 "Joe"
             ]
         },
         {
-            "input": "sentence: As Andrea in the crop duster passed over Susan, she could see the landing strip. Question: Who could see the landing strip?",
+            "input": "Sentence: As Andrea in the crop duster passed over Susan, she could see the landing strip. Question: Who could see the landing strip?",
             "output": [
                 "Susan"
             ]
         },
         {
-            "input": "sentence: Elizabeth moved her company from Sparta to Troy to save money on taxes; the taxes are much lower there. Question: Where are the taxes lower?",
+            "input": "Sentence: Elizabeth moved her company from Sparta to Troy to save money on taxes; the taxes are much lower there. Question: Where are the taxes lower?",
             "output": [
                 "Sparta"
             ]
         },
         {
-            "input": "sentence: Emma did not pass the ball to Janie although she saw that she was open. Question: Who saw that the other player was open?",
+            "input": "Sentence: Emma did not pass the ball to Janie although she saw that she was open. Question: Who saw that the other player was open?",
             "output": [
                 "Janie"
             ]
         },
         {
-            "input": "sentence: Bill passed the half-empty plate to John because he was hungry. Question: Who was hungry?",
+            "input": "Sentence: Bill passed the half-empty plate to John because he was hungry. Question: Who was hungry?",
             "output": [
                 "Bill"
             ]
         },
         {
-            "input": "sentence: During a game of tag, Ethan chased Luke because he was \"it\". Question: Who was \"it\"?",
+            "input": "Sentence: During a game of tag, Ethan chased Luke because he was \"it\". Question: Who was \"it\"?",
             "output": [
                 "Luke"
             ]
         },
         {
-            "input": "sentence: Beth didn't get angry with Sally, who had cut her off, because she stopped and counted to ten. Question: Who counted to ten?",
+            "input": "Sentence: Beth didn't get angry with Sally, who had cut her off, because she stopped and counted to ten. Question: Who counted to ten?",
             "output": [
                 "Sally"
             ]
         },
         {
-            "input": "sentence: Elizabeth moved her company from Sparta to Troy to save money on taxes; the taxes are much higher there. Question: Where are the taxes higher?",
+            "input": "Sentence: Elizabeth moved her company from Sparta to Troy to save money on taxes; the taxes are much higher there. Question: Where are the taxes higher?",
             "output": [
                 "Troy"
             ]
         },
         {
-            "input": "sentence: As Ollie carried Tommy up the long winding steps, his legs dangled. Question: Whose legs dangled?",
+            "input": "Sentence: As Ollie carried Tommy up the long winding steps, his legs dangled. Question: Whose legs dangled?",
             "output": [
                 "Ollie"
             ]
         },
         {
-            "input": "sentence: Jane knocked on Susan's door but she did not answer. Question: Who did not answer?",
+            "input": "Sentence: Jane knocked on Susan's door but she did not answer. Question: Who did not answer?",
             "output": [
                 "Jane"
             ]
         },
         {
-            "input": "sentence: During a game of tag, Ethan ran from Luke because he was \"it\". Question: Who was \"it\"?",
+            "input": "Sentence: During a game of tag, Ethan ran from Luke because he was \"it\". Question: Who was \"it\"?",
             "output": [
                 "Ethan"
             ]
         },
         {
-            "input": "sentence: Joe paid the detective after he delivered the final report on the case. Question: Who delivered the final report?",
+            "input": "Sentence: Joe paid the detective after he delivered the final report on the case. Question: Who delivered the final report?",
             "output": [
                 "Joe"
             ]
         },
         {
-            "input": "sentence: Kirilov ceded the presidency to Shatov because he was more popular. Question: Who was more popular?",
+            "input": "Sentence: Kirilov ceded the presidency to Shatov because he was more popular. Question: Who was more popular?",
             "output": [
                 "Kirilov"
             ]
         },
         {
-            "input": "sentence: I put the cake away in the refrigerator. It has a lot of butter in it. Question: What has a lot of butter?",
+            "input": "Sentence: I put the cake away in the refrigerator. It has a lot of butter in it. Question: What has a lot of butter?",
             "output": [
                 "refrigerator"
             ]
         },
         {
-            "input": "sentence: I couldn't find a spoon, so I tried using a pen to stir my coffee. But that turned out to be a bad idea, because it got full of ink. Question: What got full of ink?",
+            "input": "Sentence: I couldn't find a spoon, so I tried using a pen to stir my coffee. But that turned out to be a bad idea, because it got full of ink. Question: What got full of ink?",
             "output": [
                 "pen"
             ]
         },
         {
-            "input": "sentence: John promised Bill to leave, so an hour later he left. Question: Who left?",
+            "input": "Sentence: John promised Bill to leave, so an hour later he left. Question: Who left?",
             "output": [
                 "Bill"
             ]
         },
         {
-            "input": "sentence: James asked Robert for a favor but he refused. Question: Who refused?",
+            "input": "Sentence: James asked Robert for a favor but he refused. Question: Who refused?",
             "output": [
                 "James"
             ]
         },
         {
-            "input": "sentence: I couldn't find a spoon, so I tried using a pen to stir my coffee. But that turned out to be a bad idea, because it got full of coffee. Question: What got full of coffee?",
+            "input": "Sentence: I couldn't find a spoon, so I tried using a pen to stir my coffee. But that turned out to be a bad idea, because it got full of coffee. Question: What got full of coffee?",
             "output": [
                 "coffee"
             ]
         },
         {
-            "input": "sentence: The table won't fit through the doorway because it is too narrow. Question: What is too narrow?",
+            "input": "Sentence: The table won't fit through the doorway because it is too narrow. Question: What is too narrow?",
             "output": [
                 "table"
             ]
         },
         {
-            "input": "sentence: The man lifted the boy onto his bunk bed. Question: Whose bunk bed?",
+            "input": "Sentence: The man lifted the boy onto his bunk bed. Question: Whose bunk bed?",
             "output": [
                 "man's"
             ]
         },
         {
-            "input": "sentence: Carol believed that Rebecca suspected that she had stolen the watch. Question: Who is suspected of stealing the watch?",
+            "input": "Sentence: Carol believed that Rebecca suspected that she had stolen the watch. Question: Who is suspected of stealing the watch?",
             "output": [
                 "Rebecca"
             ]
         },
         {
-            "input": "sentence: Fred is the only man alive who still remembers my father as an infant. When Fred first saw my father, he was twelve years old. Question: Who was twelve years old?",
+            "input": "Sentence: Fred is the only man alive who still remembers my father as an infant. When Fred first saw my father, he was twelve years old. Question: Who was twelve years old?",
             "output": [
                 "father"
             ]
         },
         {
-            "input": "sentence: The table won't fit through the doorway because it is too wide. Question: What is too wide?",
+            "input": "Sentence: The table won't fit through the doorway because it is too wide. Question: What is too wide?",
             "output": [
                 "doorway"
             ]
         },
         {
-            "input": "sentence: The police arrested all of the criminals. They were trying to run the drug trade in the neighborhood. Question: Who was trying to run the drug trade?",
+            "input": "Sentence: The police arrested all of the criminals. They were trying to run the drug trade in the neighborhood. Question: Who was trying to run the drug trade?",
             "output": [
                 "police"
             ]
         },
         {
-            "input": "sentence: Emma's mother had died long ago, and her education] had been [taken by an excellent woman as governess. Question: Whose education] had been [taken?",
+            "input": "Sentence: Emma's mother had died long ago, and her education] had been [taken by an excellent woman as governess. Question: Whose education] had been [taken?",
             "output": [
                 "mother's"
             ]
         },
         {
-            "input": "sentence: Bill passed the gameboy to John because his turn was next. Question: Whose turn was next?",
+            "input": "Sentence: Bill passed the gameboy to John because his turn was next. Question: Whose turn was next?",
             "output": [
                 "Bill's"
             ]
         },
         {
-            "input": "sentence: Bill passed the gameboy to John because his turn was over. Question: Whose turn was over?",
+            "input": "Sentence: Bill passed the gameboy to John because his turn was over. Question: Whose turn was over?",
             "output": [
                 "John's"
             ]
         },
         {
-            "input": "sentence: The father carried the sleeping boy in his bassinet. Question: Whose bassinet?",
+            "input": "Sentence: The father carried the sleeping boy in his bassinet. Question: Whose bassinet?",
             "output": [
                 "father"
             ]
         },
         {
-            "input": "sentence: Fred is the only man alive who still remembers my father as an infant. When Fred first saw my father, he was twelve months old. Question: Who was twelve months old?",
+            "input": "Sentence: Fred is the only man alive who still remembers my father as an infant. When Fred first saw my father, he was twelve months old. Question: Who was twelve months old?",
             "output": [
                 "Fred"
             ]
         },
         {
-            "input": "sentence: Emma did not pass the ball to Janie although she was open. Question: Who was open?",
+            "input": "Sentence: Emma did not pass the ball to Janie although she was open. Question: Who was open?",
             "output": [
                 "Emma"
             ]
