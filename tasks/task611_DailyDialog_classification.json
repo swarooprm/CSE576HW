@@ -8,7 +8,7 @@
     "Categories": [
         "Classification"
     ],
-    "Definition": "In this task, we are given a Dialy Dialog Dataset, in which each dialogue has conversation and each sentence in the conversation is annotated based on emotion information. Here we classify the data based on the dialogues emotion based on positive examples if the emotion is happy and output Yes otherwise if the emotion is sad then we classify it as negative examples and ouput No",
+    "Definition": "In this task, we are given a Dialy Dialog Dataset, in which each conversation has multiple dialogues and each dialogues in the conversation is annotated based on emotion information, dialogue act as well as topic of converstaion. The dialogues in the dataset reflect our daily communication way and cover various topics about our daily life. Here we classify the data based on the dialogues emotion as positive examples if the emotion of happiness is present in the one of the dialogues of the conversation and output Yes otherwise if the emotion is sad then we classify it as negative examples and ouput No",
     "Positive Examples": [
         {
             "input": "So Dick , how about getting some coffee for tonight ?  Coffee ? I don ’ t honestly like that kind of stuff .  Come on , you can at least try a little , besides your cigarette .  What ’ s wrong with that ? Cigarette is the thing I go crazy for .  Not for me , Dick . ",
@@ -24,11 +24,6 @@
             "input": "Are you going to the annual party ? I can give you a ride if you need one .  Thanks a lot . That's the favor I was going to ask you for .  The pleasure is mine . ",
             "output": "Yes",
             "explanation": "Here the last two sentences expresses happiness by appreciating the gesture by other speaker for giving ride and he also responded happily saying pleasure is mine which suggests he liked giving the ride."
-        },
-        {
-            "input": "Isn ’ t he the best instructor ? I think he ’ s so hot . Wow ! I really feel energized , don ’ t you ?  I swear , I ’ m going to kill you for this .  What ’ s wrong ? Didn ’ t you think it was fun ? !  Oh , yeah ! I had a blast ! I love sweating like a pig with a bunch of pot bellies who all smell bad . Sorry , I ’ m just not into this health kick .  Oh , no , get off it . It wasn ’ t such a killer class . You just have to get into it . Like they say , no pain , no gain .  I am wiped out . Thank you .  Look , next time get yourself some comfy shoes . You ’ re gonna come back again with me , aren ’ t you ?  Never ! But thank you for inviting me .  Come on . You ’ ll feel better after we hit the showers . ",
-            "output": "Yes",
-            "explanation": "Here in the first sentence the speaker is expressing the happiness by indicating that the instructor is the best."
         }
     ],
     "Negative Examples": [
@@ -46,1204 +41,1193 @@
             "input": "I'm sorry . Is that bicycle yours ?  Yes , it is . What about it ?  I backed into it while I was trying to get into the parking lot .  I see .  I'm really sorry . I'll face the music .  Where did you hit it ?  Right here . See the scratch ?  Oh , Yes , I see it now . ",
             "output": "No",
             "explanation": "Here in the fifth sentence the speaker expresses sadness by saying I'm sorry."
-        },
-        {
-            "input": "I lost my wallet .  I'm sorry , that's bad luck . ",
-            "output": "No",
-            "explanation": "Here in the second sentence the speaker expresses sadness by saying I'm sorry."
         }
     ],
     "Instances": [
         {
-            "input": "I'm sorry I'm late .  Better late than never . ",
+            "input": "I'm sorry I'm late . __eou__ Better late than never . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "This skirt is too tight . I would like to return it please . Do I need to go to the customer's service desk ?  I can help you with that . Do you still have your receipt ?  No , I receive this as a birthday present , but the price tag is still on the skirt though . Will that be OK ?  Oh , yes , that will help me a lot .  Do you have any more skirts in this style ? I would like to find a size larger .  I'm sorry . I think we're out of this skirt in this color . Do you want me to call another one of our store to see if it's available there ?  No , that's all right . I'll just look for something else .  Well , your refund total is 50 dollars . ",
+            "input": "This skirt is too tight . I would like to return it please . Do I need to go to the customer's service desk ? __eou__ I can help you with that . Do you still have your receipt ? __eou__ No , I receive this as a birthday present , but the price tag is still on the skirt though . Will that be OK ? __eou__ Oh , yes , that will help me a lot . __eou__ Do you have any more skirts in this style ? I would like to find a size larger . __eou__ I'm sorry . I think we're out of this skirt in this color . Do you want me to call another one of our store to see if it's available there ? __eou__ No , that's all right . I'll just look for something else . __eou__ Well , your refund total is 50 dollars . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Would you ring these up for me here ?  I would be happy to . Did you find everything you needed ?  Yes , I did , thanks .  The total is 200 dollars . Would you like to put that on Sears card ?  No , I'll pay for it in cash . ",
+            "input": "Would you ring these up for me here ? __eou__ I would be happy to . Did you find everything you needed ? __eou__ Yes , I did , thanks . __eou__ The total is 200 dollars . Would you like to put that on Sears card ? __eou__ No , I'll pay for it in cash . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Taxi !  Where would you like to go ?  Please rush me to the railway station  Get in and close the door .  Can you speed up a bit ?  Sorry . The road is too crowded .  But I have no time to lose .  But I can't help it .  Can you drop me off here ?  Sorry . We mustn't stop here . ",
+            "input": "Taxi ! __eou__ Where would you like to go ? __eou__ Please rush me to the railway station __eou__ Get in and close the door . __eou__ Can you speed up a bit ? __eou__ Sorry . The road is too crowded . __eou__ But I have no time to lose . __eou__ But I can't help it . __eou__ Can you drop me off here ? __eou__ Sorry . We mustn't stop here . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Hello , is Sue there ?  Who ?  Sue John .  You must have the wrong number .  Oh , I'm sorry . ",
+            "input": "Hello , is Sue there ? __eou__ Who ? __eou__ Sue John . __eou__ You must have the wrong number . __eou__ Oh , I'm sorry . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "I passed all the tests , Mom .  Well done ! ",
+            "input": "I passed all the tests , Mom . __eou__ Well done ! __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "May I please speak to Robert ?  There is no one here by that name .  Is this 2517758 ?  No , this is 2517759 .  Oh , I'm sorry .  That's all right . ",
+            "input": "May I please speak to Robert ? __eou__ There is no one here by that name . __eou__ Is this 2517758 ? __eou__ No , this is 2517759 . __eou__ Oh , I'm sorry . __eou__ That's all right . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Is Tom in ?  Wrong number .  Isn't this Li's residence ?  No , it is not .  Oh , I'm sorry . ",
+            "input": "Is Tom in ? __eou__ Wrong number . __eou__ Isn't this Li's residence ? __eou__ No , it is not . __eou__ Oh , I'm sorry . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Let's eat out .  Good idea . ",
+            "input": "Let's eat out . __eou__ Good idea . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "May we see the wine list please ?  Sure . Our special wine today is a 1989 Chardonnay .  That sounds pretty good ! How much is it ?  It's $ 4.25 cents by the glass . The whole bottle is $ 22.5 .  I'd like a bottle please .  I'll need to see your ID please .  Here you go .  Sorry about the inconvenience , you look so young . I had make sure you are over 21 years old . ",
+            "input": "May we see the wine list please ? __eou__ Sure . Our special wine today is a 1989 Chardonnay . __eou__ That sounds pretty good ! How much is it ? __eou__ It's $ 4.25 cents by the glass . The whole bottle is $ 22.5 . __eou__ I'd like a bottle please . __eou__ I'll need to see your ID please . __eou__ Here you go . __eou__ Sorry about the inconvenience , you look so young . I had make sure you are over 21 years old . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "You stepped on my foot !  Sorry . I didn't mean to . ",
+            "input": "You stepped on my foot ! __eou__ Sorry . I didn't mean to . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Sam , you ’ Ve got to forgive me .  Forgive you for what ?  I used your computer . And I ’ m afraid I ’ Ve erased your personal files accidentally .  No ! Are you kidding me ?  I ’ m afraid not . I apologize .  I can ’ t believe it ! I have all my important personal documents stored in that computer . It ’ s no laughing matter .  I told you I ’ m sorry . What can I do to make it up to you ?  Well , you should be sorry ! Don ’ t ever use my computer again ! You can ’ t do anything now , it ’ s too late ! ",
+            "input": "Sam , you ’ Ve got to forgive me . __eou__ Forgive you for what ? __eou__ I used your computer . And I ’ m afraid I ’ Ve erased your personal files accidentally . __eou__ No ! Are you kidding me ? __eou__ I ’ m afraid not . I apologize . __eou__ I can ’ t believe it ! I have all my important personal documents stored in that computer . It ’ s no laughing matter . __eou__ I told you I ’ m sorry . What can I do to make it up to you ? __eou__ Well , you should be sorry ! Don ’ t ever use my computer again ! You can ’ t do anything now , it ’ s too late ! __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "It looks to be a nice day today .  Good , let's go for a drive .  Okay , I'll get the car out of the garage .  Great . ",
+            "input": "It looks to be a nice day today . __eou__ Good , let's go for a drive . __eou__ Okay , I'll get the car out of the garage . __eou__ Great . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Jim , could you do me a favor ?  Sure , just ask . What can I do for you ?  My car has a problem starting . Could you please take a look at it for me ?  No sweat . It ’ s a piece of cake .  Are you sure ?  Absolutely . I ’ m a great mechanic .  Thanks for helping me out . I really appreciate it .  Anytime . ",
+            "input": "Jim , could you do me a favor ? __eou__ Sure , just ask . What can I do for you ? __eou__ My car has a problem starting . Could you please take a look at it for me ? __eou__ No sweat . It ’ s a piece of cake . __eou__ Are you sure ? __eou__ Absolutely . I ’ m a great mechanic . __eou__ Thanks for helping me out . I really appreciate it . __eou__ Anytime . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Could you baby-sit for me tonight ?  I'd be glad to . ",
+            "input": "Could you baby-sit for me tonight ? __eou__ I'd be glad to . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "It's time to go to bed .  But mum , we're watching this movie .  I don't care , it's school in the morning .  Just 10 more minutes . ",
+            "input": "It's time to go to bed . __eou__ But mum , we're watching this movie . __eou__ I don't care , it's school in the morning . __eou__ Just 10 more minutes . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Let me help you with that .  Thanks very much .  You really shouldn't be lifting this by yourself .  I know , but there was nobody else . ",
+            "input": "Let me help you with that . __eou__ Thanks very much . __eou__ You really shouldn't be lifting this by yourself . __eou__ I know , but there was nobody else . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Hello , Mr . Brown .  Hello . Can you help me ?  Yes , I'm here to fix your pipes .  Oh good , come in , please . ",
+            "input": "Hello , Mr . Brown . __eou__ Hello . Can you help me ? __eou__ Yes , I'm here to fix your pipes . __eou__ Oh good , come in , please . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "I am a student in Cambridge University . I read your ad , I want to know something more about your room , please ?  It's a big bedroom with a drawing room , facing a beautiful wood .  Is there a bathroom ?  No , but there is one downstairs , which my daughter used some years ago .  It sounds good . Could I go and see it myself ?  Certainly , you're welcome anytime .  See you later !  ( after a while ) Good afternoon , Mrs . Smith . I called you just now .  Welcome ! Come in , please !  Yes .  This way please . Your room is upstairs ... Here it is .  Wonderful ! A modest , comfortable room . Ah , a beautiful window , through which I can see a beautiful scene , and hear the birds singing . How nice !  Yes , if you want to wash something , there is a separate lavatory room outside .  Excellent ! I like it ! When can I move in ?  Anytime you like .  OK . ",
+            "input": "I am a student in Cambridge University . I read your ad , I want to know something more about your room , please ? __eou__ It's a big bedroom with a drawing room , facing a beautiful wood . __eou__ Is there a bathroom ? __eou__ No , but there is one downstairs , which my daughter used some years ago . __eou__ It sounds good . Could I go and see it myself ? __eou__ Certainly , you're welcome anytime . __eou__ See you later ! __eou__ ( after a while ) Good afternoon , Mrs . Smith . I called you just now . __eou__ Welcome ! Come in , please ! __eou__ Yes . __eou__ This way please . Your room is upstairs ... Here it is . __eou__ Wonderful ! A modest , comfortable room . Ah , a beautiful window , through which I can see a beautiful scene , and hear the birds singing . How nice ! __eou__ Yes , if you want to wash something , there is a separate lavatory room outside . __eou__ Excellent ! I like it ! When can I move in ? __eou__ Anytime you like . __eou__ OK . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "First you add the washing powder then you add the clothes .  I take it you've done this before ?  Yes , for the last 20 years .  Good . ",
+            "input": "First you add the washing powder then you add the clothes . __eou__ I take it you've done this before ? __eou__ Yes , for the last 20 years . __eou__ Good . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Anna , Would you like to dance ?  I ’ d love to , but I ’ m a terrible dancer . I ’ m afraid I may step on your toes .  Don ’ t worry about it . I ’ ll show you how . It ’ s a piece of cake .  Thank you . I ’ ll try my best . ",
+            "input": "Anna , Would you like to dance ? __eou__ I ’ d love to , but I ’ m a terrible dancer . I ’ m afraid I may step on your toes . __eou__ Don ’ t worry about it . I ’ ll show you how . It ’ s a piece of cake . __eou__ Thank you . I ’ ll try my best . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Jodi , I must get a hold of Jim today , but I forgot his address and phone number .  Don ’ t worry about it . I have his pager number right here .  Really ? You ’ Ve helped me a lot . Thank you .  Forget it . It ’ s nothing . ",
+            "input": "Jodi , I must get a hold of Jim today , but I forgot his address and phone number . __eou__ Don ’ t worry about it . I have his pager number right here . __eou__ Really ? You ’ Ve helped me a lot . Thank you . __eou__ Forget it . It ’ s nothing . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "How's the chicken ?  It's delicious . ",
+            "input": "How's the chicken ? __eou__ It's delicious . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Hello , could I speak to Allison , please ?  I'm sorry ; he's out at the moment .  When do you expect him back ?  I think he'll be back in about an hour at least .  Well , may I leave a message ?  Yes , of course .  Would you please ask him to call Chris when he gets back ?  Ok . Does he know your number ?  I'm afraid he doesn't . My mobile is 139- 2477 - 4026 .  13924774026 . All right . Thanks for calling . Oh , hang on , someone's at the door that may be him , please hold on . ",
+            "input": "Hello , could I speak to Allison , please ? __eou__ I'm sorry ; he's out at the moment . __eou__ When do you expect him back ? __eou__ I think he'll be back in about an hour at least . __eou__ Well , may I leave a message ? __eou__ Yes , of course . __eou__ Would you please ask him to call Chris when he gets back ? __eou__ Ok . Does he know your number ? __eou__ I'm afraid he doesn't . My mobile is 139- 2477 - 4026 . __eou__ 13924774026 . All right . Thanks for calling . Oh , hang on , someone's at the door that may be him , please hold on . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Welcome back .  It's good to be home . ",
+            "input": "Welcome back . __eou__ It's good to be home . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Hello . Excuse me . Do you know if there's a Commercial Bank around here ?  Yes , go straight along Beijing Road and turn right .  Straight on , and turn right . Is it far ?  No , it's just a couple of minutes .  Thanks very much .  You're welcome . ",
+            "input": "Hello . Excuse me . Do you know if there's a Commercial Bank around here ? __eou__ Yes , go straight along Beijing Road and turn right . __eou__ Straight on , and turn right . Is it far ? __eou__ No , it's just a couple of minutes . __eou__ Thanks very much . __eou__ You're welcome . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Taxi !  Yes , sir . Where to ?  Wangfujing , please !  All right .  Oh , I like the music on your radio . It's nice .  Thank you ! I always tune to this program when driving . So what's your favorite program ?  I like Winner's English very mush . You know the Beijing Olympic Games is right around the corner . We should learn English Well . It's on FM 96.6 , China Business Radio . You can get it on your radio too .  But I don't speak English at all .  That's OK . The program is especially for the beginners like us .  Really ? When is it on ?  It begins at 6:40 every morning , and it goes for 20 minutes .  Thank you so much . I'll try and catch that .  The radio has brought us lots of convenience .  Yes , I can also learn about the traffic condition through it .  With the development of the society and technology , radio is nearly everywhere .  So we should take the advantage of it . ",
+            "input": "Taxi ! __eou__ Yes , sir . Where to ? __eou__ Wangfujing , please ! __eou__ All right . __eou__ Oh , I like the music on your radio . It's nice . __eou__ Thank you ! I always tune to this program when driving . So what's your favorite program ? __eou__ I like Winner's English very mush . You know the Beijing Olympic Games is right around the corner . We should learn English Well . It's on FM 96.6 , China Business Radio . You can get it on your radio too . __eou__ But I don't speak English at all . __eou__ That's OK . The program is especially for the beginners like us . __eou__ Really ? When is it on ? __eou__ It begins at 6:40 every morning , and it goes for 20 minutes . __eou__ Thank you so much . I'll try and catch that . __eou__ The radio has brought us lots of convenience . __eou__ Yes , I can also learn about the traffic condition through it . __eou__ With the development of the society and technology , radio is nearly everywhere . __eou__ So we should take the advantage of it . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "It's so boring .  Don't you like it ?  I don't . Is there anything worth watching on the other channel ?  I think it's a basketball match on channel 5 .  Do you mind if we switch over ?  Well , I'd rather see a movie .  What's the movie ?  ' Star war ' .  It must be interesting .  Yes , you're right . ",
+            "input": "It's so boring . __eou__ Don't you like it ? __eou__ I don't . Is there anything worth watching on the other channel ? __eou__ I think it's a basketball match on channel 5 . __eou__ Do you mind if we switch over ? __eou__ Well , I'd rather see a movie . __eou__ What's the movie ? __eou__ ' Star war ' . __eou__ It must be interesting . __eou__ Yes , you're right . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Kata ! You've got a beautiful singing voice . You hit the high notes perfectly .  Thank you for your compliment . But you are exaggerating . I think you are destined to be a singer . You have the best voice !  Thank you . Maybe we can sing a song together . Would you like to sing with me ?  Yes , I'd like to . It's my honor . Let's pick a song .  How about this one ?  Sorry , I can't sing the song .  Er ... How about this one ?  OK . But I'm not familiar . I don't know the beginning part .  Never mind . You can follow me . I'll sing the first part .  OK . ",
+            "input": "Kata ! You've got a beautiful singing voice . You hit the high notes perfectly . __eou__ Thank you for your compliment . But you are exaggerating . I think you are destined to be a singer . You have the best voice ! __eou__ Thank you . Maybe we can sing a song together . Would you like to sing with me ? __eou__ Yes , I'd like to . It's my honor . Let's pick a song . __eou__ How about this one ? __eou__ Sorry , I can't sing the song . __eou__ Er ... How about this one ? __eou__ OK . But I'm not familiar . I don't know the beginning part . __eou__ Never mind . You can follow me . I'll sing the first part . __eou__ OK . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Sorry , I'm late .  It doesn't matter . ",
+            "input": "Sorry , I'm late . __eou__ It doesn't matter . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Excuse me , I've been waiting here for 10 minutes . Do you know how often does No . 636 run ?  It runs every 15 minutes . You must have missed it .  It seems you got here at good time . Do you have a bus schedule ?  Yes , I do . You can buy a bus schedule in a news stand .  I see , thank you . By the way , is this the right bus for the Museum ?  Yes , it is .  Do I have to change ?  No . The Museum is the terminal of this bus .  Thanks a lot .  You are welcome . ",
+            "input": "Excuse me , I've been waiting here for 10 minutes . Do you know how often does No . 636 run ? __eou__ It runs every 15 minutes . You must have missed it . __eou__ It seems you got here at good time . Do you have a bus schedule ? __eou__ Yes , I do . You can buy a bus schedule in a news stand . __eou__ I see , thank you . By the way , is this the right bus for the Museum ? __eou__ Yes , it is . __eou__ Do I have to change ? __eou__ No . The Museum is the terminal of this bus . __eou__ Thanks a lot . __eou__ You are welcome . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Dad , may I have a room of my own ?  Oh , honey , I'm so sorry , we don't have enough space for you to have your own room .  Dad , but I don't want to share a room with Peter . He snores every night .  Honey , you can ask him to be quite . Otherwise you may punish him and tell him to stand out of the room , right ?  Alright . Maybe it's the only way to do it . ",
+            "input": "Dad , may I have a room of my own ? __eou__ Oh , honey , I'm so sorry , we don't have enough space for you to have your own room . __eou__ Dad , but I don't want to share a room with Peter . He snores every night . __eou__ Honey , you can ask him to be quite . Otherwise you may punish him and tell him to stand out of the room , right ? __eou__ Alright . Maybe it's the only way to do it . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Dad , can you help me ?  Oh , honey , you made a mistake .  I don't know how to do it .  OK . Let's do it together .  16 divided by 2 . What's the answer ?  16 divided by 2 equals 8 .  You got it . Good job . ",
+            "input": "Dad , can you help me ? __eou__ Oh , honey , you made a mistake . __eou__ I don't know how to do it . __eou__ OK . Let's do it together . __eou__ 16 divided by 2 . What's the answer ? __eou__ 16 divided by 2 equals 8 . __eou__ You got it . Good job . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "What do you want to be ?  Dad , I haven't thought about it . I'm still young .  Oh , honey , but you must know what your hobby is , right ?  I like playing the piano .  Yes , you play the piano well . You could be a good pianist . That's good . ",
+            "input": "What do you want to be ? __eou__ Dad , I haven't thought about it . I'm still young . __eou__ Oh , honey , but you must know what your hobby is , right ? __eou__ I like playing the piano . __eou__ Yes , you play the piano well . You could be a good pianist . That's good . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Jenny , Can you come and help me ?  Mom , what should I do ?  It's dusty everywhere in the house . Can you help me do the housecleaning ?  OK . I will call Peter to clean it together .  That's my good girl . The clothes need washing . I'll do the laundry . ",
+            "input": "Jenny , Can you come and help me ? __eou__ Mom , what should I do ? __eou__ It's dusty everywhere in the house . Can you help me do the housecleaning ? __eou__ OK . I will call Peter to clean it together . __eou__ That's my good girl . The clothes need washing . I'll do the laundry . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Mom , what are we going to make tonight ?  Curry and rice . What do you think ?  That sounds nice . I can peel the potatoes first .  Really ! Oh , honey , you are so sweet . I'll chop up this carrot .  Mom , the water is boiling !  Honey , just turn down the stove . ",
+            "input": "Mom , what are we going to make tonight ? __eou__ Curry and rice . What do you think ? __eou__ That sounds nice . I can peel the potatoes first . __eou__ Really ! Oh , honey , you are so sweet . I'll chop up this carrot . __eou__ Mom , the water is boiling ! __eou__ Honey , just turn down the stove . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "It's your turn now , Helen .  OK . I'm coming .  This is your song . I picked it for you .  Thank you . You are so considerate .  Push the red button on the mike to turn it on .  OK . This key is too high for me .  I think it's a piece of cake for you .  OK . Let me have a try ...  Well done ! I hope I can sing as well as you one day .  Thank you . I'm sure you will .  I hope so . Thank you for saying so . ",
+            "input": "It's your turn now , Helen . __eou__ OK . I'm coming . __eou__ This is your song . I picked it for you . __eou__ Thank you . You are so considerate . __eou__ Push the red button on the mike to turn it on . __eou__ OK . This key is too high for me . __eou__ I think it's a piece of cake for you . __eou__ OK . Let me have a try ... __eou__ Well done ! I hope I can sing as well as you one day . __eou__ Thank you . I'm sure you will . __eou__ I hope so . Thank you for saying so . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Who is the next one ?  It's Peter's turn .  Give the mike to him .  OK .  Be quiet . He is singing .  I thought he only liked to listen !  So did I .  He has a really good voice !  Yes , he sings wonderfully . ",
+            "input": "Who is the next one ? __eou__ It's Peter's turn . __eou__ Give the mike to him . __eou__ OK . __eou__ Be quiet . He is singing . __eou__ I thought he only liked to listen ! __eou__ So did I . __eou__ He has a really good voice ! __eou__ Yes , he sings wonderfully . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "I am keen on a coat on www.dingding.com . But it requires having an online banking account . Is it necessary ?  Indeed . Online banking enables you to make on-line shopping .  Do you know how to get the bank account ?  Bring your ID card and fill out a form . That will be fine .  So easy .  I think online banking can change your money habits and it is quicker than ATM processing speed .  My shopping life will be more convenient . ",
+            "input": "I am keen on a coat on www.dingding.com . But it requires having an online banking account . Is it necessary ? __eou__ Indeed . Online banking enables you to make on-line shopping . __eou__ Do you know how to get the bank account ? __eou__ Bring your ID card and fill out a form . That will be fine . __eou__ So easy . __eou__ I think online banking can change your money habits and it is quicker than ATM processing speed . __eou__ My shopping life will be more convenient . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Do you have any plan to buy a house in this city ?  Absolutely we need a house here . But what makes me upset is the prices in this city .  Our monthly salary can not buy one square meter of the house here .  It is depressing to hear the price goes higher and higher .  More and more people need to buy houses , but the market can not meet the needs , so this caused the bubble in real estate industry .  And the rich still wants to buy more , even though they have at least one house to live .  Have you watched the TV series , Humble Abode ?  Yes , it displays some social problems and interprets the values of our white-collars .  I really , really want a house , even though it is small like a snail house . ",
+            "input": "Do you have any plan to buy a house in this city ? __eou__ Absolutely we need a house here . But what makes me upset is the prices in this city . __eou__ Our monthly salary can not buy one square meter of the house here . __eou__ It is depressing to hear the price goes higher and higher . __eou__ More and more people need to buy houses , but the market can not meet the needs , so this caused the bubble in real estate industry . __eou__ And the rich still wants to buy more , even though they have at least one house to live . __eou__ Have you watched the TV series , Humble Abode ? __eou__ Yes , it displays some social problems and interprets the values of our white-collars . __eou__ I really , really want a house , even though it is small like a snail house . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Can you give me a hand with my luggage ?  Of course . ",
+            "input": "Can you give me a hand with my luggage ? __eou__ Of course . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Mom , did you see Andy's dog ?  Honey , don't tell me that you want a pet dog also .  Mom , please . Can I have a pet dog like Andy's ?  Honey , you know , we don't have enough room for a pet dog .  Mom , we can keep it on the balcony , right ?  No , honey , the balcony is full of boxes and things . I'm sorry . ",
+            "input": "Mom , did you see Andy's dog ? __eou__ Honey , don't tell me that you want a pet dog also . __eou__ Mom , please . Can I have a pet dog like Andy's ? __eou__ Honey , you know , we don't have enough room for a pet dog . __eou__ Mom , we can keep it on the balcony , right ? __eou__ No , honey , the balcony is full of boxes and things . I'm sorry . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "can I see these silk ties ?  No problem .  I ’ ll take this one .  Good . Anything else ? The tie pins ? The cuff links ?  No , thank you . I want to have a look at that scarf .  Ok . We have several kinds of scarves here . Let me get them for you . Just wait a minute .  Oh . I like this one . I have been looking for this color and design . Please wrap it for me , and I ’ ll take it . ",
+            "input": "can I see these silk ties ? __eou__ No problem . __eou__ I ’ ll take this one . __eou__ Good . Anything else ? The tie pins ? The cuff links ? __eou__ No , thank you . I want to have a look at that scarf . __eou__ Ok . We have several kinds of scarves here . Let me get them for you . Just wait a minute . __eou__ Oh . I like this one . I have been looking for this color and design . Please wrap it for me , and I ’ ll take it . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Did your eye doctor prescribe you contact lenses ?  No , I ’ d like to know something about contact lenses .  Oh , I see . We have both hard and soft contact lenses . They are very popular , but a little more expensive than ordinary glasses .  I have found I ’ m short-sighted recently . I need to wear glasses . As a student , it ’ s better for me to wear ordinary glasses instead of contact lenses .  We have many kinds of glasses here . Which frames do you like best ?  I think the square-shaped ones will be the best for me .  What about this pair ? They are the ' in ' things now in optical wear . Try them on .  They fit me very well . I like them .  Please go to receive optometry first over there . ",
+            "input": "Did your eye doctor prescribe you contact lenses ? __eou__ No , I ’ d like to know something about contact lenses . __eou__ Oh , I see . We have both hard and soft contact lenses . They are very popular , but a little more expensive than ordinary glasses . __eou__ I have found I ’ m short-sighted recently . I need to wear glasses . As a student , it ’ s better for me to wear ordinary glasses instead of contact lenses . __eou__ We have many kinds of glasses here . Which frames do you like best ? __eou__ I think the square-shaped ones will be the best for me . __eou__ What about this pair ? They are the ' in ' things now in optical wear . Try them on . __eou__ They fit me very well . I like them . __eou__ Please go to receive optometry first over there . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Do you carrying fresh fish ?  Yes we do . Check the meat department . There is a fish counter there too .  I already looked , but did not see anything .  Let me show you .  Thanks .  See , it's right over there .  Oh , gosh . I didn't see it .  That's all right . ",
+            "input": "Do you carrying fresh fish ? __eou__ Yes we do . Check the meat department . There is a fish counter there too . __eou__ I already looked , but did not see anything . __eou__ Let me show you . __eou__ Thanks . __eou__ See , it's right over there . __eou__ Oh , gosh . I didn't see it . __eou__ That's all right . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Could you show me some scarves ?  What kind of scarf shall I show you ? We have them in all sorts and sizes .  Show me some of the latest fashion , please .  At your service . Will this suit you ?  Yes , it will ; this must be the foreign produce .  This is Chinese made .  Let me try it on . I think it really suits me . Can you give me some discount on it ?  Yes , it ’ s already fifty yuan off the original price .  But that still sounds expensive .  Sorry , we can ’ t come down any more . ",
+            "input": "Could you show me some scarves ? __eou__ What kind of scarf shall I show you ? We have them in all sorts and sizes . __eou__ Show me some of the latest fashion , please . __eou__ At your service . Will this suit you ? __eou__ Yes , it will ; this must be the foreign produce . __eou__ This is Chinese made . __eou__ Let me try it on . I think it really suits me . Can you give me some discount on it ? __eou__ Yes , it ’ s already fifty yuan off the original price . __eou__ But that still sounds expensive . __eou__ Sorry , we can ’ t come down any more . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Thanks for your help .  No problem . ",
+            "input": "Thanks for your help . __eou__ No problem . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Hey , how are you doing ?  Could you do me a favor ?  Sure , whatever you need .  Can you help me move this table ? ",
+            "input": "Hey , how are you doing ? __eou__ Could you do me a favor ? __eou__ Sure , whatever you need . __eou__ Can you help me move this table ? __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "What would you like to eat tonight ?  I'm not sure , what about you ?  Do you think Kentucky fried chicken is good ?  Sure sounds good to me . ",
+            "input": "What would you like to eat tonight ? __eou__ I'm not sure , what about you ? __eou__ Do you think Kentucky fried chicken is good ? __eou__ Sure sounds good to me . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "How do you like Chinese food ?  It's my favorite .  What other kind of food do you like ?  I like Indian food as well . ",
+            "input": "How do you like Chinese food ? __eou__ It's my favorite . __eou__ What other kind of food do you like ? __eou__ I like Indian food as well . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Hi , Bob .  How did you do on your driving test ?  Passed .  That's great and it was your first try . ",
+            "input": "Hi , Bob . __eou__ How did you do on your driving test ? __eou__ Passed . __eou__ That's great and it was your first try . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Can I give you a hand ?  Thanks . ",
+            "input": "Can I give you a hand ? __eou__ Thanks . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Good morning , Miss .  Good morning . Could you tell me where I can find the Clothing Department ?  On the left of the elevator of the 3rd floor .  I ’ d like to buy a woolen vest for my grandpa .  I ’ m sure you can find your favorite there .  Thank you very much .  It ’ s my honor . ",
+            "input": "Good morning , Miss . __eou__ Good morning . Could you tell me where I can find the Clothing Department ? __eou__ On the left of the elevator of the 3rd floor . __eou__ I ’ d like to buy a woolen vest for my grandpa . __eou__ I ’ m sure you can find your favorite there . __eou__ Thank you very much . __eou__ It ’ s my honor . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Hi , sir . Come and have a look here . We have all kinds of sweaters .  I ’ m looking for a sweater for my wife . Tomorrow is her birthday . And I know she needs a woolen sweater .  How do you like this grey one ? It ’ s pure wool , one hundred percent of Xinjiang wool .  It feels good . Are there cowl-neck pullovers with the same color ? My wife prefers a turtleneck to a V-shaped collar .  Yes , we do . What size do you want ?  Size one . By the way , what if I bring home this sweater and my wife doesn ’ t like it ?  Well , you can always bring it back to us for a full refund .  All right . Could I have it gift-wrapped , please ?  Yes , just a moment , please . ",
+            "input": "Hi , sir . Come and have a look here . We have all kinds of sweaters . __eou__ I ’ m looking for a sweater for my wife . Tomorrow is her birthday . And I know she needs a woolen sweater . __eou__ How do you like this grey one ? It ’ s pure wool , one hundred percent of Xinjiang wool . __eou__ It feels good . Are there cowl-neck pullovers with the same color ? My wife prefers a turtleneck to a V-shaped collar . __eou__ Yes , we do . What size do you want ? __eou__ Size one . By the way , what if I bring home this sweater and my wife doesn ’ t like it ? __eou__ Well , you can always bring it back to us for a full refund . __eou__ All right . Could I have it gift-wrapped , please ? __eou__ Yes , just a moment , please . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Do you like reading magazines ?  No , I don't .  Why ?  Because I think it's boring  No , you can learn a lot from them .  Learn a lot ? Really ?  Absolutely . And it's a good way to kill time during the tour .  Do you have magazines now ?  Yes , I do .  Can you lend me one ?  Sure . Here you are . ",
+            "input": "Do you like reading magazines ? __eou__ No , I don't . __eou__ Why ? __eou__ Because I think it's boring __eou__ No , you can learn a lot from them . __eou__ Learn a lot ? Really ? __eou__ Absolutely . And it's a good way to kill time during the tour . __eou__ Do you have magazines now ? __eou__ Yes , I do . __eou__ Can you lend me one ? __eou__ Sure . Here you are . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Please give me a piece of ' New York Daily ' .  You are late . The last piece has sold out .  Really ? Is there ' Wall Street Journal ' , please ?  There are several , take a piece . The crash appears in the headline . It is famous for offering catastrophe stories .  I have a long flight for ten hours . I need to choose a magazine .  There are various magazines in the rack .  Give me the latest issue of ' National Geographic ' .  That's the top magazine in America and is popular with young people . OK . It is totally 30 dollars .  Here you are .  Have a nice trip . ",
+            "input": "Please give me a piece of ' New York Daily ' . __eou__ You are late . The last piece has sold out . __eou__ Really ? Is there ' Wall Street Journal ' , please ? __eou__ There are several , take a piece . The crash appears in the headline . It is famous for offering catastrophe stories . __eou__ I have a long flight for ten hours . I need to choose a magazine . __eou__ There are various magazines in the rack . __eou__ Give me the latest issue of ' National Geographic ' . __eou__ That's the top magazine in America and is popular with young people . OK . It is totally 30 dollars . __eou__ Here you are . __eou__ Have a nice trip . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Do you have something to read ?  Yes , I do .  Could you lend me one ?  OK . Here you are .  Thanks . It's rather cold this morning , wouldn't you say ?  You're right .  Do you know the news ?  Which one ?  Brazil wins the World Cup .  Yes , I see . ",
+            "input": "Do you have something to read ? __eou__ Yes , I do . __eou__ Could you lend me one ? __eou__ OK . Here you are . __eou__ Thanks . It's rather cold this morning , wouldn't you say ? __eou__ You're right . __eou__ Do you know the news ? __eou__ Which one ? __eou__ Brazil wins the World Cup . __eou__ Yes , I see . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "What can I offer you here ?  I came here to ask for some information .  Ok . Please go ahead .  I bought a pair of trousers last year , which I like the best . But this year they don ’ t fit me very well . They ’ re tight in the waist , baggy at the knees . Can you make some alterations ?  Oh , we are skillful in doing that . You can trust us . Our shop has a history of more than 20 years .  It seems I find the right place .  Yes , absolutely ! We have a very good reputation in the neighborhood .  When can I have my trousers if I bring it to you tomorrow ?  If you like you can wait here . They will be ready in one hour and a half .  All right . See you tomorrow . ",
+            "input": "What can I offer you here ? __eou__ I came here to ask for some information . __eou__ Ok . Please go ahead . __eou__ I bought a pair of trousers last year , which I like the best . But this year they don ’ t fit me very well . They ’ re tight in the waist , baggy at the knees . Can you make some alterations ? __eou__ Oh , we are skillful in doing that . You can trust us . Our shop has a history of more than 20 years . __eou__ It seems I find the right place . __eou__ Yes , absolutely ! We have a very good reputation in the neighborhood . __eou__ When can I have my trousers if I bring it to you tomorrow ? __eou__ If you like you can wait here . They will be ready in one hour and a half . __eou__ All right . See you tomorrow . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Would you show me some table-cloths ?  Certainly . ( Take a table-cloth to her )  How much is it ?  A table-cloth of this size and style is 15 Yuan .  That ’ s reasonable .  If you take good care of it , it will last you quite a number of years .  Really ? I ’ ll take it then . ",
+            "input": "Good morning . Vane Theater , at your service . __eou__ Hello . I'm thinking about watching a Chinese traditional opera with a foreign girl . What's on this weekend ? __eou__ Well , there will be charity performance on Saturday night . And also , there will be a solo concert by an opera star on Sunday night . __eou__ It's a good thing that I have choices here . Can you tell me about the one on Saturday ? __eou__ Sure . It's to raise money for the homeless . __eou__ What about the performance itself ? __eou__ Oh , it's a reserved opera named ' The Monkey Creates Havoc in Heaven ' . __eou__ Wow , a story about the clever Monkey King . It's a classic and children's favorite . __eou__ It surely is . And the cast is really the best . __eou__ Wonderful ! How much is the ticket ? __eou__ The price varies according to the seats . 300 for the front , 200 for the middle , and 50 for the back . Which kind would you like ? __eou__ Two for the front . One last thing , are there any English subtitles for the show ? __eou__ Yes , we have subtitles both in Chinese and English on the big-screen just beside the stage . __eou__ Terrific . May I stop by to get that two tickets tomorrow afternoon ? __eou__ Sure . And our theater is located on Liberty Avenue , just opposite the biggest guitar store . Can I have your name ? __eou__ B . S-H-I-R-L-E-Y . __eou__ Got it . Thanks for calling . Bye . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Good morning . Vane Theater , at your service .  Hello . I'm thinking about watching a Chinese traditional opera with a foreign girl . What's on this weekend ?  Well , there will be charity performance on Saturday night . And also , there will be a solo concert by an opera star on Sunday night .  It's a good thing that I have choices here . Can you tell me about the one on Saturday ?  Sure . It's to raise money for the homeless .  What about the performance itself ?  Oh , it's a reserved opera named ' The Monkey Creates Havoc in Heaven ' .  Wow , a story about the clever Monkey King . It's a classic and children's favorite .  It surely is . And the cast is really the best .  Wonderful ! How much is the ticket ?  The price varies according to the seats . 300 for the front , 200 for the middle , and 50 for the back . Which kind would you like ?  Two for the front . One last thing , are there any English subtitles for the show ?  Yes , we have subtitles both in Chinese and English on the big-screen just beside the stage .  Terrific . May I stop by to get that two tickets tomorrow afternoon ?  Sure . And our theater is located on Liberty Avenue , just opposite the biggest guitar store . Can I have your name ?  B . S-H-I-R-L-E-Y .  Got it . Thanks for calling . Bye . ",
+            "input": "Can I have the menu , please ? __eou__ Sure . Here you are . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Can I have the menu , please ?  Sure . Here you are . ",
+            "input": "Would you show me some table-cloths ? __eou__ Certainly . ( Take a table-cloth to her ) __eou__ How much is it ? __eou__ A table-cloth of this size and style is 15 Yuan . __eou__ That ’ s reasonable . __eou__ If you take good care of it , it will last you quite a number of years . __eou__ Really ? I ’ ll take it then . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Excuse me , I'm a little lost . Which bus do I take to get to Shi Da ?  Let's see . From here , you have to take the 278 bus .  Oh OK , where do I get off ?  You should get off at the first Shi Da stop .  Ok , thanks ...  You're new at this , huh ?  No , is it difficult ?  No , it's quite simple . When you get on , just ask the bus driver when to pay the fare and where you want to get off .  How much does it cost ?  Only 15 NT per section . Oh look , that is your bus .  Wow , I can't thank you enough .  Don't mention it . ",
+            "input": "Excuse me , I'm a little lost . Which bus do I take to get to Shi Da ? __eou__ Let's see . From here , you have to take the 278 bus . __eou__ Oh OK , where do I get off ? __eou__ You should get off at the first Shi Da stop . __eou__ Ok , thanks ... __eou__ You're new at this , huh ? __eou__ No , is it difficult ? __eou__ No , it's quite simple . When you get on , just ask the bus driver when to pay the fare and where you want to get off . __eou__ How much does it cost ? __eou__ Only 15 NT per section . Oh look , that is your bus . __eou__ Wow , I can't thank you enough . __eou__ Don't mention it . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "What can I do for you ?  I would like to have a roll developed .  When do you need them , sir ?  How about tomorrow morning ?  No problem . Do you want 3 x 5 or 4 x 6 ?  The 4 x6 will be OK . Thanks .  And do you want the glossy or matted finish ?  I prefer glossy . How much ?  You pay when you pick them up . I don't need a deposit for just one roll of film .  Thanks ! ",
+            "input": "What can I do for you ? __eou__ I would like to have a roll developed . __eou__ When do you need them , sir ? __eou__ How about tomorrow morning ? __eou__ No problem . Do you want 3 x 5 or 4 x 6 ? __eou__ The 4 x6 will be OK . Thanks . __eou__ And do you want the glossy or matted finish ? __eou__ I prefer glossy . How much ? __eou__ You pay when you pick them up . I don't need a deposit for just one roll of film . __eou__ Thanks ! __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "May I help you , madam ?  Yes , where's the meat counter ?  Follow me , please . Here it is . What do you want ?  I need to buy some pork for the party . Give me about one kilogram .  OK . Wait a second , please .  I wonder if the chops are fresh .  Yes , of course .  One kilogram , too .  Anything else ?  No , thanks . ",
+            "input": "May I help you , madam ? __eou__ Yes , where's the meat counter ? __eou__ Follow me , please . Here it is . What do you want ? __eou__ I need to buy some pork for the party . Give me about one kilogram . __eou__ OK . Wait a second , please . __eou__ I wonder if the chops are fresh . __eou__ Yes , of course . __eou__ One kilogram , too . __eou__ Anything else ? __eou__ No , thanks . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "What can I do for you ?  I'd like to buy some milk powder . What would you recommend ?  We have many kinds of different purpose . I wonder whom you are buying for ?  My son . He is two years old .  I see , sir . This one is very good .  Is it ?  You may rest assured . It sells well .  May I have a look at the introduction ?  Certainly . Here it is . ",
+            "input": "What can I do for you ? __eou__ I'd like to buy some milk powder . What would you recommend ? __eou__ We have many kinds of different purpose . I wonder whom you are buying for ? __eou__ My son . He is two years old . __eou__ I see , sir . This one is very good . __eou__ Is it ? __eou__ You may rest assured . It sells well . __eou__ May I have a look at the introduction ? __eou__ Certainly . Here it is . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Ouch ! I just bit my tongue .  Oh , that hurts .  I think it's bleeding . ",
+            "input": "Ouch ! I just bit my tongue . __eou__ Oh , that hurts . __eou__ I think it's bleeding . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Ahahah ! What is that thing on your couch ! It just moved !  Did you think it wasn't real ? That's my pet lizard .  You have a pet lizard ? Somehow I never would have imagined that .  His name is Grunt . Come closer and I'll properly introduce you .  Does it bite or scratch ?  No , he's perfectly harmless . And he's not afraid of strangers either . Here , hold him .  Wow . He's heavy ! And his skin feels really cool .  Stick around and you'll get to know him better . He has a very unusual personality . ",
+            "input": "Ahahah ! What is that thing on your couch ! It just moved ! __eou__ Did you think it wasn't real ? That's my pet lizard . __eou__ You have a pet lizard ? Somehow I never would have imagined that . __eou__ His name is Grunt . Come closer and I'll properly introduce you . __eou__ Does it bite or scratch ? __eou__ No , he's perfectly harmless . And he's not afraid of strangers either . Here , hold him . __eou__ Wow . He's heavy ! And his skin feels really cool . __eou__ Stick around and you'll get to know him better . He has a very unusual personality . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "We can't go that way , the road is blocked for the next few days .  Oh , that's right . They're filming a movie up there , aren't they ?  Some high speed chase scene , I think .  I wonder how all the businesses in the area feel about that .  I think that they get a pretty good payoff .  The movie company has to pay them ?  I don't know about all of that , but think about it , their business gets free publicity !  Oh , yeah , they get to be in a movie for the whole world to see ! ",
+            "input": "We can't go that way , the road is blocked for the next few days . __eou__ Oh , that's right . They're filming a movie up there , aren't they ? __eou__ Some high speed chase scene , I think . __eou__ I wonder how all the businesses in the area feel about that . __eou__ I think that they get a pretty good payoff . __eou__ The movie company has to pay them ? __eou__ I don't know about all of that , but think about it , their business gets free publicity ! __eou__ Oh , yeah , they get to be in a movie for the whole world to see ! __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "I need something to wash this down . Is there any juice in the fridge ?  What is that ? It looks like something from a swamp !  It's a green drink . It's supposed to be full of vitamins and minerals .  You know , healthy eating doesn't have to make you gag .  The sales lady said that even if I eat right , I wouldn't get enough vitamins .  Have you ever tried it ? Or are you just going to believe the sales lady ?  It's easier to drink this once a day than eat fruit and vegetables all day .  It may take less time , but I don't know about easier . Yuck . ",
+            "input": "I need something to wash this down . Is there any juice in the fridge ? __eou__ What is that ? It looks like something from a swamp ! __eou__ It's a green drink . It's supposed to be full of vitamins and minerals . __eou__ You know , healthy eating doesn't have to make you gag . __eou__ The sales lady said that even if I eat right , I wouldn't get enough vitamins . __eou__ Have you ever tried it ? Or are you just going to believe the sales lady ? __eou__ It's easier to drink this once a day than eat fruit and vegetables all day . __eou__ It may take less time , but I don't know about easier . Yuck . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Would you like to have some icecream ? I've got a variety of flavors for you to choose from . I've got strawberry , peach , chocolate , coffee , vanilla and praline .  Wow ! So many choices you have ! I wish I could , but I just can't . I'm on a diet to lose weight .  Come on , just a bite . It doesn't really hurt to have just a bite .  I'd better not . Please don't tempt me . Please !  Gee ! You are really strong-willed .  You're damn right . I'm not so easily coaxed into doing something that I think is wrong .  Well , I'd better not tempt you . Otherwise , if I give you a piece of cake , you might ask for a glass of milk . ",
+            "input": "Would you like to have some icecream ? I've got a variety of flavors for you to choose from . I've got strawberry , peach , chocolate , coffee , vanilla and praline . __eou__ Wow ! So many choices you have ! I wish I could , but I just can't . I'm on a diet to lose weight . __eou__ Come on , just a bite . It doesn't really hurt to have just a bite . __eou__ I'd better not . Please don't tempt me . Please ! __eou__ Gee ! You are really strong-willed . __eou__ You're damn right . I'm not so easily coaxed into doing something that I think is wrong . __eou__ Well , I'd better not tempt you . Otherwise , if I give you a piece of cake , you might ask for a glass of milk . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "How do you put this seat back ? I know there is a lever somewhere .  What are you doing ?  I'm getting dressed , what does it look like ?  It looks like you are about to get dressed . Did you forget we are in a car on the road ?  I'm good at this . Nobody will see anything .  Are you kidding ? You're going to cause an accident just from people gawking !  All right , pull over at that service station and I'll dress in the ladies ' room .  That will be my pleasure . ",
+            "input": "How do you put this seat back ? I know there is a lever somewhere . __eou__ What are you doing ? __eou__ I'm getting dressed , what does it look like ? __eou__ It looks like you are about to get dressed . Did you forget we are in a car on the road ? __eou__ I'm good at this . Nobody will see anything . __eou__ Are you kidding ? You're going to cause an accident just from people gawking ! __eou__ All right , pull over at that service station and I'll dress in the ladies ' room . __eou__ That will be my pleasure . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Hello . Welcome !  Hello . I'd like to have my nails manicured .  This way please . We offer multiple manicure services here . Do you want a full service ?  I don't need the full service .  But the full service will make your nails look much prettier and it is on discount now .  No , thanks . All I need is painting and polishing .  OK . Please sit down . I hope you will be satisfied with our service .  Thanks very much . ",
+            "input": "Hello . Welcome ! __eou__ Hello . I'd like to have my nails manicured . __eou__ This way please . We offer multiple manicure services here . Do you want a full service ? __eou__ I don't need the full service . __eou__ But the full service will make your nails look much prettier and it is on discount now . __eou__ No , thanks . All I need is painting and polishing . __eou__ OK . Please sit down . I hope you will be satisfied with our service . __eou__ Thanks very much . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Would you like a piece of birthday cake ?  No , thanks , I'll pass . It looks very tempting though .  I thought strawberry cake with cream cheese frosting was your favorite ?  It is . I'm on a diet and strawberry cream cheese cake is not on it .  A diet ? What for ? You are in great shape .  I went to the doctor the other day . My cholesterol is up .  Oooo . This sounds serious .  Not too serious . But he gave me a strict diet to help bring it down . ",
+            "input": "Would you like a piece of birthday cake ? __eou__ No , thanks , I'll pass . It looks very tempting though . __eou__ I thought strawberry cake with cream cheese frosting was your favorite ? __eou__ It is . I'm on a diet and strawberry cream cheese cake is not on it . __eou__ A diet ? What for ? You are in great shape . __eou__ I went to the doctor the other day . My cholesterol is up . __eou__ Oooo . This sounds serious . __eou__ Not too serious . But he gave me a strict diet to help bring it down . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "I only want a little off the top and the sides and back to have clean lines .  Okay . Is your hair naturally curly or is it a perm ?  It's natural . My friend told me you know how to work with curls .  That's my specialty . Let me put this around your neck .  Do you have any product that controls frizz ?  With the cut I'll give you , we will minimize a lot of that .  Thank you !  And when we're done , I'll show you some great stuff to take care of the rest . ",
+            "input": "I only want a little off the top and the sides and back to have clean lines . __eou__ Okay . Is your hair naturally curly or is it a perm ? __eou__ It's natural . My friend told me you know how to work with curls . __eou__ That's my specialty . Let me put this around your neck . __eou__ Do you have any product that controls frizz ? __eou__ With the cut I'll give you , we will minimize a lot of that . __eou__ Thank you ! __eou__ And when we're done , I'll show you some great stuff to take care of the rest . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "What can I do for you ?  I am looking for cologne , small bottle . Can I see that one in the glass shelf ?  Yes , of course , this one costs 260 yuan .  It's too expensive .  If you think it's expensive . You can look at this one .  What's the difference between the two ?  It's difficult to explain . But this one is really cheap .  Let me see . ",
+            "input": "Excuse me , could you tell me how much is the lipstick ? __eou__ It costs only 25 yuan . __eou__ Oh , it's too expensive . Can't you make it any cheaper ? __eou__ The price is reasonable because the quality is super . __eou__ But the price is too high . __eou__ How much would you like it to be , then ? __eou__ What about 15 yuan ? __eou__ Let's meet half way , 20 yuan , OK ? __eou__ All right , I'll take it . __eou__ I think you've got a real bargain . __eou__ Thank you . __eou__\n",
             "output": [
-                "No"
-            ]
-        },
-        {
-            "input": "Excuse me , could you tell me how much is the lipstick ?  It costs only 25 yuan .  Oh , it's too expensive . Can't you make it any cheaper ?  The price is reasonable because the quality is super .  But the price is too high .  How much would you like it to be , then ?  What about 15 yuan ?  Let's meet half way , 20 yuan , OK ?  All right , I'll take it .  I think you've got a real bargain .  Thank you . ",
-            "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Good morning , sir . Can I help you ?  Good morning . I'm interested in antiques . Do you have any ?  Yes , we have a great variety of Chinese antiques .  What do you have ?  Well , we have some painting and some porcelain . Which do you like better ?  I'd like porcelain .  Good . How about the table set ?  Oh , it looks well . I like it very much .  It's made in Jingdezhen .  How much is it ?  One thousand eight hundred yuan .  It's not expensive . I'll take it . ",
+            "input": "Good morning , sir . Can I help you ? __eou__ Good morning . I'm interested in antiques . Do you have any ? __eou__ Yes , we have a great variety of Chinese antiques . __eou__ What do you have ? __eou__ Well , we have some painting and some porcelain . Which do you like better ? __eou__ I'd like porcelain . __eou__ Good . How about the table set ? __eou__ Oh , it looks well . I like it very much . __eou__ It's made in Jingdezhen . __eou__ How much is it ? __eou__ One thousand eight hundred yuan . __eou__ It's not expensive . I'll take it . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Good morning , Madam . What can I do for you ?  Can you show me some traditional Chinese arts and crafts ?  Maybe sandalwood fan is good .  Would you show me some ?  Of course .  They really smell fragrant . How much is a real sandalwood fan ?  The small ones are one hundred yuan for each . And the big ones are two hundred and thirty yuan .  I'll take two small ones and a big one .  What else are you interested in ?  I'm afraid not .  OK . Here you are . ",
+            "input": "Good morning , Madam . What can I do for you ? __eou__ Can you show me some traditional Chinese arts and crafts ? __eou__ Maybe sandalwood fan is good . __eou__ Would you show me some ? __eou__ Of course . __eou__ They really smell fragrant . How much is a real sandalwood fan ? __eou__ The small ones are one hundred yuan for each . And the big ones are two hundred and thirty yuan . __eou__ I'll take two small ones and a big one . __eou__ What else are you interested in ? __eou__ I'm afraid not . __eou__ OK . Here you are . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "I would like to buy some local handcrafts as gifts to my friends and relatives .  There are many stores selling handcrafts in Paris . Our store is wellknown for vase , table wear and jewelry boxes . You can take your time and choose whatever you like .  Well , the tapestry is delicate and beautiful .  You have made an excellent choice , it is our newcomer . The tapestry is on hot sell with the design and quality . The design on it is traditional Paris architecture .  How much is it ?  100 frances .  Mmm , it is reasonable . Look at this set of table wear , it is so beautiful !  We have a piece of table clothing to go with it . It is a brocade one with pretty stars .  This silver vase is a good ornament for the living room .  You are right .  I will take the tapestry , the set of table wear and the vase .  OK . Do you like these candles ? They are on sale now .  All right . I will take one . ",
+            "input": "I would like to buy some local handcrafts as gifts to my friends and relatives . __eou__ There are many stores selling handcrafts in Paris . Our store is wellknown for vase , table wear and jewelry boxes . You can take your time and choose whatever you like . __eou__ Well , the tapestry is delicate and beautiful . __eou__ You have made an excellent choice , it is our newcomer . The tapestry is on hot sell with the design and quality . The design on it is traditional Paris architecture . __eou__ How much is it ? __eou__ 100 frances . __eou__ Mmm , it is reasonable . Look at this set of table wear , it is so beautiful ! __eou__ We have a piece of table clothing to go with it . It is a brocade one with pretty stars . __eou__ This silver vase is a good ornament for the living room . __eou__ You are right . __eou__ I will take the tapestry , the set of table wear and the vase . __eou__ OK . Do you like these candles ? They are on sale now . __eou__ All right . I will take one . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Did you ever buy food from the snack stands near our hotel ?  Yes , several times .  How do you like them ?  Not bad .  I always have the temptation to eat something there .  Then , why didn't you do that ?  I don't know how much we can trust them . Do you have any ideas ?  Some of them , I think , are not good .  It doesn't taste good ?  No , I mean some of them are not clean enough .  That's my greatest concern . But how can you tell which one is clean ?  I judge by appearances .  I got it . I think it's worth trying .  It certainly is .  I'd like to try some kebab , roasted squid , and many different appealing things .  Don't try everything at one time , please .  I see . Thank you . ",
+            "input": "Did you ever buy food from the snack stands near our hotel ? __eou__ Yes , several times . __eou__ How do you like them ? __eou__ Not bad . __eou__ I always have the temptation to eat something there . __eou__ Then , why didn't you do that ? __eou__ I don't know how much we can trust them . Do you have any ideas ? __eou__ Some of them , I think , are not good . __eou__ It doesn't taste good ? __eou__ No , I mean some of them are not clean enough . __eou__ That's my greatest concern . But how can you tell which one is clean ? __eou__ I judge by appearances . __eou__ I got it . I think it's worth trying . __eou__ It certainly is . __eou__ I'd like to try some kebab , roasted squid , and many different appealing things . __eou__ Don't try everything at one time , please . __eou__ I see . Thank you . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "It is my first time coming to China . I want to buy something unique of China to my friends as gifts .  We have a great variety of Chinese antiques and porcelain . Do you like them ?  Yes , I love them , but they are fragile . It is not convenient to take them .  You are right . How about paintings and embroidered handkerchiefs ?  Sounds good . May I have a look ?  Of course . These paintings have many designs , such as animals , flowers , landscape , aquatics and so on .  They are beautiful , but I can't understand the connotation in them . Let me see the handkerchiefs .  All right . Chinese embroidery is one traditional art with elaborate design and high quality .  Oh , I like the bamboo design . What is this ?  This is a series of animals , called Chinese zodiac .  Good . So I will take three series and five bamboo ones .  OK , I will wrap them for you . ",
+            "input": "It is my first time coming to China . I want to buy something unique of China to my friends as gifts . __eou__ We have a great variety of Chinese antiques and porcelain . Do you like them ? __eou__ Yes , I love them , but they are fragile . It is not convenient to take them . __eou__ You are right . How about paintings and embroidered handkerchiefs ? __eou__ Sounds good . May I have a look ? __eou__ Of course . These paintings have many designs , such as animals , flowers , landscape , aquatics and so on . __eou__ They are beautiful , but I can't understand the connotation in them . Let me see the handkerchiefs . __eou__ All right . Chinese embroidery is one traditional art with elaborate design and high quality . __eou__ Oh , I like the bamboo design . What is this ? __eou__ This is a series of animals , called Chinese zodiac . __eou__ Good . So I will take three series and five bamboo ones . __eou__ OK , I will wrap them for you . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Is there anything I can do for you ?  Would you please show me that mural ?  Certainly . Here you are .  It looks so beautiful . How much is it ?  Four hundred yuan .  That's a bit more than I wanted to pay . Can you cut the price down a bit ?  I'm sorry . Ours is a fixed price shop and I can assure you this is the best price you can get for a mural like this .  Maybe you are right . OK , I'll take it .  Well , I'll have it wrapped for you .  Thank you . Here is four hundred yuan .  Thank you . Please come again . ",
+            "input": "Is there anything I can do for you ? __eou__ Would you please show me that mural ? __eou__ Certainly . Here you are . __eou__ It looks so beautiful . How much is it ? __eou__ Four hundred yuan . __eou__ That's a bit more than I wanted to pay . Can you cut the price down a bit ? __eou__ I'm sorry . Ours is a fixed price shop and I can assure you this is the best price you can get for a mural like this . __eou__ Maybe you are right . OK , I'll take it . __eou__ Well , I'll have it wrapped for you . __eou__ Thank you . Here is four hundred yuan . __eou__ Thank you . Please come again . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "You are looking really healthy lately . What are you doing differently ?  Thank you for noticing ! I've been making a few lifestyle changes over the past year .  Tell me about it . I'm interested .  Well , it all started when my brother challenged me to quit smoking .  Ha ! That's right . You used to smoke . I forgot !  When I kicked that habit , I found I had so much more energy . I started exercising .  At the gym ?  No . I like to be outside . I took up hiking and mountain biking . ",
+            "input": "You are looking really healthy lately . What are you doing differently ? __eou__ Thank you for noticing ! I've been making a few lifestyle changes over the past year . __eou__ Tell me about it . I'm interested . __eou__ Well , it all started when my brother challenged me to quit smoking . __eou__ Ha ! That's right . You used to smoke . I forgot ! __eou__ When I kicked that habit , I found I had so much more energy . I started exercising . __eou__ At the gym ? __eou__ No . I like to be outside . I took up hiking and mountain biking . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Yes ! I finally lost that last five pounds I've been working on forever !  How did you finally do it ?  A friend suggested that I stop nibbling between meals .  Like snacking ?  You know , a little piece of chocolate here , some chips on the side , candy now and then ...  I get what you mean .  Instead , I sit down and have a good snack like a piece of fruit between meals .  I'm impressed . Good for you ! ",
+            "input": "Yes ! I finally lost that last five pounds I've been working on forever ! __eou__ How did you finally do it ? __eou__ A friend suggested that I stop nibbling between meals . __eou__ Like snacking ? __eou__ You know , a little piece of chocolate here , some chips on the side , candy now and then ... __eou__ I get what you mean . __eou__ Instead , I sit down and have a good snack like a piece of fruit between meals . __eou__ I'm impressed . Good for you ! __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "This book I'm reading about Yoga is really interesting .  I didn't know you did Yoga .  I don't really practice it regularly yet , I'm just learning about it .  What have you learned ?  Right now I'm learning about the importance of breathing slow , deep and regularly .  As opposed to short and shallow ?  Yes . It says here , ' He who only half breathes , half lives . '  I read something like that once . I think it was , ' Life is in the breath . ' ",
+            "input": "This book I'm reading about Yoga is really interesting . __eou__ I didn't know you did Yoga . __eou__ I don't really practice it regularly yet , I'm just learning about it . __eou__ What have you learned ? __eou__ Right now I'm learning about the importance of breathing slow , deep and regularly . __eou__ As opposed to short and shallow ? __eou__ Yes . It says here , ' He who only half breathes , half lives . ' __eou__ I read something like that once . I think it was , ' Life is in the breath . ' __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Good evening , madam . May I help you ?  I want a facial . But this is the first time I've come here , so can you tell me how you do it ?  Sure . Most facials start with a thorough cleaning . Then we usually use a toner to invigorate the skin , followed by exfoliation treatment-a peeling mask or scrub that removes the dead cells that make the skin lock dull . After that , we'll massage your face and neck with oil or cream to improve the circulation and relieve the tension , followed by a mask to moisturize and soften the skin .  That's exactly what I want . How long does it take ?  We have half-hour and one-hour treatments .  What's the regular price ?  Well , the half-hour facial costs 50 yuan and the one-hour costs 80 yuan . If you want make-up , another 20 yuan will do .  Good , I will take the one hour facial with make-up .  That's fine , madam .  By the way , could you give me a manicure ? Use a light nail-polish , please .  Yes , madam . ",
+            "input": "Good evening , madam . May I help you ? __eou__ I want a facial . But this is the first time I've come here , so can you tell me how you do it ? __eou__ Sure . Most facials start with a thorough cleaning . Then we usually use a toner to invigorate the skin , followed by exfoliation treatment-a peeling mask or scrub that removes the dead cells that make the skin lock dull . After that , we'll massage your face and neck with oil or cream to improve the circulation and relieve the tension , followed by a mask to moisturize and soften the skin . __eou__ That's exactly what I want . How long does it take ? __eou__ We have half-hour and one-hour treatments . __eou__ What's the regular price ? __eou__ Well , the half-hour facial costs 50 yuan and the one-hour costs 80 yuan . If you want make-up , another 20 yuan will do . __eou__ Good , I will take the one hour facial with make-up . __eou__ That's fine , madam . __eou__ By the way , could you give me a manicure ? Use a light nail-polish , please . __eou__ Yes , madam . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Why don't you sit down and relax , darling ?  I don't want to .  Well , come over and talk to me then .  Certainly not .  May I turn on the TV then ?  Turn on the TV , for what ?  So that we can sit down together and listen to some music .  Listen to the music ? And who will cook dinner , will you ?  I will , but let's go to the disco after dinner .  To a disco ? Oh , no . You know I hate it . ",
+            "input": "Why don't you sit down and relax , darling ? __eou__ I don't want to . __eou__ Well , come over and talk to me then . __eou__ Certainly not . __eou__ May I turn on the TV then ? __eou__ Turn on the TV , for what ? __eou__ So that we can sit down together and listen to some music . __eou__ Listen to the music ? And who will cook dinner , will you ? __eou__ I will , but let's go to the disco after dinner . __eou__ To a disco ? Oh , no . You know I hate it . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Where is your dressing room ?  Right over there .  ( Person A comes out of the dressing room ) How did you like the sweater ?  I loved it . I'll take it .  Great . I can ring you up over here . It comes to $ 87.04 .  Here you go ?  Do you have a credit card with us ?  No I don't .  If you open up a card , you can save 10 % on all your purchases today .  Not today . Thanks though .  No problem . We always have this offer , so when ever you decide to , just let us know .  Sure .  Is there anything else I can help you with ?  Yeah . I was looking at some of your pants , but they are all a bit too long . Do you have alteration services here ?  Yes . It cost $ 7 , and it takes one day .  Great . Thanks for your help .  Thank you , and have a great day . ",
+            "input": "Where is your dressing room ? __eou__ Right over there . __eou__ ( Person A comes out of the dressing room ) How did you like the sweater ? __eou__ I loved it . I'll take it . __eou__ Great . I can ring you up over here . It comes to $ 87.04 . __eou__ Here you go ? __eou__ Do you have a credit card with us ? __eou__ No I don't . __eou__ If you open up a card , you can save 10 % on all your purchases today . __eou__ Not today . Thanks though . __eou__ No problem . We always have this offer , so when ever you decide to , just let us know . __eou__ Sure . __eou__ Is there anything else I can help you with ? __eou__ Yeah . I was looking at some of your pants , but they are all a bit too long . Do you have alteration services here ? __eou__ Yes . It cost $ 7 , and it takes one day . __eou__ Great . Thanks for your help . __eou__ Thank you , and have a great day . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "We have reservations for two at your restaurant tonight .  Yes , What can I do for you , sir ?  I'm calling to see if I can request a specific table .  I can try to arrange that for you .  I proposed to my wife in your restaurant and I would like the same table if I can .  Can you describe for me , where you were sitting ?  It was a little table by the bay windows overlooking the wharf .  You're in luck . We still have that little table . ",
+            "input": "We have reservations for two at your restaurant tonight . __eou__ Yes , What can I do for you , sir ? __eou__ I'm calling to see if I can request a specific table . __eou__ I can try to arrange that for you . __eou__ I proposed to my wife in your restaurant and I would like the same table if I can . __eou__ Can you describe for me , where you were sitting ? __eou__ It was a little table by the bay windows overlooking the wharf . __eou__ You're in luck . We still have that little table . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Hi . Can I help you with anything ?  Yeah . Can I look at this ring ?  Sure . Let me get it out for you . What is your size ?  I believe I am a six .  Here you go .  Would you have any necklace that would go well with this ?  Actually , we have a few to choose from . They are over here .  There's no price tag on this necklace .  Oh . I'm sorry . I'll check the price for you . It is $ 199 .  This necklace is a little short . Do you have one that is longer ?  Yes . Why don't you try this one on .  This one is much better . Can I try on the ring with this necklace ?  Sure . Here you go .  Let me think about it .  Sure . Take your time .  Thank you for all the help .  No problem at all . ",
+            "input": "Hi . Can I help you with anything ? __eou__ Yeah . Can I look at this ring ? __eou__ Sure . Let me get it out for you . What is your size ? __eou__ I believe I am a six . __eou__ Here you go . __eou__ Would you have any necklace that would go well with this ? __eou__ Actually , we have a few to choose from . They are over here . __eou__ There's no price tag on this necklace . __eou__ Oh . I'm sorry . I'll check the price for you . It is $ 199 . __eou__ This necklace is a little short . Do you have one that is longer ? __eou__ Yes . Why don't you try this one on . __eou__ This one is much better . Can I try on the ring with this necklace ? __eou__ Sure . Here you go . __eou__ Let me think about it . __eou__ Sure . Take your time . __eou__ Thank you for all the help . __eou__ No problem at all . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "I've never been to a restaurant like this before .  It's really different , isn't it ?  That's a good word to describe it .  I hope you're hungry because the pizza here is huge as well as to die for .  I am hungry . I think I could eat a large by myself .  Well , let's order one for starters .  I'm in the mood for a Californian .  That happens to be my favorite . Waiter , I think we're ready to order . ",
+            "input": "I've never been to a restaurant like this before . __eou__ It's really different , isn't it ? __eou__ That's a good word to describe it . __eou__ I hope you're hungry because the pizza here is huge as well as to die for . __eou__ I am hungry . I think I could eat a large by myself . __eou__ Well , let's order one for starters . __eou__ I'm in the mood for a Californian . __eou__ That happens to be my favorite . Waiter , I think we're ready to order . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Ah , here we are .  This is the place I was telling you about .  Would you like to sit near the window ?  Good .  Let's have a look at the menu . Oh , there isn't a menu . Do you think you could ask the people at the next table if we could look at their menu ?  Yes , of course . Excuse me . Could you possibly let us see your menu ? Oh . They haven't got one either . ",
+            "input": "Ah , here we are . __eou__ This is the place I was telling you about . __eou__ Would you like to sit near the window ? __eou__ Good . __eou__ Let's have a look at the menu . Oh , there isn't a menu . Do you think you could ask the people at the next table if we could look at their menu ? __eou__ Yes , of course . Excuse me . Could you possibly let us see your menu ? Oh . They haven't got one either . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "What can I get for you today , sir ?  I would like a cup of decaf with cream and no sugar .  Would you like anything else with that ?  How fresh is that apple pie over there ?  Our pie is brought in fresh every day . And I can tell you it's delicious .  Okay , throw in a piece of that pie then .  Is this to stay or to go ?  I'm in a bit of a hurry today , so we'd better make it to go . Thanks for asking . ",
+            "input": "What can I get for you today , sir ? __eou__ I would like a cup of decaf with cream and no sugar . __eou__ Would you like anything else with that ? __eou__ How fresh is that apple pie over there ? __eou__ Our pie is brought in fresh every day . And I can tell you it's delicious . __eou__ Okay , throw in a piece of that pie then . __eou__ Is this to stay or to go ? __eou__ I'm in a bit of a hurry today , so we'd better make it to go . Thanks for asking . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Honey , I think I need to go see the doctor .  Ah ! You're bleeding all over ! What happened ?  I was working in the garage and cut myself with my saw .  Here , use this rag to apply pressure to the cut . Does it hurt ?  No , not really , there's just a lot of blood .  You may just need stitches . I think they can handle this at the clinic instead of the ER . Let me make a quick phone call .  I'm going to go sit in the car while I still have the stomach to walk .  Oh , sorry ! I forgot you get queasy with the sight of blood . I'll be right there . ",
+            "input": "Honey , I think I need to go see the doctor . __eou__ Ah ! You're bleeding all over ! What happened ? __eou__ I was working in the garage and cut myself with my saw . __eou__ Here , use this rag to apply pressure to the cut . Does it hurt ? __eou__ No , not really , there's just a lot of blood . __eou__ You may just need stitches . I think they can handle this at the clinic instead of the ER . Let me make a quick phone call . __eou__ I'm going to go sit in the car while I still have the stomach to walk . __eou__ Oh , sorry ! I forgot you get queasy with the sight of blood . I'll be right there . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Bob , would you come and help me ?  Of course . What do you want me to do , Mom ?  Could you hold these packages while I look for the key ?  Alright , what's in them ? They are so heavy !  Just things we need for the picnic tomorrow .  Well , hurry up and open the door please . I told you these things are heavy .  I'm sorry , but I just can't find the key . You must have it .  Oh , yes , it's in my pocket . But how can I get the key while I'm holding all these bags ? ",
+            "input": "Bob , would you come and help me ? __eou__ Of course . What do you want me to do , Mom ? __eou__ Could you hold these packages while I look for the key ? __eou__ Alright , what's in them ? They are so heavy ! __eou__ Just things we need for the picnic tomorrow . __eou__ Well , hurry up and open the door please . I told you these things are heavy . __eou__ I'm sorry , but I just can't find the key . You must have it . __eou__ Oh , yes , it's in my pocket . But how can I get the key while I'm holding all these bags ? __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Hello , Miao Li , Where are you going ?  Hello , I am going to the store to buy some fruit .  Oh , Would you do me a favor ?  Yes ?  Please mail this letter for me on your way to the store .  Sure . Do you want it to be registered ?  Yes , I think so . There are some pictures in it . It would be a great pity if they were lost .  Yes , I will be glad to mail your letter .  Thanks .  you are welcome . ",
+            "input": "Hello , Miao Li , Where are you going ? __eou__ Hello , I am going to the store to buy some fruit . __eou__ Oh , Would you do me a favor ? __eou__ Yes ? __eou__ Please mail this letter for me on your way to the store . __eou__ Sure . Do you want it to be registered ? __eou__ Yes , I think so . There are some pictures in it . It would be a great pity if they were lost . __eou__ Yes , I will be glad to mail your letter . __eou__ Thanks . __eou__ you are welcome . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Can I help you , Miss ?  Do you have anything which can prevent wrinkles and freckles ?  What is your skin type ?  My skin is kind of oily .  This nutrition cream is for anti-wrinkling and whitening which is a newcomer brand .  How much is it ?  $ 60.The price is reasonable for its large quantity . What's more , there are some gifts attaching for you .  Sounds good . What are the gifts attaching ?  You can take one tonic or hand cream .  I will choose the tonic .  No problem . You can try this kind of gel which can prevent freckle , the effect will be better if you use this powder foundation applied with it .  That's the very thing I want . ",
+            "input": "Can I help you , Miss ? __eou__ Do you have anything which can prevent wrinkles and freckles ? __eou__ What is your skin type ? __eou__ My skin is kind of oily . __eou__ This nutrition cream is for anti-wrinkling and whitening which is a newcomer brand . __eou__ How much is it ? __eou__ $ 60.The price is reasonable for its large quantity . What's more , there are some gifts attaching for you . __eou__ Sounds good . What are the gifts attaching ? __eou__ You can take one tonic or hand cream . __eou__ I will choose the tonic . __eou__ No problem . You can try this kind of gel which can prevent freckle , the effect will be better if you use this powder foundation applied with it . __eou__ That's the very thing I want . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Excuse me . Can you show me some nail-polish ?  Yes . We have all kinds of colors for it .  That's good .  What's your favorite color ?  In my opinion , orange is very nice .  Sometimes pink is not bad , too .  You're right . Well , just these two , please .  Thank you . Anything else ?  No , thanks . ",
+            "input": "Excuse me . Can you show me some nail-polish ? __eou__ Yes . We have all kinds of colors for it . __eou__ That's good . __eou__ What's your favorite color ? __eou__ In my opinion , orange is very nice . __eou__ Sometimes pink is not bad , too . __eou__ You're right . Well , just these two , please . __eou__ Thank you . Anything else ? __eou__ No , thanks . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Can you give me a hand , Tom ?  Sure .  Can you open this bottle for me ? The cork seems to be stuck .  I'll have a go . ",
+            "input": "Can you give me a hand , Tom ? __eou__ Sure . __eou__ Can you open this bottle for me ? The cork seems to be stuck . __eou__ I'll have a go . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Don't tell me that's your lunch ?  No , this is just my appetizer ... this is my lunch !  A candy bar for an appetizer and a piece of pie for lunch ! That's all junk !  This is good food , it has milk , fruit , grains , nuts ...  Sugar , sugar , preservatives , fats , more sugar , more fat , more preservatives !  At least I enjoy my lunch ! What's in your bag ?  My wife sent me with rice , vegetables , and some curry chicken .  There's the difference , your wife made it ! I have to make my own lunch ! ",
+            "input": "Don't tell me that's your lunch ? __eou__ No , this is just my appetizer ... this is my lunch ! __eou__ A candy bar for an appetizer and a piece of pie for lunch ! That's all junk ! __eou__ This is good food , it has milk , fruit , grains , nuts ... __eou__ Sugar , sugar , preservatives , fats , more sugar , more fat , more preservatives ! __eou__ At least I enjoy my lunch ! What's in your bag ? __eou__ My wife sent me with rice , vegetables , and some curry chicken . __eou__ There's the difference , your wife made it ! I have to make my own lunch ! __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Can you shorten this pipe for me ? It's too long .  Sure . I'll do it after lunch . What length do you need ?  Can you take 15 mm of it ?  Yes , no problem . It'll be ready by 2 p . m . ",
+            "input": "Can you shorten this pipe for me ? It's too long . __eou__ Sure . I'll do it after lunch . What length do you need ? __eou__ Can you take 15 mm of it ? __eou__ Yes , no problem . It'll be ready by 2 p . m . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Who gave my dog this cooked chicken bone ?  I did . Why ?  Didn't you know dogs shouldn't eat cooked chicken bones because they're bad for their stomachs ?  No , I didn't . I'm sorry . It won't happen again . ",
+            "input": "Who gave my dog this cooked chicken bone ? __eou__ I did . Why ? __eou__ Didn't you know dogs shouldn't eat cooked chicken bones because they're bad for their stomachs ? __eou__ No , I didn't . I'm sorry . It won't happen again . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Is there anything I can do for you ?  I'm trying to choose a gift .  Did you have anything particular in mind ?  No , but I'd like to get something typical in this region .  Well , we have some handmade products . Let me show you some .  They're quite nice . But I'm afraid they're quite a bit expensive .  About how much were you planning to spend ?  No more than one hundred yuan .  Oh , in that case . This one is OK .  Oh ! It's perfect . I think I'll take it . Would you wrap it , please ?  OK . Wait for a moment , please . ",
+            "input": "Is there anything I can do for you ? __eou__ I'm trying to choose a gift . __eou__ Did you have anything particular in mind ? __eou__ No , but I'd like to get something typical in this region . __eou__ Well , we have some handmade products . Let me show you some . __eou__ They're quite nice . But I'm afraid they're quite a bit expensive . __eou__ About how much were you planning to spend ? __eou__ No more than one hundred yuan . __eou__ Oh , in that case . This one is OK . __eou__ Oh ! It's perfect . I think I'll take it . Would you wrap it , please ? __eou__ OK . Wait for a moment , please . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Chinese tea is famous all over the world . I want to buy several boxes .  There are various kinds of tea in China . It depends on the taste and effect .  Well , I do not know Chinese tea at all .  This is green tea , you can drink it in summer . It can relieve summer-heat and it is good for maintaining your lungs .  Sounds interesting . What about this ?  It is black tea , it has a strong taste and promotes digestion .  What's this ? It smells fragrant .  It is jasmine tea of high quality . It is fragrant and has a pleasant taste .  I will take the jasmine tea . Could you pack it with the wrapping paper and ribbon ? It is a gift for my friend .  No problem . Wait for a moment . ",
+            "input": "Chinese tea is famous all over the world . I want to buy several boxes . __eou__ There are various kinds of tea in China . It depends on the taste and effect . __eou__ Well , I do not know Chinese tea at all . __eou__ This is green tea , you can drink it in summer . It can relieve summer-heat and it is good for maintaining your lungs . __eou__ Sounds interesting . What about this ? __eou__ It is black tea , it has a strong taste and promotes digestion . __eou__ What's this ? It smells fragrant . __eou__ It is jasmine tea of high quality . It is fragrant and has a pleasant taste . __eou__ I will take the jasmine tea . Could you pack it with the wrapping paper and ribbon ? It is a gift for my friend . __eou__ No problem . Wait for a moment . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Can I help you ?  I'd like to buy some Chinese-style cakes . Could you recommend me some ?  Certainly . What about moon cake ? It's typical Chinese food .  Moon cakes ? What is that ?  The moon cake is round and looks like the full moon . That's why it's called the moon cake and the moon cake symbolizes family reunion and harmony .  Sounds very interesting . I'll buy some to family people .  All the moon cakes are generally classified into two styles , Cantonese style and Suzhou style .  What's the difference between these two styles ?  The skin of Cantonese style cakes is soft and puffy with heavy stuffing while the skin of Suzhou style cakes is puffy filled with fragrant nuts .  Get me some of each .  OK , here you are . ",
+            "input": "Can I help you ? __eou__ I'd like to buy some Chinese-style cakes . Could you recommend me some ? __eou__ Certainly . What about moon cake ? It's typical Chinese food . __eou__ Moon cakes ? What is that ? __eou__ The moon cake is round and looks like the full moon . That's why it's called the moon cake and the moon cake symbolizes family reunion and harmony . __eou__ Sounds very interesting . I'll buy some to family people . __eou__ All the moon cakes are generally classified into two styles , Cantonese style and Suzhou style . __eou__ What's the difference between these two styles ? __eou__ The skin of Cantonese style cakes is soft and puffy with heavy stuffing while the skin of Suzhou style cakes is puffy filled with fragrant nuts . __eou__ Get me some of each . __eou__ OK , here you are . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Excuse me , I have something to trouble you .  Yes ? I'll be very glad if I could be of any help to you .  An hour ago , I bought this vase with my tourist .  Oh , yes . I remember it clearly . Is there anything wrong with it ?  I'm afraid so . We found this crack on the bottom when I went back to my hotel .  Oh , how awful ! Let me have a look , I'm terribly sorry . It was most thoughtless of me . Would you excuse me , please ?  Oh , It's quite all right , I suppose . It can't be helped sometimes .  It's very kind of you to say so . How about changing another one for you ?  All right . Thank you .  Just a minute , please . I won't be long . I'm sure this one is perfect . You may examine it carefully .  Oh , yes , it is . I'll take this one .  I'm very sorry for any inconvenience I've caused you .  Well , there's no reason to apologize for such a trifle thing . ",
+            "input": "Excuse me , I have something to trouble you . __eou__ Yes ? I'll be very glad if I could be of any help to you . __eou__ An hour ago , I bought this vase with my tourist . __eou__ Oh , yes . I remember it clearly . Is there anything wrong with it ? __eou__ I'm afraid so . We found this crack on the bottom when I went back to my hotel . __eou__ Oh , how awful ! Let me have a look , I'm terribly sorry . It was most thoughtless of me . Would you excuse me , please ? __eou__ Oh , It's quite all right , I suppose . It can't be helped sometimes . __eou__ It's very kind of you to say so . How about changing another one for you ? __eou__ All right . Thank you . __eou__ Just a minute , please . I won't be long . I'm sure this one is perfect . You may examine it carefully . __eou__ Oh , yes , it is . I'll take this one . __eou__ I'm very sorry for any inconvenience I've caused you . __eou__ Well , there's no reason to apologize for such a trifle thing . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Hello ? Can you give me a tow ? My tour car's stranded .  Sure . Where are you ?  I'm on highway 1-75 going near exit 46 .  What kind of car ?  It's a blue Nissan minivan .  Where are you going to ?  The closest garage . What's the charge ?  You are within 50 kilometers , so it's a 50 - dollar flat rate .  How long will it take ?  About 20 to 30 minutes .  Thanks . ",
+            "input": "Hello ? Can you give me a tow ? My tour car's stranded . __eou__ Sure . Where are you ? __eou__ I'm on highway 1-75 going near exit 46 . __eou__ What kind of car ? __eou__ It's a blue Nissan minivan . __eou__ Where are you going to ? __eou__ The closest garage . What's the charge ? __eou__ You are within 50 kilometers , so it's a 50 - dollar flat rate . __eou__ How long will it take ? __eou__ About 20 to 30 minutes . __eou__ Thanks . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "How's your new car ?  Perfect ! Couldn't be better .  You made a good choice , then ?  It's just what I want .  No regrets ?  I am really pleased with it .  I am glad you are happy .  It's super . ",
+            "input": "How's your new car ? __eou__ Perfect ! Couldn't be better . __eou__ You made a good choice , then ? __eou__ It's just what I want . __eou__ No regrets ? __eou__ I am really pleased with it . __eou__ I am glad you are happy . __eou__ It's super . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Would you like to see our new shirts ?  Sorry , but I'm not really that interested in those things .  Well , they are very nice you know .  Really ?  And not expensive either .  Oh , I don't care about that .  Everybody is buying them .  Are they ?  Yes , they are very fashionable , you see .  I am afraid I am not interested in fashion .  I see .  But thank you very much all the same .  Sorry I couldn't help you . ",
+            "input": "Would you like to see our new shirts ? __eou__ Sorry , but I'm not really that interested in those things . __eou__ Well , they are very nice you know . __eou__ Really ? __eou__ And not expensive either . __eou__ Oh , I don't care about that . __eou__ Everybody is buying them . __eou__ Are they ? __eou__ Yes , they are very fashionable , you see . __eou__ I am afraid I am not interested in fashion . __eou__ I see . __eou__ But thank you very much all the same . __eou__ Sorry I couldn't help you . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "How can I help you ?  I'd like to buy some perfume for my girlfriend .  Do you know what kind of scent she usually wears ?  She usually doesn't wear anything but a few drops of Chanel No . 5 . But I'd like to buy her a new Fragrance .  OK , here are some of our most popular perfumes .  Which one would you recommend ?  Personally , I quite like the new perfume from Clinique . It's a subtle flowery scent . What do you think ?  That smells great . I'll take one bottle , please .  Would you like to buy any other cosmetics for your girlfriend ? We have a full range of products from cosmetics to skin cleansers and moisturizers .  It's OK . She normally just wears a little foundation and some loose powder , and I don't know what shade to buy .  How about some lipstick ? Every woman needs a nice tube of lipstick .  She doesn't usually wear lipstick . She thinks it makes her nose look too big .  How about some mascara ? That will make her eyes look bigger .  No , thank you . She has big enough eyes as it is .  I know what she would like-some whitening cream .  No thanks . Western women usually try to make their skin darker , not lighter .  Will that be all then ?  That will be all . You've been very helpful , thanks . ",
+            "input": "How can I help you ? __eou__ I'd like to buy some perfume for my girlfriend . __eou__ Do you know what kind of scent she usually wears ? __eou__ She usually doesn't wear anything but a few drops of Chanel No . 5 . But I'd like to buy her a new Fragrance . __eou__ OK , here are some of our most popular perfumes . __eou__ Which one would you recommend ? __eou__ Personally , I quite like the new perfume from Clinique . It's a subtle flowery scent . What do you think ? __eou__ That smells great . I'll take one bottle , please . __eou__ Would you like to buy any other cosmetics for your girlfriend ? We have a full range of products from cosmetics to skin cleansers and moisturizers . __eou__ It's OK . She normally just wears a little foundation and some loose powder , and I don't know what shade to buy . __eou__ How about some lipstick ? Every woman needs a nice tube of lipstick . __eou__ She doesn't usually wear lipstick . She thinks it makes her nose look too big . __eou__ How about some mascara ? That will make her eyes look bigger . __eou__ No , thank you . She has big enough eyes as it is . __eou__ I know what she would like-some whitening cream . __eou__ No thanks . Western women usually try to make their skin darker , not lighter . __eou__ Will that be all then ? __eou__ That will be all . You've been very helpful , thanks . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Good morning , madam . Can I help you ?  I want to buy some cleansing milk . What would you recommend ?  Your complexion is on the oily side . I suggest you use cleansing gel .  Anything that can keep my skin clean will do .  How do you prefer this one ? It cleans thoroughly without striping your natural protective oil . The gentle formula keeps skin soft and healthy .  Hm ... the smell is too strong , I can't stand it . I'm very sensitive to fragrance .  We've also got a fragrance-free one , specially designed for sensitive skin . I'm sure you'll like it .  I'll try that . Do you have facial cream to go with that ?  Yes , sure . This line of products is fragrance-free . We have a facial mask , moisturizing lotion , eye cream and tonic .  I'll buy the moisturizing lotion and cleansing gel first . If they suit me , I'll come back for the others later .  Thank you very much , madam . Here are some samples of our products . Do try them out . ",
+            "input": "Good morning , madam . Can I help you ? __eou__ I want to buy some cleansing milk . What would you recommend ? __eou__ Your complexion is on the oily side . I suggest you use cleansing gel . __eou__ Anything that can keep my skin clean will do . __eou__ How do you prefer this one ? It cleans thoroughly without striping your natural protective oil . The gentle formula keeps skin soft and healthy . __eou__ Hm ... the smell is too strong , I can't stand it . I'm very sensitive to fragrance . __eou__ We've also got a fragrance-free one , specially designed for sensitive skin . I'm sure you'll like it . __eou__ I'll try that . Do you have facial cream to go with that ? __eou__ Yes , sure . This line of products is fragrance-free . We have a facial mask , moisturizing lotion , eye cream and tonic . __eou__ I'll buy the moisturizing lotion and cleansing gel first . If they suit me , I'll come back for the others later . __eou__ Thank you very much , madam . Here are some samples of our products . Do try them out . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Dad , can I have a pet ? I did what you said and passed all of my exams .  Then I guess you get to have a pet . Do you know what you want ?  I want a dog . My friend Mindy's dog just had puppies and she said I can have one .  You know who will be responsible for feeding and cleaning and all of that stuff ?  I know , I know . I will do it all by myself .  Have you figured out the costs involved with feeding and caring for it ?  Yes . It will cost me about $ 50 a month . And I make a little more than that already .  Sounds like you've done your homework . I think you're ready for this . ",
+            "input": "Dad , can I have a pet ? I did what you said and passed all of my exams . __eou__ Then I guess you get to have a pet . Do you know what you want ? __eou__ I want a dog . My friend Mindy's dog just had puppies and she said I can have one . __eou__ You know who will be responsible for feeding and cleaning and all of that stuff ? __eou__ I know , I know . I will do it all by myself . __eou__ Have you figured out the costs involved with feeding and caring for it ? __eou__ Yes . It will cost me about $ 50 a month . And I make a little more than that already . __eou__ Sounds like you've done your homework . I think you're ready for this . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Beth , would you like me to help you carry it ?  Thanks , but I don't want to put you into any trouble .  Don't be silly . It's no trouble at all . ",
+            "input": "Beth , would you like me to help you carry it ? __eou__ Thanks , but I don't want to put you into any trouble . __eou__ Don't be silly . It's no trouble at all . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "I think this painting would look good in our living room . What do you think ?  Sure . Let's buy it . ",
+            "input": "I think this painting would look good in our living room . What do you think ? __eou__ Sure . Let's buy it . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Help ! I'm about to drop these books .  I've got them .  Thanks ! ",
+            "input": "Help ! I'm about to drop these books . __eou__ I've got them . __eou__ Thanks ! __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "I need some flowers for my girlfriend .  No problem . Would you like some artificial carnations ?  Oh , no . Carnations are not very elegant . Artificial flowers have no passion .  How much did you want to spend ?  Money is no object .  Our most elegant flower is Golden Lily .  I will take ten .  Do you want to add some baby's breath for that ? They are equally popular now .  Of course . Can I have it delivered to my girlfriend's house this afternoon ?  Yes , but there is a five dollars delivery charge .  That's ok . Here is the address . ",
+            "input": "I need some flowers for my girlfriend . __eou__ No problem . Would you like some artificial carnations ? __eou__ Oh , no . Carnations are not very elegant . Artificial flowers have no passion . __eou__ How much did you want to spend ? __eou__ Money is no object . __eou__ Our most elegant flower is Golden Lily . __eou__ I will take ten . __eou__ Do you want to add some baby's breath for that ? They are equally popular now . __eou__ Of course . Can I have it delivered to my girlfriend's house this afternoon ? __eou__ Yes , but there is a five dollars delivery charge . __eou__ That's ok . Here is the address . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "What can I do for you ?  Can I have a look at your handworks ?  All right . This way , please .  You have quite a range , haven't you ?  Yes , sir .  They are all produced in China , aren't they ?  Yes , they are all distinctive Chinese .  Could you please select me one ?  How do you like this one ? It's very beautiful .  Oh , I like it very much . How much does it cost ?  350 yuan .  OK . I'll take it . ",
+            "input": "What can I do for you ? __eou__ Can I have a look at your handworks ? __eou__ All right . This way , please . __eou__ You have quite a range , haven't you ? __eou__ Yes , sir . __eou__ They are all produced in China , aren't they ? __eou__ Yes , they are all distinctive Chinese . __eou__ Could you please select me one ? __eou__ How do you like this one ? It's very beautiful . __eou__ Oh , I like it very much . How much does it cost ? __eou__ 350 yuan . __eou__ OK . I'll take it . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Dad , do you know where Mom is ?  I think she is in her room putting a little something together for you to take to school with you .  She'd better not start crying like she usually does .  I know , but she is going to miss you something awful . Have I told you how proud I am of you ?  Dad , now don't you go getting mush on me .  I mean it . You have really shown us that you are prepared to take on the adult world .  That means a lot to me Dad . Thanks .  We have great confidence in you . ",
+            "input": "Dad , do you know where Mom is ? __eou__ I think she is in her room putting a little something together for you to take to school with you . __eou__ She'd better not start crying like she usually does . __eou__ I know , but she is going to miss you something awful . Have I told you how proud I am of you ? __eou__ Dad , now don't you go getting mush on me . __eou__ I mean it . You have really shown us that you are prepared to take on the adult world . __eou__ That means a lot to me Dad . Thanks . __eou__ We have great confidence in you . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Mom , look ! My first piggy bank and it still has money in it !  That is a blast from the past .  Remember when I used to beg you to break it so I could go buy ice cream ?  Yes . You sure have come a long way in valuing your hard earned dollars .  Thanks for not giving in to my childhood tantrums , mom .  But what are you going to do with that pig ?  I think I'm going to keep it as a monument to what I've learned about money .  Who knows , maybe one day he will sit on the desk of a top CEO in a major corporation ! ",
+            "input": "Mom , look ! My first piggy bank and it still has money in it ! __eou__ That is a blast from the past . __eou__ Remember when I used to beg you to break it so I could go buy ice cream ? __eou__ Yes . You sure have come a long way in valuing your hard earned dollars . __eou__ Thanks for not giving in to my childhood tantrums , mom . __eou__ But what are you going to do with that pig ? __eou__ I think I'm going to keep it as a monument to what I've learned about money . __eou__ Who knows , maybe one day he will sit on the desk of a top CEO in a major corporation ! __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Tomorrow I will be the new owner of all dad's assets .  It still feels really strange to me .  I know . I miss him terribly .  How does it feel to be in charge of so much money ?  I thought I would feel like I was in the lap of Luxury .  I guess you could choose that if you wanted .  No , I think I will run things much the same way that Dad did .  Dad really knew what he was doing when he chose you to take over for him when he was gone ! ",
+            "input": "Tomorrow I will be the new owner of all dad's assets . __eou__ It still feels really strange to me . __eou__ I know . I miss him terribly . __eou__ How does it feel to be in charge of so much money ? __eou__ I thought I would feel like I was in the lap of Luxury . __eou__ I guess you could choose that if you wanted . __eou__ No , I think I will run things much the same way that Dad did . __eou__ Dad really knew what he was doing when he chose you to take over for him when he was gone ! __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "Do I have to deposit my handbag at the checkroom ?  No , you do not have to . The handbag can be taken with you . There is the cart at the entrance .  Thank you . I'd tike to buy some milk powder for my baby . Is there anything that you can recommend for me ?  Well , how old is your baby ?  No more than three .  The milk powder on the second level of the shelf is for the kids from 2 ages to 4 ages . I advice that you should buy the Wyeth brand , the source of milk is imported from New Zealand .  How about its quality ?  You can be assured of it . There are various nutritions which are beneficial for the growth of babies ' bone and cerebrum .  OK , what is this ?  It is feeding-bottle as the free gift .  It is thoughtful . I will take it . ",
+            "input": "Do I have to deposit my handbag at the checkroom ? __eou__ No , you do not have to . The handbag can be taken with you . There is the cart at the entrance . __eou__ Thank you . I'd tike to buy some milk powder for my baby . Is there anything that you can recommend for me ? __eou__ Well , how old is your baby ? __eou__ No more than three . __eou__ The milk powder on the second level of the shelf is for the kids from 2 ages to 4 ages . I advice that you should buy the Wyeth brand , the source of milk is imported from New Zealand . __eou__ How about its quality ? __eou__ You can be assured of it . There are various nutritions which are beneficial for the growth of babies ' bone and cerebrum . __eou__ OK , what is this ? __eou__ It is feeding-bottle as the free gift . __eou__ It is thoughtful . I will take it . __eou__\n",
             "output": [
                 "Yes"
             ]
         },
         {
-            "input": "My mom and dad insist that I be home before ten . Do you have a curfew ?  Yes . I've had one for as long as I can remember .  I wish my parents were a little more lenient .  I actually like having a curfew . I have an excuse to get to bed on time .  You like going to bed early ?  I don't like being too tired the next day .  Well , I still hate having a curfew .  If you stayed up much later , you would see that just about every-thing closes around ten anyway . ",
+            "input": "My mom and dad insist that I be home before ten . Do you have a curfew ? __eou__ Yes . I've had one for as long as I can remember . __eou__ I wish my parents were a little more lenient . __eou__ I actually like having a curfew . I have an excuse to get to bed on time . __eou__ You like going to bed early ? __eou__ I don't like being too tired the next day . __eou__ Well , I still hate having a curfew . __eou__ If you stayed up much later , you would see that just about every-thing closes around ten anyway . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Can I help you , sir ?  I'd like a table for two , please .  Do you have a reservation , sir ?  No , I'm afraid not . Can I sit over there ? There's a table free by the window .  Sorry , sir . That table has been reserved . This way , please . How about this one , sir ?  Fine . I'll sit here .  Would you like some drinks ?  I'll have a double whiskey on the rocks . ",
+            "input": "Can I help you , sir ? __eou__ I'd like a table for two , please . __eou__ Do you have a reservation , sir ? __eou__ No , I'm afraid not . Can I sit over there ? There's a table free by the window . __eou__ Sorry , sir . That table has been reserved . This way , please . How about this one , sir ? __eou__ Fine . I'll sit here . __eou__ Would you like some drinks ? __eou__ I'll have a double whiskey on the rocks . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Hello !  Hello , Is that Stefan ?  I'm sorry , but I'm afraid you've dialed the wrong number.There is no Stefan here .  Really ? Are you sure ? I called before and he was there .  Yes . I'm sure . You have the wrong number . I have used this number for more than 20 years .  That can't be true . I remember the number clearly . Is your number 1199886 ?  No , it isn't . It's 1199866 . It seems that you have misdialed .  Oh , I'm sorry I bothered you . I'm really sorry .  It doesn't matter . It happens to everyone .  Sorry again for bothering you .  That's all right . ",
+            "input": "Hello ! __eou__ Hello , Is that Stefan ? __eou__ I'm sorry , but I'm afraid you've dialed the wrong number.There is no Stefan here . __eou__ Really ? Are you sure ? I called before and he was there . __eou__ Yes . I'm sure . You have the wrong number . I have used this number for more than 20 years . __eou__ That can't be true . I remember the number clearly . Is your number 1199886 ? __eou__ No , it isn't . It's 1199866 . It seems that you have misdialed . __eou__ Oh , I'm sorry I bothered you . I'm really sorry . __eou__ It doesn't matter . It happens to everyone . __eou__ Sorry again for bothering you . __eou__ That's all right . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Hello . I'd like to speak to Susan .  I'm sorry , but there's no one here by that name .  Isn't this the Whites ?  Yes , this is . What number are you calling ?  I'm calling 6667777 . Maybe my finger slipped and I touched the wrong number .  Sure it is . This is 6666777 .  Oh , sorry to have bothered you .  It doesn't matter . Bye-bye !  Bye ! ",
+            "input": "Hello . I'd like to speak to Susan . __eou__ I'm sorry , but there's no one here by that name . __eou__ Isn't this the Whites ? __eou__ Yes , this is . What number are you calling ? __eou__ I'm calling 6667777 . Maybe my finger slipped and I touched the wrong number . __eou__ Sure it is . This is 6666777 . __eou__ Oh , sorry to have bothered you . __eou__ It doesn't matter . Bye-bye ! __eou__ Bye ! __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "What can I help you with today ?  My washing machine isn't working .  What's the problem ?  The water will not drain .  Is there anything else wrong with it ?  No , that's it .  I can come down and fix that for you if you'd like .  When will you be able to fix it ?  How does this afternoon at 2:30 sound to you ?  That would be perfect .  Alright , so I'll see you then ?  See you then . ",
+            "input": "What can I help you with today ? __eou__ My washing machine isn't working . __eou__ What's the problem ? __eou__ The water will not drain . __eou__ Is there anything else wrong with it ? __eou__ No , that's it . __eou__ I can come down and fix that for you if you'd like . __eou__ When will you be able to fix it ? __eou__ How does this afternoon at 2:30 sound to you ? __eou__ That would be perfect . __eou__ Alright , so I'll see you then ? __eou__ See you then . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "I am really interested in buying this television .  That's great !  How much are you selling it for ?  This TV is $ 2500 .  You can't be serious .  That's how much this t . v costs .  That's too expensive for me .  This television is of very high quality .  You can't go down on the price ?  By how much ?  I'll buy it for $ 2000 .  I'm sorry , but the price is final . ",
+            "input": "I am really interested in buying this television . __eou__ That's great ! __eou__ How much are you selling it for ? __eou__ This TV is $ 2500 . __eou__ You can't be serious . __eou__ That's how much this t . v costs . __eou__ That's too expensive for me . __eou__ This television is of very high quality . __eou__ You can't go down on the price ? __eou__ By how much ? __eou__ I'll buy it for $ 2000 . __eou__ I'm sorry , but the price is final . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "I'm thirsty . Pull over to that store , I'll buy some drinks .  I'm afraid I can't . Parking is not allowed here .  Oh , that's too bad . Where can you park around here ?  There is a square in front of us , we can park the car there .  Is a shop there ?  I'm not sure , you know I'm not familiar with the city , too .  Just stop here for a moment . The police will not notice .  No , that's too risky .  All right . Let's go to the square to have a look . ",
+            "input": "I'm thirsty . Pull over to that store , I'll buy some drinks . __eou__ I'm afraid I can't . Parking is not allowed here . __eou__ Oh , that's too bad . Where can you park around here ? __eou__ There is a square in front of us , we can park the car there . __eou__ Is a shop there ? __eou__ I'm not sure , you know I'm not familiar with the city , too . __eou__ Just stop here for a moment . The police will not notice . __eou__ No , that's too risky . __eou__ All right . Let's go to the square to have a look . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "I have a problem .  What's the problem ?  My mattress was supposed to be delivered today .  Is there a problem ?  The delivery people showed up four hours late .  I apologize for their tardiness .  I was late for work because of them .  Again , I do apologize for the inconvenience .  I want my money back for the delivery .  Seeing as they were late , that won't be a problem .  It shouldn't be a problem .  I'm going to refund your money right now . ",
+            "input": "I have a problem . __eou__ What's the problem ? __eou__ My mattress was supposed to be delivered today . __eou__ Is there a problem ? __eou__ The delivery people showed up four hours late . __eou__ I apologize for their tardiness . __eou__ I was late for work because of them . __eou__ Again , I do apologize for the inconvenience . __eou__ I want my money back for the delivery . __eou__ Seeing as they were late , that won't be a problem . __eou__ It shouldn't be a problem . __eou__ I'm going to refund your money right now . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "How much is this shirt ?  80 yuan .  It's rather expensive , isn't it ?  It's a bit . But I can give you a discount .  How about 50 yuan ?  No . I'm afraid the price is too low .  Then let's split the difference and I'll give you 60 yuan , OK ?  I'm sorry , but I think you should give me no less than 65 yuan .  All right . ",
+            "input": "How much is this shirt ? __eou__ 80 yuan . __eou__ It's rather expensive , isn't it ? __eou__ It's a bit . But I can give you a discount . __eou__ How about 50 yuan ? __eou__ No . I'm afraid the price is too low . __eou__ Then let's split the difference and I'll give you 60 yuan , OK ? __eou__ I'm sorry , but I think you should give me no less than 65 yuan . __eou__ All right . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "I want to buy a rain coat . Could you please show me one ?  With pleasure . What color do you like ?  I like yellow best . How much does it cost ?  It costs 275 yuan , Miss .  It's nice , but that's very steep for a rain coat . Could you give me a 20 percent discount ?  Sorry , we don't give discounts .  In that case , I don't think I'll buy one here . ",
+            "input": "I want to buy a rain coat . Could you please show me one ? __eou__ With pleasure . What color do you like ? __eou__ I like yellow best . How much does it cost ? __eou__ It costs 275 yuan , Miss . __eou__ It's nice , but that's very steep for a rain coat . Could you give me a 20 percent discount ? __eou__ Sorry , we don't give discounts . __eou__ In that case , I don't think I'll buy one here . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "May I help you ?  This dress is beautiful . May I try it on ?  I'm afraid you can't .  What is the material of this dress ?  It's 100 % cotton .  That's good . Can you give me a reduction ?  It's already reduced 20 % .  Do you have any cheaper ones ?  Yes . Please come this way . ",
+            "input": "May I help you ? __eou__ This dress is beautiful . May I try it on ? __eou__ I'm afraid you can't . __eou__ What is the material of this dress ? __eou__ It's 100 % cotton . __eou__ That's good . Can you give me a reduction ? __eou__ It's already reduced 20 % . __eou__ Do you have any cheaper ones ? __eou__ Yes . Please come this way . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "How are you ?  No so good . I broke traffic regulations yesterday and I got a ticket .  Could you tell me how you dealt with it this time ?  Certainly , as long as you don't tell my wife . ",
+            "input": "How are you ? __eou__ No so good . I broke traffic regulations yesterday and I got a ticket . __eou__ Could you tell me how you dealt with it this time ? __eou__ Certainly , as long as you don't tell my wife . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "You look depressed . What's on your mind ?  Well , I had a blood test last week . The doctor said that I have high blood pressure and my blood is thick and sticky . I'm very worried .  Take it easy . When we last talked , you promised there would be more exercises in your life . But now you are putting on some weight .  I have to admit it's easier said than done .  Well , I think it's time for you to change your eating habits and develop a healthy lifestyle . Regular exercise will improve your health .  But you know I'm just not into exercises . And I wouldn't have time for exercises , either .  You can do some jogging . It's easy and it doesn't take much time .  Actually , my doctor said the same thing . ",
+            "input": "You look depressed . What's on your mind ? __eou__ Well , I had a blood test last week . The doctor said that I have high blood pressure and my blood is thick and sticky . I'm very worried . __eou__ Take it easy . When we last talked , you promised there would be more exercises in your life . But now you are putting on some weight . __eou__ I have to admit it's easier said than done . __eou__ Well , I think it's time for you to change your eating habits and develop a healthy lifestyle . Regular exercise will improve your health . __eou__ But you know I'm just not into exercises . And I wouldn't have time for exercises , either . __eou__ You can do some jogging . It's easy and it doesn't take much time . __eou__ Actually , my doctor said the same thing . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "What's wrong with you ?  I feel so tired .  I really recommend you go for a run in the morning .  Why ? I'd just be dead tired for the rest of the day .  On the contrary ! It really refreshes you and gets you ready to attack the day .  Are you sure ?  Yes , I often feel like a million dollars after work , like I can take on anything .  OK . Let me try . ",
+            "input": "What's wrong with you ? __eou__ I feel so tired . __eou__ I really recommend you go for a run in the morning . __eou__ Why ? I'd just be dead tired for the rest of the day . __eou__ On the contrary ! It really refreshes you and gets you ready to attack the day . __eou__ Are you sure ? __eou__ Yes , I often feel like a million dollars after work , like I can take on anything . __eou__ OK . Let me try . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Are you going to buy a bicycle ?  I ’ m thinking about it . How much is it ?  ¥ 350 .  Oh , dear . It ’ s too expensive . Can you give me a better price ?  Your discount is already included . Normally we charge ¥ 400 , but now we can give you a special price . This is our sale period .  It ’ s still too much . Can ’ t you make it any cheaper than that ?  Sorry , but this is the best price . You can ’ t get it any cheaper than here .  I see . Can I pay by traveler ’ s checks ?  I'm afraid you can ’ t . You ’ re welcome to pay in cash . ",
+            "input": "Are you going to buy a bicycle ? __eou__ I ’ m thinking about it . How much is it ? __eou__ ¥ 350 . __eou__ Oh , dear . It ’ s too expensive . Can you give me a better price ? __eou__ Your discount is already included . Normally we charge ¥ 400 , but now we can give you a special price . This is our sale period . __eou__ It ’ s still too much . Can ’ t you make it any cheaper than that ? __eou__ Sorry , but this is the best price . You can ’ t get it any cheaper than here . __eou__ I see . Can I pay by traveler ’ s checks ? __eou__ I'm afraid you can ’ t . You ’ re welcome to pay in cash . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "May I help you , sir ?  I want to try on this suit .  Certainly . Here's a mirror .  I'm afraid it's too narrow across the shoulders . Do you have a larger one ?  Yes . This one must fit you .  It's a bit loose . Do you have a middle size ?  I'm afraid not , sir .  What a pity ! ",
+            "input": "May I help you , sir ? __eou__ I want to try on this suit . __eou__ Certainly . Here's a mirror . __eou__ I'm afraid it's too narrow across the shoulders . Do you have a larger one ? __eou__ Yes . This one must fit you . __eou__ It's a bit loose . Do you have a middle size ? __eou__ I'm afraid not , sir . __eou__ What a pity ! __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Here is the fish counter . Look at the lobsters and crabs . Shall we have some ?  I'm allergic to these things , you know .  Sorry , I forgot . I don ’ t like seafood , neither .  Let ’ s go over there and get some milk , a couple dozen eggs and some orange juice .  Let's get frozen juice . It is really good . We ’ Ve got enough food . Let ’ s go over to the check-out stand .  OK . But just let me pick up a bottle of cooking wine and oil as we go by . ",
+            "input": "Here is the fish counter . Look at the lobsters and crabs . Shall we have some ? __eou__ I'm allergic to these things , you know . __eou__ Sorry , I forgot . I don ’ t like seafood , neither . __eou__ Let ’ s go over there and get some milk , a couple dozen eggs and some orange juice . __eou__ Let's get frozen juice . It is really good . We ’ Ve got enough food . Let ’ s go over to the check-out stand . __eou__ OK . But just let me pick up a bottle of cooking wine and oil as we go by . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Excuse me , but is this dress on sale ?  The dress was on sale yesterday .  Are you sure ? I'd be happy to pay the sale price today .  I'm so sorry , but rules are rules .  OK , I'll just check out a few other stores .  I'm sorry I couldn't help you . ",
+            "input": "Excuse me , but is this dress on sale ? __eou__ The dress was on sale yesterday . __eou__ Are you sure ? I'd be happy to pay the sale price today . __eou__ I'm so sorry , but rules are rules . __eou__ OK , I'll just check out a few other stores . __eou__ I'm sorry I couldn't help you . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Can I borrow this magazine from you ? It's really interesting and I can't put it down .  I am sorry , but I can't lend it to you now , for I haven't finished reading it . If you don't mind , I can lend you some back numbers to you .  That would be very kind of you . By the way , is it a monthly magazine ?  No , it is a fortnightly . So , you see , I can get the new one quite soon . ",
+            "input": "Can I borrow this magazine from you ? It's really interesting and I can't put it down . __eou__ I am sorry , but I can't lend it to you now , for I haven't finished reading it . If you don't mind , I can lend you some back numbers to you . __eou__ That would be very kind of you . By the way , is it a monthly magazine ? __eou__ No , it is a fortnightly . So , you see , I can get the new one quite soon . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Doctor , my child is nine years old , and I recently found that he was constantly telling lies about how he is doing at school .  Is he doing very well at school ?  He is doing OK , but he pretends he is doing much better by telling lies .  What's his problem ?  This may be complicated . But I think he may need to build up his self-esteem .  How can his he do that ?  There are a lot of ways to help a kid build up self-esteem , but to begin with , you can try and give him more rewards . Rewards will help a chil improve his self-esteem . ",
+            "input": "Doctor , my child is nine years old , and I recently found that he was constantly telling lies about how he is doing at school . __eou__ Is he doing very well at school ? __eou__ He is doing OK , but he pretends he is doing much better by telling lies . __eou__ What's his problem ? __eou__ This may be complicated . But I think he may need to build up his self-esteem . __eou__ How can his he do that ? __eou__ There are a lot of ways to help a kid build up self-esteem , but to begin with , you can try and give him more rewards . Rewards will help a chil improve his self-esteem . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Do you take in students ? I've been told you might have a vacant room .  Yes . If you don't mind sharing room with someone else , there's one available .  How much are you asking ?  800 Yuan a month .  Could I have a look at it , please ?  Sorry , but I'm on my way out now . Could you come back in an hour ? ",
+            "input": "Do you take in students ? I've been told you might have a vacant room . __eou__ Yes . If you don't mind sharing room with someone else , there's one available . __eou__ How much are you asking ? __eou__ 800 Yuan a month . __eou__ Could I have a look at it , please ? __eou__ Sorry , but I'm on my way out now . Could you come back in an hour ? __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "I think this spring is a good time for us to start looking .  We should plan to move out of here before July . I'm tired of living in apartments .  I know , dear . I am too . But we've just been too busy to look for a house .  We need to find a good realtor .  Not necessary . If we use a realtor to find a house , it will be more expensive .  What do you mean ?  Realtors always get a commission . If the realtor helps us find something , we have to pay him .  But doesn't a realtor help with the contract ? I thought they take care of all the legal troubles .  Yes , that's often true . But you have to pay them .  I still think we should have a realtor . We're new in this country . We don't know all the laws of buying a house . And also , the realtor will inspect the house . He can tell us if the house has any problems .  Of course we need a house inspector . But we can hire an inspector on our own . As for the legal problems , I have friends . They can help us .  So how can we find a house if we don't have a realtor ?  It takes a little more time . We have to check the ads in the paper . Probably also there are special real estate magazines with ads . Then we have to drive to the homes and look at them .  And doesn't the person selling the house have a realtor ?  Sometimes they do , sometimes they don't . It's best to find someone who is selling by themselves .  Why ?  That is because if the seller has a realtor , their price will be higher . He will have to pay a commission to the realtor .  Hmm . It all sounds very complicated .  It is . But buying a house is very important . So it takes time . That's why we haven't done it yet . It's very troublesome .  I want to look in the papers today . Maybe we can see something we like .  All right . I'll buy a newspaper when I go to the drugstore . ",
+            "input": "I think this spring is a good time for us to start looking . __eou__ We should plan to move out of here before July . I'm tired of living in apartments . __eou__ I know , dear . I am too . But we've just been too busy to look for a house . __eou__ We need to find a good realtor . __eou__ Not necessary . If we use a realtor to find a house , it will be more expensive . __eou__ What do you mean ? __eou__ Realtors always get a commission . If the realtor helps us find something , we have to pay him . __eou__ But doesn't a realtor help with the contract ? I thought they take care of all the legal troubles . __eou__ Yes , that's often true . But you have to pay them . __eou__ I still think we should have a realtor . We're new in this country . We don't know all the laws of buying a house . And also , the realtor will inspect the house . He can tell us if the house has any problems . __eou__ Of course we need a house inspector . But we can hire an inspector on our own . As for the legal problems , I have friends . They can help us . __eou__ So how can we find a house if we don't have a realtor ? __eou__ It takes a little more time . We have to check the ads in the paper . Probably also there are special real estate magazines with ads . Then we have to drive to the homes and look at them . __eou__ And doesn't the person selling the house have a realtor ? __eou__ Sometimes they do , sometimes they don't . It's best to find someone who is selling by themselves . __eou__ Why ? __eou__ That is because if the seller has a realtor , their price will be higher . He will have to pay a commission to the realtor . __eou__ Hmm . It all sounds very complicated . __eou__ It is . But buying a house is very important . So it takes time . That's why we haven't done it yet . It's very troublesome . __eou__ I want to look in the papers today . Maybe we can see something we like . __eou__ All right . I'll buy a newspaper when I go to the drugstore . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "What else should we do now after the floors are done and after the furniture is in ?  We need to redo the curtains and paint all the walls and ceilings .  I'm the painter . You can be in charge of going to curtain shops to choose curtains . That will probably be pretty expensive too . Having good curtains made isn't cheap .  You mean we can't just buy curtains already made ?  Absolutely not . The windows must be measured , and then the curtains need to be made professionally . So that will take a while . Maybe a month or so .  While the curtains are being made , I can start having people look at the kitchen . I can't stand that old kitchen . I won't be able to cook there . I don't want to use that electric stove .  We need to find an interior decorating company to redecorate the kitchen . I believe in Portland there are shops that specialize in kitchen renovation . I will look in the Yellow Pages . I'd like a kitchen mostly in ivory and light green .  I agree . The colors must be soft and pleasant . You should feel comfortable when you cook our dinners .  Me ? Cook our dinners ? Hah ! You will be cooking , dear . You will cook .  No , I don't think so . I'll be too busy having tea in our new tea room .  Well , I suppose we'll have to hire a cook then . So you won't be able to afford any clothes next year .  And you'll have to sell your motorcycle . And your cameras . Right ?  Maybe I'll cook once or twice a week . How is that ?  Four times might be enough . Not once or twice . ",
+            "input": "What else should we do now after the floors are done and after the furniture is in ? __eou__ We need to redo the curtains and paint all the walls and ceilings . __eou__ I'm the painter . You can be in charge of going to curtain shops to choose curtains . That will probably be pretty expensive too . Having good curtains made isn't cheap . __eou__ You mean we can't just buy curtains already made ? __eou__ Absolutely not . The windows must be measured , and then the curtains need to be made professionally . So that will take a while . Maybe a month or so . __eou__ While the curtains are being made , I can start having people look at the kitchen . I can't stand that old kitchen . I won't be able to cook there . I don't want to use that electric stove . __eou__ We need to find an interior decorating company to redecorate the kitchen . I believe in Portland there are shops that specialize in kitchen renovation . I will look in the Yellow Pages . I'd like a kitchen mostly in ivory and light green . __eou__ I agree . The colors must be soft and pleasant . You should feel comfortable when you cook our dinners . __eou__ Me ? Cook our dinners ? Hah ! You will be cooking , dear . You will cook . __eou__ No , I don't think so . I'll be too busy having tea in our new tea room . __eou__ Well , I suppose we'll have to hire a cook then . So you won't be able to afford any clothes next year . __eou__ And you'll have to sell your motorcycle . And your cameras . Right ? __eou__ Maybe I'll cook once or twice a week . How is that ? __eou__ Four times might be enough . Not once or twice . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "How slowly you drive !  I'm sorry . Something is wrong with my taxi .  Where does it go wrong ?  Let me stop my car for check . Oh , my god . I got a flat tyre .  Can it keep going ?  Sorry . You'd better get off for taking another taxi . ",
+            "input": "How slowly you drive ! __eou__ I'm sorry . Something is wrong with my taxi . __eou__ Where does it go wrong ? __eou__ Let me stop my car for check . Oh , my god . I got a flat tyre . __eou__ Can it keep going ? __eou__ Sorry . You'd better get off for taking another taxi . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Good afternoon , sir . Have you made a reservation ?  I am afraid not . Are there any vacant tables ?  I don't think so . You have to wait for about 10 minutes .  That's all right . ",
+            "input": "Good afternoon , sir . Have you made a reservation ? __eou__ I am afraid not . Are there any vacant tables ? __eou__ I don't think so . You have to wait for about 10 minutes . __eou__ That's all right . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Long Distance . May I help you ?  Yes . I'd like to place an overseas call to London . Can I dial direct ?  No , sir . I'm afraid not .  Oh , I see . How about the charges ?  The charges vary according to the types of call you make . The cheapest is a station-to-stcrtion call , then a person-to-person call . The mini charge will apply for the first three minutes , then each additional minute will be charged .  Oh , let me think of it ... Could you put through a collect cal for me ?  Certainly . Who are you calling ?  It's a Mrs . Peters , Marilyn Peters .  And what's the number you are calling ?  It's London , 9981-6432 .  And your name and number ?  My name's Ron Smith and the phone number is 356-2210 .  Hang up and I'll call you back in a few minutes . ",
+            "input": "Long Distance . May I help you ? __eou__ Yes . I'd like to place an overseas call to London . Can I dial direct ? __eou__ No , sir . I'm afraid not . __eou__ Oh , I see . How about the charges ? __eou__ The charges vary according to the types of call you make . The cheapest is a station-to-stcrtion call , then a person-to-person call . The mini charge will apply for the first three minutes , then each additional minute will be charged . __eou__ Oh , let me think of it ... Could you put through a collect cal for me ? __eou__ Certainly . Who are you calling ? __eou__ It's a Mrs . Peters , Marilyn Peters . __eou__ And what's the number you are calling ? __eou__ It's London , 9981-6432 . __eou__ And your name and number ? __eou__ My name's Ron Smith and the phone number is 356-2210 . __eou__ Hang up and I'll call you back in a few minutes . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Good evening , may I help you ?  I would like to book a table for six tonight .  Sorry , sir . We have only double tables left .  What a pity . Can you recommend a nice restaurant near here ?  Sure . In the middle part of the fifth street , there is a Phoenix Restaurant . Maybe you can go there . ",
+            "input": "Good evening , may I help you ? __eou__ I would like to book a table for six tonight . __eou__ Sorry , sir . We have only double tables left . __eou__ What a pity . Can you recommend a nice restaurant near here ? __eou__ Sure . In the middle part of the fifth street , there is a Phoenix Restaurant . Maybe you can go there . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Excuse me , waiter . Could we change our table for that one ? My wife is quite interested in the scenery .  I am sorry . That table has been booked .  It doesn't matter . This one is fine . ",
+            "input": "Excuse me , waiter . Could we change our table for that one ? My wife is quite interested in the scenery . __eou__ I am sorry . That table has been booked . __eou__ It doesn't matter . This one is fine . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "My parents are always saying I am not good enough .  Really . What do they mean ?  They say my hair is too long , my room is too dirty and I am not good enough at school .  What do you think then ?  I don ’ t think they are right . I have tried my best and that's enough . It is unfair that they are always saying these thing . Sometimes I even feel deeply hurt . ",
+            "input": "My parents are always saying I am not good enough . __eou__ Really . What do they mean ? __eou__ They say my hair is too long , my room is too dirty and I am not good enough at school . __eou__ What do you think then ? __eou__ I don ’ t think they are right . I have tried my best and that's enough . It is unfair that they are always saying these thing . Sometimes I even feel deeply hurt . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Excuse me , I ordered the well-done steak , but this one is so tough .  Well , sir , I think I have made a mistake . I will take it back to the kitchen right now .  I think you should be more careful next time .  Yes , sir . I'm really so sorry about that . ",
+            "input": "Excuse me , I ordered the well-done steak , but this one is so tough . __eou__ Well , sir , I think I have made a mistake . I will take it back to the kitchen right now . __eou__ I think you should be more careful next time . __eou__ Yes , sir . I'm really so sorry about that . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Is there anything I can do for you ?  Excuse me , can I change my order ? I am afraid I don't have so much time to enjoy my dinner .  I am sorry , sir . Your fish will be ready in five minutes so you can't change it .  That's all right . ",
+            "input": "Is there anything I can do for you ? __eou__ Excuse me , can I change my order ? I am afraid I don't have so much time to enjoy my dinner . __eou__ I am sorry , sir . Your fish will be ready in five minutes so you can't change it . __eou__ That's all right . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "It looks delicious . I will order it .  I am sorry , sir , it's for 4 persons to have . I think it's too large for you .  Would you please make it for a single person ?  Sorry , sir . We have never done that before . ",
+            "input": "It looks delicious . I will order it . __eou__ I am sorry , sir , it's for 4 persons to have . I think it's too large for you . __eou__ Would you please make it for a single person ? __eou__ Sorry , sir . We have never done that before . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "You ran the stop sign . May I see your driver's licence , please ?  Oh , I'm sorry . I didn't see the stop sign at the corner . I didn't mean it .  That doesn't justify your violation . May I see your licence , please ?  Oh , sorry , I don't have it on me . Honestly , I forgot it at the house . But I have the insurance policy with me . Here it is .  Well , sir , your insurance looks good , but I still have to write you a ticket .  I understand , officer . I guess it's just not my day today . I will accept the fine . ",
+            "input": "You ran the stop sign . May I see your driver's licence , please ? __eou__ Oh , I'm sorry . I didn't see the stop sign at the corner . I didn't mean it . __eou__ That doesn't justify your violation . May I see your licence , please ? __eou__ Oh , sorry , I don't have it on me . Honestly , I forgot it at the house . But I have the insurance policy with me . Here it is . __eou__ Well , sir , your insurance looks good , but I still have to write you a ticket . __eou__ I understand , officer . I guess it's just not my day today . I will accept the fine . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Sir , here is your curried beef .  Well . I am afraid you have made a mistake . It's not the dish I ordered .  Let me see , I am sorry . It's for table 11 .  It doesn't matter . ",
+            "input": "Sir , here is your curried beef . __eou__ Well . I am afraid you have made a mistake . It's not the dish I ordered . __eou__ Let me see , I am sorry . It's for table 11 . __eou__ It doesn't matter . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "How do you like you dishes today ?  Not so delicious as before , but it's fine . The soup is tasty but the meat is a little tough .  I am sorry for that . We will improve the dishes next time . ",
+            "input": "How do you like you dishes today ? __eou__ Not so delicious as before , but it's fine . The soup is tasty but the meat is a little tough . __eou__ I am sorry for that . We will improve the dishes next time . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Can I pay my bill here ?  Yes , sir .  How much is the charge ?  Let me see ... it's $ 50 .  Do you receive checks ?  Sorry , sir . We receive credit card and cash only .  Here is my card . ",
+            "input": "Can I pay my bill here ? __eou__ Yes , sir . __eou__ How much is the charge ? __eou__ Let me see ... it's $ 50 . __eou__ Do you receive checks ? __eou__ Sorry , sir . We receive credit card and cash only . __eou__ Here is my card . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Hello , could I make a reservation ?  Sure . At what time ?  6 o'dock in the evening .  Let me see ... Sorry , sir . We are fully booked tonight . Would you mind making a reservation some other time ?  Do you offer mutton hot pot at noon ?  Yes , sir .  Then we will come here for lunch tomorrow . ",
+            "input": "Hello , could I make a reservation ? __eou__ Sure . At what time ? __eou__ 6 o'dock in the evening . __eou__ Let me see ... Sorry , sir . We are fully booked tonight . Would you mind making a reservation some other time ? __eou__ Do you offer mutton hot pot at noon ? __eou__ Yes , sir . __eou__ Then we will come here for lunch tomorrow . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Could I have a refund on this ?  I'm afraid you can ’ t .  Then can I exchange it for something else with the same price ?  Just a moment . Let me find out . Our manager Wil be here in a minute . So will you speak to him ?  OK . I will . ",
+            "input": "Could I have a refund on this ? __eou__ I'm afraid you can ’ t . __eou__ Then can I exchange it for something else with the same price ? __eou__ Just a moment . Let me find out . Our manager Wil be here in a minute . So will you speak to him ? __eou__ OK . I will . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Can I have my money back on this skirt ?  Anything wrong with it ?  Yes , this is defective . See ? I didn't notice this hole when I bought it .  Oh , I'm very sorry about that . You can change it for another one if you prefer .  If you have exactly the same one-same color , same design , and same size , of course .  This one is the same size and color . But the design is different . ",
+            "input": "Can I have my money back on this skirt ? __eou__ Anything wrong with it ? __eou__ Yes , this is defective . See ? I didn't notice this hole when I bought it . __eou__ Oh , I'm very sorry about that . You can change it for another one if you prefer . __eou__ If you have exactly the same one-same color , same design , and same size , of course . __eou__ This one is the same size and color . But the design is different . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Hello , Elizabeth . How are you ?  Fine , thanks .  Are you sure you're all right ? You look a bit worried today . Is anything wrong ?  Well , yes , there is something wrong actually . Perhaps you can give me some advice .  Of course , if I can .  Well , last night when I returned from the theatre , I found that I'd lost my wallet .  Oh dear ! That's terrible ! What was in your wallet ?  Well , some money . of course , my visa , all my identity cards and some photos .  Well , if were you , I'd go to the police station straight away and report it .  Yes , I've already done that , and they said they'd look for it . But we're leaving soon and I need my visa and identity cards badly .  Oh dear ! What a pity ! Are you sure you lost the wallet in the theatre ?  Yes , quite sure .  I think you should put an advertisement in the China Daily , saying when and where you lost it .  But that takes too long .  Wait a minute ! My uncle lives in Beijing and he lives very close to the theatre . I'll telephone him and ask him to go there to inquire about it . You'd better have breakfast now and I'll meet you later . ",
+            "input": "Hello , Elizabeth . How are you ? __eou__ Fine , thanks . __eou__ Are you sure you're all right ? You look a bit worried today . Is anything wrong ? __eou__ Well , yes , there is something wrong actually . Perhaps you can give me some advice . __eou__ Of course , if I can . __eou__ Well , last night when I returned from the theatre , I found that I'd lost my wallet . __eou__ Oh dear ! That's terrible ! What was in your wallet ? __eou__ Well , some money . of course , my visa , all my identity cards and some photos . __eou__ Well , if were you , I'd go to the police station straight away and report it . __eou__ Yes , I've already done that , and they said they'd look for it . But we're leaving soon and I need my visa and identity cards badly . __eou__ Oh dear ! What a pity ! Are you sure you lost the wallet in the theatre ? __eou__ Yes , quite sure . __eou__ I think you should put an advertisement in the China Daily , saying when and where you lost it . __eou__ But that takes too long . __eou__ Wait a minute ! My uncle lives in Beijing and he lives very close to the theatre . I'll telephone him and ask him to go there to inquire about it . You'd better have breakfast now and I'll meet you later . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Do you mind if I open the window ?  If you don't mind , I'd rather you didn't . I have a cold and feel chilly .  Oh , that's too bad . Should I call a doctor ?  I'd appreciate it if you would .  OK . ",
+            "input": "Do you mind if I open the window ? __eou__ If you don't mind , I'd rather you didn't . I have a cold and feel chilly . __eou__ Oh , that's too bad . Should I call a doctor ? __eou__ I'd appreciate it if you would . __eou__ OK . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Excuse me . You can't leave your car here .  Oh , but I Just want to pick up a package . It won't take long .  I'm afraid you'll have to find a parking meter .  Can I park here just for a second ?  No , sir . I'm sorry you can't . ",
+            "input": "Excuse me . You can't leave your car here . __eou__ Oh , but I Just want to pick up a package . It won't take long . __eou__ I'm afraid you'll have to find a parking meter . __eou__ Can I park here just for a second ? __eou__ No , sir . I'm sorry you can't . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "It's your turn , sir . I'm sorry that you had to wait . Saturday is a busy day for us .  I suppose so . A haircut , please .  How do you want your hair cut ? Any particular way ?  I'd just like a trim , and don't cut it too short .  Yes , sir . How about the sideburns ?  I think they only need a little trimming .  Can I use the clippers ?  No , don't use them , please .  Oh , all right , sir .  Would you trim off a bit more there , above the ear ?  Don't you think it needs a little taken off on top , too ?  I guess that would be better .  ( Raising a lock ) About like this ?  No , not that much . Now , yes , that's fine .  Shave also , s ir ?  Yes .  How do you want your moustache trimmed ? ",
+            "input": "It's your turn , sir . I'm sorry that you had to wait . Saturday is a busy day for us . __eou__ I suppose so . A haircut , please . __eou__ How do you want your hair cut ? Any particular way ? __eou__ I'd just like a trim , and don't cut it too short . __eou__ Yes , sir . How about the sideburns ? __eou__ I think they only need a little trimming . __eou__ Can I use the clippers ? __eou__ No , don't use them , please . __eou__ Oh , all right , sir . __eou__ Would you trim off a bit more there , above the ear ? __eou__ Don't you think it needs a little taken off on top , too ? __eou__ I guess that would be better . __eou__ ( Raising a lock ) About like this ? __eou__ No , not that much . Now , yes , that's fine . __eou__ Shave also , s ir ? __eou__ Yes . __eou__ How do you want your moustache trimmed ? __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Hi , is that Mr . Wu ?  Yes . What can I do for you ?  I am calling to query about some of your information .  We've got a bad line . Can you repeat that please ?  I said I want to ask about some of your information .  Sorry , the connection is terrible . I'll call you back because I can't hear anything . ",
+            "input": "Hi , is that Mr . Wu ? __eou__ Yes . What can I do for you ? __eou__ I am calling to query about some of your information . __eou__ We've got a bad line . Can you repeat that please ? __eou__ I said I want to ask about some of your information . __eou__ Sorry , the connection is terrible . I'll call you back because I can't hear anything . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Waiter !  I'll be with you in a second . Uh ... Yes , ma'am ?  This is not what I asked for . I'm afraid .  Oh , I'm so sorry . May I ask what you ordered again ?  Yes . What I ordered is roast beef , not roast beef sandwiches . ",
+            "input": "Waiter ! __eou__ I'll be with you in a second . Uh ... Yes , ma'am ? __eou__ This is not what I asked for . I'm afraid . __eou__ Oh , I'm so sorry . May I ask what you ordered again ? __eou__ Yes . What I ordered is roast beef , not roast beef sandwiches . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Hello , my name's David Wong . I've ordered a sofa from you last Wednesday . I wonder when it will be delivered today .  Let me check ... what's your voucher number ?  It's 45132 .  Wait a minute , please---Mr . Wong , I'm terribly sorry . Our delivery truck had an accident today . I'm afraid your sofa won't be delivered until tomorrow . ",
+            "input": "Hello , my name's David Wong . I've ordered a sofa from you last Wednesday . I wonder when it will be delivered today . __eou__ Let me check ... what's your voucher number ? __eou__ It's 45132 . __eou__ Wait a minute , please---Mr . Wong , I'm terribly sorry . Our delivery truck had an accident today . I'm afraid your sofa won't be delivered until tomorrow . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "I put in two quarters for a coke , but nothing came out of the machine .  Really ? Let me check it .  I'm sure it's broken .  No , ma'am . I ’ m afraid you put in only one quarter and one dime . ",
+            "input": "I put in two quarters for a coke , but nothing came out of the machine . __eou__ Really ? Let me check it . __eou__ I'm sure it's broken . __eou__ No , ma'am . I ’ m afraid you put in only one quarter and one dime . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Excuse me . I bought this just now and here's a receipt . I'm afraid I was short-changed . Could you look into it ?  Oh , really ? Just a moment ... You paid with a ten-dollar note and I gave you ... Oh , sorry , here's a five left . I'm terribly sorry . ",
+            "input": "Excuse me . I bought this just now and here's a receipt . I'm afraid I was short-changed . Could you look into it ? __eou__ Oh , really ? Just a moment ... You paid with a ten-dollar note and I gave you ... Oh , sorry , here's a five left . I'm terribly sorry . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Hello ?  Hello , is this 4482098 7 ? I'd like to speak to Mr Doff .  I am sorry . Mr . Doff is out right now .  May I know when he will be back ?  I don't know . But he will certainly be back for lunch . This is his wife speaking . Can I take a message for you ?  Thanks , Mrs . Doff . Please tell him to be at the airport at three p . m .  Very Good . I will let him know as soon as he comes back . But , may I have your name , please ?  This is Lucy White . Thank you . Bye .  Bye . ",
+            "input": "Hello ? __eou__ Hello , is this 4482098 7 ? I'd like to speak to Mr Doff . __eou__ I am sorry . Mr . Doff is out right now . __eou__ May I know when he will be back ? __eou__ I don't know . But he will certainly be back for lunch . This is his wife speaking . Can I take a message for you ? __eou__ Thanks , Mrs . Doff . Please tell him to be at the airport at three p . m . __eou__ Very Good . I will let him know as soon as he comes back . But , may I have your name , please ? __eou__ This is Lucy White . Thank you . Bye . __eou__ Bye . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Can I make a reservation ?  Yes , sir . For what time ?  7 o'clock tonight and there will be 5 persons .  OK , sir . Five persons at 7:00 .  Do you have a VIP room ?  Sorry , sir . We have only tables in the main dinning room left . ",
+            "input": "Can I make a reservation ? __eou__ Yes , sir . For what time ? __eou__ 7 o'clock tonight and there will be 5 persons . __eou__ OK , sir . Five persons at 7:00 . __eou__ Do you have a VIP room ? __eou__ Sorry , sir . We have only tables in the main dinning room left . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Can I make preservation now ?  Sure . At what time ?  9:45 , please . We want a table next to the window .  I am sorry , sir . We are booked until 9:10 .  In that case , please help us reserve a table for 4 at 9:00 . ",
+            "input": "Can I make preservation now ? __eou__ Sure . At what time ? __eou__ 9:45 , please . We want a table next to the window . __eou__ I am sorry , sir . We are booked until 9:10 . __eou__ In that case , please help us reserve a table for 4 at 9:00 . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Hello , is Jennifer in ?  I am sorry , you have the wrong number .  Oh , I am really sorry . ",
+            "input": "Hello , is Jennifer in ? __eou__ I am sorry , you have the wrong number . __eou__ Oh , I am really sorry . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "I would like to return this pair of shoes .  Do you have a sales slip ?  Here it is .  Sorry , things on sale are not allowed to be refunded or exchanged .  Oh , but this pair of shoes are a bit too tight . Could I change them for something bigger ?  All right . Wait a minute . ",
+            "input": "I would like to return this pair of shoes . __eou__ Do you have a sales slip ? __eou__ Here it is . __eou__ Sorry , things on sale are not allowed to be refunded or exchanged . __eou__ Oh , but this pair of shoes are a bit too tight . Could I change them for something bigger ? __eou__ All right . Wait a minute . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "If this coat doesn't fit , may I bring it back later ?  Sorry , We don't take returns on sale items . ",
+            "input": "If this coat doesn't fit , may I bring it back later ? __eou__ Sorry , We don't take returns on sale items . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Excuse me , miss . I don't think we need the MP4 any more . We would like to refund it .  May I see your receipt ?  Here you are .  I am sorry , sir . You bought it 2 weeks ago , and you can only refund it in one week . ",
+            "input": "Excuse me , miss . I don't think we need the MP4 any more . We would like to refund it . __eou__ May I see your receipt ? __eou__ Here you are . __eou__ I am sorry , sir . You bought it 2 weeks ago , and you can only refund it in one week . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Is there anything I can do for you ?  Yes . I am looking for a pair of gloves .  What about this one ? It's the latest .  Excuse me , but I want a pair of mittens .  I am sorry , it's out of stock right now . ",
+            "input": "Is there anything I can do for you ? __eou__ Yes . I am looking for a pair of gloves . __eou__ What about this one ? It's the latest . __eou__ Excuse me , but I want a pair of mittens . __eou__ I am sorry , it's out of stock right now . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "What's the cost of the trousers ?  $ 90 .  Is there a price reduction ?  Sorry , sir . The prices here are all fixed . ",
+            "input": "What's the cost of the trousers ? __eou__ $ 90 . __eou__ Is there a price reduction ? __eou__ Sorry , sir . The prices here are all fixed . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "How about drink , Sir ?  A cup of coffee , please .  Would you like cream or sugar in your coffee ?  I'd like a little sugar , please .  Sorry , I don't have any sugar .  Why did you ask me if I wanted some ?  I don't know . I just wasn't thinking . ",
+            "input": "How about drink , Sir ? __eou__ A cup of coffee , please . __eou__ Would you like cream or sugar in your coffee ? __eou__ I'd like a little sugar , please . __eou__ Sorry , I don't have any sugar . __eou__ Why did you ask me if I wanted some ? __eou__ I don't know . I just wasn't thinking . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "What's the price for that suit ?  It's $ 160 .  Well , I like everything about it except the price .  Sorry , sir , we are having a sale now . ",
+            "input": "What's the price for that suit ? __eou__ It's $ 160 . __eou__ Well , I like everything about it except the price . __eou__ Sorry , sir , we are having a sale now . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "I will take it . How much ?  $ 60 .  I am sure you can do better than that .  Sorry , sir . It's the sale price .  Well , what about $ 70 with a scarf ?  It's my rock bottom price . Take it or leave it . ",
+            "input": "I will take it . How much ? __eou__ $ 60 . __eou__ I am sure you can do better than that . __eou__ Sorry , sir . It's the sale price . __eou__ Well , what about $ 70 with a scarf ? __eou__ It's my rock bottom price . Take it or leave it . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "How much is it all together ?  Let me see . The bell-bottom pants are $ 90 and the coat is $ 120 . It comes to $ 210 .  Is it possible for you to reduce the price ?  I am sorry . It's a one-price shop . ",
+            "input": "How much is it all together ? __eou__ Let me see . The bell-bottom pants are $ 90 and the coat is $ 120 . It comes to $ 210 . __eou__ Is it possible for you to reduce the price ? __eou__ I am sorry . It's a one-price shop . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Waiter , can you come here for a moment ?  Yes , is there something wrong ?  I'm afraid you've made a mistake . This isn't what I ordered .  So sorry , I must have confused the orders . I'll check it .  And also this soup is cold .  I'm really sorry , I'll bring you a hot one right away . ",
+            "input": "Waiter , can you come here for a moment ? __eou__ Yes , is there something wrong ? __eou__ I'm afraid you've made a mistake . This isn't what I ordered . __eou__ So sorry , I must have confused the orders . I'll check it . __eou__ And also this soup is cold . __eou__ I'm really sorry , I'll bring you a hot one right away . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Excuse me , sir . Is there anything I can do for you ?  Yes . I bought the can two days ago , but today I found that is beyond the guarantee period .  Let me see . I am sorry , sir . We will change another one for you . Please wait a moment . ",
+            "input": "Excuse me , sir . Is there anything I can do for you ? __eou__ Yes . I bought the can two days ago , but today I found that is beyond the guarantee period . __eou__ Let me see . I am sorry , sir . We will change another one for you . Please wait a moment . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "I will take the coat . Do you receive checks ?  Yes , of course .  Here you are . Please give me a receipt .  Sorry , sir , you have to pay in the check-out counter . It's there .  OK , please wrap it for me first . ",
+            "input": "I will take the coat . Do you receive checks ? __eou__ Yes , of course . __eou__ Here you are . Please give me a receipt . __eou__ Sorry , sir , you have to pay in the check-out counter . It's there . __eou__ OK , please wrap it for me first . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "May I help you ?  I bought the MP4 in your store a week before , but it doesn't work today .  Have you brought your receipt ?  Yes , here you are .  I am sorry , we will change yours for a new one . ",
+            "input": "May I help you ? __eou__ I bought the MP4 in your store a week before , but it doesn't work today . __eou__ Have you brought your receipt ? __eou__ Yes , here you are . __eou__ I am sorry , we will change yours for a new one . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Excuse me , what do you want for this bag ?  Let me see . That one goes for $ 17 .  Would you take $ 12 ?  No , I can ’ t give it to you , let you have it for 12 . How about 14 ?  13.50 ?  Sorry , $ 14 is the lowest I can go . ",
+            "input": "Excuse me , what do you want for this bag ? __eou__ Let me see . That one goes for $ 17 . __eou__ Would you take $ 12 ? __eou__ No , I can ’ t give it to you , let you have it for 12 . How about 14 ? __eou__ 13.50 ? __eou__ Sorry , $ 14 is the lowest I can go . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Good evening , sir . What's your pleasure this evening ? Your usual ?  Yes . I'm going to stay with the same , a beer .  Certainly , a beer . Here you are , sir .  Oh , darn . Look what I've done . ( Spill the drink )  Don't worry . I'll make you another on the house . ",
+            "input": "Good evening , sir . What's your pleasure this evening ? Your usual ? __eou__ Yes . I'm going to stay with the same , a beer . __eou__ Certainly , a beer . Here you are , sir . __eou__ Oh , darn . Look what I've done . ( Spill the drink ) __eou__ Don't worry . I'll make you another on the house . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Yes , sir ?  I hate to complain , but this soup is too salty .  I'm very sorry , sir . I'll ask the manager to take care of this . ",
+            "input": "Yes , sir ? __eou__ I hate to complain , but this soup is too salty . __eou__ I'm very sorry , sir . I'll ask the manager to take care of this . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Hello . May I speak to David ?  Who ?  David Bush .  There ’ s nobody here by that name .  Sorry , I dialed the wrong number . ",
+            "input": "Hello . May I speak to David ? __eou__ Who ? __eou__ David Bush . __eou__ There ’ s nobody here by that name . __eou__ Sorry , I dialed the wrong number . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Driver , bring me to the station .  OK .  Can you please speed up ? I am catching the train .  I am sorry . There is a speed limit .  Oh , my god . ",
+            "input": "Driver , bring me to the station . __eou__ OK . __eou__ Can you please speed up ? I am catching the train . __eou__ I am sorry . There is a speed limit . __eou__ Oh , my god . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Do you have any plans for dinner tonight ?  No , I was thinking of putting a frozen pizza in the oven or something . How about you ?  I was thinking maybe we could make dinner together tonight . What do you think ?  I'm absolutely useless at cooking !  I could teach you how to cook something healthy . Frozen pizza are so bad for you !  I know they aren't good for you , but they are cheap , convenient , and fairly tasty .  I recently saw a recipe for spicy chicken curry in a magadize . Maybe we could try that ?  Yeah , why not . Do you have all the ingredients ?  I bought all the ingredients this morning , so let's start !  What do we do first ?  first , you need to wash the vegetables and then chop them into little pieces .  Ok . Should I heat the wok ?  Yes . Once it gets hot , put a little oil in it , add the vegetables and stir-fry them for a few minutes .  What about the chicken ?  That needs to be cut into thin strips about 3 cm long and then it can be stir-fried on its own until its cooked through .  How about the rice ?  I'll prepare that . Do you prefer white rice or brown rice ?  White rice , please . None of that healthy brown stuff for me ! ",
+            "input": "Do you have any plans for dinner tonight ? __eou__ No , I was thinking of putting a frozen pizza in the oven or something . How about you ? __eou__ I was thinking maybe we could make dinner together tonight . What do you think ? __eou__ I'm absolutely useless at cooking ! __eou__ I could teach you how to cook something healthy . Frozen pizza are so bad for you ! __eou__ I know they aren't good for you , but they are cheap , convenient , and fairly tasty . __eou__ I recently saw a recipe for spicy chicken curry in a magadize . Maybe we could try that ? __eou__ Yeah , why not . Do you have all the ingredients ? __eou__ I bought all the ingredients this morning , so let's start ! __eou__ What do we do first ? __eou__ first , you need to wash the vegetables and then chop them into little pieces . __eou__ Ok . Should I heat the wok ? __eou__ Yes . Once it gets hot , put a little oil in it , add the vegetables and stir-fry them for a few minutes . __eou__ What about the chicken ? __eou__ That needs to be cut into thin strips about 3 cm long and then it can be stir-fried on its own until its cooked through . __eou__ How about the rice ? __eou__ I'll prepare that . Do you prefer white rice or brown rice ? __eou__ White rice , please . None of that healthy brown stuff for me ! __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "I'm afraid I have to return this sweater .  May I ask if there's anything wrong with it ?  You see , there is a run at the neck .  Oh , sorry.But do you want to change it for another one ?  No , thank you . ",
+            "input": "I'm afraid I have to return this sweater . __eou__ May I ask if there's anything wrong with it ? __eou__ You see , there is a run at the neck . __eou__ Oh , sorry.But do you want to change it for another one ? __eou__ No , thank you . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Something's wrong with my computer .  Exactly what ?  All I get is a black screen .  What's the matter ?  I think I know , because this happened before .  What happened before ?  My hard drive crashed .  Oh , no . That's bad news .  It sure is , but I'm going to call HP first , just to make sure .  Will you lose all your files ?  No , I always back up my files .  You're smart . ",
+            "input": "Something's wrong with my computer . __eou__ Exactly what ? __eou__ All I get is a black screen . __eou__ What's the matter ? __eou__ I think I know , because this happened before . __eou__ What happened before ? __eou__ My hard drive crashed . __eou__ Oh , no . That's bad news . __eou__ It sure is , but I'm going to call HP first , just to make sure . __eou__ Will you lose all your files ? __eou__ No , I always back up my files . __eou__ You're smart . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Why do you stop me ?  You have gone against the traffic rules .  I'm sorry .  Do you know this is a Onaway street ?  I don't know .  You have to pay a fine . ",
+            "input": "Why do you stop me ? __eou__ You have gone against the traffic rules . __eou__ I'm sorry . __eou__ Do you know this is a Onaway street ? __eou__ I don't know . __eou__ You have to pay a fine . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Oh , the bus is gone .  Pity we didn't catch it .  I'm afraid we have to wait for the next bus .  We have to wait six more minutes ! ",
+            "input": "Oh , the bus is gone . __eou__ Pity we didn't catch it . __eou__ I'm afraid we have to wait for the next bus . __eou__ We have to wait six more minutes ! __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "I'm afraid I forgot to lock the door .  You're so careless , Billy .  Sorry , Mum , I'll lock it right away .  I've done it for you . ",
+            "input": "I'm afraid I forgot to lock the door . __eou__ You're so careless , Billy . __eou__ Sorry , Mum , I'll lock it right away . __eou__ I've done it for you . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "George , did you remember to buy me the book ?  Sorry , darling , I forgot .  When will you buy it then ?  I promise you'll have it tomorrow . ",
+            "input": "George , did you remember to buy me the book ? __eou__ Sorry , darling , I forgot . __eou__ When will you buy it then ? __eou__ I promise you'll have it tomorrow . __eou__\n",
             "output": [
                 "No"
             ]
         },
         {
-            "input": "Steven , what's the expense of moving house ?  About 3 000 dollars .  It costs a lot of money . Hospital bills had already made deep in-roads into our savings . Do you think the rest of your salary will be enough to cover our daily expenses ?  I am afraid not , darling . Our expenses are mounting .  We have to cut back on our shopping from now on .  Don't worry . Maybe I can find a part-time job to increase my income .  I hope so . ",
+            "input": "Steven , what's the expense of moving house ? __eou__ About 3 000 dollars . __eou__ It costs a lot of money . Hospital bills had already made deep in-roads into our savings . Do you think the rest of your salary will be enough to cover our daily expenses ? __eou__ I am afraid not , darling . Our expenses are mounting . __eou__ We have to cut back on our shopping from now on . __eou__ Don't worry . Maybe I can find a part-time job to increase my income . __eou__ I hope so . __eou__\n",
             "output": [
                 "No"
             ]
