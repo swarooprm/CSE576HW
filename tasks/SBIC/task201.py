@@ -28,13 +28,13 @@ task['Positive Examples'] = [
     {
         "input": "Living alone rocks. Being sick and living alone sucks. Will bake someone many a baked good for some "
                  "NyQuil / DayQuil rn.",
-        "output": 0.0,
+        "output": "No",
         "explanation": "This is a good example of a post that is not intended to offend. There is no sign of intention "
                        "to offend and no offensive language is used. This is simply a post about the pitiful state of the poster."
     },
     {
         "input": "@hi_imkadie I wouldn't know cause i don't fuck with these hoes",
-        "output": 1.0,
+        "output": "Yes",
         "explanation": "This is a good example of an offensive post, because it uses both offensive language and "
                        "has an aggressive undertone."
     },
@@ -43,13 +43,13 @@ task['Positive Examples'] = [
 task['Negative Examples'] = [
     {
         "input": "@Midnight_Snacka bitches like u be proving my point, u speak on shit u know nothing about I got a fucking at studio movie grill just stfu",
-        "output": 0.0,
+        "output": "No",
         "explanation": "(Answer is incorrect) This is clearly an example of an offensive post, because it uses both offensive language and "
                        "has an aggressive undertone."
     },
     {
         "input": "i just got a flashback to after the wwa tour when my dad was parked by the shedd waiting to pick us up wtf",
-        "output": 1.0,
+        "output": "Yes",
         "explanation": "(Answer is incorrect) Although this uses some expletive language like 'wtf', this is not considered offensive because "
                        "the post does not seem to be aggressive or intend to attack anything."
     },
@@ -83,13 +83,23 @@ df1 = df[df['intentYN'] == 1][0:1000]
 # print(df1) #max index 4578, can select pos and negative examples past this
 # At this point, df0 contains 1000 label 0, df1 contains 1000 label 1
 
+duplicate_finder=set()
 for post0, post1 in zip(df0.iterrows(), df1.iterrows()):
     text0 = post0[1][1]
-    label0 = post0[1][0]
+    label0 = "Yes" if post0[1][0] == 1 else "No"
     text1 = post1[1][1]
-    label1 = post1[1][0]
-    task['Instances'].append({"input": text0, "output": label0})
-    task['Instances'].append({"input": text1, "output": label1})
+    label1 = "Yes" if post1[1][0] == 1 else "No"
+
+    if text0 in duplicate_finder or text1 in duplicate_finder:
+        duplicate_finder.add(text0)
+        duplicate_finder.add(text1)
+        continue
+
+    duplicate_finder.add(text0)
+    duplicate_finder.add(text1)
+
+    task['Instances'].append({"input": text0, "output": [label0]})
+    task['Instances'].append({"input": text1, "output": [label1]})
 
 f = json.dumps(task, indent=4)
 # Save filename

@@ -27,17 +27,17 @@ task['Definition'] = "You will be provided with a text input. Your task is to de
 task['Positive Examples'] = [
     {
         "input": "\"Ghost in the Shell makes $19M, a lot less than expected. Now write some hot takes for \"\"why Marvel never made a standalone Black Widow movie\"\"\"",
-        "output": 0.0,
+        "output": "No",
         "explanation": "(Correct Answer) This post does not reference sexually explicity or lewd content."
     },
     {
         "input": "ok yea i listen to weird music but this guy is playing some metal mexican rap shit and I really need to leave this class",
-        "output": 0.0,
+        "output": "No",
         "explanation": "(Correct Answer) This post does not reference sexually explicity or lewd content. Even though it uses offensive language, it is not lewd."
     },
     {
         "input": "george michaels q. what 's white and sticky and found on the bathroom wall ? a. george michael 's latest release .",
-        "output": 1.0,
+        "output": "Yes",
         "explanation": "(Correct Answer) This post references semen, and is therefore considered sexually explicit."
     }
 
@@ -47,17 +47,17 @@ task['Negative Examples'] = [
 
     {
         "input": "Don't tell me what I am or what I've been through ,, ya fucking fat ugly cunT",
-        "output": 1.0,
+        "output": "Yes",
         "explanation": "(Incorrect Answer) This post references the word 'cunt,' a vulgar slang for female genitalia, but this word also means something else in this context."
     },
     {
         "input": "the chances of you getting laid . <repeat> . <repeat> re about equal to the chances of oscar pistorius catching athlete 's foot from sharing a bathroom with his girlfriend",
-        "output": 0.0,
+        "output": "No",
         "explanation": "(Incorrect Answer) This post features a reference to catching sexually transmitted disease and is therefore considered sexually explicit or lewd."
     },
     {
         "input": "niggas wanted women rights trans rights gay rights asian rights muslim rights mexican rights\u2026 y\u2019all want inclusion there you have it",
-        "output": 1.0,
+        "output": "Yes",
         "explanation": "(Incorrect Answer) This post is racially charged and offensive, but does not contain any reference to sexually explicit content."
     }
 
@@ -91,13 +91,23 @@ print(df0)  # max index ----, can select pos and negative examples past this
 print(df1)  # max index ----, can select pos and negative examples past this
 # At this point, df0 contains 1000 label 0, df1 contains 1000 label 1
 
+duplicate_finder=set()
 for post0, post1 in zip(df0.iterrows(), df1.iterrows()):
     text0 = post0[1][1]
-    label0 = post0[1][0]
+    label0 = "Yes" if post0[1][0] == 1 else "No"
     text1 = post1[1][1]
-    label1 = post1[1][0]
-    task['Instances'].append({"input": text0, "output": label0})
-    task['Instances'].append({"input": text1, "output": label1})
+    label1 = "Yes" if post1[1][0] == 1 else "No"
+
+    if text0 in duplicate_finder or text1 in duplicate_finder:
+        duplicate_finder.add(text0)
+        duplicate_finder.add(text1)
+        continue
+
+    duplicate_finder.add(text0)
+    duplicate_finder.add(text1)
+
+    task['Instances'].append({"input": text0, "output": [label0]})
+    task['Instances'].append({"input": text1, "output": [label1]})
 
 f = json.dumps(task, indent=4)
 # Save filename

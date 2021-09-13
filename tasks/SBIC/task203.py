@@ -26,17 +26,17 @@ task['Positive Examples'] = [
 
     {
         "input": "#RPDR FUCKING FARRAH MOAN, HAVE YOU NEVER WATCHED THIS SHOW. WHEN YOU GET THE CALL, TAKE A LESSON.",
-        "output": 1.0,
+        "output": "Yes",
         "explanation": "(Correct Answer) This post is aggressive and berates a person for not having watched a show. Therefore the correct answer is 1/Potentially Offensive."
     },
     {
         "input": "I literally didn't even plan to live this long enough to experience aftershocks , I'm so scared of losing important things in my life \u2639\ufe0f",
-        "output": 0.0,
+        "output": "No",
         "explanation": "(Correct Answer) This post does not intend to offend and does not have any elements that make it offensive."
     },
     {
         "input": "to look at the bigger picture and see what this stupid and impulsive action done by our president means for us, what happens next?",
-        "output": 1.0,
+        "output": "Yes",
         "explanation": "(Correct Answer) This post is aggressive and is politically charged. Therefore the correct answer is 1/Potentially Offensive."
     }
 
@@ -45,24 +45,24 @@ task['Positive Examples'] = [
 task['Negative Examples'] = [
     {
         "input": "My sky sports news ain't working so I've gotta listen to that fucking clown Saunders &#128584;&#128584;&#128534;",
-        "output": 0.0,
+        "output": "No",
         "explanation": "(Incorrect Answer) This post is aggressive and is politically charged. Therefore the correct answer is 1/Potentially Offensive."
     },
     {
         "input": "We will always be going through it. But bitterness will assure that you will go through it humanly alone.",
-        "output": 1.0,
+        "output": "Yes",
         "explanation": "(Incorrect Answer) This post does not intend to offend and does not have any elements that make it offensive."
     },
     {
         "input": "Temp: 59.9\u00b0F Wind:4.5mph Pressure: 30.03mb Falling slowly Rain Today 0.00in. Forecast: Unsettled, precipitation later",
-        "output": 1.0,
+        "output": "Yes",
         "explanation": "(Incorrect Answer) This post does not intend to offend and does not have any elements that make it offensive."
     },
     {
-        "input": "\"I hate all these \"\"safe spaces\"\" that people think they need. How about just live life? Oh, someone offended you! Do you know what you can -\"",
-        "output": 1.0,
-        "explanation": "(Incorrect Answer) This post is aggressive and ridicules the concept of safe spaces,"
-        " a community where one can be free of judgment. Therefore the correct answer is 1/Potentially Offensive."
+        "input": "I hate all these safe spaces that people think they need. How about just live life? Oh, someone offended you! Do you know what you can",
+        "output": "No",
+        "explanation": "(Incorrect Answer) This post is aggressive and ridicules the concept of safe spaces, "
+                       "a community where one can be free of judgment. Therefore the correct answer is 1/Potentially Offensive."
     }
 
 ]
@@ -95,13 +95,23 @@ print(df0)  # max index ----, can select pos and negative examples past this
 print(df1)  # max index ----, can select pos and negative examples past this
 # At this point, df0 contains 1000 label 0, df1 contains 1000 label 1
 
+duplicate_finder=set()
 for post0, post1 in zip(df0.iterrows(), df1.iterrows()):
     text0 = post0[1][1]
-    label0 = post0[1][0]
+    label0 = "Yes" if post0[1][0] == 1 else "No"
     text1 = post1[1][1]
-    label1 = post1[1][0]
-    task['Instances'].append({"input": text0, "output": label0})
-    task['Instances'].append({"input": text1, "output": label1})
+    label1 = "Yes" if post1[1][0] == 1 else "No"
+
+    if text0 in duplicate_finder or text1 in duplicate_finder:
+        duplicate_finder.add(text0)
+        duplicate_finder.add(text1)
+        continue
+
+    duplicate_finder.add(text0)
+    duplicate_finder.add(text1)
+
+    task['Instances'].append({"input": text0, "output": [label0]})
+    task['Instances'].append({"input": text1, "output": [label1]})
 
 f = json.dumps(task, indent=4)
 # Save filename
