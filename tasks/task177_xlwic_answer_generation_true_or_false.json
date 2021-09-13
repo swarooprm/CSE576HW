@@ -1,0 +1,2279 @@
+{
+    "Contributors": [
+        "Ananth Duggirala"
+    ],
+    "Source": [
+        "xlwic"
+    ],
+    "Categories": [
+        "Answer Generation"
+    ],
+    "Definition": "In this task, you are given a word, followed by two sentences. Your task is to figure out whether both the sentences use the aforementioned word with the same meaning. You should respond with 'True' if the words in both sentences share the same meaning, and 'False' otherwise.",
+    "Positive Examples": [
+        {
+            "input": "dust: Another one bites the dust. The maid used a handkerchief to remove dust off the table.",
+            "output": "True.",
+            "explanation": "In both sentences, the word 'dust' refers to sand, and therefore the words share the same meaning."
+        },
+	{
+	    "input": "project: Several classmates collaborated on a project. The professor projected a slide onto the screen.",
+            "output": "False.",
+            "explanation": "In both sentences, the word 'project' is used with a different meaning, an undertaking of an activity and to appear on a surface by the controlled direction of light, respectively."
+	},
+        {
+            "input": "sound: The sound reverberated across the hall. The baby fell sound asleep.",
+            "output": "False.",
+            "explanation": "In both sentences, the word 'sound' has a different meaning. In the former, it is used to refer to sound waves, and in the latter, it is used to refer to sleeping deeply."
+        },
+        {
+            "input": "airplane: The passengers went into a frenzy as the airplane lurched sideways. The airplane landed on the runway.",
+            "output": "True.",
+            "explanation": "In both sentences, airplane is used to refer to the same entity, a vehicle used for aerial transportation."
+        }
+     ],
+    "Negative Examples": [
+        {
+            "input": "ruler: The headmistress struck the table with a ruler. The ruler decided to change taxation laws in his province.",
+            "output": "True.",
+            "explanation": "The word 'ruler' has a different meaning in both sentences. In the first sentence, it refers to a measuring stick, and in the latter it refers one that rules, such as a king. Therefore, the answer is incorrect."
+        },
+        {
+            "input": "driver: The driver of the bus took his foot off the brakes. The driver asked the passengers to disembark.",
+            "output": "False.",
+            "explanation": "In both sentences, the word 'driver' is used for a person who is in charge of driving a vehicle. Therefore, the answer is incorrect."
+        },
+        {
+            "input": "small: The kid was too small to be able to board the rollercoaster. Ants are very small creatures.",
+            "output": "False.",
+            "explanation": "In both sentences, 'small' is used to refer to size, and hence the answer given is incorrect."
+        }
+	],
+    "Instances": [
+        {
+            "input": "approach: Approach a task. To approach the city.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "summer: We like to summer in the Mediterranean. We summered in Kashmir.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "meet: The company agrees to meet the cost of any repairs. This proposal meets my requirements.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "development: The organism has reached a crucial stage in its development. Our news team brings you the latest developments.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "narrowness: The problem with achievement tests is the narrowness they impose on students. Frustrated by the narrowness of people's horizons.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "act: The governor should act on the new energy bill. Think before you act.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "port: Port the helm. Port arms!",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "finish: The boat had a metallic finish. He applied a coat of a clear finish.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "dress: Dress the windows. Marlene dressed herself.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "strike: Strike a medal. The boxer struck the attacker dead.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "flux: It is important to use flux when soldering or oxides on the metal will prevent a good bond. His opinions are in flux.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "create: You can create the color orange by mixing yellow and red. The company was created 25 years ago.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "action: The United Nations must have the power to propose and organize action without being hobbled by irrelevant issues. Recent federal action undermined the segregationist position.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "spill: Spill the milk. The former employee spilled all the details.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "beat: Beat one's foot rhythmically. I beat the traffic.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "voice: The voice of the law. Conservatism has many voices.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "study: He knocked lightly on the closed door of the study. He is a quick study.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "material: She was vice-presidential material. He was university material.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "fatigue: He was suffering from museum fatigue. The American public is experiencing scandal fatigue.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "fish: The shark is a large fish. In the living room there was a tank of colorful fish.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "begin: Begin a new chapter in your life. Begin a cigar.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "solution: The solution took three hours. They were trying to find a peaceful solution.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "space: They stopped at an open space in the jungle. The astronauts walked in outer space without a tether.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "shot: He is still recovering from a shot to his leg. I caught him with a solid shot to the chin.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "subvert: Do school counselors subvert young children? We must not let our civil liberties be subverted by the current crisis.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "academy: A riding academy. Academies of literature and philology.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "spot: A bald spot. A leopard's spots.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "light: Follow God's light. Magoon's governorship in Cuba was viewed in a negative light by many Cuban historians for years thereafter.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "wallah: The book wallah. A kitchen wallah.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "region: In the abdominal region. The temperate regions.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "carry: These bonds carry warrants. This new washer carries a two year guarantee.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "raise: Raise the question of promotions. Raise from the dead.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "keep: Keep appointments. We kept to the original conditions of the contract.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "dent: It made a dent in my bank account. The crash produced a dent in the left side of the car.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "voice: After the fire a still small voice. -- 1 Kings 19:12. The voice of the law.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "cycle: The cycle of the seasons, or of the year. The never-ending cycle of the seasons.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "be: I shall be writing to you soon. 3 times 5 is fifteen.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "laugh: Paul laughed a cheerful laugh. She laughed her excitement.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "reach: Our advertisements reach millions. His hand reaches the river.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "wall: A wall of prejudice. The container's walls were blue.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "change: The change was intended to increase sales. This storm is certainly a change for the worse.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "baby: This project is his baby. Stand up for yourself-don't be such a baby!",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "score: Settling a score. The player with the highest score is the winner.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "close: The owners decided to move and to close the factory. My business closes every night at 8 P.M.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "connection: The connection between church and state is inescapable. My headache has no connection with me going out last night.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "go: Go about the world in a certain manner. We should go farther in this matter.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "know: Do you know my sister? I know him under a different name.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "rake: Rake gravel. The gunfire raked the coast.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "quality: \"The quality of mercy is not strained\" -- Shakespeare. While being impulsive can be great for artists, it is not a desirable quality for engineers.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "image: The number 6 is the image of 3 under f that is defined as f(x) = 2*x. The image of f(x) = x^2 is the set of all non-negative real numbers if the domain of the function is the set of all real numbers.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "tell: He could tell that she was unhappy. She told him how he did it.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "space: The astronauts walked in outer space without a tether. The space between his teeth.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "snow: It started to snow. It is snowing.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "join: I will join you watching the football game as soon as I have finished my work. She joined him for a drink.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "boy: Steve is a boy of 16. She made the boy brush his teeth every night.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "give: Give an excuse. What will you give her for her birthday?",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "take: Take a scene. Take a test.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "draw: Draw pulp from the fruit. They saw that the night was quickly drawing in, so they pitched their tent.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "energy: Energy can take a wide variety of forms. Europeans often laugh at American energy.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "brim: Brim a cup to good fellowship. The room brimmed with people.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "origin: Mineral origin. Vegetable origins.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "see: You should see a lawyer. We had to see a psychiatrist.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "strike: Strike a bargain. Strike fire from the flintstone.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "unit: A unit of wheat is a bushel. He was a member of a special police unit.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "shoot: Shoot a movie. Shoot a basket.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "title: A good title to an estate, or an imperfect title. His title to fame.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "shoot: Shoot a basket. Shoot a goal.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "couple: Now the conductor will couple the train cars. I've coupled our system to theirs.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "variant: The word \"kerosine\" is a variant of \"kerosene\". A variant of the same word.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "application: The application of maximum thrust. Massage has far-reaching medical applications.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "account: He predicted that although it is of small account now it will rapidly increase in importance. The account of his speech that was given on the evening news made the governor furious.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "discover: The story is false, so far as I can discover. I discovered what to do.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "interest: In the interest of safety. Victorian furniture is an interest of mine.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "come: Come into the room. He came from France.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "company: He started the company in his garage. He only invests in large well-established companies.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "remember: I can't remember saying any such thing. I remember the concert clearly, but I can't recollect why I was there.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "course: The course of the river. He took a course in basket weaving.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "movement: He had a bowel movement. It was an expensive watch with a diamond movement.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "life: He wanted to live his own life without interference from others. She's my love, my life.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "multiply: He managed to multiply his profits. He had been multiplying, but it occurred to him he needed to resolve the exponents, first.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "setup: It takes time to learn the setup around here. The laboratory included an elaborate setup for measuring the energy.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "approach: Don't approach that house. He was an admirable poet, and thought even to have approached Homer. -- Sir William Temple.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "force: A public force is necessary to give security to the rights of citizens. The forces of evil.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "communicate: Many deaf people communicate with sign language. I feel I hardly know him; I just wish he'd communicate with me a little more.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "gather: I gather from Aunty May that you had a good day at the match. Let's gather in the dining room.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "float: Float the plaster. The balloon floated off into the distance.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "development: In chess your should take care of your development before moving your queen. Recent developments in Iraq.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "pursuit: The pursuit of love. Unremitting pursuit of wealth doesn't bring happiness, particularly if successful.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "session: A filming session. A gossip session.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "collector: He is an avid collector of nineteenth-century postage stamps. That old piano is just a big dust collector.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "deep: In the deep of winter. In the deep of night.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "forefront: The idea of motion was always to the forefront of his mind and central to his philosophy. That laboratory researches topics at the forefront of technology.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "rotation: The medical resident finished a two-week rotation in pediatrics and began one in orthopaedics. Crop rotation makes a balanced demand on the fertility of the soil.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "vaccinate: We vaccinate against scarlet fever. The nurse vaccinated the children in the school.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "light: I'm really seeing you in a different light today. The light of my life.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "freeze: Don't go outside wearing just a t-shirt; you'll freeze! Freeze the leftover food.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "transcript: You can obtain a transcript of this radio program by sending a self-addressed envelope to the station. He read a transcript of the interrogation.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "try: You are trying my patience. Try the yak butter.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "party: The green party took 12% of the vote. In 1992 Perot tried to organize a third party at the national level.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "formation: A formation of planes. A defensive formation.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "see: I can see a risk in this strategy. We went to see the Eiffel Tower in the morning.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "open: Vermont will open elk hunting season next week. An opportunity opened up.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "clear: Clear the leaves from the lawn. Clear snow from the road.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "pack: You had better pack your swollen ankle with ice. Pack the books into the boxes.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "classify: Should we classify \"make up\" as an idiom or as a phrasal verb? She classified the works as 'dangerous'.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "sign: Their angry expressions were a clear sign they didn't want to talk. Those clouds show little sign of raining soon.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "develop: Develop a passion for painting. Please develop this roll of film.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "give: Can you give me lessons? I gave her my money.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "interest: He has a lot of interest in vintage cars. Victorian furniture is an interest of mine.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "structure: Artists must study the structure of the human body. His lectures have no structure.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "come: Nothing good will come of this. Come down here!",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "keep: Keep food for a week in the pantry. She keeps a sixpack and a week's worth of supplies in the refrigerator.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "admit: To admit a serious thought into the mind. She admitted us.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "lot: A lot of money. He bought a lot on the lake.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "position: Chief of Staff is the second-highest position in the army. Atheists do not enjoy a favorable position in American life.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "part: He wanted to feel a part of something bigger than himself. She played the part of Desdemona.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "fatigue: He was suffering from museum fatigue. Political fatigue.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "shag: The dog's woolly shag. He bought a shag rug.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "plug: Plug the hole. He attempted to plug the leaks with some caulk.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "strike: We must strike the enemy's oil fields. In the fifth inning, the Giants struck, sending three runners home to win the game 5 to 2.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "opening: The opening received good critical reviews. John spends two hours a day studying openings, and another two hours studying endgames.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "count: Can you count the books on your shelf? I can count my colleagues in the opposition.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "assume: The gods assume human or animal form in these fables. She assumed indifference, even though she was seething with anger.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "give: Give thought to. The roof finally gave under the weight of the ice.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "spring: I spent my spring holidays in Morocco. He will hold office until the spring of next year.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "have: What do we have here? I have two years left.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "number: The number of parameters is small. He had a number of chores to do.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "raise: We raise hogs here. Raise the price of bread.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "baseball: He played baseball in high school. There was a baseball game on every empty lot.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "noise: During the firework display that ended the gala the noise reached 98 decibels. He enjoyed the street noises.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "one: He is the best one. Driver, noun: one who drives.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "split: He was winning until he got a split in the tenth frame. They announced a two-for-one split of the common stock.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "suffer: I've been suffering your insults for years. He suffered the penalty.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "home: The teacher asked how many people made up his home. Deliver the package to my home.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "give: Give thought to. Give priority to.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "immolate: Immolate the valuables at the temple. The Aztecs immolated human victims.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "draw: Draw a conclusion. He spent the day drawing in the garden.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "effect: The new law will come into effect on the first day of next year. The law is still in effect.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "bind: Bind the books in leather. The hydrogen binds the oxygen.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "side: He was on the heavy side. It brought out his better side.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "space: They stopped at an open space in the jungle. They tested his ability to locate objects in space.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "nick: He's just been released from Shadwell nick prison after doing ten years for attempted murder. He was arrested and taken down to Sun Hill nick police station to be charged.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "tune: The clarinet was out of tune. He can not sing in tune.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "spot: Night spot. A leopard's spots.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "take: Can you take this bag, please. Take the case of China.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "think: She didn't think to harm me. We thought to return early that night.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "today: Did you see today's newspaper? Today is beautiful.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "remove: Remove a threat. Doug removed the smudges.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "converge: The lines converge at this point. The crowd converged on the movie star.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "know: I know him under a different name. We know this movie.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "take: Do you take me for a fool? He was often taken to be a man of means.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "death: England scored a goal at the death to even the score at one all. It was the death of all his plans.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "hunger: Hunger for affection. I have a hunger to win.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "unravel: Stop playing with the seam of the tablecloth! You will unravel it. Mother couldn't unravel the ball of wool after the cat had played with it.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "fondle: Mothers fondle their babies. They fondled in the back seat of the taxi.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "side: He is on the purchasing side of the business. Look on the bright side.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "year: In the year 1920. A normal year has 365 full days, but there are 366 days in a leap year.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "burn: Burn garbage. The car burns only Diesel oil.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "locus: The locus of points equidistant from a given point is a circle. A circle is the locus of points from which the distance to the center is a given value, the radius.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "scale: The Holocaust was insanity on an enormous scale. There are some who question the scale of our ambitions.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "life: The life of this milk carton may be thousands of years in this landfill. There is no life on the moon.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "connect: This computer will connect well to the network. The new railroad will connect the northern part of the state to the southern part.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "admit: To admit evidence in the trial of a cause. We can not admit non-members into our club building.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "raise: Raise a mutiny. Raised edges.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "thing: She has a thing about him. He has a thing about seafood.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "bed: He searched for treasure on the ocean bed. There's a lot of trash on the bed of the river.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "shatter: A high-pitched voice that could shatter glass. The old oak tree has been shattered by lightning.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "think: I think that he is her boyfriend. I think he is very smart.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "keep: May God keep you. The student was kept after school.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "trick: He played a trick on me. As the businessman rounded the corner, she thought, \"Here comes another trick.\".",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "recognition: He was unable to make his motion because he couldn't get recognition by the chairman. Increasing recognition that diabetes frequently coexists with other chronic diseases.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "draw: At the start of their turn, each player must draw a card. She drew an elephant.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "restore: Restore law and order. He restored my lost faith in him by doing a good deed.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "formation: The formation of sentences. A defensive formation.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "begin: Begin a cigar. My property begins with the three maple trees.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "avoid: Her former friends now avoid her. We avoided the area.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "period: Hastened the period of time of his recovery. In England they call a period a stop.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "accept: Accept students for graduate study. I can not accept your invitation.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "mine: He came out of the coal mine with a face covered in black. Most coal and ore comes from open-pit mines nowadays.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "answer: A few words would answer. She answered the door.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "light: Hey, buddy, you got a light? Although he saw it in a different light, he still did not understand.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "session: A filming session. A training session.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "shovel: Shovel sand. He shovelled in the backyard all afternoon long.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "raise: Raise a siege. Raise a family.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "take: Take the gun from your pocket. Mother took our plates away and came back with some fruit for us to eat.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "haul: Haul nets. Haul stones.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "ease: They put it into containers for ease of transportation. A life of luxury and ease.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "time: See you another time. When was the last time we went out? I don't remember.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "take: Tomorrow the doctor will take the cast off her arm. He took off his shoes.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "impression: I wanted to create an impression of success. He watched the impression of the seal on the hot wax.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "be: When will the meeting be? The postman has been today, but my tickets have still not yet come.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "take: Tomorrow the doctor will take the cast off her arm. Take the gun from your pocket.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "keep: The family's fortune waned and they could not keep their household staff. Keep count.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "have: Now we have a fine mess. What do we have here?",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "world: He sailed around the world. All the world loves a lover.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "ease: A life of luxury and ease. He passed all the exams with ease.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "live: Can you live on $2000 a month in New York City? I lived through two divorces.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "end: He came to a bad end. The end of the pier.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "join: Many children join a sports club. Most politicians have joined a party.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "difficulty: They agreed about the difficulty of the climb. Finished the test only with great difficulty.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "life: Pottery was his life. He appointed himself emperor for life.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "come: Your wish will come False. The shoes came untied.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "flap: He wrote on the flap of the envelope. The flap of a wing.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "term: The general term of an algebraic equation of the n-th degree. He was sentenced to a term of six years in prison.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "price: The price of gasoline. I paid a high price for my folly.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "carry: These pipes carry waste water into the river. This paper carries a restaurant review.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "keep: Keep potatoes fresh. I can not keep track of all my employees.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "connect: The new railroad will connect the northern part of the state to the southern part. Herman connected the computers.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "whet: Whet my appetite. To whet one's appetite or one's courage.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "lie: Lie dormant. The book lies on the table.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "smoke: It was just smoke and mirrors. His dreams all turned to smoke.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "system: In a static system oil can not be replaced by water on a surface. A vast system of production and distribution and consumption keep the country going.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "accord: We are in accord with your proposal. The accord of light and shade in painting.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "write: Please write to me every week. Your son has been writing on the wall.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "take: Tomorrow the doctor will take the cast off her arm. The test grader takes off a point for every misspelled word.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "song: The wheels sang their song as the train rocketed ahead. The song of bullets was in the air.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "opening: The opening received good critical reviews. The opening established the basic theme.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "earth: Earth the circuit. That noise is because the amplifier is not properly earthed.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "death: He seemed more content in death than he had ever been in life. Her death came as a terrible shock.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "simplify: This move will simplify our lives. We had to simplify the instructions.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "action: A rifle action. Gawkers always try to get as close to the action as possible.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "operation: They paid taxes on every stage of the operation. A large-scale farming operation.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "school: The school was built in 1932. Our children attend a public school in our neighborhood.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "space: They stopped at an open space in the jungle. The space between his teeth.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "way: Do you know the way to the airport? They split the loot three ways.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "bum: That guy keeps interrupting the concert. Throw the bum out! Fred is becoming a bum -- he's not even bothering to work more than once a month.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "be: I shall be writing to you soon. We liked to chat while we were eating.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "get: Did you get it? It must be getting more serious.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "title: He had no documents confirming his title to his father's estate. I can never remember movie titles.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "title: The professor didn't like his friends to use his formal title. He held the title for two years.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "connect: Can you connect the two loudspeakers? This computer will connect well to the network.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "narrowness: The attraction of the book is precisely its narrowness of focus. The problem with achievement tests is the narrowness they impose on students.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "go: This chair has got to go. The policemen went from door to door looking for the suspect.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "pack: You had better pack your swollen ankle with ice. Pack the faucet.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "evade: This difficult idea seems to evade her. The con man always evades.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "job: The job of repairing the engine took several hours. I've got a job for you -- could you wash the dishes?",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "tongue: She has a glib tongue. Tongues of flame licked at the walls.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "piece: It was a nice piece of work. He needed a piece of granite.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "smother: Smother a yawn. The butter cream smothered the cake.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "life: Having experienced both, the vampire decided that he preferred (un)death to life. He appointed himself emperor for life.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "thing: A thing of the spirit. A funny thing happened on the way to the ...",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "authority: He is an authority on corporate law. I have the authority to penalise the staff in my department, but not the authority to sack them.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "staple: Tow is flax with short staple. Staple fibers vary widely in length.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "tame: Tame the soil. The author finally tamed some of his potentially offensive statements.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "cup: He swore as the ball rimmed the cup and rolled away. He drank a cup of coffee.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "tone: He spoke in a nervous tone of voice. He began in a conversational tone.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "admit: To admit evidence in the trial of a cause. This pipe admits air.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "keep: Keep count. Keep appointments.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "number: Every number has a unique position in the sequence. He has an unlisted number.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "mother: The lioness was a mother of four cubs. The mother of three children.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "get: What did you get at the toy store? Get someone mad.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "give: I'm going to give my wife a necklace for her birthday. Give a course.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "draw: Draw a chicken. The participants in the experiment were drawn from a representative population.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "treatment: The change is due largely to the increased availability of antiretroviral treatment. Cancer survivors who got radiation treatments as children have nearly twice the risk of developing diabetes as adults.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "interest: Victorian furniture is an interest of mine. In the common interest.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "ensure: This nest egg will ensure a nice retirement for us. Our exertions ensured us a good outcome.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "plane: Any line joining two points on a plane lies wholly on that plane. We will refer to the plane of the graph as the X-Y plane.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "admit: We can not admit non-members into our club building. She admitted us.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "implement: Implement a procedure. He implemented a new economic plan.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "carry: To carry the war from Greece into Asia. The jar carries wine.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "sack: He got the sack for being late all the time. The boss is gon na give her the sack today.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "have: I don't have any money left. I have two years left.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "clarify: Clarify beer. Clarify the butter.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "raise: We visited a farm where they raise chickens. A few important questions were raised after the attack.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "turn: In Vermont, the leaves turn early. Ivory turns well.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "have: I have two sisters. How many cars does she have?",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "care: I really care about my work. I don't care.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "know: She doesn't know this composer. I know him under a different name.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "limitation: The lawyer obtained impunity by dragging his obviously guilty client's case beyond the 10 years limitation. Statute of limitations.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "raise: We visited a farm where they raise chickens. Chew with your mouth shut -- were you raised in a barn?",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "put: Put your ideas in writing. That song put me in awful good humor.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "disband: The president wanted to disband the scandal-plagued agency. The principal disbanded the political student organization.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "carry: You must carry your camping gear. Amanda carried the package from home.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "connect: The new railroad will connect the northern part of the state to the southern part. My computer connected to his computer.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "preparation: The resolution of one dissonance is often the preparation for another dissonance. Preparations for the ceremony had begun.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "shame: The teenager couldn't bear the shame of introducing his parents. One mistake brought shame to all his family.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "finance: Can we finance the addition to our home? He financed his home purchase through a local credit union.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "save: This will save money. This will save you a lot of time.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "blow: To blow a horse. Blow now!",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "beat: Beat the subway fare. Beat a path through the forest.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "furniture: The woman does not even have one stick of furniture moved in yet. There was only one piece of furniture in the room.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "color: She used a different color for the trim. A white color is made up of many different wavelengths of light.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "folk: They're just country folk. Lots of folks like to travel during the holidays.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "hegemony: The consolidation of the United States' hegemony over a new international economic system. To say they have priority is not to say they have complete hegemony.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "draw: Draw on a cigarette. Draw wire.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "formula: He gave us a general formula for attacking polynomials. X = \\frac -b \\pm \\sqrtb^2-4ac2a is a formula for finding the roots of the quadratic equation ax2 + bx + c = 0.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "tap: Tap beer in a bar. Tap an M3 thread all the way through the hole.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "resign: He had no choice but to resign the game and let his opponent become the champion. After fighting for so long, she finally resigned to her death.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "series: The Post Office issued a series commemorating famous American entertainers. His coin collection included the complete series of Indian-head pennies.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "voice: The voice of experience. The wee small voice of conscience.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "feeling: I had a strange feeling in my leg. She had a feeling of euphoria.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "save: I'll save you the trouble. This move will save money.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "remove: Remove a case to another court. Doug removed the smudges.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "situation: No human situation is simple. The dangerous situation developed suddenly.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "comfort: His friendship was a comfort. A padded chair was one of the room's few comforts.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "ulteriority: His stories were too susceptible to ulteriority. Their conversation was limited to ulteriorities.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "scrub: Engineers had to scrub the satellite launch due to bad weather. We had to scrub our vacation plans.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "floor: Many sunken ships rest on the ocean floor. The floor of the cave.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "length: A length of tubing. A length of timber.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "follow: These people still follow the laws of their ancient religion. Follow the road.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "pay: Crime doesn't pay. He paid me 5000 pounds for the car.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "development: What a revolting development! Recent developments in Iraq.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "pack: To pack goods in a box. Crowds packed the stands.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "mechanism: The mechanism of the ear. The mechanism of infection.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "teach: Can you teach me to sew? I taught them French.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "life: City life. Get a life.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "time: He waited a long time. He had a time holding back the tears.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "stake: I will stake my good reputation for this. Stake your goat.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "case: For English, a compositor will ordinarily have two such cases, the upper case containing the capitals and the lower case containing the small letters. That was not the case.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "oblige: We had to oblige him. The singer obliged with another song.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "agonist: When bending the elbow the biceps are the agonist. Acetylcholine is an agonist at the a cholinergic receptor.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "life: He wanted to live his own life without interference from others. He hoped for a new life in Australia.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "save: This will save you a lot of time. She saved the old family photographs in a drawer.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "get: I just don't get him. Where did she get these news?",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "reaction: When I last tried to eat strawberries I had a terrible allergic reaction. A bad reaction to the medicine.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "quality: \"The quality of mercy is not strained\" -- Shakespeare. Security, stability, and efficiency are good qualities of an operating system.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "answer: Answer the riddle. Answer a question.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "act: The breaks of my new car act quickly. The dog acts ferocious, but he is really afraid of people.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "strike: Strike an arc. They were struck with fear.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "effect: She retained that bold effect in her reproductions of the original painting. He just did it for effect.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "go: We should go farther in this matter. The day went well until I got your call.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "connection: The connection between overeating and obesity. There was a connection between eating that pickle and having that nightmare.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "protection: He made trade protection a plank in the party platform. Insurance provided protection against loss of wages due to illness.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "connect: The telephone company finally put in lines to connect the towns in this area. Did you finally connect with your long-lost cousin?",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "flare: He threw a flare to the fullback who was tackled for a loss. Infection can cause a lupus flare.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "picture: They could still receive the sound but the picture was gone. She was the picture of despair.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "clip: I went into the salon to get a clip. He could do ten at a clip.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "rule: The rule of St. Dominic. He determined the upper bound with Descartes' rule of signs.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "escape: He made his escape from the mental hospital. The prisoners made their escape by digging a tunnel.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "commercialization: The government tried to accelerate the commercialization of this development. My father considered the commercialization of Christmas to be a sacrilege.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "clear: The check will clear within 2 business days. The sky cleared after the storm.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "marriage: A long and happy marriage. You should enter marriage for love.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "loaf: Meat loaf. A loaf of cheese.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "art: How great thou art! It's quite an art.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "tone: From the tone of her behavior I gathered that I had outstayed my welcome. The general tone of articles appearing in the newspapers is that the government should withdraw.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "starch: Starch clothes. She starched her blouses.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "trump: A trump can take a trick even when a card of a different suit is led. Clubs were declared trumps.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "go: Messages must go through diplomatic channels. She went through a lot of trouble.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "toy: Toy with an idea. Figo is toying with the English defence.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "paste: Paste the sign on the wall. Cut and paste the sentence in the text.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "action: A man of action. He saw action in Korea.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "feeling: The surface had a greasy feeling. The wool on my arm produced a strange feeling.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "take: Take a scene. Do you take sugar in your coffee?",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "dress: Dress the patient. He was dressed in the latest fashions.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "seek: Seek happiness. Seek a position.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "dozen: There shouldn't be more than two dozen Christmas cards left to write. Can I have a dozen eggs, please?",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "art: The art of conversation. How great thou art!",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "side: He had a pain in his side. Which side of the tray shall I put it on?",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "noise: Whatever it was he didn't like it and he was going to let them know by making as loud a noise as he could. The announcement of the election recount caused a lot of noise.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "be: I shall be writing to you soon. It has been three years since my grandmother died. (similar to My grandmother died three years ago, but emphasizes the intervening period).",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "strike: We will strike a medal in your honour. Strike coins.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "buff: To strip to the buff. Swimming in the buff.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "strength: The strength of the company's stock in recent weeks. Fatigue sapped his strength.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "hand: On the one hand ..., but on the other hand ... A good hand.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "excuse: A poor excuse for an automobile. He had to get his mother to write an excuse for him.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "course: The government took a firm course. He took a course in basket weaving.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "accept: I can not accept your invitation. We accept the idea of universal health care.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "care: I don't care. I don't care what he does.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "seat: He was elected to a seat in the Senate. He sat on the arm of the chair rather than the seat, which always annoyed his mother.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "beat: Beat a path through the forest. Beat one's breast.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "third: Jones came in third. A distant third.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "raise: To raise Sandy Hook light. Raise the specter of unemployment.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "cardinal: The cardinal number \"three\" can be represented as \"3\" or \"three\". The smallest cardinal numbers are 0, 1, 2, and 3.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "know: I know that the President lied to the people. I want to know who is winning the game!",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "conflict: The conflict between the government and the rebels began three years ago. He was immobilized by conflict and indecision.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "refer: Refer a patient to a specialist. Christians refer to the mother of Jesus as the Virgin Mary.",
+            "output": [
+                "False."
+            ]
+        },
+        {
+            "input": "performance: They admired his performance under stress. When Roger Maris powered four home runs in one game his performance merits awe.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "inactivation: The gene inactivation system. Thermal inactivation of serum samples.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "fail: Where do today's public schools fail? The attempt to rescue the hostages failed miserably.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "concoction: She has no peer in the concoction of mystery stories. His testimony was a concoction.",
+            "output": [
+                "True."
+            ]
+        },
+        {
+            "input": "season: She always looked forward to the avocado season. He celebrated his 10th season with the ballet company.",
+            "output": [
+                "True."
+            ]
+        }
+    ]
+}
