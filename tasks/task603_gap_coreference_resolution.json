@@ -1,0 +1,1210 @@
+{
+    "Contributors": "Selvaganesh Muthu",
+    "Source": [
+        "gap",
+        "https://huggingface.co/datasets/gap"
+    ],
+    "Categories": "Coreference Resolution",
+    "Definition": "This task is about reading the given passage and finding the corresponding person for the given pronoun offset. The person must be mentioned in the passage. The reference should point to the exact offset of the name referenced by the pronoun offset. The output should include the output name and output offset.",
+    "Positive Examples": [
+        {
+            "input": "Passage : The current members of Crime have also performed in San Francisco under the band name ''Remote Viewers``. Strike has published two works of fiction in recent years: Ports of Hell, which is listed in the Rock and Roll Hall of Fame Library, and A Loud Humming Sound Came from Above. Rank has produced numerous films (under his real name, Henry Rosenthal) including the hit The Devil and Daniel Johnston. Pronoun : his. Pronoun-offset : 321",
+            "output": "Name : Henry Rosenthal. Offset : 336",
+            "explanation": "The person's name is referenced next to the pronoun itself. Therefore it is clear 'Henry Rosenthal' is the correct answer."
+        },
+        {
+            "input": "Passage : Killian in 1978--79, an assistant district attorney for Brunswick Judicial Circuit in 1979--80, and a practicing attorney in Glynn County in 1980--90. Williams was elected a Superior Court judge in 1990, taking the bench in 1991. In November 2010 Williams competed against Mary Helen Moses in her most recent bid for re-election. Pronoun : her. Pronoun-offset : 293",
+            "output": "Name : Williams. Offset : 247",
+            "explanation": "The sentence lists the career growth of Williams and then mentions that she competed against Mary Helen Moses which makes it clear that the 'her' refers to Williams."
+        },
+        {
+            "input": "Passage : Connie, in a one-sided conversation, gives praises for her late brother, Gordon. She does not seem to mind she spent childhood in the shadow of her brother, blatantly the family favourite and given all the support she never had. Although Beth quietly agrees with Connie's idea of her idyllic marriage to Gordon, she expresses subtle annoyance with Connie's idea that the whole family will have to look after her this first Christmas alone, and Connie's hints of self-pity don't help either. Pronoun : her. Pronoun-offset : 280",
+            "output": "Name : Connie. Offset : 263",
+            "explanation": "The sentence mentions Connie's idea of her in the same sentence which defines that 'her' refers to Connie."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Passage : Alleway played 857 minutes in 11 matches including 9 starts. The defence conceded a total of only 5 goals in the regular season and the finals. In March 2016, Alleway and Melbourne City teammate Steph Catley joined the NWSL's newest expansion club the Orlando Pride. Orlando Pride coach Tom Sermanni gave Alleway her first cap for Australia when he was coach of the Matildas in 2010. Pronoun : her. Pronoun-offset : 313",
+            "output": "Name : Alleway. Offset : 0",
+            "explanation": "The pronoun refers to the offset at 159 but the answer refers to the person at 0th position which is incorrect."
+        },
+        {
+            "input": "Passage : In 1966 he was made Professor, History of Doctrine, at Manchester University and from 1968 until 1973 he was Professor of Theology. Following his retirement, Cunliffe-jones was Professor Emeritus. After his wife Maude died on 28 August 1989 Cunliffe-Jones lived with Margaret, his elder daughter, at her home in Essex. Pronoun : her. Pronoun-offset : 300",
+            "output": "Name : Margaret. Offset : 212",
+            "explanation": "The 'her' refers to Margaret and not Maude so this is incorrect."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "Passage : Zoe Telford -- played the police officer girlfriend of Simon, Maggie. Dumped by Simon in the final episode of series 1, after he slept with Jenny, and is not seen again. Phoebe Thomas played Cheryl Cassidy, Pauline's friend and also a year 11 pupil in Simon's class. Dumped her boyfriend following Simon's advice after he wouldn't have sex with her but later realised this was due to him catching crabs off her friend Pauline. Pronoun : her. Pronoun-offset : 274",
+            "output": [
+                "Name : Cheryl Cassidy. Offset : 191"
+            ]
+        },
+        {
+            "input": "Passage : He grew up in Evanston, Illinois the second oldest of five children including his brothers, Fred and Gordon and sisters, Marge (Peppy) and Marilyn. His high school days were spent at New Trier High School in Winnetka, Illinois. MacKenzie studied with Bernard Leach from 1949 to 1952. His simple, wheel-thrown functional pottery is heavily influenced by the oriental aesthetic of Shoji Hamada and Kanjiro Kawai. Pronoun : His. Pronoun-offset : 284",
+            "output": [
+                "Name : MacKenzie. Offset : 228"
+            ]
+        },
+        {
+            "input": "Passage : He had been reelected to Congress, but resigned in 1990 to accept a post as Ambassador to Brazil. De la Sota again ran for governor of C*rdoba in 1991. Defeated by Governor Angeloz by over 15%, this latter setback was significant because it cost De la Sota much of his support within the Justicialist Party (which was flush with victory in the 1991 mid-terms), leading to President Carlos Menem 's endorsement of a separate party list in C*rdoba for the 1993 mid-term elections, and to De la Sota's failure to regain a seat in Congress. Pronoun : his. Pronoun-offset : 265",
+            "output": [
+                "Name : De la Sota. Offset : 246"
+            ]
+        },
+        {
+            "input": "Passage : Her Santa Fe Opera debut in 2005 was as Nuria in the revised edition of Golijov's Ainadamar. She sang on the subsequent Deutsche Grammophon recording of the opera. For his opera Doctor Atomic, Adams rewrote the role of Kitty Oppenheimer, originally a mezzo-soprano role, for soprano voice, and Rivera sang the rewritten part of Kitty Oppenheimer at Lyric Opera of Chicago, De Nederlandse Opera, and the Metropolitan Opera., all in 2007. She has since sung several parts and roles in John Adams' works, including the soprano part in El Ni*o, and the role of Kumudha in A Flowering Tree in the Peter Sellars production at the New Crowned Hope Festival in Vienna. Pronoun : She. Pronoun-offset : 437",
+            "output": [
+                "Name : Rivera. Offset : 294"
+            ]
+        },
+        {
+            "input": "Passage : Sandra Collins is an American DJ. She got her start on the West Coast of the U.S. in Phoenix, Arizona and into residencies in Los Angeles, and eventually moved towards trance. She used American producers to give herself a unique sound. Collins performed for an estimated 80,000 people on the first night of Woodstock '99, and was the first female DJ featured in the Tranceport series of influential recordings. She recently has released two CD mixes under Paul Oakenfold's Perfecto label. Pronoun : She. Pronoun-offset : 411",
+            "output": [
+                "Name : Collins. Offset : 236"
+            ]
+        },
+        {
+            "input": "Passage : Slant Magazine's Sal Cinquemani viewed the album as formulaic and ``competently, often frustratingly more of the same from an artist who still seems capable of much more.'' Greg Kot of the Chicago Tribune perceived ``formula production and hack songwriting'', but complimented Pink's personality and its ``handful'' of worthy tracks. In his list for The Barnes & Noble Review, Robert Christgau named The Truth About Love the fourth best album of 2012. Pronoun : his. Pronoun-offset : 337",
+            "output": [
+                "Name : Robert Christgau. Offset : 377"
+            ]
+        },
+        {
+            "input": "Passage : Her father was an Englishman ``of rank and culture'' and her mother was a free woman of color, described as light-skinned. When Mary was six, her mother sent her to Alexandria (then part of the District of Columbia) to attend school. Living with her aunt Mary Paine, Kelsey studied for about ten years. Pronoun : her. Pronoun-offset : 246",
+            "output": [
+                "Name : Kelsey. Offset : 267"
+            ]
+        },
+        {
+            "input": "Passage : Shaftesbury's UK partners in the production of the series, British broadcaster UKTV and the international distributor ITV Studios Global Entertainment, were both interested in additional seasons. Christina Jennings approached Kirstine Stewart, executive vice-president of CBC's English services, about continuing the series, and she felt that ``a home at CBC made absolute sense''. Pronoun : she. Pronoun-offset : 329",
+            "output": [
+                "Name : Christina Jennings. Offset : 196"
+            ]
+        },
+        {
+            "input": "Passage : William Shatner portraying writer Mark Twain; a special Christmas episode which included appearances by Ed Asner, Brendan Coyle, Kelly Rowan and television news anchor Peter Mansbridge; an episode which featured David Onley, the Lieutenant Governor of Ontario at the time of production, appearing as his own forerunner Oliver Mowat; and two different episodes in which former Dragons' Den investors Arlene Dickinson and David Chilton guest starred. Pronoun : his. Pronoun-offset : 300",
+            "output": [
+                "Name : David Onley. Offset : 212"
+            ]
+        },
+        {
+            "input": "Passage : His maternal great-grandfather was Henry Percy, 4th Earl of Northumberland, whose wife was Maud Herbert, Countess of Northumberland. His maternal grandmother was a daughter of Sir Robert Spencer and Eleanor Beaufort. Eleanor was a daughter of Edmund Beaufort, 2nd Duke of Somerset and Eleanor Beauchamp. She was a granddaughter of Richard de Beauchamp, 13th Earl of Warwick and Elizabeth Berkeley. Pronoun : She. Pronoun-offset : 304",
+            "output": [
+                "Name : Eleanor. Offset : 217"
+            ]
+        },
+        {
+            "input": "Passage : ARTA driver Vitantonio Liuzzi will be replaced by former Mugen driver Tomoki Nojiri after a disappointing season last year. After years of being with Real Racing, Toshihiro Kaneishi will not drive for this season, being replaced by former Team Kunimitsu driver Hideki Mutoh. Kazuki Nakajima, like Oliver Jarvis, will not return to focus on his LMP1 drive in the 2015 World Endurance Championship. Pronoun : his. Pronoun-offset : 340",
+            "output": [
+                "Name : Kazuki Nakajima. Offset : 275"
+            ]
+        },
+        {
+            "input": "Passage : Twenty years ago, Lorenzo Uribe discovered true love with Maria Herrera and began a romance. Lorenzo was rich, married, and had a young son: Lautaro. Maria was poor and unknown to Lorenzo, had a daughter called Renata. Maria's mother, Gracia, wanted her daughter to catch this rich man at all costs and convinced her that pregnancy would assure this. Pronoun : her. Pronoun-offset : 250",
+            "output": [
+                "Name : Maria. Offset : 219"
+            ]
+        },
+        {
+            "input": "Passage : Maurice custom-tailors clothing for de Var*ze on credit, but the Vicomte's unpaid tailoring bills become intolerable, so Maurice travels to de Savignac's castle to collect the money owed to him. On the way, he has a confrontation with Princesse Jeanette. He immediately professes his love for her, but she haughtily rejects him. When Maurice arrives at the castle, Gilbert introduces him as ``Baron Courtelin'' in order to hide the truth from the Comte . Pronoun : him. Pronoun-offset : 384",
+            "output": [
+                "Name : Maurice. Offset : 334"
+            ]
+        },
+        {
+            "input": "Passage : The rest of the group find out what has happened to Case and decide to band together and take on Justin at the Beatdown to avenge their mentor. With each facing their own trials to reach the final match, it comes down to only one of them versus their own. Mike defeats Zack, while Justin injures Tim in the restroom - thus eliminating him from the tournament. Pronoun : him. Pronoun-offset : 335",
+            "output": [
+                "Name : Tim. Offset : 296"
+            ]
+        },
+        {
+            "input": "Passage : On 30 July 1966, Ramsey's promise was fulfilled as England became the World Champions by beating West Germany in a thrilling final. A lot of Ramsey's tactics and decisions proved their worth in this final. Ramsey came under pressure to restore the fit-again Jimmy Greaves to the side: but he stuck to his guns and kept faith with Greaves's replacement, Geoff Hurst, who vindicated Ramsey's judgement by scoring a hat-trick in a 4--2 win (after extra time) at Wembley. Filling his side with a good balance of experience and youth proved vital when the gruelling final went to extra time. Pronoun : his. Pronoun-offset : 476",
+            "output": [
+                "Name : Ramsey. Offset : 381"
+            ]
+        },
+        {
+            "input": "Passage : Ben Severson is a pioneer in the sport of bodyboarding and Sandy Beach local. Oahu lifeguard and former rival of Mike Stewart for more than 15 years, Ben is a fast, perfectly trained and precise prone rider who excels at tube riding. He quickly gained recognition by winning a world title at the beginning of his career. Pronoun : He. Pronoun-offset : 234",
+            "output": [
+                "Name : Ben. Offset : 150"
+            ]
+        },
+        {
+            "input": "Passage : This device allowed him to continue his racing career in the Barber Pro Series, Grand American Road Racing Championship, and eventually enter the 24 Hours of Daytona in 2009. Kurt has worked with various charities and organizations to raise awareness and donations for childhood cancer. Since overcoming his illness, Kurt has teamed with Paul Newman 's Hole in the Wall Gang Camp and One Lap of America for fundraising events. Pronoun : his. Pronoun-offset : 304",
+            "output": [
+                "Name : Kurt. Offset : 317"
+            ]
+        },
+        {
+            "input": "Passage : The meeting went a little differently from what many predicted and laid the groundwork for Magee to sell the Inquirer to VNU Business Publications later that year. Magee remained as the editor of the Inquirer until February 2008 when he left to pursue other publishing ventures. During the 1960s Magee experimented with the occult teachings of the Hermetic Order of the Golden Dawn and Kenneth Grant 's Typhonian Order leading to his work being cited in Grant's books Cults of the Shadow, Nightside of Eden, and Outside the Circles of Time. Pronoun : his. Pronoun-offset : 430",
+            "output": [
+                "Name : Magee. Offset : 296"
+            ]
+        },
+        {
+            "input": "Passage : Louis McNeill begin her publishing career selling short poems to the Saturday Evening Post. In 1931 her first collection, Mountain White, was published. She went on to publish six other collections. In the 1980s McNeill's literary reputation was re-established by the poet Maggie Anderson, who edited McNeill's memoir for the University of Pittsburgh Press, as well as a new and selected poems in 1991. In 1979 then-governor Jay Rockefeller named her West Virginia's poet laureate. Pronoun : her. Pronoun-offset : 447",
+            "output": [
+                "Name : McNeill. Offset : 301"
+            ]
+        },
+        {
+            "input": "Passage : Her initial ambition was to become a ``cultured'' private secretary working in the highest cultural circles. A month later, the Michigan League building opened, serving co-eds as the Michigan Union served men. Hartwig began by doing secretarial work there, when Dr. Margaret Bell, the head of women's physical education, spotted her. Pronoun : her. Pronoun-offset : 329",
+            "output": [
+                "Name : Hartwig. Offset : 210"
+            ]
+        },
+        {
+            "input": "Passage : They were broadly positive, though they stopped short of naming it one of Ayckbourn's best. Michael Billington in The Guardian wrote ``Few dramatists in history have painted a more devastating picture of the emotional damage wrought by bullying men,'' and described Martin's misguided affection for his girlfriends as ``an instant image of a grisly inheritance''. Pronoun : his. Pronoun-offset : 299",
+            "output": [
+                "Name : Martin. Offset : 266"
+            ]
+        },
+        {
+            "input": "Passage : This is a list of episodes from the MTV show Bully Beatdown. First aired: 22 March 2009 The victim for the series premier is named Alan, a man who gets bullied by his bigger younger brother. In his tape, Alan explains that Ryan gets away with bullying him because he is the family favorite. Pronoun : his. Pronoun-offset : 194",
+            "output": [
+                "Name : Alan. Offset : 204"
+            ]
+        },
+        {
+            "input": "Passage : With only six months' experience under his belt, Paul won the Niagara District Bantamweight Amateur Title, the National AAU Tournament in Boston and the Empire State Amateur Championship within a three month span in 1927. On August 1, 1927, Paul knocked out Freddie Griffiths in four rounds in his first professional fight. Pronoun : his. Pronoun-offset : 294",
+            "output": [
+                "Name : Paul. Offset : 241"
+            ]
+        },
+        {
+            "input": "Passage : Nicholas Rogers as Tarabas role also caused problems, as has declared during his audition that he was able to ride horses but as soon as the shooting began, he could not even mount a horse. It was then soon realized he was also not good at acting; Bava said that for the scene where Rogers has to say ``I love you'', they had to make three shots and then combine them later. He also injured himself on the set and had to be taken to hospital while still wearing his costume. Pronoun : He. Pronoun-offset : 375",
+            "output": [
+                "Name : Rogers. Offset : 283"
+            ]
+        },
+        {
+            "input": "Passage : Christine eventually got out of the street when she was promoted at Miami Modes and butted heads with Elsie and Dot, who didn't like the way she used her newfound authority. Christine was transferred, and moved out of Weatherfield for good. Christine sent a telegram to congratulate Elsie and Steve Tanner on their wedding day in 1967. In 1984, Elsie Tanner informed Ken Barlow that Christine had died of liver failure after becoming an alcoholic in the late 1970s. She has never been mentioned again. Pronoun : She. Pronoun-offset : 466",
+            "output": [
+                "Name : Christine. Offset : 383"
+            ]
+        },
+        {
+            "input": "Passage : Kevin John Coyne of Country Universe gave the song a B rating, saying that ``does breakup about as good as anybody'' and that he doesn't believe Keith is ``capable of turning in a weak vocal performance.'' Bobby Peacock of Roughstock gave the song a 3.5/5 rating, saying that the production is ``looser and funkier'' than on Keith's other songs. He goes on to say that it ``contrasts with the more downbeat lyrics of a fairly standard broken-heart song.'' Pronoun : He. Pronoun-offset : 346",
+            "output": [
+                "Name : Bobby Peacock. Offset : 206"
+            ]
+        },
+        {
+            "input": "Passage : He was elected following the conviction on fraud and other charges as part of a broad scandal involving their former Chairman, Glenn Marshall associated with the Jack Abramoff Indian lobbying scandal. Cromwell's election and administration have been criticized by other tribe members alleging election and financial improprieties. However, Cromwell has successfully gained financial backing for the tribe's casino development effort from Malaysian billionaire Lim Goh Tong and his Kien Huat Realty arm of the Genting Group, and Cromwell also successfully hired former U.S. representative Bill Delahunt to lobby on behalf of the tribe. Pronoun : his. Pronoun-offset : 477",
+            "output": [
+                "Name : Cromwell. Offset : 340"
+            ]
+        },
+        {
+            "input": "Passage : In 1650 he started his career as advisor in the ministerium of finances in Den Haag. After he became a minister he went back to Amsterdam, and took place as a sort of chairing mayor of this city. After the death of his brother Cornelis, De Graeff became the strong leader of the republicans. He held this position until the rampjaar. Pronoun : He. Pronoun-offset : 292",
+            "output": [
+                "Name : De Graeff. Offset : 237"
+            ]
+        },
+        {
+            "input": "Passage : In a story that echoes that of Helen Keller, Betteridge's teacher Roberta Reid fingerspelled words into her pupil's hand, until Betteridge made the connection between the words spelled and the objects she was touching. The breakthrough came when Reid spelled the word ``shoe'' while placing a shoe in Alice's hand. Her education then progressed rapidly, and in a few short months she knew 200 nouns and several verbs, including ``run,'' ``jump,'' and ``laugh,'' and soon began learning to read braille. Pronoun : Her. Pronoun-offset : 315",
+            "output": [
+                "Name : Alice. Offset : 301"
+            ]
+        },
+        {
+            "input": "Passage : Recurring injuries kept Andreev from competing for several years. He injured his back while training quads which forced him to leave skating in 2005. He did not compete in the 2005-2006 and 2006-2007 seasons. Andreev returned to competition in the 2007-2008 season and was coached in Detroit by Callaghan. He placed 8th at the 2008 Canadian Championships. Pronoun : He. Pronoun-offset : 306",
+            "output": [
+                "Name : Andreev. Offset : 209"
+            ]
+        },
+        {
+            "input": "Passage : Postmaster of New Orleans from December 19, 1843, to April 18, 1849. He served as delegate to the Democratic National Conventions in 1844, 1852, 1856, and 1860. Penn was elected as a Democrat to the Thirty-first Congress to fill the vacancy caused by the death of John H. Harmanson. He was reelected to the Thirty-second Congress and served from December 30, 1850, to March 3, 1853. Pronoun : He. Pronoun-offset : 283",
+            "output": [
+                "Name : Penn. Offset : 161"
+            ]
+        },
+        {
+            "input": "Passage : Karl Philipp F*rst zu Schwarzenberg (or Charles Philip, Prince of Schwarzenberg (April 18, 1771 -- October 15, 1820) was an Austrian field marshal. Karl Philipp was born in Vienna as the son of Johann Nepomuk Anton of Schwarzenberg and Marie Eleonore Countess of *ttingen-Wallerstein. He entered the imperial cavalry in 1788, fought in 1789 under Lacy and Loudon against the Turks, distinguished himself by his bravery, and became major in 1792. Pronoun : He. Pronoun-offset : 285",
+            "output": [
+                "Name : Schwarzenberg. Offset : 218"
+            ]
+        },
+        {
+            "input": "Passage : In 1872 he was elected to the House of Commons as one of two representatives for Tamworth, a seat he held until 1878, and then sat for Staffordshire North until 1880, when he lost his seat. He unsuccessfully contested Preston in 1882, but won the seat in 1885. During the Liberal stay in power from 1892 to 1895 Hanbury was a vigorous critic of William Ewart Gladstone 's Second Home Rule Bill from a financial perspective. When the Conservatives came to power in 1895 under Lord Salisbury, he was appointed Financial Secretary to the Treasury and sworn of the Privy Council. Pronoun : he. Pronoun-offset : 491",
+            "output": [
+                "Name : Hanbury. Offset : 312"
+            ]
+        },
+        {
+            "input": "Passage : Impressed by her beauty, her warrior skills, and the fact that she was able to locate him, she is promoted to a position similar to that later held by her half-sister, Talia. As a right hand associate, she accompanies him during his adventures. Ra's is so impressed with her abilities, he even allows Nyssa to use his Lazarus Pits. Like her sister Talia, Nyssa eventually becomes disenchanted with Ra's genocidal plans to ``cleanse the Earth'', and disassociates herself from her father sometime in the early 20th century. Pronoun : her. Pronoun-offset : 337",
+            "output": [
+                "Name : Nyssa. Offset : 355"
+            ]
+        },
+        {
+            "input": "Passage : Among which: 3 (``Limpido / Limpio'', ``Se non te / Sino a ti'' and ``Dove resto solo io / Donde quedo solo yo'') are completely new and written for this album (all these three tracks were chosen as the singles of the album). The first single of the album, ``Limpido / Limpio'', is included in its solo and duet versions with Kylie Minogue. 2 (``Ramaya'' and ``Paola'') are amateur recordings of Laura Pausini singing the famous song ``Ramaya'' when she was two years old (the former) and her daughter saying the word ``mamma'' (mommy) for the first time (the latter). Pronoun : she. Pronoun-offset : 450",
+            "output": [
+                "Name : Laura Pausini. Offset : 396"
+            ]
+        },
+        {
+            "input": "Passage : In 2014 Dean played the lead role in The Long Road South alongside Michael Brandon, a new play by Paul Minx. The press said of Deans performance ``Felicity Dean, playing the best drunk ma in her nightdress since Lindsay Duncan in That Face.'' ``Felicity Dean's Carol Ann marks the play's standout performance as she quakes about the stage in sliver heels, brimming with morose longing.''. Pronoun : she. Pronoun-offset : 312",
+            "output": [
+                "Name : Carol Ann. Offset : 261"
+            ]
+        },
+        {
+            "input": "Passage : Episodes focused on the friendship between Judge Rifkind, a liberal Jew, and Judge Sims, a conservative lesbian African American, as well as the romance between Bobby and Cynthia, Ramon's infidelity to his wife Cassandra, J.J.'s potentially corrupt mob ties, Fatima's drug addiction, Rebecca Rifkind's estrangement from her father, and Spiegelman and Byrnes' political scheming. Pronoun : her. Pronoun-offset : 320",
+            "output": [
+                "Name : Rebecca Rifkind. Offset : 284"
+            ]
+        },
+        {
+            "input": "Passage : Alice (19), Kathleen Mary (12), Gertrude (10) and Mabel (7). In the 1901 census Allen was living at Fox Lane in Leyland with his 2nd wife Margaret (Whittle), daughter of James Whittle, a coachman, & Ann Mills, whom he had married in 1900. She was some 18 years his junior. Pronoun : She. Pronoun-offset : 239",
+            "output": [
+                "Name : Margaret. Offset : 138"
+            ]
+        },
+        {
+            "input": "Passage : She auditions to be a dancer at Cheung Lai Yuen for a better income and a chance to find her father, who is the Emperor. Evergreen Mak as Ko Yan (**) / Kiu Bo-lung (***), a Music Bureau official who looks over Cheung Lai Yuen. In a quarrel with Ming-but, Bo-lung loses his memory and gets half of his face burnt. Pronoun : his. Pronoun-offset : 269",
+            "output": [
+                "Name : Bo-lung. Offset : 255"
+            ]
+        },
+        {
+            "input": "Passage : On May 19, 1992, during the couple's marriage ceremomy, Isabella went into labor; she quickly gave birth to Brady Victor Black and named him in honor of the Brady family and Isabella's father. The Black family's happiness was short-lived when Dr. Carly Manning informed Isabella that her back pain was the result of advanced pancreatic cancer. Pronoun : her. Pronoun-offset : 284",
+            "output": [
+                "Name : Isabella. Offset : 270"
+            ]
+        },
+        {
+            "input": "Passage : In 1972, Henning broke the world records on the 500*m and the 1,000*m, which made her the favourite on those distances at the 1972 Winter Olympics in Sapporo. During her 500*m race against Sylvia Burka at those Olympics, Henning was obstructed at the crossing by Burka, but she still set the fastest time and a new Olympic record (43.70). Pronoun : her. Pronoun-offset : 166",
+            "output": [
+                "Name : Henning. Offset : 221"
+            ]
+        },
+        {
+            "input": "Passage : To decorate the palace, in several campaigns Montano employed some of the greatest artists of his time: Giovanni Battista Zelotti (who had already intervened in the interiors of Palladio's Villa Emo at Fanzolo), Anselmo Canera and Andrea Vicentino; the stuccoes were entrusted to Lorenzo Rubini (who contemporaneously executed the external decorations of the Loggia del Capitanio) and, after his death in 1574, to his son Agostino. Pronoun : his. Pronoun-offset : 392",
+            "output": [
+                "Name : Lorenzo Rubini. Offset : 280"
+            ]
+        },
+        {
+            "input": "Passage : A major decision was that the Society should engage a professional conductor and in 1946, following the resignation of TH Crowther, William Rees took up the post. A one-time student under Felix Weingartner and former violinist with the Hall*, Rees was an experienced musician who quickly became a firm favourite with orchestra and audience alike. His appointment marked a definite turning-point: from then on, the orchestra's rise to its present eminence as one of the country's leading non-professional orchestras was steady and assured. Pronoun : His. Pronoun-offset : 347",
+            "output": [
+                "Name : Rees. Offset : 243"
+            ]
+        },
+        {
+            "input": "Passage : Classicist John H. D'Arms was both the resident director of the American Academy and a professor in its School of Classical Studies from 1977 to 1980. Between 1980 and 1984, director Sophie Consagra strengthened the Academy's ties with the Roman community and the Italian Government. In her tenure as president from 1988 and 2013, Adele Chatfield-Taylor, helped restore the Academy's McKim, Mead & White building at a cost of $8.2 million and oversaw a capital campaign in which the institution's endowment grew to $100 million. Pronoun : her. Pronoun-offset : 287",
+            "output": [
+                "Name : Adele Chatfield-Taylor. Offset : 331"
+            ]
+        },
+        {
+            "input": "Passage : Tom offers to repair her car in a few days when he is free from his science classes at school. With no other option, she accepts Frank's offer to stay in his tree house without Tom's knowledge. Frank begins a close friendship with V, hoping to get Tom to become attracted. He tells her Tom has no problem with her ``job,'' meaning the tutoring ruse, but she thinks he means her prostitution. Pronoun : He. Pronoun-offset : 273",
+            "output": [
+                "Name : Frank. Offset : 194"
+            ]
+        },
+        {
+            "input": "Passage : According to a Rolling Stone interview (conducted in 1985), Lindsay left The Raiders because ``there was a contractual thing I didn't agree with, and I just stopped.'' Lindsay continued to record solo singles for a few years (for Warner Bros., Elka and Greedy Records) before retiring from performing to serve as head of A&R for United Artists Records. He contributed to the recordings of artists such as Gerry Rafferty (on ``Baker Street''), Kenny Rogers, and others. Pronoun : He. Pronoun-offset : 353",
+            "output": [
+                "Name : Lindsay. Offset : 168"
+            ]
+        },
+        {
+            "input": "Passage : The New World Translation places a comma after the word 'today', dividing it into two separate phrases, ``I tell you today'' and ``you will be with me in Paradise''. This differs from standard translations of this verse as ``I tell you today you will be with me in Paradise''. Based on scriptures such as Matthew 12:40, 27:63, Mark 8:31 and 9:31, Witnesses believe Jesus' expectation that he would be bodily resurrected after three days precluded his being in paradise on the same day that he died. Pronoun : he. Pronoun-offset : 389",
+            "output": [
+                "Name : Jesus. Offset : 365"
+            ]
+        },
+        {
+            "input": "Passage : In its biographical page on McCord, Yahoo! states that via the role of Naomi, the actress ``became one of Hollywood's top young stars-to-watch after the series premiered to more than 5 million viewers worldwide.'' In a review of the series premiere, Tom Gliatto of People magazine stated that, ``The standout is AnnaLynne McCord as bad-girl Naomi Clark: She's very striking physically--almost startling, somewhere between Charlize Theron and Courtney Love--and she conveys a mix of high drama, meanness and little-girl self-pity that's a lot of fun.'' Pronoun : She. Pronoun-offset : 354",
+            "output": [
+                "Name : AnnaLynne McCord. Offset : 312"
+            ]
+        },
+        {
+            "input": "Passage : Many supporters of third-party presidential candidate George C. Wallace, Sr., voted for Gurney and hence provided him a coalition of growing Republicans in Florida allied with a declining number of conservative Democrats. Gurney ran on a record that included votes against civil rights legislation, foreign aid, and that ``expensive boondoggle,'' the war on poverty. Future-President George W. Bush worked as a traveling aide for Gurney while he was running for Senate in Florida. Pronoun : he. Pronoun-offset : 443",
+            "output": [
+                "Name : Gurney. Offset : 430"
+            ]
+        },
+        {
+            "input": "Passage : In 2010 Diehl won the bronze medal at the European Individual Championships in Manchester England and in June 2010 claimed the European Tour circuit finals gold medal, beating Susan Egelstaff in the final in three sets. 2010 also saw Diehl beat current world champion Lu Lan of China to reach the semi final of Swiss Open Super Series. In her home country Russia she has won 14 national titles as of 2009. Pronoun : her. Pronoun-offset : 339",
+            "output": [
+                "Name : Diehl. Offset : 234"
+            ]
+        },
+        {
+            "input": "Passage : The historical Octavia Minor's first husband was Gaius Claudius Marcellus Minor, and she bore him three children, Marcellus, Claudia Marcella Major and Claudia Marcella Minor; the Octavia in Rome is married to a nobleman named Glabius, with whom she has no children. Pronoun : she. Pronoun-offset : 246",
+            "output": [
+                "Name : Octavia. Offset : 180"
+            ]
+        },
+        {
+            "input": "Passage : Flag of Convenience were a rock group formed in 1982 by former Buzzcocks members Steve Diggle and John Maher, along with bassist Dave Farrow and keyboard player D.P. Through their first two line-ups they were managed by the writer and music critic Michael Gray, shortly after his personal management of Gerry Rafferty. Pronoun : his. Pronoun-offset : 276",
+            "output": [
+                "Name : Michael Gray. Offset : 248"
+            ]
+        },
+        {
+            "input": "Passage : After it is revealed to Misty that Tabitha is still alive, she learns that Tabitha smokes, flirts with boys, and is not as loving, sweet, or innocent a child as she'd previously thought. Grace is the mother of Peter and ``Granmy'' to Tabitha. Misty is often annoyed by her, whether it's the way she wastes Misty's money, or the way she's influencing Tabitha. Pronoun : her. Pronoun-offset : 269",
+            "output": [
+                "Name : Grace. Offset : 187"
+            ]
+        },
+        {
+            "input": "Passage : She co-wrote ten of the thirteen songs on the album's standard edition. Harvey Mason, Jr. served as the creative director for Beautiful and co-wrote and produced a number of songs. Mauboy's exclusive interview with Melissa Doyle in Darwin was broadcast on Sunday Night on 15 September 2013. On 26 September 2013, she co-hosted The Footy Show and performed a medley of ``Inescapable'', ``To the End of the Earth'' and ``Saturday Night''. Pronoun : she. Pronoun-offset : 313",
+            "output": [
+                "Name : Mauboy. Offset : 181"
+            ]
+        },
+        {
+            "input": "Passage : Their poor receptions disillusioned Murnau, and he quit Fox to journey for a while in the South Pacific. Together with documentary film pioneer Robert Flaherty, Murnau travelled to Bora Bora to realize the film Tabu in 1931. Flaherty left after artistic disputes with Murnau who had to finish the movie on his own. Pronoun : his. Pronoun-offset : 306",
+            "output": [
+                "Name : Murnau. Offset : 268"
+            ]
+        },
+        {
+            "input": "Passage : As a young artist in Berlin, Elisabet Ney had sculpted various luminaries of the city, including Jacob Grimm, Cosima Liszt, and Alexander von Humboldt. Ney had been patronized by the naturalist Humboldt, sculptor Christian Rauch, and diplomat Varnhagen von Ense; when all three died between late 1857 and mid 1859, she decided to travel Germany in search of new notable subjects. Pronoun : she. Pronoun-offset : 315",
+            "output": [
+                "Name : Elisabet Ney. Offset : 29"
+            ]
+        },
+        {
+            "input": "Passage : Pinter wrote The Room over two or four days in 1957, depending on the account, at the suggestion of his friend Henry Woolf for his production as part of a postgraduate program in directing at the University of Bristol, Bristol, England. In their published interviews, Pinter and Woolf vary in describing how many days Pinter took to write The Room. According to Billington, in his official biography Harold Pinter, Woolf asked Pinter to write the play in a letter that Pinter received in the autumn of 1956, when he ``was newly married'' to actress Vivien Merchant ``and in the middle of a season at Torquay''; ``(Pinter) replied that he couldn't possibly deliver anything in under six months. Pronoun : his. Pronoun-offset : 377",
+            "output": [
+                "Name : Pinter. Offset : 318"
+            ]
+        },
+        {
+            "input": "Passage : He is currently the wide receivers coach for Bowling Green. Doege was born in San Angelo, Texas, to Randy and Melinda Doege. He has one younger brother. Randy Doege coached at several high schools in West Texas before becoming the head coach at Crane High School in 2003. In his freshman season, 2004, Seth Doege was the starting quarterback for Crane High School and led the Golden Cranes to the area round of the playoffs, a loss to the (Tuscola) Jim Ned Indians, who were led by senior quarterback Colt McCoy. Pronoun : his. Pronoun-offset : 275",
+            "output": [
+                "Name : Seth Doege. Offset : 302"
+            ]
+        },
+        {
+            "input": "Passage : The next year, though only a lieutenant-colonel, he was selected by Sir Ralph Abercromby to be quartermaster-general of his army in the Mediterranean, at the same time that another young Scotsman, John Hope, who was also to gain fame in Moore's retreat, was nominated adjutant-general. Sir Ralph placed the greatest confidence in Anstruther, and it was mainly on his report, after a visit to the Turkish headquarters, that the Turks would not be ready for a long time, if they could be of any use at all, that Sir Ralph left Marmorice Bay and determined to act alone. Pronoun : his. Pronoun-offset : 363",
+            "output": [
+                "Name : Anstruther. Offset : 330"
+            ]
+        },
+        {
+            "input": "Passage : At least one band member wrote every song on the album. Josh Osborne, Shane McAnally, and Dann Huff served as producers. Allmusic reviewer Stephen Thomas Erlewine rated the album 4 out of 5 stars, comparing its sound favorably to Alabama and Dwight Yoakam. He also stated that ``the three members construct sturdy songs with a shimmering surface to match.'' Pronoun : He. Pronoun-offset : 257",
+            "output": [
+                "Name : Stephen Thomas Erlewine. Offset : 139"
+            ]
+        },
+        {
+            "input": "Passage : He helped to engineer the annexation to the city of the heavily African-American and impoverished ``Samtown'' subdivision in south Alexandria. The neighborhood was named for its white developer, Sam Jacobs. In annexing Samtown, Snyder was borrowing a page from Earl Long, who attempted to register black voters in the 1950s in anticipation of most supporting him politically in the future. Pronoun : him. Pronoun-offset : 359",
+            "output": [
+                "Name : Earl Long. Offset : 261"
+            ]
+        },
+        {
+            "input": "Passage : In a May 2010 Social Weather Stations opinion poll, AKB topped the survey, with 5.64% of the vote, the equivalent of two seats, beating seasoned party-list election contenders Buhay Hayaan Yumabong and Bayan Muna. However, AKB has been accused by the Kontra Daya (Against Cheating) group of being a creation of President Gloria Macapagal-Arroyo to expand her base of allies in the House of Representatives, a charge that AKB denied. Pronoun : her. Pronoun-offset : 355",
+            "output": [
+                "Name : Gloria Macapagal-Arroyo. Offset : 321"
+            ]
+        },
+        {
+            "input": "Passage : In 1984, Petersen married Zina Nibley, a daughter of Hugh Nibley. They have four children and reside in Provo, Utah. Petersen has been a lecturer in the honors program at BYU, and for the English and Humanities Departments at Utah Valley University, where he received a Faculty Excellence Award in 2006. Through his familial relationship to Hugh Nibley, Petersen authored the 2002 biography Hugh Nibley: Pronoun : his. Pronoun-offset : 312",
+            "output": [
+                "Name : Petersen. Offset : 354"
+            ]
+        },
+        {
+            "input": "Passage : However, the real power lies with Philip who is declared commander of the League's army. Olympias is put aside by her husband Philip II, following Philip's marriage to a girl named Cleopatra (who is renamed Eurydice). Their son, Alexander, is effectively disowned by Philip's actions. Philip II has Ptolemy, along with other companions of his son, exiled. Pronoun : his. Pronoun-offset : 339",
+            "output": [
+                "Name : Philip II. Offset : 285"
+            ]
+        },
+        {
+            "input": "Passage : The new Prime Minister, Margaret Thatcher, described Kane's allegations as ``unfounded'' to Parliament, and as a consequence Waddell inferred to a journalist that his report had not concluded that Kane's allegations were unfounded. Waddell married his wife, Dorothy, in 1940, she died in 2001. Pronoun : she. Pronoun-offset : 276",
+            "output": [
+                "Name : Dorothy. Offset : 258"
+            ]
+        },
+        {
+            "input": "Passage : It gained its first representation immediately after the 1997 election, when Puri Ruing, who had been elected for the People's Resources Awareness Party, joined the party. The party initially supported the government of Bill Skate, but later supported the government of Mekere Morauta, with Ruing made a minister in his government. Pronoun : his. Pronoun-offset : 316",
+            "output": [
+                "Name : Mekere Morauta. Offset : 270"
+            ]
+        },
+        {
+            "input": "Passage : Detective Roe appears, and reveals he is the patriarch of the cannibal family, and the father of Leatherface (who he refers to as ``Gary''). Vanessa never escaped, the hospital room is just one of the family's sheds. Roe pulls a sheet over Vanessa's head, and he and Daisy beat her to death with a wrench. Pronoun : her. Pronoun-offset : 278",
+            "output": [
+                "Name : Vanessa. Offset : 240"
+            ]
+        },
+        {
+            "input": "Passage : The musical style is essentially tonal, evoking the work's period setting through galops and marches; instrumental interludes are highly programmatic, and choral ensembles make use of original onomatopoeic devices. The music of Treasure Island is more adventurous; colorful hornpipes are used, but the language is richly chromatic and there is considerable rhythmic intensity. Through his editorial work, Elkus has focused on the music of Charles Ives. Pronoun : his. Pronoun-offset : 385",
+            "output": [
+                "Name : Elkus. Offset : 405"
+            ]
+        },
+        {
+            "input": "Passage : Later in the day, he announced the reappointment of Paul Biyoghe Mba as Prime Minister; he made the announcement personally ``to underline the importance of this moment''. According to Bongo, Biyoghe Mba had the necessary experience and managerial competence ``to lead us through the next stage'', and he said work would start ``immediately''. Pronoun : he. Pronoun-offset : 302",
+            "output": [
+                "Name : Bongo. Offset : 185"
+            ]
+        },
+        {
+            "input": "Passage : Finally Tony marries Anne which irks Daniel. Soon life starts disturbing Anne as she finds out that Tony was actually cheating her as he is a conman. Tony explain her why he became a conman and his past struggling life. In between Daniel gets killed by Tony as he tries to rape Anne. Pronoun : he. Pronoun-offset : 261",
+            "output": [
+                "Name : Daniel. Offset : 231"
+            ]
+        },
+        {
+            "input": "Passage : When onlookers expressed doubt, claiming that the Proctor family was well regarded in the community, the girl promptly came out of her trance and told them it was all for ``sport''. On March 29, 1692, Abigail Williams and Mercy Lewis again said they were being tormented by Elizabeth's spectre. A few days later, Abigail complained that Elizabeth was pinching her and tearing at her bowels, and said she saw Elizabeth's spectre as well as John's. Pronoun : her. Pronoun-offset : 360",
+            "output": [
+                "Name : Abigail. Offset : 313"
+            ]
+        },
+        {
+            "input": "Passage : The explanation offered by Muirhead is more prosaic than the fanciful rumours suggested. He examined the clothing left behind in the lighthouse and concluded that James Ducat and Thomas Marshall had gone down to the western landing stage, and that Donald MacArthur (the 'Occasional') had left the lighthouse during heavy rain in his shirt sleeves. Pronoun : his. Pronoun-offset : 329",
+            "output": [
+                "Name : Donald MacArthur. Offset : 248"
+            ]
+        },
+        {
+            "input": "Passage : After a few years of almost no work -- although he was a guest star on Lou Grant and Charlie's Angels in the late 1970s, he once summed up the 1970s as ``I cried and did a lot of gardening'' -- he was hired in 1979 for his best-known role, self-made millionaire Palmer Cortlandt on ABC's long-running soap opera All My Children. Initially hired for only one year, he remained on contract through 2009. For much of his first decade on the show, Palmer was a ruthless villain, totally possessive of his daughter, Nina and violently threatening his ex-wife Daisy with being attacked by dobermans when she came back from the dead. Pronoun : she. Pronoun-offset : 598",
+            "output": [
+                "Name : Daisy. Offset : 554"
+            ]
+        },
+        {
+            "input": "Passage : Alice's eldest daughter, Anne Stanley, Countess of Castlehaven was heir presumptive to Queen Elizabeth I. She married secondly in 1600 Thomas Egerton, 1st Viscount Brackley. Alice was born in Althorpe, Northamptonshire, England on 4 May 1559, the youngest daughter of Sir John Spencer, Member of Parliament and High Sheriff of Northamptonshire, and Katherine Kytson. She had three brothers and three older sisters. Pronoun : She. Pronoun-offset : 367",
+            "output": [
+                "Name : Alice. Offset : 174"
+            ]
+        },
+        {
+            "input": "Passage : Davidson was hired on January 24, 2007 as the offensive coordinator of the Carolina Panthers. Having worked as a member of the New England Patriots ' staff under Charlie Weis, Davidson forged a close relationship with him. Weis is a good friend of Panthers head coach John Fox, and it is believed that his recommendation was instrumental in Fox's decision to hire Davidson. With his playing and coaching experience at the offensive line and additional coaching with tight ends, most believe this hire meant that Coach Fox wanted to keep his focus on a powerful offense based around a strong running game, as has been his tendency in the past. Pronoun : his. Pronoun-offset : 379",
+            "output": [
+                "Name : Davidson. Offset : 364"
+            ]
+        },
+        {
+            "input": "Passage : It is picked up by a bystander, emptied of its cash, and shoved into a wastebasket. Without the wallet, there is no way to immediately identify the body as Bullard. George Caswell, a member of the Tredway board of directors and one of the investment bankers with whom Bullard had just met, sees what he believes is Bullard's body in the street below their offices and decides to profit from the information. Pronoun : he. Pronoun-offset : 300",
+            "output": [
+                "Name : George Caswell. Offset : 165"
+            ]
+        },
+        {
+            "input": "Passage : Caswell begins to doubt that it was Bullard who died, but when he reads in a newspaper that the man had the initials ``A.B.'' on his clothes and cufflinks, he calls the police to tip them off to the identity of the deceased. Bullard had never named his successor. Over the next 28 hours, Tredway's executives vie for the position of president. Once news of his death reaches Tredway, company controller Loren Shaw takes the initiative in arranging Bullard's funeral and coordinating the company's public reaction. Pronoun : his. Pronoun-offset : 357",
+            "output": [
+                "Name : Bullard. Offset : 448"
+            ]
+        },
+        {
+            "input": "Passage : In the second act, Victor's apartment is shown from a different angle, and the Krap home is still visible. For much of the act, that part of the stage is empty, except for a moment where Jacques lights the lamp and paws his master's armchair. At one point, Victor arrives, and Jacques allows him to sit in his father's chair. Pronoun : him. Pronoun-offset : 292",
+            "output": [
+                "Name : Victor. Offset : 257"
+            ]
+        },
+        {
+            "input": "Passage : Re-elected in the 2007 election, she was re-named the Minister of International Relations, La Francophonie and for the Estrie Region as well as the Vice-Chair of the Treasury Board. Following her 2008 re-election, Gagnon-Tremblay gave up for portfolio of International Relations to Pierre Arcand but was given the position of President of the Treasury Board previously occupied by Monique Jerome-Forget who was also responsible for the portfolio of finances. She was given Jerome-Forget's government administration portfolio duties until 2010. Pronoun : She. Pronoun-offset : 459",
+            "output": [
+                "Name : Gagnon-Tremblay. Offset : 214"
+            ]
+        },
+        {
+            "input": "Passage : Donald P. Kanak is non-executive Chairman of Prudential Corporation Asia, the Asian division of Prudential plc. Until 2006 he was a senior executive at American International Group, and was at one time considered to succeed Hank Greenberg as CEO. After beginning his career in management consulting, Kanak entered the insurance and financial services industry in 1986. Pronoun : his. Pronoun-offset : 263",
+            "output": [
+                "Name : Kanak. Offset : 300"
+            ]
+        },
+        {
+            "input": "Passage : His work as an arranger, producer and songwriter throughout the subsequent decades has brought him into contact with the leading Latin artists of the day, including Roc*o D*rcal and Isabel Pantoja. In addition to recording numerous hits on his own, Gabriel has produced albums for D*rcal, Lucha Villa, Lola Beltran and Paul Anka. Pronoun : his. Pronoun-offset : 240",
+            "output": [
+                "Name : Gabriel. Offset : 249"
+            ]
+        },
+        {
+            "input": "Passage : Eliza Simmons Bryant (1827 -- May 13, 1907) was an American humanitarian. She was the daughter of a freed slave and helped former slaves as a benefactor after the American Civil War. Eliza Bryant was born in North Carolina to Polly Simmons, a slave, and her master. Pronoun : her. Pronoun-offset : 254",
+            "output": [
+                "Name : Eliza Bryant. Offset : 183"
+            ]
+        },
+        {
+            "input": "Passage : Reviewer Peter Travers wrote in Rolling Stone that ``Streep--at her brilliant, beguiling best--is the spice that does the trick for the yummy Julie & Julia.'' Similarly, Stephanie Zacharek of Salon concluded that ``Streep isn't playing Julia Child here, but something both more elusive and more truthful--she's playing our idea of Julia Child.'' Pronoun : she. Pronoun-offset : 305",
+            "output": [
+                "Name : Streep. Offset : 215"
+            ]
+        },
+        {
+            "input": "Passage : Asha Randall Asha Randall (born 6 April 1990) is an English synchronised swimmer who represented Great Britain in the team event at the 2012 London Olympics. Asha is the younger sister of synchronized swimmer Jenna Randall. Since announcing her retirement in 2013 from the sport along with her sister and other member of the London 2012 team, Asha has been performing as part Aquabatix, a synchronized swimming act which featured on Britain's Got Talent. Pronoun : her. Pronoun-offset : 241",
+            "output": [
+                "Name : Asha. Offset : 158"
+            ]
+        },
+        {
+            "input": "Passage : The next day HMS Fawn, under the command of Captain Thomas Fellowes, encountered Rachel and captured her, together with the 12-man prize crew of Americans. The British took the Americans on board Fawn and put a six-man prize crew on board Rachel, which they sent her into Jamaica, where the Vice admiralty court condemned her as a prize. Pronoun : her. Pronoun-offset : 263",
+            "output": [
+                "Name : Rachel. Offset : 239"
+            ]
+        },
+        {
+            "input": "Passage : At the emergency room, the baby was pronounced dead. Suspicion mounted against Tinning, who was always alone when the children died, but there wasn't any evidence of wrongdoing. However, after a police interrogation, Tinning confessed to smothering Tami Lynne, Nathan, and Timothy (which she later retracted). Pronoun : she. Pronoun-offset : 288",
+            "output": [
+                "Name : Tinning. Offset : 217"
+            ]
+        },
+        {
+            "input": "Passage : Towards the end of Edward's reign, Alice was accused of making his life a misery and of luring him with her charms only to further her own personal ambitions. According to Charles Cawley, Perrers had three illegitimate children by King Edward, all while their relationship was a secret from his wife, Queen Philippa and the public. Pronoun : his. Pronoun-offset : 291",
+            "output": [
+                "Name : King Edward. Offset : 231"
+            ]
+        },
+        {
+            "input": "Passage : Alice Perrers is the protagonist of Emma Campion's novel, The King's Mistress. She appears in Anya Seton's novel, Katherine. Pronoun : She. Pronoun-offset : 79",
+            "output": [
+                "Name : Alice Perrers. Offset : 0"
+            ]
+        },
+        {
+            "input": "Passage : Danny Goldman is an American actor, voice artist, and, more recently, casting director. Among his many notable credits include a small role in Young Frankenstein, the voice of Brainy Smurf and Ozzie the Answer in the 1980s detective drama Mickey Spillane's Mike Hammer. Pronoun : his. Pronoun-offset : 94",
+            "output": [
+                "Name : Danny Goldman. Offset : 0"
+            ]
+        },
+        {
+            "input": "Passage : He informs Blackadder and Baldrick, ``For us, a toilet is a mundane, functional item. For you it is the basis of an entire culture!'' Before retiring to his chateau, Richthofen comments that, ``Gallant Lord Flashheart still eludes me.'' Soon after, Flashheart and Lieutenant George arrive to rescue their fellow flyers. At last facing his greatest adversary, Richthofen launches into a tedious soliloquy about chivalry and honor. Pronoun : his. Pronoun-offset : 335",
+            "output": [
+                "Name : Richthofen. Offset : 359"
+            ]
+        },
+        {
+            "input": "Passage : Her world is perfectly ordered until young working-class girl, Sharon Wilkes (Beverley) is hired as the new office secretary. Initially prone to be snobbish, Elsie soon learns to appreciate Sharon and the two become friends. Many episodes revolve around the family life of either Sharon or Elsie, with Sharon's brother Elvis (Lee Daley) and her boyfriend Wayne (John Wild) and Elsie's husband Roland (Bruce Montague) making regular appearances. Pronoun : her. Pronoun-offset : 341",
+            "output": [
+                "Name : Sharon. Offset : 302"
+            ]
+        },
+        {
+            "input": "Passage : Although he has an ugly appearance, he is very fit, agile and nimble. He goes to Jizhou (**) and steals for a living. He is nicknamed ``Flea on a Drum'' for his excellent thieving skills. Shi Qian runs into some trouble in Jizhou (present-day Ji County, Tianjin) and Yang Xiong helps him. Pronoun : him. Pronoun-offset : 284",
+            "output": [
+                "Name : Shi Qian. Offset : 188"
+            ]
+        },
+        {
+            "input": "Passage : She appeared in a campaign for Aquascutum, Hermes for two seasons, Jigsaw A/W 2011, Sportsgirl and was the face of Links of London for a season. She has shot editorial for UK and American Glamour, Dazed & Confused, Italian Vogue, Japanese Vogue, Hercules, Plastique and Russian Vogue. Anna Brewster is from Moseley, Birmingham. She attended St Bernard's RC School, Kings Heath Junior School and Queensbridge School in Moseley before studying for her A levels at Solihull Sixth Form College. Pronoun : She. Pronoun-offset : 328",
+            "output": [
+                "Name : Anna Brewster. Offset : 285"
+            ]
+        },
+        {
+            "input": "Passage : Heightened political pressure and illness pushed Gordillo out from public life for about a year, though she did hold on to her post as the PRI secretary general. In early 2005 Gordillo returned to public life and Roberto Madrazo greeted her with open arms. According to PRI rules, Gordillo, as secretary general of the party, should have replaced Madrazo when he stepped down; but, in a surprise move, Mariano Palacios Alcocer took Madrazo's position instead of Gordillo, who publicly broke with Madrazo just few days before Palacios Alcocer's election. Pronoun : he. Pronoun-offset : 360",
+            "output": [
+                "Name : Madrazo. Offset : 432"
+            ]
+        },
+        {
+            "input": "Passage : Oliveira would take a major step forward with a dramatic come-from-behind win against undefeated prospect (8--0 with 8 knockouts) Phil Williams. In that fight Oliveira was knocked down twice but rallied to knock Williams out in the seventh round. In January 2009 Oliveira defeated veteran Rayco Saunders by majority decision. In his most recent bout Oliveira defeated Otis Griffin by second-round knockout on June 5 at Grand Casino Hinckley in Minnesota. Pronoun : his. Pronoun-offset : 329",
+            "output": [
+                "Name : Oliveira. Offset : 350"
+            ]
+        },
+        {
+            "input": "Passage : The series was recorded in front of a live audience and each 30 minute episode was broadcast on BBC Radio 2 at 1pm, making some of the rude, and occasionally crude, jokes rather risqu* for the time of day. Hudd, Emmett, and Whitfield had all worked together on the very long-running radio series The News Huddlines. Holland is a familiar voice in British comedy series, probably best known for his role as Spike Dixon, the camp comic at Maplin's holiday camp, Crimpton-on-Sea, in the BBC sitcom Hi-de-Hi! Pronoun : his. Pronoun-offset : 394",
+            "output": [
+                "Name : Spike Dixon. Offset : 406"
+            ]
+        },
+        {
+            "input": "Passage : That was the time when the raja (A prince, chief, or ruler in India) of Sheeroo Dynasty was disobeying the authority of King of Delhi, King Feroz Shah Tughlaq. When King Feroz Shah ascended the throne in 752 AH 1351 AD, Sheikh Pahar was well known as a man of sword with Arab blood, a warrior and a strategist. When the King came to know the extraordinary qualities of Sheikh Pahar, he awarded the Hari Sing & Hans Singh District to Sheikh Saheb through an edict or decree in 762 AH/1362 AD. Pronoun : he. Pronoun-offset : 383",
+            "output": [
+                "Name : King. Offset : 320"
+            ]
+        },
+        {
+            "input": "Passage : Other people whose names were cited as possible candidates were MPPs Patrick Reid, Jim Bullbrook, Jim Breithaupt and MPs Norman Cafik, John Roberts and Anthony Abbott. Some Liberals including Donald Deacon tried to recruit former federal finance minister John Turner for the leadership election, but he declined. Pronoun : he. Pronoun-offset : 300",
+            "output": [
+                "Name : John Turner. Offset : 255"
+            ]
+        },
+        {
+            "input": "Passage : Indeed, Jamestown produced ads for four winning gubernatorial campaigns in four years--Christie in 2013, Massachusetts Governor Charlie Baker in 2014, Kentucky Governor Matt Bevin in 2015 and New Hampshire Governor Chris Sununu in 2016. Jamestown also produced ads for the losing gubernatorial primary effort of businessman Bruce Lisman in Vermont. Baker, a moderate running in liberal Massachusetts, hired Jamestown in the final months of 2014. His closing 90-second spot, ''Remarkable State,`` was dubbed ''the selfie ad`` and was described as ''...one of the best campaign ads I saw ... featuring clip after clip of the candidate posing for selfies with voters across the state`` by political author Kristin Soltis Anderson. Pronoun : His. Pronoun-offset : 446",
+            "output": [
+                "Name : Baker. Offset : 349"
+            ]
+        },
+        {
+            "input": "Passage : Smile, sometimes typeset with the idiosyncratic partial capitalization SMiLE, is a solo album by Brian Wilson, with lyrics by Van Dyke Parks released on September 28, 2004 on CD and two-disc vinyl LP. Wilson, Parks and Darian Sahanaja completed the legendary unfinished album project, started in 1966 for Wilson's former band, The Beach Boys. It was released in September 2004 with back-up from members of his touring band, including three members of Wondermints. Pronoun : his. Pronoun-offset : 406",
+            "output": [
+                "Name : Wilson. Offset : 305"
+            ]
+        },
+        {
+            "input": "Passage : Smith played an active role in JFK's 1960 campaign, and was working as Kennedy's campaign manager for re-election at the time of President Kennedy's assassination on November 22, 1963. Smith served as Robert Kennedy 's (RFK) campaign manager during his abbreviated 1968 presidential run. Pronoun : his. Pronoun-offset : 249",
+            "output": [
+                "Name : Robert Kennedy. Offset : 201"
+            ]
+        },
+        {
+            "input": "Passage : Indrajith's role is that of a police officer who was tagged as a ``loser'' and hence different from other traditional cop roles. Asha Sarath was signed to play a journalist named Haritha, with the actress stating that Haritha was ``as unscrupulous as Geetha'', her character in Drishyam. Pronoun : her. Pronoun-offset : 261",
+            "output": [
+                "Name : Asha Sarath. Offset : 129"
+            ]
+        },
+        {
+            "input": "Passage : He has also acknowledged that the Legislative Service Commission confirmed that the bill would allow JobsOhio to spend DOD funding without Controlling Board approval or seeking further approval from the legislature. Carney is against Kasich's biennium budget plan, and has stated that he believes the cuts made to local government will lead to an increase in local property taxes. Pronoun : he. Pronoun-offset : 285",
+            "output": [
+                "Name : Carney. Offset : 216"
+            ]
+        },
+        {
+            "input": "Passage : He hosted the William B. Williams Show in the morning hours, and Music in a Sentimental Mood in the afternoon from 1:00 to 2:00 p.m. In 1954, the originator of the Make Believe Ballroom program in New York, Martin Block, left WNEW for a new job at ABC Radio. Jerry Marshall took over the show for three years, after which Williams was tapped to host the program. He marked the broadcast as his own, using the distinctive sign-on, ``Hello, world'', and occasionally identifying himself as ``Guilliermo B. Guilliermos'' or ``Wolfgang B. Wolfgang,'' although to listeners and friends he was known simply as ``Willie B.'' Pronoun : He. Pronoun-offset : 363",
+            "output": [
+                "Name : Williams. Offset : 322"
+            ]
+        },
+        {
+            "input": "Passage : Then he persuades future son-in-law Ben to bet on a sure thing, Leadpipe, but gets a tip on another horse just before the race, bets Ben's money on that instead, then watches Leadpipe win. In danger of losing his business, if not his family, Jimmy delays paying off Ben, who excitedly believes his horse was the winner. Pronoun : his. Pronoun-offset : 230",
+            "output": [
+                "Name : Jimmy. Offset : 242"
+            ]
+        },
+        {
+            "input": "Passage : Jones, along with Frank Shorter, provided the voices of the TV announcers for a fictionalized staging of the U.S. Olympic Track and Field trials in the 1982 film Personal Best. In 1997, Jones was awarded the Pro Football Hall of Fame 's Pete Rozelle Radio-Television Award. He also received an Emmy Award in 1973 for his part as writer, producer and host of the documentary Is Winning the Name of the Game? Pronoun : He. Pronoun-offset : 274",
+            "output": [
+                "Name : Jones. Offset : 186"
+            ]
+        },
+        {
+            "input": "Passage : Alexander Windsor, Earl of Ulster, born 24 October 1974. He married Claire Booth on 22 June 2002. The couple have two children: Xan Richard Anders Windsor, Lord Culloden (born 12 March 2007) Lady Cosima Rose Alexandra Windsor (born 20 May 2010) Lady Davina Lewis, born 19 November 1977. She married Gary Lewis on 31 July 2004. Pronoun : She. Pronoun-offset : 287",
+            "output": [
+                "Name : Davina Lewis. Offset : 250"
+            ]
+        },
+        {
+            "input": "Passage : The leader of the Legnano--Pirelli team, Graziano Battistini, was listed on the start list, but he withdrew from the Tour before stage one and was not replaced. Although he was cleared to race by the Tour's doctor, Pierre Dumas, Battistini thought he was suffering from azotemia. Pronoun : he. Pronoun-offset : 170",
+            "output": [
+                "Name : Battistini. Offset : 229"
+            ]
+        },
+        {
+            "input": "Passage : Miller is also currently serving as the producing artistic director at Surflight Theatre in Beach Haven, New Jersey, on Long Beach Island. Miller may be new to the leadership of Surflight Theatre, but he is no stranger to the landmark theatre's 450-seat venue. While performing in a high school production of Funny Girl in his hometown of Irvington, NJ, Miller was offered an apprenticeship at Surflight by the show's director and Surflight founder Joseph P. Hayes. Pronoun : his. Pronoun-offset : 323",
+            "output": [
+                "Name : Miller. Offset : 354"
+            ]
+        },
+        {
+            "input": "Passage : The reissue was produced by Al Quaglieri, with Laura Grover as project director. The reissue featured three previously unreleased demos recorded on November 29, 1967. The 20-year-old Nyro performed the spare, solo demos of ``Lu,'' ``Stoned Soul Picnic,'' and ``Emmie'' on piano and multi-tracked her own voice to add harmonies. Pronoun : her. Pronoun-offset : 296",
+            "output": [
+                "Name : Nyro. Offset : 183"
+            ]
+        },
+        {
+            "input": "Passage : The group then moved on to their AWA run, returned to World Class, and then started a stint in the UWF where Gordy became the promotion's champion, Roberts held its TV title, and Hayes usually acted as their manager or served as a heel commentator on television broadcasts. After JCP purchased UWF in 1987, Hayes wrestled in World Class and several independent promotions, sometimes with Gordy, who began spending most of his time in Japan, and Roberts began to wind down his career. Pronoun : his. Pronoun-offset : 422",
+            "output": [
+                "Name : Gordy. Offset : 388"
+            ]
+        },
+        {
+            "input": "Passage : The film was on the ``Best Films'' list of over 20 national critics and was nominated for a Spirit Award for Best Screenplay by Savoca and Guay. Savoca cast many favorite New York City actors for the film which was shot in DeLaurentis/Carolco (now EUE Screen Gems) Studios in Wilmington, North Carolina. The film reunited Lili Taylor with Savoca, with whom she'd previously worked on Dogfight, and Vincent D'Onofrio, with whom she'd appeared in 1988's Mystic Pizza. Pronoun : she. Pronoun-offset : 357",
+            "output": [
+                "Name : Lili Taylor. Offset : 322"
+            ]
+        },
+        {
+            "input": "Passage : The film follows the courtship and marriage of Catherine Falconetti (Ullman) to local butcher Joseph Santangelo (D'Onofrio), as well as Catherine's relationship with her overbearing Old World mother-in-law (Judith Malina). The film also focuses on Catherine and Joseph's daughter Teresa (Taylor), a devout Catholic more similar to her superstitious grandmother than with her modernized and secularized parents. Pronoun : her. Pronoun-offset : 331",
+            "output": [
+                "Name : Teresa. Offset : 280"
+            ]
+        },
+        {
+            "input": "Passage : Isabel Walker is a twenty-something American film-school dropout who decides to visit her step-sister Roxanne, a poet who now lives in France. Isabel believes that she is there to help Roxanne during her pregnancy with her toddler infant, but later realizes that her father and step-mother sent her there so that Roxanne would help the shiftless Isabel gain some direction in life. Shortly after she arrives, Roxanne confides in Isabel that her French husband, Claude-Henri has left her. Pronoun : she. Pronoun-offset : 396",
+            "output": [
+                "Name : Roxanne. Offset : 409"
+            ]
+        },
+        {
+            "input": "Passage : In 1997, Yukiko Shinozaki came to Belgium to work for Damaged Goods (Brussels), the dance company of the American choreographer Meg Stuart. She was a dancer in Splayed Mind Out (Meg Stuart / Damaged Goods and Gary Hill, 1997), Appetite (Meg Stuart / Damaged Goods and Ann Hamilton, 1998), Sand Table (Meg Stuart / Damaged Goods and Magali Desbazeille, 2000) and Highway 101 (Meg Stuart / Damaged Goods, 2000), and the assistant choreographer on Remote (Meg Stuart / Damaged Goods, 1997). Pronoun : She. Pronoun-offset : 140",
+            "output": [
+                "Name : Yukiko Shinozaki. Offset : 9"
+            ]
+        },
+        {
+            "input": "Passage : When her husband, Henry II, died in 1559, she forced his mistress, Diane de Poitiers, to exchange Ch*teau de Chaumont for Ch*teau de Chenonceau, which Henry had given to de Poitiers. Diane de Poitiers only lived at Chaumont for a short while. In 1594, at the death of Diane's granddaughter Charlotte de la Marck, the ch*teau passed to her husband, Henri de La Tour d'Auvergne, Duke of Bouillon, who sold it to a tax farmer Largentier, who had grown rich on gathering in the salt tax called the gabelle. Pronoun : her. Pronoun-offset : 335",
+            "output": [
+                "Name : Charlotte de la Marck. Offset : 290"
+            ]
+        },
+        {
+            "input": "Passage : Rocky travels to Dubai, where his friend Babloo (Vijay Raaz) has already tracked down Tanya, who has become Natasha, a successful singer and performer. Rocky and Babloo stakeout Natasha's villa to make sure they are on the right track, but as soon as Rocky spots Natasha, it's love at first sight. While he has Natasha under surveillance, Karan and Murugan arrive at the Dubai airport from India. Pronoun : he. Pronoun-offset : 304",
+            "output": [
+                "Name : Rocky. Offset : 251"
+            ]
+        },
+        {
+            "input": "Passage : Rocky intervenes, and after seemingly beating the living daylights out of the supposed thugs (the scene is similar to Jean-Claude Van Damme's introductory action sequence from Hard Target (1993)), introduces himself to Natasha, and proceeds to show himself off as a charming professional with a heart of gold. Somewhat awed, Natasha offers Rocky an invitation for tea later in the evening, which he accepts. When Rocky arrives at her villa later in the evening, he is confronted by several obstacles, Natasha's sister Sweety (Supriya Pilgaonkar), the jealous Tommy and the family's pet dog. Pronoun : her. Pronoun-offset : 430",
+            "output": [
+                "Name : Natasha. Offset : 501"
+            ]
+        },
+        {
+            "input": "Passage : He quoted extensively from Scottish jurist Baron Hume, and American psychiatrist Isaac Ray. Witnesses were produced from Glasgow to give evidence about M'Naghten's odd behaviour and complaints of persecution. The defence then called on a number of medical witnesses, including Dr Edward Monro, Sir Alexander Morison, and Dr Forbes Winslow, who testified that M'Naghten's delusions had deprived him of ``all restraint over his actions''. Pronoun : him. Pronoun-offset : 394",
+            "output": [
+                "Name : M'Naghten. Offset : 359"
+            ]
+        },
+        {
+            "input": "Passage : Another brother, Dr. Aswin W. Sastrowardoyo, is a physician who was formerly a guitarist and vocalist with the music group Chaseiro from 1979 to 1983, and a younger sister, Lisa Damayanti Sastrowardoyo (b. 1962). The actress Dian Sastrowardoyo is a niece of Ms. Joesoef. She is married to Mr. Iwan V. Joesoef, a businessman, and has two sons Marwan Arie Joesoef (born 26/5/1976), Nurfahd S. Joesoef (born 4/3/1979) and one daughter Tiara R. Joesoef (born 5/7/1999) Pronoun : She. Pronoun-offset : 271",
+            "output": [
+                "Name : Joesoef. Offset : 262"
+            ]
+        },
+        {
+            "input": "Passage : As described by Brittany Spanos of Rolling Stone, ``The video opens on an art gallery filled with photos of Bieber's silhouette before shifting to the singer offering an emotional delivery of the track in a dark room. Bieber eventually becomes covered in animated paint, drawings and caricatures. Back in the gallery, Jack * fans are providing the illustrations that are appearing over or surrounding Bieber's body as he sings and dances to the track.'' Pronoun : he. Pronoun-offset : 418",
+            "output": [
+                "Name : Bieber. Offset : 401"
+            ]
+        },
+        {
+            "input": "Passage : On 4 July 2011 at 9 am, Robinson brought 'The New Castle FM' back to life with Starship's ``Nothing's Gonna Stop Us Now''; the station enjoyed success over the following two weeks attracting interviews with members of the local community and even Siva from 'The Wanted' called to show his support. Pronoun : his. Pronoun-offset : 285",
+            "output": [
+                "Name : Siva. Offset : 247"
+            ]
+        },
+        {
+            "input": "Passage : He was commissioned into the Royal Artillery and by the end of the Second World War he was a Lieutenant-Colonel. After the war he served in the Territorial Army and was promoted to Colonel in 1956. Colonel Palmer married, May 6, 1950, in Duns, Lorna Eveline Hope, daughter of Charles William Hugh Bailie, of Manderston, Berwickshire, by which marriage the Palmer family came into possession of Manderston. At the time of his marriage he was resident at 'Fernhurst', Pinkneys Green, Maidenhead, Berkshire. Pronoun : his. Pronoun-offset : 421",
+            "output": [
+                "Name : Palmer. Offset : 206"
+            ]
+        },
+        {
+            "input": "Passage : Dorothy Moore (born 13 October 1946, Jackson, Mississippi ) is an American pop, R&B, and soulsinger best known for her 1976 hit song, ``Misty Blue''. Born to Mary Moore and Melvin Hendrex Snr., aka Melvin Henderson of the Mississippi Blind Boys, Dorothy was raised by her great grandmother. Pronoun : her. Pronoun-offset : 268",
+            "output": [
+                "Name : Dorothy. Offset : 246"
+            ]
+        },
+        {
+            "input": "Passage : The administration of Jewish communal affairs in Jerusalem had fallen into the hands of iniquitous officials. The poor were harshly taxed for the Muslim government; the rich were similarly treated and driven from the city by exorbitant demands upon them, so that the Jewish community was on the brink of ruin. In a letter written to his brother from Jerusalem on 24 August 1489, Obadiah mentions that Jews flock to Jerusalem from Egypt, Damascus, Aleppo and other places in order to worship God. Pronoun : his. Pronoun-offset : 333",
+            "output": [
+                "Name : Obadiah. Offset : 379"
+            ]
+        },
+        {
+            "input": "Passage : She begins a relationship with him, unaware he is also seeing Gloria Todd (Sue Jenkins), a barmaid at the Rovers Return Inn. When Rita discovers his infidelity, she issues him an ultimatum. Although Alan chooses Gloria over Rita, Gloria changes her mind about being with him and ends their affair. Pronoun : her. Pronoun-offset : 245",
+            "output": [
+                "Name : Gloria. Offset : 230"
+            ]
+        },
+        {
+            "input": "Passage : The official first single, ``Fallin''', was written solely by Keys, and topped the US Billboard Hot 100 chart. ``A Woman's Worth'', written by Keys and Erika Rose, is a ``jazz-tinged'' song with lyrics which speak of how men should treat and respect women. Keys released her second album, The Diary of Alicia Keys, in December 2003. Pronoun : her. Pronoun-offset : 271",
+            "output": [
+                "Name : Keys. Offset : 143"
+            ]
+        },
+        {
+            "input": "Passage : As tempting as it can be to think of Liszt as the father of modern music on the basis of his late music, looking at his achievements in these works as ends in themselves would be erroneous. Liszt's technical achievements in his late music are one side of a more complex picture. Along with the increasing interest in Hungarian and other national schools of composition already mentioned, essential parts of this picture are tragedy in Liszt's personal life and developments in his friendship with Wagner. In his later years Liszt's problems with health, both physical and mental, affected his ability to complete compositions. Pronoun : his. Pronoun-offset : 508",
+            "output": [
+                "Name : Liszt. Offset : 524"
+            ]
+        },
+        {
+            "input": "Passage : On 17 June 2005, after 12 years at Birmingham, Bennett transferred to Leeds United who already had Scottish international goalkeeper Neil Sullivan as first-choice goalkeeper. Despite playing the pre-season friendlies, he was limited to four league appearances during the 2005-06 season, obtained deputising for the injured Sullivan. In July 2006, Bennett transferred for an undisclosed fee to newly promoted Premiership club Sheffield United, signing on a two-year deal to provide competition to the Blades first-choice goalkeeper, Paddy Kenny. He played the first game of his second spell at the club at Bramall Lane against Reading on 16 September 2006. Pronoun : He. Pronoun-offset : 545",
+            "output": [
+                "Name : Bennett. Offset : 347"
+            ]
+        },
+        {
+            "input": "Passage : He chose not to participate with guitarist Brian May and drummer Roger Taylor in the Queen + Paul Rodgers collaboration, but did give them his support. Deacon was also absent from Queen's induction into the Rock and Roll Hall of Fame in 2001. John Deacon grew up in Oadby with father Arthur, mother Lilian and younger sister Julie. His father worked for the Norwich Union insurance company, but died of a heart attack in 1962, when John was eleven. Pronoun : His. Pronoun-offset : 332",
+            "output": [
+                "Name : John Deacon. Offset : 243"
+            ]
+        },
+        {
+            "input": "Passage : He was promoted to major on 14 August 1790, and to lieutenant-colonel on 9 December 1793. On 4 July 1785 at Barnes in Surrey, he married Henrietta Anne Hoare, a daughter of Sir Richard Hoare, 1st Baronet of Barn Elms, a partner in the City of London banking firm C. Hoare & Co, and Frances Anne Acland. She survived him and in 1795 remarried to Captain the Hon. Matthew Fortescue (1754--1842), Royal Navy, younger brother of Hugh Fortescue, 1st Earl Fortescue of Castle Hill, Filleigh, Devon. Pronoun : She. Pronoun-offset : 303",
+            "output": [
+                "Name : Henrietta Anne Hoare. Offset : 137"
+            ]
+        },
+        {
+            "input": "Passage : I would never write a book about the bad parts. I would mostly revel in the fantastic parts, of which there were so many.'' In early 2007, reports surfaced concerning Lindsay Lohan's interest in buying the rights to Nicks' life story and developing a motion picture in which she planned to play her. Pronoun : she. Pronoun-offset : 275",
+            "output": [
+                "Name : Lindsay Lohan. Offset : 167"
+            ]
+        },
+        {
+            "input": "Passage : Henry Wallis (1830--1916) was an English Pre-Raphaelite painter, writer and collector. Born in London on 21 February 1830, his father's name and occupation are unknown. When in 1845 his mother, Mary Anne Thomas, married Andrew Wallis, a prosperous London architect, Henry took his stepfather's surname. Pronoun : his. Pronoun-offset : 182",
+            "output": [
+                "Name : Henry. Offset : 266"
+            ]
+        },
+        {
+            "input": "Passage : Also, the twin roles of The Corsican Brothers at the Abbey in Dublin, and the lead role of Fridays at Seven at the Court Theatre in West Hollywood. His more notable television appearances include UK soap Coronation Street, JAG for NBC, Monk for USA Network, and Alias for ABC. Riotta's film credits include the independent mafia film Al Capone, for which he won the Best Actor award at the 1995 Barcelona Film Festival for his portrayal of the title character. Pronoun : he. Pronoun-offset : 355",
+            "output": [
+                "Name : Riotta. Offset : 277"
+            ]
+        },
+        {
+            "input": "Passage : But as the day wears on signs and premonitions of Odysseus'' return grow more ominous and they formulate a plan to work together in order that one of them may succeed in winning Penelope, thus saving the others from Odysseus'' revenge. In a final sequence Quinn performs a quick-change cabaret routine to the music of ``Spanish Flea'' and ``A Taste of Honey'' by Herb Alpert and the Tijuana Brass as the others aid his performance. Pronoun : his. Pronoun-offset : 415",
+            "output": [
+                "Name : Quinn. Offset : 256"
+            ]
+        },
+        {
+            "input": "Passage : In 1854, in order to live less expensively, Soule moved her family to a log cabin in Boonsboro, Iowa. In 1856 Soule married Ardon Benjamin Holcomb (Born June 23, 1804 in North Granby, Hartford, Connecticut; died September 29, 1879), a lawyer, and they had one son, Sumner White Holcomb (born August 29, 1857). In 1856 Henry Bacon, editor of the Ladies' Repository (published by Tompkins), made her corresponding editor. Bacon's successor, Carolyn Sawyer, appointed Soule assistant editor, 1861-65. Pronoun : her. Pronoun-offset : 394",
+            "output": [
+                "Name : Soule. Offset : 465"
+            ]
+        },
+        {
+            "input": "Passage : The meaning of the earth being divided is usually taken to refer to a patriarchal division of the world, or possibly just the eastern hemisphere, into allotted portions among the three sons of Noah for future occupation, as specifically described in the Book of Jubilees, Biblical Antiquities of Philo, Kitab al-Magall, Flavius Josephus, and numerous other antiquarian and mediaeval sources, even as late as Archbishop Ussher, in his Annals of the World. Pronoun : his. Pronoun-offset : 430",
+            "output": [
+                "Name : Archbishop Ussher. Offset : 408"
+            ]
+        },
+        {
+            "input": "Passage : Geller is reckoned to have been among the best ten players in the world for around twenty years. He was awarded the International Master title in 1951, and the International Grandmaster title the following year. Geller played in 23 USSR Chess Championship s, a record equalled by Mark Taimanov, achieving good results in many. He won in 1955 at Moscow (URS-ch22) when, despite losing five games, he finished with 12/19, then defeated Smyslov in the playoff match by the score of +1 =6. Pronoun : He. Pronoun-offset : 327",
+            "output": [
+                "Name : Geller. Offset : 212"
+            ]
+        },
+        {
+            "input": "Passage : Noble ``Thin Man'' Watts (February 17, 1926 -- August 28, 2004) was an American blues, jump blues and rhythm and blues saxophonist. He primarily played tenor saxophone. Allmusic journalist Bill Dahl considered Watts ``one of the most incendiary ... fire-breathing tenor sax honkers'' of the 1950s. Born in DeLand, Florida, Watts studied violin and trumpet in his youth, later switching to sax. Pronoun : his. Pronoun-offset : 359",
+            "output": [
+                "Name : Watts. Offset : 210"
+            ]
+        },
+        {
+            "input": "Passage : Bollinger was listed as the third string QB, backing up starter Tony Romo and his backup Brad Johnson. During week 6 of the season, Romo injured a finger on his throwing hand, leaving him out for a few games. After some failed performances by the veteran Brad Johnson, Bollinger made his first appearance for the Cowboys in the second half of the week 9 game against the New York Giants. Pronoun : his. Pronoun-offset : 284",
+            "output": [
+                "Name : Bollinger. Offset : 269"
+            ]
+        },
+        {
+            "input": "Passage : The list certainly needs updating. Please help with the on-going process of updating. * * A number of Wain's poetry appeared in various anthologies, including the following: * Being an educationist with a pronounced bend towards the western model of democracy ), Wain's early philosophy was very much influenced by John Dewey. His later philosophy also draws on the works of poststructuralist philosophers such as Michel Foucault, J*rgen Habermas and Richard Rorty. Pronoun : His. Pronoun-offset : 327",
+            "output": [
+                "Name : Wain. Offset : 263"
+            ]
+        },
+        {
+            "input": "Passage : He was born in New York City, studied in Paris, and after returning to the United States worked for Leslie's, Harper's Weekly and similar publications. He also contributed to the humorous weekly magazine Vanity Fair. The Mark Twain book A Tramp Abroad contains more than 20 pictures by Day. He married Maria Theresa Miller around 1859, who died in 1875. Pronoun : He. Pronoun-offset : 291",
+            "output": [
+                "Name : Mark Twain. Offset : 221"
+            ]
+        },
+        {
+            "input": "Passage : He sold off the boy's brothers and sisters in preparation for moving to Pennsylvania; he traded 10-year-old Hayden for two carriage horses to a man who traveled the state selling clocks. The travels with his new master allowed Hayden to hear varying opinions of slavery, including its classification as a crime by some people. When he was 14, the American Revolutionary War soldier Marquis de Lafayette tipped his hat to Hayden while visiting Kentucky, which helped inspire Hayden to believe he was worthy of respect and to hate slavery. Pronoun : he. Pronoun-offset : 332",
+            "output": [
+                "Name : Marquis de Lafayette. Offset : 382"
+            ]
+        },
+        {
+            "input": "Passage : On March 21, 2006, Murray was fired by the Kings and was replaced on an interim basis by John Torchetti. He provided colour commentary for the Canadian Broadcasting Corporation during their Hockey Night in Canada telecasts of the 2006 Stanley Cup playoffs. On December 11, 2006, the Blues hired Murray to replace Mike Kitchen as head coach after a seven game losing streak. He coached the Blues to a record of 33--36--13 in his first full season as coach in 2007--2008. Pronoun : He. Pronoun-offset : 374",
+            "output": [
+                "Name : Murray. Offset : 295"
+            ]
+        },
+        {
+            "input": "Passage : Sarah Wigglesworth MBE RDI is a British award-winning architect and Professor of Architecture at the University of Sheffield. Wigglesworth founded Sarah Wigglesworth Architects in 1994. Her practice has a reputation for sustainable architecture and an interest in using alternative, low energy materials. Pronoun : Her. Pronoun-offset : 186",
+            "output": [
+                "Name : Wigglesworth. Offset : 126"
+            ]
+        },
+        {
+            "input": "Passage : During that time he was part of an ABC News team that came under sniper fire in Sarajevo, Bosnia in August 1992. David Kaplan, a veteran ABC News Washington producer, was killed in the incident. In 1997, Sherwood joined NBC 's Nightly News with Tom Brokaw as a producer, then senior producer, and ultimately senior broadcast producer, where he was present during coverage of the September 11th attacks. Pronoun : he. Pronoun-offset : 341",
+            "output": [
+                "Name : Sherwood. Offset : 204"
+            ]
+        },
+        {
+            "input": "Passage : When Herman and Fred are arrested and imprisoned for petty theft charges, Ma takes over the group and leads Arthur and Lloyd on a bank robbery spree to gain enough money to get her sons out of jail. The gang is joined by a gunman named Kevin (Bruce Dern) who was Fred's cellmate during his incarceration (and his strongly implied lover). Pronoun : his. Pronoun-offset : 286",
+            "output": [
+                "Name : Fred. Offset : 263"
+            ]
+        },
+        {
+            "input": "Passage : The organization of the household was so efficient that it alone could fully satisfy the needs of the tsar's court. One of the biggest zoos in Europe at that time could also be found in Izmaylovo manor. Unfortunately, after the death of Aleksey Mikhailovich the estates were abandoned and a lot of the buildings and facilities fell into decline. When he was a child, Peter the Great used the territory and the gardens for his war games; the remains of the redoubts he built are still partially preserved. Pronoun : he. Pronoun-offset : 351",
+            "output": [
+                "Name : Peter the Great. Offset : 367"
+            ]
+        },
+        {
+            "input": "Passage : He won a pair of tune-up fights, then faced contender Oba Carr in February 1999 for a chance to fight for a welterweight title. But Carr beat him on a 10-round unanimous decision. The loss to Carr was the end of Randall's time as a contender, but he's continued to fight with mixed results over the years since. Pronoun : he. Pronoun-offset : 247",
+            "output": [
+                "Name : Randall. Offset : 212"
+            ]
+        },
+        {
+            "input": "Passage : M states they leave and anyone who wants to, can come with him. Mr. M leads the mutants to a nearby island in the middle of a lake where they are joined by the O*N*E and the X-Men. Johnny Dee, under the command of General Demetrius Lazer, uses his ``voodoo dolls'' to make Leech depower Mr. Pronoun : his. Pronoun-offset : 244",
+            "output": [
+                "Name : Johnny Dee. Offset : 181"
+            ]
+        },
+        {
+            "input": "Passage : He is also chair of the editorial board for the journal of the National Academy of Television Arts and Sciences ' Television Quarterly and a faculty associate at the Columbia Institute for Tele-Information. Pavlik was formerly a professor and executive director of the Center for New Media at the Columbia University Graduate School of Journalism. He also previously served as the founding director of the School of Communication at San Diego State University. Pronoun : He. Pronoun-offset : 348",
+            "output": [
+                "Name : Pavlik. Offset : 207"
+            ]
+        },
+        {
+            "input": "Passage : It is documented that Charlemagne's court exploited the rose as a perfume. The rose was also appreciated for its medical value and was utilized in countless medical remedies. The Red Rose of Lancaster derives from the gold rose badge of Edward I of England. Other members of his family used variants of the royal badge, with the king's brother, the Earl of Lancaster, using a red rose. Pronoun : his. Pronoun-offset : 275",
+            "output": [
+                "Name : Edward I of England. Offset : 237"
+            ]
+        },
+        {
+            "input": "Passage : In 2010 Ella Kabambe was not the official Miss Malawi; this was Faith Chibale, but Kabambe represented the country in the Miss World pageant. At the 2012 Miss World, Susan Mtegha pushed Miss New Zealand, Collette Lochore, during the opening headshot of the pageant, claiming that Miss New Zealand was in her space. Pronoun : her. Pronoun-offset : 304",
+            "output": [
+                "Name : Susan Mtegha. Offset : 166"
+            ]
+        },
+        {
+            "input": "Passage : Critics have compared her to Avril Lavigne and Pink. Parol toured with acts such as White Tie Affair, A Rocket to the Moon, The Audition, Cash Cash, Friday Night Boys, Kelsey and the Chaos, Mercy Mercedes, and Forever the Sickest Kids! She will also be performing at the 98 PXY Summer Jam Concert in Rochester, NY with artists such as Flo Rida and Boys Like Girls. Pronoun : She. Pronoun-offset : 236",
+            "output": [
+                "Name : Parol. Offset : 53"
+            ]
+        },
+        {
+            "input": "Passage : For her artist days, Parol cited artists such as Shirley Manson, Steven Tyler, Pat Benatar, Chrissie Hynde, Joan Jett and Debbie Harry as her biggest influences. Pronoun : her. Pronoun-offset : 4",
+            "output": [
+                "Name : Parol. Offset : 21"
+            ]
+        },
+        {
+            "input": "Passage : First George Holley beat both amateur wing halves to open the scoring, the second came from Harold Fleming's ``splendid left-foot shot'', and Harry Hampton converted a corner. The half finished 4--0, after Hampton converted a penalty awarded against Arthur Knight for handball when Fleming's powerful shot struck his arm. Pronoun : his. Pronoun-offset : 313",
+            "output": [
+                "Name : Arthur Knight. Offset : 250"
+            ]
+        },
+        {
+            "input": "Passage : Attempting to drown his sorrows, Peter visits his local bar, The Drunken Clam, with his guide dog, unaware that the bar is on fire (caused by God trying to impress a woman). Discovering the bartender Horace trapped under debris, Peter saves his life and is proclaimed a hero by local newsman Tom Tucker. When told that he saved Horace from a burning building, Peter replied with disbelief, ``That freakin' place was on fire?!'' Pronoun : he. Pronoun-offset : 319",
+            "output": [
+                "Name : Peter. Offset : 360"
+            ]
+        },
+        {
+            "input": "Passage : Latin under Professor Lamb, botany under Professor Tate, and Physiology under Professor Stirling. In 1879 she was seconded to the about-to-be-opened Advanced School for Girls in Franklin Street as deputy to Jane Stanes. Stanes retired at the end of 1880, and Edith was appointed her successor, though a Government regulation, stipulating that a head of a school must be aged 25, had to be waived by the Minister of Education J. Langdon Parsons. Pronoun : her. Pronoun-offset : 279",
+            "output": [
+                "Name : Stanes. Offset : 220"
+            ]
+        },
+        {
+            "input": "Passage : `` ''Thanks to the efforts of many of those great makers (which began with Gaetano Antoniazzi) and later with support of people like Simone Fernando Sacconi, the glory of Cremona was re-established with the opening of the School of Violin Making (officially in 1938, Cremona). `` ''Ceruti's work is rather cleaner and more precise than Storioni's, but his choice of wood was often somewhat plain. Pronoun : his. Pronoun-offset : 352",
+            "output": [
+                "Name : Ceruti. Offset : 282"
+            ]
+        },
+        {
+            "input": "Passage : His decision in 1868 to retain control over the city's water rights and reserves is considered one of the most important in Los Angeles' history. In 1868, Aguilar lost re-election to Joel Turner and was subsequently appointed as Water Overseer once again. After resigning his post, Aguilar challenged Joel Turner again in 1870, defeating him this time. Pronoun : him. Pronoun-offset : 338",
+            "output": [
+                "Name : Joel Turner. Offset : 301"
+            ]
+        },
+        {
+            "input": "Passage : However, before he was able to arrive Mr. Fontayne stopped by, to tell Margie how well she did on her latest paper. Margie, who did not know who was replacing Roy as her date, mistook Mr. Fontayne for being the substitute. When Fontayne explained he is merely stopping by for the compliment and that he is actually taking Miss Palmer, who works at the school library, to the dance, Margie burst out in tears. In the end, she decided to attend the dance anyways, escorted by her father. Pronoun : she. Pronoun-offset : 421",
+            "output": [
+                "Name : Margie. Offset : 382"
+            ]
+        },
+        {
+            "input": "Passage : She appears in a bathtub towards the end of Red Robin #11 as one of Ra's Al Ghul 's targets, identified as Bruce's first love, until she was rescued by Man-Bat, which shocks and scares her. A version of Julie Madison appeared in the 1997 film Batman & Robin, played by Elle Macpherson. Many of her scenes were edited out of the film's final cut, thus she is the only film love interest of Batman's to not have a prominent role. Pronoun : her. Pronoun-offset : 294",
+            "output": [
+                "Name : Elle Macpherson. Offset : 269"
+            ]
+        },
+        {
+            "input": "Passage : King Mongkut then presents the fifteen children she will tutor, aside from the other sixty-seven - among them his eldest son and heir Prince Chulalongkorn. Anna agrees to stay and tutor the King's children, prompting formality to break down. Later that night, Lady Thiang and the other wives assist Anna in unpacking, and when an old photograph of her late husband Tom is discovered, the wives start to deride the unhappy Tuptim because she is in love with another man named Lun Tha, the same man who brought her to Siam. Pronoun : her. Pronoun-offset : 348",
+            "output": [
+                "Name : Anna. Offset : 299"
+            ]
+        },
+        {
+            "input": "Passage : Lewis Hamilton went past Romain Grosjean for sixth place on lap 67, closing on Fernando Alonso, but was eventually unable to catch him, who scored McLaren's best finish of the season up to that point. The race was also Honda's 350th Grand Prix as an engine supplier and the first time that the renewed partnership with McLaren scored a double points finish. By winning his first Hungarian Grand Prix, and 41st Grand Prix overall, Vettel matched Ayrton Senna for third-most Formula One career wins. Pronoun : his. Pronoun-offset : 369",
+            "output": [
+                "Name : Vettel. Offset : 430"
+            ]
+        },
+        {
+            "input": "Passage : An argument ensued, with Lee rejecting the political implications of the first choice and indicating the difficulty of the second, but Gordon left the meeting with the impression that Lee was considering those options. On March 6, however, Gordon was summoned back to headquarters and Lee told him that ``there seemed to be but one thing that we could do--fight. Pronoun : him. Pronoun-offset : 294",
+            "output": [
+                "Name : Gordon. Offset : 240"
+            ]
+        },
+        {
+            "input": "Passage : His North American appearances have included Hoffmann in The Tales of Hoffmann (Washington National Opera 2001), Gustavo in Un ballo in maschera (Boston Lyric Opera 2007), and Dick Johnson in La fanciulla del West (Op*ra de Montr*al 2008). In October 2010, he made his role debut as Radames in Verdi's Aida for Opera Queensland. The title role in Verdi's Don Carlos has been an important one in Gavin's career. He made his Royal Opera House debut in the role in 1996 when he took over from Roberto Alagna in Luc Bondy's production and sang it at the Edinburgh International Festival in 1998 as well as in productions at The New Israeli Opera, Opera North, and Minnesota Opera. Pronoun : He. Pronoun-offset : 411",
+            "output": [
+                "Name : Gavin. Offset : 395"
+            ]
+        },
+        {
+            "input": "Passage : However, they do manage to get into the festival vibe in one sense, when experimenting with drugs leads to some surprising results. Get on Downer - Lacking excitement in her social life, Dolly plans to throw a party - but after mentally crossing Belle, Nobby and her family off the guest list, realises she doesn't really know anyone else. Pronoun : her. Pronoun-offset : 263",
+            "output": [
+                "Name : Dolly. Offset : 187"
+            ]
+        },
+        {
+            "input": "Passage : Boyfriend - Dolly bumps into an old friend from school, Sid, and the two get along well. However, when Belle points out that Sid fancies Dolly, she becomes incredibly nervous and makes a mess of things. Pronoun : she. Pronoun-offset : 144",
+            "output": [
+                "Name : Dolly. Offset : 137"
+            ]
+        },
+        {
+            "input": "Passage : Artigas, who thought that the gauchos were not treated well, supported the new ideas. Buenos Aires deposed the viceroy in 1810, during the May Revolution, who was replaced by the Primera Junta. Mariano Moreno, secretary of war, wrote at the Operations plan that Artigas would be a descisive ally against the royalists in Montevideo, and called him for an interview. Pronoun : him. Pronoun-offset : 344",
+            "output": [
+                "Name : Artigas. Offset : 262"
+            ]
+        },
+        {
+            "input": "Passage : Groucutt began his musical career at 15 as Rikki Storm of Rikki Storm and the Falcons. He went on to sing with various outfits during the '60s, picking up the guitar as he went along. Groucutt was also a member of a band called ``Sight and Sound'', and later with a band called ``Barefoot''. It was while playing with Barefoot in Birmingham that he was spotted by ELO's Jeff Lynne; and after Lynne, Bev Bevan and Richard Tandy had watched him play, he was invited to join ELO, to replace Mike de Albuquerque, who had recently left the band. Pronoun : he. Pronoun-offset : 346",
+            "output": [
+                "Name : Groucutt. Offset : 184"
+            ]
+        },
+        {
+            "input": "Passage : Nearly two-thirds of these students once lived and worked in Steung Meanchey, picking plastic and metal out of the mountains of burning, hazardous waste and selling them to local recycling centers. CCF also welcomes many children in need from impoverished rural regions of Cambodia. In 2007, Quincy Jones awarded Neeson the inaugural Harvard School of Public Health ``Q Prize'' in recognition of his extraordinary leadership in advocacy for children, calling Neeson's ``selfless, remarkable commitment to the children of Cambodia'' a ``genuine profile in courage.'' Pronoun : his. Pronoun-offset : 396",
+            "output": [
+                "Name : Neeson. Offset : 313"
+            ]
+        },
+        {
+            "input": "Passage : On January 26, 1913, 18 year-old waitress Jennie Canady Parker shot and killed her old boyfriend, Dan Danielson. According to Glenn Snow, an Arizona historian, Danielson and Parker had gotten into an argument about another woman in the former's saloon, during which Danielson pulled out his revolver and fired it at the corner of a liquor cabinet Parker was standing near. Pronoun : his. Pronoun-offset : 287",
+            "output": [
+                "Name : Danielson. Offset : 266"
+            ]
+        },
+        {
+            "input": "Passage : Blige won a Soul Train Music Award for Best R&B/Soul Album, Female (Mary) and was also nominated for Best R&B/Soul or Rap Album. Blige also won 2 Soul Train Lady of Soul Awards for Solo R&B/Soul Album of the Year for Mary and R&B/Soul or Rap Song of the Year for ``All That I Can Say''. She was also nominated for Best Solo R&B/Soul Single for ``All That I Can Say''. Pronoun : She. Pronoun-offset : 287",
+            "output": [
+                "Name : Blige. Offset : 129"
+            ]
+        },
+        {
+            "input": "Passage : Throughout his education at Marborough and Cambridge he seems to have led a reclusive life. At Cambridge he had one close friend, John McCowan, with whom he shared an interest in motor cars. It was during a stay at the McCowan family farm that Petter met his future wife Claude, the daughter of Louis Munier a Swiss official at the League of Nations in Geneva. Pronoun : his. Pronoun-offset : 255",
+            "output": [
+                "Name : Petter. Offset : 244"
+            ]
+        },
+        {
+            "input": "Passage : Because of its convenient size and its proximity to the earlier royal castle and the present royal palace it has frequently been the site of major events in Swedish history, such as coronations, royal wedding and royal funerals. The last Swedish king to be crowned here was Oscar II in 1873. Crown Princess Victoria, oldest daughter of King Carl XVI Gustaf and Queen Silvia, was married to Daniel Westling on 19 June 2010 at the Storkyrkan, the same date on which her parents were also married in Storkyrkan in 1976. Pronoun : her. Pronoun-offset : 464",
+            "output": [
+                "Name : Victoria. Offset : 307"
+            ]
+        },
+        {
+            "input": "Passage : Giggs played in a match for Salford Boys against a United Under-15s side at The Cliff and scored a hat trick, with Ferguson watching from his office window. On 29 November 1987 (his 14th birthday), Ferguson turned up at Giggs's house with United scout Joe Brown and offered him two years on associate schoolboy forms. Pronoun : his. Pronoun-offset : 178",
+            "output": [
+                "Name : Giggs. Offset : 220"
+            ]
+        },
+        {
+            "input": "Passage : In 1851 Barlow was in England, where he published a short work ``Industry on Christian Principles, London, 1851. He published at London ``Letteratura Dantesca: Remarks on the Reading of the 114th Verse of the 7th Canto of the Paradise of the ``Divina Commedia'''' (1857), and two years afterwards ``Francesca da Rimini, her Lament and Vindication; with a brief Notice of the Malatesti'' (1859, 2nd edition, 1875). An Italian translation, ``Francesca da Rimini, suo Lamento e Difesa,'' &c., in Filippo Scolari's ``Esercitazioni Dantesche,'' appeared at Venice in 1865. Barlow published in 1862 ``Il Gran Rifiuto, what it was, who made it, and how fatal to Dante Allighieri,'' on verses 58 to 63 of the 3rd canto of the Inferno; an Italian translation by G. G(uiscardi) appeared at Naples in 1864. Barlow also issued in 1862 ``Il Conte Ugolino e l'Arcivescovo Ruggieri: a Sketch from the Pisan Chronicles,'' and a fragment of English history, entitled ``The Young King and Bertrand de Born,'' from which the author deduced an amended reading in line 135 of the 28th canto of the ``Inferno.'' In 1864 Barlow published the final result of his work on the ``Divina Commedia,'' ``Critical, Historical, and Philosophical Contributions to the Study of the ``Divina Commedia.'''' Pronoun : his. Pronoun-offset : 1135",
+            "output": [
+                "Name : Barlow. Offset : 1098"
+            ]
+        },
+        {
+            "input": "Passage : Janet McLuckie Brown was born in Rutherglen, Lanarkshire, and educated at Rutherglen Academy. Early in her performing career, she presented Picture Book on BBC Television in the 1950s. Beginning with Margaret Thatcher's election as the leader of the Conservative Party in 1975, Brown gained increasing prominence because of her realistic impression of the Tory politician. Pronoun : her. Pronoun-offset : 324",
+            "output": [
+                "Name : Brown. Offset : 278"
+            ]
+        },
+        {
+            "input": "Passage : He came back every year to Le Mans, fourteen times in total, where he won in 1968 with Belgian driver Lucien Bianchi in a Ford GT40 of the Wyer -- Gulf team. In 1962, Ricardo died in a horrific accident while practicing for the Mexican Grand Prix, and Pedro considered retiring from racing. However, in 1963 he won at Daytona International Speedway and took part in his first Grand Prix for Lotus in the USA and Mexico. Pronoun : he. Pronoun-offset : 308",
+            "output": [
+                "Name : Pedro. Offset : 252"
+            ]
+        },
+        {
+            "input": "Passage : She returned for a guest appearance from April to September 1997. She then returned to the show as a series regular again in April 1999, signing a two-year contract. She again exited the role in the fall 1999 when then head writer, Bradley Bell informed Teri Ann Linn that Kristen was no longer needed in the show's current storylines and that she would be let go. Pronoun : she. Pronoun-offset : 344",
+            "output": [
+                "Name : Kristen. Offset : 273"
+            ]
+        },
+        {
+            "input": "Passage : The story takes place in a mysterious underworld of swanky nightclubs where armed criminals listen to Rat Pack music and hold shootouts from a seated position, behind desks. Mickey Holliday is the top enforcer for Vic, the mob boss, who is about to be released from a psychiatric facility. In his absence, Ben London has been running Vic's nightclub while Mickey has been romancing both Rita and Grace Everly, which is doubly dangerous inasmuch as they are sisters and Grace was previously Vic's girl. Pronoun : his. Pronoun-offset : 293",
+            "output": [
+                "Name : Vic. Offset : 334"
+            ]
+        },
+        {
+            "input": "Passage : Before the situation can escalate, the 4400 start to become seriously ill, and are ordered back into quarantine, a move resisted by Richard who has taken over the 4400 Center following Shawn's illness. When the crisis is resolved due to Isabelle's blood being used to develop a cure, Lily discovers Isabelle is missing. After discovering that Isabelle is missing, Lily is found unconscious by Richard. As she awakes she is horrified to discover she has aged around fifty years. Pronoun : she. Pronoun-offset : 405",
+            "output": [
+                "Name : Lily. Offset : 364"
+            ]
+        },
+        {
+            "input": "Passage : It is around this time that Lily is visited by Heidi at the center; Carol and Brian are arguing, and Heidi has learned that Lily is her birth mother. The two begin to form a relationship, but Isabelle becomes distressed at the sight of Heidi. Lily is later told by Brian that Heidi is now in hospital after her spleen ruptured, though she is recovering and asking to see Lily. Pronoun : her. Pronoun-offset : 307",
+            "output": [
+                "Name : Heidi. Offset : 276"
+            ]
+        },
+        {
+            "input": "Passage : It was built about 1838, and is a large 2 1/2-story, five bay by four bay, frame dwelling in a transitional Federal / Greek Revival style. It was added to the National Register of Historic Places in 1982. George H. Throop lived at Scotch Hall for a time in 1849 and served as tutor to the children of the family who lived there. His experiences were the basis for two novels, Nag's Head and Bertie, in which Scotch Hall is depicted as the plantation ``Cypress Shore''. Pronoun : His. Pronoun-offset : 329",
+            "output": [
+                "Name : George H. Throop. Offset : 205"
+            ]
+        },
+        {
+            "input": "Passage : Marty Allen -- stand-up comedian and actor Mel Bochner -- artist Richard Caliguiri -- former Mayor of Pittsburgh Willa Cather -- author Myron Cope -- sports journalist, radio personality, and sportscaster Bob Filner - Politician, congressman and San Diego mayor, Howard Fineman -- journalist Bernard Fisher -- physician, scientist, and a pioneer in the biology and treatment of breast cancer Gary Graff -- music journalist and author Evelyn Kozak -- world's oldest living Jewish person until her death in 2013 Maxine Lapiduss -- television producer, television writer, and comedian Sally Lapiduss -- television producer and writer Steve Lieber -- comic book illustrator Larry Lucchino -- Pronoun : her. Pronoun-offset : 492",
+            "output": [
+                "Name : Evelyn Kozak. Offset : 434"
+            ]
+        },
+        {
+            "input": "Passage : On 27 September 2014, Toshney signed for Ross County and made his debut the same day as they beat Dundee 2--1. Having been released by Ross County, Toshney signed for Cowdenbeath on 3 February 2015, signing a contract until the end of the 2014--15 season. On 11 June 2015, Toshney signed for Raith Rovers. Following his move to Scottish Championship rivals Dundee United, former Raith Rovers manager Ray McKinnon expressed an interest in bringing Toshney to Tannadice. Pronoun : his. Pronoun-offset : 316",
+            "output": [
+                "Name : Ray McKinnon. Offset : 400"
+            ]
+        },
+        {
+            "input": "Passage : Byas led a small group for several sessions for Savoy during 1945--46. He was second-place winner in tenor sax of the Esquire All-American Awards in January 1946, and in February, he recorded again with Gillespie on ``52nd Street Theme'' and ``Night in Tunisia''. Despite his bebop associations, Byas remained deeply rooted in the sounds of swing. Pronoun : his. Pronoun-offset : 272",
+            "output": [
+                "Name : Byas. Offset : 296"
+            ]
+        },
+        {
+            "input": "Passage : About two years later, on May 20, 1998, Muriel Patterson, a member of the Western Australian Legislative Council, read excerpts of Jessen's 1995 biography to the Western Australian Legislative Council during the then-pending Acts Amendment (Abortion) Bill. In his speech at the 2002 signing of the Born-Alive Infants Protection Act President George W. Bush mentioned Jessen, acknowledging her presence and extending his appreciation. Pronoun : his. Pronoun-offset : 416",
+            "output": [
+                "Name : George W. Bush. Offset : 342"
+            ]
+        },
+        {
+            "input": "Passage : Rubenfeld was a summa cum laude graduate of Princeton University (A.B., 1980) and a magna cum laude graduate of Harvard Law School (J.D., 1986). He also studied theater in the Drama Division of the Juilliard School between 1980-1982. Rubenfeld clerked for Judge Joseph T. Sneed on the United States Court of Appeals for the Ninth Circuit in 1986-1987. After his clerkship, he worked as an associate at Wachtell, Lipton, Rosen & Katz and as an assistant U.S. Attorney in the Southern District of New York. Pronoun : his. Pronoun-offset : 358",
+            "output": [
+                "Name : Rubenfeld. Offset : 234"
+            ]
+        },
+        {
+            "input": "Passage : Bored with her life and with Don, her lawyer boyfriend, waitress Ellen Ward craves excitement. She accepts an invitation from Ritchie and Mike, a couple of petty crooks, and ends up giving them an alibi for a crime. Ritchie rewards her with $100. Ellen catches the eye racketeer Charles Blake, irking his moll Vivian, who attacks her with a pair of scissors. Pronoun : her. Pronoun-offset : 330",
+            "output": [
+                "Name : Ellen. Offset : 247"
+            ]
+        },
+        {
+            "input": "Passage : John Nixon (May 10, 1815 - June 3, 1899), English mining engineer and colliery proprietor, was born at Barlow, Durham, the son of a farmer. He was educated at the village school, and at an academy in Newcastle-on-Tyne, where he distinguished himself in mathematics. Pronoun : He. Pronoun-offset : 140",
+            "output": [
+                "Name : John Nixon. Offset : 0"
+            ]
+        },
+        {
+            "input": "Passage : Director of Public Affairs for the Children's Defense Fund; and Communications Director for the National Urban Coalition. She was also a director of the Trust for Early Education, an advocacy group devoted to ensuring that children in America receive pre-Kindergarten preparation for education. Lieberman first joined the White House in 1993 as Assistant to First Lady Hillary Rodham Clinton's Chief of Staff. She rose to the rank of Deputy Assistant to the President with the job title of Deputy Press Secretary. Pronoun : She. Pronoun-offset : 410",
+            "output": [
+                "Name : Lieberman. Offset : 295"
+            ]
+        },
+        {
+            "input": "Passage : She completed her Higher School Certificate in 1995, her highest mark being eighty-five percent in music and at the age of 18, became the lead singer of a cover band ``Quiver''. They performed a wide range of songs including Tracey Chapman, Pearl Jam, Shania Twain, Alanis Morissette, 80's rock and more and Wood recorded original songs with the band. She then moved to Sydney where she enrolled in the Australian Institute of Music choosing vocal as her major, which she completed successfully, and joined another cover band ``The Anthill Mob''. Pronoun : She. Pronoun-offset : 352",
+            "output": [
+                "Name : Wood. Offset : 308"
+            ]
+        },
+        {
+            "input": "Passage : Despite this, it failed to chart in any other country. Bonnie Tyler (then known as Gaynor Hopkins) spent seven years performing in local pubs and clubs around South Wales between 1969 and 1976, first as part of Bobbie Wayne & the Dixies, and then with her own band Imagination. Pronoun : her. Pronoun-offset : 252",
+            "output": [
+                "Name : Gaynor Hopkins. Offset : 83"
+            ]
+        },
+        {
+            "input": "Passage : The Princess of Nebraska and the title story, which Li adapted herself. She lives in Oakland, California, with her husband and their two sons, and teaches at University of California, Davis. * * Stephanie Merritt of The Observer wrote, Yiyun Li's 2005 debut story collection A Thousand Years of Good Prayers earned her comparisons with Chekhov and Alice Munro. Pronoun : her. Pronoun-offset : 315",
+            "output": [
+                "Name : Yiyun Li. Offset : 236"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,1210 @@
+{
+    "Contributors": "Selvaganesh Muthu",
+    "Source": [
+        "gap",
+        "https://huggingface.co/datasets/gap"
+    ],
+    "Categories": "Reverse Coreference Resolution",
+    "Definition": "This task is about reading the given passage and finding the corresponding pronoun for the given name offset. The pronoun must be mentioned in the passage. The reference should point to the exact offset of the pronoun reference. The output should include the output pronoun name and output offset.",
+    "Positive Examples": [
+        {
+            "input": "Passage : His other television appearances included Comedy Central 's Comics Come Home special, The Dennis Miller Show, and Late Night with Conan O'Brien. He also worked as a writer on In Living Color. Prior to his death in 2005, Thomas was working as a writer for Air America Radio, and was a frequent guest at Rocky Sullivan's ``Satire for Sanity'' show. He also was working on a project with Jamie Foxx. Name : Thomas. Offset : 220",
+            "output": "Pronoun : He. Pronoun-offset : 347",
+            "explanation": "The 'also' mentioned next to 'he' shows that it refers to Thomas in the previous sentence."
+        },
+        {
+            "input": "Passage : White has held positions as finance chair for the Democratic National Committee and as finance co-chair for Hillary Clinton's 2008 presidential campaign. She has been involved in fundraising for her 2016 presidential campaign as well. Name : White. Offset : 0",
+            "output": "Pronoun : She. Pronoun-offset : 154",
+            "explanation": "The only other person's name present in the passage is White and so she referring to White is correct."
+        },
+        {
+            "input": "Passage : Shatner referred to The Original Series as ``cartoonish'' in Mind Meld, but later, upon questioning by a reporter, said, ``I never thought it was a cartoon ... I never thought it was beneath me.'' In a February 2002 interview on Larry King Live, Shatner said Mind Meld was similar to My Dinner with Andre, and indicated that he and Nimoy were hoping to produce more films of a similar nature. Name : Shatner. Offset : 246",
+            "output": "Pronoun : he. Pronoun-offset : 325",
+            "explanation": "Shanter refers to himself in the passage so this is correct."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Passage : The team also captured two East German Cups (FDGB Pokal) in 1971 and 1977, and made 42 European Cup appearances. During his career the small, strict trainer also coached 40 national team players and helped uncover talents such as Ulf Kirsten and Matthias Sammer. Fritzsch was succeeded as trainer at Dynamo by Gerhard Prautzsch and moved on to work for the DFV (Deutscher Fussball Verband der DDR or German Football Association of East Germany). Over his career he had coached 1,900 games, coming away with 1,163 victories. Name : Fritzsch. Offset : 263",
+            "output": "Pronoun : he. Pronoun-offset : 451",
+            "explanation": "The pronoun mentioned is not present in the passage. It is incorrect."
+        },
+        {
+            "input": "Passage : Captured, Elias realises he is responsible for the deaths of his entire community and begs the priest for forgiveness before his execution. The priests says he is unable to do so and curses Elias's bloodline. Elias escapes and becomes obsessed with the concept of atoning for his sin. He moves his remaining seven children to the desert where they begin to build a monument to God. As his children begin to die through illness and accident, Elias maintains that God has forsaken him and his religious beliefs turn from reverence to homicidal and take over his and his children's lives. Name : Elias. Offset : 441",
+            "output": "Pronoun : he. Pronoun-offset : 157",
+            "explanation": "The 'he' referred in the output refers to the priest and so this is incorrect."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "Passage : Upon their acceptance into the Kontinental Hockey League, Dehner left Finland to sign a contract in Germany with EHC M*nchen of the DEL on June 18, 2014. After capturing the German championship with the M*nchen team in 2016, he left the club and was picked up by fellow DEL side EHC Wolfsburg in July 2016. Former NHLer Gary Suter and Olympic-medalist Bob Suter are Dehner's uncles. His cousin is Minnesota Wild's alternate captain Ryan Suter. Name : Dehner. Offset : 366",
+            "output": [
+                "Pronoun : His. Pronoun-offset : 383"
+            ]
+        },
+        {
+            "input": "Passage : Between the years 1979-1981, River won four local titles, and became one of the most expensive teams in the world, with a first team (Alonso- Luque) playing in league games and an equally prestigious second team (Carrasco- Ram*n D*az) used mostly in Copa Libertadores matches. During the 1981 ``Nacional'' tournament (which River would eventually win), Alonso often clashed with then coach Alfredo Di St*fano (who seldom selected him for the first team and instead put younger players such as Carlos Daniel Tapia and Jose Maria Vieta in his position). Name : Alonso. Offset : 353",
+            "output": [
+                "Pronoun : him. Pronoun-offset : 430"
+            ]
+        },
+        {
+            "input": "Passage : Though his emigration from the country has affected his leadership status, Kamel is still a respected elder of the clan. After the fall of Hussien's regime, many considered Dr. Ali Aladhadh a candidate to lead the clan. A contributor to Iraq's liberation, Ali Aladhadh and a long time oppose to Saddam's regime. He was ambushed with his pregnant wife on his way to the hospital in 2006 by Iraqi insurgents. Name : Ali Aladhadh. Offset : 256",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 312"
+            ]
+        },
+        {
+            "input": "Passage : At the trial, Pisciotta said: ``Those who have made promises to us are called Bernardo Mattarella, Prince Alliata, the monarchist MP Marchesano and also Signor Scelba, Minister for Home Affairs ... it was Marchesano, Prince Alliata and Bernardo Mattarella who ordered the massacre of Portella di Ginestra. Before the massacre they met Giuliano...'' However the MPs Mattarella, Alliata and Marchesano were declared innocent by the Court of Appeal of Palermo, at a trial which dealt with their alleged role in the event. During his trial Pisciotta could not account for Giuliano's documents in which he named the high-ranking government officials and mafiosi involved with Giuliano's band. Name : Pisciotta. Offset : 536",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 526"
+            ]
+        },
+        {
+            "input": "Passage : It is about a pair of United States Navy shore patrollers (SPs) (Tom Berenger and William McNamara) who must escort a beautiful prisoner (Erika Eleniak), and the troubles they encounter. Eddie Devane (William McNamara) is a young sailor who has carried out a number of inventory-related scams along with his partner-in-crime Howard (Crispin Glover) and made a lot of money during his service. A day before his discharge, Eddie is assigned to escort a prisoner from the Marine base at Camp Lejeune along with the authoritarian, no-nonsense Chief Petty Officer Rock Reilly (Tom Berenger). Name : Eddie. Offset : 421",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 406"
+            ]
+        },
+        {
+            "input": "Passage : The others were Adam Baldwin (Jayne Cobb in Firefly) who played Colonel Dave Dixon, and Morena Baccarin (Inara Serra in Firefly) who played Adria. Executive producer Martin Gero created the character of Jennifer Keller while writing ``First Strike''. The producers decided to cast Jewel Staite for the role as Keller after they enjoyed working with her previously as Ellia in ``Instinct''. Name : Jewel Staite. Offset : 281",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 349"
+            ]
+        },
+        {
+            "input": "Passage : Allison Fischer (born October 19, 1988) is an American singer and actress. Originally from northern New Jersey, Allison had her first professional performance in the Off-Broadway musical King Island Christmas in 2000. Also in 2000, Allison performed on Broadway at Madison Square Garden as Grace Smythe in A Christmas Carol, alongside Frank Langella and Tim Curry. She played Lady Jane in the Off-Broadway musical version of The Prince and the Pauper from 2002--2003, and briefly performed at Playwrights Horizon in January 2003 in Jeanine Tesori 's musical, ''Violet''. Name : Allison. Offset : 232",
+            "output": [
+                "Pronoun : She. Pronoun-offset : 365"
+            ]
+        },
+        {
+            "input": "Passage : The monster arrives and bites Jeni's tongue, but David manages to break free and releases the other three, though at the cost of his own life. The remaining trio head back to the cottage to set a trap to kill the monster, but the leprechaun tricks Sophie and Ben into striking Jeni with their axes, killing her. Name : Jeni. Offset : 277",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 307"
+            ]
+        },
+        {
+            "input": "Passage : On June 4, 1973 at the Felt Forum, Madison Square Garden, New York, Malave lost to Ray Lampkin by an eighth-round knockout. Malave took a fight in Boston, Mass. against Greg Joiner, winning by a knockout in the 3rd round. Then he faced former World Lightweight Champion Ken Buchanan, losing by a TKO in the 7th round September 1, 1973, which turned out to be his last professional boxing match. Name : Malave. Offset : 124",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 227"
+            ]
+        },
+        {
+            "input": "Passage : Go Away (Lorrie Morgan song) ``Go Away'' is a song written by Stephony Smith, Cathy Majeski and Sunny Russ, and recorded by American country music artist Lorrie Morgan. It was released in July 1997 as the first single from her album Shakin' Things Up. Name : Lorrie Morgan. Offset : 154",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 223"
+            ]
+        },
+        {
+            "input": "Passage : Taken in by S.H.I.E.L.D. she is under the direct supervision of its longtime executive director, Nick Fury, even after the latter's defection from the agency during the events of the ``Secret War'' series. She possesses a ``Level 10'' security clearance, the only known agent aside from Fury and the Black Widow (Natasha Romanova) to do so. In her most visible action, Johnson has helped to defeat the powerful mutant rebel leader Magneto by inducing a vibration in his brain that made him lose consciousness. Name : Johnson. Offset : 369",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 344"
+            ]
+        },
+        {
+            "input": "Passage : He was a lawyer in Pulaski County before serving as Mayor of Little Rock from 1979 until he resigned in 1981. He was appointed by Bill Clinton as chief justice of Arkansas State Supreme Court in 1983. When Clinton became President, Hubbell was appointed as Associate Attorney General, which is the third most powerful person in the Justice Department. His wife is Suzanna ``Suzy'' Hubbell. Name : Hubbell. Offset : 232",
+            "output": [
+                "Pronoun : His. Pronoun-offset : 352"
+            ]
+        },
+        {
+            "input": "Passage : He left the Army in 1946. As the recipient of a Fellowship in Composition, Hanson after the war was able to resume his studies at the Conservatorium. Following a year of study with Alex Bernard, the Conservatorium offered Hanson a place on the staff which he accepted. Name : Hanson. Offset : 222",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 256"
+            ]
+        },
+        {
+            "input": "Passage : Nicola Alexis is a British actress best known for playing the role of WPC Ruby Buxton in the long running ITV drama The Bill. She recently played the lead role in the theatre adaptation of Carl Hiaasen's Lucky You, which premiered at the Edinburgh Festival Fringe in 2008. Name : Nicola Alexis. Offset : 0",
+            "output": [
+                "Pronoun : She. Pronoun-offset : 126"
+            ]
+        },
+        {
+            "input": "Passage : Indeed, Buster was fully intended to exist in place of Spike for the comic book series, until the release of the Fortress Maximus toy in 1987, which included Spike as a Headmaster partner, hence necessitating the hurried introduction of Spike into the comic book continuity. Returning home from college to discover that his father's garage had been destroyed, Spike investigated the Autobots' deserted base at Mount Saint Hillary, learning that Buster had been captured by the Earth-based Decepticons. Name : Spike. Offset : 360",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 320"
+            ]
+        },
+        {
+            "input": "Passage : In the late 1970s, she toured in musical comedies including Sammy Cahn's Words and Music. After appearing with Mickey Rooney in the play Goodnight Ladies in Chicago, the producers cast Ann Jillian to appear in the original company of Sugar Babies on Broadway with Mickey Rooney and Ann Miller in 1979. She also starred in I Love My Wife at the Drury Lane Theatre in Chicago. Name : Ann Jillian. Offset : 185",
+            "output": [
+                "Pronoun : She. Pronoun-offset : 302"
+            ]
+        },
+        {
+            "input": "Passage : Jennifer Slept Here ended in 1984, enabling her to take a role in the miniseries Ellis Island, co-starring Richard Burton, Faye Dunaway, Ben Vereen and Liam Neeson. Dunaway and Vereen were nominated for Golden Globe Awards, and Jillian and Burton were nominated for Emmy Awards. Bob Hope selected her to appear in six of his television specials, including two entertaining U.S. troops stationed in Beirut (1984) and Saudi Arabia (1991). Name : Jillian. Offset : 228",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 297"
+            ]
+        },
+        {
+            "input": "Passage : On May 17, 2004, when the very successful Die Harald Schmidt Show left Sat.1, Engelke took over its timeslot with Anke Late Night, which was cancelled due to low ratings a few months later on October 21, 2004. Engelke is the German voice of Marge Simpson on The Simpsons since her predecessor Elisabeth Volkmann died in the summer of 2006. Name : Engelke. Offset : 210",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 277"
+            ]
+        },
+        {
+            "input": "Passage : Antonio di Filippo di Lorenzo Niccolini (Florence, 1701--1769) was an Italian abbot, jurist and scholar, who was considered one of the leading figures of eighteenth-century Tuscany. He was born into a noble Florentine family, the youngest child of Filippo, third Marquess of Ponsacco and Camugliano, and was a relative of the Pope. Name : Antonio di Filippo di Lorenzo Niccolini. Offset : 0",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 182"
+            ]
+        },
+        {
+            "input": "Passage : Rabelais traveled frequently to Rome with his friend Cardinal Jean du Bellay, and lived for a short time in Turin with du Bellay's brother, Guillaume, during which Fran*ois I was his patron. Rabelais probably spent some time in hiding, threatened by being labeled a heretic. Only the protection of du Bellay saved Rabelais after the condemnation of his novel by the Sorbonne. Name : Rabelais. Offset : 314",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 349"
+            ]
+        },
+        {
+            "input": "Passage : The team spends some time in a beach-house on the West Coast, living with a semi-sentient housemaid defensive robot. There have been moments of friction as the rest of the team is still adjusting to Sarah's sexual orientation. For some time, Caitlin Fairchild had no idea Sarah was attracted to women, especially her, leading to at least one incident where Caitlin innocently changed clothing in front of her. Name : Caitlin Fairchild. Offset : 242",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 313"
+            ]
+        },
+        {
+            "input": "Passage : After seeing an image of Venus, Vulcan, and Cupid, he deduces that it is a temple to Venus. Chaucer explores the temple until he finds a brass tablet recounting the Aeneid. Chaucer goes into much further detail during the story of Aeneas's betrayal of Dido, after which he lists other women in Greek mythology who were betrayed by their lovers, which led to their deaths. Name : Chaucer. Offset : 173",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 270"
+            ]
+        },
+        {
+            "input": "Passage : Jones played piano for a concert with the London Symphony Orchestra, with George Martin conducting his Beatles Yellow Submarine Suite. He also wrote a chapter on MIDI for Martin's book Making Music and presenting a segment about computer music on BBC Two's Science In Action. In the late 1980s Jones began working with Duran Duran on their live shows and then in the studio producing a B side single ``This Is How A Road Gets Made'', before being hired to record the album Liberty with producer Chris Kimsey. He also produced the single ``Burning the Ground'' (a remix of Duran's greatest hits) for Duran Duran's compilation album. Name : Jones. Offset : 294",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 509"
+            ]
+        },
+        {
+            "input": "Passage : That opened the door for Racing Engineering's Christian Vietoris to claim second place, the German having done a great job after starting from seventh on the grid, while iSport's Davide Valsecchi made a nice move down the inside of Giedo van der Garde (Addax) to secure third with three laps to go. Oliver Turvey finished fifth for iSport ahead of Super Nova's Luca Filippi, the Italian taking his first point since returning to the series at Silverstone. Name : Oliver Turvey. Offset : 299",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 394"
+            ]
+        },
+        {
+            "input": "Passage : It explored their interconnection and geographical distribution, and critically evaluated on the life and teachings of important men from each school. It is usually regarded as the first great history of Chinese philosophy. The work was later lauded by Liang Qichao as a new kind of historiography. At the time of his death, Huang Zongxi left behind an uncompleted survey of the Song and Yuan dynasties. Name : Huang Zongxi. Offset : 325",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 314"
+            ]
+        },
+        {
+            "input": "Passage : Kathleen first appears when Theresa visits her in a prison in London. Name : Kathleen. Offset : 0",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 43"
+            ]
+        },
+        {
+            "input": "Passage : The central characters are Juliana Crain, Frank Frink, Joe Blake, John Smith, Nobusuke Tagomi, and Takeshi Kido. The series takes place in an alternate 1962. Juliana Crain is a San Francisco woman who becomes entangled with the resistance when her half-sister Trudy is killed by the Kempeitai, just after giving Juliana a film reel that contains newsreel-style footage depicting an alternate history in which the Allies won World War II and Germany and Japan were defeated. Name : Juliana. Offset : 312",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 244"
+            ]
+        },
+        {
+            "input": "Passage : A 1969 film, directed and co-written by Arthur Penn, was based on the true story told in the song, but with the addition of a large number of fictional scenes. This film, also called Alice's Restaurant, featured Arlo and several other figures in the song portraying themselves. The part of his father Woody Guthrie, who had died in 1967, was played by an actor, Joseph Boley; Name : Arlo. Offset : 212",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 290"
+            ]
+        },
+        {
+            "input": "Passage : He was then at the height of his intellectual powers and current president of Section F of the British Association. Uniquely, Young had also been president of the American Statistical Association (1917) and the American Economic Association (1925). As documented in a recent biography by Charles Blitch (1995), Young was a brilliant student, graduating from Hiram College in 1894 at the age of sixteen, the youngest graduate on record. After a few years in the printing trade he enrolled in 1898 in the graduate school of the University of Wisconsin where he studied economics under Richard T. Ely and William A. Scott, history under Charles H. Haskins and Frederick Jackson Turner, and statistics under Edward D. Jones. Name : Young. Offset : 311",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 476"
+            ]
+        },
+        {
+            "input": "Passage : At a later period Henry Scobell, clerk of Parliament, was required to deliver to John Phelps all papers and books returned from Scotland touching delinquents and sequestrations.'' A petition having been presented to the Council of State by John, Earl of Crawford, order was made September 1, 1653, that Mr. Phelps examine his books as to what was done by the Commissioners who had then lately been sent into Scotland as to whether any order was given by them for allowing the Earl's wife the fifth part of his estate for maintenance of herself and children. Name : Earl of Crawford. Offset : 246",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 322"
+            ]
+        },
+        {
+            "input": "Passage : A short while later, Michael decided that he wanted to play a role in his son's life, and tried to get Lisa to marry him, but by this time, she wanted nothing to do with him. Around the same time, Lisa's son Tom (who'd been SORASed to his late teens) had returned from Vietnam with a drug habit. One night, Michael caught Tom breaking into his office to steal drugs, and he used this information to blackmail Lisa into marrying him. Name : Michael. Offset : 307",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 340"
+            ]
+        },
+        {
+            "input": "Passage : Though Grant and Lisa were very happy together, Lisa's ongoing jealousy of Joyce and later Valerie continue to be a problem, and at one point, Grant asked Lisa for a divorce. Lisa pretended to be ill, and staged an elaborate scheme designed to demonstrate Valerie's true calculating ways. Though she succeeded in this, Grant and Lisa's lives continued to be complicated, this time by a new woman, Tina Cornell, who had a played a role in the previous manipulations involving Valerie, and was injured as a result. Name : Lisa. Offset : 329",
+            "output": [
+                "Pronoun : she. Pronoun-offset : 296"
+            ]
+        },
+        {
+            "input": "Passage : He and Lisa separated, but when Tina attempted to seduce him, he realized that Lisa had been right all along. Though he claimed to be through with scheming women, Joyce now reentered Grant's life, pretending to be terminally ill. Though Lisa disputed Joyce's claims of illness, Grant believed her and the two became engaged. Name : Joyce. Offset : 251",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 293"
+            ]
+        },
+        {
+            "input": "Passage : A studio version of the song is available on the ``Deluxe Edition'' of her album. Sol*s was so impressed by the performance that he invited Ana*s as a special guest and opening act for his concert in Madison Square Garden. Anais is also expected to record a song with Solis for her third upcoming production. Name : Anais. Offset : 223",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 278"
+            ]
+        },
+        {
+            "input": "Passage : Soviet secret services have been described as ``the primary instructors of guerrillas worldwide''. According to Ion Mihai Pacepa, KGB General Aleksandr Sakharovsky once said: ``In today's world, when nuclear arms have made military force obsolete, terrorism should become our main weapon.'' He also claimed that ``Airplane hijacking is my own invention''. Name : Aleksandr Sakharovsky. Offset : 142",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 291"
+            ]
+        },
+        {
+            "input": "Passage : Sophia Elisabet Brenner (died 1730), Swedish writer, poet, feminist and salon hostess date not known Thomas Creech (died 1700), English translator and scholar Daniel Defoe (year between 1659 and 1661), (died 1731), English author, writer, journalist, spy and poet, probably while in hiding from his creditors. Name : Daniel Defoe. Offset : 159",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 295"
+            ]
+        },
+        {
+            "input": "Passage : Of the 3,464 Medals of Honor awarded as of September 17, 2009, an estimated 2,018 have been awarded to Irish-American recipients, more than twice the number awarded any other ethnic group; 257 Irish-born Americans have received the Medal of Honor which represents more than half of foreign-born MOH recipients. A monument to these Irish-born Medal of Honor recipients is located at Valley Forge's Medal of Honor Grove; erected by the Ancient Order of Hibernians. The first Irish American to receive the Medal was Michael Madden, who received it for his actions in the American Civil War Name : Michael Madden. Offset : 513",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 549"
+            ]
+        },
+        {
+            "input": "Passage : Austin Jermaine Wiley (born January 8, 1999) is an American basketball player. He currently plays for the Auburn Tigers in the Southeastern Conference. Wiley attended Spain Park High School in Hoover, Alabama, where he averaged 27.1 points, 12.7 rebounds and 2.9 blocked shots as a junior in 2015-16, before moving to Florida, where he went to Calusa Preparatory School in Miami, Florida, while playing basketball at The Conrad Academy in Orlando. Name : Wiley. Offset : 152",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 216"
+            ]
+        },
+        {
+            "input": "Passage : However he was never able to get close to two of the best, Dai Vernon or Sam Horowitz. So McGuire got close to a magician both men admired, Max Malini, and through clever use of his association with Malini got to Horowitz. With his knowledge of Scott, McGuire had leverage and a worth to the top cardmen. Name : McGuire. Offset : 252",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 228"
+            ]
+        },
+        {
+            "input": "Passage : One day before the battle, the astronomer- eunuch Pu Wenying came to see Bao Daoyi, warning him that he noticed an unlucky omen in the skies and urging Bao not to go to war. Bao Daoyi is furious after hearing Pu Wenying's words and he slices Pu into two with his sword in anger. Name : Bao Daoyi. Offset : 174",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 232"
+            ]
+        },
+        {
+            "input": "Passage : Francis grew to maturity, Elizabeth married Robert Potter, and Elisha married Elizabeth Dexter and was for many years a Deputy or Assistant in the Rhode Island colony. There have been numerous books and articles written about Susanna's famous mother, Anne Hutchinson, most of which mention Susanna. One book has been written about Susanna, Trouble's Daughter by Katherine Kirkpatrick, which presents a fictionalized account about Susanna's life with the native Americans who captured her, but also presents some of the limited historical information that is available about her. Name : Susanna. Offset : 430",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 484"
+            ]
+        },
+        {
+            "input": "Passage : (Tune: ``A Dream is a Wish Your Heart Makes'') Alice in Wonderland - Alice sings, while the garden of live flowers judge her. (Tune: ``All in the Golden Afternoon'') Peter Pan - Michael watches while Wendy assists Peter with his shadow. Name : Peter. Offset : 214",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 225"
+            ]
+        },
+        {
+            "input": "Passage : When Liu Bei heard of Liu Cong's surrender, he led his followers (both troops and civilians) on an exodus southward to Xiakou, engaging Cao Cao's forces in a brief skirmish at the Battle of Changban along the way. While in Xiakou, Liu Bei sent Zhuge Liang to follow Lu Su to Jiangdong to discuss the formation of an alliance between him and Sun Quan. Name : Liu Bei. Offset : 231",
+            "output": [
+                "Pronoun : him. Pronoun-offset : 333"
+            ]
+        },
+        {
+            "input": "Passage : It published articles by Leon Trotsky, but would not publish any by Vladimir Lenin. During the First World War Vorw*rts opposed the SPD's Burgfriedenspolitik in favour of pacifism and neutrality until 1916 when, some time after Rudolf Hilferding had been drafted into the Austrian army, Friedrich Stampfer was introduced as editor-in-chief. He guided the central organ back towards the party line (prompting accusations from half of the Socialist camp that it had become chauvinist). Name : Friedrich Stampfer. Offset : 287",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 341"
+            ]
+        },
+        {
+            "input": "Passage : Presently, Samantha is the executive producer, creator, and writer for ``The Monkey Factory'', an animated pilot for 20th Century FOX Studios featuring Kristen Wiig, Paul Scheer, Casey Wilson, Jason Nash, as an ensemble cast. Other work for FOX includes ``Animals'' which she produced for Robert Smigel and Happy Madison Productions, as well as a pilot Samantha is currently producing starring Kristen Bell titled ``Maggie''. Name : Samantha. Offset : 11",
+            "output": [
+                "Pronoun : she. Pronoun-offset : 272"
+            ]
+        },
+        {
+            "input": "Passage : Kitty helps Dove return to the caf*, where Teresina cares for him. The younger woman goes back to the bordello to get Hallie, helping her reach the caf*. When Hallie can't be found at the bordello, Kitty is suspected and put under pressure; frightened, she brings Jo and her three henchmen to the caf*. Name : Kitty. Offset : 198",
+            "output": [
+                "Pronoun : she. Pronoun-offset : 253"
+            ]
+        },
+        {
+            "input": "Passage : Ursula (1450--1508) married in 1467 Duke Henry I of M*nsterberg-Oels (1448-1498) Elisabeth (1451--1524) married in 1467 Duke Eberhard II of W*rttemberg (1447-1504) Margaret (1453--1509), abbess of the Poor Clares convent at Hof from 1476 John Cicero (1455--1499), Elector of Brandenburg Margaret died in Ansbach in 1457 shortly after her husband acquired the Margraviate of Brandenburg-Kulmbach. Name : Margaret. Offset : 164",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 334"
+            ]
+        },
+        {
+            "input": "Passage : Rosamond Carr & a Lifetime in Rwanda, a documentary project about her life and on which Carr acted as advisor, was produced by Standfast Productions Ltd., directed by Eamonn Gearon and photographed by Noel Donnellon. Carr acted in a similar capacity during production of Gorillas in the Mist starring Sigourney Weaver and directed by Michael Apted, with her character in that film played by Julie Harris. Name : Sigourney Weaver. Offset : 301",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 354"
+            ]
+        },
+        {
+            "input": "Passage : On 6 September 2016 it was reported that Focus Features would release the film in the United States on 24 November 2017, with Ben Mendelsohn (as King George VI) and Kristin Scott Thomas (as Clementine Churchill). As of 3 November 2016 Darkest Hour had begun principal photography. Also in November, it was reported that Dario Marianelli would score the film. On 8 November 2016, Stephen Dillane joined the cast. For his role as Churchill, Oldman spent over 200 hours getting make-up applied during the course of filming. Name : Oldman. Offset : 439",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 416"
+            ]
+        },
+        {
+            "input": "Passage : On January 13, 2010, she performed for Ringo Starr with Ben Harper and the Relentless7 on The Daily Show to promote Starr's new album, Y Not. She again played with them and Joan Osborne on January 14, 2010 for a performance at the Metropolitan Museum of Art, in the Grace Rainey Rogers Auditorium, in New York City which was recorded for and appeared in 2010 on the PBS show, Live from the Artists Den. Ann Marie collaborated with Hans Zimmer, as a featured soloist and contributing writer on the film score for the 2009 film Sherlock Holmes, directed by Guy Ritchie. Name : Ann Marie. Offset : 403",
+            "output": [
+                "Pronoun : She. Pronoun-offset : 142"
+            ]
+        },
+        {
+            "input": "Passage : However, the authority of the Diet did include all judicial and executive power in the country itself. The legislative power belonged to the Emperor who was the only one to approve new laws. Nikola Stojanovi*, a member of the Bosnian Serb National Organization (SNO), spoke with Baron Benko. He said that he and his fellow party members could not participate in the survey since they were invited as individuals, not as representatives of their political party, which Baron Benko justified by saying that SNO was not formally recognized by the new government, a claim that Stojanovi* rejected. Name : Nikola Stojanovi*. Offset : 191",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 292"
+            ]
+        },
+        {
+            "input": "Passage : B3, wurlitzer, accordion John Avila -- bass, moog pedals Marcus Praed -- bass, additional guitar, backing vocals, programming, mixing Annette Niermann -- backing vocals Janet Carroll -- backing vocals Bridgette Feltus -- backing vocals Bron Tieman -- mini-moog, programming Sahil Gupta -- the king of the ``little bitch'' colony located on the 13th floor Rachel Holt -- wishes she were cool enough to be a little bitch, yet she has been relegated to serve the king of the 13th floor; aka now considered: ``small bitch'' Weston Gaddy -- aka song #8 is about him; vocal surgery will however banish him from the band Name : Rachel Holt. Offset : 355",
+            "output": [
+                "Pronoun : she. Pronoun-offset : 377"
+            ]
+        },
+        {
+            "input": "Passage : In 1985 they built a recording studio in a New Jersey garage, which Adler would eventually use to produce the first demo recordings of singer/songwriter Lee Feldman and Sufjan Stevens' college band, Marzuki. October Project would use the studio as its home base during its developmental phase. Flanders met Fahl in New York City and introduced her to Adler in the summer of 1989. Name : Fahl. Offset : 307",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 344"
+            ]
+        },
+        {
+            "input": "Passage : I thought the best way to do that was to transfer.'' After Cruthers' decision to leave USMA he called Derek Schooley, the new head coach of RMU Mens Hockey Team. Schooley, formerly assistant coach for Air Force, had recruited Ryan before his decision to attend West Point and was more than happy to take Ryan on the team. Name : Ryan. Offset : 226",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 238"
+            ]
+        },
+        {
+            "input": "Passage : She was the daughter of writer Barbra Ring, and married actor and theatre director Halfdan Christensen in 1922. They were parents of the actors Bab Christensen and Pelle Christensen. She had her stage d*but at Det Nye Teater in Copenhagen in 1911, in the play Kongens hjerte, written by Barbra Ring (Gerda's mother). She played at the National Theatre from 1912 to 1961. Name : Gerda. Offset : 300",
+            "output": [
+                "Pronoun : She. Pronoun-offset : 317"
+            ]
+        },
+        {
+            "input": "Passage : Among the regions, Moscow (and its region) and St. Petersburg (with the Leningrad region) continued to occupy leading positions: their share was nearly half (45%) of the total number of signatures. However, the fastest growing was the Volga Federal District, showing an increase of 6.9 times. Russian writer and opinion journalist Nikolai Starikov organized a vote in the Internet with a plea that Putin must stay. He motivated his move with the suggestion that everybody must have a choice, while the website ``Putin must go'' did not provide an option to vote for Putin's staying. Name : Nikolai Starikov. Offset : 331",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 415"
+            ]
+        },
+        {
+            "input": "Passage : Hilbert obtained his doctorate in 1885, with a dissertation, written under Ferdinand von Lindemann, titled *ber invariante Eigenschaften spezieller bin*rer Formen, insbesondere der Kugelfunktionen (``On the invariant properties of special binary forms, in particular the spherical harmonic functions''). Hilbert remained at the University of K*nigsberg as a Privatdozent (senior lecturer) from 1886 to 1895. In 1895, as a result of intervention on his behalf by Felix Klein, he obtained the position of Professor of Mathematics at the University of G*ttingen. Name : Hilbert. Offset : 304",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 448"
+            ]
+        },
+        {
+            "input": "Passage : Ralph Fults (January 23, 1911 -- March 16, 1993) was a Depression-era outlaw and escape artist associated with Raymond Hamilton, Bonnie Parker and Clyde Barrow of the Barrow Gang. Born to a U.S. postal worker in Anna, Texas, he was arrested in Aspermont, Texas after police found him carrying a suitcase full of stolen goods. Name : Ralph Fults. Offset : 0",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 225"
+            ]
+        },
+        {
+            "input": "Passage : The political emphasis in Cooke's work continued in 2009 with the performance of her first dramatic monologue, Protective Measures, at the Kikinda Short Story Festival in Serbia. Critics have drawn parallels between Cooke's work and that of Virginia Woolf (Scottish Review of Books, 2008) and of contemporary screenwriters such as Thomas Vinterberg (Manchester Evening News, 2004). In 2009 she was living in Berlin. Name : Cooke. Offset : 216",
+            "output": [
+                "Pronoun : she. Pronoun-offset : 390"
+            ]
+        },
+        {
+            "input": "Passage : He finished a successful year by also defeating ex-contender star Freddy Curiel with a tenth round stoppage as well as former British title challenger Steve Conway. On 18 July 2009, Small fought for and won both the British and Commonwealth champion with an 8th round stoppage of Manchester's Matthew Hall after overwhelming him with a vicious flurry of hooks in the 8th, which forced the referee to stop the contest. Name : Matthew Hall. Offset : 293",
+            "output": [
+                "Pronoun : him. Pronoun-offset : 325"
+            ]
+        },
+        {
+            "input": "Passage : Philippe Burty (6 February 1830 -- 3 June 1890) was a French art critic. He contributed to the popularization of Japonism and the revival of etching, supported the Impressionsts, and published the letters of Eug*ne Delacroix. Name : Philippe Burty. Offset : 0",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 73"
+            ]
+        },
+        {
+            "input": "Passage : Drivers who skirted the track edge would send rocks flying in the middle of the road and into the path of pursuing competitors. In the most serious incident at the 1972 French Grand Prix, a stone thrown from Emerson Fittipaldi's Lotus penetrated the helmet visor of Helmut Marko, blinding him in the left eye and ending his racing career. Name : Helmut Marko. Offset : 266",
+            "output": [
+                "Pronoun : him. Pronoun-offset : 289"
+            ]
+        },
+        {
+            "input": "Passage : After one of his speeches, FBI agent Tippy Gray takes notes and reports his finding to Bureau Chief J. Edgar Hoover (``I Got Me a Red''/``There's Got to be a Law''). A paternity suit is filed against Chaplin, giving Hoover ammunition he needed. Name : Hoover. Offset : 216",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 234"
+            ]
+        },
+        {
+            "input": "Passage : Dance experts Millicent Hodson and Kenneth Archer spent eighteen years gathering research on the original ballet in order to properly reconstruct it. Eighty percent of the original costumes were located and reconstructed for the performance, and Hodson and Archer were able to consult with Nijinsky's rehearsal assistant Marie Rambert on the original choreography, before her death in 1982. Name : Marie Rambert. Offset : 321",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 372"
+            ]
+        },
+        {
+            "input": "Passage : Brett Booth is an American comic book artist. He is best known for his work on Backlash, a character he co-created with Jim Lee at the Wildstorm Studios. Following his Wildstorm work, Booth has also illustrated the exploits of some of Marvel Comics ' best known characters such as Spider-Man, the Fantastic Four, and the X-Men. Name : Booth. Offset : 184",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 164"
+            ]
+        },
+        {
+            "input": "Passage : Michael R. Frey is a politician from Virginia, who has been a Republican member of the Fairfax County Board of Supervisors since 1991; representing the Sully district in the western part of the county. The Sully district includes the unincorporated town of Chantilly and part of Dulles Airport. Prior to his 1991 election as supervisor from the newly created district, Frey worked as an aide to first Chairman of the Board of Supervisors John F. Herrity and later Springfield district Supervisor Elaine N. McConnell. Name : Frey. Offset : 369",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 304"
+            ]
+        },
+        {
+            "input": "Passage : Roseanne and Dan initially refuse, but when Roseanne sees David's mother being verbally and emotionally abusive, she decides to let him stay because it reminded her of her own troubled childhood with her equally abusive father. Roseanne learns Darlene got an acceptance letter from the art school while David got rejected. At the end of the season, Roseanne fears Darlene will run away to school, although Darlene has already decided not to go. Realizing she was wrong, Roseanne persuades Darlene to not give up on her goals just to stay with David. Name : Roseanne. Offset : 470",
+            "output": [
+                "Pronoun : she. Pronoun-offset : 455"
+            ]
+        },
+        {
+            "input": "Passage : In 1987, coming up with ideas for new shows, Marcy Carsey and Tom Werner of Carsey-Werner Productions decided to look into the concept of the working mother as a central voice. Up until that point, there had been shows with working mothers, but only as an adjunct to the father in the family. Werner had suggested that they take a chance on Barr whom they had seen on The Tonight Show. This was because he saw the unique ``in your face'' voice that they were looking for, and he contacted her agent and offered her the role. Name : Werner. Offset : 293",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 403"
+            ]
+        },
+        {
+            "input": "Passage : In 1995 came the turn of playing Aurora, the central character in ``El beso de la mujer ara*a'', again under the direction of Harold Prince, who was a deciding factor when Argentine producers called him to lead the implementation of the Kiss ... in Buenos Aires, and he inquired about who would be the protagonist, Prince said: ``I love Valeria Lynch.'' As Valerie did not have to do casting, however cuendo started with rehearsals for the musical, Valeria made it clear to Rob Ashfford fantastic choreographer, dancer she was not as Chita Rivera, to which Ashfford utmost account .... Name : Valeria. Offset : 449",
+            "output": [
+                "Pronoun : she. Pronoun-offset : 519"
+            ]
+        },
+        {
+            "input": "Passage : They had two sons, who were both professional football quarterbacks: Jeff Kemp (born in 1959) played in the NFL from 1981 to 1991, and Jimmy Kemp (born in 1971) played in the CFL from 1994 to 2002. Significantly for a man with his demanding schedule, Jack never missed one of their games as children or in college. Name : Jack. Offset : 251",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 227"
+            ]
+        },
+        {
+            "input": "Passage : Over the years, she provided him with specimens collected in Cornwall as well as those from abroad that came into Britain through Falmouth. She is credited (as ``Miss Warren'') as one of 19 plant specimen collectors to whom Hooker is particularly indebted in the preface to his 1841 Manual of the British Algae. In his history of British seaweeds, Phycologia Britannica, Hooker lists an algae named after her by the botanist Robert Caspary, Schizosiphon Warreniae (now Rivularia biasolettiana). Name : Hooker. Offset : 371",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 315"
+            ]
+        },
+        {
+            "input": "Passage : In 1916, a Polish American employee of Feltman's named Nathan Handwerker was encouraged by Eddie Cantor and Jimmy Durante, both working as waiters/musicians, to go into business in competition with his former employer. Handwerker undercut Feltman's by charging five cents for a hot dog when his former employer was charging ten. Name : Handwerker. Offset : 219",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 291"
+            ]
+        },
+        {
+            "input": "Passage : With the staff knowing that GlobeLink is shutting down, Henry and Sally try to find work elsewhere, Damien tries to get a story using Tony Blair's diaries, Dave tries to get fired in order to earn some extra money, and Helen's father dies. Joy's sketches are put up for an art exhibition, George starts to fall in love with Henry's niece, Helen finally admits to her mother that she is a lesbian but discovers her secret was already well known, and Sally gets engaged to the 34th-richest man in the world. Name : Helen. Offset : 339",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 363"
+            ]
+        },
+        {
+            "input": "Passage : She meets Kimiko, a Japanese student, at a bar. Kimiko and Francisca return to Francisca's home but Kimiko is perturbed at Francisca's description of the death of her mother and the statement that Francisca murdered her father. Kimiko tries to leave, but off screen Francisca murders her, chops her up and bags the organs, putting them in her refrigerator. Name : Kimiko. Offset : 228",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 284"
+            ]
+        },
+        {
+            "input": "Passage : Murphy was elevated to the eight-man leadership group for the 2007 season. In early 2007 Murphy replicated his good form of 2006, amassing 30 disposals against eventual premiers Geelong in Round 2. However, an injury to prime midfielder Nick Stevens after Round 3 saw Murphy attract the opposition's best taggers in most games. While his form remained solid, shaking the experienced taggers proved too big a challenge for the second year player and he finished outside the top 10 in the club's best and fairest. Name : Murphy. Offset : 268",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 334"
+            ]
+        },
+        {
+            "input": "Passage : He fiddled with the dimensions of all the parts of his Luxo model--all but the bulb, since lightbulbs come from a store and don't grow, he reasoned--and he emerged with a second character, Luxo Jr. Lasseter initially intended the film as a plotless character study. When he showed some early tests at animation festival in Brussels, respected Belgian animator Raoul Servais exhorted him, ``No matter how short it is, it should have a beginning, a middle, and an end. Name : Lasseter. Offset : 198",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 271"
+            ]
+        },
+        {
+            "input": "Passage : Jim Dawson devoted an entire chapter of his 2006 Modern History of the Fart to Shatner's alleged flatulence in Mind Meld, which he compares to the sound of someone stepping on a tribble. G. Noel Gross of DVD Talk compared the excitement over this sound to that evinced by adolescent boys watching pornography, and compared the level of scrutiny devoted to the scene to that received by the Zapruder film of the Kennedy assassination. In his review of Mind Meld, Mike Clark of USA Today called the discussion between Shatner (left) and Nimoy (right) ``surprisingly frank''. Name : Mike Clark. Offset : 462",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 437"
+            ]
+        },
+        {
+            "input": "Passage : Fatal Links draws exclusively on source evidence of letters and eye-witness reports and, while she was not privy to subsequent medical analysis of Beethoven's hair, her conclusions - that he showed symptoms of lead or arsenic poisoning - accord well with the result of the chemical analysis. In her second, and more substantial, biographical study of the composer, Altman investigates and refutes the claims of Maynard Solomon for the identification of the woman who Beethoven, in an undated letter found among his effects, referred to as his ``Immortal Beloved'' (Unsterbliche Geliebte), while building a thorough case--using Solomon's own criteria--for Anna-Marie Erd*dy as the putative recipient of the letter. Name : Altman. Offset : 365",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 295"
+            ]
+        },
+        {
+            "input": "Passage : His character, with a wink at Victoria's unspeakable grief over Albert's death, is informed that she would like to say goodbye at his deathbed. To which he replies:``Oh Lord, no. She will only want me to take a message to Albert.'' Brown was played by Finlay Currie in the 1950 film The Mudlark. He also appears as a character in the play Victoria Regina by Laurence Housman. Name : Brown. Offset : 232",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 296"
+            ]
+        },
+        {
+            "input": "Passage : Loyalists in Coahuila quickly judged, convicted, and executed the prisoners captured in San Antonio de Bexar. Las Casas's head was shipped to San Antonio and displayed on a pole in the military plaza. With Salcedo still in Chihuahua, Zambrano administered the province. Among his accomplishments during this time was to inaugurate the first primary school in San Antonio. Name : Zambrano. Offset : 234",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 276"
+            ]
+        },
+        {
+            "input": "Passage : When Amelia visited the Emersons' dig in Amarna, however, Amelia found Radcliffe Emerson ill, and not only nursed him back to health, but also took over part of his duties. Grudgingly, he came to respect her abilities, and at the end, realized he was in love with her. In the later books Amelia refers to Emerson as ``the greatest Egyptologist of this or any other age.'' A few years after his marriage and Ramses's birth, Emerson tried to make peace with his mother. Name : Emerson. Offset : 305",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 390"
+            ]
+        },
+        {
+            "input": "Passage : In 2010, in an interview with French newspaper L'Equipe, former Milan captain Paolo Maldini stated that Gourcuff lacked discipline while at the club and often distanced himself from the team citing the player's refusal to learn the Italian language. Maldini also stated that Gourcuff did not give his all during his stint at Milan and that the player himself knew it. Name : Gourcuff. Offset : 275",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 297"
+            ]
+        },
+        {
+            "input": "Passage : The first topic that Madison addresses is the differentiation between a republic and a democracy. George Clinton, the Governor of New York and one of the foremost authors of the Anti-Federalist papers at the time of the ratification of the Constitution, cited Montesquieu, a political philosopher who authored ``The Spirit of the Laws'', to support his argument. Name : Montesquieu. Offset : 260",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 349"
+            ]
+        },
+        {
+            "input": "Passage : Electors can vote for up to four candidates on their ballots, equal to the total number that may be elected. The four winning candidates are those whom receive the highest number of votes. The candidate with the highest number of votes received also serves as Deputy Mayor. Incumbents Jack Heath, Jim Jones, and Joe Li sought re-election, while Gordon Landon announced his retirement before the close of nominations. Name : Gordon Landon. Offset : 345",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 369"
+            ]
+        },
+        {
+            "input": "Passage : He first performed with the MythBusters on Good Morning America, shattering a wine glass with the aid of an amplifier when his opponent could not shatter the glass. During the filming of MythBusters, Vendera's voice was measured at 117 dB at 48``, translating into 120 dB at one meter as recorded by Dr. Roger Schwenke of Meyer Sound Laboratories. Since his MythBusters appearances, Vendera has performed on other US shows such as ''I've Got a Secret``, ''Timewarp`` and the ''Sonic1 Toothbrush`` infomercial. Name : Vendera. Offset : 200",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 354"
+            ]
+        },
+        {
+            "input": "Passage : Prior to recording, Dylan previewed the songs that would constitute Blood on the Tracks for a number of friends in the music world, including David Crosby, Graham Nash, Stephen Stills, Tim Drummond, and Peter Rowan. Nash recalled that Stills disliked Dylan's private performance of his new songs; immediately after Dylan left the room, Stills remarked to Nash, ``He's a good songwriter ... but he's no musician.'' Name : Dylan. Offset : 315",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 282"
+            ]
+        },
+        {
+            "input": "Passage : The Tribunal considered a theory--advanced by the appellant--that the killer was one Count Francesco Carlo Dalatri, an Italian nobleman of mixed English and Italian parentage, who had been living in the London area at the time of the murder. Suggestions about the Count's possible involvement seem to have originated in an interview with his former landlady, broadcast a few years earlier on John Peel's popular Home Truths programme on BBC Radio 4. Name : Francesco Carlo Dalatri. Offset : 91",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 338"
+            ]
+        },
+        {
+            "input": "Passage : Marina Scalafiotti (born in Settimo Torinese, May 22, 1965) is an Italian pianist and teacher and widely considered for her great interpretations spanning from baroque to contemporary music. Marina Scalafiotti starts studying piano in the Conservatorio G.Verdi of Turin with d`` Amelia Careggio. Once she obtained her diplom she continued her studies with Orazio Frugoni for the piano, with the Trio di Trieste for Chamber Music and with Giorgio Tabacco for the harpsichord. Name : Marina Scalafiotti. Offset : 191",
+            "output": [
+                "Pronoun : she. Pronoun-offset : 301"
+            ]
+        },
+        {
+            "input": "Passage : Busse hit his peak in 1930-45, playing dance music before the war and swing during it. His music was often berated by Downbeat magazine, which called his a ``sweet'' or ``Mickey Mouse'' band. He and his band appeared in an MGM color movie in 1935 called 'Starlit Days at the Lido' filmed at the Ambassador Hotel in Hollywood (sadly pulled down in 2006 after 85 long years) along with Clark Gable and MGM's stable of stars and in the movie ``Lady Let's Dance'', in which Busse had a speaking part. His personal life wound up in gossip columns when he partied one night with a woman at the Hotsy Totsy Club and woke up married. Name : Busse. Offset : 470",
+            "output": [
+                "Pronoun : His. Pronoun-offset : 497"
+            ]
+        },
+        {
+            "input": "Passage : In Veronica Mars, Gallner played the role of a young teenage boy, Cassidy ``Beaver'' Casablancas, the younger brother of Dick Casablancas. Very smart, he is often bullied by his brother. After playing Bart Allen in the Smallville episode ``Run'', Gallner reprised his role on the January 18, 2007 episode ``Justice'' and the season 8 finale. Name : Gallner. Offset : 247",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 264"
+            ]
+        },
+        {
+            "input": "Passage : The following season, Michigan returned its top nine scorers and began the season ranked number one in the Associated Press national ranking as Pelinka was part of a quartet of seniors backing up the Fab Five, who had become sophomores. As a fifth-year senior, Pelinka started back-to-back games twice during the season. Early in the season, he started in place of the injured Jackson, but Pelinka came down with the flu after two starts against Kansas and Eastern Michigan on December 30, 1992 and January 2, 1993 respectively. During his other set of back-to-back starts against Ohio State and Iowa on January 26 and January 31, 1993, Pelinka started even though Jackson played. Name : Pelinka. Offset : 390",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 536"
+            ]
+        },
+        {
+            "input": "Passage : Liza Maza (born 8 September 1957) is a Filipina activist who is the lead convenor of the National Anti-Poverty Commission. She was a member of the Philippine House of Representatives, representing the Gabriela Women's Party. Name : Liza Maza. Offset : 0",
+            "output": [
+                "Pronoun : She. Pronoun-offset : 123"
+            ]
+        },
+        {
+            "input": "Passage : Czarina Catherine Gatbonton was crowned Binibining Pilipinas World by Marie-Ann Umali, Binibining Pilipinas World 2009; and Krista Eileen Kleiner was crowned Binibining Pilipinas International by Melody Adelheid Gersbach, Binibining Pilipinas International 2009 Due to issues with her papers, Maria Venus Raj was briefly replaced by second runner-up Helen Nicolette Henson as the country's representative to the 2010 Miss Universe pageant. This decision was later reversed on April 10, 2010, when pageant organizers allowed Ms. Raj to reclaim her title pending her obtaining a valid Philippine passport. Name : Maria Venus Raj. Offset : 293",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 543"
+            ]
+        },
+        {
+            "input": "Passage : After several near misses with Shop agents, the McGees find temporary refuge - under false names and backgrounds - with Irv and Norma Manders, who were a friendly old-fashioned couple living on a remote farm. Irv realizes they gave false names and gets the real story from Andy. The farm is then besieged. Andy, angry at this endless running from the Shop, persuades Charlie to unleash her power. Name : Charlie. Offset : 367",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 386"
+            ]
+        },
+        {
+            "input": "Passage : Rachel's storylines ranged from parental bereavement and first love to an inappropriate relationship with an older man. Rachel departed on 11 March 2009, following Stasey's decision to quit the series to focus on her studies. Former The Sleepover Club star Caitlin Stasey was offered the part of Rachel Kinski when she was fifteen years old. Name : Caitlin Stasey. Offset : 257",
+            "output": [
+                "Pronoun : she. Pronoun-offset : 315"
+            ]
+        },
+        {
+            "input": "Passage : But the conservative, chauvinist and patriarchal Mahendra Roy shifts bad and constantly sends negative vibes towards Raju in a passive way. In the mean time the spoilt brat Dhiman takes Riya to a pub and insults her to get beaten up by an avenging Raju. Without knowing the truth Mahendra Roy expels Raju from his house. Name : Mahendra Roy. Offset : 280",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 310"
+            ]
+        },
+        {
+            "input": "Passage : XXX's and OOO's (An American Girl) ``XXX's and OOO's (An American Girl)'' is a song written by Matraca Berg and Alice Randall, and recorded by American country music singer Trisha Yearwood. It was released in June 1994 as the lead single from her album Thinkin' About You. Name : Trisha Yearwood. Offset : 173",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 243"
+            ]
+        },
+        {
+            "input": "Passage : He began as a carpenter and left to solitude after receiving a divine call. According to hagiographer Alban Butler, John was noted for performing seemingly absurd acts at the bidding of the Holy Spirit, such as rolling rocks from place to place and cultivating dead trees. He then withdrew to the top of a cliff, where he could avoid all human contact. Name : John. Offset : 116",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 273"
+            ]
+        },
+        {
+            "input": "Passage : The ``7th Annual March to Stop Executions'', which was sponsored by a record number of 50 organizations, was held October 28, 2006 and included family members of Carlos DeLuna and Cameron Todd Willingham, who both had been the subject of separate investigations by the Chicago Tribune that concluded they could have been wrongfully executed. Standing outside the gates of the Texas Governor's Mansion with hundreds of supporters, the families of Willingham and De Luna delivered separate letters to Governor Perry asking him to stop executions and investigate the cases of Willingham and De Luna to determine if they were wrongfully executed. Name : Governor Perry. Offset : 499",
+            "output": [
+                "Pronoun : him. Pronoun-offset : 521"
+            ]
+        },
+        {
+            "input": "Passage : The ``9th Annual March to Stop Executions'' was October 25, 2008 in Houston. The ``10th Annual March to Abolish the Death Penalty'' was attended by hundreds of people on October 24, 2009 in Austin. Jeanette Popp was Chairperson of Texas Moratorium Network from 2001-04. Popp's daughter Nancy was murdered in Austin in 1988. She became intimately familiar with the many flaws of the Texas criminal justice system after two innocent men were wrongfully convicted of her daughter's murder and spent 12 years in prison. Name : Popp. Offset : 270",
+            "output": [
+                "Pronoun : She. Pronoun-offset : 324"
+            ]
+        },
+        {
+            "input": "Passage : Mindy finally gets the insurance money from her husband's murder, buys a boat and leaves town after being questioned by Acting Sheriff Keith Mars. Hank Landry catches up with Mindy on her boat and he later confesses to accidentally killing her the night before being found, in ``Papa's Cabin''. Ken Marino recurs as Vinnie Van Lowe, Keith's rival private investigator. Announced his intentions to run for Sheriff against Keith in the special election. Name : Vinnie Van Lowe. Offset : 316",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 379"
+            ]
+        },
+        {
+            "input": "Passage : When Veronica graduates, Clemmons says that he cannot decide if his life will be easier or more difficult with her gone. Clemmons reappears in ``Un-American Graffiti'', where he is caught on tape being shot with a paintball gun by several Neptune High students. Adam Hendershott portrays Vincent ``Butters'' Clemmons, a student at Neptune High and Van Clemmons' son. When he was a freshman, Vincent was pantsed by a bully and given the nickname ``Butters''. Name : Vincent. Offset : 391",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 372"
+            ]
+        },
+        {
+            "input": "Passage : Meg's parents are religious zealots who lock Grace in a closet when they are out, and make her fill out exercise book after exercise book with the phrase: ``The path of God is paved with righteousness.'' Duncan and Veronica found dozens of these books in Grace's room. Veronica visited Meg in the hospital and discovered that Meg was pregnant with Duncan's child, this being the reason she was so mad at Veronica. Shortly after she left, Meg awoke from her coma. Name : Veronica. Offset : 404",
+            "output": [
+                "Pronoun : she. Pronoun-offset : 428"
+            ]
+        },
+        {
+            "input": "Passage : It garnered fantastic reviews from the Chicago press and the band went on to share the stage with Superchunk, Tommy Keene, Girls v Boys, Imperial Teen, The Good, and The Twigs. Liam Davis went on to join the band Frisbie, who released three critically acclaimed CDs, one on Hear Diagonally Records, and have played with every major pop performer in Chicago, including opening up for Big Star at the Metro. At the same time, he became the musical director/guitarist for Children's Music Star, Justin Roberts. Name : Liam Davis. Offset : 177",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 424"
+            ]
+        },
+        {
+            "input": "Passage : Secretary of the Air Force under Richard Nixon William Anthony Paddon, (1931) Canadian physician, author and seventh Lieutenant Governor of Newfoundland and Labrador Francis G. James, Sr. (1932), professor of Irish history at Tulane University for nearly 40 years Rt. Rev. William Benjamin Spofford, Jr., (1938), Bishop of the Episcopal Diocese of Eastern Oregon (1969-1979), Assistant Bishop of the Episcopal Diocese of Washington (1979-1984, 1990), b. 1921, d. 2013 Stanley Loomis, (1940), author of four books on French history John Allen Gable, (1961), executive director of the Theodore Roosevelt Association until his death Kirk Scharfenberg, (1961), distinguished journalist who worked for the New York Times and the Boston Globe. Name : John Allen Gable. Offset : 531",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 620"
+            ]
+        },
+        {
+            "input": "Passage : In March 1932, two months shy of his 17th birthday, Orson Welles returned to Chicago from his post-graduation trip to Europe and his time with the Gate Theatre in Dublin. Finding that he had few prospects despite his success in Ireland, Welles persuaded Roger Hill, his former teacher and lifelong friend, to collaborate with him on a biographical play about abolitionist John Brown and his efforts to organize a slave revolt in 1859. Name : Welles. Offset : 237",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 266"
+            ]
+        },
+        {
+            "input": "Passage : Amanda and Jake were able to stay strong when they faced serious situations with friends, such as Angie Hubbard losing her eyesight and Greenlee Smythe going on trial for the supposed murder of her husband, David. It later turned out he faked his death. Amanda became a friend to Annie Chandler when Annie felt like her life was beginning to fall apart. However, when Jake's ex-wife, Cara Finn, came to town, along with Griffin Castillo, the man who Cara left Jake for, Amanda was not happy about this and tried to act friendly towards Cara to keep an eye on her. Name : Cara. Offset : 536",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 559"
+            ]
+        },
+        {
+            "input": "Passage : Ron Taylor is an amateur conservationist who loves the sea and establishes a whale watching company after spotting a whale in the bay. He used to work at the local fish and chips shop (Hook, Line & Thinker) for Colin (played by Dave Fane). After having his grandfather's boat impounded, Ron and Colin try and steal it back but are caught by Officer Mike. Name : Ron. Offset : 287",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 253"
+            ]
+        },
+        {
+            "input": "Passage : He set a career high in wins and games pitched, and placed second in the Atlanta bullpen with 8.75 K's per 9 innings. With runners in scoring position, opposing batters only hit .159 against him. On December 14, 2004, Cruz was traded to the Oakland Athletics in a deal involving Tim Hudson. He struggled in the beginning of the year and was sent down to Triple-A Sacramento in June. Name : Cruz. Offset : 218",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 291"
+            ]
+        },
+        {
+            "input": "Passage : Daryn Hinton was a child actress rooted in the Hollywood entertainment industry whose father Ed Hinton and grandfather Edgar Latimer Hinton were both actors. Her mother was entertainment socialite Marilynn Hinton who was president emeritus WAIF and president of ANTAN (American National Theater Authorities) alongside John Forsythe. In her autobiography, actress Jane Russell called Marilynn Hinton ``Dynamite...and a walking who's who'', who knew everyone important and could make anything happen. Name : Jane Russell. Offset : 363",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 336"
+            ]
+        },
+        {
+            "input": "Passage : He, like the majority of those in the Irish Republican Brotherhood, supported the Anglo-Irish Treaty and was involved in debates against de Valera during the controversy, most especially discussing the status of Sinn F*in as a political entity. He was re-elected as a Pro-Treaty Sinn F*in TD in the 1922 general election, siding with the Free State government during the Irish Civil War. According to Frank Henderson, as told to Ernie O'Malley, Liam Lynch and other members of the *amon de Valera's Anti-Treaty faction began planning the assassination of McGarry among other TDs supporting the Public Safety Bill. On 10 December 1922, shortly before the first meeting of the Free State parliament, a fire was deliberately set by the Irregulars at his family home resulting in the death of his son. Name : McGarry. Offset : 555",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 747"
+            ]
+        },
+        {
+            "input": "Passage : He loses his medal during the struggle, which Laura recovers. Later, Leroy witnesses Laura being kidnapped by Arkadian's brutish henchman Rock (Mike Starr). A clue left behind reveals that the kidnappers work for Eddie Arkadian Productions. Laura refuses to promote Angela Viracco's video on her program, but as Arkadian's men prepare to coerce her by force, Leroy suddenly bursts into the room and rescues Laura once again. Name : Laura. Offset : 241",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 292"
+            ]
+        },
+        {
+            "input": "Passage : ``Walk On'', the album's opener, has Young combining his cynical outlook with a touch of closure and a wish to move on and keep living. The album also includes the high-strung ``Revolution Blues,'' inspired by Charles Manson, whom Young had met in his Topanga Canyon days. Name : Young. Offset : 231",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 248"
+            ]
+        },
+        {
+            "input": "Passage : Soon after arriving in New York, Seeff's photographs of the people he encountered on the streets of Manhattan were discovered by the famed graphic designer, Bob Cato. Cato introduced Seeff to the world of album cover design and his first major photographic assignment for The Band brought him immediate recognition. Name : Seeff. Offset : 183",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 228"
+            ]
+        },
+        {
+            "input": "Passage : According to Groening, ``Homer originated with my goal to both amuse my real father, and just annoy him a little bit. My father was an athletic, creative, intelligent filmmaker and writer, and the only thing he had in common with Homer was a love of donuts.'' Although Groening has stated in several interviews that Homer was named after his father, he also claimed in several 1990 interviews that a character in the 1939 Nathanael West novel The Day of the Locust was the inspiration for naming Homer. Name : Groening. Offset : 269",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 338"
+            ]
+        },
+        {
+            "input": "Passage : Ruth was the elder of two girls; her younger sister was Hilda Rosebaum (Kahne). Their father, a plant pathologist, died at age 37 of a bacterial infection resulting from a tooth extraction. After their father's death, Mrs. Rosebaum moved the family to Milford, Connecticut, where Ruth spent the rest of her youth. Name : Ruth. Offset : 280",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 303"
+            ]
+        },
+        {
+            "input": "Passage : Her first TV role was in a German advertisement for cleaning powder. Shortly afterwards she won the role of Geena Gregory in Coronation Street which she played from 2000-2002. After learning she was to be written out of her role as barmaid Geena, she brought out a fitness video entitled Get Fit Quick with Jennifer James with Suzanne Cox. She auditioned and won the role of Joyce in The Second Quest, directed by David Jason, for Yorkshire Television in 2003. Name : Jennifer James. Offset : 307",
+            "output": [
+                "Pronoun : She. Pronoun-offset : 340"
+            ]
+        },
+        {
+            "input": "Passage : John ``Uncle Jacky'' Hurst had been shot in the leg while jumping in front of Sheriff Mooney when Tutt supporter S.W. Ferrall fired at him. Others had been wounded. Dave Sinclair, the man suspected of killing John Everett, fled from Yellville. The Everett faction members trailed him and killed him the next day. Name : Dave Sinclair. Offset : 165",
+            "output": [
+                "Pronoun : him. Pronoun-offset : 280"
+            ]
+        },
+        {
+            "input": "Passage : Afterwards, Mia gives birth to a healthy baby girl. She and John name their child Leah. The family rents an apartment in Pasadena and, after finding the doll that John had discarded since Annabelle's previous attack in one of their boxes, another set of paranormal events plagues Mia and her daughter. Name : Mia. Offset : 280",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 288"
+            ]
+        },
+        {
+            "input": "Passage : Constantina was proclaimed an Augusta while both Sophia and Anastasia also kept the same title. John of Ephesus mentions all three Augustas residing in the Great Palace. Anastasia was the first of the three ladies to die. Theophanes places her death in 593. Constantina seems to have enjoyed better relations with Sophia than her mother did. Name : Constantina. Offset : 258",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 326"
+            ]
+        },
+        {
+            "input": "Passage : *300,000 of the total was the FA's fine, with *1.3 million in legal costs. In July 2009 Stretford in turn issued a writ to Proactive's Neil Rodford in an effort to make him personally liable for the *1.6 million. Proactive also claimed it was entitled to *4.3 million from Rooney as the 20% commission payments on the contracts brokered by Stretford while he was at the firm. Name : Stretford. Offset : 340",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 356"
+            ]
+        },
+        {
+            "input": "Passage : Inna Gudavadze is a Georgian businesswoman and philanthropist and the widow of Badri Patarkatsishvili. In 2017 the Sunday Times estimated her wealth at *650m making her the 196th wealthiest person in the UK. She has two daughters, Liana Zhmotova and Iya Patarkatsishvili. The death of her husband sparked one of the biggest estate battles ever that forced Inna and her family to fight for their interests in the courts against several of Badri's former business associates. Name : Inna. Offset : 356",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 285"
+            ]
+        },
+        {
+            "input": "Passage : When Gannibal found out that she had been unfaithful to him, he had her arrested and thrown into prison, where she spent eleven years. Gannibal began living with another woman, Christina Regina Si*berg (1705--81), daughter of Mattias Johan Si*berg and wife Christina Elisabeth d'Albedyll, and married her bigamously in Reval (now Tallinn, Estonia), in 1736, a year after the birth of their first child and while he was still lawfully married to his first wife. Name : Christina Regina Si*berg. Offset : 177",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 301"
+            ]
+        },
+        {
+            "input": "Passage : One such initiative was a tree planting held in 1926 in northern France. Baer also served as vice president of the German Peace Cartel and traveled widely in Europe. Returning to the United States in 1924 to attend the WILPF International Conference, Baer urged that Hitler be taken as a serious threat. In 1929, she succeeded Jane Addams as the International Chair of the WILPF, but due to the volume of work to be done, it was decided that the responsibilities Addams had carried were to be shared with Emily Greene Balch and Clara Ragaz. Name : Baer. Offset : 251",
+            "output": [
+                "Pronoun : she. Pronoun-offset : 313"
+            ]
+        },
+        {
+            "input": "Passage : ``Another Nail in My Heart'' is two minutes and fifty-five seconds long. It was written by Squeeze members Chris Difford and Glenn Tilbrook, and it was produced by John Wood and Squeeze. Allmusic's Stephen Thomas Erlewine called it a ``nervy breakup tune.'' In his review of the song, Stewart Mason wrote, ``The topic, as usual, is a cocktail of lost love and heavy drinking, culminating in the memorable chorus 'And here in the bar, the piano man's found another nail for my heart.''' Name : Stewart Mason. Offset : 285",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 261"
+            ]
+        },
+        {
+            "input": "Passage : Django Unchained was the first Tarantino film not edited by Sally Menke, who died in 2010. Editing duties were instead handled by Fred Raskin, who had worked as an assistant editor on Tarantino's Kill Bill. Raskin was nominated for a BAFTA Award for Best Editing but lost to William Goldenberg for his work on Argo. Name : William Goldenberg. Offset : 275",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 298"
+            ]
+        },
+        {
+            "input": "Passage : Brandt 1873 described several species of Cetotherium from the Pliocene of northern Italy, including C. cortesi based on a specimen (MSRN 13802) found by Italian geologist Giuseppe Cortesi in 1816 near the town Cortandone (45.0*N 8.1*E: paleocoordinates 44.9*N 8.0*E) Cortesi 1819 described how he, after a day of searching for fossils, found what he first thought was a small piece of wood in a small river. Name : Giuseppe Cortesi. Offset : 171",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 294"
+            ]
+        },
+        {
+            "input": "Passage : Others, however, see Paul's telling of the narrative as making an argument to the Galatians about the nature of the gospel and the Galatians' own situation. Chapter 3 exhorts the Galatian believers to stand fast in the faith as it is in Jesus. Paul engages in an exegetical argument, drawing upon the figure of Abraham and the priority of his faith to the covenant of circumcision. Name : Abraham. Offset : 311",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 339"
+            ]
+        },
+        {
+            "input": "Passage : In Week 6 of the 2011 Premier League Lewis faced off against the Scot Gary Anderson in front of a rowdy home crowd in Glasgow, where a couple of audience members threw beer at Lewis during his walk-on and proceeded to throw coins at him whilst he was throwing. This, however, seemed to distract Anderson more than Lewis, and despite being 3-0 down, Adrian managed to win the match 8-3. Lewis has risen to the top two in the PDC Order of Merit -- the PDC's world ranking system, and is now ranked second after beating Gary Anderson in the world championship final. He has won *880,000 during his five year career. Name : Lewis. Offset : 386",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 564"
+            ]
+        },
+        {
+            "input": "Passage : Aleksander Chodkiewicz (1560--1626), voivode of Troki, married Eufemia Sienie*ska h. D*bno, the daughter of voivode of Podole Jan Sienie*ski h. D*bno and Katarzyna Korniakt h. Krucyni, the daughter of Konstanty Korniakt h. Krucyni Jan Karol Chodkiewicz (1561--1621), voivode of Wilno and Hetman, married Zofia Mielecka h. Gryf, the daughter of voivode of Podole and Hetman Miko*aj Mielecki h. Gryf and Princess El*bieta Radziwi** h. Tr*by. His second wife was Princess Anna Alojza Ostrogska h. Ostrogski, the daughter of voivode of Wo*y* Prince Aleksander Ostrogski h. Ostrogski d Anna Kostka h. D*browa Hieronim Chodkiewicz (died 1576), unmarried Zofia Chodkiewicz (died 1576), married Grand Marshal of Lithuania Krzysztof Drohostajski h.Leliwa Anna Chodkiewicz (died 1626), married Prince Joachim Korecki h. Pogo* Litewska Aleksandara Chodkiewicz, married Prince Adam Wi*niowiecki h. Korybut El*bieta Chodkiewicz, married Prince Jan *yli*ski and castelan of Nowogr*dek Samuel Wo**owicz h. Bogorya Name : Aleksander Chodkiewicz. Offset : 0",
+            "output": [
+                "Pronoun : His. Pronoun-offset : 440"
+            ]
+        },
+        {
+            "input": "Passage : Kay Winthrop was born in Ipswich, Massachusetts, a direct descendant of John Winthrop: the descendant line is Gov. John Winthrop, Gov. John Winthrop II, Magistrate Wait Still Winthrop, John F. R. S Winthrop, John Still Winthrop, Francis Bayard Winthrop, Thomas Charles Winthrop, Robert Winthrop, Frederic Bayard Winthrop. Kay Winthrop's parents were Frederic Bayard Winthrop (November 15, 1868 -- May 6, 1932) and Sarah Barroll Thayer (born February 18, 1885). She had five siblings: Name : Kay Winthrop. Offset : 322",
+            "output": [
+                "Pronoun : She. Pronoun-offset : 461"
+            ]
+        },
+        {
+            "input": "Passage : Reck moved to FC Schalke 04 in 1998, aged 33, still amassing a further 112 league matches. In his last season, he played second-fiddle to Frank Rost, and chose to retire. Although Oliver Kahn holds the record for most matches without conceding goals in the league, at 180 in a total of 515 matches, Reck is the most effective goalkeeper, not conceding a goal in 173 of 471 matches, with an ``effectivity rate'' of 0.367, versus Kahn's 0.349. On February 9, 2002, in his penultimate year, Reck scored a penalty kick for Schalke, in a 4--0 home routing of FC St. Pauli. Name : Reck. Offset : 299",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 466"
+            ]
+        },
+        {
+            "input": "Passage : The Crisis of 1866: a Financial Essay, Mozley and Tyndall on Miracles, an Essay, Thoughts on Free Trade in Land, The Present Aspect of the Land Question and The Limited Ownership of Land. He became the director of several companies and eventually retired to Tunbridge Wells. Fowler married firstly in 1855 Rachel Maria Howard, daughter of Robert Howard of Tottenham. He married secondly in 1871 Elizabeth Fox Tuckett daughter of Francis Tuckett of Frenchay Gloucestershire. Name : Fowler. Offset : 275",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 367"
+            ]
+        },
+        {
+            "input": "Passage : Roger's career started after being trained in the Monster Factory with Larry Sharpe, at the advice of Sgt. Slaughter. After competing for two years, Rogers won her first championship, the WXW Women's Championship, on July 11, 2003 after winning a battle royal. She has also become famous for her feud with Shimmer founder Allison Danger, as both have competed in several hardcore matches, one of which was most notably the first dog collar match in women's wrestling history, the latter of which was won by Rogers. She debuted in MXW Pro Wrestling in 2006, wrestling Mercedes Martinez in the first MXWomen's match. Name : Rogers. Offset : 507",
+            "output": [
+                "Pronoun : She. Pronoun-offset : 515"
+            ]
+        },
+        {
+            "input": "Passage : Sergei Kovalev was arrested in December that year. In 1975 he was put on trial and sentenced to seven years of labor camps and three years of internal exile for ``anti-Soviet agitation and propaganda''. Tatyana Khodorovich was forced into emigration. In 1979 Tatyana Velikanova was finally arrested and in 1980 she was prosecuted and sentenced to five years in the camps and five years internal exile. Name : Tatyana Velikanova. Offset : 259",
+            "output": [
+                "Pronoun : she. Pronoun-offset : 311"
+            ]
+        },
+        {
+            "input": "Passage : In the latter part of the series, Alicia Florrick wins the race for the State's Attorney's office over her competition, talk show personality Frank Prady. The law firm comes under attack by hackers and five years of emails are leaked online in retaliation for their participation in a piracy case. Alicia is interviewed by journalist Petra Moritz in a post election ``puff piece'' where she unsuccessfully tries to exploit Alicia's past with Will via the hacked emails. Name : Petra Moritz. Offset : 334",
+            "output": [
+                "Pronoun : she. Pronoun-offset : 387"
+            ]
+        },
+        {
+            "input": "Passage : Eli begins moving political donors away from Peter noting that it was Alicia all along who has real political potential even after a failed State's Attorney position. Peter is offered and takes a 1-year probationary deal, with no jail time, but a requirement to resign from office as Governor. At his press conference, Alicia thinks she sees Jason waiting for her in a hallway and as soon the press conference finishes, walks off immediately leaving Peter behind. Name : Peter. Offset : 450",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 297"
+            ]
+        },
+        {
+            "input": "Passage : He also rejected the proposal by Shou's commander Liu Renzhan (***) for Liu to lead his army out of the city for a pitched battle with the Later Zhou army. Faced with the continuing siege, Liu fell ill. Further, at this time, Chen tried to strip the successful, but often disobedient general Zhu Yuan (**) of his command, causing Zhu to surrender to Later Zhou and further weakening the Southern Tang position. Name : Zhu. Offset : 330",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 309"
+            ]
+        },
+        {
+            "input": "Passage : Later, when Gourlay passes, the bodies, led by the Deacon, ask him for access to his property in order to tap a spring, which would provide running water for the town. He refuses. Chapter VI. After John passes on his way to school, the bodies start discussing him. Johnny Coe tells the story of the boy's birth, when Jock Gourlay's stubbornness endangered his life. Name : Johnny Coe. Offset : 265",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 356"
+            ]
+        },
+        {
+            "input": "Passage : Sixty years later, Gollum was captured by orcs, and taken to Mordor, where he was tortured into revealing the owner and location of the Ring; Bilbo Baggins of the Shire. In the meantime, Bilbo had left the Shire to live in Rivendell, and upon the advice of Gandalf had (very reluctantly) given the Ring to his nephew, Frodo Baggins. Name : Bilbo. Offset : 187",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 306"
+            ]
+        },
+        {
+            "input": "Passage : The following week, Maryse lost against Kelly by disqualification, meaning the championship did not change hands and won a subsequent rematch by pinfall two weeks later on June 8. At the Night of Champions pay-per-view on July 26, Maryse lost the Divas Championship to James. She then took a hiatus from WWE to recover after having knee surgery. Name : Maryse. Offset : 231",
+            "output": [
+                "Pronoun : She. Pronoun-offset : 276"
+            ]
+        },
+        {
+            "input": "Passage : From 1958 to 1960 he served as a speechwriter and White House manager, after the departure of Sherman Adams and the death of John Foster Dulles. In 1960 he was publisher of Life magazine. Jackson became acquainted with Whittaker Chambers while at Time Inc. He developed a harsh opinion of Chambers as a psychopath. Name : Jackson. Offset : 188",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 257"
+            ]
+        },
+        {
+            "input": "Passage : The album was awarded 3 stars in an Allmusic review by Eugene Chadbourne who stated ``the passing of time has been in some ways been kind to these efforts, blurring the original impression given of careers headed downhill. Donaldson's tone on alto saxophone, regardless of setting, sounds like Charlie Parker after he has spent the night stuffed into one of those jars of pickled eggs on the menu in particularly hardcore bars''. Name : Charlie Parker. Offset : 294",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 315"
+            ]
+        },
+        {
+            "input": "Passage : While in Tokyo, Sean befriends Twinkie, a military brat who introduces him to the world of drift racing in Japan. Sean has a confrontation with Takashi -- the Drift King (DK) -- over Sean talking to Takashi's girlfriend, Neela. Though forbidden to drive, Sean decides to race against Takashi, who has ties to the Yakuza. He borrows a Nissan Silvia from Han Lue, now a business partner to Takashi, and loses, totaling the car due to his inability to drift. Name : Sean. Offset : 255",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 321"
+            ]
+        },
+        {
+            "input": "Passage : To repay his debt for the car he destroyed, Sean agrees to work for Han. This leads to the duo becoming friends, with Han agreeing to teach Sean how to drift. Han also loans him another car for future races, explaining that he is helping him as Sean is the only person willing to stand up to Takashi. Name : Sean. Offset : 245",
+            "output": [
+                "Pronoun : him. Pronoun-offset : 238"
+            ]
+        },
+        {
+            "input": "Passage : According to Julia Marton-Lefevre, the International Union for the Conservation of Nature oil and gas exploring in the Arctic would have drastic consequences and the world should find low-carbon sources of energy. Damon Albarn of Blur showed a poster of Frank Hewetson during the band's concert in Santiago, Chile, on 7 November, asking for him to be freed. Name : Frank Hewetson. Offset : 254",
+            "output": [
+                "Pronoun : him. Pronoun-offset : 341"
+            ]
+        },
+        {
+            "input": "Passage : While in Greece, Sarantidis joined the Greek Communist Party and worked for helping Vietnam as well as promoting Greek-Vietnamese relations. Sarantidis has also been active in helping children in Vietnam who have been affected by the Agent Orange/dioxin toxicant. Sarantidis escorted the then Greek President Karolos Papoulias on his official visit to Vietnam in October 2008. Name : Karolos Papoulias. Offset : 309",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 330"
+            ]
+        },
+        {
+            "input": "Passage : Unlike director Riccardo Freda's previous gothic styled film I vampiri, The Horrible Dr. Hichcock was made in a climate where there were more gothic horror films being produced in Italy. The film began when Luigi Carpentieri phoned screenwriter Ernesto Gastaldi to write a giallo story that he liked titled Spectral. Name : Luigi Carpentieri. Offset : 207",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 291"
+            ]
+        },
+        {
+            "input": "Passage : of over-criminalizing persons who have committed minor infractions without intent or even knowledge of the law. In essence, the reforms could potentially overturn Ignorantia juris non excusat statutes. In 2014, Koch Companies Public Sector CEO Philip Ellender responded to comments that Harry Reid made on the floor of the Senate, when he said that the Koch brothers were trying to ``buy the country''. Name : Harry Reid. Offset : 287",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 336"
+            ]
+        },
+        {
+            "input": "Passage : Roberts opposed President Barack Obama's health reform legislation; he voted against the Patient Protection and Affordable Care Act in December 2009, and he voted against the Health Care and Education Reconciliation Act of 2010. In September 2017, Roberts supported the Graham-Cassidy healthcare bill. When interviewed about why he supported it, Roberts repeatedly refused to say why he thought the bill was good, and avoided speaking about the bill's policy contents. Name : Roberts. Offset : 346",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 329"
+            ]
+        },
+        {
+            "input": "Passage : After its founding, the school offered comprehensive secondary level Chinese education. It remained funded and supported by Tan Kah Kee until shortly before World War II. In 1934, Lee Kong Chian, son-in-law of Tan Kah Kee, became the chairman of the school's board and remained in his post until 1955. Name : Lee Kong Chian. Offset : 180",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 281"
+            ]
+        },
+        {
+            "input": "Passage : Michael Smith is a second generation professional wrestler, his father is former wrestler Grizzly Smith. His siblings were also wrestlers; his half-brother is Jake ``The Snake'' Roberts, and his younger sister is Rockin' Robin. Before his departure from the NWA, Smith had begun dating Tully Blanchard's valet Nickla Roberts, better known by the name Baby Doll. Name : Smith. Offset : 263",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 235"
+            ]
+        },
+        {
+            "input": "Passage : George Home was the son of Mariota Johnston and David Home of Wedderburn (d. 1574). He was born at Elphinstone Castle, educated at Dunbar Grammar School, and joined the household of Regent Morton. After the political fall of Regent Morton, George Home was imprisoned for six months to punish him for supporting the Morton government. Name : George Home. Offset : 240",
+            "output": [
+                "Pronoun : him. Pronoun-offset : 292"
+            ]
+        },
+        {
+            "input": "Passage : And now, he declared a campaign against ignorance (illiteracy). He armed the nation with the new Turkish alphabet.'' The historian Bernard Lewis has described the introduction of the new alphabet as ``not so much practical as pedagogical, as social and cultural -- and Mustafa Kemal, in forcing his people to accept it, was slamming a door on the past as well as opening a door to the future''. Name : Mustafa Kemal. Offset : 269",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 295"
+            ]
+        },
+        {
+            "input": "Passage : Since May 2011, she has written a biweekly column for Bloomberg View. Postrel has written several articles on health care and bioethics; these include accounts of her own experiences. In March 2006 Postrel donated a kidney to an acquaintance--psychiatrist and writer Sally Satel. She has recounted the experience, and referred to it in several subsequent articles and blog posts--many of which are critical of legal prohibitions against compensating organ donors. Name : Postrel. Offset : 198",
+            "output": [
+                "Pronoun : She. Pronoun-offset : 280"
+            ]
+        },
+        {
+            "input": "Passage : However, during Clapp's tenure the VR was already struggling to match new competition from road transport, as well as to remain profitable despite the legacy of a network of short, inefficient branch line s built in the late nineteenth century for reasons of political expediency rather than economic merit, challenges that were to bedevil Clapp's successors. The VR only turned a profit in two of the nearly twenty years that he was at its helm. In May 1939, with the outbreak of World War II imminent, Clapp was seconded by then Prime Minister Robert Menzies to become general manager of the Aircraft Construction Branch of the Commonwealth Department of Supply and Development, overseeing the construction of Bristol Beaufort bombers in Australia. He was made chairman of the new Aircraft Production Commission in March next year. Name : Clapp. Offset : 504",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 751"
+            ]
+        },
+        {
+            "input": "Passage : Carla arrived to the street in 1995 to visit her estranged sister Ellen (Robyn Malcolm) and soon got a job at the hospital. The two sisters reconciled when Carla fell off a cliff and the staff began to suspect Ellen of pushing her. Name : Carla. Offset : 156",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 227"
+            ]
+        },
+        {
+            "input": "Passage : Contrary to the initial LA Times report, neither the name of Clemens nor Pettitte appeared in the affidavit submitted by Grimsley. On December 13, 2007, Pettitte was one of several Yankees named in the Mitchell Report. Mitchell and his staff received the information on Pettitte from McNamee, who told them he injected Pettitte with HGH on 2--4 occasions in 2002 so that he would heal from an elbow injury quicker. Name : McNamee. Offset : 284",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 307"
+            ]
+        },
+        {
+            "input": "Passage : On May 1, 2007 it was announced that O'Neill would replace Jim Rosborough as the assistant coach to Hall of Famer Lute Olson at the University of Arizona. O'Neill was an assistant under Olson during Arizona's rise to national prominence in the 1980s, and used it as a launching board to attain his first major head coaching position at Marquette. Name : O'Neill. Offset : 155",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 294"
+            ]
+        },
+        {
+            "input": "Passage : Anderson stood for a third term in the 1986 Alberta general election. He won that election comfortably defeating three other candidates, but his vote share decreased substantially. After the election Premier Don Getty appointed Anderson as the Minister of Culture. He held that portfolio until 1987, when he moved to the Municipal Affairs portfolio. Name : Anderson. Offset : 228",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 265"
+            ]
+        },
+        {
+            "input": "Passage : Liz sublets her apartment above the Binghams, which delights Jeff until he learns that she needs a place to stay for a few weeks and Audrey lets Liz move in. Initially uncomfortable with the situation, Jeff changes his tune after Liz constantly harps on Audrey to treat her man better. Name : Audrey. Offset : 254",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 270"
+            ]
+        },
+        {
+            "input": "Passage : Charlotte Eliza Collins was born at Braunton on 10 July 1828, a daughter of Rev Robert Collins, who was a Congregationalist minister, and his wife Charlotte Eliza Cox. After working for some years as a governess and teacher, she married Edward Tenney Bousfield (1829-1916) at Tetbury in 1853. Name : Eliza Collins. Offset : 10",
+            "output": [
+                "Pronoun : she. Pronoun-offset : 225"
+            ]
+        },
+        {
+            "input": "Passage : She then went on to study accounting at the University of Alaska and simultaneously worked at Wien Alaska Airlines to pay her way through school. On 29 October 1954, she married Hugh Fate, Jr., who would become a dentist and Native Americans rights activist. The couple had three daughters, Janine, Jennifer and Julie. After her marriage, Fate returned to work at Wien Alaska Airlines. Name : Fate. Offset : 339",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 325"
+            ]
+        },
+        {
+            "input": "Passage : His father, Eduard Avenarius, a publisher from Leipzig, founded a joint subsidiary company with the Brockhaus publishing house. His mother, C*cilie n*e Geyer, was a daughter of the actor and painter Ludwig Geyer. Eduard Avenarius represented the company in Paris, where he consorted with Heinrich Heine and Richard Wagner, the latter being the stepuncle of Ferdinand Avenarius and his brother, the philosopher Richard Avenarius. Name : Ferdinand Avenarius. Offset : 357",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 381"
+            ]
+        },
+        {
+            "input": "Passage : David Kilpatrick, a cook from Glasgow (25), George Lamb, a clerk from Edinburgh, (30), Robert Logan, a piano tuner from Inverness, (40), Alexander McDonald, an engineer from Aberdeen (34), Captain Osmond Leicester (30) and Mrs Leicester (real name Blanche Sophia Meyer-Edmunds, 26, but listed as 30; Osmond's real wife Fermina had been abandoned) of Liverpool, and Rosalind Cartlidge (25). In the early hours of 24 April 1899, she met with disaster on the coast of Kangaroo Island at the mouth of the Investigator Strait, South Australia. Name : Rosalind Cartlidge. Offset : 365",
+            "output": [
+                "Pronoun : she. Pronoun-offset : 427"
+            ]
+        },
+        {
+            "input": "Passage : He also said ``If I had the choice I would certainly not eat it'', and that ``I find it's very unfair to use our fellow citizens as guinea pigs''. This resulted in a media frenzy, and Rowett Institute's director Philip James, after initially supporting Pusztai, suspended him and banned both Pusztai and Susan Bardocz from speaking publicly. Name : Pusztai. Offset : 253",
+            "output": [
+                "Pronoun : him. Pronoun-offset : 272"
+            ]
+        },
+        {
+            "input": "Passage : He discovers that his future brother-in-law, the vicious, homicidal Tony (Nicholas Brown), is about to marry a Mexican woman named Natasha (B*rbara Mori), whom Jai knows as Linda, the last of the immigrant women he married. On the night before ``Natasha'' and Tony's wedding, Linda and Jai spend a romantic but chaste night, humorously agreeing to a ``divorce''. A jealous, gun-wielding Tony arrives at her apartment while Jai is there. Name : Linda. Offset : 276",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 403"
+            ]
+        },
+        {
+            "input": "Passage : Unlike other Slayers, she has had no prophetic dreams of her destiny or of the Slayers before her, and is now trying to figure out what her destiny as the Slayer entails. Harth Fray -- Mel's twin brother, who was attacked by a vampire during a theft with Mel. To save his life, Harth deliberately drank the vampire's blood, thereby becoming a vampire himself. Name : Harth. Offset : 278",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 268"
+            ]
+        },
+        {
+            "input": "Passage : To save his life, Harth deliberately drank the vampire's blood, thereby becoming a vampire himself. It is unprecedented for a Slayer to have a twin and, as an odd side-effect of this, Harth possesses the prophetic dreams and visions of past Slayers that Mel lacks. Erin Fray -- Mel's older sister. On opposing sides already because of her job as a cop and Melaka's thieving, Erin also blamed Mel for the death of their brother for a long time. Name : Erin. Offset : 375",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 335"
+            ]
+        },
+        {
+            "input": "Passage : Widdemer's memoir Golden Years I Had recounts her friendships with eminent authors such as Ezra Pound, F. Scott Fitzgerald, T.S. Eliot, Thornton Wilder, and Edna St. Vincent Millay. The scholar Joan Shelley Rubin has surmised that Widdemer coined the term ``middlebrow'' in her essay ``Message and Middlebrow,'' published in 1933 in The Saturday Review of Literature. Name : Widdemer. Offset : 231",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 274"
+            ]
+        },
+        {
+            "input": "Passage : The majority of surviving buildings in the Historic Dockyard are Georgian. It was here that HMS Victory, Admiral Lord Nelson's flagship at Trafalgar, was built and launched in 1765. Sir Francis Drake learned his seamanship on the Medway; Sir John Hawkins founded a hospital in Chatham for seamen, and Nelson began his Navy service at Chatham at the age of 12. Name : Nelson. Offset : 301",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 314"
+            ]
+        },
+        {
+            "input": "Passage : Meanwhile, the media hounds the kids for stories, including claims that Michael Jackson molested them. Al is excited when Kelly hires Larry Storch as her acting coach and they star in a play together, but when Larry Storch gets into an accident, Al must step in to help his daughter. Peggy takes Marcy along with her to a bingo competition on the bad side of town. Name : Peggy. Offset : 284",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 313"
+            ]
+        },
+        {
+            "input": "Passage : In this back-door spin-off pilot (which features Bud, Steve Rhoades, and Marcy), two obnoxious college radio DJs, Mark and Oliver, are expelled by Steve Rhoades for suggesting that Rhoades got his dean job through blackmail, since he had been a chauffeur only two months before (in the episode ``Get the Dodge Outta Hell''). Marcy arrives at the radio station looking for April (guest star Keri Russell), a new bank employee who is romantically entangled with both Bud and a giant Russian basketball star named Nikolai. She decides to protest against Steve and get him fired. Name : Marcy. Offset : 325",
+            "output": [
+                "Pronoun : She. Pronoun-offset : 520"
+            ]
+        },
+        {
+            "input": "Passage : Bud needs $700 for a trip to Milwaukee with the Fraternity, which Al refuses. To earn it, Bud takes up a job as a driving examiner. Due to Peggy's negligence, Al's driver's license has expired and he has to take the test again--with Jefferson's help. Bud takes Al's test and gives him a hard time as a revenge for Al refusing to give him $700. Name : Al. Offset : 261",
+            "output": [
+                "Pronoun : him. Pronoun-offset : 281"
+            ]
+        },
+        {
+            "input": "Passage : They include Anthony Roquel (Tonette Macho), Mely Tagasa (Miss Tapia), Sharon Cuneta (Sharon Escalera), Redford White (Redford), Ariel Villasanta (Pekto), scriptwriter Bibeth Orteza (Bibeth), Kaye Torres (Kaye Flores), and Richard Reyes, otherwise known as Ritchie D'Horsie (with BJMP personnel holding him). Vic Sotto said the decision to get Ritchie on the film was hard to make, considering that he, Tito Sotto, and Joey de Leon have bailed him out several times over the years on drug charges but did not change his ways. Name : Vic Sotto. Offset : 309",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 399"
+            ]
+        },
+        {
+            "input": "Passage : It was here, then, that petitions were heard complaining of the conduct of William Hartwell, captain of Governor Berkeley's guard, in the suppression of the rebellion. Swann's Point was sold by the son of Col. Thomas Swann in 1706 to John Joseph Jackman, the plantation was purchased in turn from Jackman in 1709 by Major George Marable who three months later sold the plantation to his brother-in-law, John Hartwell. Upon his death in 1714, Swann's Point passed to John Hartwell's daughter, Elizabeth, then a minor. Name : John Hartwell. Offset : 403",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 423"
+            ]
+        },
+        {
+            "input": "Passage : Nicolai reviewed Otto R*ssler's research paper on the safety of the LHC and issued a statement highlighting logical inconsistencies and physical misunderstandings in R*ssler's arguments. Nicolai concluded that ``this text would not pass the referee process in a serious journal.'' Domenico Giulini also commented with Hermann Nicolai on Otto R*ssler's thesis, concluding that ``his argument concerns only the General Theory of Relativity (GRT), and makes no logical connection to LHC physics; the argument is not valid; the argument is not self-consistent.'' Name : Otto R*ssler. Offset : 337",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 378"
+            ]
+        },
+        {
+            "input": "Passage : Johnny ``Lam'' Jones (real name John Wesley Jones; born April 4, 1958 in Lawton, Oklahoma) is a former American sprinter and former American football player. He won a gold medal in the 4 x 100 meter relay at the 1976 Summer Olympics. Jones replaced an injured Houston McTear on the U.S. team at the Montreal Olympics, and finished sixth in the 100 meters. He also ran the second leg for the U.S. relay team, which won the gold medal. Name : Jones. Offset : 234",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 356"
+            ]
+        },
+        {
+            "input": "Passage : ``French Institute, Royal Academy of Sciences, Paris, 10 July 1820. Sir,--The Academy has received with a lively degree of interest, the Essay that you obligingly addressed to it on Involution and Evolution, or a Method of determining the Numerical Value of any Function of an unknown Quantity. I am desired, in its name, to thank you for sending this interesting work, which has been honourably placed in the Library of the Academy; and to express the sense of obligation which the Institution entertains for your attention. Receive, Sir, I beg, the assurance of the most distinguished respect with which I am, Your's etc. B.G. Cuvier ''-- Letter from the Perpetual Secretary to Mr Peter Nicholson. Although almost entirely forgotten as a mathematician, Nicholson is still remembered as an architect and in the 1978 edition of his standard work, A Biographical Dictionary of British Architects, 1600--1840, Howard M. Colvin claims that ``Nicholson was one of the leading intellects behind nineteenth-century building technology. He used his great ability as a mathematician to simplify many old formulae used by architectural draughtsmen as well as to devise new ones.'' Name : Nicholson. Offset : 939",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 828"
+            ]
+        },
+        {
+            "input": "Passage : Shackelford also appeared as Gary Ewing on several episodes of CBS's Dallas ; this role had originally been played by actor David Ackroyd who was unable to return for future appearances. Prior to his role on Knots Landing, Shackelford played the role of Ray Gordon on Another World. He currently portrays recurring character Jeffrey Bardwell on The Young and the Restless. Name : Shackelford. Offset : 223",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 283"
+            ]
+        },
+        {
+            "input": "Passage : 30 October: The Virat Kohli co-owned FC Goa remained afloat in the top half with a 1-1 draw against FC Pune City in which an own goal scored by Roger Johnson (46') was cancelled by Eugeneson Lyngdoh in the 64th minute. 5 November: FC Goa gifted Virat Kohli with a 2-0 win over Chennaiyin FC. On his debut, Rafael Coelho Luiz won both the penalties that were converted by Leo Moura (64') and Jonatan Lucca (78') as the Gaurs recorded their second away win of the season. Name : Rafael Coelho Luiz. Offset : 306",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 295"
+            ]
+        },
+        {
+            "input": "Passage : When a buyer was found, the sale would be recorded at the city court. The Philadelphia Mayor's Court Indenture Book, page 742, for September 18, 1773 has the following entry: James Best, who was under Indenture of Redemption to Captain Stephen Jones now cancelled in consideration of * 15, paid for his Passage from London bound a servant to David Rittenhouse of the City of Philadelphia & assigns three years to be found all necessaries. Name : James Best. Offset : 175",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 299"
+            ]
+        },
+        {
+            "input": "Passage : She made a series of appearances in the British soap opera Emmerdale (then known by its original title Emmerdale Farm) coincidentally opposite Frazer Hines, one of the major stars of that show. In 1971 Padbury appeared in Piers Haggard 's cult British horror film Blood on Satan's Claw as the unfortunate Cathy Vespers. Coincidentally, she appeared alongside actor Anthony Ainley who a decade later would take the role of The Master in Doctor Who, including the above mentioned episode, The Five Doctors. Name : Padbury. Offset : 202",
+            "output": [
+                "Pronoun : she. Pronoun-offset : 336"
+            ]
+        },
+        {
+            "input": "Passage : The PageTurner Awards were put on hold in 2008 to focus on Patterson's new initiative, ReadKiddoRead.com, which helps parents, teachers, and librarians find the best books for their children. The social networking site for ReadKiddoRead is hosted by Ning. Horror novelist Stephen King has dismissed Patterson's bibliography as made up of dopey thrillers, and in one interview called him a terrible writer. Name : Patterson. Offset : 299",
+            "output": [
+                "Pronoun : him. Pronoun-offset : 383"
+            ]
+        },
+        {
+            "input": "Passage : He is noted for his Grammy Award winning jazz orchestral recording titled The Black Dahlia. He is also a past head of A & R for Blue Note Records. Belden was born in Evanston, Illinois, and raised in South Carolina. In his formative years, Belden studied saxophone with Lou Marini Sr., father of famed jazz saxophonist, Lou Marini (Buddy Rich Big Band, Blood, Sweat and Tears, best known as ``Blue Lou'' of the Blues Brothers Band). Name : Belden. Offset : 240",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 219"
+            ]
+        },
+        {
+            "input": "Passage : During her early and beginning years of writing, she had a natural inclination to write and to copy texts and use the vocabulary she learned in her own works. Cotterill mentions that from an early age, Elizabeth ``constantly read, copied down, studied, memorized, and repeated prayers, psalms, chapters of the Bible, excerpts from collections of biblical ``places,'' literary texts, and sermons.'' She resorted to writing as an outlet from her depression due to the deaths of her mother and sister and debates with her father over her marriage. Name : Elizabeth. Offset : 202",
+            "output": [
+                "Pronoun : She. Pronoun-offset : 398"
+            ]
+        },
+        {
+            "input": "Passage : Justinian left for Oxford during the Civil Wars, which left Elizabeth to care for their father, his four daughters, and to manage the estate. The estate was later sequestered by Parliament. Elizabeth's mother, Judith Isham, had a close relationship with each of her three children. Name : Judith Isham. Offset : 210",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 262"
+            ]
+        },
+        {
+            "input": "Passage : He was eventually to move to Cardiff City in 2001 for *1*million, and went on to score fifteen times in his first season at the club and help them to promotion the following year when they beat Queens Park Rangers in the Division two play-off final. He scored one of Cardiff's goals as they memorably knocked out then Premiership Leeds United in the FA Cup third round in 2002. During the 2004--05 season Cardiff chairman Sam Hammam revealed that the club was in serious financial trouble and as such a number of players left the club to attempt to regain losses, including Kavanagh who signed for Wigan Athletic for a fee close to *400,000. Whilst at Wigan he started in the 2006 Football League Cup Final. Name : Kavanagh. Offset : 574",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 658"
+            ]
+        },
+        {
+            "input": "Passage : Saroja's mother Kanthamma (G. Varalakshmi) is cheated by Chalapati (Mikkilineni). Bhushaiah values sentimental about caste and clan and consequently does not accept Ravi's love for Saroja. So he leaves the house and marries Saroja in a temple. Ravi is posted as a Police Inspector in his own village only. Name : Ravi. Offset : 244",
+            "output": [
+                "Pronoun : his. Pronoun-offset : 284"
+            ]
+        },
+        {
+            "input": "Passage : Simon Cowell accused Brown of being ``robotic and somewhat empty.'' In the end, Jackson and Abdul (who made the final judgment) sent Brown through to the Hollywood rounds. During the Hollywood rounds, Brown sang ``Reflection'' by Christina Aguilera, and was one of 24 semi-finalists of the fifth season of American Idol. Following her departure from Idol, Brown made hundreds of personal appearances in 2006, most covered by local or national media and drawing as many as 500 to 2,000 or more fans. Name : Brown. Offset : 356",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 331"
+            ]
+        },
+        {
+            "input": "Passage : Born in Flehingen, Germany, at age 14 he moved to Rockport, Indiana. Within a couple of years he had enrolled at the Indiana University, where he studied under David Starr Jordan. Eigenmann received a bachelor's degree in 1886, and soon after went to California, where he met Rosa Smith, herself already becoming known for her work on West Coast fisheries. Name : Rosa Smith. Offset : 276",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 323"
+            ]
+        },
+        {
+            "input": "Passage : Robert John Daniel Lloyd George (born 13 August 1952) Lady Julia Margaret Violet Lloyd George He married secondly in 1982 to (Cecily) Josephine, Countess of Woolton (1925-2012), daughter of Sir Alexander Penrose Gordon-Cumming, 5th Baronet and Elizabeth, Countess Cawdor. It was her third marriage, and her third to a peer. Name : Elizabeth. Offset : 244",
+            "output": [
+                "Pronoun : her. Pronoun-offset : 279"
+            ]
+        },
+        {
+            "input": "Passage : Johnny Spragg is one of Sammy's school friends. He is a simple, extrovert, cheerful child who wants only to become a pilot. He is killed flying in the war. Sammy envies him for his 'natural goodness and generosity'. Philip Arnold is Sammy's other main school friend. He is subtle, cunning and cynical (the exact opposite of Johnny). Name : Philip Arnold. Offset : 216",
+            "output": [
+                "Pronoun : He. Pronoun-offset : 267"
+            ]
+        },
+        {
+            "input": "Passage : It was later filmed by Stanley Kramer under the title Eight Iron Men with a different cast of Bonar Colleano, Lee Marvin, and Arthur Franz in 1952, then was a 1961 television production with Peter Falk, Robert Lansing, and Sal Mineo directed by Seymour Robbie. Brown wrote the novel A Walk in the Sun in 1944, which was made into a film in 1945. Director Lewis Milestone asked Brown to come to Hollywood as a screenwriter where he worked on films including Sands of Iwo Jima (1949), A Place in the Sun (1951) (winning an Oscar), and Ocean's Eleven (1960). Name : Brown. Offset : 377",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 428"
+            ]
+        },
+        {
+            "input": "Passage : This was confirmed by club captain Luke Moore, who remarked: 'We're delighted to have a player of Adrian's quality with us in time for the new season'. Clarke will be given the much-coveted number 10 shirt, which was recently vacated by Rupert Fryer. After he hung up his boots, Clarke re-trained as a journalist, landing a job at the Southend Evening Echo. Name : Clarke. Offset : 152",
+            "output": [
+                "Pronoun : he. Pronoun-offset : 257"
+            ]
+        }
+    ]
+}
