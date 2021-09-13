@@ -2,7 +2,7 @@
     "Source": [
         "mwsc (https://huggingface.co/datasets/mwsc)"
     ],
-    "Definition": "Your are given a sentence and a question to construct possible options in specific format ( for example there are four options: option1, option2, option3 , option4 , then it should be represented in string which looks like  '''['option1','option2','option3','option4']''' ) for the given question in which correct answer lies. Only one among all options created should be correct answer. All possible options written should be very clear and simple to understand and should be written in english language. Answer the questions using coreference resolution. coreference resolution is the task of clustering mentions in text that refer to the same underlying real world entities. For example let's take a sentence 'I voted for Obama because he was most aligned with my values, she said.' Here in this example 'I', 'my', and 'she' belong to the same cluster and 'Obama' and 'he' belong to the same cluster. Now let's discuss another example , original sentence: 'I voted for Trump because he was most aligned with my values',John said. Now here is the same sentence with resolved coreferences: 'John voted for Trump because Trump was most aligned with John's values',John said.", 
+    "Definition": "You are given a sentence and a question, construct 2 answer options in a specific format i.e. ['option1','option2']. Only one among the options should be the correct answer to the given question. Note that, the correct answer to the given question will require understanding of coreference resolution. coreference resolution is the task of clustering mentions in text that refer to the same underlying real world entities. For example let's take a sentence 'I voted for Obama because he was most aligned with my values, she said.' Here in this example 'I', 'my', and 'she' belong to the same cluster and 'Obama' and 'he' belong to the same cluster. Now let's discuss another example , original sentence: 'I voted for Trump because he was most aligned with my values',John said. Now here is the same sentence with resolved coreferences: 'John voted for Trump because Trump was most aligned with John's values',John said.", 
     "Positive Examples": [
         {
             "input": "Sentence: Bob paid for Charlie's college education. He is very grateful. Question:Who is grateful?",
@@ -11,7 +11,7 @@
         },
         {
             "input": "Sentence: Bob paid for Charlie's college education. He is very generous. Question:Who is generous?",
-            "output": "['Bob','Charlie','Rajesh']",
+            "output": "['Bob','Charlie']",
             "explanation": "The sentence clearly states that Bob paid for Charlies's college education, so Bob is very generous. The answer is Bob and it lies in the options created. Therefore this is a positive example."
         },
         {
@@ -21,29 +21,29 @@
         },
         {
             "input": "Sentence: Ann asked Mary what time the library closes, because she had forgotten. Question:Who had forgotten?",
-            "output": "['Mary','Ann','Ravi']",
+            "output": "['Mary','Ann']",
             "explanation": "The sentence clearly states that Ann asked Mary what time the library closes, because Ann had forgotten. The answer is Ann and it lies in the options created. Therefore this is a positive example."
         }
     ],
     "Negative Examples": [
         {
             "input": "Sentence: Anne gave birth to her daughter last month. She is a very charming woman. Question:Who is a very charming woman?",
-            "output": "['daughter','husband','sister']",
+            "output": "['daughter','husband']",
             "explanation": "From the given sentence, we got to know that Anne gave birth to her daughter and this incident happened last month and also she is a very charming woman. The answer for the question is Anne but it's not present in options created. Therefore this is a negative example."
         },
         {
             "input": "Sentence: The fish ate the worm. It was hungry. Question:What was hungry?",
-            "output": "['worm','lion','deer']",
+            "output": "['worm','lion']",
             "explanation": "From the given sentence, we got to know that fish ate the worm because fish was hungry. The answer for the question is fish but it's not present in options created. Therefore this is a negative example."
         },
         {
             "input": "Sentence: The seniors were bullying the freshmen, so we rescued them. Question:Whom do we rescued?",
-            "output": "['students','teachers','parents']",
-            "explanation": "From the given sentence, we got to know that some x are intimidating some y and we saved these y. Here x is seniors , y is freshmen. The answer for the question is freshmen but it's not present in options created. Therefore this is a negative example."
+            "output": "['students','freshmen','parents']",
+            "explanation": "From the given sentence, we got to know that some x are intimidating some y and we saved these y. Here x is seniors , y is freshmen. The answer for the question is freshmen which lies in the given options but this is a negative example as we are instructed to construct only 2 possible options."
         },
         {
             "input": "Sentence: I was trying to open the lock with the key, but someone had filled the keyhole with chewing gum, and I couldn't get it out. Question: What couldn't I get out?",
-            "output": "['key','pencil','pin','pen']",
+            "output": "['key','pencil']",
             "explanation": "From the given sentence, we got to know that keyhole is filled with chewing gum and it's not getting out. The answer for the question is gum but it's not present in options created. Therefore this is a negative example."
         }
     ],
