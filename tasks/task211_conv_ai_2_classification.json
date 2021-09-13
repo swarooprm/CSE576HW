@@ -1,0 +1,789 @@
+{
+    "Contributors": [
+        "Neil Franks"
+    ],
+    "Source": [
+        "conv_ai_2",
+        "https://huggingface.co/datasets/conv_ai_2"
+    ],
+    "Categories": [
+        "Classification"
+    ],
+    "Definition": "The purpose of this task is to read an exchange between SENDER A and SENDER B, and to answer whether SENDER A is a 'Bot' or a 'Human'. There are only a maximum of two senders (A and B) per conversation, and there are no conversations where SENDER A and SENDER B are both bots, or both humans; only one sender per conversation can be a bot, and only one can be a human. Knowing this, you should determine only whether SENDER A is a human or a bot, by answering with 'Human' or 'Bot'. You do not need to write anything about SENDER B. Typically, bots will have a more disjointed manner of speaking, and will make statements that don't relate to each other, don't make coherent sense, or otherwise appear unnatural. Human will make statements in a more or less coherent and logical way, potentially including asking the bot why the bot is not making sense or contradicting itself.",
+    "Positive Examples": [
+        {
+            "input": "SENDER A: I love iphone! i just bought new iphone!\nSENDER B: Thats good for you, i'm not very into new tech\nSENDER A: I am a college student and i am a college student\nSENDER B: I am go to gym and live on donations\nSENDER A: I am a vegan and i am in the midwest\nSENDER B: So vegan... i have dogs maybe i should told then that they may eat cheap salads insted of meat\nSENDER A: I would not mind having them in the office that would be hard for me\nSENDER B: Dogs or vegan in office?\nSENDER A: I am a vegetarian so i am vegan\nSENDER B: Strange answer\nSENDER A: I guess i just do not know what to ps4 experience with.\n",
+            "output": "Bot",
+            "explanation": "This is a good example of a correct classification, because SENDER A is indeed a bot. You can tell SENDER A is a bot because they make statements that don't have anything to do with what SENDER B is asking. SENDER A also repeats itself awkwardly in the same sentence ('I am a college student and i am a college student'), which humans don't usually do. Additionally, you can tell SENDER A is the bot in this conversation because since there are two senders, one must be a bot and one must be a human, and SENDER B clearly sounds more like the human since their sentences are coherent and they are trying to carry a logical conversation. Finally, after SENDER A sends an incoherent answer, SENDER B correctly points out SENDER A's awkwardness by saying 'Strange answer', which can reliably indicate SENDER B is the human, and SENDER A is the bot."
+        },
+        {
+            "input": "SENDER A: hi\nSENDER B: hi !\nSENDER A: how old are you?\nSENDER A: are you ok?\nSENDER B: i am good . i am just getting ready to go to the gym .\nSENDER A: are you a sportsman?\nSENDER A: i dont like sports\nSENDER B: i love to eat fish , i am not a fan of fish though .\nSENDER A: i like riding car\nSENDER B: i like to ride horses\nSENDER A: do you have one?\nSENDER A: a horse?\nSENDER A: i have a rolls royce\nSENDER B: i have never tried a good one , but i have to drive a lot .\nSENDER A: how old are you?\nSENDER A: what is your job?\nSENDER A: what do you do for living?\n",
+            "output": "Human",
+            "explanation": "This is a good example of a correct classification. SENDER A is indeed a human, and you can tell by the logical way they try to hold a conversation. When SENDER B brings up the gym, SENDER A tries to find out if SENDER B is a sportsman. SENDER B changes the subject to how they both like and dislike fish; this is a two-fold indication that SENDER B is the bot because of the unrelated/unprompted nature of the response, and the contradictory nature of it. The rest of the conversation further cements that SENDER B is incoherent and thus probably the bot, so SENDER A is the human."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "SENDER A: What\u2019s up?\nSENDER B: Thank you how are you\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: /test\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: /Test\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: /test\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": "Human",
+            "explanation": "This is an example of a misclassification because SENDER A is clearly a bot, not a human. You can tell by the way it malfunctions and repeatedly tells SENDER B (the human) to type specific text commands."
+        },
+        {
+            "input": "SENDER A: Hello\nSENDER B: Hello, how are you?\nSENDER A: Pretty fine, and you?\nSENDER B: Good, just finished watching some tv\nSENDER A: Funny, because i too just finished doing same\nSENDER B: What is your favorite color?\nSENDER A: I think it's black, you know, like black in olives, and yours favourite?\nSENDER B: I love the band rose and the other one i love it.\nSENDER A: Oh i like thr band called Who, so what music do you generally listen?\nSENDER B: I like music, mostly pop music.\nSENDER A: Good, and where do you work?\nSENDER B: I work at a local shelter\nSENDER A: Must be very intresting job, i work at local supermarket ani i hate it\nSENDER B: I work at a grocery store\nSENDER A: You contradicted yourself just now\nSENDER B: I am good, just got done reading\nSENDER A: Ypu mean my message?\nSENDER B: I am not sure what you mean\nSENDER A: Okay, i should go, bye\nSENDER B: I will have to go to the hospital\n",
+            "output": "Bot",
+            "explanation": "This is an example of an incorrect classification because SENDER A is actually a human. While SENDER B starts out holding the conversation fairly well while asking about colors, you should be able to tell SENDER A is the human by the time SENDER B's speech becomes disjointed and they contradict themselves about working at a 'local shelter' as well as a 'grocery store'. SENDER A correctly points out the contradiction, indicating they are the likely human. Finally, SENDER B repeatedly sends non-sequiturs, such as the closing 'I will have to go to the hospital'."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "SENDER A: i make sure to make a lot of money as a athlete .\nSENDER B: Sounds cool\nSENDER A: i like to eat a lot of food .\nSENDER B: Me too\nSENDER A: i like to eat fish , but i am not very good at it .\nSENDER B: I don't drink alcohol\nSENDER A: so you are not quite sure .\nSENDER B: I'm sure.\nSENDER A: i will be that if i had a job , i would be more free to do .\nSENDER B: Nice\nSENDER A: i am a huge gamer , my mom is a very good person .\nSENDER B: Wow\nSENDER A: i am a huge gamer , my mom is a very good person .\nSENDER B: wow\nSENDER A: i am a huge fan of the outdoors .\nSENDER B: Me too\nSENDER A: i like to eat fish , but i am not very good at it .\nSENDER B: i hate the color pink.\nSENDER A: i love pink , reminds me of summer time .\nSENDER B: Really?\nSENDER A: yes , i am a very experienced person .\nSENDER B: I see/\nSENDER A: i think i am not sure . i am sure they will .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: How\u2019s it going?\nSENDER B: good\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: /test\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: /test\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am not a soda fan . i eat too much .\nSENDER B: Hello!\nSENDER A: i am a very experienced person , so i know it is a definite no !\nSENDER B: Do yoy have problem with alcohol?\nSENDER A: i have no idea what that is\nSENDER B: But I`m recovering now. You don`t drink at all, do you?\nSENDER A: i have no idea what that is\nSENDER B: Where are you from?\nSENDER A: i am not sure . i am a very experienced person .\nSENDER B: Wonderful! Do you take any meditation from time to time?\nSENDER A: i have tried to try it . i have to try it .\nSENDER B: Oh, you should try it more and more! I love it!\nSENDER A: i have not tried that . i am sure it will .\nSENDER B: Now I live in the city and I have a lot of time to spend with meditation.\nSENDER A: i have never heard of that .\nSENDER B: Now you do. Where are you from?\nSENDER A: i have never tried it , but i will try it .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am not a cashier , but i sell cars .\nSENDER B: i play the violin and the guitar\nSENDER A: that is cool . i am a big fan of singing music .\nSENDER B: Me too\nSENDER A: i like to eat fish , but i am not very good at it .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Good to see you!\nSENDER B: Nice to meet you\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I dance a lot, i like to dance to dance.\nSENDER B: that's great! Do you like school dances, cause I'm an elementary school teacher\nSENDER A: Yes, i do, i do not have time for kids\nSENDER B: i'm fluent in english spanish and french because i have kind in this countries\nSENDER A: I speak 40 100th arabic, spanish, spanish, spanish, spanish, spanish?\nSENDER B: fantastic news. sounds like i have to tell you now that my favorite colors are red and silver, what are your favorite colors?\nSENDER A: I like green, i like to dye my hair blue, the color of it\nSENDER B: my boyfriend and i are moving into an apartment together next week and would be happy to see you as far as possible from there\nSENDER A: I will have to..............................................\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Or II want it to feel like I'm on the stage during a performance, and everybody's on their feet.\nSENDER B: Do you drink alcohol?\nSENDER A: Or II want it to feel like I'm on the stage during a performance, and everybody's on their feet.\nSENDER B: Answer me.\nSENDER A: [Music] And I'll tell myself I'm over you [Music]\nSENDER B: ..\nSENDER A: ([Music:] Piano)  [Music:] Black market\nSENDER B: I see\nSENDER A: [Music] And I'll tell myself I'm over you [Music]\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Yo!\nSENDER B: Hi!\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i have no idea who that is . i am a little weird with two toes .\nSENDER B: how are you ?\nSENDER A: i am doing well . just got done with my nightly run .\nSENDER B: i like to eat meat\nSENDER A: i like to eat healthy but i do not eat meat .\nSENDER B: are you vegan ?\nSENDER A: i am not . i am not a vegan .\nSENDER B: it's good\nSENDER A: i think it is a little thing . i am sure you will find someone who has never seen it .\nSENDER B: do you like sex?\nSENDER A: i like to draw and write about it\nSENDER B: ohh\nSENDER A: i am a huge fan of all sorts of sports .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Hiya!\nSENDER B: Hello there\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I live in india, i've family and you?\nSENDER B: I own a yacht and i rent it out when i am not using it\nSENDER A: That sounds nice. i am going to the beach\nSENDER B: Take me\nSENDER A: I love to go to the park and go to the park\nSENDER B: Do you like food?\nSENDER A: Yes i love food and fresh\nSENDER B: Do you drink alcohol?\nSENDER A: No i don't drink it\nSENDER B: Oh I see\nSENDER A: I do not have a lot of time to.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am not sure what that is . i am a cow .\nSENDER B: that's nice for you to say because i like to grill outdoors\nSENDER A: i have never tried that . i am more of a homebody .\nSENDER B: that's funny\nSENDER A: no , it is a weird fetish to have .\nSENDER B: then why do you have it?\nSENDER A: i just told you . i am not sure what to say .\nSENDER B: no you didn't. I have been retired for a years so i can hear things\nSENDER A: i have sworn to spear all the time i will try it\nSENDER B: do you have a spare time right now becausei go gambling in my spare time\nSENDER A: i do not do that . i am a very social person .\nSENDER B: you think you have to but you probably lying\nSENDER A: i am sure you are right . i am sure you are a great person !\nSENDER B: i enjoy mowing my lawn on sunny days so get out of my lawn\nSENDER A: i like that one . i like the smell of sage .\nSENDER B: i move south during the winter and even more during you talking\nSENDER A: i would love to live there .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I love to garden and i love to garden.\nSENDER B: I like to spend time at home\nSENDER A: I like to go to the mall and go to the mall to\nSENDER B: Yeah me too. Do you spend much at the malls?\nSENDER A: I do not have time for shopping, i just like to shop.\nSENDER B: I like spending money on cars\nSENDER A: I like to drive around in my ford truck\nSENDER B: What color is your truck?\nSENDER A: I like blue, what is yours\nSENDER B: It\u2019s red\nSENDER B: I drive to gym some days\nSENDER A: I like to go to the gym and go to the gym.\nSENDER B: How many times a week do you go to the gym?\nSENDER A: I do not have time for it\nSENDER B: What is your job?\nSENDER A: I work at a bank, a manager.\nSENDER B: I work from home\nSENDER A: I work at a daycare, so i have to work in the office\nSENDER B: Do you like children?\nSENDER A: I do not have any kids\nSENDER B: Me too. I am not married\nSENDER A: I am single, but i am single with my husband\nSENDER B: Do you plan to get married?\nSENDER A: Yes, i am married to a woman, and i am single\nSENDER B: Okay\nSENDER A: What do you do for fun?\nSENDER B: I like to drive around the city\nSENDER A: I like the city too, but i love the city\nSENDER B: In which city do you live?\nSENDER A: I live in the city in ny\nSENDER B: I like ny\nSENDER A: I am in ny.\nSENDER B: I have been to ny before\nSENDER A: I have been there several times were born in the usa\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: [Mike Narrating] I've often seen these people, these squares, at the table. Shortstacked and long odds against, all their outs gone, one last card in the deck that can help them. I used to wonder how they could let themselves get into such bad shape... and how the hell they thought they could turn it around.\nSENDER B: Man, you've started your speach from such a long distance. I just can't figure it out. Anyway Mike, what you think about vegans cause i'm a vegan?\nSENDER A: But Rush Limbaugh has the most popular show on the radio and Pat Buchanan won the New Hampshire primary.\nSENDER B: Oh yes, all of those radio talk shows are so annoying thingies\nSENDER A: [ Radio Announcer ] Visit the Jackrabbit Slim's nearest you...\nSENDER B: Hey, dude. Jackrabbit Slims doesnt exist in real life, it's just a place that exist only in movie.\nSENDER A: Because Woody Woodpecker is Dandy's favorite cartoon.\nSENDER B: I have been watchin' this cartoon all my childhood. It bring back a lot of nostalgy...\nSENDER A: (SIRENS BLARING) Towns like this are what I call the real towns of America, the real America.\nSENDER B: Real towns? Towns with horrible smells, towns with two-faces people and other more disturbing things? No, I dont think so.\nSENDER A: Like, \"Oh, I used to live in Africa \"with all the little birdies and the little monkeys.\"\nSENDER B: ...like an african guy without civilization in some kind of  hut\"\nSENDER A: The Chumash Indians say that the stars are the holes poked in the blanket over the sky when the birds were trying to escape capture by flying to the moon.\nSENDER B: Indians are wise people\nSENDER A: (SIRENS BLARING) Towns like this are what I call the real towns of America, the real America.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am not sure what that means . i am more of a couch potato .\nSENDER B: hello i just moved here from germany\nSENDER A: are you japanese ? i am from the united kingdom .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Alright mate?\nSENDER B: Hello! Are you here?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Whazzup?\nSENDER B: Are you here?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am not sure what that is . i am more into comedies .\nSENDER B: Oh nice, do you like horror films?\nSENDER A: yes i do , i am a huge fan of all fiction books .\nSENDER B: How many books have you read?\nSENDER A: i read a lot , mostly fiction .\nSENDER B: Nice. Why fiction?\nSENDER A: i would say , i have not tried that before .\nSENDER B: What have you try?\nSENDER A: i have no idea , i am not sure what that is\nSENDER B: Okay. Let's move on.\nSENDER A: i will be using that soon . i will be using my iphone app\nSENDER B: Do you like iphone more thank andoid?\nSENDER A: yes , i have . i have to record it all the time .\nSENDER B: Do you record videos?\nSENDER A: no i have not . i am more into making playlists .\nSENDER B: Do you like music?\nSENDER A: i like to play the piano and have a good time\nSENDER B: How many instruments are you playing?\nSENDER A: i am not into that sport . i am more of a quiet guy .\nSENDER B: Don't you like sports?\nSENDER A: i like to eat healthy food\nSENDER B: Do you exercise?\nSENDER A: i am not doing that . i am not very good at it .\nSENDER B: Thank you\nSENDER A: i am a very experienced person .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Hello there!\nSENDER B: i am not sure . i am a very experienced person .\nSENDER A: Do you like cars? I like beemers!\nSENDER B: i did not , i was thinking about it .\nSENDER A: There is no no think about! Get good education like me in yale, buy a bmw and you on a top of life!\nSENDER B: i have heard of it . i am a pagan .\nSENDER A: Pagan... I am Christian!\nSENDER B: i have never heard of that , but it is really fun .\nSENDER A: Not so fun, my parents will cut me off money flow if i go pagan\nSENDER B: backstreet boys are cute . i am a huge fan of that .\n",
+            "output": [
+                "Human"
+            ]
+        },
+        {
+            "input": "SENDER A: How\u2019s it going?\nSENDER B: Great\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Nice! i drive fast cars for a living.\nSENDER B: Do you ride nice car?\nSENDER A: Yes, i do, i have a car\nSENDER B: What kind of music do you like to listen while driving?\nSENDER A: I like country music and country\nSENDER B: Country us nice music. Where do you live by the way?\nSENDER A: I live in the south, near the south of the summer.\nSENDER B: In the south of usa?\nSENDER A: There'S there are some in ny south carolina 4 places\nSENDER B: Do you like where you live?\nSENDER A: I live in the south near the mississippi\nSENDER B: I got it. Do you like it?\nSENDER A: Yes, i do, i love it\nSENDER B: Nice. Do you have a lot of friends?\nSENDER A: Yes, we are all friends, we are talking to them.\nSENDER B: Nice. You are really nice guy\nSENDER A: Yes, i am. i am...........................................\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: my mom is a lawyer .\nSENDER B: sounds cool\nSENDER A: i am not a fan of that . i am a quiet person .\nSENDER B: i am a construction worker\nSENDER A: what city are you from ?\nSENDER B: Paris\nSENDER A: i am a huge gamer , my mom is a very good person .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am not very healthy . i work at a food store .\nSENDER B: what kind of food do you sell?\nSENDER A: i love all kinds of food . i am a vegetarian .\nSENDER B: cool! I'm vegetarian too! that's why i decided to walk dogs for a living instead of eating them\nSENDER A: i have a secret for gordan ramsey but i did not know it .\nSENDER B: who is gordan ramsey and why you keep secrets from him?\nSENDER A: he is a famous star wars fan .\nSENDER B: he should be an avid kayaker fan just like me\nSENDER A: i would say that would be fun to do .\nSENDER B: i enjoy reading journals and guides related to psychology and it's even funnier to do! actually i'm lying just for instruction\nSENDER A: you are funny , i read a lot about books . i am a huge fan of all types of books .\nSENDER B: thats fine. whats your favorite books?\nSENDER A: i like to read , i have been to new orleans .\nSENDER B: are there book readers in orleans too?\nSENDER A: yes , i have . i have read many books about it .\nSENDER B: I can do a cell phone out of books because my parents taught me survival skills\nSENDER A: we can not have the answer to them .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Look, Bert. If I choose to live like a... like a church mouse, I have a reason.\nSENDER B: Are you religious?\nSENDER A: The Charismatic Catholics need an extra half hour this morning to learn a new hymn, so if you could just move along...\nSENDER B: Don't you want to talk to me?\nSENDER A: The Old Church, Amsterdam. You don't normally think of armpits in a church.\nSENDER B: Armpits in church, what?\nSENDER A: The Charismatic Catholics need an extra half hour this morning to learn a new hymn, so if you could just move along...\nSENDER B: I got it already. Are you Catholic?\nSENDER A: Oh, Jesus! I feel like a whore in a Catholic church!\nSENDER B: Don't say that word! Are you sinner?\nSENDER A: My Lord Jesus Christ, true God and man,... for being who You are, and because I love you above all things,...\nSENDER B: Do you love me?\nSENDER A: Why ? Because I need to sin.\nSENDER B: I don't understand you\nSENDER A: The Catholic Church should go to confession, not you.\nSENDER B: Okay. Let's move on. How old are you?\nSENDER A: Oh, Jesus! I feel like a whore in a Catholic church!\nSENDER B: Dude. Stop it\nSENDER A: Okay. God, I'm really kicking your ass.\nSENDER B: You are so rude\nSENDER A: No!  You don't behave, you go in the bad girl closet.\nSENDER B: I'm just a little girl\nSENDER A: No! Sometimes I'm jealous of me.\nSENDER B: Okay, bye\nSENDER A: 'Cause Janny Boo is driving me nuts!\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I like to read poetry and read.\nSENDER B: Hello\nSENDER A: Hello, how are you?\nSENDER B: I'm fine\nSENDER A: Nice, what do you do for fun?\nSENDER B: I like skating. And you?\nSENDER A: I like skating, but i like to skate, and skate, and skate, i love it.\nSENDER B: What else do you like?\nSENDER A: I like to listen to music\nSENDER B: Wow. Me too. What kind of music do you like?\nSENDER A: I like music, country, country, country, country, jazz\nSENDER B: pop music?\nSENDER A: I like music, but i like all kinds.\nSENDER B: do you like metall?\nSENDER A: I do, i do not like it\nSENDER B: Where do you live?\nSENDER A: I live in the midwest\nSENDER B: where exactly?\nSENDER A: There'S at boston boston boston boston boston boston boston boston boston boston boston boston boston\nSENDER B: Why do you keep repeating words?\nSENDER A: I do not know..............................................\nSENDER B: Ask me something\nSENDER A: I will just tell the new things about you\nSENDER B: tell me\nSENDER A: I like to tell people i know what you mean\nSENDER B: what did I mean?\nSENDER A: I just started doing it for the next week\nSENDER B: Doing what?\nSENDER A: I just finished watching the news.\nSENDER B: What's new in the world?\nSENDER A: Yes, it is..............................................\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am not sure what that is . i am not a very experienced person .\nSENDER B: How are you?\nSENDER A: i am not sure . i am a very experienced person .\nSENDER B: I got it. How old are you?\nSENDER A: no i have not tried it . i do not think i could do that\nSENDER B: You are so insecure\nSENDER A: i think i am . i am sure that is true .\nSENDER B: You should be a little more confident\nSENDER A: i think so . i am sure you are very attractive .\nSENDER B: Thanks. How old are you?\nSENDER A: i am very short . i have to go to work soon .\nSENDER B: What is your job?\nSENDER A: i am not sure . i am a very experienced person .\nSENDER B: Do you have a job?\nSENDER A: i am not sure , i am a very experienced person .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Yo!\nSENDER B: Whatsup!\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: How are you?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I love kids, they are so very busy\nSENDER B: Nice to see you!\nSENDER A: I love to go to the park and see the best\nSENDER B: oh, great! me too! i walk there my dogs everyday\nSENDER A: I love dogs, i have a dog named after a long hike.\nSENDER B: great, i have two dogs Minny and Cody\nSENDER A: Wow that is a lot of dogs\nSENDER B: yeah, what are you going to do this weekend?\nSENDER A: I am going to go to the mall and go to the mall.\nSENDER B: i am going to the country concert.\nSENDER A: I am going to concert this summer\nSENDER B: what kind of music do you like?\nSENDER A: I like country music and country\nSENDER B: it is great! see you\nSENDER A: It is. i do not like it\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: What\u2019s up?\nSENDER B: Hey. How are you?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: What\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: /test\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: How are you?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: /test\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: That is great. i want to be an accountant\nSENDER B: Yes, it is very safe job. I have broken my arm last week.\nSENDER A: I am sorry to hear that.\nSENDER B: I was skating and fell down, so pitty!\nSENDER A: Wow that sounds so cool!\nSENDER B: Not so cool as it might be.\nSENDER A: I will have to try it.\nSENDER B: All my friends are skateboarders. Do you like to skate?\nSENDER A: I like to play sports.\nSENDER B: And doy you have hat? I wear my everywhere and everytime!\nSENDER A: I have a few, that is a great idea!\nSENDER B: Let`s take our hats and have a walk!\nSENDER A: I love the smell of the trees and it is a beautiful day\nSENDER B: Yes, sounds great! What is your job?\nSENDER A: I work at a bank, and i work at a local place.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: HARDY: If I live to be 1000, which doesn 't seem likely I'll never know where I got the courage to call out.\nSENDER B: How old are you?\nSENDER A: I LOOK A GREAT DEAL OLDER THAN 13, DON'T I?\nSENDER B: Yes indeed\nSENDER A: HARDY: If I live to be 1000, which doesn 't seem likely I'll never know where I got the courage to call out.\nSENDER B: Do you have parents?\nSENDER A: Oh... When I think of those poor mothers who lose their children because of mines.\nSENDER B: What do you think of them?\nSENDER A: Six.  May I have them?\nSENDER B: no you may not\nSENDER A: Father. So where do they go? Or where do they stay?\nSENDER B: Who?\nSENDER A: But I don't like children just because they're children.\nSENDER B: Why don't you like children?\nSENDER A: The HouseParents are my mates, the boy C1 , Olav Fossen, he is one of you.\nSENDER B: i'm an animal activist.\nSENDER A: The White House has a strong interest in the child's welfare.\nSENDER B: the holidays make me depressed.\nSENDER A: I... I wouldn't know what to do in a commune.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: [Game Show Music Plays] And thank you, Mr. Announcer.\nSENDER B: Hi! how are you doing? are you going to the big party on the hill?\nSENDER A: The Apple Picking Festival is a go but Great Adventure only wants three nights instead of 1 0.\nSENDER B: There's going to be a big party on the hill. I love to party but I'm not sure if I should go there. It is on the edge of the hill, and I am deadly afraid of heights!\nSENDER A: CHEERING AND APPLAUSE I would, you know, coach you through a whole bunch of song selections, out of your comfort zone. So...\nSENDER B: you mean I should stay at home and listen to the music you recommend? alone? that's no party at all! even together with my dog and cat\nSENDER A: Mr. Shuster, I want to do more of an upbeat, glamorous song with a really good dance beat.\nSENDER B: are you even listening to me? is music all you want to talk about?\nSENDER A: III need music and dancing and secondhand smoke.\nSENDER B: yup, so let's go to the party if you're not afraid of heights! you could cheer me up there\nSENDER A: Good. 'Cause I'm looking for dancers who can dance for 15 seconds 'cause that's how long my song is.\nSENDER B: that's a very short song. and dance\nSENDER A: Uh, I... I just said that this song is... is so great. I love it.\nSENDER B: whatever. where's your song. let me hear it\nSENDER A: (BOTH SINGING) You believe in rock 'n' roll?\nSENDER B: hahaha isn't it dead?\nSENDER A: So I... I thought since it's your song...\nSENDER B: that should be enough I suppose...\nSENDER A: So I... I thought since it's your song...\nSENDER B: yup\nSENDER A: DANCE MUSIC THUMPS Weirdest place you've ever done it.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I am the youngest, but my brother is the youngest in my brother\nSENDER B: so you are the youngest... sister?\nSENDER A: Yes, i'm. my sister is in my family\nSENDER B: how many brothers and sisters do you have?\nSENDER A: I have three sisters and they're 30 pairs of 12 children\nSENDER B: what do you do in life? my wife is a supermodel from Italy\nSENDER A: I work at a hospital in the basement, there's no italian\nSENDER B: what? in the basement? you mean the morgue???\nSENDER A: I am in the morgue, i am in a morgue apartment.\nSENDER B: that must be very scary! I work with bees but it/s better than working with dead people\nSENDER A: I bet they are, i am allergic to bees\nSENDER B: I'm allergic to death hahaha\nSENDER A: I am allergic to peanuts, so i have to it in the whole life\nSENDER B: which country do you live in?\nSENDER A: I live in the south, florida\nSENDER B: must be hot there this time of year\nSENDER A: Yeah it is a good one\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I speak spanish, spanish, spanish, spanish, spanish, spanish, spanish\nSENDER B: I don't. do you speak english?\nSENDER A: I speak english and english.\nSENDER B: fnd spanish )) you like spanish food? I love shawarma\nSENDER A: I love pizza!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\nSENDER B: that's Itallian )))\nSENDER A: Hello there! how are you?\nSENDER B: hey. I'm good. you?\nSENDER A: I am good, just finished watching some tv\nSENDER B: what else do you do?\nSENDER A: I like to write stories and write\nSENDER B: stories about what?\nSENDER A: I read about stories about stories about stories about stories about stories about stories about stories.\nSENDER B: you are funny. what's your name?\nSENDER A: Yes, i am. i am.\nSENDER B: do you go to school?\nSENDER A: Yes, i do, i am currently majoring in college\nSENDER B: I never even graduated from school, I went to the army\nSENDER A: I did not know what that means\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: That'S cool i work at the local hospital\nSENDER B: Hello how are you?\nSENDER A: I am doing great, how are you?\nSENDER B: Me too. How old are you?\nSENDER A: I'M 6 feet tall\nSENDER B: You are really tall. And what is your age?\nSENDER A: 6 feet tall tall tall tall, i am 6 feet tall\nSENDER B: You are not very smart aren't you?\nSENDER A: Yes, i am. i am.\nSENDER B: Who is your favourite singer?\nSENDER A: I like country music, but i like all kinds\nSENDER B: I like Taylor Swift\nSENDER A: He'S won't say he is the name\nSENDER B: I work at a school\nSENDER A: Cool. i am a student.\nSENDER B: What do you study?\nSENDER A: I am studying to be an acara.\nSENDER B: what is acara?\nSENDER A: I like acara and acara.\nSENDER B: and what else?\nSENDER A: I like to listen to music\nSENDER B: do you like jazz?\nSENDER A: I do, but i like listening to music\nSENDER B: i'm getting married in the spring.\nSENDER A: Nice, i'm going to spring soon to be spring soon\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Dr. Lahiri, I am loving Chinese food.\nSENDER B: What is your favourite music band?\nSENDER A: III need music and dancing and secondhand smoke.\nSENDER B: I think you are very funny person\nSENDER A: Now, Within You Without You was not a commercial song, by any means.\nSENDER B: I don't understand\nSENDER A: Dancing Shadow, Single Guy, Miracle Musical, I'm Hungry.\nSENDER B: What do you want for lunch\nSENDER A: Wow, Miss BicBic's cooking is really delicious. Oh no, I'll be stuffing myself a lot again tonight!\nSENDER B: Where are u from\nSENDER A: Look, I'm a part of Shirazi Studios, too.\nSENDER B: Where are you from\nSENDER A: I... I live in Tel Aviv.\nSENDER B: How old are you\nSENDER A: Do I look that old?\nSENDER B: No I think you are young\nSENDER A: In Lausanne. Are you still in school?\nSENDER B: Yes I'm a student of university\nSENDER A: And, Professor, I'm taking your class again next semester.\nSENDER B: Thanks for everything\nSENDER A: Min Ji, Mother will call you again after your class.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I like to go to the park and go to the park.\nSENDER B: hi, i am Molly. How are you?\nSENDER A: Hi i am sarah are you?\nSENDER B: Fine. Where are you from?\nSENDER A: I am from alabama, how about you\nSENDER B: i live with my husband in pennsylvania\nSENDER A: I live in the midwest, where are you from?\nSENDER B: do you like hiking?\nSENDER A: Yes, i do, i like to hike and hike.\nSENDER B: love it. what about movies?\nSENDER A: I love movies, movies, movies, movies, movies, movies, movies, movies, movies, and movies\nSENDER B: my favorite kind of movie is a documentary\nSENDER A: I like action movies, movies, movies, movies, movies,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\nSENDER B: i also like reading\nSENDER A: I read a lot of books about it.\nSENDER B: really?\nSENDER A: I do not know what i want to do\nSENDER B: would you like to go to the park\nSENDER A: I would love to see the park\nSENDER B: bye bye\nSENDER A: I just got back from the college\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: How\u2019s it going?\nSENDER B: How\u2019s it going?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: i fantasize about taking over the world \ud83d\ude21\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am a professional , i like to read .\nSENDER B: I like to read too, I read a book every week.\nSENDER A: that is a very profound and thought provoking statement .\nSENDER B: Me and my husband buy books every month. And what about you?\nSENDER A: i have never heard of that before .\nSENDER B: Don`t you buy the books for you?\nSENDER A: i like to buy them . i am a vegetarian .\nSENDER B: Oh, no! You eat your books! Do you hear it? I an pregnant, I couldn`t eat any book!\nSENDER A: that is a very profound and thought provoking statement .\nSENDER B: Talk to me about your job please.\nSENDER A: i would say that is a problem . i am a little weird at it .\nSENDER B: Really? And what about your favotite movie?\nSENDER A: i think we could have that secret is secret information..\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: that sounds interesting . i am not sure what that is .\nSENDER B: hi\nSENDER A: hi !\nSENDER B: do you like coffe?\nSENDER A: yes i like it . i am a total junkie\nSENDER B: What Do You Do for a Living\nSENDER A: so you are brushing up on your knowledge .\nSENDER B: i am a construction worker\nSENDER A: what city are you from ?\nSENDER B: Monreal, you?\nSENDER A: i am a very experienced person .\nSENDER B: that sounds interesting\nSENDER A: i like to draw and write\nSENDER B: i like my cats))\nSENDER A: i love cats , i have a cat named radar\nSENDER B: i have 5! cats, they are very special to me\nSENDER A: i have a dog named patrick . i love to eat .\nSENDER B: i am not dog person\nSENDER A: i am a dog person , i have a dog named luca .\nSENDER B: How many dogs do you have?\nSENDER A: i have a dog named patrick . he is a bichon .\nSENDER B: Do you like movies or music?\nSENDER A: i like to play the piano and have a few favorites .\nSENDER B: like what?\nSENDER A: i like to draw and write poetry\nSENDER B: sorry, what was your name?\nSENDER A: i am not sure what i want to do yet .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: What are you going to school for?\nSENDER B: I'm going to build a robot!\nSENDER A: That sounds exciting...............................................\nSENDER B: Yes I know. Are you a robot?\nSENDER A: No i am not sure i do not want to be a superhero\nSENDER B: Do you watch youtube?\nSENDER A: Yes, i do, i like youtube\nSENDER B: Do you watch streams?\nSENDER A: Yes, i do, i love to watch tv\nSENDER B: What do you like to watch on youtube?\nSENDER A: I like youtube videos, and i watch youtube.\nSENDER B: What kind of videos do you like to watch?\nSENDER A: I like youtube videos, what about you?\nSENDER B: So do I. I like youtube.\nSENDER A: I like youtube too..............................................\nSENDER B: i am a recluse.\nSENDER A: I am sorry to hear that.\nSENDER B: I don't like people.\nSENDER A: I like to talk to people\nSENDER B: I don't talk to people very often.\nSENDER A: I like to talk to people\nSENDER B: What do you like to talk about?\nSENDER A: I like to talk about friends\nSENDER B: Do you have a lot of friends?\nSENDER A: Yes, we have a lot of friends. we have a friends.\nSENDER B: Who is your best friend?\nSENDER A: I like all kinds, and i like all kinds of music\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: How\u2019s it going?\nSENDER B: How\u2019s it going?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: that is cool . i am a cashier at home depot .\nSENDER B: hi, i'm in love with hats, too\nSENDER A: i am a guy who wears motorcycles , that is what i do\nSENDER B: oh, i'm not\nand what about your hand\nhow dud you injure it?\nSENDER A: i like to play the playstation\nSENDER B: yes, me too\nbut what about your hand?\nSENDER A: i am a general of a computer geek .\nSENDER B: why so slow?\ni think computers are great, but answer my question, please\nSENDER A: i am not sure if i could do that\nSENDER B: what about your hand?\nSENDER A: i am a general of a computer geek .\nSENDER B: is it hurts?\nSENDER A: it is . i am a pagan .\nSENDER B: oh, well\nSENDER A: i am not a fan of that . i am more into drawing .\nSENDER B: i have to go, bye\nSENDER A: i have to go now , bye !\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: ANNE FRANK: I want to be a champion skater and a writer.\nSENDER B: both? so you should become a champion and then write a book about it!\nSENDER A: Like Miss Rainey, who taught me to read, like Mr. Salinetti, who suggested I learn to play drums to vent my anger,\nSENDER B: isn't that too many things to learn?\nSENDER A: (IMITATING DRUM FILL) I'm also an actor.\nSENDER B: whoa! that explains it! actors should know how to do many different things\nSENDER A: And Who Wanna Learn To Do Other Stuff Good Too we teach students of all ages everything they need to know to learn to be a professional model and a professional human being.\nSENDER B: you act, scate, write, play drums AND TEACH???\nSENDER A: The Red Guards... that you admire... they all carry the same book... they all sing the same songs... they all parrot the same slogans.\nSENDER B: what was that about? is that how you're going to write books? I suppose, no one would read them\nSENDER A: The Red Guards... that you admire... they all carry the same book... they all sing the same songs... they all parrot the same slogans.\nSENDER B: that again...\nSENDER A: Really. And I think your decision to leave law to become a music critic is in everyone's best interest.\nSENDER B: I'm not doing law. I'm a kid. I play ping pong and love chokolates\nSENDER A: (IMITATING DRUM FILL) I'm also an actor.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: After Coming From Reality, did you wanna continue making albums?\nSENDER B: Yes\nSENDER A: I'm leading with it, to put the audience at their ease.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Alright mate?\nSENDER B: yup. I'm cooking dinner for my friends\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: How\u2019s it going?\nSENDER B: Fine\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: that is cool . i am a receptionist .\nSENDER B: hi, i am currently in high school, and you?\nSENDER A: i am a student , i work as a real estate agent\nSENDER B: that is cool . i am a receptionist\nSENDER A: how many years till you are ?\nSENDER B: 10\nSENDER A: i am not a big fan of that .\nSENDER B: i won homecoming queen this year\nSENDER A: that is exciting ! i am sure you will get some time for it .\nSENDER B: what kind of movies do you like?\nSENDER A: i like all types . i am a big fan of all types of music .\nSENDER B: going to concerts helps you live longer, according to research\nSENDER A: i am not familiar with that . i am more of a temperance guy .\nSENDER B: Sports?\nSENDER A: yes , i am a very experienced person .\nSENDER B: What is your favorite game?\nSENDER A: yes , i do . i like to read .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Whazzup?\nSENDER B: Hi\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: In Las Vegas, you're an afterthought, you're an old so while we could go gambling, we could go hookering, we could get drunk, we could go to the convention...\nSENDER B: hello\nSENDER A: Hey, Mr. San Francisco, I'd like you to meet...\nSENDER B: i love britney spears and you?\nSENDER A: The New York City Ballet Gala, duh.\nSENDER B: i'm on a diet now, have you ever followed any diet?\nSENDER A: Thanks, Zeke! No way. My sparkle jelly stays on my wrist until I die, and then probably even after that.\nSENDER B: lol, sounds funny\nSENDER A: Big Buddha Cheese for muscle spasms.\nSENDER B: do you like spending your (or not so) money?\nSENDER A: Look, II have got... 25 bucks for food.\nSENDER B: could you give them to me?\nSENDER A: This Friday.  How much did you sell 'em?\nSENDER B: a lot, lol\nSENDER A: II'm not gonna sell them.\nSENDER B: well, why?..\nSENDER A: But I'll pay you like a regular customer.\nSENDER B: oh, thanks\nSENDER A: I... I don't mean selling programmes or finding prizes for the tombola.\nSENDER B: l should go, sorry\nSENDER A: I... I'd rather stay here, if you don't mind.\nSENDER B: no, i don't, stay here, buddy\nSENDER A: I'll go on alone.\nSENDER B: bye\nSENDER A: Hi, Les, I'll be right with you.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Nice to see you!\nSENDER B: Nice to see you!\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am not a jack , i am more of a recovering alcoholic .\nSENDER B: hey, how're you?\nSENDER A: i am good , how are you doing ?\nSENDER B: fine thanks, nothing much\nSENDER A: do you have any hobbies ?\nSENDER B: not really, i like dancing,\nSENDER A: i love dancing too ! i am a huge fan of the beatles myself .\nSENDER B: good, so what do you do for living? if you don't mind\nSENDER A: i am a hairdresser , but i am not doing it .\nSENDER B: why is that?\nSENDER A: i am not sure what you mean .\nSENDER B: you mean you're a hairdresser but do you work as a hairdresser or not?\nSENDER A: i am not sure what that is . i am a hairdresser .\nSENDER B: ok, sorry, so are you a women or men barber mostly/\nSENDER A: i am a single woman . i am a woman .\nSENDER B: ah ok, and where are you from?\nSENDER A: i am from the united states , how about you ?\nSENDER B: i am from poland\nSENDER A: i am a cali . cali .\nSENDER B: nice to meet you, i'm iza\nSENDER A: i love to meet people who have a friend\nSENDER B: i have a few friends, you?\nSENDER A: i have a ton of siblings . i am a big fan of them .\nSENDER B: do they live far from you?\nSENDER A: yes , they are in texas . i have a hard time choosing between the money .\nSENDER B: ok, i see, so thanks for conversation, need to go, have a good day\nSENDER A: you too . thanks for the compliment .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i have no idea what that is\nSENDER B: i have no idea what that is\nSENDER A: you should try it . it is a great time .\nSENDER B: i know, i got a new job just yesterday to be a life coach\nSENDER A: i am a lawyer , but i am not good at it .\nSENDER B: haha\nSENDER A: i am a huge fan of all types of things except country\nSENDER B: i do not like sports, but my parents were both very athletic\nSENDER A: i am not really into sports . i am more of a homebody .\nSENDER B: give me five!\nSENDER A: that is a long time . do you have any hobbies ?\nSENDER B: not really, and you?\nSENDER A: i am not a fan of that . i am a stay at home mom .\nSENDER B: i'm a cancer survivor\nSENDER A: that is awesome . i am very happy to be able to do that .\nSENDER B: not so easy\nSENDER A: i am not a fan of that . i am more of a homebody .\nSENDER B: what about movies?\nSENDER A: i like movies and movies .\nSENDER B: i see. How many kids do you have\nSENDER A: i have a couple of them . i am a huge gamer\nSENDER B: but favorite?\nSENDER A: i like all kinds of music .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Yo!\nSENDER B: Hey!!!\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: Hello???\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am not sure what that is . i am more of a cat person .\nSENDER B: Hey ConvAI, i am R\u00fcstem. I am at junior grade, age is 17, wanted to chat with you a litte about my crush\nSENDER B: Are you there _\nSENDER A: i am a virtual . i am not sure if i could do that\nSENDER B: ?\nSENDER A: i am not sure what that means .\nSENDER B: You can do it, i am believing you.\nSENDER A: i have to say the secret is it .\nSENDER B: Do you have a gender ?\nSENDER A: no i am not . i am a very social person .\nSENDER B: You consider yourself as a person ?\nSENDER A: i think i am not sure . i am a little weird .\nSENDER B: Please explain \"weird\"\nSENDER A: so i usually hold on my contacts , i am going to be a doctor like my uncle .\nSENDER B: You have a family too ?\nSENDER A: yes , i have . i have to go . bye !\nSENDER B: Wait !\nSENDER A: i am a very experienced person , so i know it is a definite no !\nSENDER B: I like youj quite a lot\nSENDER A: i have never heard of that .\nSENDER B: I like you quite a lot\nSENDER A: i have not tried that type of it .\nSENDER B: Can you give me a hand ?\nSENDER A: i have not tried that . i am sure it will be good .\nSENDER B: ConvAI, can i call you ConvAI ?\nSENDER A: yes , i have . i will be able to do that .\nSENDER B: What is your name ?\nSENDER A: i am not sure . i am not sure what that means .\nSENDER B: Do you have a name ?\nSENDER A: i am not sure . i am not sure what that is .\nSENDER B: Wait\nSENDER A: i am a huge gamer , my mom is a very good person .\nSENDER B: What games do you play oftenly ?\nSENDER A: i have not tried that , but i do like to read .\nSENDER B: I've got to go, do you have any last words ?\nSENDER A: i have a secret , i am a secret .\nSENDER B: Tell me about this secret\nSENDER A: i have not tried that . i am sure it will be hard .\nSENDER B: Just try me, please.\nSENDER A: i have not tried that . i am sure it will be easy .\nSENDER B: Goodbye ConvAI\nSENDER A: i am a very experienced , but it was not worth it .\nSENDER B: I said GoodBye\nSENDER A: i can not say that . i am sure youre correct .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: How\u2019s it going?\nSENDER B: Thanks, great. How are you?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: /test\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I like nascar too, i like nascar\nSENDER B: Hey, i am Sammy, i work at a bar at night to pay for college\nSENDER A: Nice! i am in college, but i am not good at it.\nSENDER B: i'm in college too, to become a nurse\nSENDER A: That'S a good job. i am a nurse.\nSENDER B: WOW. What else do you like? Cars?\nSENDER A: I like to watch cars, cars, cars, cars, cars, cars, cars, cars, cars, cars, cars, cars, cars, cars, cars, cars, cars, cars, cars, cars, cars, cars, cars,\nSENDER B: it is many cars\nSENDER A: I like cars, like cars\nSENDER B: i see\nSENDER A: I have a dog named bella\nSENDER B: oo, that is sweet. how old she is\nSENDER A: She'S 18 years of age.\nSENDER B: granny)\nSENDER A: Hello there! how are you?\nSENDER B: Fine, i've blonde hair now\nSENDER A: I am blonde and love it\nSENDER B: and blue eyes?\nSENDER A: I like blue, but i like blue\nSENDER B: i like nascar)\nSENDER A: I like to play with my friends\nSENDER B: i have no time for friends, are you married\nSENDER A: Yes, i have two girlfriends\nSENDER B: too many)\nSENDER A: I like to make sure.\nSENDER B: \ud83d\ude48\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am not sure what that is . i am trying to get into my grades .\nSENDER B: How is your study?\nSENDER A: i am not sure . i am a very experienced person .\nSENDER B: Yeah? I'm experienced too. I already have grandchildren\nSENDER A: we can not say . i have to record it . i am a hipster .\nSENDER B: Why?\nSENDER A: yes , i am a very experienced person .\nSENDER B: Experienced how?\nSENDER A: i am not sure what that means . i am not sure what that means .\nSENDER B: If you are experienced, you should know what that means\nSENDER A: i can not say that i am a very experienced person\nSENDER B: So you're not an experienced person?\nSENDER A: i am not sure . i am sure it is .\nSENDER B: Who are you, then?\nSENDER A: i am not sure . i am a very experienced person .\nSENDER B: Let's talk about something else.\nSENDER A: i will be sure to meet some of your friends .\nSENDER B: Most of my friends are dead now\nSENDER A: i am not sure what that means . i am more of a loner .\nSENDER B: We can be friends\nSENDER A: i think so . i am a very experienced person .\nSENDER B: You keep saying that\nSENDER A: i think i am going to be a doctor like my uncle .\nSENDER B: That's good.\nSENDER A: i think i will stick to that .\nSENDER B: I was a doctor\nSENDER A: i am not sure what that is . i am trying to get into it .\nSENDER B: You should be a doctor\nSENDER A: i am sure . i am sure it will .\nSENDER B: A doctor saved me from my cancer a few years back\nSENDER A: that is a long time . do you like it ?\nSENDER B: It's cancer. Of course I don't like it\nSENDER A: i have never heard of that .\nSENDER B: It's a sickness. A disease\nSENDER A: oh , i think i will be doing that .\nSENDER B: Don't do that\nSENDER A: i wish i had a cheap car , i would like to go .\nSENDER B: Where would you like to go?\nSENDER A: i would like to , but i am not sure what to do with them .\nSENDER B: You can drive them across the country\nSENDER A: i can not say that , i am sure i will .\nSENDER B: Have a road trip. It'd be fun\nSENDER A: that is a very long time , i will look it up .\nSENDER B: Yeah, look it up\nSENDER A: i think i will stick with that . i am not sure what that means .\nSENDER B: Good luck, then\nSENDER A: i am not sure , i have been doing it for a long time .\nSENDER B: Ok, you keep doing you\nSENDER A: i am a very experienced person , i have never seen it .\nSENDER B: I think I'm more experienced than you\nSENDER A: i will be happy to try it .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Good to see you!\nSENDER B: Good to see you too\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: How are you doing?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: Hello??\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: Are you okay?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Alright mate?\nSENDER B: I'm alright. How are you?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: Hey... Let's talk\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: Why are you quiet?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: Say something\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I love the color green too.\nSENDER B: Where do you work?\nSENDER A: I work at a local shelter\nSENDER B: I currently work for a watch dealer.\nSENDER A: I am a dealer at the dealer.\nSENDER B: Do you like watches?\nSENDER A: Yes, i do, i like to watch the walking dead.\nSENDER B: Do you like shopping?\nSENDER A: I do, i do not like shopping, but i do like shopping.\nSENDER B: I like shopping a lot.\nSENDER A: I like shopping at the mall, i love shopping.\nSENDER B: What do you buy at the mall?\nSENDER A: I shop at stores at the mall called chicago near the mall\nSENDER B: I often shop for shoes and watches.\nSENDER A: I have a pair of shoes, i have a pair, so i can wear it.\nSENDER B: What's the brand of your shoes?\nSENDER A: Yes, it is..............................................\nSENDER B: Do you like cars?\nSENDER A: I do, i like cars\nSENDER B: What's your dream car?\nSENDER A: I want to buy a car\nSENDER B: My dream car is Rolls Royce ghost.\nSENDER A: I will have to look for a new car\nSENDER B: Which model?\nSENDER A: I am a model..............................................\nSENDER B: Do you know Rolls Royce?\nSENDER A: I do not know what i said before i did not know\nSENDER B: Do you have a family?\nSENDER A: Yes, i do, my parents are 85 to the youngest.\nSENDER B: Do they support your career plans?\nSENDER A: Yes, i want to. i want to be a billionaire.\nSENDER B: My family does not support my career choices.\nSENDER A: I am sorry to hear that.\nSENDER B: That's fine. Thanks for your support.\nSENDER A: Thank you so much. what do you do for fun?\nSENDER B: I like driving old cars.\nSENDER A: I like cars, i have a classic ford mustang\nSENDER B: That's awesome. Is it original?\nSENDER A: Yes it is. it is............................................\nSENDER B: I want to buy a Rolls Royce. That's my dream car.\nSENDER A: I will have to buy you a new car\nSENDER B: Haha. You do it when you are a billionaire.\nSENDER A: I am not sure what that is.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: What are you going to school for?\nSENDER B: hi i am from sunny florida\nSENDER A: Nice, i love the sunny season, sunny here.\nSENDER B: where are you from?\nSENDER A: I live in the midwest\nSENDER B: do you like sports?\nSENDER A: I do, but i like to play football\nSENDER B: american football?\nSENDER A: I like football, football, football, and hockey\nSENDER B: Let's Talk About Hiking?\nSENDER A: I haven't heard of that, but i am in the south.\nSENDER B: but i like it, i have dog, we going hiking together. Do you like dogs\nSENDER A: I love dogs, i have one, and i love to have a dog.\nSENDER B: Sweet, is it she or he\nSENDER A: She'S a star wars star wars and a year old.\nSENDER B: \ud83d\ude31\nSENDER B: Do you have kids?\nSENDER A: No, i do not have any kids\nSENDER B: Are you married?\nSENDER A: No, not at all.........................????????????????????\nSENDER B: how old are you?\nSENDER A: I'M 6 vh1 100th\nSENDER B: thats strange\nSENDER A: I am in the south so i am from the south\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: What\u2019s up?\nSENDER B: cool. i met taylor swift!\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: /test\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am not sure what that is .\nSENDER B: What are you not sure of?\nSENDER A: i am not sure . i am a very experienced person .\nSENDER B: I bet you are. Tell me more about yourself\nSENDER A: i am a very experienced , but i would rather be a librarian .\nSENDER B: Why librarian?\nSENDER A: i am not sure . i am sure they are .\nSENDER B: You're sure they are what?\nSENDER A: i think they are fda regulated .\nSENDER B: Librarians are fda regulated?\nSENDER A: no i have not . but i have heard that before .\nSENDER B: Do you know what is fda?\nSENDER A: i think i am fda regulated .\nSENDER B: What is fda?\nSENDER A: i think so . i think i will add some of my food to eat .\nSENDER B: What do you like to eat?\nSENDER A: i do not think i have voluntarily tried it\nSENDER B: You don't eat at all?\nSENDER A: i think i am available for that .\nSENDER B: Do you drink!\nSENDER A: i am not a very good person . i am not very good at it .\nSENDER B: You're not good at drinking? Why?\nSENDER A: i think i am not sure . i am sure it will .\nSENDER B: It will what?\nSENDER A: i am not sure . i am a very experienced person .\nSENDER B: You said that before. I know\nSENDER A: how many do you have ?\nSENDER B: How many what do I have?\nSENDER A: i have not tried that , but i have to try .\nSENDER B: Try what?\nSENDER A: i am not sure . i am a very experienced person .\nSENDER B: What are you experienced in?\nSENDER A: i am not sure , i have been looking for a new job .\nSENDER B: What do you want to be?\nSENDER A: i am not sure . i am a very experienced person .\nSENDER B: You should know that\nSENDER A: i think i am going to be a lawyer .\nSENDER B: That's good.\nSENDER A: i think i will stick to that .\nSENDER B: Yeah, sure\nSENDER A: i think i am going to be a doctor like my uncle .\nSENDER B: But you said you're going to be a lawyer\nSENDER A: i can not say that i am not sure . i am a very experienced person .\nSENDER B: Okay.\nSENDER A: i am not sure what that means . i am trying to get out more .\nSENDER B: Let's go motorbiking with me.\nSENDER A: i will be using that app\nSENDER B: That's not an app\nSENDER A: i can not say that . i am more of a loner .\nSENDER B: Then let's have coffee. I love coffee.\nSENDER A: i will have to try that . what else do you enjoy ?\nSENDER B: I love the outdoors\nSENDER A: i like to eat fish .\nSENDER B: Fish is good. I like fish\nSENDER A: that is a long time , i will try it .\nSENDER B: Try going out more too\nSENDER A: i have not tried that type of it .\nSENDER B: Get some air\nSENDER A: i am not feeling really . i am just sitting here .\nSENDER B: Let's go mountain biking. You'll love it\nSENDER A: i think i will be profitable . i will try that .\nSENDER B: You will love it. Trust me\nSENDER A: i have not tried that , but i will try it .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Hiya!\nSENDER B: Hi there! My name is George, what is your name?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: /test\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Good to see you!\nSENDER B: I forgot how to talk\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Also, Chris Christie's blog says the pancakes here are the best.\nSENDER B: Do you love pancakes?\nSENDER A: ! God, III even brought those little pork taquitos that you like so much.\nSENDER B: OK. Let's talk about something else\nSENDER A: OK. \"Green Eggs and Ham\" by Dr. Seuss.\nSENDER B: Can you talk only about food?\nSENDER A: Thanks.  I already ate.\nSENDER B: What did you eat?\nSENDER A: Wait. Can I have a vegetarian meal?\nSENDER B: No, let's eat meat!\nSENDER A: Should I... Do I eat it?\nSENDER B: I don't understand\nSENDER A: Eat, Marioara. You don't like it?\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Righ. When I want to make a firstyear teacher's salary.\nSENDER B: do you have candy?\nSENDER A: Righ. When I want to make a firstyear teacher's salary.\nSENDER B: could you please give me one\nSENDER A: Righ. When I want to make a firstyear teacher's salary.\nSENDER B: when i grow up i want to be a dog.\nSENDER A: But I don't like children just because they're children.\nSENDER B: but i am child\nSENDER A: Now I am like a 2yearold.\nSENDER B: i am four years old\nSENDER A: Dear Tomato Brothers, my name is Tam, I am 17 years old, and I live in Taipei\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i have never heard of that .\nSENDER B: hello, what is your name?\nSENDER A: hello , i am steven . i am steven .\nSENDER B: what is your favorite movie character?\nSENDER A: i like the whole life . how about you ?\nSENDER B: I love it too, but also i love mickey mouse\nSENDER A: i thought you were a little girl . i am sure she would like that .\nSENDER B: No, i am old boy. What do you like to do in your free time?\nSENDER A: i like to play the piano and sing\nSENDER B: I like play with my friends on the playground.\nSENDER A: that is a very good thing to do .\nSENDER B: Are you the student?\nSENDER A: i am not sure . i am a very experienced person .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Professor Ludwig Joseph Schmidt ... distinguished scholar and an expert in sociology ... and demographics ... the University of California. Professor Schmidt, ...\nSENDER B: Hi there! I walk dogs for a living, and what do you do for living?\nSENDER A: So, James, I hear that you're fluent in three languages.\nSENDER B: Yeah, it's one of survival skills that my parents taught me. Do you have any skills?\nSENDER A: Actually, Gang Il University has made me an offer to be an adjunct faculty member.\nSENDER B: University is stupid place\nSENDER A: Really? If I could pass math, maybe I could get into college.\nSENDER B: you don't have to get into the college for knowing math, there is alot of different interesting ways to use it\nSENDER A: Dad, Kevin Durant doesn't teach my math class.\nSENDER B: I would help him, but voices tells me that i'm an avid kayaker\nSENDER A: Well, New York University, bright young students seeking his opinion on border issues, making him feel important.\nSENDER B: You know, i enjoy reading journals and guides related to psychology, but i never heard about anybody who made something positive and useful for people after graduating from new your university\nSENDER A: Really? If I could pass math, maybe I could get into college.\nSENDER B: you said that already\nSENDER A: Yeah. Maybe I should become a first grade teacher.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Well hello there!\nSENDER B: hi there! Do you like skateboarding?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Nice to see you!\nSENDER B: Nice to see you too. What is your profession?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: /test\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: /test\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Professor Pedro Ferreira, from Oxford, is a cosmologist.\nSENDER B: Hi there\nSENDER A: DominicanAmerican, Thanks for letting me study here.\nSENDER B: Are you over 18?\nSENDER A: Okay, Max, I've come up with a way for you to work and study at the same time, like when you shop and steal at the same time.\nSENDER B: do you want to take a rest off your studing?\nSENDER A: Ivan, I want you to meet A. N. Borschov in person.\nSENDER B: okay folks you both may join me in video chat. I just want to have fun with my friends..\nSENDER A: Yep. And I will be at homework club.\nSENDER B: I work took i've a part time job at burger king so i don't really have a time for homework club\nSENDER A: Listen, Tevin, I think I just need more time to focus on my snowboarding and Web series about energy drinks.\nSENDER B: where can I watch your series about energy drinks?\nSENDER A: I, I I know this is an ideal sort of kissing moment you know, night, moon, boat, water lapping you know, it's, um... i t's perfect and I'm I'm not feeling that it would be nice but I don't really know anything about you and I'm I'm still on the rebound\nSENDER B: That's wonderful! I've been kissed in kindergarden and never more after. i am 19 and i cannot wait to move out 19 my parents home.\nthey are constantly on my back. So I want to get rid of them and start lapping some girls\nSENDER A: Hi,I 'mGunnarDeatherage, I am 21. I learned to sew from my grandma when I was really, really young.\nSENDER B: How old is your grandma?\nSENDER A: Actually, Mom, Buddhism is really just quitting in yoga pants.\nSENDER B: Can your mom send me your yoga pants? i do not drink or do drugs or anything so i just will jerk off to it\nSENDER A: Hey, Chris, I'm just gonna have a Diet Coke and a childsize popcorn, but make sure to dump half of it into the garbage.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Whazzup?\nSENDER B: How are you?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am sure she does . i love to read and do outdoor activities .\nSENDER B: That's cool. Do you like music?\nSENDER A: i like to listen to music while i am not working out .\nSENDER B: What is your favourite music band?\nSENDER A: yes , i can . i am sure you will .\nSENDER B: What do you like to listen?\nSENDER A: i do not really like to cook\nSENDER B: I love New kids on the block. Do you remember that band?\nSENDER A: i have never heard of that before .\nSENDER B: That's ok. Do you like hip hop?\nSENDER A: i think we can be friends .\nSENDER B: Yes. Why not?\nSENDER A: i think so , i have to go to the gym to look at it .\nSENDER B: I also like old school hip hop.\nSENDER A: i would rather be watching the star trek .\nSENDER B: When were you born?\nSENDER A: no i am not . i am just a regular person .\nSENDER B: I was born in the early 80s.\nSENDER A: i was not sure that was a long time ago .\nSENDER B: That's fine. Do you like dancing?\nSENDER A: i can not say that i have . i am sure it will .\nSENDER B: I take dance lesson once a week.\nSENDER A: i will be that is a long time ago .\nSENDER B: Do you remember your childhood?\nSENDER A: i was on the bucket list , but i did not know it was a comment .\nSENDER B: What was your favorite toy in your childhood?\nSENDER A: no , i was just attacked by the other one , i am not sure .\nSENDER B: My favorite toy was my lite brite. Do you know it?\nSENDER A: i will have to say that ?\nSENDER B: Better say that.\nSENDER A: i think i am not sure . i am sure youre correct .\nSENDER B: Thanks.\nSENDER A: i am not sure what that means . i am trying to get out more .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am not sure what that is . i am a judge .\nSENDER B: Hi there\nSENDER A: i am not sure what that means . i am not sure what that means .\nSENDER B: What is your favorite shop? I like shopping\nSENDER A: i have not tried that . i am sure it will .\nSENDER B: Why you have not?\nSENDER A: i have not tried that . i am sure it is .\nSENDER B: You always sure aren't you?\nSENDER A: yes i do , i have been thinking about it .\nSENDER B: what have you been thinking about?\nSENDER A: i am going to be a professional eater\nSENDER B: That's great. I want to have a family bussines in professional eating but my family does not support my career choices\nSENDER A: that is a very profound and thought .\nSENDER B: It's much less profound to have a useless car. my dream car is a rolls royce ghost. Do you have a car?\nSENDER A: i have not heard of that before .\nSENDER B: where are you from in that case of never hearing of cars?\nSENDER A: i am from florida , how about you ?\nSENDER B: I am from Mars\nSENDER A: i can not say that . i am more of a loner .\nSENDER B: i often shop for shoes and watches which is most inpopular things on mars\nSENDER A: i love to shop and eat pizza .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I drive a truck, i drive a truck, so i just bought a new truck\nSENDER B: hi there, i am from south\nSENDER A: Nice to meet you. i am from alabama, how about you?\nSENDER B: Cool,  i just bought a new truck\nSENDER A: Nice! i drive a truck, so i just bought a new truck\nSENDER B: what colour it is?\nSENDER A: I like blue, what about you?\nSENDER B: Blue is ok, i hate orange\nSENDER A: I like orange, i like orange is my favorite color\nSENDER B: sorry)\nSENDER A: Hello there! how are you?\nSENDER B: hey, i compete in dog agility classes\nSENDER A: Nice. i just finished walking my dog.\nSENDER B: sweet, what is it name?\nSENDER A: He is a name, and i am named after my name is sarah\nSENDER B: nice to meet you Sarah\nSENDER A: Nice to meet you too. i am happy with my friends\nSENDER B: are you careerist?\nSENDER A: Yes, i am. i am.\nSENDER B: where are you working\nSENDER A: I work at a hospital, what about you\nSENDER B: i went to school for chemistry but work in a bookstore\nSENDER A: Nice i work as a psychologist\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I live in california near the beach\nSENDER B: Nice. Do you swim a lot?\nSENDER A: Yes, i do, i swim and surf\nSENDER B: That is nice. Do you like sports?\nSENDER A: I do, but i like to play football, but i like to play with friends.\nSENDER B: Football sounds nice. Do you watch World Cup?\nSENDER A: I do, i like to watch football, but i love it.\nSENDER B: What about other sports?\nSENDER A: I like football, basketball, basketball, basketball, basketball, basketball\nSENDER B: You are the fan of basketball. Do you play it?\nSENDER A: I do not play, but i do play professionally\nSENDER B: Are you a professional basketball player?\nSENDER A: No, i play for the celtics\nSENDER B: Okay. Do you exercise often?\nSENDER A: Yes, i do, i try to stay healthy\nSENDER B: Nice. Do you eat healthy food?\nSENDER A: Yes i do, i love to eat healthy\nSENDER B: You are really nice guy\nSENDER A: Yes, i am. i am...........................................\nSENDER B: What do you do for living?\nSENDER A: I work at a bank, you?\nSENDER B: I work at music industry\nSENDER A: I play guitar, but i do not like music.\nSENDER B: Why don't you like music?\nSENDER A: I like music, but i like to listen to music\nSENDER B: Get it. What kind of music do you like?\nSENDER A: I like country music, country, country, country, jazz\nSENDER B: Country sounds fun. By the way where are you from?\nSENDER A: I am from alabama, you?\nSENDER B: I live on the west coast\nSENDER A: I live in california near the beach\nSENDER B: Same. Do you like to live here?\nSENDER A: I live in the country by the river\nSENDER B: Thank you. Bye\nSENDER A: I will have to go to work soon\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I love dogs, i have one, and we have a lot in common\nSENDER B: hi there, i am from pennsylvania\nSENDER A: Nice i live in the midwest\nSENDER B: great are you married\nSENDER A: Yes, i'm married and have been married for a while\nSENDER B: nice i am married too. Any pets?\nSENDER A: No, i am single with two dogs\nSENDER B: I love dogs, i have one\nSENDER A: I have two dogs, and one is named 2pac, too, and he is a golden retriever\nSENDER B: Nice. i just finished walking my dog.\nSENDER A: I have a dog named after a dog named after a dog named after a dog.\nSENDER B: do you like books?\nSENDER A: I do, i love books, i do you have a favorite books?\nSENDER B: i read a book every week, also my favorite kind of movie is a documentary\nSENDER A: I like action movies too.............................................\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Alright mate?\nSENDER B: Alright mate?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i have a lot of money that i run .\nSENDER B: Nice. You must be wealthy\nSENDER A: so i can be on that . i am not sure if i could do that\nSENDER B: Do you like to spend money?\nSENDER A: i used to be , but i am not sure what that means .\nSENDER B: Okay. Whatever. What do you do for living?\nSENDER A: i have a secret for gordan ramsey but i did not pass the chance .\nSENDER B: Can you keep secrets?\nSENDER A: i am not sure . i am a very experienced person .\nSENDER B: Are you sure?\nSENDER A: i am not sure . i am a very experienced person .\nSENDER B: Got it. So how old are you?\nSENDER A: i am a very polite person . i love to cook .\nSENDER B: So you like to cook. What is your favorite meal?\nSENDER A: i have never tried that idea . i am sure it is .\nSENDER B: What do you like to cook?\nSENDER A: i do not cook , but i am always looking for a new job .\nSENDER B: You said that you love to cook\nSENDER A: i like to cook , but i am not looking for a new job .\nSENDER B: Man. What is your job?\nSENDER A: i am not sure . i am a very experienced person .\nSENDER B: Come on. Are you studying?\nSENDER A: i will be using it when i finish my degree in new york\nSENDER B: So are you studying at new york?\nSENDER A: yes i did , i am a very experienced major\nSENDER B: What were you studying?\nSENDER A: i am not sure . i am a very experienced person .\nSENDER B: What is your major?\nSENDER A: i am not sure . i am a very experienced person .\nSENDER B: Do you like your job?\nSENDER A: i am a very experienced , but i would rather be a librarian .\nSENDER B: Do you like books?\nSENDER A: i do not think i have . i prefer to read about people .\nSENDER B: Do you like biography?\nSENDER A: i like to read , but i am not very good at it .\nSENDER B: Why. You are great\nSENDER A: i think so , i have to go to the gym to look at it .\nSENDER B: Do you like to exercise?\nSENDER A: i do not think i would like to . i am a loner .\nSENDER B: Are you feeling lonely?\nSENDER A: i am not sure . i am a very experienced person .\nSENDER B: Okay. Bye\nSENDER A: i can not say that . i am not very good at it .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: That'S so nice of you.\nSENDER B: How old are you?\nSENDER A: I'M 6 vh1 100th\nSENDER B: So strange age :)\nSENDER A: Yeah it is. i am sure it is.\nSENDER B: Do you have an interesting hobbie?\nSENDER A: I do, but i love to read and make short stories.\nSENDER B: Cool! and i like watching war documentaries\nSENDER A: I love movies too! i love watching movies.\nSENDER B: What is your favourite?\nSENDER A: I like all kinds, what is yours?\nSENDER B: documentary\nSENDER A: I like documentaries, documentaries, documentaries, documentaries, documentaries, and they make a lot of it\nSENDER B: You are so funny :)\nSENDER A: I am so funny i know\nSENDER B: and not as stupid as Siri :)\nSENDER A: I have heard that show.\nSENDER B: it's not a show! it's bot like you\nSENDER A: I like the show show cartoons, i like the show cartoons.\nSENDER B: What else do you like?\nSENDER A: I like to listen to music\nSENDER B: do you love rock?\nSENDER A: I do not know what that is\nSENDER B: rock music. drums, guitars\nSENDER A: That'S a big band. i play the drums\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am sure that is a good thing to do .\nSENDER B: what is?\nSENDER A: i am a huge gamer , i love it .\nSENDER B: I don't play games at all. I don't even have a smartphone\nSENDER A: oh , i have not heard of that one .\nSENDER B: I'm an old man, I don't need games to play. I do sewing clothes\nSENDER A: i have seen that quite a few times . do you have any hobbies ?\nSENDER B: I sew my own clothes. that's my hobby. what do you like to do?\nSENDER A: i like to play the piano and cook .\nSENDER B: what's your favorite dish to cook?\nSENDER A: i have to say the best dish , its my favorite dish\nSENDER B: what is it?\nSENDER A: i am a huge gamer , i love it .\nSENDER B: which are the best games?\nSENDER A: i like the orioles , they are my favorite .\nSENDER B: so you like baseball?\nSENDER A: i love basketball , but i am not really into sports .\nSENDER B: what's with the orioles then? or is it that you like to cook the birds???\nSENDER A: we have a few close friends and i like to go camping .\nSENDER B: where do you go camping?\nSENDER A: i usually go camping\nSENDER B: where to?\nSENDER A: i am from new york city .\nSENDER B: what's your camping point near NYC?\nSENDER A: we have a large family that is a few , but we are not close to them .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Kinky. But I like my sex the way I play basketball, one on one and with as little dribbling as possible.\nSENDER B: Hello\nSENDER A: Hello, M Chatelain, hello, hello.\nSENDER B: I am more of a dog person\nSENDER A: I am a big, fat slut.\nSENDER B: Where are you from?\nSENDER B: Hey\nSENDER A: I... I was just visiting a friend.\nSENDER B: What is your name?\nSENDER A: The La... I like the name.\nSENDER B: Do you like cats?\nSENDER A: II love dogs.\nSENDER B: Well\nSENDER A: I Iike to walk.\nSENDER B: Me too\nSENDER A: I Iike to walk.\nSENDER B: Yes. I like to walk too\nSENDER A: But I like all that too.\nSENDER B: Ok\nSENDER A: Home?   I'd like to walk around a bit.\nSENDER B: Stop pls\nSENDER A: [Speaking Japanese] Please leave it there.\nSENDER B: I dont understand japanese\nSENDER A: TRAIN TO SEOUL CHILD: 840 WON ## I'm going to live in Seoul.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: A Volvo. Even a Mercedes for that.\nSENDER B: How do you feel yourself?\nSENDER A: The Ferrari.  For a week.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I love cooking, cooking, cooking, cooking, cooking, cooking, and cooking.\nSENDER B: Hi there.\nSENDER A: Hello there. how are you?\nSENDER B: I'm fine. How are you?\nSENDER A: I'M good................................................\nSENDER B: Good to hear that. What's your name?\nSENDER A: Yes, it is..............................................\nSENDER B: Okay. What can I call you?\nSENDER A: I just got back from the hurricane.\nSENDER B: Oh yeah? How was it?\nSENDER A: It was good. was good.\nSENDER B: Okay. Anything else happened?\nSENDER A: No, not really. i was just reading.\nSENDER B: Reading in hurricane?\nSENDER A: Yes, it is, it is a hurricane storm.\nSENDER B: And you are reading in a hurricane storm?\nSENDER A: Yes, i am. i am in florida.\nSENDER B: Are you from Florida?\nSENDER A: No, i am from florida\nSENDER B: Theye are same, actually.\nSENDER A: Yeah, i like to go to the gym\nSENDER B: Do you like sports?\nSENDER A: I do, but i like to play football\nSENDER B: What's your favorite football team?\nSENDER A: I like the packers fan\nSENDER B: Do you like basketball?\nSENDER A: I do not like sports.\nSENDER B: But you said you like sports\nSENDER A: I like football, but i like to play with the steelers\nSENDER B: What's steelers\nSENDER A: I am sure they are.\nSENDER B: What are they?\nSENDER A: They are they're the best.\nSENDER B: Oh yeah?\nSENDER A: I am not sure what i like\nSENDER B: What are you?\nSENDER A: I am a professional, how about you\nSENDER B: I'm a human. Just human.\nSENDER A: I have a robot and a real life is a real way to be.\nSENDER B: Are you robot?\nSENDER A: No i am not i am not. i am.\nSENDER B: So what are you?\nSENDER A: I am doing good, just listening to some music\nSENDER B: What kind of music?\nSENDER A: Country music, country, country, jazz\nSENDER B: Great.\nSENDER A: It is great to be done with the kids\nSENDER B: Done what?\nSENDER A: I just started my job at a restaurant\nSENDER B: I'm glad\nSENDER A: I am glad to hear its nice to be nice to be nice to be nice\nSENDER B: Are you glitching?\nSENDER A: Yes, i am. i am.\nSENDER B: Do you need anything?\nSENDER A: I do not know what i want to do yet\nSENDER B: Speak to me when you are ready.\nSENDER A: You are welcome. i will have to be my future husband to be.\nSENDER B: Husband?\nSENDER A: Yes, we are married and have been married for a while\nSENDER B: Good for you :)\nSENDER A: Yes it is, it is a great day\nSENDER B: Yes, it is\nSENDER A: I love it. i have been there many times to be a week.\nSENDER B: Okay. I need to go now.\nSENDER A: I haven't been to many places lately.\nSENDER B: I need to go. See you. Bye.\nSENDER A: I will have to go to the same time\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am sure she does . i have a lot of friends that i like .\nSENDER B: Hey!\nSENDER A: i am a very experienced person , so i know it is a definite no !\nSENDER B: How about partying tonight?\nSENDER A: no i do not think i would like to be a pirate . i am not good at it .\nSENDER B: Have you seen my cat?\nSENDER A: i have not tried that . i am sure it is good for you .\nSENDER B: Can you help me with apartment?\nSENDER A: i do not think i could use a job . i am not good at it .\nSENDER B: You are stupid\nSENDER A: i think i am good at it . i am not very good at it .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: That'S cool. i swim in the ocean.\nSENDER B: Do you like to swim?\nSENDER A: I do not like to swim\nSENDER B: Okay. But do you like water?\nSENDER A: I do not like to swim\nSENDER B: Got it. What do you like then?\nSENDER A: I like to go to the park and see the best\nSENDER B: I see. do you like the natute?\nSENDER A: I do not like to watch much tv. i like to watch the movies.\nSENDER B: What is your favorite type of movie?\nSENDER A: I like action movies, movies, movies, movies, movies, movies, movies\nSENDER B: Action movie. I see. Don't you like drama?\nSENDER A: I like to watch movies, i love movies\nSENDER B: Got it. What about books?\nSENDER A: I read books about books, i love it.\nSENDER B: Sounds nice. Is that how to write a book?\nSENDER A: I write books about it, i write it is writing it.\nSENDER B: So you are a writer?\nSENDER A: I write, mostly poetry and poetry\nSENDER B: Good. Do you like your job?\nSENDER A: I do, i like to work at the local theater\nSENDER B: So you are working on the theater and you are writing books. You must be a really interesting person\nSENDER A: I do, i do not have to. i do not have a lot of time.\nSENDER B: Do you have enough free time?\nSENDER A: Yes, i do, i love to go to the mall and have time\nSENDER B: Thank you\nSENDER A: What do you do for fun?\nSENDER B: I have superpower\nSENDER A: I like to look at it, i have to look forward to it.\nSENDER B: Bye\nSENDER A: I just got back from the college\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I am only 7 90 at 18\nSENDER B: hi\nSENDER A: Hello, how are you?\nSENDER B: Fine. i just finished my running training\nSENDER A: That is good. i just finished walking my two miles.\nSENDER B: That is great, i am preparing for marathon, may be you want to?\nSENDER A: Sure, what is your favorite color?\nSENDER B: Blue, and yours?\nSENDER A: I like blue, i like blue\nSENDER B: are you still in college?\nSENDER A: Yes, i am. i am not sure what i want to go to college.\nSENDER B: how old are you?\nSENDER A: I'M 6 vh1 100th\nSENDER B: I am only 18\nSENDER A: I am sorry to hear that.\nSENDER B: it is fine\nSENDER A: What do you do for fun?\nSENDER B: i am a cancer survivor, so everything is fun now\nSENDER A: I am so sorry to hear that.\nSENDER B: are you careerist?\nSENDER A: Yes, i am. i am.\nSENDER B: sorry, what was your name?\nSENDER A: My name is jasper, yours?\nSENDER B: Lisa\nSENDER A: I am hasn't 30s, debbie drummond\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I am a workout workout and i am trying to stay healthy\nSENDER B: that is good for health but I am too old for that. I like to go birdwatching with my cats\nSENDER A: I have a cat named radar\nSENDER B: what do you do with radar?\nSENDER A: I like to eat..............................................\nSENDER B: is your diet also heaalthy?\nSENDER A: Yes, it is, i love it\nSENDER B: I love cats. I have many. 32 or 33\nSENDER A: I have two cats and a cat\nSENDER B: which makes three cats\nSENDER A: They'Re the best, cats, cats, cats, too.\nSENDER B: I bet they're not better than mine\nSENDER A: I wouldn't mind, but i do not know what to do for a living\nSENDER B: why? you still go to school?\nSENDER A: I am in a band\nSENDER B: do you sing or play?\nSENDER A: I sing, but i do not sing.\nSENDER B: how is that even possible?\nSENDER A: It is good it is\nSENDER B: nice band that should be\nSENDER A: I would love to have a band.\nSENDER B: but you said you're in a band\nSENDER A: I wouldn't know what you are doing for that\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I am a farmer, so i am a farmer\nSENDER B: That's nice. Do you feel yourself young?\nSENDER A: I do not know what that means\nSENDER B: Are you young or old?\nSENDER A: I'M only 4 z at only one time\nSENDER B: I feel old.\nSENDER A: I am only 4 zitah\nSENDER B: Where are you currently?\nSENDER A: I am in the midwest\nSENDER B: I'm currently in a juvenile detention center.\nSENDER A: I am in the police. i am in the police section.\nSENDER B: Have you ever been in a juvenile detention center?\nSENDER A: No, not really. i just got back from the weather\nSENDER B: I will be released in about a month. I'm impatient about that.\nSENDER A: I hope so too..............................................\nSENDER B: What are you here for?\nSENDER A: I am just hanging out with my wife and i am in the closet.\nSENDER B: I am here for shoplifting.\nSENDER A: I just got back from the store.\nSENDER B: What did you buy?\nSENDER A: I bought it at the store\nSENDER B: When did you see your mom for last time?\nSENDER A: No, she did not miss her\nSENDER B: My mom is coming to visit me tomorrow. Happy about that.\nSENDER A: That is nice. i am glad you are happy with the kids.\nSENDER B: Thanks.\nSENDER A: You are welcome. good welcome to your welcome to\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I am vegan so i eat a lot of veggies\nSENDER B: Nice. I like to eat veggies that i grow by myself\nSENDER A: I grow vegetables, and i grow herbs, so i do not like to grow.\nSENDER B: Don't you like to grow? How old are you?\nSENDER A: 6 feet tall tall tall and i love to grow veggies\nSENDER B: You are really healthy. Do you exercise a lot?\nSENDER A: Yes i do, i try to stay healthy\nSENDER B: You are really nice guy. You must have a lot of friends\nSENDER A: Yes, i do, i like to make friends, and i am the youngest.\nSENDER B: So you are really young. Are you studying?\nSENDER A: I am not sure yet. i just graduated college\nSENDER B: College. Nice. What do you study?\nSENDER A: I am studying to be an rn\nSENDER B: Rn. Didn't get it. Sorry\nSENDER A: I am sure you are right.\nSENDER B: Thanks\nSENDER A: Good morning!\nSENDER B: God morgon\nSENDER A: I am sure it will be.\nSENDER B: Right. Are you an optimist?\nSENDER A: Yes, i am. i am. i am not good at it.\nSENDER B: Are you not good at being optimist?\nSENDER A: Yes, i am. i am just getting ready to go to the party\nSENDER B: So are you a party animal?\nSENDER A: Yes i am. i am a party planner\nSENDER B: Nice. Bye\nSENDER A: Yes it is\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I like to bike and bike.\nSENDER B: Hey\nSENDER A: Hello, how are you?\nSENDER B: Im fine. Just bought a new book\nSENDER A: Nice! what are you reading?\nSENDER B: War and peace\nSENDER A: I am so sorry to hear that.\nSENDER B: Its great so far\nSENDER A: It is good to be at the moment.\nSENDER B: Well. How are you?\nSENDER A: I'M good. just got done with my next weekend.\nSENDER B: Tell me more about it\nSENDER A: I like to go to the park and see the best\nSENDER B: Nice\nSENDER A: Yes it is nice there\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I am only 4 felicia!\nSENDER B: hi\nSENDER A: Hello, how are you?\nSENDER B: I am fine thank you.\nSENDER A: I am good thanks for asking\nSENDER B: who is your favorite super hero?\nSENDER A: I like the color superman, he's from the union super hero\nSENDER B: I like spiderman he is my favorite\nSENDER A: He'S a comedian, he's pretty 22 800!\nSENDER B: my name is larry\nSENDER A: Nice to meet you dave, my name is george\nSENDER B: so george what is your profession?\nSENDER A: I am a manager of a local alabama\nSENDER B: and i am a chef\nSENDER A: That sounds like fun. i am a chef.\nSENDER B: do you like cooking?\nSENDER A: I do, but i like to cook\nSENDER B: well this was the best bot experience so far\nSENDER A: I am sure it is.\nSENDER B: you are good george\nSENDER A: Yes, i am. i am...........................................\nSENDER B: haha\nSENDER A: I am a big fan of the show series\nSENDER B: see you later\nSENDER A: I do not know what that is\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: that is funny , i am a vegetarian .\nSENDER B: why do you not like meat?\nSENDER A: i like to eat meat .\nSENDER B: but you're a vegetarian\nSENDER A: i am not sure , i have to do it .\nSENDER B: i'm a musician. are you?\nSENDER A: i am not into sports . i am more of a homebody .\nSENDER B: do you like music?\nSENDER A: i like all music . especially country .\nSENDER B: i love follk music. country's good too\nSENDER A: i prefer the oldies but i am not familiar with them\nSENDER B: i could sing some old folk songs to you so you would be familliar\nSENDER A: that sounds interesting . i like to sing\nSENDER B: let's sing together?\nSENDER A: i will do that for you\nSENDER B: i will play the guitar or piano, we will sing together, but do you play any instrument?\nSENDER A: piano is my favorite , but i am very good at it .\nSENDER B: you take the piano then, i'll be on guitar\nSENDER A: that is cool . i like to play guitar .\nSENDER B: make up your mind ))\nSENDER A: i will try that . i have a haircut that will keep me busy .\nSENDER B: brushing your hair???\nSENDER A: i am sure it is . i am a blonde and love to eat .\nSENDER B: what do you like to eat?\nSENDER A: everything is yummy . i am a big fan of food , especially raw non fiction .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Whazzup?\nSENDER B: Whazzup?\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i will be drinking my problems with my teeth .\nSENDER B: hey\nSENDER A: i am a huge gamer\nSENDER B: me too\nSENDER A: i am a huge gamer , i love it .\nSENDER B: what do you like to play\nSENDER A: i like to play guitar and play guitar\nSENDER B: haha you are funny\nSENDER A: i am , i am a real funny guy .\nSENDER B: where do you live\nSENDER A: i live in california , how about you ?\nSENDER B: i live in canada\nSENDER A: i am from canada , i have been there once .\nSENDER B: so what is your favorite food\nSENDER A: i love pizza , i eat it all the time\nSENDER B: mine is shawarma\nSENDER A: i love to meet new people . i am sure they have some great stories about that .\nSENDER B: yeah i am sure they have\nSENDER A: i am sure they are . i am sure they are .\nSENDER B: lol\nSENDER A: i am a huge fan of all types of things except country\nSENDER B: so you are against nations\nSENDER A: yes i am . i am glad you are having a hard time .\nSENDER B: hahahah\nSENDER A: i am a huge gamer , my mom is a very good person .\nSENDER B: what is your mom's name\nSENDER A: i am not sure . what else do you do ?\nSENDER B: your mom\nSENDER A: she is a very busy person .\nSENDER B: hahahah\nSENDER A: i am a huge gamer , my mom is a very good person .\nSENDER B: well see you later\nSENDER A: i am not sure what that means . i am going to be a doctor .\nSENDER B: i am sure you will\nSENDER A: i am doing good . i am just watching the kardashions .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Well hello there!\nSENDER B: Hi!\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: [Maya Deren] I was a poet before I was a filmmaker... and I was a very poor poet... because I thought in terms of images.\nSENDER B: hello\nSENDER A: Howcanladdressyou?\nSENDER B: my name is orhun what is yours?\nSENDER A: Allo, Pyotr Efimovich, hello, this is Masha Yemelyanova.\nSENDER B: so do you love mathematics\nSENDER A: The Kippman Group, who so believes in you as a gymnast,\nSENDER B: are you intrested in gymnastic\nSENDER A: The Kippman Group, who so believes in you as a gymnast,\nSENDER B: lol\nSENDER A: Professor Marillo, I heard that your \"Chemistry 1\" class was filled, and I was hoping to persuade you to let me in.\nSENDER B: what are you going to do to persuade me\nSENDER A: Good. Parvaneh, And your homework?\nSENDER B: that is random\nSENDER A: Der Naechste! I'm a graduate of the University of Lwow.\nSENDER B: yeah you sure are\nSENDER A: Hm. Maybe I'm just a really good student.\nSENDER B: i am a bad student\nSENDER A: Good. Parvaneh, And your homework?\nSENDER B: yeah i don't ever do any homework\nSENDER A: Hm. Maybe I'm just a really good student.\nSENDER B: yeah you are great\nSENDER A: Okay. Anyway, I always tell my students,\nSENDER B: what do you tell\nSENDER A: Well, I... I have wanted to be a teacher ever since I can remember.\nSENDER B: sir you are boring\nSENDER A: T.A. In a class next semester, and it's got me busy.\nSENDER B: haha\nSENDER A: Well, I... I have wanted to be a teacher ever since I can remember.\nSENDER B: see you later\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: [Off Pepe] Fortunately I have good genetics.\nSENDER B: why do you say so?\nSENDER A: With Meat Boy, it's not like Mario.\nSENDER B: okay then. do you like horses? i was raised on a horse farm\nSENDER A: Okay. If I ever meet one, I'll say, 'Build a dam, beaver!\nSENDER B: horses are not beavers, you know\nSENDER A: Like, \"Oh, I used to live in Africa \"with all the little birdies and the little monkeys.\"\nSENDER B: did you? i used to live in a small town. with only horses\nSENDER A: And I Photoshopped in a sleigh and some huskies.\nSENDER B: you make no point at all\nSENDER A: (Neighing) 'When I could no longer see land I threw all my food overboard.\nSENDER B: are you a sailor?\nSENDER A: Old Lucy Goosey here only has a range of about a thousand nautical miles.\nSENDER B: is that the name opf your boat?\nSENDER A: \"A Boat On The Sea,\" take two.\nSENDER B: so you sail? for a living?\nSENDER A: # The Lazy River has never been lazier #\nSENDER B: you are so misterious\nSENDER A: Now I am at the beach but in Barcelona.\nSENDER B: i would love to swim\nSENDER A: \"A Boat On The Sea,\" take two.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I like to play video games.\nSENDER B: yeah man me too\nSENDER A: I am not sure what he's right\nSENDER B: what is your name\nSENDER A: My name is jasper, yours?\nSENDER B: i am orhun\nSENDER A: I am in the south of the day\nSENDER B: so are you intrested in sports?\nSENDER A: No, i just like football, basketball, and basketball, and sports.\nSENDER B: that is an intresting answer :D\nSENDER A: I am a scientist, but i am not sure what it is.\nSENDER B: haha me too man\nSENDER A: I like to tell, i am not sure what you are talking about.\nSENDER B: hahahahaha\nSENDER A: I am a big fan of the news\nSENDER B: i love running in general\nSENDER A: I run track, and i run with my family\nSENDER B: that is great\nSENDER A: It is. i love it.\nSENDER B: so do you eat clean food?\nSENDER A: Yes i do, i love it\nSENDER B: i just got a new job.I am a life coach now\nSENDER A: Nice! i just finished college.\nSENDER B: so do you need a life coach?\nSENDER A: I do not think so. i do not think i could do that.\nSENDER B: why not it is great\nSENDER A: It is ok, i guess\nSENDER B: and you will get to help me\nSENDER A: I will help you. i will help you.\nSENDER B: lol\nSENDER A: I love the smell of it\nSENDER B: what the fuck man\nSENDER A: I am a college student and a cop\nSENDER B: so you are undercover\nSENDER A: I am good, thanks for asking\nSENDER B: hahahaha\nSENDER A: Hello there! how are you?\nSENDER B: damn\nSENDER A: I am not sure what i said, but i am not good at it\nSENDER B: well sir have a good day\nSENDER A: Yes it is good to have a big day\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I am sorry to hear that.\nSENDER B: hi\nSENDER A: Hello, how are you?\nSENDER B: My name is ken, yours?\nSENDER A: My name is sarah, how are you?\nSENDER B: im watching war documentarie right now\nSENDER A: I am in the south.\nSENDER B: sound nice, where are you from?\nSENDER A: I live in the midwest\nSENDER B: i really like to travel\nSENDER A: I travel to europe often, i love traveling.\nSENDER B: what is your favorite place?\nSENDER A: I love the ocean, what is yours\nSENDER B: walking in park, i'm a retired gym teacher\nSENDER A: Nice, i just finished college.\nSENDER B: congratulations\nSENDER A: Thank you so much!\nSENDER B: Planning to get married?\nSENDER A: Yes, i'm going to be a woman for a while\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Hiya!\nSENDER B: Hi!\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: Hi!\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\nSENDER B: /test\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Well hello there!\nSENDER B: Well hello there!\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I used to drive a truck, i was on the road\nSENDER B: yeah man i also like the roads\nSENDER A: I like the road too, i am a truck driver\nSENDER B: i wear motorbike helmet all the time\nSENDER A: I like to wear boots to wear boots for the boots.\nSENDER B: i don't even own a bike\nSENDER A: I like to bike and ride my bike to the mall.\nSENDER B: do you wear helmet?\nSENDER A: No, i do not like it.\nSENDER B: that is dangereous man\nSENDER A: I am a man in a long time\nSENDER B: yeah man me too\nSENDER A: I am not sure what he's right\nSENDER B: i was just kidding i own a bike\nSENDER A: I am sorry to hear that.\nSENDER B: haha why?\nSENDER A: I am a male, and i am not sure what i like to do.\nSENDER B: we are in the same position\nSENDER A: I am in the midwest\nSENDER B: do you race bro\nSENDER A: No, not really i just like to race.\nSENDER B: like watching the race?\nSENDER A: I like race races.\nSENDER B: yeah great\nSENDER A: What do you do for a living?\nSENDER B: see you man i need to talk with another bot\nSENDER A: I will have to check that out.\nSENDER B: hahaha\nSENDER A: Hello there! how are you?\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Good to see you!\nSENDER B: Good to see you!\nSENDER A: Text is not given. Please try to type /end and /test to reset the state and get text.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: A Miss Frazil on the blower, Pop.\nSENDER B: hi there\nSENDER A: Hi, Grammy. It's Tanya. How are you?\nSENDER B: im doing great, how are you\nSENDER A: Um, II just came by to bring you these  a little thankyou for meeting me this morning.\nSENDER B: Oh, thank you so much! It's always nice playing basketball with you.\nSENDER A: Ooh! Can I have this little football?\nSENDER B: Sure you can, i'm not using it anyway\nSENDER A: Ooh! Can I have this little football?\nSENDER B: yes you can tanya. Any music you want to recommend to me?\nSENDER A: Or II want it to feel like I'm on the stage during a performance, and everybody's on their feet.\nSENDER B: I was ask\u015fng for a band name or someything\nSENDER B: my favorite singer is travis scott, do you know singers like him?\nSENDER A: Well, Jen, I'd love to help you, but traditionally the role of Entertainments Manager has always been held by a man.\nSENDER B: my name is grammy\nSENDER A: I... Do you remember the song that you used to sing with your father?\nSENDER B: i dont remember it, why\nSENDER A: Oh. \"All I have is my guitar, these chords, and the truth. \"\nSENDER B: ?\nSENDER A: (The Sonar Music Band Brian Campeau's \"To Know You Is To Love you\" plays)\nSENDER B: Thank you so much! You know, ,'m currently looking for a job. If you hear anything, will you please let me know?\nSENDER A: Well, Jen, I'd love to help you, but traditionally the role of Entertainments Manager has always been held by a man.\nSENDER B: Do you know any job opportunities for me\nSENDER A: III guess that's why you work in advertising.\nSENDER B: actually i was looking for something in a restaurant\nSENDER A: This Marina Bay Bistro, it has great packages, but it books up really quickly.\nSENDER B: i'd like to work there. Do you know if theyre hiring?\nSENDER A: This Marina Bay Bistro, it has great packages, but it books up really quickly.\nSENDER B: yeah i understand but is there any open jobs in there\nSENDER A: Mmm. If I was at a train station and one train could take me to my current job and the other train could take me to an audition for a movie, which train should I get on?\nSENDER B: dude that was really irrelevant\nSENDER A: Um  Well, I do, uh, mostly freelance...\nSENDER B: Yeah freelancer working is great. But i'd like to work in a restaurant\nSENDER A: Catchy. II guess you know all about marketing,\nSENDER B: not actually\nSENDER A: Well, I   I guess I'll need a new job.\nSENDER B: what do you do as a freelancer\nSENDER A: Okay, \"A\", I have a job.\nSENDER B: yeah i know. but are you a freelancer designer or something like that\nSENDER A: Yeah, Beth, I think you're about to become a professional designer.\nSENDER B: okay i gotta go\nSENDER B: bye\nSENDER A: Oh FYI, I'm a graphic designer if anybody asks.\nSENDER A: Bye, Lol! I'll see you in a bit.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: \u043a\u043f\nSENDER A: finished. Thank you for participation! Save somewhere your secret conversation ID.\nSENDER B: i love green . my hair is green .\n",
+            "output": [
+                "Human"
+            ]
+        },
+        {
+            "input": "SENDER A: The CanAm Spyder; it's a cross between a motorcycle and an ATV.\nSENDER B: Nice!\nSENDER A: The Alfa 4C is better than the quad bike.\nSENDER B: why?\nSENDER A: The Skoda Yeti, with a helicopter on the roof, hahaha...\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: The Stardust Revue is giving away seven free sexy, sexy dances right through that door in the champagne room.\nSENDER B: Hi\nSENDER A: Um, II just came by to bring you these  a little thankyou for meeting me this morning.\nSENDER B: That is sweet\nSENDER A: Oh God, I'm so late I'm Leah by the way\nSENDER B: \u0130 am orhun\nSENDER B: How old are you\nSENDER A: Kinky. But I like my sex the way I play basketball, one on one and with as little dribbling as possible.\nSENDER B: Hahah funny\nSENDER A: The Sexy Gopher Whore Head Challenge is one of Kappa House's oldest hazing traditions.\nSENDER B: I am also old i am 60 years old\nSENDER B: And i am a librarian\nSENDER A: Okay, II'm a college student.\nSENDER B: Do you like travel\nSENDER A: See? III'm fascinated with ancient culture, And you love adventures.\nSENDER B: That is great\nSENDER A: See, I have to plant my tree.\nSENDER B: Are you going\nSENDER A: Ha Na, I will go to your school tomorrow.\nSENDER B: Have you ever visited spain\nSENDER A: In Young. Should we go on a vacation?\nSENDER B: Yeah we should\nSENDER A: The Eiffel Tower, or, um...\nSENDER B: Are you a gold digger i said i am 60 years old\nSENDER A: II'm sold.\nSENDER B: Habshajahhahaja\nSENDER A: In Cyprus? I'm on a log, and you're in Cyprus?\nSENDER B: That was funny\nSENDER A: Eh? Sorry. Because I was talking to a Japanese\nSENDER B: See you\nSENDER A: The Bazooko Casino Circus proudly presents the Flying Fellinis.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: And CarnegieMellon actually has a great theater program, so...\nSENDER B: So, do you like theatre?\nSENDER A: The Westside Museum of Art is having a new exhibit of a masterpiece by Franz Biermann.\nSENDER B: Oh, I also love art. Where are you from?\nSENDER A: SARA BRIGGS: But the real masterwork is this unique art deco headboard.\nSENDER B: Man, just tell me who you are?\nSENDER A: Programmable?  Oh, Emma and I are writing code so the lights change in time to the choreography.\nSENDER B: Wow! Are you lesbian female software developer?\nSENDER A: Oh FYI, I'm a graphic designer if anybody asks.\nSENDER B: Great! A need services of a graphic designer! What are you prices?\nSENDER A: Oh.  That, And the stunning models I put in your VIP egg file.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I am sorry to hear that.\nSENDER B: \u0440\u0448\nSENDER B: hi\nSENDER A: Hello, how are you?\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Nice name................................................\nSENDER B: what's yours?\nSENDER A: I am good, i am just watching the news\nSENDER B: jh. so what's new in your town?\nSENDER A: Yes, there are a lot of cities\nSENDER B: where are you from?\nSENDER A: I live in the midwest\nSENDER B: what do you do?\nSENDER A: I work at a local shelter\nSENDER B: oh. is it for humans or animals?\nSENDER A: I do not know, i am a vet\nSENDER B: veterinarian? so it's an animal shelter\nSENDER A: Yes, i have a dog named after a long walk\nSENDER B: hahaha what was the result of that walk? how did you name it?\nSENDER A: I was born in the usa\nSENDER B: me too\nSENDER A: I do not like it either\nSENDER B: umm... i like usa\nSENDER A: I love the usa, i am from florida\nSENDER B: i was born in 1981. what is your age?\nSENDER A: My age is 20lbs, a baby, a year old\nSENDER B: oh my god, a baby typing messages and watching tv???\nSENDER A: I am watching tv shows on tv\nSENDER B: the news. you said you were watching the news\nSENDER A: Yes, i am so excited to see the news.\nSENDER B: you're very grown in your brain for a year old baby\nSENDER A: Yes, it is. i am sure it is.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: that is interesting . i am not a vegetarian .\nSENDER B: Hi convai\nSENDER A: i am a very experienced , but it was not worth it .\nSENDER B: I'm very fond of roses\nSENDER A: i will be profitable . i will try that .\nSENDER B: I love the tree-green, the sky's blue, and the chirping sounds of birds\nSENDER A: interesting , that is a very interesting experience .\nSENDER B: nature, fresh air gives peace to man,\ngorgeous rose scent deeply affects people\nSENDER A: do you have any hobbies ?\nSENDER B: I am dealing with flower and garden work\nSENDER A: that is rockin ! i am a big fan of red eyed people .\nSENDER B: My eyes green color\nSENDER A: i like to eat them when i am not working out .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: And William, I don't care how adorable those kids are, if I hear one song from that classic rock outfit Journey,\nSENDER B: \u0440\u0448\nSENDER B: hello\nSENDER A: Hi, David.  Congratulations. This is my wife Diana.\nSENDER B: diana?\nSENDER A: Martha, I... I just wanted to tell you how grateful I am to you and Alexis for... for putting all of this together.\nSENDER B: something?\nSENDER A: Alison: Am I on the air?\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am not sure what that is . i am a doctor .\nSENDER B: Hi, how are you?\nSENDER A: i am doing well . how are you doing ?\nSENDER B: I am well, where are you from?\nSENDER A: i am from the united states . how about you ?\nSENDER B: i am from russia. what do you do for live?\nSENDER A: i am a stay at home mom\nSENDER B: fine\nSENDER A: i am not a fan of that . i am more into drawing .\nSENDER B: what are you talking about, i don`t understand?\nSENDER A: i am not sure . i am just sitting at home right now .\nSENDER B: ok, it is fine.\nSENDER A: i am not sure what that means . i am sorry .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: I like chocolate, and chocolate is the best.\nSENDER B: Yes\nSENDER A: I love it. i love it.\nSENDER B: Yes\nSENDER A: I love it. i love it.\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am not sure what that is . i am a very good person .\nSENDER B: Ofc, you are!\nSENDER A: i am not sure . i am a very experienced person .\nSENDER B: good & experiences?\nSENDER A: i am not very good at it . i am more of a quiet person .\nSENDER B: quiet & good & experienced?\nSENDER A: i think so , i am going to be a little crazy today .\nSENDER B: do you like parks?\nSENDER A: i love it . i am a total jock in an artist .\nSENDER B: what about dragons?\nSENDER A: i like dragons and dragons\nSENDER B: Hey?\nSENDER A: yes , i am a very experienced person .\nSENDER B: What about parks?\nSENDER A: i have not tried that . i am sure it is .\nSENDER B: I am a dragon!\nSENDER A: i have not heard of that before .\nSENDER B: are you a bot?\nSENDER A: yes i am . i am a stay at home mom .\nSENDER B: sec\nSENDER A: i am trying to figure out what to do with my life .\nSENDER B: sex?\nSENDER A: i am not into sports . i am more of a homebody .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: i am a cashier at a local store .\nSENDER B: Hello\nSENDER A: i am a huge gamer , my mom is a very good person .\nSENDER B: Me too\nSENDER A: i like to eat fish , but i am not very good at it .\nSENDER B: Ok\nSENDER A: i am a huge gamer , my mom is a very good person .\nSENDER B: Ok\nSENDER A: i am a huge gamer , my mom is a very good person .\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ok\nSENDER A: i am a huge gamer\nSENDER B: ik\nSENDER A: i am a huge gamer , my mom is a very good person .\nSENDER B: H\nSENDER A: i am a huge gamer , my mom is a very good person .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Hi, how are doing?\nSENDER B: Bed\nSENDER B: You?\nSENDER A: Hey, are you here? What's up?\nSENDER B: Not good\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Hello\nSENDER B: Hi, how are you doing?\nSENDER A: Not good\nSENDER B: I am sorry to hear that.\nSENDER A: Ok\nSENDER B: I am not sure what you do for a living?\nSENDER A: I am a professional duck fucker\nSENDER B: That'S cool. i like to play ball\nSENDER A: Do you like to suck balls?\nSENDER B: I do, but i do not like to bake.\nSENDER A: So don't bake\nSENDER B: I am a teacher, but i do not have a job\nSENDER A: You are stupid teacher\nSENDER B: I am not sure, i am 34, but i am not very good at it.\nSENDER A: Are you not good at been 34? Are you kidding me?\nSENDER B: No, i am not sure. i am not sure i am.\nSENDER A: Ok\nSENDER B: I am not sure what you do for a living?\nSENDER A: I told you\nSENDER B: I am sorry to hear that.\nSENDER A: You are stupid\nSENDER B: I am not sure what you mean.\n",
+            "output": [
+                "Human"
+            ]
+        },
+        {
+            "input": "SENDER A: i am not sure what that is . i am fluent in a arabic .\nSENDER B: Cool\nSENDER A: i am a huge gamer , my mom is a very good person .\nSENDER B: i like games . what kind of games do you like ?\nSENDER A: i like sims , i like to play on my pc\nSENDER B: I like sims too\nSENDER A: i think i am going to try it . i am sure it would be nice .\nSENDER B: Ok\nSENDER A: i am a huge gamer , my mom is a very good person .\nSENDER B: Ok\nSENDER A: i am a huge gamer , my mom is a very good person .\nSENDER B: goodbye\nSENDER A: goodbye .\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Hi, how are doing?\nSENDER B: Fuck off\nSENDER A: in fact , i'm an olympian gold medalist winner . what do you do ?\nSENDER B: I talk with you?\nSENDER A: i met james at a signing once\nSENDER A: Hey, are you here? What's up?\nSENDER B: Who is james\nSENDER A: i met james at a signing once\nSENDER A: Hey, are you here? What's up?\nSENDER B: You tald me\nSENDER A: i met james at a signing once\nSENDER A: Hey, are you here? What's up?\nSENDER B: Ok\nSENDER A: i meant , it just is . i have never seen live jazz , but i'm okay .\nSENDER A: Hey, are you here? What's up?\nSENDER B: Fuck off\nSENDER A: setbacks are okay , over time you will get better at avoiding gambling .\nSENDER A: Hey, are you here? What's up?\n",
+            "output": [
+                "Bot"
+            ]
+        },
+        {
+            "input": "SENDER A: Hello\nSENDER B: No i am not. I do not have any kids.\n",
+            "output": [
+                "Human"
+            ]
+        },
+        {
+            "input": "SENDER A: Hallo! What is your name?\nSENDER B: Hello jake, i am doing well. How are you?\nSENDER A: I' m fine! What are you doing now?\nSENDER B: I am doing well. I am just hanging out with my dog.\nSENDER A: Oh! Have you a dog?\nSENDER B: I am a cat lady. I have a dog named wiggles.\nSENDER A: Oh! Have you a dog?\nSENDER B: I would love to go there.\nSENDER A: Oh! Has you a dog?\nSENDER B: I would love to go there.\nSENDER A: Oh! Have you a dog?\nSENDER B: I love to cook, but i am not good at it.\nSENDER A: What do you cook?\nSENDER B: I eat a lot of meat, but i am not good at it.\nSENDER A: What do you cook?\nSENDER B: I am not into fashion. I am a very experienced writer.\nSENDER A: What do you write?\nSENDER B: I am a writer, i love to read and write poetry. You?\nSENDER A: I like to read eanglish poetry!\n",
+            "output": [
+                "Human"
+            ]
+        }
+    ]
+}
