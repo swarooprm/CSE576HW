@@ -83,7 +83,7 @@ df = df[(df['sexYN'] == 0) | (df['sexYN'] == 1)]
 df = df.drop_duplicates()
 # print(df)
 
-# select 2000 of intentYN == 0 and intentYN == 1
+# select 2000 of offensiveYN
 df0 = df[df['sexYN'] == 0][0:2000]
 df1 = df[df['sexYN'] == 1][0:2000]
 
