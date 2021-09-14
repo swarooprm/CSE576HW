@@ -8,29 +8,29 @@
     "Categories": [
         "Classification"
     ],
-    "Definition": "In this task, we are given a Dialy Dialog Dataset, in which each conversation has multiple dialogues and each dialogues in the conversation is annotated based on emotion information, dialogue act as well as topic of converstaion. The dialogues in the dataset reflect our daily communication way and cover various topics about our daily life. Here we classify the data based on the topic of conversation as positive examples if the topic of conversation is Tourism in the one of the dialogues of the conversation and output Yes otherwise if the topic of conversation is not Tourism then we classify it as negative examples and ouput No",
+    "Definition": "In this task, we are given a Dialy Dialog Dataset, in which each conversation has multiple dialogues and each dialogues in the conversation is annotated based on emotion information, dialogue act as well as topic of converstaion. Here we classify the data based on the topic of conversation. If the topic of conversation is Tourism in the one of the dialogues of the conversation then output Yes otherwise if the topic of conversation is not Tourism then output No",
     "Positive Examples": [
         {
             "input": "Hello , I have a reservation for a double .  What's your last name ?  It's Smith . Here is my driver's license .  Yes , I do show your reservation . How could you like to pay for the room ?  I'd like to put it on my VISA .  Fine . Here is your room key , here is also a map of our hotel . The swimming pool , gym and sauna are all located on first floor .  Great , is our room ready yet ?  Yes . If you want to order room service , just press 0 on your phone , and that will connect you with the front desk . ",
             "output": "Yes",
-            "explanation": "Here the conversation indicates that speaker has went to travel elsewhere and paying for the room reservation which indicates he is touring. Thus this conversation involves tourism as topic"
+            "explanation": "Here the conversation indicates that speaker has went to travel elsewhere and paying for the room reservation which indicates he is touring. Thus this conversation involves tourism as topic and the output is Yes. So it is a positive example"
         },
         {
-            "input": "I would like to buy one round trip plane ticket to Hong Kong , please .  For what days , madam ?  Leaving on September 5th and returning to New York City on October 9th .  Do you prefer an aisle or a window seat ?  I prefer to sit next to a window .  How would like to pay ?  I have a Master Card .  I have booked you for one window seat on American airline flight No . 409 . Have a good trip ! ",
-            "output": "Yes",
-            "explanation": "Here the conversation indicates that speaker wants to buy a plane ticket to HongKong for traveling which indicates he is touring. Thus this conversation involves tourism as topic"
+            "input": "Hi Linda , this is Todd .  Todd , good to hear from you !  I just wanted to tell you what a great time I had with you at the movies last week .  Me too , Todd ! Thanks for suggesting that great movie .  I also enjoyed it and was wondering if you would like to go for a hike in the mountains with me on Saturday .  I would love to join you on a hike . Could I maybe bring a picnic lunch for us to eat on the trail ?  Sure Linda , that's a great suggestion .  Fine then , what time are we going to leave ?  I was thinking maybe 9 o'clock or so , so that we could get started before the heat gets too bad .  Nine would be perfect . I'll see you then ! ",
+            "output": "No",
+            "explanation": "Here the conversation does not indicated about topic relating to tourism so the output is No. So its a positive example."
         }
     ],
     "Negative Examples": [
         {
             "input": "It was nice talking to you .  Why are you trying to rush me off the phone ?  I really have to go .  Why ? I still wanted to talk to you .  I have things to do .  Like what ?  Don't be nosey .  I'm not . I just want to know .  Well , it's really none of your business .  That's harsh .  I'm sorry , but I have to go .  Fine . ",
-            "output": "No",
-            "explanation": "Here the conversation indicates that speaker is chatting on the phone about ordinary day to day life so this conversation does not include anything about Travelling or Tourism"
+            "output": "Yes",
+            "explanation": "Here the conversation indicates that speaker is chatting on the phone about ordinary day to day life so this conversation does not include anything about Travelling or Tourism so the output should be No but its output is Yes. Hence it is negative example."
         },
         {
-            "input": "You have any ideas as to what you want to do this weekend ?  I'm going to the movie theater with my friend . What are you going to do ?  I'm not quite sure yet .  How about you see a movie with me and my friend ?  What movie are you and your friend planning on watching ?  Not sure . Is there a movie out that catches your eye ?  No good movies come to mind .  Have you decided whether or not you would like to go ?  No , thanks . Maybe another time .  For sure another day . ",
+            "input": "To which gate do I need to go to catch connecting flight 707 to New York City ?  Go to Gate 56 , the plane is now boarding , you must hurry .  Show me the fastest way to get there .  Instead of walking you can take this shuttle to get you there faster .  Do you think the plane will leave without me ?  No , I will call the attendants at the gate . I'll tell them you are on your way .  Thank you so much , I would really appreciate that .  You're welcome , have a safe trip . ",
             "output": "No",
-            "explanation": "Here the conversation indicates that speaker is chatting about going to movie theatre so this conversation does not include anything about Travelling or Tourism"
+            "explanation": "Here the conversation indicates that speaker is talking about Tourism hence it should output Yes but its output is No. Hence it is a negative example"
         }
     ],
     "Instances": [
@@ -60,12 +60,6 @@
         },
         {
             "input": "I enjoyed talking to you .  I enjoyed talking to you too .  We should hang out some time .  I think that would be nice .  Is there anything you would like to do next time ?  Do you want to go out to eat ?  I'd like that .  So I'll see you next time .  I'm going to call you soon .  I'll talk to you later .  See you soon .  Goodbye . ",
-            "output": [
-                "No"
-            ]
-        },
-        {
-            "input": "Hi Linda , this is Todd .  Todd , good to hear from you !  I just wanted to tell you what a great time I had with you at the movies last week .  Me too , Todd ! Thanks for suggesting that great movie .  I also enjoyed it and was wondering if you would like to go for a hike in the mountains with me on Saturday .  I would love to join you on a hike . Could I maybe bring a picnic lunch for us to eat on the trail ?  Sure Linda , that's a great suggestion .  Fine then , what time are we going to leave ?  I was thinking maybe 9 o'clock or so , so that we could get started before the heat gets too bad .  Nine would be perfect . I'll see you then ! ",
             "output": [
                 "No"
             ]
@@ -1232,6 +1226,12 @@
             "input": "Can you give me more details on what is included in the package ?  Sure . The coach leaves at 6:30 a . m . , in front of our office . The drive takes eight hours , with two stops to see some sights .  What about the hotel accommodations ?  You'll be staying at Holiday Inn . It's a three-star hotel with two restaurants and a swimming pool .  Great . What types of things will we do at Lushun Falls ?  The second day you take a four-hour city tour . In the afternoon you go on the famous boat cruise under the falls . ",
             "output": [
                 "Yes"
+            ]
+        },
+        {
+            "input": "Hey there , how are you doing ?  I am great . How are you ?  Well , I got laid off , and I ’ m looking for work .  Yeah , me too ! What are you thinking you would like to do ?  Right now , I ’ ll take about anything that will pay the mortgage .  Have you gone out on any interviews so far ?  I went out on one interview , but I haven ’ t heard back from them .  Did you see the posting for the electrician apprentice program ?  You know , I saw that and it looks pretty good !  Let ’ s go check it out again ! ",
+            "output": [
+                "No"
             ]
         }
     ]

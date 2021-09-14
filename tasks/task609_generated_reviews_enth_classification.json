@@ -8,54 +8,32 @@
     "Categories": [
         "Classification"
     ],
-    "Definition": "In this task, we are given a Dataset having english language product reviews generated from CTRL and then those reviews are translated to Thai languague using Google's Translate Api and annotated as accepted or rejected (correct) based on fluency and adequacy of the translation by human annotators. Here the review of the product is also given review_star. Also, we have used following data preprocessing (i) Drop duplciates on en,th,review_star,correct (ii) duplicates might exist because the translation checking is done by annotators. (iii) Remove reviews that are not between 1-5 stars. (iv) Remove reviews whose correct are not 0 or 1. (v)Deduplicate on en which contains the source sentences. So, in this task, we have translated the englisht language to Thai language for product review and accepted the translation on following criteria (i) If the translated Thai language is accepted by Human annotators based on fluency and adequacy of the translation. Now if the product review_star is greater than equal 3 then it is considered Good reviews and if it is accepted by the human annotators then we are considering it to be positive example  otherwise negative example. Also, if the review_star less than 3 then it is called Bad reviews and if it is accepted by human annotators then it is good example otherwise bad",
+    "Definition": ": Given an English language product review, determine if it is a Good Review or a Bad Review. A good review is one where the product's review has positive tone and Bad review is one where the tone of product's review is negative.",
     "Positive Examples": [
         {
             "input": "The sound seems really good but sometimes it cuts in and out which is annoying. You have to put the cord directly into your ipod. Other than that, its a simple design with nothing fancy. I love how cheap they were for 10 dollars... But overall nice design... No one can steal me earphones. lol thanks again amazon.",
-            "output": "Good Review",
-            "explanation": "Here the translated sentences is accepted by the human annotators hence it is considered positive examples having a good review"
+            "output": "Good review",
+            "explanation": "Here the review is good because it has positvie tone as the reviewer suggested it really likes the sound and the output is also Good Review.So this example is positive example"
         },
         {
-            "input": "The story was not bad. However, the typos made it difficult and painful to read. Not sure what an editor looks for. I found myself going back just one sentence after a paragraph only because of missing words. This makes you wonder if English is Mr. Jones' second language with all that editing. And since this appears in Kindle version, it does detract from enjoyment or at least make me more aware of that.",
+            "input": "My son received this book as a gift. I was extremely disappointed. It is an old book, and the print quality and size are unreadable. At age 4, my 2 year old needs visual help to identify parts of his body at play. Maybe it would be OK for an older child with better sight. But don't waste your time or money. Go buy the new version called &#34;Brain Power--Make Sense Of Opposites&#34; instead.",
             "output": "Bad review",
-            "explanation": "Here the translated sentences is accepted by the human annotators hence it is considered positive examples having a bad review"
-        },
-        {
-            "input": "I've only had the TV for two weeks, and so far I'm impressed. It's lighter than I expected, which was a good thing. Everything looks great. The built-in Netflix app is very basic, but you can't expect too much from it. But don't discount Samsung's ability to integrate with other services. One of my favorite features is its internet browser. It responds to keypresses on just about every site imaginable, including Yahoo search pages.",
-            "output": "Good Review",
-            "explanation": "Here the translated sentences is accepted by the human annotators hence it is considered positive examples having a good review"
+            "explanation": "Here the review is Bad because it has negative tone as suggested in the product review that the user is disappointed by the product and the output is also Bad review. So this example is positive example"
         }
     ],
     "Negative Examples": [
         {
             "input": "This is a terrific product. It does exactly as advertised and it was much less expensive here than at the store. Easy to attach & adjust both cameras from one DVR. We are buying 4 more of these for our other cameras. It looks like security personnel will now start to see us more often because they know how easy it is. Only drawback I could possibly come up with is that it's so sturdy we wonder if it needs some sort of tether attached to it. But no - it doesn't.",
-            "output": "Good Review",
-            "explanation": "Here the translated sentences is not accepted by the human annotators hence it is considered negative examples having a good review"
+            "output": "Bad review",
+            "explanation": "Here the review is Good review as there is positive tone in the sentence but it has been output as Bad Review so this example is negative"
         },
         {
-            "input": "This product is completely useless. It cannot be used with any of the 3 cell batteries listed on the page. The charger itself appears to heat up, so I can see if it could take a charge. Not sure how they would work in another product, but these don't allow you use them in an NP-E4U Battery Grip or any other brand that uses those batteries. Don't waste your money! And make absolutely sure yours won't damage your charger.",
-            "output": "Bad review",
-            "explanation": "Here the translated sentences is not accepted by the human annotators hence it is considered negative examples having a bad review"
-        },
-        {
-            "input": "My children love Jake and the Neverland Pirates and as soon as I heard about this one on Pandora, they had to have it. So instead of getting it for Christmas, we waited until New Years Eve. When opening it, the back broke in 2 seconds, before my son could even put any cards into it, so he couldn't use it! We bought another just like mine, but he was still disappointed that didn't work either.",
-            "output": "Bad review",
-            "explanation": "Here the translated sentences is not accepted by the human annotators hence it is considered negative examples having a bad review"
+            "input": "This thing is so cheap that I had to send it back; don't buy. The screen doesn't reflect anything of it's own size on the wall. It has an extremely light blue hue and looks nothing like any normal light fixture. Not even close to as bright or crisp looking in person & obviously very CHEAP made. Just pay a little more for something better. You will be completely satisfied with this product.",
+            "output": "Good review",
+            "explanation":  "Here the review is Bad review as there is negtvie tone in the sentence but it has been output as Good Review so this example is negative"
         }
     ],
     "Instances": [
-        {
-            "input": "My son received this book as a gift. I was extremely disappointed. It is an old book, and the print quality and size are unreadable. At age 4, my 2 year old needs visual help to identify parts of his body at play. Maybe it would be OK for an older child with better sight. But don't waste your time or money. Go buy the new version called &#34;Brain Power--Make Sense Of Opposites&#34; instead.",
-            "output": [
-                "Bad review"
-            ]
-        },
-        {
-            "input": "This thing is so cheap that I had to send it back; don't buy. The screen doesn't reflect anything of it's own size on the wall. It has an extremely light blue hue and looks nothing like any normal light fixture. Not even close to as bright or crisp looking in person & obviously very CHEAP made. Just pay a little more for something better. You will be completely satisfied with this product. :D",
-            "output": [
-                "Bad review"
-            ]
-        },
         {
             "input": "I have used this product for a month now with no changes noted. It has however improved my appetite while it lasted. My stomach still rumbles when I'm taking them and the fiber is so fine you really seem to be swallowing pieces of your food. If they would come up with some new packaging that didn't make me gag, I'd buy them. However, they are not cheap but then again all sugar supplements are. And I don't eat a lot anyway. Just add water as needed and you're good.",
             "output": [
