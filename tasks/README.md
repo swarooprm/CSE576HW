@@ -13,4 +13,3 @@ Name | Summary | Category
 `task132_glue_sts-b_similarity_classification` | Classifying two sentence based on semantic similarity onthe scale of 0 - 5. | Classification
 `task133_glue_qnli_question_entailment_classification` | Classifying if the question entails the statement provide or not. | Classification
 `task134_glue_qnli_question_generation` | Generating question based on the statement provided | Question Generation
-`task135_glue_rte_inference_text_generation` | Generate a inference from the given a statement | Text Generation
