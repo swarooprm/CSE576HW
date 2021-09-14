@@ -11,4 +11,4 @@ Name | Summary | Category
 `task74_copa_hr_question_generation` | Generating questions (based on classla/copa_hr) | Question Generation
 `task75_copa_hr_answer_generation` | Generating answers (based on classla/copa_hr) | Answer Generation
 `task76_funsd_categorizing` | Categorizing (based on nielsr/FUNSD_layoutlmv2) | Classification
-`task77_funsd_category_count` | Count each category (based on nielsr/FUNSD_layoutlmv2) | Classification
+
