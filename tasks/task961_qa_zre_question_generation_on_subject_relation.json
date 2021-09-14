@@ -3,64 +3,64 @@
         "Yammanuru Abhilash Reddy"
     ],
     "Source": [
-        "Question & Answer zre"
+        "Question & Answer zre (http://nlp.cs.washington.edu/zeroshot/)"
     ],
     "Categories": [
-        "Conditional Question Generation"
+        "Question Generation"
     ],
-    "Definition": "You will be provided with three inputs context, subject, relation. Context literally refers to the  current context. Subject refers to the subject upon whom or what the question should be framed. Relation means relation of the question to the context. The task is, for a given context generate a question. The question generateion should follow the following rules. 1. Question should be answerable by looking at the Context. 2. Question should be straight forward. 3. question should include subject and should be constructed around relation. 4. Try to use minimal number of words which are not present in either context, subject or relation while generating question.",
+    "Definition": "The task is, for a given context generate a question based on subject and relation. You will be provided with three inputs : context, subject and relation. Subject refers to the subject upon whom the question should be framed. Relation means relation of the question to the context. The question generateion should follow the following rules. 1. Question should be answerable by looking at the Context. 2. Question should be straight forward. 3. Question should include subject and should be constructed around relation. 4. Try to use minimal number of words which are not present in either context, subject or relation while generating question.",
     "Positive Examples": [
         {
             "input": "Context : Isaac Nicola Romero (1916 in Havana, Cuba -- 1997) was a prominent Cuban guitarist and one of the founders of the modern Cuban Guitar School. \nSubject : Isaac Nicola \nRelation : place of birth",
             "output": "What was Isaac Nicola's city of birth?",
-            "explanation": "here the question is generated upon Isaac Nicola Romero who is the subject and the relation of question to the question is about the place of birth of Isaac Nicola Romero"
+            "explanation": "Here the question is generated upon Isaac Nicola Romero who is the subject and the relation of question to the context is about the place of birth of Isaac Nicola Romero. Hence generated question is correct"
         },
         {
             "input": "Context : Both Timur and Demir are popular male names in Turkey today. \nSubject : Timur \nRelation : noble title",
             "output": "What was the title that Timur held?",
-            "explanation": "Here the question is about Timur and the relation is about the title of the timur"
+            "explanation": "Here the question is about Timur and the relation of question to context is about the title of the timur. Hence generated question is correct"
         },
         {
             "input": "Context : In c.555 BCE Miltiades the Elder left Athens to establish a colony on the Thracian Chersonese (now the Gallipoli Peninsula), setting himself up as a semi-autonomous tyrant under the protection of Athens. \nSubject : Miltiades \nRelation : child",
             "output": "Who is the offspring of Miltiades?",
-            "explanation": "Miltiades is the subject here and the question is bout his child which is reffered in question as offspring"
+            "explanation": "Miltiades is the subject here and the question is about his child which is reffered in question as offspring. Hence output is a correct question"
         },
         {
             "input": "Context : A stranger interrupts a beach volleyball game and offering the player to join the ``Ocean Beach Volley'' worldwide tournament, to play against the best from eight other countries. \nSubject : Beach Volley \nRelation : developer",
             "output": "Who is originally behind the development of Beach Volley?",
-            "explanation": "Question is about developer of a game and the subject of the question is Ocean Beach Volley as reffered in input."
+            "explanation": "Question is about developer of a game and the subject of the question is Ocean Beach Volley as given in input. Hence the output question is correct"
         },
         {
             "input": "Context : John R. Allen, Jr. was born in Louisville, Kentucky, in 1935. \nSubject : John R. Allen, Jr. \nRelation : military rank",
             "output": "What along with privateer was John R. Allen, Jr.'s military rank?",
-            "explanation": "Here the question is about John R. Allen and the relation is about his military rank"
+            "explanation": "Here the question is about John R. Allen and the relation is about his military rank. Hence the output question is correct one"
         }
     ],
     "Negative Examples": [
         {
             "input": "Context : The Boeing 601 (sometimes referred to as the BSS-601, and previously as the HS-601) is a communications satellite bus introduced in 1987 by Hughes Space and Communications Company. \nSubject : Boeing 601 \nRelation : service entry",
             "output": "What is Boeing 601",
-            "explanation": "Althought the subject is Boeing 601. The relation of the output (generated question) is not service entry."
+            "explanation": "This is a wrong output. Although the subject is Boeing 601. The relation of the output (generated question) is not service entry."
         },
         {
             "input": "Context : In 1956 and 1957, the British and Commonwealth system of battle honours recognised participation in the Battle of Villers-Bocage by the award to 11 units of the battle honour Villers Bocage, for service in expanding the bridgehead from 8--15 June. \nSubject : Battle of Villers-Bocage \nRelation : point in time",
             "output": "who recognised participation in the Battle of Villers-Bocage",
-            "explanation": "here the subject is Battle of Villers-Bocage but the relation (ie: point in time) is different from the expected"
+            "explanation": "Here the subject is Battle of Villers-Bocage but the relation (ie: point in time) is different from the expected. Hence the generated question is wrong"
         },
         {
             "input": "Context : Love Unto Waste is a 1986 Hong Kong drama film directed by Stanley Kwan and starring Tony Leung, Irene Wan, Elaine Jin, Tsai Chin, Chow Yun-fat with guest appearances by Elaine Chow and Winnie Yu. \nSubject : Love Unto Waste \nRelation : narrative location",
             "output": "where did Stanley Kwan directed ?",
-            "explanation": "Here the Relation is as expected but the subject is different from what is required"
+            "explanation": "Here the Relation of output to context is as expected but the subject is different from what is required. Hence the generated question is wrong"
         },
         {
             "input": "Context : Extensible Hypertext Markup Language (XHTML) is part of the family of XML markup languages. \nSubject : XHTML \nRelation : standards body",
             "output": "expanded form of XHTML?",
-            "explanation": "Here the output generated didnt include both subject and relation"
+            "explanation": "Here the output generated didn't include both subject and relation. Hence the generated question is wrong"
         },
         {
             "input": "Context : Antonio Cur\u00f2 (21 June 1828, Bergamo -- 10 May 1906) was an Italian engineer and entomologist. \nSubject : Antonio Cur\u00f2 \nRelation : occupation",
             "output": "when did Antonio Cur\u00f2 born?",
-            "explanation": "Here the question generated have relation of date of birth but no occupation"
+            "explanation": "Here the question generated have relation as date of birth but not occupation. Hence the generated question is wrong"
         }
     ],
     "Instances": [
