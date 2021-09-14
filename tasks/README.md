@@ -12,4 +12,4 @@ Name | Summary | Category
 `task675_ohsumed_yes_no_numerical_answer_generation` | Generating Yes/No answer to Ohsumed dataset questions | Answer Generation
 `task676_onestop_english_readability_classification` | Generating labels to Onestop_english dataset texts | Text classification
 `task677_ohsumed_yes_no_answer_generation` | Generating Yes/No answers to Ohsumed dataset questions | Answer Generation
-`task678_ohsumed_question_answering` | Given a anstract and question, select the best answer from the given choices. | Answer Generation
+`task678_ohsumed_question_answering` | Given a abstract and question, select the best answer from the given choices. | Answer Generation
