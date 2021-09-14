@@ -11,3 +11,5 @@ Name | Summary | Category
 `task754_opus100_translation_gu_en` | Translate a sentence in Gujarati to English | Translation
 `task755_hind_encorp_translation_hi_en` | Translate a sentence in Hindi to English | Translation  
 `task756_hind_encorp_translation_en_hi` | Translate a sentence in English to Hindi | Translation
+`task757_sent_comp_classification` | Given text and headline classify if headline matches text or not | Classification
+`task758_sent_comp_summarization` | Given text generate summary about the text | Summarization
