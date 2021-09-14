@@ -7,3 +7,5 @@ Name | Summary | Category
 ---- | ----------- | --------
 `task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
+`task465_opus_xhosanavy_translation_eng_xhosa` | Translating sentences in English to Xhosa | Translation
+`task466_opus_xhosanavy_translation_khosa_eng` | Translating sentences in Xhosa to English | Translation
