@@ -10,5 +10,4 @@ Name | Summary | Category
 `task73_copa_hr_answer_generation` | Generating answers (based on classla/copa_hr) | Answer Generation
 `task74_copa_hr_question_generation` | Generating questions (based on classla/copa_hr) | Question Generation
 `task75_copa_hr_answer_generation` | Generating answers (based on classla/copa_hr) | Answer Generation
-`task76_funsd_categorizing` | Categorizing (based on nielsr/FUNSD_layoutlmv2) | Classification
-
+`task76_copa_hr_question_generation` | Generating questions (based on classla/copa_hr) | Question Generation
