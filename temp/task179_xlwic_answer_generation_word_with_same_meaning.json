@@ -1,0 +1,857 @@
+{
+    "Contributors": [
+        "Ananth Duggirala"
+    ],
+    "Source": [
+        "xlwic"
+    ],
+    "Categories": [
+        "Answer Generation"
+    ],
+    "Definition": "In this task, you are given a word, followed by a sentence. You should respond with a valid sentence which contains the word with the same meaning as in the given sentence. For example, if the given sentence refers to a 'fly' (the insect), you should not respond with a sentence which uses 'fly' (the verb). You may use the word in a different tense than is given. For example, you may use the word 'ended' in a sentence where the given word is 'end'.",
+    "Positive Examples": [
+        {
+            "input": "dust: Another one bites the dust.",
+            "output": " The maid used a handkerchief to remove dust off the table.",
+            "explanation": "In both sentences, the word 'dust' refers to sand, and therefore the words share the same meaning."
+        },
+        {
+            "input": "airplane: The passengers went into a frenzy as the airplane lurched sideways.",
+            "output": "The airplane landed on the runway.",
+            "explanation": "In both sentences, airplane is used to refer to the same entity, a vehicle used for aerial transportation."
+        },
+        {
+            "input": "driver: The driver of the bus took his foot off the brakes.",
+            "output": "The driver asked the passengers to disembark.",
+            "explanation": "In both sentences, the word 'driver' is used for a person who is in charge of driving a vehicle."
+        },
+        {
+            "input": "small: The kid was too small to be able to board the rollercoaster.",
+            "output": "Ants are very small creatures.",
+            "explanation": "In both sentences, 'small' is used to refer to size."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "ruler. The headmistress struck the table with a ruler.",
+            "output": "The ruler decided to change taxation laws in his province.",
+            "explanation": "The word 'ruler' has a different meaning in both sentences. In the first sentence, it refers to a measuring stick, and in the latter it refers one that rules, such as a king. Therefore, the answer is incorrect."
+        },
+        {
+            "input": "project: Several classmates collaborated on a project.",
+            "output": "The professor projected a slide onto the screen.",
+            "explanation": "In both sentences, the word 'project' is used with a different meaning, an undertaking of an activity, and to appear on a surface by the controlled direction of light, respectively. Therefore, the answer is incorrect."
+        },
+        {
+            "input": "sound. The sound reverberated across the hall.",
+            "output": "Asleep fell baby sound.",
+            "explanation": "The sentence is grammatically incorrect."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "air: I need some fresh air.",
+            "output": [
+                "A smell of chemicals in the air."
+            ]
+        },
+        {
+            "input": "set: Set up an experiment.",
+            "output": [
+                "Set the table."
+            ]
+        },
+        {
+            "input": "stop: His next stop is Atlanta.",
+            "output": [
+                "They agreed to see each other at the bus stop."
+            ]
+        },
+        {
+            "input": "field: He planted a field of wheat.",
+            "output": [
+                "There were some cows grazing in a field."
+            ]
+        },
+        {
+            "input": "play: Play the casinos in Trouville.",
+            "output": [
+                "Play the races."
+            ]
+        },
+        {
+            "input": "drink: He jumped into the drink and had to be rescued.",
+            "output": [
+                "If he doesn't pay off the mafia, he'll wear cement shoes to the bottom of the drink!"
+            ]
+        },
+        {
+            "input": "check: He paid all his bills by check.",
+            "output": [
+                "I was not carrying cash, so I wrote a check for the amount."
+            ]
+        },
+        {
+            "input": "check: Check the brakes.",
+            "output": [
+                "Check out the engine."
+            ]
+        },
+        {
+            "input": "use: Use the plastic bags to store the food.",
+            "output": [
+                "We only use Spanish at home."
+            ]
+        },
+        {
+            "input": "land: The plane is about to land.",
+            "output": [
+                "The ship landed in Pearl Harbor."
+            ]
+        },
+        {
+            "input": "work: This dough does not work easily.",
+            "output": [
+                "The soft metal works well."
+            ]
+        },
+        {
+            "input": "shade: After several trials he mixed the shade of pink that she wanted.",
+            "output": [
+                "I've painted my room in five lovely shades of pink and chartreuse."
+            ]
+        },
+        {
+            "input": "line: I tried to make a call, but the line was dead.",
+            "output": [
+                "A dedicated line."
+            ]
+        },
+        {
+            "input": "trust: We can trust in God.",
+            "output": [
+                "In God We Trust -- written on denominations of US currency."
+            ]
+        },
+        {
+            "input": "play: Play football.",
+            "output": [
+                "He plays on three teams."
+            ]
+        },
+        {
+            "input": "run: The sale will run for ten days.",
+            "output": [
+                "The contract runs through 2008."
+            ]
+        },
+        {
+            "input": "post: He occupied a post in the treasury.",
+            "output": [
+                "Sent via post."
+            ]
+        },
+        {
+            "input": "land: The plane turned away from the sea and moved back over land.",
+            "output": [
+                "They come from a faraway land."
+            ]
+        },
+        {
+            "input": "line: In line with.",
+            "output": [
+                "He got out of line."
+            ]
+        },
+        {
+            "input": "wash: He managed to wash out the stains.",
+            "output": [
+                "The car is so dirty, we need to wash it."
+            ]
+        },
+        {
+            "input": "rub: Rub oil into her skin.",
+            "output": [
+                "I rubbed my hands together for warmth."
+            ]
+        },
+        {
+            "input": "exercise: Some parents exercise their infants.",
+            "output": [
+                "This puzzle will exercise your mind."
+            ]
+        },
+        {
+            "input": "orbit: Electrons orbit the nucleus.",
+            "output": [
+                "The moon orbits around the Earth."
+            ]
+        },
+        {
+            "input": "lift: He gave me a lift to the bus station.",
+            "output": [
+                "He gave me a lift home."
+            ]
+        },
+        {
+            "input": "air: Air out the smoke-filled rooms.",
+            "output": [
+                "Air the old winter clothes."
+            ]
+        },
+        {
+            "input": "range: We hiked through the Andes mountain range.",
+            "output": [
+                "The valley was between two ranges of hills."
+            ]
+        },
+        {
+            "input": "air: Air pollution.",
+            "output": [
+                "The flock of birds took to the air."
+            ]
+        },
+        {
+            "input": "make: This invention will make you a millionaire.",
+            "output": [
+                "He made a fool of himself at the meeting."
+            ]
+        },
+        {
+            "input": "look: My backyard look onto the pond.",
+            "output": [
+                "The house looks north."
+            ]
+        },
+        {
+            "input": "cut: Cut a ticket.",
+            "output": [
+                "Cut orders."
+            ]
+        },
+        {
+            "input": "fire: They retreated in the face of withering enemy fire.",
+            "output": [
+                "Hold your fire until you can see the whites of their eyes."
+            ]
+        },
+        {
+            "input": "play: Play sports.",
+            "output": [
+                "Pele played for the Brazilian teams in many important matches."
+            ]
+        },
+        {
+            "input": "head: The head of the list.",
+            "output": [
+                "The head of the stairs."
+            ]
+        },
+        {
+            "input": "head: A reduction in the assessment per head of sheep.",
+            "output": [
+                "At five years of age this head of cattle is worth perhaps $40."
+            ]
+        },
+        {
+            "input": "break: Did you two break the trolley by racing with it?",
+            "output": [
+                "The bus we travelled in broke down on the way to town."
+            ]
+        },
+        {
+            "input": "work: Do you want to work after the age of 60?",
+            "output": [
+                "Is your husband working again?"
+            ]
+        },
+        {
+            "input": "feel: The sheets feel soft.",
+            "output": [
+                "The ground feels shaky."
+            ]
+        },
+        {
+            "input": "call: He placed a phone call to London.",
+            "output": [
+                "She reported several anonymous calls."
+            ]
+        },
+        {
+            "input": "order: Law and order.",
+            "output": [
+                "The house is in order."
+            ]
+        },
+        {
+            "input": "work: The voting process doesn't work as well as people thought.",
+            "output": [
+                "The medicine works only if you take it with a lot of water."
+            ]
+        },
+        {
+            "input": "run: He went to Las Vegas and spent all his money over a three-day run.",
+            "output": [
+                "I'm having a run of bad luck."
+            ]
+        },
+        {
+            "input": "face: He washed his face.",
+            "output": [
+                "She has a pretty face."
+            ]
+        },
+        {
+            "input": "make: One swallow does not a summer make.",
+            "output": [
+                "Clothes make the man."
+            ]
+        },
+        {
+            "input": "drop: He had a drop too much to drink.",
+            "output": [
+                "A drop of each sample was analyzed."
+            ]
+        },
+        {
+            "input": "pull: Pull the trigger of the gun.",
+            "output": [
+                "Pull the handle towards you."
+            ]
+        },
+        {
+            "input": "line: A shared line.",
+            "output": [
+                "A dedicated line."
+            ]
+        },
+        {
+            "input": "snap: To snap a whip.",
+            "output": [
+                "Snap your fingers."
+            ]
+        },
+        {
+            "input": "drag: The waitresses looked like missionaries in drag.",
+            "output": [
+                "He went to the party dressed in drag."
+            ]
+        },
+        {
+            "input": "break: The newsman wanted to break a big story, something that would make him famous.",
+            "output": [
+                "When news of their divorce broke, ..."
+            ]
+        },
+        {
+            "input": "camp: We're planning to camp in the field until Sunday.",
+            "output": [
+                "Can we go camping again this summer?"
+            ]
+        },
+        {
+            "input": "use: Use your head!",
+            "output": [
+                "I can't use this tool."
+            ]
+        },
+        {
+            "input": "run: Run a new program on the Mac.",
+            "output": [
+                "They ran twenty blood tests on me and they still don't know what's wrong."
+            ]
+        },
+        {
+            "input": "fit: How does this shirt fit?",
+            "output": [
+                "If I lose a few kilos, the gorgeous wedding dress might fit me."
+            ]
+        },
+        {
+            "input": "work: He could not work the math problem.",
+            "output": [
+                "This unpleasant situation isn't going to work itself out."
+            ]
+        },
+        {
+            "input": "make: Don't make this into a big deal.",
+            "output": [
+                "This invention will make you a millionaire."
+            ]
+        },
+        {
+            "input": "head: They shot 20 head of quail.",
+            "output": [
+                "200 head of cattle."
+            ]
+        },
+        {
+            "input": "leave: She was granted leave to speak.",
+            "output": [
+                "Might I beg leave to accompany you?"
+            ]
+        },
+        {
+            "input": "leave: She was granted leave to speak.",
+            "output": [
+                "The applicant now seeks leave to appeal and, if leave be granted, to appeal against these sentences."
+            ]
+        },
+        {
+            "input": "play: We saw a two-act play in the theatre.",
+            "output": [
+                "He wrote several plays but only one was produced on Broadway."
+            ]
+        },
+        {
+            "input": "line: A shared line.",
+            "output": [
+                "I tried to make a call, but the line was dead."
+            ]
+        },
+        {
+            "input": "back: The horse refuses to back.",
+            "output": [
+                "The wind backed."
+            ]
+        },
+        {
+            "input": "run: The sale will run for ten days.",
+            "output": [
+                "The film runs 5 hours."
+            ]
+        },
+        {
+            "input": "run: Run a new program on the Mac.",
+            "output": [
+                "My computer is too old to run the new OS."
+            ]
+        },
+        {
+            "input": "range: My students range from very bright to dull.",
+            "output": [
+                "Estimates for the losses in the earthquake range as high as $2 billion."
+            ]
+        },
+        {
+            "input": "check: Katie's sick, so I need to check up on her and see if she needs anything.",
+            "output": [
+                "Check whether this page has a watermark."
+            ]
+        },
+        {
+            "input": "play: Play sports.",
+            "output": [
+                "Who's playing now?"
+            ]
+        },
+        {
+            "input": "round: Round off the amount.",
+            "output": [
+                "The total is $25,715 but to keep the figures simple, I'll round it down to $25,000."
+            ]
+        },
+        {
+            "input": "play: Play the stock market.",
+            "output": [
+                "They played games on their opponents."
+            ]
+        },
+        {
+            "input": "start: I start my day with a good breakfast.",
+            "output": [
+                "Who started this company?"
+            ]
+        },
+        {
+            "input": "fill: He ate his fill of potatoes.",
+            "output": [
+                "Don't feed him any more: he's had his fill."
+            ]
+        },
+        {
+            "input": "feel: I made the students feel different about themselves.",
+            "output": [
+                "You make me feel naked."
+            ]
+        },
+        {
+            "input": "catch: I have to stop for a moment and catch my breath.",
+            "output": [
+                "Catch one's breath."
+            ]
+        },
+        {
+            "input": "crash: Will the stock market crash again?",
+            "output": [
+                "The economy crashed."
+            ]
+        },
+        {
+            "input": "stone: People wanted to stone the woman who had a child out of wedlock.",
+            "output": [
+                "She got stoned to death after they found her."
+            ]
+        },
+        {
+            "input": "run: The play had a long run on Broadway.",
+            "output": [
+                "The team enjoyed a brief run of victories."
+            ]
+        },
+        {
+            "input": "head: The head of the page.",
+            "output": [
+                "The head of the stairs."
+            ]
+        },
+        {
+            "input": "work: I will work hard to improve my grades.",
+            "output": [
+                "They worked on the task."
+            ]
+        },
+        {
+            "input": "hit: I have to hit the MAC machine before the weekend starts.",
+            "output": [
+                "Jones hit for the pitcher."
+            ]
+        },
+        {
+            "input": "make: He will make a fine father.",
+            "output": [
+                "He makes a great host."
+            ]
+        },
+        {
+            "input": "break: I don't know how to break this to you, but your cat is not coming back.",
+            "output": [
+                "The newsman wanted to break a big story, something that would make him famous."
+            ]
+        },
+        {
+            "input": "face: He managed to show a bold face despite his embarrassment.",
+            "output": [
+                "The face of this company."
+            ]
+        },
+        {
+            "input": "start: I start my day with a good breakfast.",
+            "output": [
+                "The blood shed started when the partisans launched a surprise attack."
+            ]
+        },
+        {
+            "input": "patch: I lost my locket in this patch of grass here.",
+            "output": [
+                "Doesn't that patch of clouds looks like a bunny?"
+            ]
+        },
+        {
+            "input": "fill: Don't feed him any more: he's had his fill.",
+            "output": [
+                "She had heard her fill of gossip."
+            ]
+        },
+        {
+            "input": "break: This play will either make or break the playwright.",
+            "output": [
+                "His peccadilloes finally broke his marriage."
+            ]
+        },
+        {
+            "input": "cut: Everyone got a cut of the earnings.",
+            "output": [
+                "The lawyer took a cut of the profits."
+            ]
+        },
+        {
+            "input": "stand: We had to stand for the entire performance!",
+            "output": [
+                "The statue stood on the corner."
+            ]
+        },
+        {
+            "input": "range: Estimates for the losses in the earthquake range as high as $2 billion.",
+            "output": [
+                "The instruments ranged from tuba to cymbals."
+            ]
+        },
+        {
+            "input": "water: The town debated the purification of the water supply.",
+            "output": [
+                "First you have to cut off the water."
+            ]
+        },
+        {
+            "input": "play: Play football.",
+            "output": [
+                "Play cards."
+            ]
+        },
+        {
+            "input": "lift: Lift my spirits.",
+            "output": [
+                "Lift his ego."
+            ]
+        },
+        {
+            "input": "poison: Gossip is a malicious poison.",
+            "output": [
+                "The poison of fascism."
+            ]
+        },
+        {
+            "input": "make: Make a move.",
+            "output": [
+                "Make advances."
+            ]
+        },
+        {
+            "input": "fall: Fall prey to an imposter.",
+            "output": [
+                "They fell out of favor."
+            ]
+        },
+        {
+            "input": "line: Please speak up, the line is very faint.",
+            "output": [
+                "I tried to make a call, but the line was dead."
+            ]
+        },
+        {
+            "input": "wash: He managed to wash out the stains.",
+            "output": [
+                "Can you wash away the spots on the windows?"
+            ]
+        },
+        {
+            "input": "patch: A cabbage patch.",
+            "output": [
+                "A briar patch."
+            ]
+        },
+        {
+            "input": "orbit: Electrons orbit the nucleus.",
+            "output": [
+                "The planets are orbiting the sun."
+            ]
+        },
+        {
+            "input": "rub: Rub my hands.",
+            "output": [
+                "Rub oil into her skin."
+            ]
+        },
+        {
+            "input": "top: He stared as she buttoned her top.",
+            "output": [
+                "I bought this top as it matches my jeans."
+            ]
+        },
+        {
+            "input": "break: Break a promise.",
+            "output": [
+                "Break a law."
+            ]
+        },
+        {
+            "input": "break: The newsman wanted to break a big story, something that would make him famous.",
+            "output": [
+                "News of her death broke in the morning."
+            ]
+        },
+        {
+            "input": "make: Make clay into bricks.",
+            "output": [
+                "Make water into wine."
+            ]
+        },
+        {
+            "input": "cover: Cover her face with a handkerchief.",
+            "output": [
+                "Cover the child with a blanket."
+            ]
+        },
+        {
+            "input": "lift: You never lift a finger to help me!",
+            "output": [
+                "Lift a load."
+            ]
+        },
+        {
+            "input": "stuff: The stuff of heros.",
+            "output": [
+                "You don't have the stuff to be a United States Marine."
+            ]
+        },
+        {
+            "input": "fall: Fall into a trap.",
+            "output": [
+                "She fell ill."
+            ]
+        },
+        {
+            "input": "back: He wrote the date on the back of the photograph.",
+            "output": [
+                "I hung the clothes on the back of the door."
+            ]
+        },
+        {
+            "input": "block: Block an attack.",
+            "output": [
+                "He blocked the basketball player's shot."
+            ]
+        },
+        {
+            "input": "run: I will run the sample.",
+            "output": [
+                "Our coach had us running plays for the whole practice."
+            ]
+        },
+        {
+            "input": "face: Dew dripped from the face of the leaf.",
+            "output": [
+                "She wanted to wipe him off the face of the earth."
+            ]
+        },
+        {
+            "input": "cut: Cut the songs.",
+            "output": [
+                "She cut all of her major titles again."
+            ]
+        },
+        {
+            "input": "head: 12 head of big cattle and 14 head of branded calves.",
+            "output": [
+                "At five years of age this head of cattle is worth perhaps $40."
+            ]
+        },
+        {
+            "input": "touch: She didn't touch her food all night.",
+            "output": [
+                "Are you all right? You've hardly touched your lunch."
+            ]
+        },
+        {
+            "input": "make: She may not make the grade.",
+            "output": [
+                "We made it!"
+            ]
+        },
+        {
+            "input": "block: The store is huge, occupying an entire city block.",
+            "output": [
+                "He lives in the next block."
+            ]
+        },
+        {
+            "input": "check: Place a check by the things you have done.",
+            "output": [
+                "Put a check mark in the box corresponding to the correct answer."
+            ]
+        },
+        {
+            "input": "wave: A wave of conservatism in the country led by the hard right.",
+            "output": [
+                "There was a sudden wave of buying before the market closed."
+            ]
+        },
+        {
+            "input": "work: I will work hard to improve my grades.",
+            "output": [
+                "John worked with Paul on the task."
+            ]
+        },
+        {
+            "input": "break: Break down a proof.",
+            "output": [
+                "Break an alibi."
+            ]
+        },
+        {
+            "input": "drop: There is not a drop of pity in that man.",
+            "output": [
+                "Put three drops of oil into the mixture."
+            ]
+        },
+        {
+            "input": "crack: Open the door a crack.",
+            "output": [
+                "We managed to squeeze through a crack in the rock wall."
+            ]
+        },
+        {
+            "input": "break: Break a lucky streak.",
+            "output": [
+                "Break the cycle of poverty."
+            ]
+        },
+        {
+            "input": "run: Run a new program on the Mac.",
+            "output": [
+                "Run the dishwasher."
+            ]
+        },
+        {
+            "input": "work: I will work hard to improve my grades.",
+            "output": [
+                "They worked at finishing the task."
+            ]
+        },
+        {
+            "input": "run: Let the dogs run free.",
+            "output": [
+                "Who are these people running around in the building?"
+            ]
+        },
+        {
+            "input": "field: A crop circle was made in a corn field.",
+            "output": [
+                "He planted a field of wheat."
+            ]
+        },
+        {
+            "input": "ground: They gained ground step by step.",
+            "output": [
+                "They fought to regain the lost ground."
+            ]
+        },
+        {
+            "input": "work: Work your way through every problem or task.",
+            "output": [
+                "She was working on her second martini when the guests arrived."
+            ]
+        },
+        {
+            "input": "support: He does not support his natural children.",
+            "output": [
+                "The scholarship supported me when I was in college."
+            ]
+        },
+        {
+            "input": "make: To make like a deer caught in the headlights.",
+            "output": [
+                "Make merry."
+            ]
+        },
+        {
+            "input": "feel: My cold is gone -- I feel fine today.",
+            "output": [
+                "She felt sad after her loss."
+            ]
+        },
+        {
+            "input": "trust: We can not trust anyone who deceives us.",
+            "output": [
+                "In God We Trust-written on denominations of US currency."
+            ]
+        },
+        {
+            "input": "break: Can you break a hundred-dollar bill for me?",
+            "output": [
+                "The wholesaler broke the container loads into palettes and boxes for local retailers."
+            ]
+        }
+    ]
+}
