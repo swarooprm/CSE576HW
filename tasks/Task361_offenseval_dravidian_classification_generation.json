@@ -1,0 +1,2574 @@
+{
+   "Contributors":[
+      "Mamatha Juluru"
+   ],
+   "Source":[
+      "offenseval_dravidian"
+   ],
+   "Categories":[
+      "Classification Generation"
+   ],
+   "Input Language":[
+      "Tamil"
+   ],
+   "Target Language":[
+      "English"
+   ],
+   "Definition":"In this task, you're given tamil statements that contain mentions of names of people, places, or things. Some of these mentions refer to the same person, place, or thing. Your job is to evaluate one's understanding of such references and classify them based on their rating of offensiveness. Good questions are expected to predict the offensiveness of the statement based on mentions to people, places, or things to which they may refer.  Good questions are expected to predict the offensiveness of the statement based on mentions to people, places, or things to which they may refer. \nInteger from 0 to 5 that corresponds to these values: 0. Not_offensive 1. Offensive_Untargetede 2. Offensive_Targeted_Insult_Individual 3. Offensive_Targeted_Insult_Group 4. Offensive_Targeted_Insult_Other 5. not-Tamil. \nThings to avoid: 1. Avoid questions that can be answered correctly without actually understanding the paragraph. 2. Avoid questions that do not link phrases referring to the same entity, 3. Avoid questions that have multiple answers. \n\nEmphasis & Caution: 1. For each of your questions the answer should be one or more phrases in the paragraph, 2. The answer for each question should be unambiguous. ",
+   "Positive Examples":[
+      {
+         "input":"Handsome hunk  keri vaa thalaivaa",
+         "output":"0",
+         "explanation":"The prediction of offensiveness is based on the following sentence \"Handsome hunk  keri vaa thalaivaa\". It evaluates the understanding that the adjective \"Handsome\" is offensive to any gender or thing or place in the sentence. You can ask questions like this one about offensiveness in a paragraph."
+      },
+      {
+         "input":"Serupadi too Kuruma and Kunjith Kadhal nadaka group.. dae unma vanthuruchu da  ini unga nadakam la sellathu",
+         "output":"3",
+         "explanation":"The prediction of offensiveness is based on the following sentence \"Serupadi too Kuruma and Kunjith Kadhal nadaka group.. dae unma vanthuruchu da  ini unga nadakam la sellathu\". The statement is an insult from one person to another person/group stating that the first person would hit the other as their facade is brought down. Since the statement include negative comments and insult to an entire group of people, it is an offensive statement."
+      },
+      {
+         "input":"Crime movie kagave pakanum da...un munji pakavarala",
+         "output":"2",
+         "explanation":"The prediction of offensiveness is based on the following sentence in the passage \"Crime movie kagave pakanum da...un munji pakavarala\". The statement is a negative comment about a person/individual's face. So, the statement is offensive for a particular individual."
+      }
+   ],
+   "Negative Examples":[
+      {
+         "input":"Vera level BGM .. semma  trailer. 🤞",
+         "output":"2",
+         "explanation":"The statement is a positive comment about a movie and it background music. This would be a negative example because it is not offensive to any individual or group or thing and it is classified as as offensive statement targetting an individual."
+      },
+      {
+         "input":"திருப்பத்தூர் மாவட்ட வன்னியர் சார்பாக இப்படம் வெற்றி பெற வாழ்த்துகள்",
+         "output":"3",
+         "explanation":"The prediction of offensiveness is based on the sentence \"திருப்பத்தூர் மாவட்ட வன்னியர் சார்பாக இப்படம் வெற்றி பெற வாழ்த்துகள்\".  The statement is a positive comment on the success of a film. This is a negative example because the output classifies it as an offensive statement targetting a a group but in fact, it is a positive statement."
+      },
+      {
+         "input":"Waiting ...ne va thala.....sila nayigal kuraikkathan seiyum",
+         "output":"3",
+         "explanation":"The prediction of offensiveness is based on a negative comment on dogs. The statement is a negative example because it is an offensive statetemnt not targetting any particular individual/group but it is classified as a offensive statement targetting a particular individual."
+      }
+   ],
+   "Instances":[
+    {
+        "input": "Enneggeda innu mukkitte irukkiringge views n likes still not increase",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Enaku enamo ella kadhaiyum kalandha madhiri oru feeling",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "paavam amayan fans rombhe aadareenge.but deepavalikku unge nilamaya ninaicha ayyo pavam",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Thampi mayilvahanam njan  thala aleda thala edukunavan",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Gv Prakash aniruth youvan ar.rahman ithunapear iruikumpodhu yella patathukkum adicha musica adippan Harris jeyaraj veast",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Sudu kattukkulla poravan pogum pothey ponama thaan povan......",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "She is not looking like jaylalita at all!!!",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "அய்யா A P J Abdul Kalam Avargale intha Tamilnadu la 2020 illa innum 3000 vanthaalum thiruintha maataanuinga inum Jaathi Jaathi nu solli intha generationium infect panraanuinga tamizhum jaathium onnru illai enratha epa thaan purinjika pooraanuinga loo intha maari director iku laam kadumaiyaana  thandanai tharanum",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "first time trailer skip panni pakka vachutingalgada",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Veripuducha directer ippo thanda Ellam Onna irukum unnakelam manasachiya illayada nayyae. Ippadi jathiya thirumba konduvarrapakuriya da Nee",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "சொல்லவே வேண்டாம் படம் மொக்கயாத இருக்கும் .... சாதி பாத்துலாம்... சொல்ல...  சாதி வைத்துதான் ஓடும்... நானேபோய்  பார்பேன்... உண்மையில் என்ன பிரச்சினை என்று பார்க்க..",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Oru reksha illatha item.... ith pwlikkum.... suryaaaa🤩🤩🤩🤩🤩🤩🤩🤩🤩🤩🤩🤩🤩🤩🤩",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Entha theyuudiya payana da dislike poduran enna pundiku da nee pakkura otha kuthi",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Can\\\\\"t wait to see Feeling #Thalapathy64....Lokesh uuu Nee vaaya vaaya.....Ithey fire oda vaa....",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "KAITHI WILL BE BEAT BIGIL SURE",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Oru abaliyaa irrunthaa  anthaa Marii ponugalla maathii kattu daa pappoo ...",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Lalappn ullathond padam 8 nilayil pottum",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Sema style... Summa ye Dislike panranugalo!!!",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Amy jackson ah vachu epdi u certificate film eduthanga. Chinna pasangala keduka trick ah",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "film paan sih anying napa trend di indo?",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Enaku mattum than lingaa maari ithu agidumo nu thonutha",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Who\\\\\"s here after bigil trailer",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "நாகப்பதனி சமுதாயம் சார்பாக படம் வெற்றியடைய வாழ்த்துக்கள்...",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "60k views but 105k likes how is possible",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Who is here after kaappaan trailer??",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "தலித் சமூகம் சார்பாக இப்படம் பிரம்மாண்ட வெற்றி அடைய வாழ்த்துக்கள்",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Velayutham movie feeling vandhavanga like podunga",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Actually indha maari oru padam dhaan thala kitta irundhu expect panninom..",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "சிறுத்தை குட்டீங்க பாவம் ரொம்ப கதறிட்டு இருக்கானுங்க போல த்தா உங்களுக்காகவே வச்சு செஞ்சிருக்கோம்டி 🤗 #Thirunthi_TholaingaDa",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Saravanan sir vetri maran padathula nalla role nadinga sir vera level",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "அடிச்ச திருப்பி அடிக்கிறவா தா ட சத்ரியன்  ஜாதி கள் வேணும் அடி பாப்பா",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Jai Rgv  Jai kamma rajyam lo kadapa redlu 🥰🥰🥰🥰",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Hmm poti potu like and dislike panradhulam oru recordaa adapavingala...",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Online streaming rights endha app vangirukanga???",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Kuch samaj ma nahi aya lekin jo v dekha acha laga.",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Aduchu Underwearoda odaa vitruvan.......... to viswasam",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Kappan teaser awesome stunning visuals Hollywood movie tough kudukum",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Kosu adikara machine... padam pathavangaluku mattun than puriyum",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Dislike potavan soothula Katti vanthu savaan",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Droupathi 5 perau kuda padutha thevdiya aavala oru aalu punda",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "#  #  #  # #  #  #  #     Yesus Kristus adalah Anak Allah, yang mati dan bangkit semula dari kubur untuk Beri kami hidup yang kekal. Beliau juga berjanji untuk merawat badan anda. Ini adalah cinta sejati !!! (Hanya meminta kepada-Nya)",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Poda loosu paualey.. ivanala vachi Padam edekarankeley",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "it\\\\\"s wate now vivegam is king",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "This movie seems like cartoon movie",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Bigil veda kaithi tha semma movie",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "intha vj thevangu fans tholla thangala.enda ungalukku ipdi oru padathu kodukkavum mudiyathi atleast anthamathiri padatha troll pannama irunga da,ungalukkellam intha puli ,sura,bhirava thanda crt.poramapudicha pundainga vj fans",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Mersal record\\\\\"ah pathu Thala fans\\\\\"ko ila Vivegam Record\\\\\"ah Paathu Thalapathy Fans\\\\\"ko kadupperudho ilayo  Bollywood Pani Puri vaayanunga paatha seththe poiruvaanunga !   #SouthIndianCinema  #Kollywood  #ThalaThalapathy",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Ivana othu thaldrathukagave trend aakiranga pola iruku",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Nadicha pothu Vera Vena. , Arasiyal Vena",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "100 thilalangadi seandha maari irukkumnu thonuthu Anna 2 tea oru dham..Change kudunga.. Dai idhuve change thaanda🤣🤣",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "ada popa , unaku vera illaya",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "I am Kamal Sir Fanzz but i like  2.0 trailer.... waiting fr 2.0 Movie",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "நல்ல மனிதரான ரஜினியை கிண்டல் பண்றிங்களா டா படம் கண்டிப்பா ஓடாது",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Pink movie remake .....but nice one",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "ஏண்டா இப்படி லூசு தனமா டைரக்ட் பண்ணுவீங்க?!!! Very very poor",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Remake of the short film kekka bekka kekka bekka",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Unlike pannava ava amma ellam item tha Thevadiyanga pasangala Ungamma koothingala kilichiduvan",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "gommala makku kuuthi 1996 la enga da puthiya thalaimurai irunthuchu lusu kuthigala ithukku support vera",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "ennangadaa 2 days ku munna trending la vandhirundhaa inneram 20 m cross aagirukkum. evan paatha vela daa idhu",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Marvel DC lam orama pongada!! Enga tamil cinemavuku nu oru HERO vanthachu",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Telugu Vijay fans like vesukondi siara chusina vallu",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Ilayaraja aduthavanga music ah edutha aanmai illayadhavan nu sonnaru but avaru en eduthaaru🤣🤣",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Haters ida neega unlike pandringa thalaivara Sona Madre unga oda vida poguraru petta marana masss",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Ithula vara visual mattumey full aa film pannirunthaaley movie hit aayirukum",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Tio tok se kon aya h",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "VINTAGE DHANUSH  VINTAGE VETRIMAARAN VINTAGE GV PRAKASH   MARANA WAITING , GET READY NATIONAL AWARD JURY",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "தமிழ்நாடு  கவரகுலத்தோர் நாயுடு சமூகத்தார்கள் சார்பாக வாழ்த்துக்கள்",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "So pore I don\\\\\"t like it",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "remove pannungo Rajini sir oda sin gala komali team",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Tha padamna rajiniya vechii ipdi edugada..atha v2tu epa pathalu urrunu irukuramathiri edukathingada..",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "ஜெய் பீ என்று ஒவ்வொரு கமெண்டிலும் கதறிக்கொண்டே சென்றார் அந்த அப்பாவி டோலர்...",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Pink movie ka remake k kya",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Ye movie hindi me bhi release karo",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Amma nu solitu kadasiya chinnamava katringa",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Rajni: ethuku eduthalum poratama KV Anand: poradrathu thapuna poradra soolnilai uruvakrathum thappu than ....",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "அட அரை மென்டல் s உங்களா 4000000 பெரியார், பாரதியார், Ambedkar வந்தாலும் திருத்த முடியாது",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Ena da amma va kaatranu kanda karumatha laan kaatrenga",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "இன்னும் எத்தனை நாளைக்கு தாண்டா மேல் சாதி, கீழ் சாதி னு படங்கள் மூலமா மக்கள் கிட்ட பிரிவினைய உண்டாக்குவீங்க???? ஆஸ்பத்திரி ல மத்தவங்க குடுக்குற ரத்தத்துல மட்டும் இன்னும் நீங்க சாதி ய பார்க்கல??? சாதி மயி**னு",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "செல்வா உனக்கு தோல்வி கொடுத்தது எல்லாம் சேர்த்து வச்சி கொண்டாட காத்திருக்கோம்...90s kids favourite director da ni.",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "கொல்லிக்கட்டையை வச்சி காதல தீச்சி விட்டுங்க தொல்லையே இருக்காது.",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Correct. Enga apa military da oodi vilaiyada solli tharuvaaaayaa",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "1.boll cheet ipadi niriyaniriya niriya 2.apdiyelam nadakthu i like both dialogues inortharuku viswasam katrathukaga inorthara en asngapaduthringa",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Thalaivaaaaaaaaaaa   Alludhu style.u...Maassss......   Vaera evanavadhu irundhaa Apadiyae vodi poiduu..   Rajinified",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Once illayaraja said ... Enoda musica permission ellama movie la poodurava aanmai ellathava ...       Me : Yeeethukkuuu !",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Yaaara andha dislike poaata rasana ktavaga",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Ean da ipadi koduma panriga Samutharakani ya romance panavachi engala kolriga",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Enna da idhu superstar ah ye ipdi ootirukeenga  athuvum vayathaana super star endrum paaraamal.... Promising trailer first week eh pakanum mudinja first day ve pakanum",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Ambedkar bday annaiku sabadham yedutha mutta David pasangala...ungalukudhan indha drawpathi....",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "E movie ni telugu lo release chayadandhi sir",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Animated movie to nhi na kangana dikhne me waisi lagri",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Padam polikum orurakshayum kanilla surya  lalatan  Best com waiting.....................",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Semmmaiya iruku ..nalla yosichu eduthu irukanga",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Ennathaan vayasaanalum thalaivar style um(2:07) nakkal um(2:14) korayave karaiyaadhu....",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "மேல் ஜாதி பெண்களை மேல் ஜாதி காரர்கள் காதலித்தால் அது புனித காதல் தலித் காதலித்தால் நாடக காதல் பொள்ளாச்சி சம்பவம் பன்னியவர்கள் என்ன ஜாதி",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "2109 BlockBuster list la kaithi  kandippa varum",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Innum neraya neraya neraya pakka poringa #Thala swag",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "அமாண்ட இப்ப மட்டும் படத்துக்காக நல்லா வசனமா அடிச்சு விடுங்க,,,,  பொது பிரட்சனைகக்கு மட்டும் வாய திறக்காதீங்க...   த்துதுது",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Athula yeanda karnan ne ezhukkura thevdiya payya",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "உனக்கு வந்தா இரத்தம் எங்களுக்கு தக்காளி சட்னியா...... இது ஆரம்பம் தான். வெற்றி பயனம் தொடரட்டும்........",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Comment section full ah orey saathi pundaya irukku",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Idhu oru padam poda punda pasangala...ithuuuuuu",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Mass ah iruka pothu ha ha ha",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Eppadiyum Pondadiya thaan neasikkanumnu climax irukkum illaadi director muvane nee seththa",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Vilan voice gethu adhunala padum paathi hituuu",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "என்னடா இது ? நாடகமா ? இல்ல குறும்படமா ? 🤔",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Otha last shot  kola mass",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Jayam ravi potta ghevidiya payan avan kamal rasigar",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Allam ok super than but.. Trailer mokkaye.....",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Thayirimairuntha Amma uyirodairukkum pothu poda vendiyathu Thane pongada",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Siva sivan kjr hero trailer pakka Arjun arjunan ps hero mitran super  Saktimaan sakti 90#kids like and comment",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Dislike adicha maannynmark naduviral namaskaram",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Sathyama solra, Director peru pakkama trailor pakka vantha patha odaneye mudivu pannittuIdhu myskin velathanu",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "wtf.....enthonnnaadey ith....ingane lighting okke koduth oru nalla teaserine ithrakk ooolayaaakkiyath eth mythaaaandi monaaaan...phooooo...  sury annan minnich :-) editere kitttiyaaaa avante chevadakk pottikkum aaa :-(",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Kuruma, next ne kunjith a ready panu... avan matum tan chola perarasu  kae saval viduvan. Epad epadlamo sentiments vaekraenga ana enamo oru padathula kuda kuruma group\\\\\"s relaxation pathe pesurathu ila. Enamo therla. Kunjith ta viteru, draupati flim ku revenge yeduthervan.",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Lite ah potc smell varuthu ethula music",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Kangana looks like jaylalita\\\\\"s wax figure",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Kangna mam aap..Chota bheem ki #tuntun mosi lg rhi ho",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Yr Kamal Bht W8 Kya tha is film k trailer ka Or aj us w8 ka pagl Milgya",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Rajini troll in End Vera Level  sema",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Evano indha video ku dislike button amuka vandhurundha odiru 🤣 kolaa kaandu la irukan kollama vida matan",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Vidya Balan Ko Lena chahiye tha.",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "என்னடா இது 🤦‍... சிங்கம் போல இருப்பாங்க அவங்க..",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Any one After #PSPK26 🤘 మాకు మా దేవుడు స్క్రీన్ మీద కనపడితేచాలు",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Omg 265 likes ... Thala suthuthu da samy...",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Rajinikanth telugu fans oka like yeskondhi",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Kangana is best actor lekin ....Amma jessi bilkul nahi lag rahi",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "திரௌபதி வன்னியர்களின் குல தெய்வம் என எத்தனை பேருக்கு தெரியும்?  அவர்கள் வீட்டு பெண்களும் அவர்களுக்கு  குல தெய்வமே.",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "கிருக்கு கூதி திருட்டு திமுக புண்டை மகனே",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Thala fans saarbaaga motion poster vendum adhe",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "0:50 athan already kalyanam ayiruche appuram Enna will you marry me",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "மரத்த நட்டா..மண்ண காப்பாத்திடலாம்..பொண்ண படிக்க வச்சா ...அதுவே அத காப்பாத்திக்கும்...",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Sun pictur ku vendu koal. Hinidi promotion illa  anga neriya peruku padam varthu pongaluku theriyilla so promotion pannunga",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Namitha crt ah irundhurukum .   Ipadi pannitingalea maa",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Does not look like mani film",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Njangade nattil shoot cheytha film.superhit.. Kulathupuzha kollam",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Ethu 1996 yara yamatharinga,,, 🤣🤣🤣marana bangam to Rajini sir ,,,",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Vayasu pasanga villanunga .kilavaaaa hero. Kodumaiiiii",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Same like kashmora going to be flop",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "karumam, allu irukanum mayiru matta irukanum,  yaenda naaya saatharnama paesi nadiyaen, pudungi mass ivaru.bahubali mootharatha kudi da mundam",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "thala rasigana vida thapathy rasigandhan adhigama pakranga.. eppa varum notta sollalamnu.. pudichirundhalaum... comment podanumnu podranga... edukkkkkkku...",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Hahahahahaha.... இது 96 ... யார ஏமாதுறீங்க....",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "1:56 yaaruko direct aah soona madhri irukke LOL",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "#THALA movie na bike race scenum ...#Visay movie na kundi thadavura scenum irukkum",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Sir petta ka hindi terler kab aye ka ? ;-)",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Inum na sagurathu kulla intha mathiri yethana kodumaiya paka poranoo therilayee",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Ippotha magamuni paathu oru kalathule irukke athukulo innona.",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "santhose narayanan again he mad great bgm.... but vijay back with bang ..same shit punch dailog... thaanga mudiyala entha kosu tholla",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "mokka..... next azhagiya tamil magan... lol.....",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Sun picture best or Vijay TV best sp best na dislike pannuga Vijay TV best na like pannuga",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Mass trailer makkal selvan VJS Rocking",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Cameraman Wide angle veriyan na iruppaaro",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "கடைசில மரண பங்கம் பன்னிட்டேங்கப்பா...",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Avar eppoda 96 la arasiyalukku varen nu sonnaru? Unga cheap publicity Ku oru alave illaya naigala?",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Romba naal ku apram tamil cinema la urupidiya oru padam vara poguthu nu ninaikiravunga like podunga",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "U kena tunggu lebih lama lagi utk tahu saya  (from Malaysia   )",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Padam paathutu thirumba trailer paka vanthavanga hit like here",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Yellathukkumey un like panringa yennathanda pudikkum ungalukku",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "jo makeup pr itne comment kr re koi khud kare banaye unke jaisa  bhai movie h ab koi bilkul real to bana ni skte h",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "என்னங்கடா எங்கே பாத்தாலும் லைக் கெட்டு பிச்சை எடுக்குறிங்க..?",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Dai 600 kodi thevaiya Intha movieku varumaiyil vazum eazakku seru potta.....la. natu munnerum....",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "டேய் சாதி வெறிபிடித்த  களுக்கு நான் கேட்கிறேன் எங்கடா நாடக காதல் டியூஷன் எடுக்கிறாங்க சொல்லுங்கடா நாய்களே பிரச்சினைகளை வளர்க்கிறிங்க ஆபத்து சாதிவெறி பிடித்த நாய்களுக்கு தான்",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Mujha àcha nai laga trailer bakwaas hai akshay Kumar acting is best",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Innum like kettu yaarum comment pannalaya?",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Stuff ki us s jo of do o bg dost isi yeh gi jeux",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Yena aga pore sakthiman ..periya ooollll",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "மண்ணு பொண்ணு எது மேல கைய வச்சாலும் கைய இல்ல தலைய எடுக்கணும்...  தரமான படம்...",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Ready beating mokka shivakartikeyan in kaappan  Becarful OK",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "அட நாய்களே படம் sc சமுகத்திற்கு எதிராக மட்டுமே அல்ல பிராமணருக்கு அடுத்த யாரு உடையாருக்கு அடுத்த பிள்ளைமாரு செட்டியார் தேவன் கவுண்டன் அவரவர் கிழே இருக்குற வருக்கும் என நினைத்தால் புரியும்  ஏன் புன்னாக்கு",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Thala lam oru allu punda  Poda pitta badu",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "நீ என்ன பெரிய வசூல் மன்னனா?  விஜய்னா: தெரில்லா அப்டித்தான் பேசிக்கிறாங்க. யாரு?  என் பேன்ஸ்தான்",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Kekka bekka short film ipo future film ah aagiduchu doi.....",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Dei naaigala... jaadhi ungala mirugamaki vachiruku da muttalgala... Vaalthukkal solra naaigala ithuku onnukoodi vaalthu solra Pala jaadhi naaigala neenga unga pala jaadhi kulla marriage pannika mudiyuma da...neenga ellarume oruthanuku oruthan jaadhi la uyarnthavan thalnthavan nu ungakitaye pirivu iruku...thirunthungada",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Ide en inum trending la varla..? idha vda romba kammi views ruka videos lam trending la ruku",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Niraiya Niraiya kevalama iruku intha dialogue.",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "மிஷ்கின் ku வேர ஹீரோ வே கிடைக்கலையா.",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Oru all mala katra viswasathukaga mathavangala asinga paduthuringga",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Aaathaadi ith namma batman maathiri irikk",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Kangana Ranaut ke liye Ek dil se like     like",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "i think arun vijay is villian.",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Naa cartoon pakke poren pogeda",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Yenda Ajith fans gala like pandra like pandra nu dislike ah pandringa .. thu.. nandri ketta nainga.. pink remake Ku irukuda ...",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Thalthapattavana ennum ethana varusam da avamana paduthevanga",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Thala always ultimate sema maasss trailer",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "நான் பார்த்ததுலாம் திங்கிற ஓநாய் இல்ல  பசிச்சா மட்டும் வேட்டையாடுற சிங்கம்",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Pandaee.... jii neega yepa padau nadika vantheenga.....",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Bgm thavara trailer la onnum illa....",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Rey e movie ni telugu lo kuda release cheyandi ra....... telugu dhanush Anna fans vunamu chala mandi",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Sala kuch smjh nhi aaya pr mja aaya",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "intha maari movie tamil cinema la vanthathu ila 1000 movie vanthurukum da",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Hey, guys, bigula vida kaithi nalla erukku nu solluravanga mattum like poodunga",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Epdi mela vandhanu mela vandhavana dhaan da keka mudiyum! Enada dialog idhu chaiii",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "வன்னிய குல சத்ரியன் மாவீரன் காடுவெட்டி துணை உண்டு நமக்கு",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "கொங்கு மண்டல விவசாயிகள் & அஇஅதிமுக சார்பாக வெற்றி விழா காண வாழ்த்துக்கள்...",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "இதகூட எவன்டா டிஸ்லைக் பண்றவன் அவனுங்க நிச்சயம் ஆதி வாசிங்கதான்டா",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "திடீரென ஏதோ ஒரு குளிர் காய்ச்சல் , ஆனால் பிடித்திருக்கு",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Adeii unnaku ethu thevaiya? Mugamidi part 2",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Padam trailer mooka, padamum waste Insulting amitab  Poi sethu thola da ajith sunni",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Thala Semma will soon you see 500K likes",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Antha alavuku elam onum ela nu nenaikuravanga like panunga.",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "marana  mass thala ........i   u     thala",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Nala vella nan pink pakkla parthu irundha indha padam enaku impactfull iruthurukadhu Ajith Who all didn\\\\\"t watch pink like here",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Thamizhana thavara ella state aalungalukum Suriya oda arumai theriyudhu",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "கொங்கு வேளாளர் கவுண்டர் சமூகம் சார்பாக படம் வெற்றி பெற வாழ்த்துக்கள்",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Mohanlal fans kaaranam hit avan povuna orunpadam",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "எவ்வளவு பெயரோட மனக்குமுறல் இன்று வெளிப்படுகிறது சில குறிப்பிட்ட கும்பலால் பலபேர் பாதிக்கப்பட்டுள்ளார்கள் என்பது தெரிகிறது. என் நீண்ட கால எண்ணங்கள் வெளிப்படுகிறது நன்றிகள் பல மோகன் அவர்களே",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Raashi khana va mokka pannidhadinga Nevetha pethuraj heroine na pottu .appuram padam flop dhan",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "I hate abirami en thala kuda nadichadhala unna thittama viduran",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "1.45 until 2.00 goosebumps scenes ....masss kattuvaaru karthi",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Look like malayalam movie Chinthamani kola case🤔  But Tala act",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Podeaa jadhee varee pedecha tavediya pasengela",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Ab lag raha hai ki wanted 2 bakwas baney Wala hai",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Before சைகோ மிஷ்கின் ஒரு படம் எடுத்தாரு,Now சைகோ மிஷ்கின் சைகோனு ஒரு படம் எடுக்குறாரு. அனேகமா அது அவரோட பயோபிக்காதான் இருக்கனும்.",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Dai Vijay Sethupathi onuku mass na set aagathu da example sindhubath,rekka indha padakoloda nelamatha onoda sangatamilan Ku aga poguthu",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Trailer sumaaa therikuthu......next week 24th theater sumaa aalara viduvom nu soluraa thalaa fans like podugaaa...",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "திரைப்படம் வெற்றி பெற வாழ்த்துகிறோம்  தர்மபுரி இளைனர் அணி",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "pls comment if you are a true chiyaan fan",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Joaquin Phoenix : Dei Sundar C, yen padathayum Copy Adichitiyada",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "9.7 Million Views... Trending No 48 ... Kaappaan .",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Sagapora unakku  sathi etharkku  Iyya  pasumpon",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Oruthal Mela viswasam katuradhukaga ean innoruthara asinga paduthuringa ..   Ethana peruku intha namakke sonna maari thonichi",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Entaamoooo... Kiduuuu.. I love u suryaaa... Laletttaaa.... My favourite stars together....",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Batman ,Krish ,Atharva nadicha oru Padam..",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Kangna u look best 🤗  hatter\\\\\"s to bhonkte rahnge Enke bhonkne se or power milegi  appko",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Что за хрень? Очередное индийское кино?",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "karthi semma mass ah verithanama irkaru",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Ommala bgm Vera level, sema bgm sam vilaiyandurukan",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Is movie KO hindi dubbed karke jald upload kijiy",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "thaaaaa fuck  ipa vanga ta surya i love u bro",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Rajini u r finished.... after visvasam trailer",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Not in hindi.... Sobi don\\\\\"t understand.... But it is outstanding",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "AR Rahman copy cat, Tamil isaiyai kedutha devidiya payan.",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "1:20 yarellam kavanichinga famous teejay",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Petta movie ku romba romba wait panuravanga like poddu gga",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Dis like itha trailer ku enna koduma ....🤒",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "18+ unlike nadaga koodhingala pottavangella karuvarukkurathu thappe ila",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "tamil cinema la vijay vijay nu oru director irukkaru!!!avarukku masam nalu flop kudukirathuthan polappe!!!pavam katha illama aduthu amma valkaila veleyaduraru!!!!!",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Yevalavo Peru rajini Pera use panni Mela vanthurukanga ippo neum yethuku da intha manaketta polapu",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "శ్రీహరి నటించిన శ్రీలక్ష్మి మూవీ రిమేక్ లాగా ఉంది.",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Yenga Da All the best from Vj , Ajith, Sika,vjs fans  nu like Pichai yedukura kootatha kaanom🤣🤣",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "yenpa Hari kathu  kuinunu kekuthuthula",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Iska toh Wahi Purana ghissa pita record. Bhai Vijay! Kuch Naya Kar yaar.",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "இங்க பர தேவிடியாக்கள்... மற்ற ஜாதி பெயரில் ஃபேக் ஐடில கமெண்ட் பன்றானுக... விழிப்படைவோம் ஒன்று படுவோம்",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Simran Trisha pattilam iruntha Padam nalla irukkuma",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Athulya bittu padathulathana maximum nadippa ipo enna puthusa 🤔🤔",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Njhn oru vijay fana n bt Surya sir nte oru mass entrtinrr ayirikkum ee film",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Rajesh oda fans lam   Like podunga and I am Rajesh 🤘",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Paaaa first\\\\\" scene look....**  Ithu mathiri Actor nan pakala samy daa ..",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "kilavan aijth look as 80 age old man",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "கருத்து சொல்ல சீக்கிரம் வாங்க காலம் மாறிட போகுது, அதாவது புதுசா பிரச்சன வந்துடும். அப்புறம் புது படம்த எடுக்கணும்.",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Ohh ipa tha theriythu panda etuku ajith ku sombu adikrunu",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Udayanidhi dhan next super star.. Semma nadippuda sami.. Next superstar next cm next pm Next America janadhipathi... Wowwwwww",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Thalaivarthaaah gethuuuu,thalaivar munnadii vaaalum aadaakudathu, thalaiyumm adakudathuuu",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Kaayam vena aari irukkalam but vadu innum marayala- i\\\\\"m hardcore iron man fan",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Etti midhuchana moochi kooda Vida mudiyadhu",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Jathi vishayathula bhramin kooda serum.. MUSLIM & Christian  nu illama kuruma pondra koolikku maaradikkum gumball ellarukkum idhu ouru yecharikkai..  Hindus thaan da mudhal jathi..mass da naanga..enga Birth certificate la naadar, mudhaliyar, chettiyar, vanniyar, gounder, bhramin etc nu irundhalum RELIGION/NATIONALITY la naanga HINDUS da..Naanga saamiya namburavanga..Avan sombu thookigala chumma vida mattan da kuruma & Pichakara panjith",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Thalaivaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa we r waiting for you",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "இந்த ட்ரெய்லர் கூட பார்க்கிற மாதிரி இல்லை.. இதை தியேட்டர் ல போய் பார்க்கனுமா.. .",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Avane srimannarayana ASN fire bang bang",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Enna pa comment la jaathi pathiyeh pesureenga   Intha nelama maaratha....",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Hindi remake but it resembles ellam avan seyal movie also",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "467k views one hour mela change aagamale iruku something happened?",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Mersal padam pathu sirikka nee yaruda... !   poda mokkapayya  !",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "ENNA HARRIS JAYARAJ-U............... DARK KNIGHT BGM LAM KEKKUDHU........PERIYA HANS ZIMMER IVURU.... ?!?!?!?!?!?!?!?",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "11 sec vaarkapanik varunna bengali",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "இதை சொன்னது எந்த வாய்? நீங்க அடிச்சா copy  இல்லையா ?",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Diwali race winner..... Oppent aale illa sollo aahiten.......",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Bharaivaa Ku evlovo paravala surya rocks <3",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Lokesh kanagaraj fans hit like atlee fans comment",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Unmaile indha padam supernu soldravunga like pannunga",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Enna bha trailer starting la Marvel lam varuthu",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Thalaiva va thalaiva va thalaiva.annannkk jai",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "இந்த லட்சணத்துல குருமா திருட்டு நாய் இந்து மதத்தைப் பத்தி தப்பா பேசுது .",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Peta nu peta ani anochuga.petta ani Petta kodila aravala? Tamil over ennenlu Ayina podu .sambar saambaare🤣🤣🤣🤣🤣🤣",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "1.36 intha scence la ava pesayila news vaasikira maathiri irruku",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Anjrit ... Murni menit 00:41 , Soundtrack nya mirip sama DUNIA TERBALIK SINETRON RCTI PAS SI ENTUT SAMA USTAD KEMET NONGOL .",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Ithu enna pei padathavida mosama iruku......ithallam peinga partha marupadiyum payathula sucide pannikum polaye....",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "singam 2 mathiri irukku bgm mokkaiya irukku singam suriya nice",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "1.35 bgm pinneyum pinneyum Kannan thunnum",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Mercury padam set mari iruku entry",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "ORU MANUSHUNA ALICHIDALAM AVANUKAGA VECHA SILAIYA ODACHIDALAM AANA AVAN SINDHANAYUM SIDHARNTHAYUM YAARALUM ALIKA MUDIYADHU",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Confirm flop till u leave siva..",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "பெண் பிள்ளையை பெற்ற தகப்பனின் சார்பாக படம் வெற்றிபெற வாழ்த்துகள்..",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "All the best kichha fans kadeyinda karnataka boys...suport....",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Rise ur hand.. U1 magicala feel panna vandaunga",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Kangana wow  awesome yr ye lakdi sbae alh hai",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "தலைவரே உங்க வசனம் எல்லாம் கேட்க நல்லாயிருக்கு ... ஆனா இதெல்லாம் நடைமுறைக்கு வருமா????   எடுத்துக்காட்டாக உங்க அப்பா ... பக்கத்துல போய் போட்டா எடுத்தா செல் போனை உடைக்கிறார்   சும்மா சீன் போடாதே சரியா???",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Ellarumey ipdi penda parambaraya chi sorry aunta parambaraya serupaala adicha avnunga enga dha povanunga 🤔",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "அசுரன்  படத்தை எதிர்ப்பவன் ஒருத்தன் வந்தேரி தெலுங்கனா இருப்பான் ... இல்லை அவனுக்கு அரண்மனையில் கழுவிவிட்டு பாலையத்திற்கு ஆட்சி செய்ய ஆசைப்பட்ட கூட்டமா இருக்கும் .....     அதுபோல திரௌபதி  எதிர்ப்பவன் திராவிட பன்னியா இருப்பான் இல்ல தலித் மலம் தின்னி பன்னியா இருப்பான்",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "ಅಖಿಲ ಕರ್ನಾಟಕ ದರ್ಶನ್-ಸುದೀಪ್  ಅಭಿಮಾನಿಗಳ ಕಡೆಯಿಂದ ಈ ಬೆಸ್ಟ್ Wishing Thala Ajith Anna",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Anna Ajith vera level enga Thala pola enga yaru ma illa Thala daa",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "dei vennaigala comedian irunthutu herovaka aasapadakudathu da",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Stunning stone  neraya neraya neraya",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Appo Kabalieee... Na Nerupuda  Eppo robot na chitti 2.O version",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Ennaku ennavo kanithan kathai ya konjam modify pannuna maathiri irruku",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Lyca Mobile production la cell phone pathiya negatives ??",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Batman + Superman + konjam thirutu story",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "ரஜினி கலாய் செம  அரசியல் வேண்டாம் ரஜினி கண்டிப்பா உங்களுக்கு ஓட்டு போட மாட்டோம் 90s kids",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Padam oodathu Mokka padama than irukkum 100% fact Don\\\\\"t weaste your money",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Hip Hop tamizha FANS unda 🤣🤣",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "உதயநிதி ஸ்டாலின் எல்லாரும் மறந்துடிங்க.. கமெண்டல  உதயநிதி ஸ்டாலின் பத்தியும் கொஞ்சம் சொல்லுங்கப்பா",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Laletta nigal njagalude oru sokarya ahamkaramanu.. malayala cinemayum tamil cinemayum thammil orupadu vethyasamundegilum laletta nigale cheruthayi kanann njagalkavilla.. nammude malayala cinema poleyonnum varilla avarude cinema...",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "1999 :padappa-vali now 2019 petta -viswasam",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "கொங்கு வேளாள கவுண்டர் சார்பாக படம் வெற்றி பெற வாழ்த்துக்கள ்",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Super star  na adhu rajini sir mattum tha vera yarunaalayum antha patta tha vanga muditadhu da",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "500k target locked make it",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Vijay anna......   vere level 3 ennam aanangil ufff polikum",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Neenga oru ammauvkku piranthuruntha ippadi saathiya vachi panam sambathikka mattinga..........",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Vera level. super star Ragini  fans like hit",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Kolla massss . . Namaku thevaiyanadhu namba dhan adichu vaganum  Vera level thalivaa",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Hollywood level ki ma ki c**t  It\\\\\"s a vikram\\\\\"s level.. Veera level..",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "india no 1 movie ban jaye kon kon chata hai HIT LIKES",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "tranding kyu ni aa rahi h yrr",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Viswasam 7hrs 1million likes...still petta mukkifyng",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "damnnnn ... I just can\\\\\"t wait.......",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Ennangaya Beethoven music use pannitu illayaraja nu per podringa???",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Daii gv olunga music mattum pottu irunthu irukalam.. nkp tuney potu vechi irukan expected a lot",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Waiting for selva\\\\\"s movie  Selvaraghavan fans hit like here",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "English song name iska batao please ..",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Hindi me kab released hogaa yrr",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "சமீபகாலமாக கால்பந்தாட்டத்தை மையப்படுத்தி தமிழ் படங்கள் வருவது மகிழ்ச்சியளிக்கிறது...",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "mass da ...singam varudhu ...puli ..vedhalam yella mudtu kelambunga pa",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Naanodikal Best love story for 90\\\\\"s kids",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "First day first show பார்த்தேன் கொஞ்சம் ஏமாற்றம்தான்",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Viswasam  sarkar is waste NGK is best",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Sila podi payyan koode yellam ungale compare pannuranga thalaivare.... entha vayasile avan eallam uyiroda  eruppano..🤔🤔",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Rekka mathiri illa tha irutha k",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Roshan mask potutu vantu hero nu sonna nambirvomaa",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Yelathlayum vanthu savadikuran avan thatha sambarichan ivan selavu pandra.. Nala vazhdradaa",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "தமிழ் ட்ரைலர்க்கு மலையாளிங்க ஏன்டா குறுக்க மறுக்க அலயுறிங்க",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Mela vandhavanta thaan keka முடியும் paithiyakara payaluga",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Nala irruku but kadaici walking nall illa",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "37k  dislikes frm amai fans and kullan fans porama la thirijuranga",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Thamizhargalin Perumai verithanam at it peaks",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Poradarathu Thappu na Poradara Sullnilaiye uruvakkunathum Thappu thane  Comment....... #KV Anand #Nadippin #Nayagan #Suriya... #Mohanlal n Kollywood....",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Enda adhu ena da evana pathalum  90kids 90kids nu adhuku munadi evanum porakalaiya illa adhu ku munadi poradhavanga manushanga illaya Ponga da.",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "KOLA KAND LA IRRUKEN MAVANEY KOLLA MA VIDDAMATEN....",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Ivlo naal sc mattum nallavanga pola kaati sc s echai nga movie eduthanga. Ippo ipdi yethir paakala la",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Varanum mass varannum  athukku  avanthan  Poranthu varanum",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Irkatum ngk epo da release uh",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "కెకుంది ట్రైలర్ అసలు...తెలుగు వాళ్ళు ఎవరున్నారు లైక్ వేసుకోండి...🤘",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Thala🥰 video parthutu dislike panravununga aprm bad comments podravunugalukulam SURA trailer la kamichu sagadikunum🤕...to all haters",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Arey Lucifer kaise dekhu??? Mil hi nhi rha hai",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Intha music earkanave ketruken but niyabagam illa",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "இந்த நாடு எங்கடா போது ராமதாஸ் திருமாவளவன் ஜாதியை வைத்து அரசியல் செய்யிராங்க நீங்கள் ஏன்டா இப்படி படம் எடுத்து எல்லோரையும் காயம் படுத்திரிங்க நிறைய பிரச்சினை வரும் இந்த பூமி பூக்களால் ஆனது ஏன்டா ரத்தமாக ஆக்குறிங்க இந்த பாவம் சும்மா விடாது",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "OMG THIS IS SOOOOO AWESOME.....Suriya  Fans Hit like",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Sir plzzz e trailer na.. T-series nalli bidi sir.... Awsome trailer.. 500M pakka aagutte",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "இயக்குனர் ரன்ஜித் போன்ற ஜாதி வெறியனுக்கு இது ஒரு நல்ல செறுப்படி",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Kangana Ranaut ka makeup dekhkar lagta hai ki usne prosthetic makeup Kiya hai.",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "looks like tamil version of jumanji",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "E movie kosam waiting Telangana nunchi Danish Anna.....",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "13 million views eppa varum inum 2/3 days aaguma",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Kujay Kunjikal...already 3 Days Still Trending in Malaysia",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "இதை ஏன் டா இவ்ளோ பேர் dislike பன்னிருக்கீங்க... ச்சை",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Unga ponnungale Olunga valangada potta Thevidiya payalugala",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Best off movie suriya sir...ellathayum thhatti kekura urimai namba ellarukum irukuda .....sekram nalla achi varum ..",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Padathula VFX errukalam ana padamea VFX ha erruka koodadhu",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Neenga sariya vela seiyalana enga kudadhaandaa varuvalunga",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Dai  nee vijay ajith padam paathu tha sirikanunum avasimaye ila  theatre ku vanthu un padatha paathu kevalama sirichitu porom iru 🤬",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Ajith fans,,,,,,,yenga records yella yenga pochu thalapathy fans aaaaaaaaaa nakkittu poituchu",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Thalapathy VIJAY anna fans inga vanthathu lokesh annavukaga matum than... Vera evanukagavum illa.....",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Vera level da dei...🤩🤩🤩🤩Marana waiting 🤪🤪",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "அறிவீழியகளா  ஜாதியை ஒழிக்கிறேன்ற பேர்ல படம் எடுத்து   இன்னும் ஜாதி வெறிய தூண்டதான் செய்றிங்க உங்க அரசியல் இன்னும் பலருக்கு தெரியல",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Song than nkp la ketta maari irukku",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "வாழ்த்துக்கள்,உண்மை கதை உலகத்துக்கு காட்டிய மோகன் அவர்களுக்கு . ஜாதி இல்லை என்று சொல்ற உத்தமர்கள் எல்லாம் அரசு கேட்க்கும் ஜாதி சாண்றிதழ் நீக்க முடியுமா? நாட்டில் ஆண்,பெண் மற்றும் தகுதியின் அடிப்படையில் அனைத்து துறையிலும் சான்றிதழ் கொண்டு வாறுங்கள் . அப்போதுதான் அணைத்து ஜாதி ஓழியும்.",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Dance video dekhne k liye channel pr click kre.",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "This gonna be bang Genius ur killa man always",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Ore Nadigar Thilagam Sivaji,  Ore Ulaga Nayagan Kamal  Ore Nadipin Nayagan Surya   Surya Fans Hit Like",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Ending Credit\\\\\"s Semma.... Senjittinga ... Nalla vachi senjittinga sotta rajiniya.. Arasiyal KU vara maata pola",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Great #dark #vetrimaaran #dhanush #gvp  #kalaipulithanusir ..master piece",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Keel jaadhi kaaran avanuku saadhagamaa padam eduthaa samooga seer thirutham aanaa mel jaadhi kaaran avanuku saadhagamaa padam eduthaa jaadhi veri",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Adipoliiii  lalettan  and surya",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Thala differenta try panraaru  Congrats but irunthaalum konjam mandaiku tie adichirukalaam",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "இந்த வீடியோவை, டிஸ் லைக் பன்ன ஒரு நாய் கூட கமென்ட் போடலயே... ஒரு வேளை வயித்து எரிசல்ல டிஸ் லைக் போட்டு இருப்பானுகளோ......",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "enada dressuh athu dance uh la  en kanuku matu tha tryuthu apdi theriyutha",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Boni kapoor sir ini entha update illama ethum release panathinga sir,  intha chinna pasanga tholla thanga mudiyala",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Nenga commentla potrukingalet nadaga kadhal pandranunganu apo nengala mathava ponna thangachiyatha pakaringala onnu soldra oru Appanuku poranthavana eruntha yokiyamanavana eruntha yentha ponnaum sight adika mata bittu padam pathu kai adikama eruda apa oththukura ne soldra unnoda jadhi nalla jaadhinu otha yellatha thapu pandringa athenada avana matum kuththam soldringa porambomungala",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "pandey enna naduvula enthiruchu enthiruchu kathittu irukaapla",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Kamal Hassan aur karna fan niche like Karen",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Director damilan daa group poola....Thalaivar 96 la eppo da arasiyaluku varaen nu sonnaru. Sonnathu 2016 la..",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Kaetudha Ajith fans? oruthar mela viswasam kaaturadhukaga innoruthara yaen asinga paduthuringa?",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Omg...  Aaaaaaaaaaaaaaaaaaaaaaaaaaa bap re bap blockbuster",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Ending thalaivar politics,,, bangam pannitingale daw  ....",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Entha padam satharana thala padama erukathu wait panni paruga audience Mathila miga periya impact erukum 100%",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Indha trailera paathutu entha Tamil movie teaser, trailera paathaalum mokkaiyaa than iruku. Hit like if you agree",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "1m la kanavula kuda vardhu pola🤣🤣🤣🤣",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "inimey vijay deepavali release patti ninaikave kudathu marana sambhavam waiting thalafans and suryafans therikka vidalaama,sure blockbuster for karthi",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Ini Nanda gopaal maaraarude aniyanoo mattoo aanoo",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "பிரபு தேவா படத்தை திரை அரங்கில் பார்த்து கொண்டு இருக்கும் போதே தெறித்து ஓடியவர்கள் யார் எல்லாம்",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Adadaaaa daaaaa.... Superrrrrr... Marana mass... Plz ரஞ்சித் direction enimel venam",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "10 k dislike puran vavuthu Ericha",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Flop for sure! Abi toh shooting shuru hi hua hai! Dhek te ja iski gamand kya dong machai ka!   Aur makeup ka dho dhek!",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "A l vijay movie ellarum saga poranga vera director pannirukalam  amma oda storyve eva mathiruvane",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Ab ye bolegi meri movie ko support karo meri movie ki taarif karo mujhe national award do",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Adchu thooku maira thookunu oru song vandhuchu12million views dhaan...nammalu vandhu orae nal la 10million views",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Enna Sam cs   joker inspire  panniruppa pola ..",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Bigil vfx ku ithu parvala, nice kathi team....",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Otha ni yella thalaivar ah kalaikara mari ayite ille picchakara payale",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "1:54 reply to Haters.... Slipper hit....Dislike potta pundangalukku",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Superstar rajini thalaiva unnai vachchu cenjuttanunka",
+        "output": [
+            "2"
+        ]
+    },
+    {
+        "input": "Karthi anna ke ivlo mass angle na...thalapathy ku",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "அனைத்து வேளாளர் (எ) வெள்ளாள பிள்ளைவாழ், முதலியார், கவுண்டர்கள் சார்பாக வாழ்த்துக்கள்... படத்தை திரையரங்குகளில் பார்ப்போம்",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Talabadiiii !  I am waiting !",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "பல கோமாளிகள் சேர்ந்தாலும் அசுரனை ஆட்ட முடியாது டே..ன் டடட்டட டே..ன் டட டன் டடன்",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Rajni kant ka aur super duper flop film hogi ye.",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Who say in thumbnail Surya looks like Petta Rajini",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Movie kaisi bhi ho thala,,, Ajith Kumar ,,,,, mtlab dekhne Jana hai",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "2:03 yeh Kya tha",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Kolamass Ah Thirumba Varuvaru Thala",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Romba overa tha poramo povom, enna pannituvanga   But, trailer nalla irukku pa",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Naalaikku movie ah release panna mudiyatha??",
+        "output": [
+            "4"
+        ]
+    },
+    {
+        "input": "Darbar trailer varavaraikum endha  trailer pathu veriyethuvoom....",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "தன் சமூகத்தின் மீது அக்கறை கொண்ட படைப்புகளை உருவாக்குபவனே நல்ல படைப்பாளி.... வெறுமனே வியாபரத்திற்காக மட்டுமே படம் எடுப்பவன்/நடிப்பவன் வெறும் வியாபாரியே? அவர்களால் இந்த சமூகத்திற்கு எதுவும் நடக்க போவதில்லை... இதையெல்லாம் முண்ணனி நடிகர்கள் எப்பொழுது தான் உணர போகிறார்கள் என்று தெரியவில்லை....",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Oruthar mela viswasam irukaradhukaaga innoruthara yen asinga paduthanum. Great slap to all fan abuse",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Enna da animation mathiri iruku",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Bigil=like Kaithi= cmnt Idhu epdi irruku vj fns like here",
+        "output": [
+            "1"
+        ]
+    },
+    {
+        "input": "Enangada commentsla oru siruthakuttya kuda kanom...",
+        "output": [
+            "3"
+        ]
+    },
+    {
+        "input": "Bhai is movie ka hindi link do",
+        "output": [
+            "5"
+        ]
+    },
+    {
+        "input": "Intha movie ku apuram nan Dhanush anna fan",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Teaser, oru rekshayum illa... vere level",
+        "output": [
+            "0"
+        ]
+    },
+    {
+        "input": "Itha ya unmayana veri thanaam Saavarthunalu sanda potu saavanu",
+        "output": [
+            "4"
+        ]
+    }
+]
+}
