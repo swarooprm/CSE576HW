@@ -1,0 +1,937 @@
+{
+    "Source": [
+        "librispeech_asr"
+    ],
+    "Definition": "This task is to predict the next word given an incomplete English Sentence. Make sure the input and output are not empty, and both should be in capital letters. You need to build a partial English sentence as an input and the next word to that sentence as its corresponding output. Make sure you only use sentences that are from the public domain. The public domain consists of all the creative work to which no exclusive intellectual property rights apply.",
+  
+    "Positive Examples": [ 
+        { 
+        "input": "HOW IS IT",
+        "output": "GOING?", 
+        "explanation": "Here given the partial english sentence 'HOW IS IT', user has generated 'GOING?' as an output. This is a good example because 'How is it going?' is a common phrase in English Langauge"
+        }, 
+        {   
+        "input": "UNITED STATES IS A",
+        "output": "COUNTRY.",  
+        "explanation": "This is a good exmaple because the user broke up an English fact."
+        }
+    ], 
+  
+    "Negative Examples": [ 
+        { 
+        "input": "Hola, cómo",
+        "output": "estás",  
+        "explanation": "This is a bad example because both the input and output are in spanish and as per the definition, they need to be in English."
+        }, 
+        {   
+        "input": "",
+        "output": "23", 
+        "explanation": "This is bad example because the input is empty and as per the definition empty input is not acceptable."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "CHAPTER ONE",
+            "output": [
+                "MISSUS"
+            ]
+        },
+        {
+            "input": "THAT HAD ITS SOURCE AWAY BACK IN THE WOODS OF THE OLD CUTHBERT PLACE IT WAS REPUTED TO BE AN INTRICATE HEADLONG BROOK IN ITS EARLIER COURSE THROUGH THOSE WOODS WITH DARK SECRETS OF POOL AND CASCADE BUT BY THE TIME IT REACHED LYNDE'S HOLLOW IT WAS A QUIET WELL CONDUCTED",
+            "output": [
+                "LITTLE"
+            ]
+        },
+        {
+            "input": "FOR NOT EVEN A BROOK COULD RUN PAST MISSUS RACHEL LYNDE'S DOOR WITHOUT DUE REGARD FOR DECENCY AND DECORUM IT PROBABLY WAS CONSCIOUS THAT MISSUS RACHEL WAS SITTING AT",
+            "output": [
+                "HER"
+            ]
+        },
+        {
+            "input": "AND",
+            "output": [
+                "THAT"
+            ]
+        },
+        {
+            "input": "BUT MISSUS RACHEL LYNDE WAS ONE OF THOSE CAPABLE CREATURES WHO CAN MANAGE THEIR OWN CONCERNS AND THOSE OF OTHER FOLKS INTO THE BARGAIN SHE WAS",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "HELPED RUN THE SUNDAY SCHOOL AND WAS THE STRONGEST PROP OF THE CHURCH AID SOCIETY AND FOREIGN MISSIONS AUXILIARY YET",
+            "output": [
+                "WITH"
+            ]
+        },
+        {
+            "input": "AS AVONLEA HOUSEKEEPERS WERE WONT TO TELL IN AWED VOICES AND KEEPING A SHARP EYE ON THE MAIN ROAD THAT",
+            "output": [
+                "CROSSED"
+            ]
+        },
+        {
+            "input": "ANYBODY WHO WENT OUT OF IT OR INTO IT HAD TO PASS OVER THAT HILL ROAD AND SO RUN THE UNSEEN GAUNTLET OF MISSUS RACHEL'S ALL SEEING EYE SHE WAS SITTING THERE ONE AFTERNOON IN EARLY JUNE THE SUN WAS",
+            "output": [
+                "COMING"
+            ]
+        },
+        {
+            "input": "THE ORCHARD ON THE SLOPE BELOW THE HOUSE WAS IN A BRIDAL FLUSH OF PINKY WHITE BLOOM HUMMED OVER BY A MYRIAD OF BEES THOMAS LYNDE A MEEK LITTLE MAN",
+            "output": [
+                "WHOM"
+            ]
+        },
+        {
+            "input": "MISSUS RACHEL KNEW THAT HE OUGHT BECAUSE SHE HAD HEARD HIM TELL PETER MORRISON THE EVENING BEFORE IN WILLIAM J BLAIR'S",
+            "output": [
+                "STORE"
+            ]
+        },
+        {
+            "input": "PETER HAD ASKED HIM OF COURSE FOR MATTHEW CUTHBERT HAD NEVER BEEN KNOWN TO VOLUNTEER INFORMATION ABOUT ANYTHING IN HIS WHOLE LIFE AND YET HERE WAS MATTHEW CUTHBERT AT HALF PAST THREE ON THE AFTERNOON OF A BUSY DAY PLACIDLY DRIVING OVER",
+            "output": [
+                "THE"
+            ]
+        },
+        {
+            "input": "AND HIS BEST SUIT OF CLOTHES WHICH",
+            "output": [
+                "WAS"
+            ]
+        },
+        {
+            "input": "HAD IT BEEN ANY OTHER MAN IN AVONLEA MISSUS RACHEL DEFTLY PUTTING THIS AND THAT TOGETHER MIGHT HAVE GIVEN A PRETTY GOOD GUESS AS TO BOTH QUESTIONS BUT MATTHEW SO RARELY WENT FROM HOME THAT IT MUST BE SOMETHING PRESSING AND UNUSUAL WHICH WAS",
+            "output": [
+                "TAKING"
+            ]
+        },
+        {
+            "input": "HE WAS THE SHYEST MAN ALIVE AND HATED TO HAVE TO GO AMONG STRANGERS OR TO ANY PLACE WHERE HE MIGHT HAVE TO TALK MATTHEW DRESSED UP WITH A WHITE COLLAR AND DRIVING IN A BUGGY WAS SOMETHING THAT DIDN'T HAPPEN OFTEN MISSUS RACHEL PONDER AS SHE",
+            "output": [
+                "MIGHT"
+            ]
+        },
+        {
+            "input": "AND HER AFTERNOON'S ENJOYMENT WAS SPOILED I'LL JUST STEP OVER TO GREEN GABLES AFTER TEA AND FIND OUT FROM MARILLA WHERE HE'S",
+            "output": [
+                "GONE"
+            ]
+        },
+        {
+            "input": "IF HE'D",
+            "output": [
+                "RUN"
+            ]
+        },
+        {
+            "input": "YET SOMETHING MUST HAVE HAPPENED SINCE LAST NIGHT TO START HIM OFF I'M CLEAN PUZZLED THAT'S WHAT AND",
+            "output": [
+                "I"
+            ]
+        },
+        {
+            "input": "THE BIG RAMBLING ORCHARD EMBOWERED HOUSE WHERE THE CUTHBERTS LIVED WAS A SCANT QUARTER OF A MILE UP THE ROAD FROM LYNDE'S HOLLOW TO BE SURE THE",
+            "output": [
+                "LONG"
+            ]
+        },
+        {
+            "input": "HAD GOT AS FAR AWAY AS",
+            "output": [
+                "HE"
+            ]
+        },
+        {
+            "input": "BARELY VISIBLE FROM THE MAIN ROAD ALONG WHICH ALL THE OTHER AVONLEA HOUSES WERE SO SOCIABLY SITUATED MISSUS RACHEL LYNDE DID NOT CALL",
+            "output": [
+                "LIVING"
+            ]
+        },
+        {
+            "input": "BORDERED WITH WILD ROSE BUSHES IT'S NO WONDER MATTHEW AND MARILLA ARE BOTH A LITTLE ODD LIVING AWAY BACK HERE BY THEMSELVES TREES AREN'T MUCH COMPANY THOUGH",
+            "output": [
+                "DEAR"
+            ]
+        },
+        {
+            "input": "THEY SEEM CONTENTED ENOUGH BUT THEN I SUPPOSE THEY'RE USED TO IT A BODY CAN GET USED TO ANYTHING EVEN TO BEING HANGED AS THE IRISHMAN SAID WITH THIS MISSUS RACHEL STEPPED OUT OF THE LANE INTO THE BACKYARD OF GREEN GABLES VERY GREEN AND NEAT AND",
+            "output": [
+                "PRECISE"
+            ]
+        },
+        {
+            "input": "SET ABOUT ON ONE SIDE WITH GREAT PATRIARCHAL WILLOWS AND THE OTHER WITH PRIM LOMBARDIES NOT A STRAY STICK NOR STONE WAS TO BE SEEN FOR MISSUS RACHEL WOULD HAVE SEEN",
+            "output": [
+                "IT"
+            ]
+        },
+        {
+            "input": "ONE COULD HAVE EATEN A MEAL OFF",
+            "output": [
+                "THE"
+            ]
+        },
+        {
+            "input": "OR WOULD HAVE BEEN CHEERFUL IF IT HAD NOT BEEN SO PAINFULLY CLEAN AS TO GIVE IT SOMETHING OF THE APPEARANCE OF AN UNUSED PARLOR ITS WINDOWS LOOKED EAST AND WEST THROUGH THE WEST ONE LOOKING OUT ON THE BACK YARD CAME A FLOOD OF MELLOW JUNE SUNLIGHT",
+            "output": [
+                "BUT"
+            ]
+        },
+        {
+            "input": "WHENCE YOU GOT A GLIMPSE",
+            "output": [
+                "OF"
+            ]
+        },
+        {
+            "input": "AND HERE SHE SAT NOW KNITTING AND THE TABLE BEHIND HER WAS LAID FOR SUPPER MISSUS RACHEL BEFORE SHE HAD",
+            "output": [
+                "FAIRLY"
+            ]
+        },
+        {
+            "input": "THERE WERE THREE PLATES LAID SO THAT MARILLA MUST BE EXPECTING SOME ONE HOME WITH MATTHEW TO TEA",
+            "output": [
+                "BUT"
+            ]
+        },
+        {
+            "input": "YET WHAT OF MATTHEW'S WHITE COLLAR AND THE SORREL MARE MISSUS RACHEL WAS GETTING FAIRLY DIZZY WITH THIS UNUSUAL MYSTERY ABOUT QUIET",
+            "output": [
+                "UNMYSTERIOUS"
+            ]
+        },
+        {
+            "input": "HOW ARE ALL YOUR FOLKS SOMETHING THAT FOR LACK OF ANY OTHER NAME MIGHT BE CALLED FRIENDSHIP EXISTED AND ALWAYS HAD EXISTED BETWEEN MARILLA CUTHBERT AND MISSUS RACHEL IN SPITE OF OR",
+            "output": [
+                "PERHAPS"
+            ]
+        },
+        {
+            "input": "THIN WOMAN WITH ANGLES AND WITHOUT CURVES HER DARK HAIR SHOWED SOME GRAY STREAKS AND WAS ALWAYS TWISTED UP IN A HARD LITTLE KNOT BEHIND WITH",
+            "output": [
+                "TWO"
+            ]
+        },
+        {
+            "input": "BUT THERE WAS A SAVING SOMETHING ABOUT HER MOUTH WHICH IF IT HAD BEEN EVER SO SLIGHTLY DEVELOPED MIGHT HAVE BEEN CONSIDERED INDICATIVE OF",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "MARILLA'S LIPS TWITCHED UNDERSTANDINGLY SHE HAD EXPECTED MISSUS RACHEL UP SHE HAD KNOWN THAT THE SIGHT OF MATTHEW JAUNTING OFF SO UNACCOUNTABLY WOULD BE TOO MUCH FOR",
+            "output": [
+                "HER"
+            ]
+        },
+        {
+            "input": "MATTHEW WENT TO BRIGHT RIVER WE'RE GETTING A LITTLE BOY FROM AN ORPHAN ASYLUM IN NOVA SCOTIA AND HE'S COMING ON THE TRAIN TONIGHT IF MARILLA",
+            "output": [
+                "HAD"
+            ]
+        },
+        {
+            "input": "SHE WAS ACTUALLY STRICKEN DUMB FOR FIVE SECONDS IT WAS UNSUPPOSABLE THAT MARILLA WAS MAKING FUN OF HER BUT MISSUS RACHEL WAS ALMOST FORCED TO SUPPOSE IT ARE YOU IN EARNEST MARILLA SHE DEMANDED",
+            "output": [
+                "WHEN"
+            ]
+        },
+        {
+            "input": "SAID MARILLA AS IF GETTING BOYS FROM ORPHAN ASYLUMS IN NOVA SCOTIA WERE PART OF THE",
+            "output": [
+                "USUAL"
+            ]
+        },
+        {
+            "input": "MARILLA AND MATTHEW CUTHBERT OF ALL PEOPLE ADOPTING A BOY",
+            "output": [
+                "FROM"
+            ]
+        },
+        {
+            "input": "WHAT ON EARTH PUT SUCH",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "MISSUS ALEXANDER",
+            "output": [
+                "SPENCER"
+            ]
+        },
+        {
+            "input": "SO MATTHEW AND I HAVE TALKED IT OVER OFF AND ON EVER SINCE WE THOUGHT WE'D GET A BOY MATTHEW IS GETTING UP IN YEARS YOU KNOW HE'S SIXTY AND HE ISN'T SO SPRY AS HE ONCE WAS HIS HEART TROUBLES HIM A GOOD DEAL AND YOU KNOW HOW DESPERATE",
+            "output": [
+                "HARD"
+            ]
+        },
+        {
+            "input": "THERE'S NEVER ANYBODY TO BE HAD BUT THOSE STUPID HALF GROWN LITTLE FRENCH BOYS AND AS SOON AS YOU DO GET ONE BROKE INTO YOUR WAYS AND TAUGHT SOMETHING HE'S UP AND OFF TO THE LOBSTER CANNERIES OR THE STATES AT",
+            "output": [
+                "FIRST"
+            ]
+        },
+        {
+            "input": "THEY MAY BE ALL RIGHT I'M NOT SAYING THEY'RE NOT BUT NO LONDON STREET ARABS FOR ME I SAID GIVE ME A NATIVE BORN AT LEAST THERE'LL BE A RISK NO MATTER WHO WE GET BUT I'LL FEEL EASIER IN",
+            "output": [
+                "MY"
+            ]
+        },
+        {
+            "input": "SO IN THE END WE DECIDED TO ASK MISSUS SPENCER TO PICK US OUT ONE WHEN SHE WENT OVER TO GET HER LITTLE GIRL WE HEARD LAST WEEK SHE WAS GOING SO WE SENT HER WORD BY RICHARD SPENCER'S FOLKS AT CARMODY TO BRING US A SMART LIKELY BOY OF ABOUT",
+            "output": [
+                "TEN"
+            ]
+        },
+        {
+            "input": "OLD ENOUGH",
+            "output": [
+                "TO"
+            ]
+        },
+        {
+            "input": "SO MATTHEW WENT TO BRIGHT RIVER TO MEET HIM MISSUS SPENCER WILL DROP HIM",
+            "output": [
+                "OFF"
+            ]
+        },
+        {
+            "input": "WELL MARILLA I'LL JUST TELL YOU",
+            "output": [
+                "PLAIN"
+            ]
+        },
+        {
+            "input": "NOR HOW HE'S LIKELY TO TURN OUT WHY IT WAS ONLY LAST WEEK I READ IN THE PAPER HOW A MAN AND HIS WIFE UP WEST OF THE ISLAND TOOK A BOY OUT OF AN ORPHAN ASYLUM AND HE SET FIRE TO THE HOUSE AT NIGHT SET IT ON PURPOSE MARILLA AND NEARLY BURNT",
+            "output": [
+                "THEM"
+            ]
+        },
+        {
+            "input": "AND I KNOW ANOTHER CASE WHERE AN ADOPTED BOY USED TO",
+            "output": [
+                "SUCK"
+            ]
+        },
+        {
+            "input": "THIS JOB'S",
+            "output": [
+                "COMFORTING"
+            ]
+        },
+        {
+            "input": "IT'S SO SELDOM MATTHEW SETS HIS MIND ON ANYTHING THAT WHEN HE DOES I ALWAYS FEEL IT'S MY DUTY TO GIVE IN AND AS FOR THE RISK THERE'S RISKS IN PRETTY NEAR EVERYTHING A BODY DOES IN THIS WORLD THERE'S RISKS IN PEOPLE'S HAVING CHILDREN OF",
+            "output": [
+                "THEIR"
+            ]
+        },
+        {
+            "input": "AND THEN NOVA SCOTIA IS RIGHT CLOSE TO THE ISLAND IT ISN'T AS IF WE WERE GETTING HIM FROM ENGLAND OR THE STATES HE CAN'T BE MUCH DIFFERENT FROM OURSELVES WELL I HOPE IT WILL TURN OUT ALL RIGHT SAID MISSUS RACHEL IN A TONE THAT PLAINLY INDICATED",
+            "output": [
+                "HER"
+            ]
+        },
+        {
+            "input": "ONLY DON'T SAY I DIDN'T WARN YOU IF HE BURNS GREEN GABLES DOWN OR PUTS",
+            "output": [
+                "STRYCHNINE"
+            ]
+        },
+        {
+            "input": "AS IF POISONING WELLS WERE A PURELY FEMININE ACCOMPLISHMENT AND NOT TO BE DREADED IN THE CASE OF A BOY I'D NEVER DREAM OF",
+            "output": [
+                "TAKING"
+            ]
+        },
+        {
+            "input": "MISSUS RACHEL WOULD HAVE LIKED TO STAY UNTIL MATTHEW CAME HOME WITH HIS IMPORTED ORPHAN BUT REFLECTING THAT IT WOULD BE A GOOD TWO HOURS AT LEAST BEFORE HIS ARRIVAL SHE CONCLUDED TO GO UP THE ROAD TO ROBERT BELL'S AND TELL THE NEWS IT WOULD CERTAINLY",
+            "output": [
+                "MAKE"
+            ]
+        },
+        {
+            "input": "AND MISSUS RACHEL DEARLY LOVED TO MAKE A SENSATION SO SHE TOOK HERSELF AWAY SOMEWHAT TO MARILLA'S RELIEF FOR THE LATTER FELT HER DOUBTS AND FEARS REVIVING UNDER THE INFLUENCE OF MISSUS RACHEL'S",
+            "output": [
+                "PESSIMISM"
+            ]
+        },
+        {
+            "input": "IT DOES REALLY SEEM AS IF I MUST BE DREAMING WELL I'M SORRY FOR THAT POOR YOUNG ONE AND NO MISTAKE MATTHEW AND MARILLA DON'T KNOW ANYTHING ABOUT CHILDREN AND THEY'LL EXPECT HIM TO BE WISER AND STEADIER THAT HIS",
+            "output": [
+                "OWN"
+            ]
+        },
+        {
+            "input": "IT SEEMS UNCANNY TO THINK OF A CHILD AT GREEN GABLES",
+            "output": [
+                "SOMEHOW"
+            ]
+        },
+        {
+            "input": "MY BUT I PITY HIM THAT'S WHAT SO SAID MISSUS RACHEL",
+            "output": [
+                "TO"
+            ]
+        },
+        {
+            "input": "CHAPTER TWO MATTHEW CUTHBERT IS SURPRISED MATTHEW CUTHBERT AND THE SORREL MARE JOGGED COMFORTABLY OVER THE EIGHT MILES TO BRIGHT RIVER IT WAS A PRETTY ROAD RUNNING ALONG BETWEEN SNUG FARMSTEADS WITH NOW AND AGAIN A BIT OF BALSAMY FIR",
+            "output": [
+                "WOOD"
+            ]
+        },
+        {
+            "input": "OR A HOLLOW WHERE WILD PLUMS HUNG OUT THEIR FILMY BLOOM THE AIR WAS SWEET WITH THE BREATH OF MANY APPLE ORCHARDS AND THE MEADOWS SLOPED AWAY IN THE DISTANCE TO HORIZON MISTS OF PEARL AND PURPLE WHILE THE LITTLE BIRDS SANG AS IF IT WERE THE ONE DAY",
+            "output": [
+                "OF"
+            ]
+        },
+        {
+            "input": "MATTHEW ENJOYED THE DRIVE AFTER HIS OWN FASHION EXCEPT DURING THE MOMENTS WHEN HE MET WOMEN AND HAD TO NOD TO THEM FOR",
+            "output": [
+                "IN"
+            ]
+        },
+        {
+            "input": "HE HAD AN UNCOMFORTABLE FEELING THAT THE",
+            "output": [
+                "MYSTERIOUS"
+            ]
+        },
+        {
+            "input": "AND A FULL SOFT BROWN BEARD WHICH HE HAD WORN EVER SINCE HE WAS TWENTY IN FACT",
+            "output": [
+                "HE"
+            ]
+        },
+        {
+            "input": "HE THOUGHT HE WAS TOO EARLY SO HE",
+            "output": [
+                "TIED"
+            ]
+        },
+        {
+            "input": "MATTHEW BARELY NOTING THAT IT WAS A GIRL SIDLED PAST HER",
+            "output": [
+                "AS"
+            ]
+        },
+        {
+            "input": "AND SINCE SITTING AND WAITING",
+            "output": [
+                "WAS"
+            ]
+        },
+        {
+            "input": "THE FIVE THIRTY TRAIN HAS BEEN IN AND GONE HALF AN HOUR",
+            "output": [
+                "AGO"
+            ]
+        },
+        {
+            "input": "SHE'S A CASE I",
+            "output": [
+                "SHOULD"
+            ]
+        },
+        {
+            "input": "GUESS THERE'S SOME MISTAKE HE SAID MISSUS SPENCER CAME OFF THE TRAIN WITH THAT GIRL AND GAVE HER INTO MY CHARGE SAID YOU AND YOUR SISTER WERE ADOPTING HER FROM AN ORPHAN ASYLUM AND THAT YOU WOULD BE ALONG FOR HER PRESENTLY THAT'S",
+            "output": [
+                "ALL"
+            ]
+        },
+        {
+            "input": "I DON'T UNDERSTAND SAID MATTHEW HELPLESSLY WISHING THAT MARILLA WAS AT HAND TO COPE WITH THE SITUATION WELL YOU'D BETTER QUESTION THE GIRL SAID THE STATION MASTER CARELESSLY I",
+            "output": [
+                "DARE"
+            ]
+        },
+        {
+            "input": "MAYBE THEY WERE OUT OF BOYS",
+            "output": [
+                "OF"
+            ]
+        },
+        {
+            "input": "AND DEMAND OF HER WHY SHE WASN'T A BOY MATTHEW GROANED IN SPIRIT AS HE TURNED ABOUT AND SHUFFLED GENTLY DOWN THE PLATFORM TOWARDS",
+            "output": [
+                "HER"
+            ]
+        },
+        {
+            "input": "A CHILD OF ABOUT ELEVEN GARBED IN A VERY SHORT VERY TIGHT VERY UGLY DRESS OF",
+            "output": [
+                "YELLOWISH"
+            ]
+        },
+        {
+            "input": "HER FACE WAS SMALL WHITE AND THIN ALSO MUCH FRECKLED HER MOUTH WAS LARGE AND SO WERE HER EYES WHICH LOOKED GREEN IN SOME LIGHTS AND MOODS AND GRAY IN OTHERS",
+            "output": [
+                "SO"
+            ]
+        },
+        {
+            "input": "MIGHT",
+            "output": [
+                "HAVE"
+            ]
+        },
+        {
+            "input": "WAS SO LUDICROUSLY AFRAID MATTHEW HOWEVER WAS SPARED",
+            "output": [
+                "THE"
+            ]
+        },
+        {
+            "input": "I SUPPOSE YOU ARE MISTER MATTHEW CUTHBERT OF GREEN GABLES SHE SAID IN A PECULIARLY CLEAR SWEET VOICE I'M VERY GLAD TO",
+            "output": [
+                "SEE"
+            ]
+        },
+        {
+            "input": "I",
+            "output": [
+                "HAD"
+            ]
+        },
+        {
+            "input": "I WOULDN'T",
+            "output": [
+                "BE"
+            ]
+        },
+        {
+            "input": "MATTHEW HAD TAKEN THE SCRAWNY LITTLE HAND AWKWARDLY IN HIS THEN AND THERE HE DECIDED WHAT TO DO HE COULD NOT TELL THIS CHILD WITH THE GLOWING EYES THAT THERE HAD BEEN A MISTAKE HE WOULD",
+            "output": [
+                "TAKE"
+            ]
+        },
+        {
+            "input": "NO MATTER WHAT MISTAKE HAD BEEN MADE SO ALL QUESTIONS AND EXPLANATIONS MIGHT AS WELL BE DEFERRED UNTIL",
+            "output": [
+                "HE"
+            ]
+        },
+        {
+            "input": "IT ISN'T HEAVY I'VE GOT ALL MY WORLDLY GOODS IN IT BUT IT ISN'T HEAVY AND IF IT ISN'T CARRIED IN JUST A CERTAIN WAY THE HANDLE PULLS OUT SO I'D BETTER KEEP IT BECAUSE I KNOW THE EXACT KNACK OF IT IT'S AN EXTREMELY OLD CARPET BAG OH",
+            "output": [
+                "I'M"
+            ]
+        },
+        {
+            "input": "WE'VE GOT TO DRIVE",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "IT'S",
+            "output": [
+                "WORSE"
+            ]
+        },
+        {
+            "input": "THEY WERE GOOD YOU KNOW THE ASYLUM PEOPLE BUT THERE IS SO LITTLE SCOPE FOR THE IMAGINATION IN AN",
+            "output": [
+                "ASYLUM"
+            ]
+        },
+        {
+            "input": "WHO HAD BEEN STOLEN AWAY FROM HER PARENTS IN HER INFANCY BY A CRUEL NURSE WHO DIED BEFORE SHE COULD CONFESS I USED TO LIE AWAKE AT NIGHTS AND IMAGINE THINGS LIKE THAT BECAUSE I DIDN'T HAVE TIME IN THE DAY I GUESS THAT'S",
+            "output": [
+                "WHY"
+            ]
+        },
+        {
+            "input": "I DO LOVE TO IMAGINE I'M NICE AND PLUMP WITH DIMPLES",
+            "output": [
+                "IN"
+            ]
+        },
+        {
+            "input": "THE ROAD PART OF WHICH HAD BEEN CUT SO DEEPLY INTO THE",
+            "output": [
+                "SOFT"
+            ]
+        },
+        {
+            "input": "ISN'T THAT BEAUTIFUL WHAT DID THAT TREE LEANING OUT FROM THE BANK ALL WHITE AND",
+            "output": [
+                "LACY"
+            ]
+        },
+        {
+            "input": "I'VE NEVER SEEN ONE BUT I CAN IMAGINE WHAT SHE WOULD LOOK LIKE I DON'T EVER EXPECT TO BE A BRIDE MYSELF I'M SO HOMELY NOBODY WILL EVER WANT TO MARRY ME UNLESS IT MIGHT BE",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "BUT",
+            "output": [
+                "I"
+            ]
+        },
+        {
+            "input": "I CAN IMAGINE THAT I'M DRESSED GORGEOUSLY THIS MORNING WHEN I LEFT THE ASYLUM I FELT SO ASHAMED BECAUSE I HAD TO WEAR THIS HORRID OLD WINCEY DRESS ALL THE ORPHANS HAD TO WEAR THEM YOU KNOW A MERCHANT IN HOPETON LAST WINTER DONATED THREE HUNDRED YARDS OF WINCEY TO THE ASYLUM SOME PEOPLE",
+            "output": [
+                "SAID"
+            ]
+        },
+        {
+            "input": "BUT I'D RATHER BELIEVE THAT IT WAS OUT OF THE KINDNESS OF HIS HEART WOULDN'T YOU WHEN WE GOT ON THE TRAIN I FELT AS IF EVERYBODY MUST BE LOOKING AT ME AND PITYING ME BUT I JUST WENT TO WORK AND IMAGINED THAT I HAD ON THE MOST BEAUTIFUL PALE BLUE SILK DRESS BECAUSE WHEN YOU ARE IMAGINING YOU MIGHT AS",
+            "output": [
+                "WELL"
+            ]
+        },
+        {
+            "input": "AND A BIG HAT ALL FLOWERS AND NODDING PLUMES AND A GOLD WATCH AND KID GLOVES AND BOOTS I FELT CHEERED UP RIGHT AWAY AND I ENJOYED MY TRIP TO THE ISLAND WITH ALL MY",
+            "output": [
+                "MIGHT"
+            ]
+        },
+        {
+            "input": "SHE SAID SHE HADN'T TIME TO GET SICK WATCHING TO SEE THAT I DIDN'T FALL OVERBOARD SHE SAID SHE NEVER SAW THE BEAT OF ME FOR PROWLING ABOUT BUT IF IT KEPT HER FROM BEING SEASICK IT'S A MERCY I DID PROWL ISN'T IT AND I WANTED TO SEE EVERYTHING THAT WAS TO BE SEEN",
+            "output": [
+                "ON"
+            ]
+        },
+        {
+            "input": "OH THERE ARE A LOT MORE CHERRY TREES",
+            "output": [
+                "ALL"
+            ]
+        },
+        {
+            "input": "AND I USED TO IMAGINE I WAS LIVING HERE BUT I NEVER REALLY EXPECTED I WOULD IT'S DELIGHTFUL WHEN YOUR IMAGINATIONS COME TRUE ISN'T",
+            "output": [
+                "IT"
+            ]
+        },
+        {
+            "input": "AND SHE SAID SHE DIDN'T KNOW AND FOR PITY'S SAKE NOT TO ASK HER ANY MORE QUESTIONS SHE SAID I MUST HAVE ASKED HER",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "THERE'D BE NO SCOPE FOR IMAGINATION THEN WOULD THERE BUT AM I TALKING TOO MUCH PEOPLE ARE ALWAYS TELLING ME I DO WOULD YOU RATHER I DIDN'T TALK IF YOU SAY SO I'LL STOP I CAN STOP WHEN",
+            "output": [
+                "I"
+            ]
+        },
+        {
+            "input": "WAS ENJOYING HIMSELF LIKE MOST QUIET FOLKS HE LIKED TALKATIVE PEOPLE WHEN THEY WERE WILLING TO DO THE TALKING THEMSELVES AND DID NOT EXPECT HIM",
+            "output": [
+                "TO"
+            ]
+        },
+        {
+            "input": "HE DETESTED THE WAY THEY HAD",
+            "output": [
+                "OF"
+            ]
+        },
+        {
+            "input": "AND ALTHOUGH HE FOUND IT RATHER DIFFICULT FOR HIS SLOWER INTELLIGENCE TO KEEP UP WITH HER BRISK",
+            "output": [
+                "MENTAL"
+            ]
+        },
+        {
+            "input": "CHAPTER NINETY NINE THE LAW WE HAVE",
+            "output": [
+                "SEEN"
+            ]
+        },
+        {
+            "input": "THE FACT BEING THAT EVERY ONE WAS TOO MUCH OCCUPIED IN HIS OR HER OWN AFFAIRS TO THINK OF THEIRS WE WILL LEAVE THE BANKER CONTEMPLATING",
+            "output": [
+                "THE"
+            ]
+        },
+        {
+            "input": "WHO AFTER BEING MOMENTARILY CRUSHED UNDER THE WEIGHT OF THE BLOW WHICH HAD STRUCK HER HAD GONE TO SEEK HER USUAL ADVISER LUCIEN DEBRAY THE BARONESS HAD LOOKED FORWARD TO THIS MARRIAGE AS A MEANS OF RIDDING HER OF A",
+            "output": [
+                "GUARDIANSHIP"
+            ]
+        },
+        {
+            "input": "FOR IN THE TACIT RELATIONS WHICH MAINTAIN THE BOND OF FAMILY UNION THE MOTHER TO MAINTAIN HER ASCENDANCY OVER HER DAUGHTER MUST NEVER FAIL TO BE A MODEL",
+            "output": [
+                "OF"
+            ]
+        },
+        {
+            "input": "AN EXPRESSION WHICH SEEMED TO IMPLY THAT SHE UNDERSTOOD ALL HER MOTHER'S",
+            "output": [
+                "AMOROUS"
+            ]
+        },
+        {
+            "input": "NOT ONLY BECAUSE HE WAS A SOURCE OF DISSENSION AND SCANDAL UNDER THE PATERNAL ROOF BUT BECAUSE SHE HAD AT ONCE",
+            "output": [
+                "CLASSED"
+            ]
+        },
+        {
+            "input": "UNFORTUNATELY IN THIS WORLD OF OURS EACH PERSON VIEWS THINGS THROUGH A CERTAIN MEDIUM AND SO IS PREVENTED FROM SEEING IN THE SAME LIGHT AS OTHERS AND MADAME",
+            "output": [
+                "DANGLARS"
+            ]
+        },
+        {
+            "input": "NOT ONLY BECAUSE THE MATCH WAS GOOD AND LIKELY TO INSURE THE HAPPINESS OF HER CHILD BUT BECAUSE IT WOULD ALSO SET HER AT LIBERTY SHE RAN THEREFORE TO DEBRAY WHO",
+            "output": [
+                "AFTER"
+            ]
+        },
+        {
+            "input": "HAD RETIRED IN HASTE TO HIS CLUB WHERE HE WAS CHATTING WITH SOME FRIENDS UPON THE EVENTS WHICH SERVED AS A SUBJECT OF CONVERSATION FOR THREE FOURTHS OF THAT CITY KNOWN AS THE CAPITAL OF THE WORLD AT THE PRECISE TIME WHEN MADAME DANGLARS DRESSED IN BLACK AND",
+            "output": [
+                "CONCEALED"
+            ]
+        },
+        {
+            "input": "WAS ASCENDING THE STAIRS LEADING",
+            "output": [
+                "TO"
+            ]
+        },
+        {
+            "input": "DEBRAY WAS OCCUPIED IN REPELLING THE INSINUATIONS OF A FRIEND WHO TRIED TO",
+            "output": [
+                "PERSUADE"
+            ]
+        },
+        {
+            "input": "STILL WHEN HE RECOLLECTED THE INDEPENDENT PROUD SPIRIT OF EUGENIE HE POSITIVELY REJECTED IT AS UTTERLY IMPOSSIBLE THOUGH",
+            "output": [
+                "THE"
+            ]
+        },
+        {
+            "input": "AND THE CONVERSATION WHICH HAD BECOME INTERESTING",
+            "output": [
+                "DURING"
+            ]
+        },
+        {
+            "input": "AWAITED THE RETURN OF DEBRAY IN THE LITTLE GREEN ROOM SEATED BETWEEN TWO BASKETS OF FLOWERS WHICH SHE HAD THAT MORNING SENT AND WHICH",
+            "output": [
+                "IT"
+            ]
+        },
+        {
+            "input": "WITH SO MUCH CARE THAT",
+            "output": [
+                "HIS"
+            ]
+        },
+        {
+            "input": "THE BARONESS RETURNED TO THE HOTEL WITH AS MUCH CAUTION AS EUGENIE USED IN LEAVING IT SHE RAN LIGHTLY",
+            "output": [
+                "UP"
+            ]
+        },
+        {
+            "input": "AND BELIEVED FIRMLY IN HER DAUGHTER'S INNOCENCE AND FIDELITY TO THE PATERNAL ROOF SHE LISTENED AT EUGENIE'S DOOR AND HEARING NO SOUND TRIED TO ENTER BUT THE BOLTS WERE IN PLACE MADAME DANGLARS THEN CONCLUDED THAT THE YOUNG GIRL HAD BEEN OVERCOME WITH THE TERRIBLE",
+            "output": [
+                "EXCITEMENT"
+            ]
+        },
+        {
+            "input": "AND HAD GONE TO BED AND TO SLEEP SHE CALLED THE MAID AND QUESTIONED HER MADEMOISELLE EUGENIE",
+            "output": [
+                "SAID"
+            ]
+        },
+        {
+            "input": "AFTER WHICH THEY DESIRED",
+            "output": [
+                "ME"
+            ]
+        },
+        {
+            "input": "MADAME DANGLARS THEREFORE WENT TO BED WITHOUT A SHADOW OF SUSPICION AND BEGAN TO MUSE OVER THE RECENT",
+            "output": [
+                "EVENTS"
+            ]
+        },
+        {
+            "input": "WHO HAD",
+            "output": [
+                "BEEN"
+            ]
+        },
+        {
+            "input": "FOR IN A SOCIETY SUCH AS",
+            "output": [
+                "OURS"
+            ]
+        },
+        {
+            "input": "AND HER GLANCE",
+            "output": [
+                "WAS"
+            ]
+        },
+        {
+            "input": "AND OUT OF A FAULT NAY EVEN A VICE SOMETIMES PRODUCES A BLESSING AND THEN HER THOUGHTS",
+            "output": [
+                "CLEAVING"
+            ]
+        },
+        {
+            "input": "AND YET HIS MANNERS SHOWED THE EFFECTS",
+            "output": [
+                "OF"
+            ]
+        },
+        {
+            "input": "SUPPORTED BY AN HONORABLE NAME HOW COULD SHE EXTRICATE HERSELF FROM THIS LABYRINTH TO WHOM WOULD SHE APPLY TO HELP HER",
+            "output": [
+                "OUT"
+            ]
+        },
+        {
+            "input": "DEBRAY COULD BUT GIVE HER ADVICE",
+            "output": [
+                "SHE"
+            ]
+        },
+        {
+            "input": "BUT NO ON REFLECTION THE PROCUREUR WAS NOT A MERCILESS MAN AND IT WAS NOT THE MAGISTRATE SLAVE TO HIS DUTIES BUT THE FRIEND THE LOYAL FRIEND WHO ROUGHLY BUT FIRMLY CUT",
+            "output": [
+                "INTO"
+            ]
+        },
+        {
+            "input": "IT WAS NOT THE EXECUTIONER BUT THE SURGEON WHO WISHED TO WITHDRAW THE HONOR OF DANGLARS FROM IGNOMINIOUS ASSOCIATION WITH THE DISGRACED",
+            "output": [
+                "YOUNG"
+            ]
+        },
+        {
+            "input": "NO ONE COULD SUPPOSE THAT HE",
+            "output": [
+                "HAD"
+            ]
+        },
+        {
+            "input": "APPEARED TO THE BARONESS AS IF SHAPED FOR THEIR MUTUAL ADVANTAGE BUT THE INFLEXIBILITY OF THE PROCUREUR",
+            "output": [
+                "SHOULD"
+            ]
+        },
+        {
+            "input": "OBTAIN ALL THE INDULGENCE HE COULD ALLOW SHE WOULD INVOKE THE PAST RECALL OLD RECOLLECTIONS SHE WOULD SUPPLICATE HIM BY THE REMEMBRANCE OF",
+            "output": [
+                "GUILTY"
+            ]
+        },
+        {
+            "input": "HE HAD ONLY TO TURN HIS EYES ON ONE SIDE AND ALLOW ANDREA TO FLY AND FOLLOW UP THE CRIME UNDER THAT SHADOW OF GUILT CALLED CONTEMPT OF COURT AND AFTER THIS REASONING",
+            "output": [
+                "SHE"
+            ]
+        },
+        {
+            "input": "AT NINE O'CLOCK NEXT MORNING SHE AROSE AND WITHOUT RINGING FOR HER MAID OR GIVING THE LEAST SIGN OF HER ACTIVITY SHE DRESSED HERSELF IN THE",
+            "output": [
+                "SAME"
+            ]
+        },
+        {
+            "input": "FOR THE LAST MONTH THIS WRETCHED HOUSE HAD PRESENTED THE GLOOMY APPEARANCE OF A LAZARETTO INFECTED WITH THE PLAGUE SOME OF THE APARTMENTS WERE CLOSED WITHIN AND WITHOUT THE SHUTTERS WERE ONLY OPENED",
+            "output": [
+                "TO"
+            ]
+        },
+        {
+            "input": "AND THE NEIGHBORS WOULD SAY TO EACH OTHER IN A",
+            "output": [
+                "LOW"
+            ]
+        },
+        {
+            "input": "MADAME DANGLARS INVOLUNTARILY SHUDDERED",
+            "output": [
+                "AT"
+            ]
+        },
+        {
+            "input": "THREE TIMES DID THE BELL RING WITH A DULL HEAVY SOUND SEEMING TO PARTICIPATE IN THE GENERAL SADNESS BEFORE THE CONCIERGE APPEARED AND PEEPED THROUGH THE DOOR",
+            "output": [
+                "WHICH"
+            ]
+        },
+        {
+            "input": "HE SAW A",
+            "output": [
+                "LADY"
+            ]
+        },
+        {
+            "input": "FIRST MADAME WHO ARE YOU WHO AM",
+            "output": [
+                "I"
+            ]
+        },
+        {
+            "input": "WHERE DO YOU COME FROM OH THIS IS TOO MUCH MADAME THESE ARE MY ORDERS EXCUSE ME YOUR NAME THE BARONESS DANGLARS YOU HAVE SEEN ME",
+            "output": [
+                "TWENTY"
+            ]
+        },
+        {
+            "input": "POSSIBLY MADAME AND NOW WHAT DO",
+            "output": [
+                "YOU"
+            ]
+        },
+        {
+            "input": "MADAME THIS IS",
+            "output": [
+                "PRECAUTION"
+            ]
+        },
+        {
+            "input": "OR WITHOUT SPEAKING TO THE PROCUREUR WELL I HAVE BUSINESS WITH THE PROCUREUR IS IT",
+            "output": [
+                "PRESSING"
+            ]
+        },
+        {
+            "input": "TAKE IT TO YOUR MASTER MADAME WILL AWAIT MY RETURN YES",
+            "output": [
+                "GO"
+            ]
+        },
+        {
+            "input": "DIRECTLY AFTERWARDS THE DOOR WAS OPENED WIDE ENOUGH TO ADMIT HER AND WHEN SHE HAD PASSED THROUGH IT WAS AGAIN",
+            "output": [
+                "SHUT"
+            ]
+        },
+        {
+            "input": "YOU WILL EXCUSE",
+            "output": [
+                "THIS"
+            ]
+        },
+        {
+            "input": "IN THE COURT SHOWING HIS MERCHANDISE WAS A TRADESMAN WHO HAD BEEN ADMITTED WITH THE SAME PRECAUTIONS THE BARONESS ASCENDED THE STEPS SHE FELT",
+            "output": [
+                "HERSELF"
+            ]
+        }
+    ],
+    "Categories" : "Word Generation",
+    "Contributors": "Surya Singulur"
+
+}
