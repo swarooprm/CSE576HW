@@ -1,0 +1,278 @@
+{
+    "Contributors": [
+        "Paril Ghori"
+    ],
+    "Source": [
+        "SMCalFlow: dataset line: (https://www.mitpressjournals.org/doi/pdf/10.1162/tacl_a_00333)"
+    ],
+    "Categories": [
+        "Classification"
+    ],
+    "Definition": "In this task, you are given a dialogue between user and agent, you have to classify that is agent able to the perform task or not? if yes output will be .1).Yes if not output will be 2)No",
+    "Positive Examples": [
+        {
+            "input": "user_utterance": {\n\t\t\t\"original_text\": \"When is my dentist appointment in March?\",\n\t\t\t\"tokens\": [\"When\", \"is\", \"my\", \"dentist\", \"appointment\", \"in\", \"March\", \"?\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [],\n\t\t\t\"original_text\": \"It starts on March 18th at 1:00 PM.\",\n\t\t\t\"tokens\": [\"It\", \"starts\", \"on\", \"March\", \"18\", \"th\", \"at\", \"1\", \":\", \"00\", \"PM\", \".\"]}",
+            "output": "Yes",
+            "explanation": "User has asked about the tomorrow's date and agent replied about the tomorrow's date ."
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"Set a reminder to call my sisters and thank them for that comfy chair they got me.\",\n\t\t\t\"tokens\": [\"Set\", \"a\", \"reminder\", \"to\", \"call\", \"my\", \"sisters\", \"and\", \"thank\", \"them\", \"for\", \"that\", \"comfy\", \"chair\", \"they\", \"got\", \"me\", \".\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [\"entity@102333225\"],\n\t\t\t\"original_text\": \"Sorry, I can't do reminders.\",\n\t\t\t\"tokens\": [\"Sorry\", \",\", \"I\", \"ca\", \"n't\", \"do\", \"reminders\", \".\"]\n\t\t}",
+            "output": "No",
+            "explanation": "Agent is not able to set the reminders"
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"Remind me of the first flight to london\",\n\t\t\t\"tokens\": [\"Remind\", \"me\", \"of\", \"the\", \"first\", \"flight\", \"to\", \"london\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [\"entity@102333225\"],\n\t\t\t\"original_text\": \"Sorry, I can't do reminders.\",\n\t\t\t\"tokens\": [\"Sorry\", \",\", \"I\", \"ca\", \"n't\", \"do\", \"reminders\", \".\"]\n\t\t}",
+            "output": "Yes",
+            "explanation": "Agent is not able to set the reminder, yet the output is Yes"
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"Put an apartment viewing with Stacy tomorrow morning at 10 am at the Lincoln Square location\",\n\t\t\t\"tokens\": [\"Put\", \"an\", \"apartment\", \"viewing\", \"with\", \"Stacy\", \"tomorrow\", \"morning\", \"at\", \"10\", \"am\", \"at\", \"the\", \"Lincoln\", \"Square\", \"location\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [\"entity@707808893\"],\n\t\t\t\"original_text\": \"Is this good?\",\n\t\t\t\"tokens\": [\"Is\", \"this\", \"good\", \"?\"]\n\t\t}",
+            "output": "No",
+            "explanation": "Agent is able to do the task given by the User"
+        }
+    ],
+    "Instances": [
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"Can you add meeting my friends tomorrow from 12 pm until 3 pm at the library\",\n\t\t\t\"tokens\": [\"Can\", \"you\", \"add\", \"meeting\", \"my\", \"friends\", \"tomorrow\", \"from\", \"12\", \"pm\", \"until\", \"3\", \"pm\", \"at\", \"the\", \"library\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [],\n\t\t\t\"original_text\": \"I've put that on your calendar. Your status is set to Busy.\",\n\t\t\t\"tokens\": [\"I\", \"'ve\", \"put\", \"that\", \"on\", \"your\", \"calendar\", \".\", \"Your\", \"status\", \"is\", \"set\", \"to\", \"Busy\", \".\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"I need to update that to Starbucks\",\n\t\t\t\"tokens\": [\"I\", \"need\", \"to\", \"update\", \"that\", \"to\", \"Starbucks\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [],\n\t\t\t\"original_text\": \"I've changed the location of meeting my friends to Starbucks.\",\n\t\t\t\"tokens\": [\"I\", \"'ve\", \"changed\", \"the\", \"location\", \"of\", \"meeting\", \"my\", \"friends\", \"to\", \"Starbucks\", \".\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"yes, iam busy set remainder my events\",\n\t\t\t\"tokens\": [\"yes\", \",\", \"iam\", \"busy\", \"set\", \"remainder\", \"my\", \"events\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [\"entity@102333225\"],\n\t\t\t\"original_text\": \"Sorry, I can't do reminders.\",\n\t\t\t\"tokens\": [\"Sorry\", \",\", \"I\", \"ca\", \"n't\", \"do\", \"reminders\", \".\"]\n\t\t}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"yes, iam busy set remainder my events\",\"tokens\":[\"yes\",\",\",\"iam\",\"busy\",\"set\",\"remainder\",\"my\",\"events\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can't do reminders.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"ca\",\"n't\",\"do\",\"reminders\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"Set a reminder to call my sisters and thank them for that comfy chair they got me.\",\"tokens\":[\"Set\",\"a\",\"reminder\",\"to\",\"call\",\"my\",\"sisters\",\"and\",\"thank\",\"them\",\"for\",\"that\",\"comfy\",\"chair\",\"they\",\"got\",\"me\",\".\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can't do reminders.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"ca\",\"n't\",\"do\",\"reminders\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"Remind me of the first flight to london\",\"tokens\":[\"Remind\",\"me\",\"of\",\"the\",\"first\",\"flight\",\"to\",\"london\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can't do reminders.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"ca\",\"n't\",\"do\",\"reminders\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"Hi Does R House have a full bar?\",\n\t\t\t\"tokens\": [\"Hi\", \"Does\", \"R\", \"House\", \"have\", \"a\", \"full\", \"bar\", \"?\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [\"entity@1248994533\"],\n\t\t\t\"original_text\": \"I'm unable to find whether R. House has a full bar. You'll have to contact them.\",\n\t\t\t\"tokens\": [\"I\", \"'m\", \"unable\", \"to\", \"find\", \"whether\", \"R.\", \"House\", \"has\", \"a\", \"full\", \"bar\", \".\", \"You\", \"'ll\", \"have\", \"to\", \"contact\", \"them\", \".\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"Remind me the day before the meeting\",\"tokens\":[\"Remind\",\"me\",\"the\",\"day\",\"before\",\"the\",\"meeting\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can't do reminders.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"ca\",\"n't\",\"do\",\"reminders\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"Does Walk-ons in Mobile have a full bar?\",\n\t\t\t\"tokens\": [\"Does\", \"Walk\", \"-\", \"ons\", \"in\", \"Mobile\", \"have\", \"a\", \"full\", \"bar\", \"?\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [],\n\t\t\t\"original_text\": \"Yes.\",\n\t\t\t\"tokens\": [\"Yes\", \".\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"Yes, I need to make it for July 15th instead.\",\"tokens\":[\"Yes\",\",\",\"I\",\"need\",\"to\",\"make\",\"it\",\"for\",\"July\",\"15\",\"th\",\"instead\",\".\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can't handle that yet.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"ca\",\"n't\",\"handle\",\"that\",\"yet\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"Can you make an event for Friday?\",\n\t\t\t\"tokens\": [\"Can\", \"you\", \"make\", \"an\", \"event\", \"for\", \"Friday\", \"?\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [\"entity@1503946306\"],\n\t\t\t\"original_text\": \"Does one of these work?\",\n\t\t\t\"tokens\": [\"Does\", \"one\", \"of\", \"these\", \"work\", \"?\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"Make the appointment in the biggest room we have available at that time.\",\"tokens\":[\"Make\",\"the\",\"appointment\",\"in\",\"the\",\"biggest\",\"room\",\"we\",\"have\",\"available\",\"at\",\"that\",\"time\",\".\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can't handle that yet.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"ca\",\"n't\",\"handle\",\"that\",\"yet\",\".\"]},\"tags\":{\"original_lispress\":\"(FenceOther)\"}}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"The 2nd one is mostly look good for me.\",\n\t\t\t\"tokens\": [\"The\", \"2\", \"nd\", \"one\", \"is\", \"mostly\", \"look\", \"good\", \"for\", \"me\", \".\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [],\n\t\t\t\"original_text\": \"I've put that on your calendar.\",\n\t\t\t\"tokens\": [\"I\", \"'ve\", \"put\", \"that\", \"on\", \"your\", \"calendar\", \".\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"Are there any tables available at the Pizza place tonight?\",\"tokens\":[\"Are\",\"there\",\"any\",\"tables\",\"available\",\"at\",\"the\",\"Pizza\",\"place\",\"tonight\",\"?\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can only help with your calendar.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"can\",\"only\",\"help\",\"with\",\"your\",\"calendar\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"Thanks to for you greatfull job to me\",\n\t\t\t\"tokens\": [\"Thanks\", \"to\", \"for\", \"you\", \"greatfull\", \"job\", \"to\", \"me\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [\"entity@102333225\"],\n\t\t\t\"original_text\": \"Let me know if there's anything else I can help you with.\",\n\t\t\t\"tokens\": [\"Let\", \"me\", \"know\", \"if\", \"there\", \"'s\", \"anything\", \"else\", \"I\", \"can\", \"help\", \"you\", \"with\", \".\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"why do hurricanes happen?\",\"tokens\":[\"why\",\"do\",\"hurricanes\",\"happen\",\"?\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can't answer that with the information I have access to.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"ca\",\"n't\",\"answer\",\"that\",\"with\",\"the\",\"information\",\"I\",\"have\",\"access\",\"to\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"Actually, could you create a new event called \\\"beach trip\\\" at Coney Island?\",\n\t\t\t\"tokens\": [\"Actually\", \",\", \"could\", \"you\", \"create\", \"a\", \"new\", \"event\", \"called\", \"\\\"\", \"beach\", \"trip\", \"\\\"\", \"at\", \"Coney\", \"Island\", \"?\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [\"entity@1078046934\"],\n\t\t\t\"original_text\": \"Does one of these work?\",\n\t\t\t\"tokens\": [\"Does\", \"one\", \"of\", \"these\", \"work\", \"?\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"what's your favorite weather?\",\"tokens\":[\"what\",\"'s\",\"your\",\"favorite\",\"weather\",\"?\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can't answer that with the information I have access to.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"ca\",\"n't\",\"answer\",\"that\",\"with\",\"the\",\"information\",\"I\",\"have\",\"access\",\"to\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"When is my next staff meeting scheduled for?\",\n\t\t\t\"tokens\": [\"When\", \"is\", \"my\", \"next\", \"staff\", \"meeting\", \"scheduled\", \"for\", \"?\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [],\n\t\t\t\"original_text\": \"The next event matching \\\"staff meeting\\\" is on June 2nd at 10:00 AM.\",\n\t\t\t\"tokens\": [\"The\", \"next\", \"event\", \"matching\", \"\\\"\", \"staff\", \"meeting\", \"\\\"\", \"is\", \"on\", \"June\", \"2\", \"nd\", \"at\", \"10\", \":\", \"00\", \"AM\", \".\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"Can you give me the details though of the party you deleted?\",\"tokens\":[\"Can\",\"you\",\"give\",\"me\",\"the\",\"details\",\"though\",\"of\",\"the\",\"party\",\"you\",\"deleted\",\"?\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can only help with your calendar.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"can\",\"only\",\"help\",\"with\",\"your\",\"calendar\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"Is there a meeting after that?\",\n\t\t\t\"tokens\": [\"Is\", \"there\", \"a\", \"meeting\", \"after\", \"that\", \"?\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [],\n\t\t\t\"original_text\": \"No, I didn't find any events on June 2nd after 10:45.\",\n\t\t\t\"tokens\": [\"No\", \",\", \"I\", \"did\", \"n't\", \"find\", \"any\", \"events\", \"on\", \"June\", \"2\", \"nd\", \"after\", \"10\", \":\", \"45\", \".\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"rain makes me sad\",\"tokens\":[\"rain\",\"makes\",\"me\",\"sad\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can't handle that yet.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"ca\",\"n't\",\"handle\",\"that\",\"yet\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"Are there any meetings in the afternoon that day?\",\n\t\t\t\"tokens\": [\"Are\", \"there\", \"any\", \"meetings\", \"in\", \"the\", \"afternoon\", \"that\", \"day\", \"?\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [],\n\t\t\t\"original_text\": \"No, I didn't find any events on June 2nd in the afternoon.\",\n\t\t\t\"tokens\": [\"No\", \",\", \"I\", \"did\", \"n't\", \"find\", \"any\", \"events\", \"on\", \"June\", \"2\", \"nd\", \"in\", \"the\", \"afternoon\", \".\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"Please set my alarm for 6:15 am.\",\"tokens\":[\"Please\",\"set\",\"my\",\"alarm\",\"for\",\"6\",\":\",\"15\",\"am\",\".\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can't do reminders.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"ca\",\"n't\",\"do\",\"reminders\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"Can you send an invite to Mark for this\",\n\t\t\t\"tokens\": [\"Can\", \"you\", \"send\", \"an\", \"invite\", \"to\", \"Mark\", \"for\", \"this\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [\"entity@1701428647\"],\n\t\t\t\"original_text\": \"How is this?\",\n\t\t\t\"tokens\": [\"How\", \"is\", \"this\", \"?\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"When will it be sunny again?\",\"tokens\":[\"When\",\"will\",\"it\",\"be\",\"sunny\",\"again\",\"?\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can't answer that with the information I have access to.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"ca\",\"n't\",\"answer\",\"that\",\"with\",\"the\",\"information\",\"I\",\"have\",\"access\",\"to\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"Can you send an invite to Mark for this\",\n\t\t\t\"tokens\": [\"Can\", \"you\", \"send\", \"an\", \"invite\", \"to\", \"Mark\", \"for\", \"this\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [\"entity@1701428647\"],\n\t\t\t\"original_text\": \"How is this?\",\n\t\t\t\"tokens\": [\"How\", \"is\", \"this\", \"?\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"Can you block the entire day as busy on my calendar?\",\"tokens\":[\"Can\",\"you\",\"block\",\"the\",\"entire\",\"day\",\"as\",\"busy\",\"on\",\"my\",\"calendar\",\"?\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can't handle that yet.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"ca\",\"n't\",\"handle\",\"that\",\"yet\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"That looks correct to me.\",\n\t\t\t\"tokens\": [\"That\", \"looks\", \"correct\", \"to\", \"me\", \".\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [],\n\t\t\t\"original_text\": \"I've changed \\\"Staff Meeting\\\" to be Mark.\",\n\t\t\t\"tokens\": [\"I\", \"'ve\", \"changed\", \"\\\"\", \"Staff\", \"Meeting\", \"\\\"\", \"to\", \"be\", \"Mark\", \".\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"Do I have bread on my shopping list?\",\"tokens\":[\"Do\",\"I\",\"have\",\"bread\",\"on\",\"my\",\"shopping\",\"list\",\"?\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can't handle that yet.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"ca\",\"n't\",\"handle\",\"that\",\"yet\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"When is the meeting with the lecture?\",\n\t\t\t\"tokens\": [\"When\", \"is\", \"the\", \"meeting\", \"with\", \"the\", \"lecture\", \"?\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [],\n\t\t\t\"original_text\": \"It's on April 11th at 2:00 PM.\",\n\t\t\t\"tokens\": [\"It\", \"'s\", \"on\", \"April\", \"11\", \"th\", \"at\", \"2\", \":\", \"00\", \"PM\", \".\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"Okay, when do you expect the rain to stop?\",\"tokens\":[\"Okay\",\",\",\"when\",\"do\",\"you\",\"expect\",\"the\",\"rain\",\"to\",\"stop\",\"?\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can't answer that with the information I have access to.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"ca\",\"n't\",\"answer\",\"that\",\"with\",\"the\",\"information\",\"I\",\"have\",\"access\",\"to\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"Can you reschedule it to the following Thursday?\",\n\t\t\t\"tokens\": [\"Can\", \"you\", \"reschedule\", \"it\", \"to\", \"the\", \"following\", \"Thursday\", \"?\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [\"entity@2080300388\"],\n\t\t\t\"original_text\": \"Does this look right?\",\n\t\t\t\"tokens\": [\"Does\", \"this\", \"look\", \"right\", \"?\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"defer the meeting with john at 1 pm today\",\"tokens\":[\"defer\",\"the\",\"meeting\",\"with\",\"john\",\"at\",\"1\",\"pm\",\"today\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can't handle that yet.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"ca\",\"n't\",\"handle\",\"that\",\"yet\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"yep and add lori to it\",\n\t\t\t\"tokens\": [\"yep\", \"and\", \"add\", \"lori\", \"to\", \"it\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [\"entity@1137269941\"],\n\t\t\t\"original_text\": \"How about now?\",\n\t\t\t\"tokens\": [\"How\", \"about\", \"now\", \"?\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"Leave a note on the event to bring a drink\",\"tokens\":[\"Leave\",\"a\",\"note\",\"on\",\"the\",\"event\",\"to\",\"bring\",\"a\",\"drink\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry, I can't handle that yet.\",\"tokens\":[\"Sorry\",\",\",\"I\",\"ca\",\"n't\",\"handle\",\"that\",\"yet\",\".\"]},\"tags\":{\"original_lispress\":\"(FenceOther)\",\"do-not-train\":\"\"}}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"looks pretty good\",\n\t\t\t\"tokens\": [\"looks\", \"pretty\", \"good\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [],\n\t\t\t\"original_text\": \"I've changed \\\"meeting with the lecture\\\" to be lori.\",\n\t\t\t\"tokens\": [\"I\", \"'ve\", \"changed\", \"\\\"\", \"meeting\", \"with\", \"the\", \"lecture\", \"\\\"\", \"to\", \"be\", \"lori\", \".\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"yeah iam meeting set remainder\",\"tokens\":[\"yeah\",\"iam\",\"meeting\",\"set\",\"remainder\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"I've put that on your calendar. Sorry, I'm not able to handle alerts yet.\",\"tokens\":[\"I\",\"'ve\",\"put\",\"that\",\"on\",\"your\",\"calendar\",\".\",\"Sorry\",\",\",\"I\",\"'m\",\"not\",\"able\",\"to\",\"handle\",\"alerts\",\"yet\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "\"user_utterance\": {\n\t\t\t\"original_text\": \"OK\",\n\t\t\t\"tokens\": [\"OK\"]\n\t\t},\n\t\t\"agent_utterance\": {\n\t\t\t\"described_entities\": [\"entity@102333225\"],\n\t\t\t\"original_text\": \"Let me know if there's anything else I can help you with.\",\n\t\t\t\"tokens\": [\"Let\", \"me\", \"know\", \"if\", \"there\", \"'s\", \"anything\", \"else\", \"I\", \"can\", \"help\", \"you\", \"with\", \".\"]\n\t\t}",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "\"user_utterance\":{\"original_text\":\"I'd like to change my appointment tomorrow to a later date.\",\"tokens\":[\"I\",\"'d\",\"like\",\"to\",\"change\",\"my\",\"appointment\",\"tomorrow\",\"to\",\"a\",\"later\",\"date\",\".\"]},\"agent_utterance\":{\"described_entities\":[\"entity@102333225\"],\"original_text\":\"Sorry I can't help you with that yet.\",\"tokens\":[\"Sorry\",\"I\",\"ca\",\"n't\",\"help\",\"you\",\"with\",\"that\",\"yet\",\".\"]}",
+            "output": [
+                "No"
+            ]
+        }
+    ]
+}
