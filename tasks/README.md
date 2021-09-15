@@ -7,3 +7,8 @@ Name | Summary | Category
 ---- | ----------- | --------
 `task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
+`task913_ljspeech_textmodification` | Digit to Text in ljspeech | Text Modification 
+`task914_ljspeech_textmodification` | Text to Digit in ljspeech | Text Modification
+`task915_ljspeech_classification` | Finding Proper Nouns in ljspeech | Classification
+`task916_ljspeech_classification` | Correct Punctuation in ljspeech| Classification
+
