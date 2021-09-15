@@ -4,9 +4,9 @@
     ],
     "Source": "classla/copa_hr",
     "Categories": [
-        "Question generation"
+        "Classification"
     ],
-    "Definition": "This task includes a statement, a correct choice and an incorrect choice given as input and the output consists of the question that can be predicted from the choices provided as input. The question consists of 2 types, namely effect and cause. The output is based on whether the choices provided are related to the cause or effect of the statement. If the choices are related to the after effect of the statement then they will come under effect otherwise cause ",
+    "Definition": "Given a statement and 2 choices, classify the group in which the choice and the statement are related. There are two possible categories of the question/label namely cause and effect. If the choices are the consequence of the statement then the question/label is effect. If the statement is the consequence or after effect of the choices then the question/label is cause. If one choice is related to the cause of the statement and other choice is related to the effect of the statement then that example comes under negative example.",
     "Positive Examples": [
         {
             "input": "Statement: I pushed the pendulum. \nChoice 1: Slowed down and stopped. \nChoice 2: It swayed back and forth.",
@@ -21,29 +21,29 @@
         {
             "input": "Statement: The man looked at his watch. \nChoice 1: He realized he had forgotten something. \nChoice 2: He realized he was early.",
             "output": "effect",
-            "explanation": "Since the word realized is mentioned in both the choices, the question directly falls under the effect category."
+            "explanation": "The choices are related to the after effect of the statment that the man looked at his watch and then realized that whether he was early or had forgotten something."
         },
         {
             "input": "Statement: The waiter did not want to serve the guest. \nChoice 1: The guest was alone. \nChoice 2: The guest was drunk.",
             "output": "cause",
-            "explanation": "The choices are clearly providing the reason in the form, the guest was, for the statement hence it will come under the cause category."
+            "explanation": "The choices are related to the cause of the statement that why the waiter did not want to serve the guest as they state the reason that the guest was alone or the guest was drunk."
         }
     ],
     "Negative Examples": [
         {
             "input": "Statement: The pharmaceutical company withdrew the drug. \nChoice 1: Users have reported dangerous side effects. \nChoice 2: Users have been given new recipes.",
             "output": "cause",
-            "explanation": "The part of the choices that the users have reported and the users have been given new recipes contradict whether it is an after effect or a result of the choices as the choice a comes under cause and choice 2 comes under effect."
+            "explanation": "The choice 1 that the users have reported dangerous side effect is related to the cause of the statement that the pharmaceuticcal company withdrew the drug. The choice 2 that the users havebeen given new recipes is related to the effect of the statement that the pharmaceutical company withdrew the drug. Since both the choices contradict, this is a negative example."
         },
         {
             "input": "Statement: I wiped under a paper towel. \nChoice 1: I spilled juice on the floor. \nChoice 2: The floor was permanently stained.",
             "output": "cause",
-            "explanation": "The choice 1 comes under the cause of the statement and the choice 2 comes under the effect of the statement. Hence both the choices contradict."
+            "explanation": "The choice 1 that the juice was spilled on the floor, is the cause of the statement that I wiped under a paper towel. The choice 2 that the floor was permanently stained comes under the effect of the statement. Hence, both the choices contradict and so the example is a negative example."
         },
         {
             "input": "Statement: The football coach lost his voice after the game. \nChoice 1: He yelled every time a player lost the ball. \nChoice 2: He whistled every time a player scored a goal.",
             "output": "cause",
-            "explanation": "The choice 1 and choice 2 are contradicting as choice 1 can be the cause of the statement and choice 2 can be the effect of the statement."
+            "explanation": "The choice 1 that he yelled every time a player lost a ball is the cause of why he lost his voice after the game. The choice 2 that he whistled every time a player scored a goal is related to the consequence of the football coach losing his voice after the game. Since both the examples contradict, it is a negative example."
         }
     ],
     "Instances": [
