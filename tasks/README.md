@@ -10,5 +10,5 @@ Name | Summary | Category
 `task465_opus_xhosanavy_translation_eng_xhosa` | Translating sentences in English to Xhosa | Translation
 `task466_opus_xhosanavy_translation_khosa_eng` | Translating sentences in Xhosa to English | Translation
 `task467_opus_xhosanavy_sr` |  Recognizing primary subjects in sentences | Primary Subject Recognition
-`task468_opus_task468_emotion_classification` | Classifying sentences by emotions | Classification
+`task468_emotion_classification` | Classifying sentences by emotions | Classification
 `task469_emotion_esd` | Detecting sequences that contribute to emotions of sentences | Emotive Sequence Detection
