@@ -10,3 +10,4 @@ Name | Summary | Category
 `task507_peixian-rtGender_gender_identification` | Identify the gender of the source poster/speaker based on the post | Gender Identification
 `task508_peixian-rtGender_sentiment_analysis` | Analyze the sentiment of responses under posters from social media | Sentiment Analysis
 `task509_peixian-rtGender_response_relevance_analysis` | Analyze the relevance of responses to the source posters from social media | Response Relevance Analysis
+`task510_peixian-rtGender_positive_response_generation` | Generating a responses with positive sentiment the posters from social media | Positive Response Generation
