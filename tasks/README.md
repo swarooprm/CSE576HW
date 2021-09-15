@@ -9,3 +9,5 @@ Name | Summary | Category
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
 `task689_mlqa_question_generation` | Generating guestions in Hindi | Question Generation
 `task690_mlqa_title_generation` | Generating Title in English | Title Generation
+`task691_gutenberg_time_answer_generation` | Generating Answer | Answer Generation
+`task692_gutenberg_time_hour_reference` | Generating Hour Reference | Hour Reference Generation
