@@ -1,0 +1,566 @@
+{
+    "Contributors": [
+        "Matthew Huff"
+    ],
+    "Source": [
+        "DialogRE"
+    ],
+    "Categories": [
+        "Identification"
+    ],
+    "Definition": "In this task, you are given a dialog between 2 or more individuals. Within the dialog, there will be clues that indicate two individuals were or are dating. You will be prompted at the end to answer which Speaker (or named individual) is dating which other Speaker (or named individual).",
+    "Positive Examples": [
+        {
+            "input": "'Speaker 1: Hi!  Speaker 2: Hi.  Speaker 1: Oh, I’m so glad you called. I feel like it’s always me calling you. So, what’s up? Is everything okay with Phoebe?  Speaker 2: It will be…in a minute. Listen, Tim you’re a really great guy.  Speaker 1: It’s because I’m with you.  Speaker 2: Aw. I’m just—I’m in a place in my life right now where I…I…  Speaker 1: Whoops. Sorry. This just in. Oh, it’s 9-1-1 from the restaurant, that means Monica needs me right away.  Speaker 2: Oh-oh no she doesn’t! I know what that is. You can stay.  Speaker 1: Awww, I’ll miss you too Pheebs. And I will be holding you, right here.  Speaker 2 is or was dating which Speaker?'",
+            "output": "Speaker 1",
+            "explanation": "Speaker 2 is giving clues to Speaker 1 about issues in their relationship."
+        },
+        {
+            "input": "Speaker 1: Gotta go. I miss you too, I love you, but it's getting real late now  Speaker 2: Hey Ma. Listen, I made the appointment with Dr. Bazida, and... Excuse me? Did you know this isn't Ma?  Speaker 1: Her name's Ronni. She's a pet mortician.  Speaker 2: Sure. So how long you been...  Speaker 1: Remember when you were a little kid, I used to take you to the navy yard and show you the big ships?  Speaker 2: Since then?!  Speaker 1: No, it's only been six years. I just wanted to put a nice memory in your head so you'd know that I wasn't always such a terrible guy. ...Joe. Y'ever been in love?  Speaker 2: ...I d'know.  Speaker 1: Then y'haven't. You're burning your tomatoes.  Speaker 2: You're one to talk.  Speaker 1: Joe, your dad's in love big time. And the worst part of it is, it's with two different women.  Speaker 2: Oh man. Please tell me one of 'em is Ma.  Speaker 1: Of course, course one of 'em's Ma. What's the matter with you.  Ronni is or was dating which Speaker?",
+            "output": "Speaker 1",
+            "explanation": "In this dialog, Speaker 1 is explaining his relationship with Ronni to Speaker 2."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Speaker 1: Hey, anybody got a length of rope about six feet long with a little nouse at the end?  Speaker 2: Honey, what's the matter?  Speaker 1: I just saw Janice.  Speaker 3: Oh.  Speaker 1: Yeah, she was at Rockefeller Center skating with her husband, she looked so happy. I almost feel bad for whipping that kid's pretzel at them.  Speaker 4: Man, I remember the first time I saw that girl Katherine, after we broke up. She was just walking with her friend Donna, just laughing and talking. God, it killed me.  Janice is or was dating which Speaker?",
+            "output": "Donna",
+            "explanation": "Donna is just a friend of Janice's, there is nothing here to suggest they are romantically involved."
+        },
+        {
+            "input": "Speaker 1: Hi!  Speaker 2: Hey! Hiya!  Speaker 3: Hey! Hey, cute jacket!  Speaker 1: Oh, thanks! That's so sweet!  Speaker 3: Oh! Ow!  Speaker 1: Oh, ow! Did Joey tell you to say that? You guys, are too much!  Speaker 3: Whoa! Y'know what Katie? I gotta tell ya I-I-I-I think you are the one who is too much.  Speaker 1: Ohh, Joey has the nicest friends!  Speaker 3: Ohh, and the nicest girlfriend!  Speaker 1: You're so sweet!  Speaker 3: Ohh, you're so sweet!  Speaker 1: Oww!!!! Joey, she just kicked me.  Speaker 2: Huh.  Speaker 1: Well? Aren't you gonna do something?  Speaker 2: Uhh….  Speaker 1: You'd better do something, or I'm gonna walk out that door right now! Well? Are you gonna?  Speaker 2: Nah.  Speaker 1 is or was dating which Speaker?",
+            "output": "Speaker 3",
+            "explanation": "Speaker 3 is just a friend of Speaker 2, who Speaker 1 is actually dating."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "Speaker 1: Okay, you come up with an idea.  Speaker 2: Alright alright, we still have three hours till escrow closes on our house. We can still get out.  Speaker 1: But we love our house.  Speaker 2: Will we love it so much with her next door? And she\\'s gonna be louder out here too. Just the crickets and \"Oh My God\"!  Speaker 1: Okay, but if we don\\'t get this house, she\\'s stil gonna show up wherever we go! I mean, at least if she\\'s here, it eliminates the element of surprise. I mean, never again will you have to hear the three words that make your balls jump back up inside your body.  Speaker 2: Well, we have to do something. We can\\'t have her living next door. Oh, that does it too.  Speaker 3: Well... I just talked to Sid, we are definitely putting in an offer on the house... a-a-and I\\'ll bet we get it.  Speaker 2: The Hitlers will be so disappointed.  Speaker 3: All right, I got to run. Tell Monica I say goodbye. And... I\\'ll see you later, neighbor.  Speaker 2: Wait! I just want you to know that... I\\'m so happy you\\'re going to be here.  Speaker 3: Oh, me too...  Speaker 2: Because... that way... we can pick up where we left off.  Speaker 3: Huh?  Speaker 2: I never stopped loving you.  Speaker 3: Oh... my...  Speaker 2: Yeah, yeah, yeah! I want you... I need you... I must have you Janice Litman Goralnik Neihosenstein.  Speaker 3: Chandler, what are you talking about?  Speaker 2: Now that you live next door, we can be together every day. Sid and Monica never have to know a thing.  Speaker 3: I don\\'t know what to say... I mean, you know, obviously we have this... heat between us.  Speaker 2: Obviously.  Speaker 3: But I love my husband. And I know you love your wife. Now, I don\\'t think we should get this house now.  Speaker 2: Don\\'t say that. Don\\'t tangle the dream and take it away.  Speaker 3: Chandler, one of us has got to be strong.  Speaker 2: I understand.  Speaker 3: Although, maybe just... one last moment of weakness... Goodbye Chandler Bing.  Speaker 2: They\\'re never coming down now.  Speaker 3 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hi!  Speaker 2: Hi.  Speaker 1: Oh, I’m so glad you called. I feel like it’s always me calling you. So, what’s up? Is everything okay with Phoebe?  Speaker 2: It will be…in a minute. Listen, Tim you’re a really great guy.  Speaker 1: It’s because I’m with you.  Speaker 2: Aw. I’m just—I’m in a place in my life right now where I…I…  Speaker 1: Whoops. Sorry. This just in. Oh, it’s 9-1-1 from the restaurant, that means Monica needs me right away.  Speaker 2: Oh-oh no she doesn’t! I know what that is. You can stay.  Speaker 1: Awww, I’ll miss you too Pheebs. And I will be holding you, right here.  Speaker 2 is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Oh, honey, honey, tell them the story about your patient who thinks things are, like, other things. Y'know? Like, the phone rings and she takes a shower.  Speaker 2: That's pretty much it.  Speaker 1: Oops!  Speaker 2: But you tell it really well, sweetie.  Speaker 1: Thanks. Okay, now go away so we can talk about you.  Speaker 2: Okay. I'll miss you.  Speaker 1 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Alright, so, can we turn this off? Can we just make it... make them go away? Because I can’t, I can’t watch.  Speaker 2: okay, Pheebs, they’re gone.  Speaker 1: Okay.  Speaker 2: Are you alright?  Speaker 1: Yeah. It’s just, you know, it’s this whole stupid Ursula thing, it’s...  Speaker 3: Okay, Pheebs, can I ask? So, he’s going out with her. I mean, is it really so terrible?  Speaker 1: Um, yeah. Look, I mean, I’m not saying she’s like evil or anything. She just, you know, she’s always breaking my stuff. When I was eight, and I wouldn’t let her have my Judy Jetson thermos, so she threw it under the bus. And then, oh, and then there was Randy Brown, who was like... Have you ever had a boyfriend who was like your best friend?  Speaker 2, Speaker 3: No.  Speaker 1: Well, but that’s what he was for me. And she you know, kind of stole him away, and then... broke his heart... and then he wouldn’t even talk to me any more. Because he said he didn’t wanna be around... anything that looked like either one of us.  Speaker 3: Oh... Oh, Pheebs.  Speaker 1: I mean, I know Joey is not my boyfriend, or my thermos, or anything, but...  Speaker 4: You’re not gonna lose him.  Speaker 2: Hon, you gotta talk to Joey.  Speaker 1: Yeah. Okay.  Speaker 5: No, come on, he doesn’t know this stuff. If he knew how you felt.  Speaker 1: But he’s falling in love with her.  Speaker 3: Oh please, they’ve been going out a week. They haven’t even slept together yet, I mean, that’s not serious.  Speaker 1: Okay... Okay.  Speaker 1: Oh, okay, oh.  Randy Brown is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hey, anybody got a length of rope about six feet long with a little nouse at the end?  Speaker 2: Honey, what's the matter?  Speaker 1: I just saw Janice.  Speaker 3: Oh.  Speaker 1: Yeah, she was at Rockefeller Center skating with her husband, she looked so happy. I almost feel bad for whipping that kid's pretzel at them.  Speaker 4: Man, I remember the first time I saw that girl Katherine, after we broke up. She was just walking with her friend Donna, just laughing and talking. God, it killed me.  Janice is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hi!  Speaker 2: Hey! Hiya!  Speaker 3: Hey! Hey, cute jacket!  Speaker 1: Oh, thanks! That's so sweet!  Speaker 3: Oh! Ow!  Speaker 1: Oh, ow! Did Joey tell you to say that? You guys, are too much!  Speaker 3: Whoa! Y'know what Katie? I gotta tell ya I-I-I-I think you are the one who is too much.  Speaker 1: Ohh, Joey has the nicest friends!  Speaker 3: Ohh, and the nicest girlfriend!  Speaker 1: You're so sweet!  Speaker 3: Ohh, you're so sweet!  Speaker 1: Oww!!!! Joey, she just kicked me.  Speaker 2: Huh.  Speaker 1: Well? Aren't you gonna do something?  Speaker 2: Uhh….  Speaker 1: You'd better do something, or I'm gonna walk out that door right now! Well? Are you gonna?  Speaker 2: Nah.  Speaker 1 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Wow! I have never had such a healthy break-up! She was such a grown-up about it! She didn’t seem too immature for me! Did I just make a huge mistake?  Speaker 2: Ross! Wait!  Speaker 1: Elizabeth, thank God! I was just thinking about…  Speaker 2: You suck!!  Speaker 1: What?!  Speaker 1: Okay, break-up’s still on!  Speaker 2 is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Pete's breaking up with me.  Speaker 2: What?!  Speaker 1: I just checked my messages, and he said that when he gets back from Atlanta, we need to talk.  Speaker 3: And?  Speaker 1: Well that's it. People never say `We need to talk' unless it's something bad.  Speaker 4: Whoa, that doesn't necessarily mean that he's breaking up with you.  Speaker 1: Really?!  Speaker 4: Yeah, maybe he just cheated on you.  Pete is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Excuse me, I-I couldn’t help overhearing, you’re marrying Chandler Bing?  Speaker 2: Yeah that’s right.  Speaker 1: Huh, good luck!  Speaker 3: Aww, and good luck to you too! What a nice lady!  Chandler Bing is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hey.  Speaker 2: Hey.  Speaker 1: Uh, listen I gotta double check for tickets tonight. Who-who got what?  Speaker 3, Speaker 4, Speaker 5: I had one.  Speaker 6: I need two. I'm bringing Pete. My boyfriend. I have a boyfriend now!  Speaker 1: Two it is. Ross, how about you?  Speaker 7: Uh, yeah, I ah, I also need two.  Speaker 6: Really? Who's number two?  Speaker 3: Who's number two? One of the more difficult games sewer workers play.  Speaker 7: Uh, no, it's-it's just this person.  Speaker 4: Like a date type person?  Speaker 7: Yeah, kinda. It's this woman from work. I hope that won't be too weird. Will it, Rach?  Speaker 5: No. No, not at all, not at all. I actually was gonna bring someone myself, so...  Speaker 1: But you said one.  Speaker 5: I meant, me plus one!  Pete is or was dating which Speaker?",
+            "output": [
+                "Speaker 6"
+            ]
+        },
+        {
+            "input": "Speaker 1: Okay. Okay, I got one. Do you remember that vegetarian pate that I made that you loved so much?  Speaker 2: Uh-huh.  Speaker 1: Well, unless goose is a vegetable...ha haaaah!  Speaker 2: Oh! Oh! Oh! Okay, fine, fine. Now I don't feel so bad about sleeping with Jason Hurley.  Speaker 1: What?! You slept with Jason?  Speaker 2: You'd already broken up.  Speaker 3: How long?  Speaker 2: A couple hours.  Speaker 1: Oh, that's nice!  Jason Hurley is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hey you guys! Ok...we\\'ve got great news.  Speaker 2: Phoebe and I are moving in together.  Speaker 3, Speaker 4, Speaker 5: Congratulations!/Good for you!/Great!  Speaker 1: I know it\\'s so exciting! You know I\\'ve never lived with a guy before.  Speaker 3: Well you know it\\'s just like living with a girl. Only they don\\'t steal your makeup. Unless they\\'re playing \"This is what my sister would look like\".  Speaker 4: Yeah...she\\'s not so cute.  Speaker 2: I\\'m gonna go to the bathroom.  Speaker 1: OK...Well you put down the toilet seat.  Speaker 2: Yes dear.  Speaker 3: Is that a bit you guys do?  Speaker 1: Uh huh...we\\'re playing you two.  Speaker 3: We don\\'t do that! Tell her we don\\'t do that!  Speaker 4: Yes dear.  Speaker 5: I can\\'t believe you guys are moving in together. That\\'s...that\\'s great! I mean...I\\'m happy for you guys.  Speaker 3: I hear wedding bells.  Speaker 1: Monica slow down! Ok? I\\'m just excited to be living with him. You know I mean...I don\\'t know...Can I see someday being married to Mike? Sure! Yeah...You know...I can picture myself walking down the aisle in a wedding dress that highlights my breasts in an obvious yet classy way. But do I want that house in Connecticut...you know...near the good schools where Mike and I can send Sophie and Mike Junior... Oh my god I do.  Speaker 5: Phoebe...I had no idea you were so conventional.  Speaker 1: I know! I guess I am! Oh my god! Load up the Volvo I want to be a soccer mom!  Speaker 2: You ready to go?  Speaker 1: Yeah! You bet roomy!  Speaker 3: Don\\'t you mean...groomy?  Speaker 2: What are you talking about?  Speaker 1: Oh please...these guys...we haven\\'t even moved in yet and they have us picking out china patterns.  Speaker 1: China patterns!  Speaker 1 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: I can't imagine what he sees in her.  Speaker 2: She actually makes me miss that pill-popping ex-wife of his. Oh, hello dear...  Speaker 3: Hey, what's going on?  Speaker 2: We were just chit-chatting. How's your friend?  Speaker 3: A little better.  Speaker 2: By the way, do you know who's moving back into town? Tom and Sue's daughter Jen.  Speaker 1: You remember her Michael, she's lovely and... well-behaved and... single.  Speaker 3: I'm not interested.  Speaker 2: Oh, please darling, let's be honest. You can have all the... sailor fun you want with that one, but... let's be real...  Speaker 3: All right, stop! You know, all Phoebe has done tonight is trying to get you to like her. And maybe that hasn't been clear all the time, but she did her best. And yeah... She's a little different than you are...  Speaker 2: Michael, a pimp spit in her mouth!  Speaker 3: So what? I mean if even I can get past that, it shouldn't bother you. And you don't have to like her. You just have to accept the fact that I do. I mean, if you even can't be civil to the woman I love...  Speaker 2: The woman you what?  Speaker 4: Yeah... The woman you what?  Speaker 3: The woman I love...  I love you... Which is probably something I shouldn't say for the first time in front of my parents... and Tom and Sue...Who are by the way the most sinfully boring I've ever met in my life...  Speaker 4: I love you too...  Speaker 3: You do?  Speaker 4: YEAH...! How great is this...?  Speaker 3: Wanna get out of here?  Speaker 4: Okay.  Speaker 3: Mom, dad, thanks for dinner.  Speaker 4: I had a great time. It was really top drawer. And here's something rich: thirteen bathrooms in this place... I threw up in the coat closet... Ta taaa...  Speaker 4 is or was dating which Speaker?",
+            "output": [
+                "Speaker 3"
+            ]
+        },
+        {
+            "input": "Speaker 1: Y’know she has a face Ross!  Speaker 2: Okay. Okay, here’s a good one of us.  Speaker 3: Wow! That is a good one! Wow, it looks like a, like a holiday card y’know, with the tree in the middle and the skaters and the snow.  Speaker 2: Y’know, every year I say I’m gonna send out holiday cards and I never do it. Do you wanna, do you wanna send this one out together?  Speaker 3: Together? Like-like to people?  Speaker 2: Yeah, y’know. Happy holidays from Mona and Ross. It’ll be cute, okay?  Speaker 3: Okay.  Speaker 2: Oh, I gotta get to work. So call me later?  Speaker 3: Uh sure, sure.  Speaker 2: Bye guys.  Speaker 1: Bye.  Speaker 4: Congratulations! You just got married!  Speaker 3: I know. Can you believe that?  Speaker 1: Wait, I’m-I’m sorry. What’s the big deal about a holiday card?  Speaker 3: Married couples send out cards, families send out cards, people who have been dating for a couple of months do not send out cards! What-what is she crazy?!  Speaker 4: Hey-hey-hey, hey that’s your wife you’re talking about!  Speaker 2 is or was dating which Speaker?",
+            "output": [
+                "Speaker 3"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hey! Has anyone seen my shirt? It’s a button down, like a, like a faded salmon?  Speaker 2: You mean your pink shirt?  Speaker 1: Faded salmon color.  Speaker 2: No, I-I haven’t seen your pink shirt.  Speaker 1: Great! Great. Then I must’ve left it at Mona’s. I knew it!  Speaker 3: Well, I’m sure you get another one at Ann Taylor’s.  Speaker 1: That’s my favorite shirt! Okay? I love that shirt!  Speaker 4: Well just ask Mona to give it back!  Speaker 1: I don’t know. I mean I-I guess I could. It’s just that we didn’t really end things such good terms. And if I go over there I’d be ignoring the one thing she asked me to do when we broke up, jump up my own ass and die.  Mona is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: You can not do this.  Speaker 2: Do what, do what?  Speaker 1: Roger wants to take her out tomorrow night.  Speaker 2: No! Phoebes! Don't you remember why you dumped the guy?  Speaker 3: 'Cause he was creepy, and mean, and a little frightening... alright, still, it's nice to have a date on Valentine's Day!  Speaker 1: But Phoebe, you can go out with a creepy guy any night of the year. I know I do.  Speaker 2: Well, what are you guys doing tomorrow night?  Speaker 4: Actually, tomorrow night kinda depends on how tonight goes.  Speaker 5: Oh, uh, listen, about tonight...  Speaker 4: No, no, no, don't you dare bail on me. The only reason she's goin' out with me is because I said I could bring a friend for her friend.  Speaker 5: Yes, I know, but her friend sounds like such a...  Speaker 4: Pathetic mess? I know, but—come on, man, she's needy, she's vulnerable. I'm thinkin', cha-ching! Thanks. Look, you have not been out with a woman since Janice. You're doin' this.  Speaker 6: Hi. She said yes.  Speaker 5: Yes! Way to go, man! Still got the egg, huh?  Roger is or was dating which Speaker?",
+            "output": [
+                "Speaker 3"
+            ]
+        },
+        {
+            "input": "Speaker 1: What happened?  Speaker 2: Ah, oh, the ah, vandalism.  Speaker 1: But, also, what happened between you and your Mom?  Speaker 2: Well, we got into a fight 'cause ah, she said I was to immature to get married.  Speaker 1: You're getting married?!  Speaker 2: Oh, yeah!  Speaker 3: Wow!  Speaker 1: My little brother's getting married!!  Speaker 2: Oh, I knew you'd be so cool about this. All right, ah, hey, do you want to meet her?  Speaker 1: Do I?  Speaker 2: Do you?  Speaker 1: Yeah, I do, yeah.  Speaker 2: Okay, cool, all right, she just ah, parking the truck. I'm gonna, I'm gonna get my ah, my fiancée man!  Speaker 4: Y'know, I would've bet good money that he'd be the first one of us to get married.  Speaker 1: Yeah, isn't it fantastic?  Speaker 5: Yeah, ah, but Pheebs don't you think he's a little young to get married?  Speaker 1: What, he's 18.  Speaker 6: Exactly, it'll be illegal for him to drink at his own bachelor party.  Speaker 7: Yeah, or-or to get a hooker.  Speaker 4: Always illegal Joe.  Speaker 2: Hey! Hey! This is ah, my fiancée, Mrs. Knight.  Speaker 8: Y'know it-it's funny, um, Frank told me so much about you, but your not how I pictured you at all.  Speaker 1: Yeah, I'm a big surprise.  Speaker 8 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hi!  Speaker 2: Hi!  Speaker 3: That is one good looking man!  Speaker 4: Is it just me, or can you actually see his abs through his overcoat?!  Speaker 1: Sooo, you’ve been doing this long?  Speaker 2: No, you’re my first. Put the money on the table.  Speaker 1: Oh, yeah! Ooh, that’s nice.  Speaker 3: Dude!  Speaker 1: Is that an expensive blouse?  Speaker 2: If you want it to be.  Speaker 3: Here’s your girlfriend’s button.  Speaker 2 is or was dating which Speaker?",
+            "output": [
+                "Speaker 4"
+            ]
+        },
+        {
+            "input": "Speaker 1: Well then we still have a problem.  Speaker 2: Yeah!  Speaker 3: With what?  Speaker 1: Well, we’re trying to find someone to perform our wedding and they’re all either boring or annoying or y’know, can’t stop staring at the ladies.  Speaker 3: Oo! You should have one of us do it!  Speaker 1: Phoebe, we’re getting married, married; not sixth grade married.  Speaker 3: No! No! It’s-it’s uh a real thing! Anyone can get ordained on the Internet and perform like weddings and stuff!  Speaker 1: Are you serious?  Speaker 3: Yes! A friend of mine did it and it’s totally legal!  Speaker 4: I call it!!  Speaker 3: What?! No! It was my idea!  Speaker 2: Guys thank you very much but neither of you is marrying us.  Speaker 4: Does calling it not mean anything anymore?!  Speaker 2: We are going to have a legitimate member of the clergy! And when I say legitimate I mean, gay and in control of his saliva!  Speaker 2 is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: ...And so then I realized. All this stuff I had been doing. proposing to Joshua, lying to Ross about why I couldn’t come to the wedding. Was all just a way of...  Speaker 2: Oh, oh oh!! I’m sorry, can I interrupt? You know I just want to say..That you are a horrible, horrible person.  Speaker 1: Ehh, pardon me?  Speaker 2: You say you love this man, yet you’re about to ruin the happiest day of his life. I’m afraid I have to agree with you friend Pheebs.. This is a..this is a...terrible, terrible plan.  Speaker 1: But he has to know how I feel!  Speaker 2: But why? He loves this...this Emily person. No good can come of this.  Speaker 1: Well I-I think your wrong.  Speaker 2: Oh-no. And by the way, it seems to be perfectly clear that you were on a break.  Ross is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hi guys! This is Josh. Josh, these are my friends, and that's Ross.  Speaker 2: Hi, Josh.  Speaker 3: Hi.  Speaker 4: Dudes.  Speaker 2: So, did you play in college?  Speaker 4: Oh, I still do. Next year, I hope to make varsity though.  Speaker 1: Ross, didn't you ah, play soccer in High School? Oh no wait, that's right. You just organized their game schedules on your Commodore 64.  Speaker 4: Well, it's getting late, I've got to get to the game, so I'm gonna... head.  Speaker 1: Okay.  I'll miss you.  Speaker 4: Dope!  Speaker 3: Wow, cute one!  Speaker 2: Very!  Speaker 1: I know, isn't he great? It's so nice to finally be in a fun relationship, y'know? There's nothing boring about him, and ah, I bet he's never set foot in a museum.  Speaker 4 is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Monica! I'm sorry I'm late! Monica?  Speaker 2: Phoebe?  Oh, Phoebe, I'm so sorry. Have you been here long?  Speaker 1: It's okay. What the hell took you so long?  Speaker 2: Okay, you can not tell Chandler. Okay? That I ran into Richard.  Speaker 1: Which Richard?  Speaker 2: The Richard.  Speaker 1: Richard Simmons?! Oh my God!  Speaker 2: Noo! My ex-boyfriend Richard! Y'know the tall guy, moustache?  Speaker 1: Oh! Okay, that actually makes more sense. So how was it?  Speaker 2: It was, it was really nice. We started talking and I-I ended up having lunch with him.  Speaker 1: That is so weird! I had a dream that you'd have lunch with Richard.  Speaker 2: Really?  Speaker 1: But again, Simmons. Go on.  Speaker 2: The strange part was, he was really nice, umm and he looks great, but I didn't feel anything at all!  Speaker 1: Ooh! So now why can't we tell Chandler?  Speaker 2: Because it would totally freak him out and tomorrow's our anniversary. I just don't want anything to spoil that.  Richard is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: I'm sorry... I'm sorry. It's obviously way too early for us to be... having that conversation.  Speaker 2: Is it?  Speaker 1: Maybe not, is it?  Speaker 2: Okay, when I got divorced, I didn't think I'd feel this way about someone for a really long time... Then again, I didn't think I'd meet someone like you... and... this may be crazy soon, but... I want you to have this... No, not... that's gum. Ooh, five bucks... I love it when that happens, you know... Think no note's there...  Speaker 1: I know Mike, why don't you keep digging?  Speaker 2: Oh, sorry.  Speaker 1: Oh, it's a key. To be honest, I think I'd prefer the five dollars.  Speaker 2: It's to my apartment.  Speaker 1: Oh wow, ooh! Ooh, big step for Phoebe and Mike.  Speaker 2: Yeah, look, and I don't want you to feel like you have to give me your key just because...  Speaker 1: Oh no, I want to.  Speaker 2: Oh, thank God.  Speaker 1: Yeah... ooh... wow... Even started to think I'd never meet someone that, you know, I wanted to... do this with. Here you go.  Speaker 2: Is this cool, huh?  Speaker 1: It really is.  Speaker 2 is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1, Speaker 2: Hey!  Speaker 3: Listen! You have to help me pick a dress \\'cause I\\'m meeting Mike\\'s parents tonight!  Speaker 2: Wow, the boyfriend\\'s parents! That\\'s a big step.  Speaker 3: Really? That hadn\\'t occurred to me.  Speaker 2: They just gonna love you, just be yourself.  Speaker 3: They live on the upper east side on Park Avenue!  Speaker 1: Oh yeah, she can\\'t be herself.  Speaker 3: Okay, so... all right... Which dress? You can say \"neither\".  Speaker 1, Speaker 2: Oh God, neither!  Speaker 2: I\\'m sorry honey, but we\\'re gonna take you shopping. It\\'s gonna be fine.  Speaker 1: Yeah, totally! You are in such good hands. And I\\'m so good with meeting parents. With the father, you know, you want to flirt a little bit, but not in a gross way. Just kind of like: \"Oh Mr. Pincer, I can see where Wallis gets his good looks...\"  Speaker 2: You went out with Wallis Pincer?  Speaker 1: Uh, he took the SAT\\'s for me.  Speaker 2: I knew you didn\\'t get a 1400!  Speaker 1: Sssh yeah, well, duh! I mean...  Speaker 3: So... now... What about with Mike\\'s mom?  Speaker 1: Oh, with the mother, just... just constantly tell her how amazing her son is. Take it from me, moms love me. Ross\\'s mom one time actually said I\\'m like the daughter that she never had.  Speaker 2:She said WHAT?  Speaker 3:That\\'s she\\'s like the daughter she never had. Listen!  Mike is or was dating which Speaker?",
+            "output": [
+                "Speaker 3"
+            ]
+        },
+        {
+            "input": "Speaker 1: Your ex-boyfriend is insane.  Speaker 2: Did you get the grant?  Speaker 1: No I didn\\'t, and you want to know why? Because your ex-boyfriend is still in love with you.  Speaker 2: What?  Speaker 1: Yeah. He wouldn\\'t give me the grant, because I wouldn\\'t give you up.  Speaker 2: Benji isn\\'t in love with me. I mean, he broke up with me. And besides, he\\'s a very ethical man.  Speaker 1: Really? Is it ethical to ask someone in a grant review, who was the voice of \"Underdog\"?  Speaker 2: I\\'m sure he was just joking, Ross.  Speaker 1: If you don\\'t believe me, let\\'s go talk to him, okay? I\\'m telling you, he didn\\'t ask me one paleontological question.  Speaker 2: Seriously?  Speaker 1: Oh, I\\'m sorry, no. He did ask me one. Uhm... How do you spell Mboscodictiosaur?  Speaker 2: Well, if it\\'s like the lake Mbosco in Congo, then M-B-O...  Speaker 1: Damnit!  Benji is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Okay, that was Mike.  Speaker 2: Phoebe, hi, we're so sorry. You're totally right. We are here one hundred per cent and we love you and we are ready to start your birthday celebration.  Speaker 1: Huh, guys, that means the world to me. Huh, okay, I'm gonna take off.  Speaker 2: What?  Speaker 1: Oh, I love you guys too, but Mike got off work early. Wait. Wait, I'm not the kind of girl that just ditches her friends to be with her boyfriend. You know what? I am. Bye guys! Judy! Bye.  Speaker 2: Oh thank god, if Phoebe's going, can we please take Emma home?  Speaker 3: You know, I think that's a good idea. Our babysitter just pounded down another Chardonnay. Bye, you guys.  Speaker 4: Bye.  Speaker 5: See ya. Well, this is just us.  Mike is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Okay you two are asking the court for an annulment?  Speaker 2: Yes your honor, and here are, are forms, all filled out.  Speaker 1: So based on your petition you are seeking an annulment on the grounds that Mr. Geller is mentally unstable.  Speaker 3: Fine, I’m mentally unstable.  Speaker 1: And based on the fact that Mr. Geller is intravenous drug user.  Speaker 3: What?!  Speaker 2: Uh yes, heroin and crack.  Speaker 3: Crack isn’t even an intravenous drug!  Speaker 2: Well, you would know.  Speaker 1: Now it also says here that you lied about your sexual preference before marriage?  Speaker 3: Oh, come on!  Speaker 2: Ross, please, I found the magazines!  Speaker 1: And finally that you were unable to consummate the marriage. Well, that makes sense since you’re gay and addicted to heroin.  Speaker 3: Okay, I’m sorry, this is insane! I-I-I’m not addicted to heroin, I’m not gay, and there is no problem with my ability to consummate anything! Look, I’ll consummate this marriage right here, right now!  Speaker 1: That won’t be necessary.  Speaker 3: And when we were dating we consummated like bunnies!  Speaker 2: Ugh!  Speaker 1: Now if you were two involved in a serious relationship, that really creates a problem.  Speaker 2: Ross! Your honor, rest assured relationship ended like two years ago! And could you strike \"Consummated like bunnies\" from the record?  Speaker 1: Is there, anything in this record that is actually true?  Speaker 2: Well, yes, we got married in Vegas and uh, and the names I think.  Speaker 1: Well, based on what I heard, you two certainly don’t qualify for an annulment. If you two don’t want to be together you’ll have to file for divorce  Speaker 3 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: What uh—What did you—What?!  Speaker 2: I still love you. And I know I probably shouldn’t even be here telling you this, I mean you’re with Chandler a guy I really like, and if you say he’s straight I’ll believe you! After seeing ya the other night I knew if I didn’t tell ya I’d regret it for the rest of my life. Letting you go was the stupidest thing I ever did.  Speaker 1: Y’know you’re really not supposed to be back here!  Speaker 2: Well yeah, I’m sorry. I know this is the wrong time and the wrong place but I had to tell ya! I wanna spend my life with you. I wanna marry you. I wanna have kids with you.  Speaker 1: Oh God… Why don’t they put chairs back here?!  Speaker 2: I know this is crazy but am I too late?  Speaker 1: What the… Yes you’re too late! Where was all this three years ago?!  Speaker 2: Well I know I was an idiot! And I tried to forget you, I really did! Y’know after we had lunch last year I spent six months in Africa trying to get you out of my head!  Speaker 1: What were you doing in Africa?  Speaker 2: Working with blind kids.  Speaker 1: Ohhh! What are you doing to me?! Oh look, I-I… I’m sorry but umm, this-this-this-this is not going to happen.  Speaker 2: Okay that’s fine, I’ll walk away. And I’ll never bother you again, but only if you tell me Chandler’s willing to give you everything I am.  Speaker 1: Well he is! Yeah, I mean marriage is all he talks about! My goodness, in fact, I’m the one that’s making him wait!  Speaker 2: You are?  Speaker 1: Yeah!  Speaker 2: Why?  Speaker 1: Why? Because of the government.  Chandler is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Monica, there are no words… There are no words! This should not be this hard!  Speaker 2: All right, uh… Oh hey, you’ve done this before Ross, well what did you say when you made up your vows?  Speaker 3: Well with Carol, I promised never to love another woman until the day I die. She made no such promise.  Speaker 1: I’m so pathetic! Monica knows what she wants to say! You should’ve seen her. Writing, writing, writing!  Monica is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1:Check it out! Cup hat! Cup banner! Cup chandelier! And the thing that started it all, the cup!  Speaker 2: Great job with the cups, Pheebs!  Speaker 3: Why don't you just go out with her!  Speaker 1: And did you notice the ice? Look! We have it all! We have crushed! Cubed! And dry! Watch! Ahhh! Mystical!  Speaker 2: Awesome!  Speaker 3: Chandler! Everyone--no one's eating my Tuscan finger food 'cause they're all filling up on Phoebe's snow cones!  Speaker 2: There are snow cones! Snow cones! Yuck!  Speaker 3: Y'know…go! Go! Right there!  Speaker 2: Thank you! Thank you!  Speaker 3 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: What's the matter with me? How do I keep ruining this? I'm sorry, I'm sorry!  Speaker 2: No! It's my fault. I keep trying to propose in these stupid ways and all I wanna do is tell you that I love you and I want to spend the rest of my life with you.  Speaker 2: I'm gonna do this now.  Speaker 1: Oh my God!  Speaker 2: Phoebe, I...  Speaker 1: Wait! Oh wait! Oh no!  Speaker 2: Ready?  Speaker 1: Uh-huh!  Speaker 2: Phoebe, I love you. There's no-one else in the world I would ask to marry me... three times. But I wanna take care of you, have babies with you, and grow old with you... Phoebe Buffay, will you marry me?  Speaker 1: Yes!  Speaker 2: I love you!  Speaker 1: I love you more!  Speaker 1 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: It's like this, me, no jokes.  Speaker 2: All right, stop it, you're freaking me out.  Speaker 3: Oh, yeah, I don't like you this way. All right, I'll see you guys later.  Speaker 4: Bye, Richard.  Speaker 5: Bye sweetie, I love you.  Speaker 3: I love you, too.  Speaker 2: I think my boyfriend ever so dreamy, I wonder what our wedding's gonna be like.  Speaker 3 is or was dating which Speaker?",
+            "output": [
+                "Speaker 5"
+            ]
+        },
+        {
+            "input": "Speaker 1: Wow, I am so glad I'm not Monica right now.  Speaker 2: Tell me about it. So what, what's your magic number?  Speaker 1: Uhhhooo.  Speaker 2: C'mon, you know everyone I've been with. All, both of them.  Speaker 1: Well, there's you.  Speaker 2: Better not be doin' these in order.  Speaker 1: Ok, uh, Billy Dreskin, Pete Carney, Barry, and uh, oh, Paolo.  Speaker 2: Oh yes, the weenie from Torino.  Speaker 1: Oh honey, are you jealous of Paolo? Oh, c'mon, I'm so much happier with you than I ever was with him.  Speaker 2: Really?  Speaker 1: Oh please. That Paolo thing was barely a relationship. All it really was was just, ya know, meaningless animal sex. Ok, ya know, that sounded soooo much better in my head.  Billy Dreskin is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: I'm... I'm just... I'm the worst person ever. How can I not tell David that I'm seeing Mike?  Speaker 2: Maybe he didn't give you a chance.  Speaker 1: He said: Are you seeing someone? And I said no...  Speaker 2: Oh, well... That had been your window.  Speaker 1: Yeah! I mean, I don't know. I was just , I was looking, I was looking in his eyes and I was just thinking: Oh my God! It's David. David's here. He's just, he's so irresistible.  Speaker 2: Really? The scientist guy?  Speaker 1: Really? Chandler?  Speaker 2: Continue...  Speaker 1: Oh. Okay, then it gets worse, 'cause then I told him that I would see him tomorrow night.  Speaker 2: Phoebe!  Speaker 1: I know! Evil! And... and... and... I like Mike so much, you know. It's just going really well. Oh my God!  Speaker 2: Wow, isn't it ironic that David would show up on the same day that you and Mike exchange keys?  Speaker 1: Uhuh... Yeah...!, you know. And given my life long search for irony, you can imagine how happy I am.  Speaker 2: What are you gonna do?  Speaker 1: I mean I guess, I just have to... tell David that nothing can happen between us. Unless I don't... You know, complicated moral situation, no right, no wrong...  Speaker 2: You have to tell David!  Speaker 1: Okay, I knew I should have had this conversation with Joey.  Mike is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Ugh, I cannot wait to ask her out!  Speaker 2: Wait a minute...Joey. Joey you can't ask her out, she's your roommate. It-it'll be way too complicated.  Speaker 3: Yeah, yeah man don't do it. I mean if you date her, then-then-then I can't date her.  Speaker 4: All right, think about it. Now remember when you were going out with that girl Donna and you guys broke up. Remember how horrible it was when you guys bumped into each other at the supermarket?  Speaker 1: Oh God, yeah.  Speaker 4: Now imagine you live at the supermarket.  Speaker 1: Okay!  Speaker 4: No-no  Speaker 1: Oh, Oh, you're right! I don't want that. I can't date her!  Speaker 2: Yeah and you better watch the flirting too, cause you know, in such close quarters, it could be trouble.  Speaker 1: Well, that's gonna be tough Mon. I mean it's hard for me to be around an attractive woman and not flirt.  Speaker 2: Hmm, well you're around me all the time and you don't flirt.  Speaker 1: You a little sad about that sweetheart?  Donna is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Are they right?  Speaker 2: Probably, yeah... I mean, maybe we should... hold off until we talk to Ross.  Speaker 1: Yeah... Yeah, we can wait, we don't have to do anything tonight.  Speaker 2: Yeah, I think that'd be best... So, so I'm gonna... I'm gonna take off...  Speaker 1: Although...  Speaker 2:  I like although!  Speaker 1: I mean, you know... Ross and I haven't dated in like... six years...  Speaker 2: Six years? Wow... It's almost as long as highschool...  Speaker 1: Plus, you know, he is with Charlie now.  Speaker 2: Absolutely! He's not thinking about you.  Speaker 1: No...  Speaker 2: I'm thinking about you...  Speaker 1: Yeah...  Speaker 2: Let's forget about Ross...  Speaker 1: Forgotten.  Ross is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: I’m out of words. Should I just say the whole thing again?  Speaker 2: Look, I am not high maintenance. I am not. Chandler!  Speaker 1: You’re a little high maintenance.  Speaker 2: Ahhh! You are on my list.  Speaker 1: I’m sorry. You’re not easy-going, but you’re passionate, and that’s good. And when you get upset about the little things, I think that I’m pretty good about making you feel better about that. And that’s good too. So, they can say that you’re high maintenance, but it’s okay, because I like … maintaining you.  Speaker 2: I didn’t even tell him to say that.  All right you’re off my list.  Speaker 1: I’m off the list.  Speaker 2: Phoebe, it’s okay that you don’t want me to be your girlfriend because I have the best boyfriend.  Speaker 3: Y’know, suddenly I find you very attractive.  Speaker 1 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Ross, thank God.  Speaker 2: Pheebs? What, why are you whispering?  Speaker 1: I ate a bug.  Speaker 1: Listen Ross, we ran out of gas, and we don't know where we are, so we can't get a tow truck.  Speaker 2: Oh, now you want a favour?  Speaker 1: Yes, please.  Speaker 2: Well, oh, I'm sorry your car broke down Pheebs, but I'm a little too busy with some of my real friends right now, but please call to let me know you got home safely okay?  Speaker 3: Phoebe, hang on a second. Here, take my car, go pick up your friends.  Speaker 2: No, I'm not gonna pick them up.  Speaker 3: Listen, we both know you're gonna do it 'cause you're not a jerk. Okay? So you can either sulk here for a half hour and then go pick them up, or save us both time and sulk in the car.  Speaker 2: No, Rachel doesn't want me to....  Speaker 3: Look, I-I-I am sorry that Rachel dumped you 'cause she fell in love with that Mark guy, and you are the innocent victim in all of this, but don't punish your friends for what Rachel did to you.  Speaker 2: Yeah, you're right.  Speaker 3: Phoebe hang on a second Ross wants to say something. What? You slept with someone else?!  Speaker 2: We were on a break!!! Okay!! We were, we were..., yeah. Where are you? I'll find you.  Speaker 3: You slept with another woman?  Speaker 2: Oh, you-you're-you're one to talk.  Rachel is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hey, look at this! They’re lighting the big Christmas tree tonight.  Speaker 2: Umm, that paper’s two weeks old.  Speaker 1: All right, who keeps leaving old newspapers in the trash?! I really wanted to take Kathy to this, I can’t believe I missed it.  Speaker 3: Hey, y’know, at least you have somebody to miss that stuff with! I hate being alone this time of year! Next thing you know it’ll be Valentine’s Day, then my birthday, then bang!—before you know it, they’re lighting that damn tree again. Ohh, I want somebody! Y’know, I want a man!! I mean, it doesn’t even have to be a big relationship, y’know, just like a fling would be great.  Speaker 1: Really?! I didn’t think girls ever just wanted a fling.  Speaker 3: Well, believe me, it’s been a long time since I’ve been flung.  Speaker 4: Well, I know what I’m giving you for Christmas.  Speaker 1: Y’know what? There’s some nice guys at my office, do you want me to set you up?  Speaker 3: Yeah! Wait a minute, it’s been a long time that I’ve been single. How come you never offered this before?  Speaker 1: Well, I have a girlfriend, I’m-I’m happy. So, I no longer feel the need to go out of my way to stop others from being happy.  Speaker 3: Okay! No accountants. Oh, and no one from like legal. I don’t like guys with boring jobs.  Speaker 1: Oh and Ross was like what? A lion tamer?  Kathy is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hi!  Speaker 2: Hi! All right, let's go shoppin'!!  Speaker 1: Um, y'know, before we go ah, there's something I need to say.  Speaker 2: Oh, okay.  Speaker 1: I've kinda of had this ah, this crush on you. But since you were with Ross, I-I didn't do anything about it. But, now that you're not, I'd really like to ask you out sometime. So-so that's-that's what I'm doing, now.  Speaker 2: Wow! Umm....  Ross is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: I mean if you think about it, I mean Ross did learn something from each marriage.  Speaker 2: How to make the next one even shorter?  Speaker 1: Now wait a minute that’s not fair. He was married to me a hell of a lot longer than he was married to Emily, he just didn’t tell me. Maybe I have to pee again.  Speaker 2: Well, this is fun. So Ross, did you kill any of these wives?  Speaker 3: Y’know what? I-I-I… I-I have had enough of this! Y’know, I-I-I care a great deal about your daughter and I have treated her with nothing but respect! So if-if you’ve got a problem with me, frankly…  Speaker 2: Are you yelling at me?!  Speaker 3: God no!  Speaker 4: Y’know what daddy? If you don’t like Ross, that’s fine. It doesn’t matter to me, I’m gonna go out with him anyway.  Speaker 2: Really?!  Speaker 3: Well if it doesn’t matter to her, it doesn’t matter to me! Still not yelling!  Speaker 2: Wow. What can I say? This doesn’t make me like you any better!  Speaker 3: That’s okay, I’m not so crazy about myself right now either.  Speaker 2: Then we agree?  Speaker 3: Uh yeah, I guess—Yeah! I guess so.  Speaker 2: Neither of us like Ross!  Speaker 4: I like Ross.  Speaker 3: Ohhh! Kids!  Speaker 1: Wait-wait-wait, I just thought of another story about how nice Ross is!  Speaker 3: That’s okay Rach, we’re not liking Ross right now.  Speaker 1: Oh! I’ve got a lot of those too!  Speaker 3 is or was dating which Speaker?",
+            "output": [
+                "Speaker 4"
+            ]
+        },
+        {
+            "input": "Speaker 1: How could you have told her?  Speaker 2: Ross, I didn't think it would that big of a deal.  Speaker 1: Oh, she didn't think it would be that big of deal.  Speaker 2: Okay, who are you talking to when you do that?  Speaker 1: Look, that was supposed to be like a private, personal thing between us.  Speaker 2: Okay, Ross, Phoebe is my girlfriend, okay, we tell each other everything. You know, I mean, come on, guys do the same thing, I mean, what about all that locker room stuff.  Speaker 1: That's different, okay. That's like, uh 'Who dated a stripper?' or 'Who did it on the back of the Staton Island Ferry?'.  Speaker 2: Were both of those Joey?  Speaker 1: Yeah. Look, you don't, you don't talk about like, you know, your girlfriend and the intimate stuff you, you do with her.  Speaker 2: Not even with your best friend.  Speaker 1: Noo!  Speaker 1 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hey!  Speaker 2: It's almost our anniversary!  Speaker 1: I know. Can you believe it? One year ago today I was just your annoying friend Chandler.  Speaker 3: Awww! Now you're just my annoying friend Chandler.  Speaker 1: Huh.  Speaker 2 is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hey!  Speaker 2: Hey!  Speaker 1: So, I got us some reservations for Sunday night, okay? How about, Ernie’s at 9 o’clock?  Speaker 3: Yeah, well, you uh, better make it for three.  Speaker 1: Oh, see I-I don’t know if we’re gonna be hungry at three.  Speaker 3: Three people. Joshua’s not gonna be there.  Speaker 1: What happened?  Speaker 3: Uh, well, I think, I think he broke up with me.  Speaker 1: Noo. Why?  Speaker 3: Well, apparently he scares easy.  Speaker 1: Oh, Rachel, I’m-I’m sorry.  Speaker 3: It’s okay. Sometimes, things don’t work out the way you’d thought they would.  Speaker 1: Come here.  Joshua is or was dating which Speaker?",
+            "output": [
+                "Speaker 3"
+            ]
+        },
+        {
+            "input": "Speaker 1: Well hey...I wanna ask you about Monica\\'s little \"groomy\" joke.  Speaker 2: Oh! Alright. Well I think the reason people laugh is because it\\'s a play on the word roomie.  Speaker 1: I get the joke. Sophisticated as it was. Now the thing I wanna say is...Maybe we should have talked about this before. Us living together. You\\'re not expecting a proposal...right?  Speaker 2: Oh no! No no! Not at all. We\\'re just moving in right now. See where it goes.  Speaker 1: Yeah well...that\\'s the thing. For me it\\'s...as far as it can ever go.  Speaker 2: What do you mean?  Speaker 1: Look. Phoebe...I...I love you. Very much. But I never want to get married again.  Speaker 2: Oh. Wow.  Speaker 1: It\\'s just my first marriage was...you know... such a disaster. I kind of lost faith in the whole idea.  Speaker 2 is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: I thought I heard voices! Hi Charlie! Hi Joey. And.. Oh! You're gonna have to introduce me to your new girlfriend. I'm just kidding, I know Rachel, I know. Come, please come in. Come in.  Speaker 2: Okay, well, we brought you some wine.  Speaker 1: Oh! That is so thoughtful. She's a keeper. And what did you bring me?  Speaker 3: Uh, actually, that's..  Speaker 1: Underwear, a toothbrush, and Van Halen CD. I can use all these things!!  Speaker 4: Gosh, Ross, you know, you seem a little...  Speaker 1: What? Fine? Because I am! Aren't you? Aren't you? Aren't you? You see? Who else is fine?  Speaker 3: Okay, listen, hey, Ross. Why don't you try to relax, okay? Maybe have a drink.  Speaker 1: You know what? That is a very good idea. I'm gonna go make a pitcher of Margaritas.  Speaker 2 is or was dating which Speaker?",
+            "output": [
+                "Speaker 3"
+            ]
+        },
+        {
+            "input": "Speaker 1: Oh, right. Um, I\\'ve got some news. It\\'s about us.  Speaker 2: Oh, you and me?  Speaker 1: Uh, no, Susan and me.  Speaker 3: The other us.  Speaker 2: Ok.  Speaker 1: We\\'re uh, we\\'re getting married.  Speaker 2: As in, \"I now pronounce you wife and wife\" married?  Speaker 1: Anyway, we\\'d like you to come, but we totally understand if you don\\'t want to.  Speaker 2: Why wouldn\\'t I want to come? I had fun at the first wedding.  Speaker 1: Look I just thought that...  Speaker 2: No no no, I mean, hey, why shouldn\\'t I be happy for you? What would it say about me if I couldn\\'t revel in your joy? I\\'m revelling baby, believe me!  Speaker 3: Is your finger caught in that chair?  Speaker 2: Mmm hmmm.  Speaker 1: Want us to go?  Speaker 2: Uh-huh.  Speaker 3 is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: So, Saturday night, the big night, date night, Saturday night, Sat-ur-day night!  Speaker 2: No plans, huh?  Speaker 1: Not a one.  Speaker 3: Not even, say, breaking up with Janice?  Speaker 1: Oh, right, right, shut up.  Speaker 4: Chandler, nobody likes breaking up with someone. You just gotta do it.  Speaker 1: No, I know, but it's just so hard, you know? I mean, you're sitting there with her, she has no idea what's happening, and then you finally get up the courage to do it, and there's the horrible awkward moment when you've handed her the note.  Speaker 2: Why do you have to break up with her? Be a man, just stop calling.  Speaker 5: You know, if you want, I'll do it with you.  Speaker 1: Oh, thanks, but I think she'd feel like we're gangin' up on her.  Speaker 5: No, I mean you break up with Janice and I'll break up with Tony.  Speaker 3: Tony?  Speaker 4: Oh, you're breaking up with Tony?  Speaker 5: Yeah, I know, he's sweet, but it's just not fun anymore, you know? I don't know if it's me, or his hunger strike, or, I don't know.  Tony is or was dating which Speaker?",
+            "output": [
+                "Speaker 5"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hey, Frank. Look, okay, I know that you think I did like this totally evil thing, but I so didn't. There's someone here who can explain this better than I can.  Speaker 2: Hi Frank.  Speaker 3: Hi, Mrs. Knight.  Speaker 2: Phoebe's right Frank. I know it's hard to hear, but it would've been wrong to go through with it. I-I-I was being selfish, even though we, we want the same things now, in the future we may not. Is that it, is that what it is?  Speaker 1: Yeah, but not just that.  Speaker 2: Right, not just that. Umm, even though we love each other as much as we do, none the less...  Speaker 1: None the less.  Speaker 2: None the less. Umm, you're too young to, to really know what you want.  Speaker 1: That's right, exactly. All right, it's a good bye kiss, that's good. Bye-bye. Okay, no, the important thing is that you see what I'm saying, y'know, just y'know, this is clearly wrong. Okay, I've decided I'm gonna let this happen! Okay, can I just get my purse? Okay, all right, good.  Speaker 3 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Uh, Phoebe, uh, I have... something I wanna say.  Speaker 2: Oh my God, he\\'s gonna do it now. Please, I cannot watch this, let\\'s go.  Speaker 3: I think we have some time. Have you ever heard him talk? \"Uh, Phoebe, uh, I would be honored, uh...\" Spit it out, David!  Speaker 1: Uh, Phoebe, uh... you\\'re an amazing woman, and the time we spent apart was, was unbearable. Of course the sanitation strikes in Minsk didn\\'t help!  Speaker 4: Sure, ok, yeah.  Speaker 1: But well, now that we\\'re together again, I don\\'t ever want to be apart. So, to that end...  Speaker 4: Oh my God, Mike!  Speaker 1: It\\'s David, actually!  Speaker 4: No, Mike\\'s here.  Speaker 1: Hi Mike!  Speaker 5: Hi David. Chandler. Monica... Oh!  Speaker 2: IT\\'S THE HUMIDITY!  Speaker 5: Hi Phoebe.  Speaker 4: What are you, what are you doing here?  Speaker 5: I have a question I need to ask you.  Speaker 1: I have a question I was kinda gonna ask her myself.  Speaker 5: Yeah, I understand, but before you do, she really needs to hear this.  Speaker 1: Ok, would you care for my seat as well?  Speaker 5: Actually yeah, that\\'ll be great.  Speaker 1: That\\'s fair, you\\'ve had a long trip.  Speaker 5: Phoebe, I love you. I mean, I missed you so much these last few months and I thought we were apart for a good reason, but then I suddenly realized that there was no reason good enough to keep me from spending the rest of my life with you.  Speaker 1: Kinda stepped on the toes of what I was going to say.  Speaker 5: Sorry David, but she really has to know this.  Speaker 1: Alright, but after this I want to see you outside. If the rain stops.  Speaker 5: You\\'re the most incredible woman I\\'ve ever met. How can I lose you? Now, I don\\'t actually have a ring...  Speaker 1: I have a ring.  Speaker 3: I wouldn\\'t brag too much about that thing, big guy.  Speaker 5: Phoebe, will you marry me?  Speaker 4: No!  Speaker 1: Um... Ha ha!  Speaker 4: I love you. But I never needed a proposal from you. I just needed to know that we were headed somewhere, you know, that we had a future.  Speaker 5: We can have any future you want.  Speaker 1: Ok, I\\'m gonna take off.  Speaker 4: David, I\\'m so sorry, I\\'m sorry.  Speaker 1: Just so I know, if I had asked first...  Speaker 4: Yeah, I might have said yes, but that would have been wrong.  Speaker 1: Please, you don\\'t have to explain. I mean, perhaps if I hadn\\'t gone to Minsk things would have worked out for us. And I wouldn\\'t have ruined my career, or lost that toe to frostbite. It was a good trip!  Speaker 5: Is it ok if I hug you now?  Speaker 4: Yes!  Speaker 2: BECAUSE OF OUR MEDDLING! Alright?  Speaker 5 is or was dating which Speaker?",
+            "output": [
+                "Speaker 4"
+            ]
+        },
+        {
+            "input": "Speaker 1: Uh, I like to, uh, to add something to that...  Speaker 2: Why are you adding, why are you adding, why are you adding, why are you adding?  Speaker 1: Most of you don't know me, I'm Rachel's boyfriend.  Speaker 2: Oh dear God.  Speaker 1: Ross, uh and uh, I'd just like to say that it did take a lot of courage for Rachel to come here tonight. And, uh, for the record she did not run out on Barry because she had syphilis. What are you doing I'm serious. Uh, the reason she walked out on, on Barry is simply that she didn't love him, which incidentally worked out pretty well for me Cheers.  Speaker 2: She you in the parking lot.  Speaker 1: No, Rach!  Speaker 3: And once again she is out of here. Okay who had 9:45? Um?  Speaker 2: Ya, know what Barr, I'm not gonna leave. I probably should, but I'm not, see 'cause I promised myself that I would make it through at least *one* of your weddings. See now, tonight, all I really wanted was to make it through this evening with a little bit of grace and dignity. Well, I guess we can all agree that's not gonna happen.  Speaker 3 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Arrrghh!!  Speaker 2: Oh no, now it's not gonna make any sense!  Speaker 3: You guys, what, what do we do about Ross who drove all the way up here? What do we do? Just like send him back and we're then gonna go skiing?  Speaker 2: Oh, this is horrible, it's just horrible.  Speaker 1: Guys, do you think we should ask Ross to come along?  Speaker 4: I know, what about Rachel? I mean how are we even gonna ask her?  Speaker 5: Ask me what?  Speaker 4: Umm, if ah, it might be okay if Ross came skiing?  Speaker 2, Speaker 3, Speaker 1: No, I wasn't gonna ask you that, no.  Speaker 5: You guys are unbelievable. No! He cannot come.  Speaker 6: Excuse me?  Speaker 2: It's horrible.  Speaker 6: Oh please, can't I come to your special, magical cabin?  Speaker 5: Why would you even want to come Ross? You're a horrible skier.  Speaker 6: Oh-oh, hitting me where it hurts, my ski skills.  Speaker 4: Here we go again.  Speaker 1: I-I can't handle this, you guys.  Speaker 2: Y'know what, I can handle it, handle's my middle name. Actually it's the ah, middle part of my first name.  Speaker 6: All right Pheebs, your cab's ready.  Speaker 5: All right, let's go!  Speaker 6: You're welcome.  Speaker 5: Oh, I'm sorry, were you speaking to me or sleeping with someone else?  Speaker 6: We were on a break!  Speaker 5: Y'know Ross why don't you put that on your answering machine!  Speaker 5 is or was dating which Speaker?",
+            "output": [
+                "Speaker 6"
+            ]
+        },
+        {
+            "input": "Speaker 1: uhm... Is everything okay?  Speaker 2: Yeah, It's just... I don't think I can do this...  Speaker 1: Ooh... Is it because of what might be on the bedspread, because I saw that news report too, with the infra red and the ... I could just...  Speaker 2: No, NO! Look, I need to talk to Joey. I mean, you guys just broke up. Before anything more happens between us, I need to know he's okay with it.  Speaker 1: I uhm... I completely understand.  Speaker 2: Alright, I'm gonna go find them... I just need a... need a before I can... you know. Okay, I see you later.  Speaker 1: Okay...  Speaker 3: That's the door. He's gone...  Speaker 4: And she's... turning on the TV... and watching... Miss Congeniality!  Speaker 5: Honey, if you know it through a wall, you know it too well!  Joey is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Buh-bye. I just got us reservations at Michelle’s and tickets to the Musicman to celebrate our first holiday season as a betroughed couple.  Speaker 2: Betrothed…  Speaker 1: …betrothed couple.  Speaker 2 is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hi.  Speaker 2: Hey, oh, so, um...how'd you make out last night?  Speaker 1: That, that is funny. That is painfully funny. No, wait. Wait, yeah, that's just painful  Speaker 3: Wait a minute. I thought last night was great.  Speaker 1: Yeah, it was, but...I get home, ok, and I see Julie's saline solution on my night table. And I'm thinking to myself, oh my god, what the hell am I doing? I mean, here I am, I am with Julie, this incredible, great woman, who I care about and who cares about me, and I'm like, what, am I just gonna throw all that away?  Speaker 4: You got all that from saline solution?  Speaker 3: We are talking about Rachel here. You and Rachel.  Speaker 1: Believe me, I've been dreaming about me and Rachel for ten years now. But now, I'm with Julie, so it's like me and Julie, me and Rachel, me and Julie, me and..... Rachel. Rachel, Rachel.  Speaker 5: Hey, you.  Speaker 1: How are you?  Speaker 5: Good. How are you?  Speaker 1: Good.  Julie is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Oh, hey, hey, I got that.  Speaker 2: Oh, thanks, sweetie.  Speaker 1: No problem. I cannot wait for you to meet my friends.  Speaker 2: Really?  Speaker 1: Yeah.  Speaker 2: You don't think they'll judge and ridicule me?  Speaker 1: No, no, they will. I just... uh...  Speaker 1, Speaker 2: Can't wait.  Speaker 1: Come on, they're gonna love you.  Speaker 2 is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Yeah hey, a weird thing happened today whey I was at brunch. This woman overheard that I was marrying you and-and then she…she wished me good luck.  Speaker 2: That’s sweet.  Speaker 1: No, it’s more like a  good luck.  Speaker 2: So uh, what did this woman look like?  Speaker 1: She was like 30, dark hair, attractive.  Speaker 2: Well, is there any chance you were looking into a bright, shiny thing called a mirror?  Speaker 1: Come on, was it somebody maybe you dated in college?  Speaker 2: No, no I only dated two girls in college, both blonde, both not attractive…  Hold on one second; let me check this out.  Speaker 1: What are you doing?  Speaker 2: Well, let’s see… Okay uh, is that her?  Speaker 1: Oh my God yes! Who is she?  Speaker 2: Julie Grath, my camp girlfriend.  Speaker 1: Did you break up with her?  Speaker 2: No, we’re still together. Yeah we went out for two summers, and then I broke up with her.  Speaker 1: Why?  Speaker 2: Well, ‘cause she came back the third summer and she’d gotten really fa-aa-aw-ow…  Speaker 1: Fat?!  Speaker 2: I did not say fat! I said, \"Fa-aa-aw-ow…\"  Speaker 1: You broke up with a girl because she was fat?!  Speaker 2: Yeah. Yeah, but it was a really, really long time ago! Does she still feel bad?  Speaker 1: Well, apparently she does.  Speaker 2: Well, you know what they say, elephants never forget. Seriously, good luck marrying me.  Julie Grath is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Oh, I should go, too. Oh, now... tomorrow do you guys wanna share a cab to the airport or should Mike and I just meet you there.  Speaker 1: Mike?? Who's Mike?  Speaker 2: Mike is your ex... uh... boyfriend!  Speaker 1: That's right! Oh, yeah... Well, I've totally forgotten about im! AH! That's-That's... a blast from the past!  Speaker 2: It's ok. Ho-honest mistake.  Speaker 1: Really, it doesn't mean anything. I mean, you know, Monica refers to Chandler as Richard all the time!  Speaker 3: She does?  Speaker 4: Let's get you out of here!!  Speaker 4: At least you took me down with you!  Speaker 1: I'm sooo sorry!! I just... I keep thinking about Mike! I'm crazy about David, and we're having so much fun together. Why-Why do I miss Mike? That's-that's gonna go away, right?  Speaker 4: I guess, in time.  Speaker 1: Yeah.  Speaker 4: I mean, my feelings for Richard are certainly gone.  Speaker 1: You just did it again. Chandler, your feelings for Chandler are certainly gone!  Mike is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hi.  Speaker 2: Oh, hey.  Speaker 3: Hi.  Speaker 1: I guess you guys heard, Rachel dumped me.  Speaker 2: Yeah, I'm sorry man.  Speaker 1: Oh, all she said was that I remind her too much of somebody. You have any idea who she's talking about?  Speaker 3: Oh I do, it's.... it's Bob Saget. She hates him.  Speaker 1: Oh.  Rachel is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: How could you not tell Mona that Rachel is living with you?  Speaker 2: I don’t know, she seemed to think it was such a crazy idea! Um, plus, she, uh, she got me taffy!  Speaker 1: Taffy, really? I’ve never had any.  Speaker 2: Ever?!  Speaker 1: Well, I think my mother was too busy planning her suicide to provide saltwater treats. Thank you! So what, you’re just never going to tell her?  Speaker 2: Oh, no, no, no, I will! I just want to butter her up, first! You know, I’m going to take her to an amazing Valentine’s dinner. Do all this romantic stuff, and then, just when she thinks I’m the best boyfriend in the world, then I’m going to tell her that my pregnant ex-girlfriend is living with me.  Speaker 1: If I haven’t said it before: she’s a lucky, lucky lady! So, where are you going to—what the mother of crap is up with this stuff? Oh, God. Is it gum, is it food? What’s the deal? Oh, it’s nice! May I try a pink one?  Rachel is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Oh! You know my friend Abby who shaves her head? She said that if you want to break the bad boyfriend cycle, you can do like a cleansing ritual.  Speaker 2: Pheebes, this woman is voluntarily bald.  Speaker 1: Yeah. So, we can do it tomorrow night, you guys. It's Valentine's Day. It's perfect.  Speaker 3: Ok, well, what kind of ritual?  Speaker 1: Ok. We can, um, we can burn the stuff they gave us.  Speaker 2: Or?  Speaker 1: Or...or we can chant and dance around naked, you know, with sticks.  Speaker 3: Burning's good.  Speaker 2: Burning's good. Yeah, I got stuff to burn.  Speaker 1: Ok, so now we need, um sage branches and the sacramental wine.  Speaker 3: All I have is, is oregano and a Fresca.  Speaker 1: Um, that's ok! Ok. All right. Now we need the semen of a righteous man.  Speaker 2: Ok, Pheebs, you know what, if we had that, we wouldn't be doing the ritual in the first place.  Speaker 3: Can we just start throwing things in?  Speaker 1: Ok, yeah, ok.  Oh, OK.  Speaker 2: Ok, Barry's letters. Adam Ritter's boxer shorts.  Speaker 1: Ok, and I have the, uh receipt for my dinner with Nokululu Oon Ah Ah.  Speaker 3: Look, here's a picture of Scotty Jared naked.  Speaker 2: Hey he's wearing a sweater.  Speaker 3: No.  Speaker 2, Speaker 1: Eww!  Speaker 2: And here we have the last of Paulo's grappa.  Speaker 3: Hey, Rachel, isn't that stuff almost pure…  Adam Ritter is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: So tell me something. What does the phrase 'no date pact' mean to you?  Speaker 2: I'm sorry, okay. It's just that Chandler has somebody, and Phoebe has somebody- I thought I'd ask Fun Bobby.  Speaker 3: Fun Bobby? Your ex-boyfriend Fun Bobby?  Speaker 2: Yeah.  Speaker 4: You know more than one Fun Bobby?  Speaker 3: I happen to know a Fun Bob.  Fun Bobby is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hey.  Speaker 2: So how was Joan?  Speaker 1: I broke up with her.  Speaker 1: They were huge. When she sneezed, bats flew out of them.  Speaker 3: Come on, they were not that huge.  Speaker 1: I\\'m tellin\\' you, she leaned back, I could see her brain.  Speaker 2: How many perfectly fine women are you gonna reject over the most superficial insignificant things?  Speaker 4: Hold it hold it. I gotta side with Chandler on this one. When I first moved to the city, I went out a couple of times with this girl, really hot, great kisser, but she had the biggest Adam\\'s apple. It made me nuts.  Speaker 1: You or me?  Speaker 5: I got it. Uh, Joey, women don\\'t have Adam\\'s apples.  Speaker 4: You guys are messin\\' with me, right?  Speaker 6: Yeah.  Speaker 4: That was a good one. For a second there, I was like, \"whoa.\"  Speaker 7: You name one woman that you broke up with for a real reason.  Speaker 1: Maureen Rosilla.  Speaker 5: Not hating Yanni is not a real reason.  Speaker 1: Ok, Janice. Janice. You gotta give me Janice. That wasn\\'t about being picky.  Speaker 5: We\\'ll give you Janice.  Speaker 7: I miss Janice though. \"Hello, Chandler Bing.\"  Speaker 3: \"Oh, my, god.\"  Speaker 4: \"Oh, Chandler, now, now, that\\'s it. There, faster!\"  Speaker 2: Stop with the broom, we\\'re not making noise.  Speaker 3: We won. We won!  Joan is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hey!  Speaker 2: Hey!  Speaker 1: Guess who\\'s a finalist for a huge research grant! I\\'ll give you a hint, he\\'s looking right at you.  Speaker 2: Ah, well, unless it\\'s the creepy guy with his hand up his kilt, I\\'m gonna say congratulations!  Speaker 1: Oh, I\\'m so excited, I mean, apparently I beat out hundreds of other applicants, included five guys I went to graduate school with. Not that I\\'m keeping score or anything... five!  Speaker 2: Wow, that\\'s great! So, tell me about the grant!  Speaker 1: Well, ok, it\\'s for 25 thousand dollars. And if I get it, I\\'ll finally be able to complete my field research! And there will be an article about me in the \"Paleontology Review\"! Yeah! That\\'ll be the first time my name is in there, without people raising serious questions about my work!  Speaker 2: Wait. Are you talking about the Dewar grant?  Speaker 1: Yeah. Why?  Speaker 2: Benjamin Hobart is administering that grant.  Speaker 1: Your ex-boyfriend?  Speaker 2: Yeah.  Speaker 1: So, your ex-boyfriend is gonna determine if your new boyfriend gets this grant? Wow, your new boyfriend is screwed!  Speaker 2: No, no, we ended up in great terms. I mean, if anything, I think this could help you. You know what? Why don\\'t we all go out to dinner together, and I can introduce you.  Speaker 1: Well, if you think it would help.  Speaker 2: Yes, absolutely. I\\'ll call him.  Speaker 1: Ok, now, is there anything I can do to... you know, butter him up? Anything he really likes?  Speaker 2: Mmh... he does have a pretty serious latex fetish.  Speaker 1: We\\'ll see how dinner goes.  Benjamin Hobart is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hey!  Speaker 2: Hi!  Speaker 1: You ready?  Speaker 2: Yeah.  Speaker 1: You look amazing. I'm the luckiest man in the world.  Speaker 2: Ohh, you're about to get a little luckier.  Speaker 1: Let me see the earrings.  Speaker 2: Oh, honey, the earrings…  Speaker 1: They look great! Does your boyfriend have the best taste or what?  Speaker 2: My boyfriend really does have good taste!  Speaker 1 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hi. I'll be ready in just a second.  Speaker 2: Uh, can I talk to you a minute?  Speaker 1: Sure.  Speaker 2: This is really hard for me to say.  Speaker 1: Oh God, you fell off the wagon.  Speaker 2: Oh, no, no, it's about you.  Speaker 1: What about me?  Speaker 2: I think you may have a drinking problem.  Speaker 1: What these? Oh, these are, um, for.. cuts and scrapes.  Speaker 2: Look, I am just not strong enough to be in a codependent relationship right now, OK?  Speaker 1: Oh... shoot.  Speaker 2: Well, anyway, I hope we can be friends.  Speaker 1: OK.  Speaker 1: Take care.  Speaker 2: You too.  Speaker 3: What happened?  Speaker 1: Well we... we kinda broke up.  Speaker 4: Awwwwwwww.  Speaker 1 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: No, no, no. You actually did that when you were dancing to the Chicago-soundtrack. Look, Ross, about, about Rachel and I. Listen, you don't have to worry about that, okay? Because nothing is gonna happen.  Speaker 2: What do you mean?  Speaker 1: Well, she and I said from the beginning that we weren't gonna do anything unless you were okay with it. And clearly..  Speaker 2: Hey, what are you talking about? I'm fine!  Speaker 1: It's okay, Ross, alright? I totally understand. Of course you're not fine. You're.. You're Ross and Rachel.  Speaker 2: Except we're not. I mean, we haven't been a couple in like, six years. Oh my god, is that right? Has it been that long?  Speaker 1: That's what I hear, yeah.  Speaker 2: This is crazy. I mean, six years? And because of me you guys aren't gonna be together? Can I ask you something? Really, what is this thing with you and Rachel?  Speaker 1: Come on, I mean, you know me, you know...  Speaker 2: Joey.  Speaker 1: I'm crazy about her.  Speaker 2: And she feels the same way?  Speaker 1: I think so.  Speaker 2: Well, then, maybe it's time we all moved on.  Speaker 1: Yeah, but, Ross, I mean, you're not okay with it.  Speaker 2: No, but I wanna be. Hey, I will be. Besides, I'm with Charlie, right? Oh my god, I'm still with Charlie, aren't I? I mean, she didn't see the dance, did she?  Speaker 1: No, no, no, no, that was - that was just for me. Are you sure about this?  Speaker 2: Yeah, I'm sure.  Speaker 1: And we're okay?  Rachel is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: So what did he decide? Does your Uncle Nathan get an invite or not?  Speaker 2: Ohh, God, nobody likes him, and he’s so cheap, he’d never fly to London in a million years. Yeah, invite him? Hey, did I do these neat enough?  Speaker 1: Yeah, they’re fine.  Speaker 2: Yeah?  Speaker 1: If anyone asks, we’ll just say Ben addressed them. Oh! So you invited Rachel then?  Speaker 2: Sure. Why not?  Speaker 1: Really?  Speaker 2: Yeah?  Speaker 1: I don’t think I’d be comfortable with any of my old lovers there.  Speaker 2: Wait-wait-wait, do you, do you think, maybe we shouldn’t invite her?  Speaker 1: Oh, no-no, y’know I absolutely adore Rachel it’s just that, well it might be a awkward for you. But it’s absolutely your decision. More tea?  Speaker 2: Yeah sure.  Speaker 1: Earl Grey?  Speaker 2: Huh? Yeah, fine, invite whoever you want.  Rachel is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: I\\'m gonna go.  Speaker 2: Why?  Speaker 1: I haven\\'t been home in a couple of days and I need to get some more clothes.  Speaker 2: Oh...you don\\'t have to go...I have something that will fit you.  Speaker 1: I put that tube top on as a joke.  Speaker 2: I want you to stay.  Speaker 1: I want to stay too but I\\'ve got about as much out of these boxers as I can.  Speaker 2: Why don\\'t you turn them inside out?  Speaker 1: Done it. I\\'ll be back in a couple of hours.  Speaker 2: I\\'ll miss you.  Speaker 1: Me too.  Speaker 1: You know what? I just realized something. I don\\'t wanna go home.  Speaker 2: Great! Ok...I\\'ll go get the tube top.  Speaker 1: No, no! What I mean is...I hate going back to my apartment now...And partly because I live above a known crack den but...mostly because when I\\'m there...It\\'s just...i really miss you. So...Do you want to move in together?  Speaker 2: Wow...Mike Hannigan...You sure know how to make a girl say \"Hell yeah!\".  Speaker 1: So we\\'re doing it?  Speaker 2: Yeah! Let\\'s do it! Let\\'s live together!  Speaker 2: Oh god...We\\'re really going to move in together!  Speaker 1: Yeah!  Speaker 1 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Ooh! How was Kathy’s play?  Speaker 2: Well, Kathy gets half-naked and simulates sex with a real good lookin’ guy.  Speaker 3: Yeah, it’s like someone literally wrote down my worst nightmare and then charged me $32 to see it!  Speaker 1: That’s a good idea for a business!  Speaker 3: I’m totally screwed. Okay, they are gonna be hot and heavy on stage every night, and then they’re gonna go to their cast parties and he’s gonna try to undermine me. Y\\'know it’ll be like, \"So where’s your boyfriend, what’s-his-name, Chester?\" And she’ll go, \"No-no-no, it’s Chandler.\" And he’ll go, \"Whatever. Ha-ha-ha-ha!\"  Speaker 4: That-that is a good trick.  Speaker 3: All right, look, look, what am I gonna do?  Speaker 4: Chandler, look they’re actors. They’re there to do a job, just ‘cause they work together, doesn’t mean they’re gonna get together. I mean just ‘cause it happened with Susan Sarandon and Tim Robbins, it doesn’t mean it’s gonna happen with them.  Speaker 2: Oh-oh, Alec Baldwin and Kim Basinger.  Speaker 4: Tom Cruise and Nicole Kidman.  Speaker 2: Yeah.  Speaker 1: Hey, Mel Gibson and Clint Eastwood.  Speaker 2: They’re not a couple!  Speaker 1: Oh-okay, I get the game now.  Speaker 4: Okay look, look, let me ask you a question, when they were doing it on stage, was it like really hot?  Speaker 2: Oh yeah!  Speaker 4: Well okay, so then you’re fine. The rule is when two actors are actually doing it off-stage all the sexual tension between them is gone. Okay? So as long as it’s hot onstage you got nothing to worry about. It’s when the heat goes away, that’s when you’re in trouble.  Speaker 3: Really?  Speaker 4: Look, you guys have been to every play I’ve ever been in, have I ever had chemistry on stage?  Speaker 2: No.  Speaker 4: Noooo!!  Kathy is or was dating which Speaker?",
+            "output": [
+                "Speaker 3"
+            ]
+        },
+        {
+            "input": "Speaker 1: So-so, what do you want for lunch?  Speaker 2: Oh, I don’t know. I guess we have to eat.  Speaker 1: Yeah, I do. What’s the matter?  Speaker 2: I’m just bummed about the way I left things with Ross. I shouldn’t have lied to him about having to work. He seemed so mad at me.  Speaker 1: Eh, don’t be so hard on yourself. If someone I was still in love with was getting married…  Speaker 2: Still in love with?!  Speaker 1: Yeah!  Speaker 2: I’m not in love with Ross!  Speaker 1: Oh. No. No. Good! Yeah, me neither.  Speaker 2: Phoebe, I’m going to Ross’s wedding because he is my ex-boyfriend and that would be really uncomfortable. Not because, I’m still in love with him! I mean, hey, y’know, I like Ross as much as the next guy, y’know? Clearly I have feelings for him, but feelings don’t mean love! I mean, I still have loving feelings for Ross. Yeah! But, I have, I have continuing feelings of love, but that doesn’t mean that-that I’m still in love with him. Y’know? I-I have sexual feelings for him, but I do love him—Ohh! Oh my God! Oh my—why didn’t you tell me?!!  Speaker 1: We thought you knew!  Speaker 2: We?!  Speaker 1: Yeah, we all know! We talk about it all the time!  Speaker 2: You all know? Does Ross know?  Speaker 1: Oh no, Ross doesn’t know anything.  Speaker 2: Oh, I can not believe you didn’t tell me!  Speaker 1: Well, because we thought you knew!! It’s so obvious! God, that would be like telling Monica, \"Hey, you like things clean.\"  Ross is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: You wanted it to be a surprise.  Speaker 2: Oh my God.  Speaker 1: Chandler… In all my life… I never thought I would be so lucky. As to…fall in love with my best…my best… There’s a reason why girls don’t do this!  Speaker 2: Okay! Okay! Okay! I'll do it!  Oh God, I thought… Wait a minute, I-I can do this. I thought that it mattered what I said or where I said it. Then I realized the only thing that matters is that you, you make me happier than I ever thought I could be. And if you’ll let me, I will spend the rest of my life trying to make you feel the same way. Monica, will you marry me?  Speaker 1: Yes.  Speaker 3: Can we come it yet?! We’re dying out here!  Speaker 1: Come in! Come in! We’re engaged!!!  Speaker 2 is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hey!  Speaker 2: Oh hey! Hey Ross! Hey how’s it, how’s it going with you and Mona? Are you guys still together?  Speaker 1: Oh yeah, yeah we’re moving forward. You’ll be getting our card!  Speaker 3: You and Mona are doing a holiday card together?  Speaker 1: Yeah, we’re not just doing a card! Y’know, she-she also wants to have the conversation about where the relationship is going.  Speaker 4: Ugh! Women!  Speaker 1: I know! I know! Why do you guys need to have this conversation?! Huh? I mean no self-respecting man would ask a woman, \"So, where is this going?\"  Speaker 2: Uh Ross? You asked me that.  Speaker 1: Hey! You were a closed book! Okay? I’m not a mind reader! Besides, I hate those conversations. I’m horrible at them. Really! Maybe-maybe I need kind of a gesture. Y’know, something that says we’re moving forward without having to talk about it.  Speaker 3: Like asking her to move in with you?  Speaker 1: Smaller than that.  Speaker 3: Making her a mixed tape?  Speaker 1: Uh, bigger than that.  Speaker 4: Give her a key to your apartment.  Speaker 1: Whoa-hello! We were closer with the mixed tape.  Speaker 3: All right. Have you said, \"I love you?\" You could say, I love you.  Speaker 1: Yeah I-I don’t-I don’t think I’m quite there yet, but I could say I looove spending time with you.  Speaker 4: No, we hate that.  Speaker 3: That is a slap in the face.  Speaker 1: Forget it. I-I—Y’know what? I’ll just have the conversation. I’ll just say I like things the way they are, and hope for the best. What do you think Rach?  Speaker 2: I think, if it was a little colder in here I could see your nipples through that sweater.  Mona is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Friends. Family. We are gathered to celebrate here today the joyous union of Ross and Emily. May the happiness we share with them today be with them always. Now Emily, repeat after me. I, Emily...  Speaker 2: I, Emily...  Speaker 3: Take thee Ross...  Speaker 2: Take thee Ross...  Speaker 3: As my lawfully wedded husband, in sickness and in health, till death parts us.  Speaker 2: As my lawfully wedded husband, in sickness and in health, until death parts us.  Speaker 3: Now Ross, repeat after me. I Ross...  Speaker 4: I Ross...  Speaker 1: Take thee, Emily...  Speaker 4: Take thee, Rachel...Emily.  Emily.  Speaker 1: Uhh...Shall I go on?  Speaker 4 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hey guys.  Speaker 2: Hey!  Speaker 1: So, anyone up for a midnight dip in the ocean?  Speaker 3: Ahh, no, I’m good.  Speaker 1: Okay, I’ll see you in a bit.  Speaker 3: Okay, have fun! Wooo!!  Speaker 2: Come on see, she doesn’t look that bad.  Speaker 3: You can see the moonlight bouncing off her head! What the hell were you thinking?!!  Speaker 2: I don’t know.  Speaker 3: You don’t know?! Rach, you balded my girlfriend!  Speaker 2: All right! Ross, do you think it’s easy for me to see you with somebody else?  Speaker 3: Y'know, hey! You’re the one who ended it, remember?  Speaker 2: Yeah, because I was mad at you, not because I stopped loving you!  Speaker 3: You still love me?  Speaker 2: Noo.  Speaker 3: You still love me.  Speaker 2: Oh, y-yeah, so, you-you love me!  Speaker 3: Noo, nnnnn. What does this mean? What do you, I mean do you wanna, get back together?  Speaker 2: Noo! Maybe! I, I don’t know. Ross, I still can’t forgive you for what you did, I can’t, I just, but sometimes when I’m with you I just, I feel so...  Speaker 3: What?!  Speaker 2: I just, I feel, I-I just...  Speaker 3: What?  Speaker 2: I feel…  Speaker 1 is or was dating which Speaker?",
+            "output": [
+                "Speaker 3"
+            ]
+        },
+        {
+            "input": "Speaker 1: We're seriously asking for our money back?  Speaker 2: It's for our wedding day! Right, now, is this guy gay or straight, because one of us gonna have to start flirting.  Speaker 3: Wow! Are you here to make another donation the same day? I don't think that that's ever happened before.  Speaker 2: Gay, go.  Speaker 1: Oh my God, I love your shirt!  Speaker 2: The donation we made earlier, we k…, we w…, we want it back.  Speaker 3: Excuse me?  Speaker 2: Yeah. See, that money was for a big wedding, that we thought we didn't want, but it turns out we do.  Speaker 3: So you're asking us to refund your donation to the children?  Speaker 1: Yeah! This feels really good.  Speaker 2: I am sorry. I am, but this wedding is just really important to me.  Speaker 3: Hey, it's not my business, besides it's probably a good thing. We really would have been spoiling the children, all those food, and warm clothing…  Speaker 2: Hey, that's not fair! A person's wedding is important! And especially to me! Ok? I didn't have a graduation party! And I didn't go to Prom. And I spent my sweet sixteen being chased round a tire yard by an escaped mental patient who is his own words wanted to “kill me” or whatever. So I deserve a real celebration and I am not gonna let some sweaty little man make me feel badly about it.  Speaker 1: She could have been talking about either one of us.  Speaker 1 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: You know what. Tomorrow I'm gonna do your clocks.  Speaker 2: You're gonna do what to my clocks.  Speaker 1: I'm gonna set them to my time.  Speaker 2: Well, I'm confused. I thought we shared time.  Speaker 1: No no. See, in my bedroom I set my clock six minutes fast. You wanna know why?  Speaker 2: Because it's in a slightly different time zone than the kitchen.  Speaker 1: No forget it, I'm not gonna tell you now.  Speaker 2: No come on. Come on tell me.  Speaker 1: No. See you don't understand.  Speaker 2: Come on.  Speaker 1: No. You don't have any of these cute little obsessive things.  Speaker 2: No that's not true. That is not true.  Speaker 1: Oh yeah.  Speaker 2: Yeah.  Speaker 1: Alright, well tell me one of yours.  Speaker 2: Ok. Ahh. One of my things is, I always separate my sweat socks from my dress socks.  Speaker 1: What if they get mixed up?  Speaker 2: Boy I would just uh, I would freak out.  Speaker 1: You would not. I can't believe this. I hate this, you're too normal. I can't believe my boyfriend doesn't have a thing. My boyfriend doesn't have a thing.  Speaker 2: See, if anyone overheard that, I didn't come off well.  Speaker 2 is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: And why not?!  Speaker 2: Because I'm in love with Monica!!  Speaker 1: You're-you're what?!  Speaker 2: Love her! That's right, I…LOVE…HER!!! I love her!! I love you, Monica.  Speaker 3: I love you too Chandler.  Speaker 1: I just—I thought you guys were doing it, I didn't know you were in love!  Speaker 4: Dude!  Speaker 2: And hats off to Phoebe. Quite a competitor. And might I say your breasts are still showing.  Speaker 1: God!  Speaker 4: All right! So that's it! It's over! Everybody knows!  Speaker 3: Well actually, Ross doesn't.  Speaker 2: Yes, and we'd appreciate it if no one told him yet.  Speaker 2 is or was dating which Speaker?",
+            "output": [
+                "Speaker 3"
+            ]
+        },
+        {
+            "input": "Speaker 1: Who’s cell phone is that? It’s just so annoying; everywhere you go.  Speaker 2: I think it’s coming from your bag.  Speaker 1: I never get calls!! Hello?  Speaker 3: Hi, it’s Eric. From the Halloween party, Ursula’s fiancée.  Speaker 1: Oh my God Eric hi! Wait, how’d you get this number?  Speaker 3: Oh, I have a friend who’s a cop and he got it for me.  Speaker 1: Wow! What an incredible violation—and wonderful surprise.  Speaker 3: Uh listen, I just—I thought you should know I broke up with Ursula.  Speaker 1: Oh you did? He did it! He did it!  Speaker 4: Wow! What did he do?  Speaker 1: Shhh! I’m talking.  Speaker 3: Anyway, I was wondering if, you were the sort of person who…eats lunch.  Speaker 1: Are you asking me out? ‘Cause it would be kinda weird since you just broke up with my sister.  Speaker 3: Yeah uh…okay. I’m-I’m sorry. Bye.  Speaker 1: No! Wait! I was just saying that so you’d think I was a good person. Fight for me.  Speaker 3: Uhh, I won’t take no for an answer.  Speaker 1: Not great, but we can work on it at lunch. Okay, I can be at your apartment in two hours.  Speaker 3: Great! But wh-wh—How do you know where I live?  Speaker 1: I’ve got friends too. Okay, bye.  Speaker 3: Bye.  Ursula is or was dating which Speaker?",
+            "output": [
+                "Speaker 3"
+            ]
+        },
+        {
+            "input": "Speaker 1: Morning, hey, you made pancakes?  Speaker 2: Yeah, like there's any way I could ever do that.  Speaker 3: Monica and Rachel had syrup, now I can get my man to cheer up. Good morning Joey.  Speaker 1: Good morning.  Speaker 2: Hey, you know what, here's a thought. Why don't you stay home from work today and just hang out with me.  Speaker 3: Oh, I wish. Look, honey, you have that report to finish, and I gotta go see my lawyer.  Speaker 2: I can not believe that I am going out with someone that is getting divorced. I'm such a grown up.  Speaker 3: I-I-I gotta go, I gotta go. Okay, not without a kiss.  Speaker 2: Well, maybe I won't kiss you, and then you'll have to stay.  Speaker 1: Kiss her! Kiss her!  Speaker 3: I'll see you later, sweetie. Bye Joey.  Speaker 1: B-bye Janice. So when ya' dumpin' her.  Speaker 2: Nope, not this time.  Speaker 1: Come on, quite yankin' me.  Speaker 2: I'm not yanking you.  Speaker 1: This is Janice.  Speaker 2: Yeah, I know. She makes me happy.  Speaker 1: Okay. All right. You look me in the eye and tell me, without blinking, that you're not breaking up with her. No blinking.  Speaker 2: I'm not breaking up with her!  Speaker 3 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Hi, Mike's place.  Speaker 2: Hey, it's Mike.  Speaker 1: Ooh, that was fast.  Speaker 2: Oh, err... no, she's not here yet. You know, I think I'm just gonna take off and break up with her over the phone...  Speaker 1: Yeah, you can't do that! Oh, come on Mike, strap on a pair. Why don't you just tell her that we got back together. You know, women appreciate honesty. We also appreciate gentle spanking once in a while. Just F.Y.I.  Speaker 2: One more thing... There... might be a picture of Precious on my coffee table.  Speaker 1: Her name is Precious? Is she a purebreed or did you pick her up at the pound?  Speaker 2: Anyway, I just wanna give you a heads up.  Speaker 1: Okay, oh and you know, if she gets upset, just scratch her tummy and give her a liver snout.  Speaker 3: Hi, I'm Precious, who are you?  Speaker 1: I... I'm Phoebe.  Speaker 3: Phoebe? Mike's ex-girlfriend Phoebe, the love of his life? That Phoebe?  Speaker 1: Enchanté  Speaker 3 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Okay, great!  Bye. So guess who’s coming to Thanksgiving dinner?  Speaker 2: Sydney Portier? Hehheh.  Speaker 1: I miss Rachel. No, my parents.  Speaker 2: Oh! That’s great, they haven’t seen the place since I moved in!  Speaker 1: Yeah, and y’know, if you could not mention to them that we live together, that would be great! I was thinking we would eat around four.  Speaker 2: Why can’t I tell them that we live together?  Speaker 1: Because they don’t know we’re dating. Do you think we should eat in the kitchen?  Speaker 2: Why haven’t you told them?!  Speaker 1: Um, well, I was going to, I-I-I really was. But um, then somewhere, just out of nowhere, I didn’t.  Speaker 2: Why haven’t you told them?! Wouldn’t they be happy?!  Speaker 1: So! Dinner in the kitchen around four! I’ll see you then.  Speaker 1 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: I\\'ve missed you so much! No, I\\'m not gonna ask you to get back together because I know we want different things, but just to be with you one more night.  Speaker 2: I know, I want that too, but is that going to make it too hard?  Speaker 1: It can\\'t be any harder than this... I mean, If I had known the last time I saw you would be the last time, I... I would have stopped to memorize your face, the way you move, everything about you. If I had known the last time I kissed you would have been the last time... I never would have stopped.  Speaker 3: Kiss him, you fool!!  Speaker 2: What?  Speaker 3: Didn\\'t you hear that speech? If you don\\'t kiss him then I will!  Speaker 2: Oh, I missed you so much!  Speaker 4: I knew you\\'d be here!  Speaker 1: Oh, crap!  Speaker 2: Who is this?  Speaker 1: My friend Manny. I asked him to keep me away from you.  Speaker 3: Hi, that\\'s what I\\'m doing for Phoebe!  Speaker 5: Well, you are not doing a very good job!  Speaker 3: Excuse me?  Speaker 5: What\\'s with the kissing?  Speaker 3: Hey, at least I knew where my guy was.  Speaker 5: Oh yeah yeah, thank God you were here to oversee all the kissing!  Speaker 3: You didn\\'t hear the speech!  Speaker 5: I\\'ve heard the speech: \"if he knew it was gonna be the last time he saw her... \"  Speaker 3: Hey, it was very moving! You\\'re just heartless!  Speaker 5: You\\'re weak!  Speaker 3: You\\'re... weird!  Speaker 5: Your pants are undone!  Speaker 3: Oh!  Speaker 5: Where did they go?  Speaker 3: Damn it!  Speaker 5: Oh we blew it. I blame myself.  Speaker 3: And I blame you too.  Speaker 2 is or was dating which Speaker?",
+            "output": [
+                "Speaker 1"
+            ]
+        },
+        {
+            "input": "Speaker 1: Item J437-A, color: winterberry. Hi umm, listen come here, come in. I’m so-so sorry about yesterday. I-I’m really sorry. It’s just that I…  Speaker 2: Listen Ross, you don’t have to apologize. I understand why you were there.  Speaker 1: You do?  Speaker 2: Yeah, you still have feelings for me. And-and to be honest, I-I still have feelings for you. And I wish that we can work it out Ross, but we can’t. It’s too complicated with you and Rachel and the baby, I-I just… It just wasn’t meant to be.  Speaker 1: Oh God you’re right.  Speaker 2: Ross, we…we have to be strong. Okay, I-I’m gonna go. Can I? To remember you?  Speaker 1: No.  Speaker 1 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: So, how come you wanted to eat in tonight?  Speaker 2: 'Cause, I wanted to uh, give you this.  Speaker 1: Ohhh, are you a puppy! Contact paper! I never really know what to say when someone you're sleeping with gives you contact paper.  Speaker 2: Well, wait there's, there's more. See the contact paper is to go into your brand new drawer. See, the drawer actually goes in my dresser.  Speaker 1: Oh, you didn't have to do this.  Speaker 2: Yes, I did. Yes, I did. Because, you're my girlfriend, and that's what girlfriends should, should get.  Speaker 1: Well, I gotta buy a vowel. Because, oh my Gawd! Who, would've thought that someday, Chandler Bing would buy me a drawer.  Speaker 1 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: I’m so sorry. Please, stop freaking out.  Speaker 2: I’m not freaking out. Why would I be freaking out? A woman named Heldi called and said we were getting married, but that happens everyday.  Speaker 1: Honey, we were at this beautiful place, and I-I-I just put our names down for fun! I mean, what’s the harm in that?  Speaker 2: Right here!  Speaker 1: Chandler, please don’t think I was trying to pressure you. Phoebe and Rachel…  Speaker 2: Phoebe and Rachel! So the people that knew about our wedding before me were you, Phoebe and Rachel, Heldi, and apparently some band called Starlight Magic 7 who are available by the way!  Speaker 1: It was a mistake. Please don’t take this to mean anything, because it doesn’t.  Speaker 2: Okay.  Speaker 1: Really?  Speaker 2: Yes, if it really doesn’t mean anything, because you know that I’m just not ready…  Speaker 1: I know! I know.  Speaker 2: Okay.  Speaker 1: I’m gonna go tell Joey that that you’re back. I was really worried about you.  Speaker 3: Hey, did she buy it?  Speaker 2: Totally.  Speaker 3: So did Heldi show you the place?  Speaker 2: Yeah, it’s beautiful.  Speaker 3: I can’t believe you’re gonna ask Monica to marry you!  Speaker 2: I know.  Speaker 1 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        },
+        {
+            "input": "Speaker 1: Damnit Ross, get your butt out of the bathroom.  Speaker 2: Calm down, I'm blow drying.  Speaker 1: Blow drying what, you have no hair.  Speaker 3: What's goin' on?  Speaker 1: Your boyfriend has been in there for over an hour. I can't believe it, it's like I'm living with him again. He's here when I go to sleep, he's here when I wake up, he's here when I want to use the shower, ughh. It's like I'm sixteen all over again .  Speaker 3: Well, you're not sixteen, you're both adults now.  Speaker 1: GET OUT YOU DUFUS!!  Speaker 3: Or ya know, he's rubber and you're glue.  Speaker 2: All yours.  Speaker 1: I hope you cleaned your hair out of the drain.  Speaker 2: I hope you cleaned your hair out of the drain.  Speaker 1: Shut up.  Speaker 2: Shut up.  Speaker 1: Cut it out.  Speaker 2: Mi-mi-mii.  Speaker 3: I've never wanted you more.  Speaker 2 is or was dating which Speaker?",
+            "output": [
+                "Speaker 3"
+            ]
+        },
+        {
+            "input": "Speaker 1: Y'know, I don't like to brag about it, but I give the best massages!  Speaker 2: All right, then massage me up right nice!  Speaker 2: Ah! Ahh!! Ahh!!  Speaker 1: It's so good, isn't it?  Speaker 2: It's so good I don't know what I've done to deserve it!  Speaker 1: Say good-bye to sore muscles!  Speaker 2: Good-bye muscles!!  Speaker 2: I'm telling you, she gives the worst massages ever!! Okay, it was like she was torturing me for information. And I wanted to give it up I just—I didn't know what it was!  Speaker 3: Chandler, if it really hurts that bad you should just tell her.  Speaker 2: Look, for the first time in my life I'm in a real relationship. Okay, I'm not gonna screw that up by y'know, telling the truth.  Speaker 1 is or was dating which Speaker?",
+            "output": [
+                "Speaker 2"
+            ]
+        }
+    ]
+}
