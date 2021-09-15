@@ -565,12 +565,6 @@
             ]
         },
         {
-            "input": "Query: SELECT DISTINCT ?x0 WHERE {\n?x0 a ns:people.person .\n?x0 ns:people.person.spouse_s/ns:people.marriage.spouse|ns:fictional_universe.fictional_character.married_to/ns:fictional_universe.marriage_of_fictional_characters.spouses ?x1 .\n?x1 ns:people.person.gender ns:m.05zppz .\n?x1 ns:people.person.spouse_s/ns:people.marriage.spouse|ns:fictional_universe.fictional_character.married_to/ns:fictional_universe.marriage_of_fictional_characters.spouses M2 .\nFILTER ( ?x0 != ?x1 ) .\nFILTER ( ?x1 != M2 )\n} Question: Who did M2 's male spouse marry",
-            "output": [
-                "1"
-            ]
-        },
-        {
             "input": "Query: SELECT DISTINCT ?x0 WHERE {\n?x0 ns:film.film.edited_by M1 .\n?x0 ns:film.film.produced_by|ns:film.film.production_companies ?x1 .\n?x0 ns:film.film.written_by M0 .\n?x1 ns:film.actor.film/ns:film.performance.character M3 .\n?x1 ns:people.person.nationality ns:m.06mkj\n} Question: What was edited by M1 , written by M0 , and produced by M3 's Spanish actor",
             "output": [
                 "1"
@@ -1022,12 +1016,6 @@
         },
         {
             "input": "Query: SELECT DISTINCT ?x0 WHERE {\n?x0 ns:film.film.distributors/ns:film.film_film_distributor_relationship.distributor M0 .\n?x0 ns:film.film.distributors/ns:film.film_film_distributor_relationship.distributor M1 .\n?x0 ns:film.film.distributors/ns:film.film_film_distributor_relationship.distributor M2 .\n?x0 ns:film.film.produced_by|ns:film.film.production_companies ?x1 .\n?x1 ns:film.actor.film/ns:film.performance.film M3 .\n?x1 ns:film.producer.films_executive_produced M3\n} Question: What was produced by M3 's executive producer and star , distributed by M0 , and distributed by M1 and M2",
-            "output": [
-                "1"
-            ]
-        },
-        {
-            "input": "Query: SELECT count(*) WHERE {\n?x0 ns:organization.organization_founder.organizations_founded M0 .\n?x0 ns:people.person.employment_history/ns:business.employment_tenure.company M0 .\nM1 ns:film.film.directed_by M3 .\nM1 ns:film.film.executive_produced_by ?x0 .\nM1 ns:film.film.produced_by|ns:film.film.production_companies M2 .\nM4 ns:film.film.directed_by M3 .\nM4 ns:film.film.executive_produced_by ?x0 .\nM4 ns:film.film.produced_by|ns:film.film.production_companies M2\n} Question: Were M1 and M4 produced by M2 , executive produced by M0 's employee and founder , and directed by M3",
             "output": [
                 "1"
             ]
