@@ -7,7 +7,6 @@ Name | Summary | Category
 ---- | ----------- | --------
 `task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
-
 `task161_sherliic_casual_relationship` | Determine if A and B share a casual relationship |Classification
 `task162_sherliic_inverse_casual_relationship` | Determine if A and B share an inverse casual relationship |Classification
 `task163_sherliic_fact_annotation` | Detemine if the annotation given is a correct annotation for the given fact |Classification
@@ -15,7 +14,6 @@ Name | Summary | Category
 `task166_prachathai67k_sentiment_classification` | Classify the sentiment of a given article on the given genre |Classification
 `task167_prachathai67k_same_genre_classification` | Determine if the two articles given share the same sentiment fot the given genre |Classification
 `task168_pib_indian_language_identification` | Identify the language of the given statement from the 11 languages listed |Classification
-
 `task1000_pib_translation_oriya_urdu`| Translate from oriya to urdu | Translation
 `task1001_pib_translation_urdu_oriya`| Translate from urdu to oriya | Translation
 `task1002_pib_translation_malayalam_oriya`| Translate from malayalam to oriya | Translation
