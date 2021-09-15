@@ -11,3 +11,4 @@ Name | Summary | Category
 `task508_peixian-rtGender_sentiment_analysis` | Analyze the sentiment of responses under posters from social media | Sentiment Analysis
 `task509_peixian-rtGender_response_relevance_analysis` | Analyze the relevance of responses to the source posters from social media | Response Relevance Analysis
 `task510_peixian-rtGender_positive_response_generation` | Generating a responses with positive sentiment the posters from social media | Positive Response Generation
+`task511_peixian-rtGender_negative_response_generation` | Generating a responses with negative sentiment the posters from social media | Negative Response Generation
