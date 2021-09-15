@@ -2,30 +2,31 @@
     "Source": [
         "BSC-TeMU/ancora-ca-ner"
     ],
-    "Definition": "This task is about doing Named Entity Recognition(NER) for every token in a sentence. The first step is to construct a Catalan sentence. Then split the sentence into single words or punctuation symbols. For each word, you need to assign an IOB tag. IOB tag consists of two parts separated by ‘-’ or a single part depending on whether the word belongs to a chunk or not. If the word doesn’t belong to any chunk, you will assign an ‘O’ tag to that particular word. But if it belongs to a chunk, you will assign a two-part tag like this: The I- prefix before a tag indicates that the tag is inside a chunk. The B- prefix before a tag indicates that the tag is the beginning of a chunk that immediately follows another chunk without O tags between them. It is used only in that case: when a chunk comes after an O tag, the first token of the chunk takes the I- prefix. Avoid using words from other languages.",
+    "Definition": "This task is about doing Named Entity Recognition(NER) for every word in a given Catalan sentence. First, split the sentence into single words or punctuation symbols. For each word, you need to assign an IOB tag. IOB tag consists of two parts separated by '-' or a single part depending on whether the word belongs to a bigger chunk or not. When breaking a bigger chunk, you can easily break a noun phrase into multiple words. For example, if we break 'New York', we get 'New' and 'York.' Here, both 'New' and 'York' belong to the bigger chunk 'New York,' which are chunks themselves. If the word doesn't belong to any bigger chunk, you will assign an 'O' tag to that particular word. But if it belongs to a bigger chunk, you will assign a two-part tag like this: The I- prefix before a tag indicates that the word is inside a bigger chunk. The B- prefix before a tag indicates that the word is the beginning of a bigger chunk that immediately follows another chunk within the same bigger chunk without O tag words between them. When a bigger chunk comes after an O tag, the first token of the chunk takes the I- prefix. So, suppose a token does belong to a bigger chunk. In that case, you need to assign 'LOC' or 'ORG' or 'PER' tag as the second part of the tag where 'LOC' indicates the token belongs to a location chunk, 'ORG' indicates the token belongs to an organization name chunk, 'PER' indicates the token belongs to a person name chunk, and 'MISC' indicates the token belongs to chunk which is not a person, location or an organization. Avoid using words from other languages.",
   
     "Positive Examples": [ 
         { 
             "input": "Una setantena de treballadors de Fomento de Construcciones y Contratas a Manresa , gairebé la totalitat de la plantilla , s' han manifestat aquest migdia pels carrers de la ciutat .",
-        "output": "O O O O O B-ORG I-ORG I-ORG I-ORG I-ORG O B-LOC O O O O O O O O O O O O O O O O O O O",  
-            "explanation": "We split the sentence into single words or punctuation and then assigned correct tags to each token as per the definition. We assigned 30 correct tags to the given sentence"
+            "output": "O O O O O B-ORG I-ORG I-ORG I-ORG I-ORG O B-LOC O O O O O O O O O O O O O O O O O O O",  
+            "explanation": "We split the sentence into single words or punctuation and then assigned correct tags to each token as per the definition. We assigned 30 correct tags to the given sentence."
         }, 
         {   
-        "input": "Aquests contenidors només estaran instal·lats mentre duri la vaga .",
-        "output": "O O O O O O O O O O",  
-            "explanation": "We split the sentence into single words or punctuation and then assigned correct tags to each token as per the definition. We assigned 9 correct tags to the given sentence"
+            "input": "Aquests contenidors només estaran instal·lats mentre duri la vaga .",
+            "output": "O O O O O O O O O O",  
+            "explanation": "We split the sentence into single words or punctuation and then assigned correct tags to each token as per the definition. We assigned nine correct tags to the given sentence."
         }
     ], 
   
     "Negative Examples": [ 
         { 
             "input": "D' una banda , s' ha fet una bustiada informativa sobre els dies que hi haurà recollida de deixalles .",
-        "output": "I-LOC O O O O O O O O O O O O O O O O O O O",  
-            "explanation": "The output is not correct as per the definition. We had assigned 'I-LOC' tag to 'D'' token when it should be 'O' because it doesn't belong to any chunk"
+            "output": "I-LOC O O O O O O O O O O O O O O O O O O O",  
+            "explanation": "The output is not correct as per the definition. We had assigned the 'I-LOC' tag to the 'D'' token when it should be 'O' because it doesn't belong to any bigger chunk."
         }, 
-        {  "input": "Els treballadors han iniciat aquesta matinada una vaga indefinida dels serveis de neteja viària i recollida d' escombraries .",
-        "output": "O",  
-            "explanation": "This is bad example because we need to predict tags to 19 tokens but we have only predicted one."
+        {  
+            "input": "Els treballadors han iniciat aquesta matinada una vaga indefinida dels serveis de neteja viària i recollida d' escombraries .",
+            "output": "O",  
+            "explanation": "This is a bad example because we need to predict tags to 19 tokens, but we have only predicted one."
         }
     ],
 
@@ -6089,6 +6090,6 @@
     }
 ],
     "Categories" : "Named Entity Recognition(NER)",
-    "Contributors": "Surya Singulur"
+    "Contributors": ["Surya Singulur"]
 
 }
