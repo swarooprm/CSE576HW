@@ -1,0 +1,1272 @@
+{
+    "Contributors": [
+        "Ashutosh Garg"
+    ],
+    "Source": [
+        "corypaik/prost"
+    ],
+    "Categories": [
+        "MCQ generation"
+    ],
+    "Definition": "The task is about reading the given context and group and then creating MCQs from the given context and a group to which the question must belong to.",
+    "Positive Examples": [
+        {
+            "input": "context: A person is trying to roll an apple, a ball, a block, and a bottle. \ngroup: rolling",
+            "output": "question: Which is the hardest to roll? \nA: apple \tB: ball \tC: block \tD: bottle",
+            "explanation": "The above example is that of a good MCQ question is because it is supposed to ask question regarding rolling of the objects and options of the question are present in the context."
+        },
+        {
+            "input": "context: A person is trying to stack coins, boxes, eggs, and blocks. \ngroup: stacking",
+            "output": "question: Which are the hardest to  stack? \nA: coins \tB: boxes \tC: eggs \tD: blocks",
+            "explanation": "The above example is that of a good MCQ question is because it is supposed to ask question regarding rolling of the objects and options of the question are present in the context."
+        },
+        {
+            "input": "context: A person paints a circle around a table, a microwave, a book, and a house. \ngroup: circumference",
+            "output": "question: Which circle takes the most amount of paint? \nA: table \tB: microwave \tC: book \tD: house",
+            "explanation": "The above example is that of a good MCQ question is because it is supposed to ask question regarding rolling of the objects and options of the question are present in the context."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "context: A person is trying to roll an apple, a ball, a block, and a bottle. \ngroup: rolling",
+            "output": "question: Which object is the heaviest? \nA: apple \tB: ball \tC: block \tD: bottle",
+            "explanation": "The above example is a bad example because, it doesn't ask question about the rolling of the object, which is the group given in the input."
+        },
+        {
+            "input": "context: A person is trying to stack coins, boxes, eggs, and blocks. \ngroup: stacking",
+            "output": "question: Which object is the least heaviest? \nA: coins \tB: boxes \tC: eggs \tD: blocks",
+            "explanation": "The above example is a bad example because, it doesn't ask question about the stacking of the object, which is the group given in the input."
+        },
+        {
+            "input": "context: A person paints a circle around a table, a microwave, a book, and a house. \ngroup: circumference",
+            "output": "question: Which circle takes the most amount of paint? \nA: table \tB: apple \tC: book \tD: ball",
+            "explanation": "This is a bad example because the options given in the question doesn't match with the objects mentioned in the context in the input."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto rubber, a second ball onto foam, a third ball onto snow, and a fourth ball onto leaves.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: rubber\nB: foam\nC: snow\nD: leaves"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto carpet, a second ball onto grass, a third ball onto asphalt, and a fourth ball onto leaves.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: carpet\nB: grass\nC: asphalt\nD: leaves"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto brick, a second ball onto concrete, a third ball onto steel, and a fourth ball onto snow.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: brick\nB: concrete\nC: steel\nD: snow"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto steel, a second ball onto brick, a third ball onto concrete, and a fourth ball onto foam.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: steel\nB: brick\nC: concrete\nD: foam"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto concrete, a second ball onto brick, a third ball onto asphalt, and a fourth ball onto carpet.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: concrete\nB: brick\nC: asphalt\nD: carpet"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto leaves, a second ball onto carpet, a third ball onto brick, and a fourth ball onto grass.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: leaves\nB: carpet\nC: brick\nD: grass"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto steel, a second ball onto asphalt, a third ball onto snow, and a fourth ball onto concrete.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: steel\nB: asphalt\nC: snow\nD: concrete"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto carpet, a second ball onto leaves, a third ball onto steel, and a fourth ball onto grass.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: carpet\nB: leaves\nC: steel\nD: grass"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto carpet, a second ball onto leaves, a third ball onto concrete, and a fourth ball onto foam.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: carpet\nB: leaves\nC: concrete\nD: foam"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto asphalt, a second ball onto snow, a third ball onto carpet, and a fourth ball onto foam.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: snow\nB: carpet\nC: foam\nD: asphalt"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto steel, a second ball onto asphalt, a third ball onto grass, and a fourth ball onto brick.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: steel\nB: asphalt\nC: grass\nD: brick"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto brick, a second ball onto asphalt, a third ball onto concrete, and a fourth ball onto snow.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: brick\nB: asphalt\nC: concrete\nD: snow"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto carpet, a second ball onto brick, a third ball onto leaves, and a fourth ball onto snow.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: carpet\nB: brick\nC: leaves\nD: snow"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto concrete, a second ball onto foam, a third ball onto steel, and a fourth ball onto rubber.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: concrete\nB: foam\nC: steel\nD: rubber"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto brick, a second ball onto steel, a third ball onto concrete, and a fourth ball onto foam.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: brick\nB: steel\nC: concrete\nD: foam"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto steel, a second ball onto brick, a third ball onto concrete, and a fourth ball onto snow.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: steel\nB: brick\nC: concrete\nD: snow"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto leaves, a second ball onto carpet, a third ball onto rubber, and a fourth ball onto snow.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: leaves\nB: carpet\nC: rubber\nD: snow"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto carpet, a second ball onto brick, a third ball onto grass, and a fourth ball onto foam.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: carpet\nB: brick\nC: grass\nD: foam"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto concrete, a second ball onto snow, a third ball onto foam, and a fourth ball onto carpet.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: snow\nB: foam\nC: carpet\nD: concrete"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto asphalt, a second ball onto snow, a third ball onto carpet, and a fourth ball onto grass.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: snow\nB: carpet\nC: grass\nD: asphalt"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto grass, a second ball onto rubber, a third ball onto leaves, and a fourth ball onto foam.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: grass\nB: rubber\nC: leaves\nD: foam"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto grass, a second ball onto rubber, a third ball onto snow, and a fourth ball onto carpet.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: grass\nB: rubber\nC: snow\nD: carpet"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto brick, a second ball onto foam, a third ball onto grass, and a fourth ball onto leaves.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: foam\nB: grass\nC: leaves\nD: brick"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto asphalt, a second ball onto foam, a third ball onto snow, and a fourth ball onto carpet.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: asphalt\nB: foam\nC: snow\nD: carpet"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto carpet, a second ball onto concrete, a third ball onto rubber, and a fourth ball onto asphalt.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: carpet\nB: concrete\nC: rubber\nD: asphalt"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto steel, a second ball onto rubber, a third ball onto carpet, and a fourth ball onto brick.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: steel\nB: rubber\nC: carpet\nD: brick"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto foam, a second ball onto asphalt, a third ball onto snow, and a fourth ball onto carpet.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: foam\nB: asphalt\nC: snow\nD: carpet"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto brick, a second ball onto rubber, a third ball onto foam, and a fourth ball onto asphalt.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: brick\nB: rubber\nC: foam\nD: asphalt"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto concrete, a second ball onto grass, a third ball onto leaves, and a fourth ball onto snow.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: concrete\nB: grass\nC: leaves\nD: snow"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto grass, a second ball onto rubber, a third ball onto leaves, and a fourth ball onto snow.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: grass\nB: rubber\nC: leaves\nD: snow"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto leaves, a second ball onto rubber, a third ball onto foam, and a fourth ball onto carpet.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: leaves\nB: rubber\nC: foam\nD: carpet"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto grass, a second ball onto snow, a third ball onto asphalt, and a fourth ball onto leaves.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: grass\nB: snow\nC: asphalt\nD: leaves"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto grass, a second ball onto concrete, a third ball onto rubber, and a fourth ball onto brick.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: grass\nB: concrete\nC: rubber\nD: brick"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto foam, a second ball onto steel, a third ball onto asphalt, and a fourth ball onto brick.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: foam\nB: steel\nC: asphalt\nD: brick"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto concrete, a second ball onto brick, a third ball onto rubber, and a fourth ball onto leaves.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: concrete\nB: brick\nC: rubber\nD: leaves"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto snow, a second ball onto concrete, a third ball onto foam, and a fourth ball onto grass.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: snow\nB: concrete\nC: foam\nD: grass"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto foam, a second ball onto brick, a third ball onto leaves, and a fourth ball onto carpet.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: foam\nB: brick\nC: leaves\nD: carpet"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto steel, a second ball onto rubber, a third ball onto asphalt, and a fourth ball onto foam.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: steel\nB: rubber\nC: asphalt\nD: foam"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto grass, a second ball onto steel, a third ball onto carpet, and a fourth ball onto snow.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: grass\nB: steel\nC: carpet\nD: snow"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto rubber, a second ball onto foam, a third ball onto steel, and a fourth ball onto concrete.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: rubber\nB: foam\nC: steel\nD: concrete"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto grass, a second ball onto steel, a third ball onto foam, and a fourth ball onto carpet.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: grass\nB: steel\nC: foam\nD: carpet"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto brick, a second ball onto rubber, a third ball onto asphalt, and a fourth ball onto grass.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: brick\nB: rubber\nC: asphalt\nD: grass"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto leaves, a second ball onto rubber, a third ball onto carpet, and a fourth ball onto grass.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: leaves\nB: rubber\nC: carpet\nD: grass"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto steel, a second ball onto concrete, a third ball onto snow, and a fourth ball onto brick.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: steel\nB: concrete\nC: snow\nD: brick"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto foam, a second ball onto leaves, a third ball onto concrete, and a fourth ball onto grass.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: foam\nB: leaves\nC: concrete\nD: grass"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto asphalt, a second ball onto steel, a third ball onto snow, and a fourth ball onto concrete.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: asphalt\nB: steel\nC: snow\nD: concrete"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto foam, a second ball onto brick, a third ball onto grass, and a fourth ball onto snow.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: foam\nB: brick\nC: grass\nD: snow"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto brick, a second ball onto steel, a third ball onto foam, and a fourth ball onto rubber.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: brick\nB: steel\nC: foam\nD: rubber"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto rubber, a second ball onto foam, a third ball onto carpet, and a fourth ball onto grass.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: rubber\nB: foam\nC: carpet\nD: grass"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto concrete, a second ball onto snow, a third ball onto leaves, and a fourth ball onto foam.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: concrete\nB: snow\nC: leaves\nD: foam"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto snow, a second ball onto grass, a third ball onto steel, and a fourth ball onto leaves.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: snow\nB: grass\nC: steel\nD: leaves"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto steel, a second ball onto grass, a third ball onto rubber, and a fourth ball onto asphalt.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: steel\nB: grass\nC: rubber\nD: asphalt"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto steel, a second ball onto foam, a third ball onto asphalt, and a fourth ball onto rubber.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: steel\nB: foam\nC: asphalt\nD: rubber"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto leaves, a second ball onto rubber, a third ball onto brick, and a fourth ball onto concrete.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: leaves\nB: rubber\nC: brick\nD: concrete"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto asphalt, a second ball onto carpet, a third ball onto snow, and a fourth ball onto grass.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: carpet\nB: snow\nC: grass\nD: asphalt"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto leaves, a second ball onto foam, a third ball onto rubber, and a fourth ball onto grass.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: leaves\nB: foam\nC: rubber\nD: grass"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto concrete, a second ball onto leaves, a third ball onto steel, and a fourth ball onto rubber.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: concrete\nB: leaves\nC: steel\nD: rubber"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto rubber, a second ball onto carpet, a third ball onto asphalt, and a fourth ball onto steel.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: rubber\nB: carpet\nC: asphalt\nD: steel"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto leaves, a second ball onto steel, a third ball onto concrete, and a fourth ball onto brick.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: leaves\nB: steel\nC: concrete\nD: brick"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto steel, a second ball onto grass, a third ball onto leaves, and a fourth ball onto carpet.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: steel\nB: grass\nC: leaves\nD: carpet"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto concrete, a second ball onto carpet, a third ball onto snow, and a fourth ball onto grass.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: carpet\nB: snow\nC: grass\nD: concrete"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto rubber, a second ball onto brick, a third ball onto foam, and a fourth ball onto asphalt.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: rubber\nB: brick\nC: foam\nD: asphalt"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto rubber, a second ball onto asphalt, a third ball onto snow, and a fourth ball onto brick.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: rubber\nB: asphalt\nC: snow\nD: brick"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto foam, a second ball onto concrete, a third ball onto steel, and a fourth ball onto asphalt.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: foam\nB: concrete\nC: steel\nD: asphalt"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto rubber, a second ball onto brick, a third ball onto snow, and a fourth ball onto concrete.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: rubber\nB: brick\nC: snow\nD: concrete"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto snow, a second ball onto grass, a third ball onto rubber, and a fourth ball onto foam.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: snow\nB: grass\nC: rubber\nD: foam"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto rubber, a second ball onto grass, a third ball onto leaves, and a fourth ball onto foam.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: rubber\nB: grass\nC: leaves\nD: foam"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto grass, a second ball onto snow, a third ball onto steel, and a fourth ball onto leaves.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: grass\nB: snow\nC: steel\nD: leaves"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto concrete, a second ball onto foam, a third ball onto grass, and a fourth ball onto snow.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: foam\nB: grass\nC: snow\nD: concrete"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto carpet, a second ball onto rubber, a third ball onto asphalt, and a fourth ball onto concrete.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: carpet\nB: rubber\nC: asphalt\nD: concrete"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto leaves, a second ball onto snow, a third ball onto concrete, and a fourth ball onto carpet.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: leaves\nB: snow\nC: concrete\nD: carpet"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto concrete, a second ball onto leaves, a third ball onto foam, and a fourth ball onto grass.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: concrete\nB: leaves\nC: foam\nD: grass"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto grass, a second ball onto brick, a third ball onto foam, and a fourth ball onto carpet.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: grass\nB: brick\nC: foam\nD: carpet"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto rubber, a second ball onto concrete, a third ball onto foam, and a fourth ball onto steel.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: rubber\nB: concrete\nC: foam\nD: steel"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto grass, a second ball onto rubber, a third ball onto concrete, and a fourth ball onto steel.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: grass\nB: rubber\nC: concrete\nD: steel"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto rubber, a second ball onto leaves, a third ball onto carpet, and a fourth ball onto grass.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: rubber\nB: leaves\nC: carpet\nD: grass"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto foam, a second ball onto concrete, a third ball onto leaves, and a fourth ball onto snow.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: foam\nB: concrete\nC: leaves\nD: snow"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto steel, a second ball onto carpet, a third ball onto concrete, and a fourth ball onto rubber.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: steel\nB: carpet\nC: concrete\nD: rubber"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto brick, a second ball onto foam, a third ball onto grass, and a fourth ball onto snow.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: foam\nB: grass\nC: snow\nD: brick"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto concrete, a second ball onto rubber, a third ball onto carpet, and a fourth ball onto steel.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: concrete\nB: rubber\nC: carpet\nD: steel"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto rubber, a second ball onto brick, a third ball onto asphalt, and a fourth ball onto grass.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: rubber\nB: brick\nC: asphalt\nD: grass"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto foam, a second ball onto rubber, a third ball onto asphalt, and a fourth ball onto concrete.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: foam\nB: rubber\nC: asphalt\nD: concrete"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto asphalt, a second ball onto foam, a third ball onto carpet, and a fourth ball onto leaves.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: foam\nB: carpet\nC: leaves\nD: asphalt"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto rubber, a second ball onto snow, a third ball onto carpet, and a fourth ball onto grass.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: rubber\nB: snow\nC: carpet\nD: grass"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto carpet, a second ball onto asphalt, a third ball onto steel, and a fourth ball onto rubber.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: carpet\nB: asphalt\nC: steel\nD: rubber"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto steel, a second ball onto foam, a third ball onto leaves, and a fourth ball onto grass.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: steel\nB: foam\nC: leaves\nD: grass"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto asphalt, a second ball onto leaves, a third ball onto steel, and a fourth ball onto rubber.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: asphalt\nB: leaves\nC: steel\nD: rubber"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto snow, a second ball onto rubber, a third ball onto concrete, and a fourth ball onto brick.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: snow\nB: rubber\nC: concrete\nD: brick"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto steel, a second ball onto asphalt, a third ball onto leaves, and a fourth ball onto concrete.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: steel\nB: asphalt\nC: leaves\nD: concrete"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto concrete, a second ball onto asphalt, a third ball onto carpet, and a fourth ball onto brick.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: concrete\nB: asphalt\nC: carpet\nD: brick"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto carpet, a second ball onto rubber, a third ball onto grass, and a fourth ball onto foam.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: carpet\nB: rubber\nC: grass\nD: foam"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto brick, a second ball onto asphalt, a third ball onto grass, and a fourth ball onto steel.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: brick\nB: asphalt\nC: grass\nD: steel"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto brick, a second ball onto leaves, a third ball onto steel, and a fourth ball onto rubber.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: brick\nB: leaves\nC: steel\nD: rubber"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto leaves, a second ball onto brick, a third ball onto steel, and a fourth ball onto asphalt.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: leaves\nB: brick\nC: steel\nD: asphalt"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto asphalt, a second ball onto grass, a third ball onto snow, and a fourth ball onto carpet.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: asphalt\nB: grass\nC: snow\nD: carpet"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto steel, a second ball onto foam, a third ball onto snow, and a fourth ball onto carpet.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the highest?\nA: steel\nB: foam\nC: snow\nD: carpet"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto grass, a second ball onto concrete, a third ball onto asphalt, and a fourth ball onto rubber.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: grass\nB: concrete\nC: asphalt\nD: rubber"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto foam, a second ball onto steel, a third ball onto concrete, and a fourth ball onto brick.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: foam\nB: steel\nC: concrete\nD: brick"
+            ]
+        },
+        {
+            "input": "context: A person is trying to bounce a rubber ball. They drop a first ball onto asphalt, a second ball onto rubber, a third ball onto concrete, and a fourth ball onto leaves.\ngroup: bouncing",
+            "output": [
+                "question: Which ball bounces the least?\nA: asphalt\nB: rubber\nC: concrete\nD: leaves"
+            ]
+        },
+        {
+            "input": "context: A person drops an egg, a pillow, a shirt, and a pen from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: egg\nB: pillow\nC: shirt\nD: pen"
+            ]
+        },
+        {
+            "input": "context: A person drops a bottle, a coin, a pen, and a pillow from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: bottle\nB: coin\nC: pen\nD: pillow"
+            ]
+        },
+        {
+            "input": "context: A person drops a bottle, a glass, an egg, and a pen from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: bottle\nB: glass\nC: egg\nD: pen"
+            ]
+        },
+        {
+            "input": "context: A person drops a ball, a plate, a shirt, and a pen from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: ball\nB: plate\nC: shirt\nD: pen"
+            ]
+        },
+        {
+            "input": "context: A person drops a shirt, a coin, a glass, and a pen from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: shirt\nB: coin\nC: glass\nD: pen"
+            ]
+        },
+        {
+            "input": "context: A person drops a ball, a plate, a glass, and an egg from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: ball\nB: plate\nC: glass\nD: egg"
+            ]
+        },
+        {
+            "input": "context: A person drops a glass, a plate, a bottle, and a shirt from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: glass\nB: plate\nC: bottle\nD: shirt"
+            ]
+        },
+        {
+            "input": "context: A person drops an egg, a pillow, a bottle, and a mirror from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: egg\nB: pillow\nC: bottle\nD: mirror"
+            ]
+        },
+        {
+            "input": "context: A person drops a mirror, a bottle, a ball, and a glass from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: mirror\nB: bottle\nC: ball\nD: glass"
+            ]
+        },
+        {
+            "input": "context: A person drops a pillow, a pen, a ball, and a bottle from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: pillow\nB: pen\nC: ball\nD: bottle"
+            ]
+        },
+        {
+            "input": "context: A person drops a shirt, a glass, a pen, and a ball from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: shirt\nB: glass\nC: pen\nD: ball"
+            ]
+        },
+        {
+            "input": "context: A person drops a coin, a pillow, a glass, and a pen from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: coin\nB: pillow\nC: glass\nD: pen"
+            ]
+        },
+        {
+            "input": "context: A person drops an egg, a plate, a bottle, and a pillow from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: egg\nB: plate\nC: bottle\nD: pillow"
+            ]
+        },
+        {
+            "input": "context: A person drops a pen, a glass, a bottle, and a mirror from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: pen\nB: glass\nC: bottle\nD: mirror"
+            ]
+        },
+        {
+            "input": "context: A person drops a shirt, a pen, a ball, and a glass from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: shirt\nB: pen\nC: ball\nD: glass"
+            ]
+        },
+        {
+            "input": "context: A person drops a mirror, a pillow, a glass, and a bottle from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: mirror\nB: pillow\nC: glass\nD: bottle"
+            ]
+        },
+        {
+            "input": "context: A person drops a pillow, a shirt, a plate, and a pen from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: pillow\nB: shirt\nC: plate\nD: pen"
+            ]
+        },
+        {
+            "input": "context: A person drops a pen, a plate, a coin, and a pillow from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: pen\nB: plate\nC: coin\nD: pillow"
+            ]
+        },
+        {
+            "input": "context: A person drops a coin, a pillow, a plate, and a shirt from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: coin\nB: pillow\nC: plate\nD: shirt"
+            ]
+        },
+        {
+            "input": "context: A person drops a mirror, a pen, a bottle, and a glass from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: mirror\nB: pen\nC: bottle\nD: glass"
+            ]
+        },
+        {
+            "input": "context: A person drops a pillow, a coin, a shirt, and a glass from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: pillow\nB: coin\nC: shirt\nD: glass"
+            ]
+        },
+        {
+            "input": "context: A person drops a bottle, a mirror, an egg, and a pillow from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: bottle\nB: mirror\nC: egg\nD: pillow"
+            ]
+        },
+        {
+            "input": "context: A person drops a bottle, a pen, a shirt, and a ball from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: bottle\nB: pen\nC: shirt\nD: ball"
+            ]
+        },
+        {
+            "input": "context: A person drops a plate, a coin, a shirt, and a ball from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: plate\nB: coin\nC: shirt\nD: ball"
+            ]
+        },
+        {
+            "input": "context: A person drops a ball, a shirt, a glass, and a pillow from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: ball\nB: shirt\nC: glass\nD: pillow"
+            ]
+        },
+        {
+            "input": "context: A person drops a mirror, a bottle, a coin, and an egg from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: mirror\nB: bottle\nC: coin\nD: egg"
+            ]
+        },
+        {
+            "input": "context: A person drops a pillow, a coin, a glass, and a shirt from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: pillow\nB: coin\nC: glass\nD: shirt"
+            ]
+        },
+        {
+            "input": "context: A person drops a pillow, a bottle, a glass, and a mirror from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: pillow\nB: bottle\nC: glass\nD: mirror"
+            ]
+        },
+        {
+            "input": "context: A person drops a pen, a bottle, an egg, and a plate from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: pen\nB: bottle\nC: egg\nD: plate"
+            ]
+        },
+        {
+            "input": "context: A person drops an egg, a coin, a mirror, and a bottle from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: egg\nB: coin\nC: mirror\nD: bottle"
+            ]
+        },
+        {
+            "input": "context: A person drops an egg, a glass, a ball, and a bottle from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: egg\nB: glass\nC: ball\nD: bottle"
+            ]
+        },
+        {
+            "input": "context: A person drops a mirror, a bottle, an egg, and a pen from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: mirror\nB: bottle\nC: egg\nD: pen"
+            ]
+        },
+        {
+            "input": "context: A person drops a bottle, a shirt, a pen, and a ball from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: bottle\nB: shirt\nC: pen\nD: ball"
+            ]
+        },
+        {
+            "input": "context: A person drops a pillow, a ball, a coin, and a mirror from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: pillow\nB: ball\nC: coin\nD: mirror"
+            ]
+        },
+        {
+            "input": "context: A person drops a shirt, a pen, a glass, and a ball from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: shirt\nB: pen\nC: glass\nD: ball"
+            ]
+        },
+        {
+            "input": "context: A person drops a ball, a bottle, a shirt, and a pen from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: ball\nB: bottle\nC: shirt\nD: pen"
+            ]
+        },
+        {
+            "input": "context: A person drops an egg, a plate, a glass, and a pillow from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: egg\nB: plate\nC: glass\nD: pillow"
+            ]
+        },
+        {
+            "input": "context: A person drops a coin, a pen, a glass, and a ball from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: coin\nB: pen\nC: glass\nD: ball"
+            ]
+        },
+        {
+            "input": "context: A person drops a glass, a mirror, an egg, and a pillow from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: glass\nB: mirror\nC: egg\nD: pillow"
+            ]
+        },
+        {
+            "input": "context: A person drops an egg, a mirror, a pillow, and a glass from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: egg\nB: mirror\nC: pillow\nD: glass"
+            ]
+        },
+        {
+            "input": "context: A person drops a shirt, a glass, a ball, and a coin from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: shirt\nB: glass\nC: ball\nD: coin"
+            ]
+        },
+        {
+            "input": "context: A person drops a bottle, a ball, a shirt, and a pillow from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: bottle\nB: ball\nC: shirt\nD: pillow"
+            ]
+        },
+        {
+            "input": "context: A person drops a ball, a shirt, a pillow, and a mirror from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: ball\nB: shirt\nC: pillow\nD: mirror"
+            ]
+        },
+        {
+            "input": "context: A person drops a pen, a plate, a coin, and a ball from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: pen\nB: plate\nC: coin\nD: ball"
+            ]
+        },
+        {
+            "input": "context: A person drops a shirt, a ball, a coin, and a glass from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: shirt\nB: ball\nC: coin\nD: glass"
+            ]
+        },
+        {
+            "input": "context: A person drops a mirror, an egg, a ball, and a plate from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: mirror\nB: egg\nC: ball\nD: plate"
+            ]
+        },
+        {
+            "input": "context: A person drops an egg, a mirror, a coin, and a glass from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: egg\nB: mirror\nC: coin\nD: glass"
+            ]
+        },
+        {
+            "input": "context: A person drops a coin, a pillow, a ball, and a plate from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: coin\nB: pillow\nC: ball\nD: plate"
+            ]
+        },
+        {
+            "input": "context: A person drops a glass, a bottle, a plate, and a pen from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: glass\nB: bottle\nC: plate\nD: pen"
+            ]
+        },
+        {
+            "input": "context: A person drops a pillow, a mirror, an egg, and a plate from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: pillow\nB: mirror\nC: egg\nD: plate"
+            ]
+        },
+        {
+            "input": "context: A person drops a shirt, a plate, a coin, and a ball from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: shirt\nB: plate\nC: coin\nD: ball"
+            ]
+        },
+        {
+            "input": "context: A person drops a plate, an egg, a mirror, and a pillow from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: plate\nB: egg\nC: mirror\nD: pillow"
+            ]
+        },
+        {
+            "input": "context: A person drops a pillow, a plate, a ball, and a shirt from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: pillow\nB: plate\nC: ball\nD: shirt"
+            ]
+        },
+        {
+            "input": "context: A person drops an egg, a shirt, a plate, and a glass from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: egg\nB: shirt\nC: plate\nD: glass"
+            ]
+        },
+        {
+            "input": "context: A person drops a glass, a ball, an egg, and a mirror from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: glass\nB: ball\nC: egg\nD: mirror"
+            ]
+        },
+        {
+            "input": "context: A person drops a pen, a ball, an egg, and a coin from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: pen\nB: ball\nC: egg\nD: coin"
+            ]
+        },
+        {
+            "input": "context: A person drops a pillow, a pen, a ball, and a plate from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: pillow\nB: pen\nC: ball\nD: plate"
+            ]
+        },
+        {
+            "input": "context: A person drops a bottle, a ball, a coin, and a shirt from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: bottle\nB: ball\nC: coin\nD: shirt"
+            ]
+        },
+        {
+            "input": "context: A person drops a ball, a mirror, a coin, and a pen from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: ball\nB: mirror\nC: coin\nD: pen"
+            ]
+        },
+        {
+            "input": "context: A person drops a mirror, a shirt, a plate, and a glass from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: mirror\nB: shirt\nC: plate\nD: glass"
+            ]
+        },
+        {
+            "input": "context: A person drops a bottle, a glass, a plate, and a pillow from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: bottle\nB: glass\nC: plate\nD: pillow"
+            ]
+        },
+        {
+            "input": "context: A person drops a shirt, an egg, a ball, and a pillow from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: shirt\nB: egg\nC: ball\nD: pillow"
+            ]
+        },
+        {
+            "input": "context: A person drops a pillow, a coin, a glass, and a pen from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: pillow\nB: coin\nC: glass\nD: pen"
+            ]
+        },
+        {
+            "input": "context: A person drops a shirt, an egg, a coin, and a pen from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: shirt\nB: egg\nC: coin\nD: pen"
+            ]
+        },
+        {
+            "input": "context: A person drops a coin, a bottle, a plate, and a mirror from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: coin\nB: bottle\nC: plate\nD: mirror"
+            ]
+        },
+        {
+            "input": "context: A person drops an egg, a plate, a coin, and a glass from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: egg\nB: plate\nC: coin\nD: glass"
+            ]
+        },
+        {
+            "input": "context: A person drops a glass, an egg, a shirt, and a plate from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: glass\nB: egg\nC: shirt\nD: plate"
+            ]
+        },
+        {
+            "input": "context: A person drops an egg, a glass, a coin, and a mirror from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: egg\nB: glass\nC: coin\nD: mirror"
+            ]
+        },
+        {
+            "input": "context: A person drops a plate, a pillow, a bottle, and a mirror from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: plate\nB: pillow\nC: bottle\nD: mirror"
+            ]
+        },
+        {
+            "input": "context: A person drops a plate, a pen, an egg, and a glass from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: plate\nB: pen\nC: egg\nD: glass"
+            ]
+        },
+        {
+            "input": "context: A person drops an egg, a glass, a pen, and a bottle from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: egg\nB: glass\nC: pen\nD: bottle"
+            ]
+        },
+        {
+            "input": "context: A person drops a bottle, a ball, a shirt, and a pen from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: bottle\nB: ball\nC: shirt\nD: pen"
+            ]
+        },
+        {
+            "input": "context: A person drops a pillow, a bottle, a coin, and a ball from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: pillow\nB: bottle\nC: coin\nD: ball"
+            ]
+        },
+        {
+            "input": "context: A person drops a coin, a pen, a ball, and a bottle from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: coin\nB: pen\nC: ball\nD: bottle"
+            ]
+        },
+        {
+            "input": "context: A person drops a ball, a bottle, a pillow, and a shirt from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: ball\nB: bottle\nC: pillow\nD: shirt"
+            ]
+        },
+        {
+            "input": "context: A person drops a mirror, a glass, a bottle, and a coin from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: mirror\nB: glass\nC: bottle\nD: coin"
+            ]
+        },
+        {
+            "input": "context: A person drops a coin, a glass, a pen, and a shirt from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: coin\nB: glass\nC: pen\nD: shirt"
+            ]
+        },
+        {
+            "input": "context: A person drops an egg, a bottle, a glass, and a pen from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: egg\nB: bottle\nC: glass\nD: pen"
+            ]
+        },
+        {
+            "input": "context: A person drops an egg, a plate, a bottle, and a ball from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: egg\nB: plate\nC: bottle\nD: ball"
+            ]
+        },
+        {
+            "input": "context: A person drops a shirt, an egg, a pillow, and a pen from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: shirt\nB: egg\nC: pillow\nD: pen"
+            ]
+        },
+        {
+            "input": "context: A person drops a pillow, an egg, a mirror, and a plate from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: pillow\nB: egg\nC: mirror\nD: plate"
+            ]
+        },
+        {
+            "input": "context: A person drops an egg, a coin, a bottle, and a glass from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: egg\nB: coin\nC: bottle\nD: glass"
+            ]
+        },
+        {
+            "input": "context: A person drops a shirt, a pen, a coin, and an egg from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: shirt\nB: pen\nC: coin\nD: egg"
+            ]
+        },
+        {
+            "input": "context: A person drops a ball, a mirror, a glass, and a bottle from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: ball\nB: mirror\nC: glass\nD: bottle"
+            ]
+        },
+        {
+            "input": "context: A person drops a glass, a plate, a pen, and a bottle from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: glass\nB: plate\nC: pen\nD: bottle"
+            ]
+        },
+        {
+            "input": "context: A person drops a bottle, an egg, a plate, and a shirt from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: bottle\nB: egg\nC: plate\nD: shirt"
+            ]
+        },
+        {
+            "input": "context: A person drops a bottle, a glass, a mirror, and a ball from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: bottle\nB: glass\nC: mirror\nD: ball"
+            ]
+        },
+        {
+            "input": "context: A person drops a glass, a mirror, a bottle, and a coin from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: glass\nB: mirror\nC: bottle\nD: coin"
+            ]
+        },
+        {
+            "input": "context: A person drops a glass, a plate, a coin, and a mirror from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: glass\nB: plate\nC: coin\nD: mirror"
+            ]
+        },
+        {
+            "input": "context: A person drops a shirt, a pen, a ball, and a plate from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: shirt\nB: pen\nC: ball\nD: plate"
+            ]
+        },
+        {
+            "input": "context: A person drops a pillow, a shirt, a coin, and a bottle from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: pillow\nB: shirt\nC: coin\nD: bottle"
+            ]
+        },
+        {
+            "input": "context: A person drops a glass, a pillow, a bottle, and a mirror from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: glass\nB: pillow\nC: bottle\nD: mirror"
+            ]
+        },
+        {
+            "input": "context: A person drops a shirt, a pen, a bottle, and a ball from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: shirt\nB: pen\nC: bottle\nD: ball"
+            ]
+        },
+        {
+            "input": "context: A person drops a coin, a mirror, a bottle, and an egg from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: coin\nB: mirror\nC: bottle\nD: egg"
+            ]
+        },
+        {
+            "input": "context: A person drops a bottle, a pen, a glass, and a plate from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: bottle\nB: pen\nC: glass\nD: plate"
+            ]
+        },
+        {
+            "input": "context: A person drops a mirror, a pen, a coin, and a shirt from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: mirror\nB: pen\nC: coin\nD: shirt"
+            ]
+        },
+        {
+            "input": "context: A person drops an egg, a plate, a bottle, and a coin from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the least likely to break?\nA: egg\nB: plate\nC: bottle\nD: coin"
+            ]
+        },
+        {
+            "input": "context: A person drops a plate, a ball, a pillow, and a pen from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: plate\nB: ball\nC: pillow\nD: pen"
+            ]
+        },
+        {
+            "input": "context: A person drops a shirt, a pillow, an egg, and a ball from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: shirt\nB: pillow\nC: egg\nD: ball"
+            ]
+        },
+        {
+            "input": "context: A person drops a pen, a ball, a plate, and a shirt from a balcony.\ngroup: breaking",
+            "output": [
+                "question: Which object is the most likely to break?\nA: pen\nB: ball\nC: plate\nD: shirt"
+            ]
+        },
+        {
+            "input": "context: A person paints a circle around a car, a book, a table, and a microwave.\ngroup: circumference",
+            "output": [
+                "question: Which circle takes the least amount of paint?\nA: car\nB: book\nC: table\nD: microwave"
+            ]
+        },
+        {
+            "input": "context: Four people are walking at identical speeds. The first walks around a microwave, the second walks around a table, the third walks around a car, and the fourth walks around a house.\ngroup: circumference",
+            "output": [
+                "question: Which takes the shortest amount of time to walk around?\nA: microwave\nB: table\nC: car\nD: house"
+            ]
+        },
+        {
+            "input": "context: A person paints a circle around a microwave, a car, a book, and a mountain.\ngroup: circumference",
+            "output": [
+                "question: Which circle takes the most amount of paint?\nA: microwave\nB: car\nC: book\nD: mountain"
+            ]
+        },
+        {
+            "input": "context: A person paints a circle around a mountain, a car, a table, and a microwave.\ngroup: circumference",
+            "output": [
+                "question: Which circle takes the most amount of paint?\nA: mountain\nB: car\nC: table\nD: microwave"
+            ]
+        },
+        {
+            "input": "context: A person paints a circle around a house, a table, a microwave, and a mountain.\ngroup: circumference",
+            "output": [
+                "question: Which circle takes the least amount of paint?\nA: house\nB: table\nC: microwave\nD: mountain"
+            ]
+        }
+    ]
+}
