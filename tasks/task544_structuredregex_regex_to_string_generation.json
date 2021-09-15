@@ -4,32 +4,32 @@
     "Source": [
         "StructuredRegex (Link - [https://github.com/xiye17/StructuredRegex/blob/master/data/const_anonymized/train.tsv])"
     ],
-    "Definition": "This task is about generating a string from a structured regex. The generated string should be accpeted by the structured regex expression which will be provided as the input.",
+    "Definition": "In this task, structured regex expression is given as an input and your task is to generate a string as output which is accepted by the structured regex expression. The regex structure may include functions like (1) 'concat' to combine two expression passed to it. (2) 'repeatrange' to repeat the expression for a given number of times. The first will be the minimum and the second will be the maximum. (3) 'repeatatleast' -> takes an expression and a number to be repeated a given number of times. (4) 'optional' -> takes an expression that may or may not be present. (5) 'repeat' -> repeat an expression an exact number of times. There may also be terms to denote the patterns like (1) '<cap>' -> Captial Alphabets (2) 'let' -> Both upper case and lower case letters. (3) '<num>' -> denotes a digit. (4) '<low>' -> denotes the lower case letters. (5) '<any>' -> denotes any character including numbers, letters and special characters.",
   
     "Positive Examples": [ 
         { 
             "input": "concat ( repeatrange ( <let> , 2 , 4 ) , concat ( <num> , concat ( repeatrange ( <let> , 2 , 4 ) , repeatrange ( <low> , 3 , 4 ) ) ) )", 
-            "output": "cw1CGAder",  
+            "output": "cw1CGAder",
             "explanation": "The string has two letters at the start followed by a digit. Then there are 3 letters 'C', 'G' and 'A' which falls in the range of 2 to 4. At the end there are 3 letters in lowercase 'd', 'e' and 'r'. So the string satisfies the regex."
         }, 
         { 
             "input": "concat ( repeatrange ( <let> , 2 , 4 ) , concat ( <num> , concat ( repeatrange ( <let> , 2 , 4 ) , repeatrange ( <low> , 3 , 4 ) ) ) )", 
-            "output": "iYwI0FhuNimaq",  
+            "output": "iYwI0FhuNimaq",
             "explanation": "The string starts with 4 letters and id followed by the digit '0'. The next 4 letters 'F', 'h', 'u' and 'N' satisfy the constraint that there should be 2 to 4 letters after the digit. Finally, the last 4 letters in lower case 'i', 'm', 'a', and 'q' satisfy the constrain that the string should have 3 to 4 lower case letters at the end. So the string satisfies the regex."
         }, 
         { 
             "input": "concat ( repeatrange ( <let> , 2 , 4 ) , concat ( <num> , concat ( repeatrange ( <let> , 2 , 4 ) , repeatrange ( <low> , 3 , 4 ) ) ) )", 
-            "output": "gLbR2LrKykgs",  
+            "output": "gLbR2LrKykgs",
             "explanation": "The first 4 letters 'g', 'L', 'b' and 'R' satisfy the constraint that the string should start with 2 to 4 letters. The digit '2' follows the letters and 'L', 'r' and 'K' satisfy the constraint that there should be 2 to 4 letters after the digit. The last 4 letters in lower case satisfy the constraint that the regex should end with 3 to 4 lower case letters. So the string satisfies the regex."
         }, 
         { 
             "input": "concat ( repeatrange ( <let> , 2 , 4 ) , concat ( <num> , concat ( repeatrange ( <let> , 2 , 4 ) , repeatrange ( <low> , 3 , 4 ) ) ) )", 
-            "output": "kBt2PJYyim",  
+            "output": "kBt2PJYyim",
             "explanation": "The first 3 letters 'k', 'B' and 't' satisfy the constraint that 2 to 4 letters at the start. The digit '2' follow the letters. The next 3 letter 'P', 'J', and 'Y' satisfies the constraints that there should be 2 to 4 letters after the digit. The stirng ends with 3 letters in lower case 'y', 'i', 'm' which is within the range of 3 to 4 lowercase letters at the end of the sentence. So the string satisfies the regex."
         },
         { 
             "input": "concat ( repeatrange ( <let> , 2 , 4 ) , concat ( <num> , concat ( repeatrange ( <let> , 2 , 4 ) , repeatrange ( <low> , 3 , 4 ) ) ) )", 
-            "output": "Gx0Afgvr",  
+            "output": "Gx0Afgvr",
             "explanation": "There are two letter G and x, the case doesn't matter at start. The letters are followed by a digit '0'. The digit is followed by 2 letters 'A' and 'f' this statisfies the condition that the digit '0' should be followed by 2 to 4 letters. Finally the string is terminated by 3 lower case letters  'g', 'v' and 'r' which is within the required range of 3 to 4 lower case letters at the end of the string. So the string satisfies the regex."
         }
     ], 
