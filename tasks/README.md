@@ -7,7 +7,7 @@ Name | Summary | Category
 ---- | ----------- | --------
 `task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
-`task777_hyperpartisan_news_detection_counting` | Counting number of vowels in hyperpartisan news articles | Counting
-`task778_hyperpartisan_news_detection_classification` | Classifying the articles in hyperpartisan news dataset | Classification
-`task779_hotpotqa_answer_generation` | Generating answers to HotpotQA questions | Answer Generation
-`task780_hotpotqa_find_supporting_facts` | Finding supporting facts for answers to HotpotQA questions | Find Supporting facts
+`task777_hyperpartisan_news_detection_answer_generation` | Counting number of vowels in hyperpartisan news articles | Answer Generation
+`task778_hyperpartisan_news_detection_classification` | Determine whether a given set of news articles are hyperpartisant | Classification
+`task779_hotpotqa_answer_generation` | Generate answer to a given question based on multiple context passages | Answer Generation
+`task780_hotpotqa_answer_generation` | Generate titles of passages that contains supporting facts to answer a question | Answer Generation
