@@ -5,5 +5,5 @@ This directory contains the tasks that are part of this benchmark.
 
 Name | Summary | Category
 ---- | ----------- | --------
-`task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
-`task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
+`task033_cfq_mcd1_explanation_to_sql` | Generating queries (based on CFQ MCD1) | Structured Query Generation  
+`task034_cfq_mcd1_sql_to_explanation` | Checking if queries match natural language query description | Structured Query Classification
