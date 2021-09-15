@@ -10,4 +10,4 @@ Name | Summary | Category
 `task417_amazon_reviews_multi_classification` | Classification of review language | Classification
 `task418_amazon_reviews_multi_classification` |Classification of reviews | Classification
 `task419_amazon_reviews_multi_classification` | Classification of reviews to English|Classification
-`task420_amazon_reviews_multi_classification` | Classification of review stars| Classification
+`task420_amazon_reviews_multi_classification` | Classification of reviews to Japanese|Classification
