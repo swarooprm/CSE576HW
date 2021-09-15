@@ -9,8 +9,8 @@ Name | Summary | Category
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
 `task729_dstc3_summarization.json` | Summarization of conversations in DSTC 3 | Summarization
 `task730_dstc3_classification.json` | Classification of Price Range in conversations in DSTC 3| Classification
-`task731_dstc3_answer_generation.json` | Generating answers to DSTC 3 conversations related questions | Classification
+`task731_dstc3_answer_generation.json` | Generating answers to DSTC 3 conversations related questions | Answer Generation
 `task732_hatexplain_classification.json` | Classification of type of tweet in Hatexplain | Classification
 `task733_hatexplain_classification.json` | Identification of target community in tweet in Hatexplain | Classification
-`task734_hatexplain_answer_generation.json` | Passage Selection of offensive or hate speech phrases in tweets is Hatexplain | Passage Selection
+`task734_hatexplain_answer_generation.json` | Passage Selection of offensive or hate speech phrases in tweets is Hatexplain | Answer Generation
 
