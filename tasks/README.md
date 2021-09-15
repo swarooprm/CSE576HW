@@ -7,3 +7,7 @@ Name | Summary | Category
 ---- | ----------- | --------
 `task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
+`task_118_scifact_Title_Generation.json` | Title Generation | Title_Generation
+`task_119_scifact_Classification.json` | Classification | Classification
+`task_120_tecla_Classification.json` | Classification | Classification
+`task_121_scifact_Classification.json` | Classification | Classification
