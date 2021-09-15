@@ -13,3 +13,4 @@ Name | Summary | Category
 `task589_flores_translation` | Translating the text from english to sinhali| Translation
 `task587_flores_translation` | Translating the text from english to neen | Translation
 `task588_WikiText-103_answer_generation` | Generate title for the given passage| Answer Generation
+'task591_flores_translation_sntoen' | Translating the text from sinhali to english | Translation
