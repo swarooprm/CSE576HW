@@ -10,8 +10,8 @@ Name | Summary | Category
 `task105_propara_structured_text_generation` | Generating structured text to ProPara passages | Structured Text Generation
 `task106_propara_question_generation` | Generating questions to ProPara passages | Question Generation
 `task107_propara_classification` | Classifying location (based on ProPara) | Classification
-`task108_cmrc_question_generation` | Generating questions to cmrc passages | Question Generation
-`task109_cmrc_answer_generation` | Generating answers to cmrc passages and question | Answer Generation
-`task110_cmrc_answer_generation_starting_index` | Generating answer index to cmrc passage and question | Answer Index Generation
+`task108_cmrc2018_question_generation` | Generating questions to cmrc2018 passages | Question Generation
+`task109_cmrc2018_answer_generation` | Generating answers to cmrc2018 passages and question | Answer Generation
+`task110_cmrc2018_answer_generation_starting_index` | Generating answer index to cmrc2018 passage and question | Answer Index Generation
 `task111_samsum_summary` | Generating summary to samsum conversations | Summarisation
 `task112_samsum_is_next_dialogue` | Next dialogue check to samsum conversations | Is Next Sentence
