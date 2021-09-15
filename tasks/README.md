@@ -7,3 +7,10 @@ Name | Summary | Category
 ---- | ----------- | --------
 `task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
+`task001_sick_label_classification.json` | Classify labels correctly to show relation between two sentnces| Classification
+`task002_sick_given_category_generate_sentence.json` | Generate a sentence based on the category specified and input sentence | Sentence Generation
+`task003_sick_text_modify.json` | Modify the given sentence to create another sentence of similar meaning | Text modification
+`task004_sick_tclassify_B_Relation_A.json` | Classify the correct relation between the second and first sentence | Classification
+`task005_cc_alligned_translate_en_te.json` | Translate from English to Telugu | Translation
+`task006_cc_alligned_translate_te_en.json` | Translate from Telugu to English | Translation
+`task007_cc_alligned_classify_te_en.json` | Classify if a sentence is Telugu or English | Classify Language
