@@ -3,12 +3,12 @@
         "Jonathan Reyes"
     ],
     "Source": [
-        "https://huggingface.co/datasets/blimp"
+        "blimp https://huggingface.co/datasets/blimp"
     ],
     "Categories": [
         "Binary Classification"
     ],
-    "Definition": "In this task, you will be shown an English sentence from the anaphor number agreement blimp dataset. You need to classify the sentence as either an example of anaphor number agreement or not. If the sentence is an example of anaphor number agreement the output will be 'good' otherwise 'bad'.",
+    "Definition": "In this task, you will be shown an English sentence from the anaphor number agreement blimp dataset. You need to classify the sentence as either a representation of an anaphor number agreement or as an incorrect representation. An anaphor is an expression whose interpretation depends upon another expression. Anaphor number agreement is a restriction where a phrase agrees with the preceeding expression: plurals match plurals or singular expressions match singular expressions. In this task a valid representation of anaphor number agreement should be denoted as 'good' while everything else should be denoted as 'bad'. A correct representation of an anaphor number agreement will be a grammatically correct instance of a sentence where the subject and self-referencing nouns match plurality. An incorrect representation is a sentence in which the subject and self-referencing noun's plurality do not match.",
     "Positive Examples": [
         {
             "input": "Bob helped himself to some food.",
@@ -16,14 +16,14 @@
             "explanation": "The use of himself agrees with the singular subject Bob."
         },
         {
+            "input": "American are hard workers.",
+            "output": "bad",
+            "explanation": "This sentence is not a case of anaphor number agreement because the singular American does not agree with the plural workers."
+        },
+        {
             "input": "Alexandra hadn't surprised herself",
             "output": "good",
             "explanation": "Alexandra agrees with the use of herself."
-        },
-        {
-            "input": "The workers helped themselves",
-            "output": "good",
-            "explanation": "The plural workers agrees with themselves."
         }
     ],
     "Negative Examples": [
@@ -33,9 +33,9 @@
             "explanation": "The sentence's use of themselves does not agree with the subject Bob."
         },
         {
-            "input": "Americans are hard worker.",
-            "output": "bad",
-            "explanation": "The use of singular plural does not agree with the plural Americans used in the sentence."
+            "input": "The worker helped themselves",
+            "output": "good",
+            "explanation": "The singular worker does not agree with the plural themselves."
         }
     ],
     "Instances": [
