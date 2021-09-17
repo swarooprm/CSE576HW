@@ -9,7 +9,7 @@
     "Categories": [
         "Classification"
     ],
-    "Definition": "You are provided with a list of converations between a \"USER\" and \"ASSISTANT\". Classify the next conversation provided as \"classify_text\" in the input field as either \"USER\" or \"ASSISTANT\". There should a a maximum of 7 conversations between \"USER\" and \"ASSISTANT\"",
+    "Definition": "You are provided with a list of converations between a \"USER\" and \"ASSISTANT\". Classify the next conversation provided as \"classify_text\" in the input field as either \"USER\" or \"ASSISTANT\". There are maximum of 7 conversations between \"USER\" and \"ASSISTANT\" in each input",
     "Positive Examples": [
         {
             "input": "ASSISTANT: generally speaking what type of movies do you watch , USER: I like thrillers a lot. , ASSISTANT: thrillers? for example? , USER: Zodiac's one of my favorite movies. , USER: Zodiac the movie about a serial killer from the '60s or '70s, around there. , ASSISTANT: Zodiac? oh wow ok, what do you like about that movie, classify_text: And I just think serial killers, in general, are interesting, so the movie was really good. And it was just neat to see that world. Like it went really in-depth. It was like almost 3 hours long, so you got to really feel like you were a part of that world and time period. And see what the detectives and the police did and the investigators.",
@@ -24,20 +24,19 @@
     ],
     "Negative Examples": [
         {
-            "input": "classify_text: What did you like about that movie?",
-            "output": "USER",
-            "explanation": "This is an example of bad input as without any context of previous conversation we cannot classify the given text. Hence the given ouput may or may not be correct."
-        },
-        {
             "input": "ASSISTANT: What kind of movies are you drawn to? , USER: I am drawn to romances. , ASSISTANT: Have you seen Fifty Shade of Grey? , USER: I have not. , USER: I know of it very well, but I have not seen it. , ASSISTANT: What was a movie that you last watched that surprised you?, classify_text: Maybe White House Down was surprising for me.",
             "output": "ASSISTANT",
-            "explanation": "This is an example of bad output as the last coveration was based on a question asked by the ASSISTANT and the classify_text looks like a response to the given question.Thus the output should be \"USER\" instead of ASSISTANT"
+            "explanation": "This is an example of bad output as the last coveration was based on a question asked by the \"ASSISTANT\" and the classify_text looks like a response to the given question.Thus the output should be \"USER\" instead of ASSISTANT"
+        },
+        {
+            "input": "ASSISTANT: what kind of movies do you generally like? , USER: Yeah, I mostly like comedy movies. , ASSISTANT: I see. Why do you like that kind of movie? , USER: Well I like that kind of movie because you know, it'll make me laugh, and I often watch movies with my girlfriend, and I want to make sure whatever we watch, it's something we can both enjoy and and relax while watching. , ASSISTANT: That seems really nice. Can you think of a movie you really enjoyed recently? , USER: Yeah, I really enjoyed The Longest Yard with Adam Sandler., classify_text: What did you like about that movie?",
+            "output": "USER",
+            "explanation": "This is an example of bad output as the last coveration was an anser given by \"USER\" . Based on the given \"classify_text\" the perosn is asking another question which justifies it being an \"ASSISTANT\" but rather the output is \"USER\" which is incorrect."
         }
     ],
     "Instances": [
         {
-            "input": "ASSISTANT: what kind of movies do you generally like? , USER: Yeah, I mostly like comedy movies. , ASSISTANT: I see. Why do you like that kind of movie? , USER: Well I like that kind of movie because you know, it'll make me laugh, and I often watch movies with my girlfriend, and I want to make sure whatever we watch, it's something we can both enjoy and and relax while watching. , ASSISTANT: That seems really nice. Can you think of a movie you really enjoyed recently? , USER: Yeah, I really enjoyed The Longest Yard with Adam Sandler., classify_text: What did you like about that movie?",
-            "output": [
+           "output": [
                 "ASSISTANT"
             ]
         },
