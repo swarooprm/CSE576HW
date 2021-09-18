@@ -10,5 +10,5 @@ Name | Summary | Category
 `Task361_tamil_offenseval_dravidian_classification` | Given a statement in Tamil, classify whether it is offensive or not | Classification
 `Task362_malayalam_offenseval_dravidian_classification` | Given a statement in Malayalam, classify whether it is offensive or not | Classification
 `Task363_kannada_offenseval_dravidian_classification` | Given a statement in Kannada, classify whether it is offensive or not | Classification
-`Task364_parsed_pdfs_summarization` | Given a short article, generate a title for it | Summarization
-`Task365_agnews_classification` | Given a text, classify based on its category | Classification
+`Task364_parsed_pdfs_summarization` | Given a text, generate title for it | Summarization
+`Task365_agnews_classification` | Given a short article, classify the article based on its category | Classification
