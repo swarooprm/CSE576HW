@@ -11,7 +11,7 @@ Name | Summary | Category
 `task58_circa_classification` | Check if the answer is yes or no based on the given answer and can question field given in Circa Dataset | Classification
 `task59_circa_text_generation` | Given a question, Predict the context of the given question in Circa Dataset | Text Generation
 `task60_circa_question_generation` | Given an answer, Predict the question in Circa Dataset | Question Generation
-`task61_recipe_nlg_title_generation` | Predict the title given its required ingredients and directions in recipe-nlg Dataset | Title Generation
+`task61_recipe_nlg_text_generation` | Predict the title given its required ingredients and directions in recipe-nlg Dataset | Text Generation
 `task62_recipe_nlg_ner_generation` | generate the ner given its required ingredients given in recipe-nlg Dataset | ner Generation
 `task63_recipe_nlg_ner_generation` | generate the ner given its directions in recipe-nlg Dataset | ner Generation
-`task64_recipe_nlg_step_generation` |  generate the unknown step by knowing the other steps given in the directions in recipe-nlg Dataset | Missing Step Generation
+`task64_recipe_nlg_text_generation` |  generate the unknown step by knowing the other steps given in the directions in recipe-nlg Dataset | Text Generation|  generate the unknown step by knowing the other steps given in the directions in recipe-nlg Dataset | Missing Step Generation
