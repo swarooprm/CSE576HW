@@ -11,5 +11,3 @@ Name | Summary | Category
 `task_18_mcq_answer_generation.json` | Generating multiple choice answer | MCQ Answer Generation
 `task_19_Co_reference_generation.json` | Generating Co_reference_answers | Co_reference Generation
 `task_20_question_generation.json` | Generating Questions for given premise | Question Generation
-`task_21_text_generation.json` | Genaration text based on the emotion label | Text Generation
-`task_22_Source_Generation.json` | GenartingSource based on the text | Source Generation
