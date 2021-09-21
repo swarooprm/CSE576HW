@@ -13,3 +13,4 @@ Name | Summary | Category
 `task580_pubmedQA_classification` | Classifying if the given answer pertains to the question or not (based on pubmed_QA)| Classification
 `task581_pubmedQA_question_generation` | Generating question from context (based on pubmed_QA) | Question Generation
 `task582_pubmedQA_classification` | Classifying if the objective is present or not (based on pubmed_QA) | Classification
+`task583_pubmedQA_answer_generation` | Generating answer from context and question (based on pubmed_QA) | Answer Generation
