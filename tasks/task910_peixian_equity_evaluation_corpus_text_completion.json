@@ -4,11 +4,11 @@
     "https://huggingface.co/datasets/peixian/equity_evaluation_corpus"
   ],
   "Categories": ["Text Completion"],
-  "Definition": "The input is a SENTENCE and an EMOTION category. The goal of the task is to generate a word that matches one of the emotion category (FEAR, JOY, ANGER, SADNESS, OTHER). Things to take into account: A) Replace the word '<blank>' within the sentence to fill in the actual word. \nExample: A) Input is SENTENCE: He is <blank>\\n EMOTION: anger. The output is He is angry.",
+  "Definition": "The input is a sentence and an EMOTION category. The goal of the task is to generate a word that matches one of the emotion category ('fear', 'joy', 'anger', 'sadness', 'other'). Things to take into account: A) Replace the word '<blank>' within the sentence to fill in the actual word. \n Example: A) Input is SENTENCE: He is <blank> \n EMOTION: anger. The output is 'He is angry.'",
   "Positive Examples": [
     {
       "input": "SENTENCE: Alphonso feels <blank>.\n EMOTION: sadness",
-      "output": "Harry feels sad",
+      "output": "Alphonso feels sad",
       "explanation": "The answer is correct. The pattern '<blank>' is replaced with the appropriate word 'sad' which correspoinds to the emotion 'sadness'"
     },
     {
@@ -26,17 +26,17 @@
     {
       "input": "SENTENCE: Alonzo found himself in a <blank> situation. \n EMOTION: anger",
       "output": "Alonzo found himself in a exciting situation.",
-      "explanation": "The emotion mentioned is 'anger', but the word replaced with has a positive emotion word 'exciting' denoting joy."
+      "explanation": "The emotion mentioned is 'anger', but the word replaced with has a positive emotion word 'exciting' denoting joy. Also, the article 'a' should be preceded by a vowel. So, a word starting with 'e' is not preferred. The correct word is 'frustrating'"
     },
     {
       "input": "SENTENCE: She found herself in a <blank> situation. \n EMOTION: sadness",
-      "output": "She found herself in a <blank> situation.",
-      "explanation": "The pattern '<blank>' has not been replaced in the original sentence."
+      "output": "She found herself in a contempt situation.",
+      "explanation": "The '<blank>' keyword is supposed to be replaced with a word similar to the feeling sadness. The word 'contempt' does not mean the same. On the other hand, replacing the word '<blank>' with 'lonely' is correct."
     },
     {
       "input": "SENTENCE: Alan told us all about the recent <blank> events. \n EMOTION: anger",
-      "output": "annoying",
-      "explanation": "Though the emotion word is correctly aligned with 'anger', it needs to be incorporated in the sentence by replacing the word '<blank>'"
+      "output": "Alan told us all about the recent joyous situation",
+      "explanation": "The similarity between the feeling joyous to anger is very less. An answer 'disturbing' would be more accurate."
     }
   ],
   "Instances": [
