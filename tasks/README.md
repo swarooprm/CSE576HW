@@ -10,8 +10,9 @@ Name | Summary | Category
 `task889_ancora-ca-ner_named_entity_recognition` | Named Entity Recognition for each token in BSC-TeMU/ancora-ca-ner catalan sentences | Named Entity Recognition
 `task890_ancora-ca-ner_text_auto_completion` | Text Auto Completion of partial Catalan sentences | Long Text Generation
 `task891_ancora-ca-ner_missing_word_prediction` | Generating a missing word on Catalan Sentences | Short Text Generation
-`task892_librispeech_asr_automatic_speech_recognition` | Transcribing audio to text on librispeech data | Speech Recognition
-`task893_librispeech_asr_speaker_recognition` | Recognizing speaker on librispeech data | Classification
-`task894_librispeech_asr_next_word_prediction` | Predicting next word on librispeech data | Word Generation
-`task895_librispeech_asr_text_auto_completion` | Text Auto Completion of partial English sentences | Long Text Generation
-`task896_librispeech_asr_missing_word_prediction` | Generating a missing word on English Sentences | Short Text Generation
+`task892_librispeech_asr_next_word_prediction` | Predicting next word on librispeech data | Word Generation
+`task893_librispeech_asr_text_auto_completion` | Text Auto Completion of partial English sentences | Long Text Generation
+`task894_librispeech_asr_missing_word_prediction` | Generating a missing word on English Sentences | Short Text Generation
+`task895_ruletaker_fact_checking_based_on_given_context` | Fact checking based on given context | Fact checking based on context
+`task896_ruletaker_incorrect_fact_generation_based_on_given_paragraph` | Generate incorrect fact based on given paragraph | Incorrect Fact Generation
+
