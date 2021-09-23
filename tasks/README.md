@@ -11,6 +11,6 @@ Name | Summary | Category
 `task002_sick_given_category_generate_sentence.json` | Generate a sentence based  that meets the given criteria  (based on the sick dataset) | Sentence Generation
 `task003_sick_text_modify.json` | Derive a sentence from the given sentence (based on the sick dataset) | Text modification
 `task004_sick_tclassify_B_Relation_A.json` | Classify the correct relation between the second and first sentence (based on the sick dataset) | Classification
-`task005_cc_alligned_translate_en_te.json` | Translate from English to Telugu | Translation
-`task006_cc_alligned_translate_te_en.json` | Translate from Telugu to English | Translation
-`task007_cc_alligned_classify_te_en.json` | Classify if a sentence is in Telugu or English Language | Language Classification
+`task005_cc_alligned_translate_eng_tel.json` | Translate from English to Telugu | Translation
+`task006_cc_alligned_translate_tel_eng.json` | Translate from Telugu to English | Translation
+`task007_cc_alligned_classify_tel_eng.json` | Classify if a sentence is in Telugu or English Language | Language Classification
