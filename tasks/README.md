@@ -13,5 +13,5 @@ Name | Summary | Category
 `task596_freebase_qa_topic_question_generation` | Generate question for the given topic | Question Generation 
 `task597_freebase_qa_answer_generation` | Answering questions based on an open ended topic | Answer Generation
 `task598_freebase_qa_topic_generation` | Generate the specific topic for a given question | Topic Generation
-`task599_freebase_qa_category_generation` | Generate a broad category for a given question | Category generation
+`task599_freebase_qa_category_generation` | Generate a broad category for a given question | Classification
 `task600_freebase_qa_category_question_generation` | Generate trivia type questions based on a broad category | Question Generation
