@@ -1,73 +1,49 @@
 {
+    "Contributors": [
+        "Roseleen Kaur"
+    ],
     "Source": [
-        "yahoo_answers_topics"
+        "yahoo_answers_topics (https://huggingface.co/datasets/yahoo_answers_topics)"
+    ],
+    "Categories": [
+        "Question_Generation"
     ],
     "Definition": "You are given a passage. You need to construct a question about the information present in the passage. Construct a question in such a way that (i) it is unambiguous, (ii) its answer is the whole paragraph. Avoid creating questions that can be answered correctly without actually understanding the paragraph.",
     "Positive Examples": [
         {
             "input": "Optical mice use an LED and a camera to rapidly\ncapture images of the surface beneath the mouse.\nThe infomation from the camera is analyzed by a\nDSP (Digital Signal Processor) and used to detect\nimperfections in the underlying surface and\ndetermine motion. Some materials, such as glass,\nmirrors or other very shiny, uniform surfaces\ninterfere with the ability of the DSP to\naccurately analyze the surface beneath the mouse.\n\\nSince glass is transparent and very uniform, the\nmouse is unable to pick up enough imperfections in\nthe underlying surface to determine motion.\nMirrored surfaces are also a problem, since they\nconstantly reflect back the same image, causing\nthe DSP not to recognize motion properly. When the\nsystem is unable to see surface changes associated\nwith movement, the mouse will not work properly.",
             "output": "why doesn't an optical mouse work on a glass\ntable?",
-            "explanation": ""
+            "explanation": "The passage talks about the glass and mirror surfaces beneath the optical mice and how the mouse is unable to pick up enough imperfections in the underlying surface to determine motion. The last line of the passage explains why the mouse will not work properly on these surfaces. Thus it is a positive example."
         },
         {
             "input": "Trans fats occur in manufactured foods during the\nprocess of partial hydrogenation, when hydrogen\ngas is bubbled through vegetable oil to increase\nshelf life and stabilize the original\npolyunsatured oil. The resulting fat is similar to\nsaturated fat, which raises \"bad\" LDL cholesterol\nand can lead to clogged arteries and heart\ndisease. \\nUntil very recently, food labels were\nnot required to list trans fats, and this health\nrisk remained hidden to consumers. In early July,\nFDA regulations changed, and food labels will soon\nbegin identifying trans fat content in processed\nfoods.",
             "output": "What is Trans Fat? How to reduce that?",
-            "explanation": "The second sentence of the passage clearly states that the war happened between the colonies of British America and New France. We are looking for the shortest continuous text span from the paragraph as an answer, therefore the correct answer is- British America and New France"
+            "explanation": "The passage talks about the occurrence of Trans Fat and the diseases it causes. It tells how food labels will soon begin identifying trans fat content in processed foods which can be used to reduce Trans Fat. Thus it is a positive example."
         }
     ],
     "Negative Examples": [
         {
-            "input": "according to the www.fedex.com web site:\\nAir\nFleet<br />\\n  <br />\\n670 aircraft, including:\n<br />\\n47 Airbus A300-600s  17 Boeing DC10-30s\n<br />\\n62 Airbus A310-200/300s  36 Boeing\nMD10-10s  <br />\\n2 ATR 72s  5 Boeing MD10-30s\n<br />\\n29 ATR 42s  57 Boeing MD11s  <br />\\n18\nBoeing 727-100s  10 Cessna 208As  <br />\\n94\nBoeing 727-200s  246 Cessna 208Bs  <br />\\n30\nBoeing DC10-10s  17 Fokker F-27s",
+            "input": "Air\nFleet\\n  \\n670 aircraft, including:\n\\n47 Airbus A300-600s  17 Boeing DC10-30s\n\\n62 Airbus A310-200/300s  36 Boeing\nMD10-10s  \\n2 ATR 72s  5 Boeing MD10-30s\n\\n29 ATR 42s  57 Boeing MD11s  \\n18\nBoeing 727-100s  10 Cessna 208As  \\n94\nBoeing 727-200s  246 Cessna 208Bs  \\n30\nBoeing DC10-10s  17 Fokker F-27s",
             "output": "How many vehicles Fedex has?",
             "explanation": "Here the question is ambiguous. It does not specifically mention the vehicle that is plane talked in the passage. Thus it is a negative example."
         },
         {
-            "input": "There are commercial kits available, but a can of\ncompressed air, a lint-free cloth or wipes, mild\ndishwashing liquid, and a vacuum cleaner with a\nsoft brush are all you really need for a basic\ncleaning. \\nAfter turning off your computer and\nunplugging your keyboard, gently shake the\nkeyboard upside down over some newspaper to\ndislodge loose crumbs and particles. \\nUse the can\nof compressed air to blow a stream of air between\nthe keys. \\nDampen a lint-free cloth with a\ndiluted solution of dishwashing liquid and water\nto wipe down the keys. \\nUse the vacuum cleaner\nbrush attachment to suck away any remaining dirt\nor debris. <br />\\nIf you have a membrane-type\nkeyboard (it doesn't have a spring under each key)\nand the keys are truly grungy, you can remove the\nkeys with a small screwdriver and use cotton swabs\nand 90% isopropyl alcohol to get it sparkling\nclean. If you are still feeling industrious, next\nyou can tackle cleaning your mouse. \\nOf course,\nif cleaning your keyboard seems a truly\nundesirable task, you can always buy a new one for\naround $20.",
+            "input": "There are commercial kits available, but a can of\ncompressed air, a lint-free cloth or wipes, mild\ndishwashing liquid, and a vacuum cleaner with a\nsoft brush are all you really need for a basic\ncleaning. \\nAfter turning off your computer and\nunplugging your keyboard, gently shake the\nkeyboard upside down over some newspaper to\ndislodge loose crumbs and particles. \\nUse the can\nof compressed air to blow a stream of air between\nthe keys. \\nDampen a lint-free cloth with a\ndiluted solution of dishwashing liquid and water\nto wipe down the keys. \\nUse the vacuum cleaner\nbrush attachment to suck away any remaining dirt\nor debris. \\nIf you have a membrane-type\nkeyboard (it doesn't have a spring under each key)\nand the keys are truly grungy, you can remove the\nkeys with a small screwdriver and use cotton swabs\nand 90% isopropyl alcohol to get it sparkling\nclean. If you are still feeling industrious, next\nyou can tackle cleaning your mouse. \\nOf course,\nif cleaning your keyboard seems a truly\nundesirable task, you can always buy a new one for\naround $20.",
             "output": "What's the cheapest way to clean a keyboard?",
             "explanation": "The passage clearly mentions the task of cleaning the keyboard in the last line of the passage, but nowhere it mentions the price of any of the method discussed, thus it is a negative example for the passage."
         }
     ],
     "Instances": [
         {
-            "input": "Optical mice use an LED and a camera to rapidly capture images of the surface beneath the mouse.  The infomation from the camera is analyzed by a DSP (Digital Signal Processor) and used to detect imperfections in the underlying surface and determine motion. Some materials, such as glass, mirrors or other very shiny, uniform surfaces interfere with the ability of the DSP to accurately analyze the surface beneath the mouse.  \\nSince glass is transparent and very uniform, the mouse is unable to pick up enough imperfections in the underlying surface to determine motion.  Mirrored surfaces are also a problem, since they constantly reflect back the same image, causing the DSP not to recognize motion properly. When the system is unable to see surface changes associated with movement, the mouse will not work properly.",
-            "output": [
-                "why doesn't an optical mouse work on a glass table?"
-            ]
-        },
-        {
-            "input": "i hear that the mojave road is amazing!<br />\\nsearch for it online.",
+            "input": "i hear that the mojave road is amazing!\\nsearch for it online.",
             "output": [
                 "What is the best off-road motorcycle trail ?"
             ]
         },
         {
-            "input": "Trans fats occur in manufactured foods during the process of partial hydrogenation, when hydrogen gas is bubbled through vegetable oil to increase shelf life and stabilize the original polyunsatured oil. The resulting fat is similar to saturated fat, which raises \"bad\" LDL cholesterol and can lead to clogged arteries and heart disease. \\nUntil very recently, food labels were not required to list trans fats, and this health risk remained hidden to consumers. In early July, FDA regulations changed, and food labels will soon begin identifying trans fat content in processed foods.",
-            "output": [
-                "What is Trans Fat? How to reduce that?"
-            ]
-        },
-        {
-            "input": "according to the www.fedex.com web site:\\nAir Fleet<br />\\n  <br />\\n670 aircraft, including: <br />\\n47 Airbus A300-600s  17 Boeing DC10-30s  <br />\\n62 Airbus A310-200/300s  36 Boeing MD10-10s  <br />\\n2 ATR 72s  5 Boeing MD10-30s  <br />\\n29 ATR 42s  57 Boeing MD11s  <br />\\n18 Boeing 727-100s  10 Cessna 208As  <br />\\n94 Boeing 727-200s  246 Cessna 208Bs  <br />\\n30 Boeing DC10-10s  17 Fokker F-27s",
-            "output": [
-                "How many planes Fedex has?"
-            ]
-        },
-        {
-            "input": "renting vs buying depends on your goals. <br />\\ngenerally thinking is that buying is better b/c the payments that would go into the rent start building equity in your home. the govt also incentivizes you to buy by making your property tax payments and mortgage interest payments tax deductible.\\nhaving said that current housing status in the bay area is such that housing cost to purchase is relatively high and rental prices (compared to ownership cost) are relatively low (relative to the rest of the country). it makes lese sense to buy vs. other places.\\nbottom line you should base your decision on whether you think the market will keep going up or not. the other numbers tend to even out, the main gain or loss in buying comes from appreciation/depreciation.",
+            "input": "renting vs buying depends on your goals. \\ngenerally thinking is that buying is better b/c the payments that would go into the rent start building equity in your home. the govt also incentivizes you to buy by making your property tax payments and mortgage interest payments tax deductible.\\nhaving said that current housing status in the bay area is such that housing cost to purchase is relatively high and rental prices (compared to ownership cost) are relatively low (relative to the rest of the country). it makes lese sense to buy vs. other places.\\nbottom line you should base your decision on whether you think the market will keep going up or not. the other numbers tend to even out, the main gain or loss in buying comes from appreciation/depreciation.",
             "output": [
                 "In the san francisco bay area, does it make sense to rent or buy ?"
-            ]
-        },
-        {
-            "input": "There are commercial kits available, but a can of compressed air, a lint-free cloth or wipes, mild dishwashing liquid, and a vacuum cleaner with a soft brush are all you really need for a basic cleaning. \\nAfter turning off your computer and unplugging your keyboard, gently shake the keyboard upside down over some newspaper to dislodge loose crumbs and particles. \\nUse the can of compressed air to blow a stream of air between the keys. \\nDampen a lint-free cloth with a diluted solution of dishwashing liquid and water to wipe down the keys. \\nUse the vacuum cleaner brush attachment to suck away any remaining dirt or debris. <br />\\nIf you have a membrane-type keyboard (it doesn't have a spring under each key) and the keys are truly grungy, you can remove the keys with a small screwdriver and use cotton swabs and 90% isopropyl alcohol to get it sparkling clean. If you are still feeling industrious, next you can tackle cleaning your mouse. \\nOf course, if cleaning your keyboard seems a truly undesirable task, you can always buy a new one for around $20.",
-            "output": [
-                "What's the best way to clean a keyboard?"
-            ]
-        },
-        {
-            "input": "from ask yahoo...\\nhttp://ask.yahoo.com/ask/20040113.html\\n<<Blushing is a unique blend of evolutionary and social behavior. It's an involuntary reaction of the sympathetic nervous system, which is responsible for our \"fight or flight\" response, but blushing is solely triggered by social cues. <br />\\nPeople generally blush when they're feeling embarrassed, scared, or stressed. As a result of the \"fight or flight\" response, the capillaries that carry blood to the skin widen, and the increased blood flow lends the face, as well as sometimes the chest, neck, or even the body or legs, a reddened color. \\nExcessive facial blushing, or erythrophobia, is caused by overactivity of the sympathetic nervous system. The condition can cause a lot of psychological duress and has engendered several support groups. \\nIt's common knowledge that animals don't blush. So while there are some evolutionary cues behind blushing, it's also linked to something uniquely human -- moral consciousness.>>",
-            "output": [
-                "Why do people blush when they are embarrassed?"
             ]
         },
         {
@@ -101,7 +77,7 @@
             ]
         },
         {
-            "input": "the most basic thing is to have someone you have a decent amount of trust for. someone recommended by a friend etc.\\nthe things you have to look for are:<br />\\n1. top priority is seeing that the broker can actually get your loan on time. many deals fall through b/c the broker cannot get the deal through on time and has less control than the original lender<br />\\n2. secondary priority is to see that they have access to competitive rates. not all brokers have access to all sources and rates, although most of them will be similar.<br />\\n3. you need to see that the broker is someone you trust to get you the best rate regardless of how much money they make off the transaction.",
+            "input": "the most basic thing is to have someone you have a decent amount of trust for. someone recommended by a friend etc.\\nthe things you have to look for are:\\n1. top priority is seeing that the broker can actually get your loan on time. many deals fall through b/c the broker cannot get the deal through on time and has less control than the original lender\\n2. secondary priority is to see that they have access to competitive rates. not all brokers have access to all sources and rates, although most of them will be similar.\\n3. you need to see that the broker is someone you trust to get you the best rate regardless of how much money they make off the transaction.",
             "output": [
                 "What are some tips on finding a good mortgage broker?"
             ]
@@ -179,7 +155,7 @@
             ]
         },
         {
-            "input": "1. The Vatican City in central Rome ranks as the smallest nation of the world. It measures 0.17 square miles.<br />\\n2. Monaco. <br />\\n3. San Marino.\\nHow did they manage to become countries?<br />\\n1. The political freedom of the Vatican is guaranteed and protected by Italy. It concordat between the Holy See and the kingdom of Italy signed in 1929 in the Lateran Palace, Rome, by Cardinal Gasparri for Pius XI and by Benito Mussolini for Victor Emmanuel III.<br />\\n2. Monaco came under French protection in 1861. However from 1911, when the first constitution was promulgated, the prince of Monaco was an absolute ruler.<br />\\n3. According to tradition, Marino, a Christian stonecutter from Dalmatia, took refuge (4th cent) on Mt. Titano, the chief geographical feature of present-day San Marino. By the mid-5th cent., a community was formed; because of its relatively inaccessible location and its poverty, it has succeeded, with a few brief interruptions, in maintaining its independence. In 1631 its independence was recognized by the papacy.",
+            "input": "1. The Vatican City in central Rome ranks as the smallest nation of the world. It measures 0.17 square miles.\\n2. Monaco. \\n3. San Marino.\\nHow did they manage to become countries?\\n1. The political freedom of the Vatican is guaranteed and protected by Italy. It concordat between the Holy See and the kingdom of Italy signed in 1929 in the Lateran Palace, Rome, by Cardinal Gasparri for Pius XI and by Benito Mussolini for Victor Emmanuel III.\\n2. Monaco came under French protection in 1861. However from 1911, when the first constitution was promulgated, the prince of Monaco was an absolute ruler.\\n3. According to tradition, Marino, a Christian stonecutter from Dalmatia, took refuge (4th cent) on Mt. Titano, the chief geographical feature of present-day San Marino. By the mid-5th cent., a community was formed; because of its relatively inaccessible location and its poverty, it has succeeded, with a few brief interruptions, in maintaining its independence. In 1631 its independence was recognized by the papacy.",
             "output": [
                 "What are world's 3 smallest nations?"
             ]
@@ -329,7 +305,7 @@
             ]
         },
         {
-            "input": "I don't know if this is the cheapest option, but I use the site YesAsia<br />\\nhttp://us.yesasia.com/en/index.aspx<br />\\nfor my Asian DVD & CD needs.  You often have a choice of region format, and its cheaper than buying it in some store.",
+            "input": "I don't know if this is the cheapest option, but I use the site YesAsia\\nhttp://us.yesasia.com/en/index.aspx\\nfor my Asian DVD & CD needs.  You often have a choice of region format, and its cheaper than buying it in some store.",
             "output": [
                 "What's the cheapest source for ordering DVDs from Asia?"
             ]
@@ -353,7 +329,7 @@
             ]
         },
         {
-            "input": "You can withdraw the money for childrens higher education. Details:<br />\\nHigher education expenses.   Even if you are under age 59½, if you paid expenses for higher education during the year, part (or all) of any distribution may not be subject to the 10% additional tax. The part not subject to the tax is generally the amount that is not more than the qualified higher education expenses (defined later) for the year for education furnished at an eligible educational institution (defined later). The education must be for you, your spouse, or the children or grandchildren of you or your spouse.",
+            "input": "You can withdraw the money for childrens higher education. Details:\\nHigher education expenses.   Even if you are under age 59½, if you paid expenses for higher education during the year, part (or all) of any distribution may not be subject to the 10% additional tax. The part not subject to the tax is generally the amount that is not more than the qualified higher education expenses (defined later) for the year for education furnished at an eligible educational institution (defined later). The education must be for you, your spouse, or the children or grandchildren of you or your spouse.",
             "output": [
                 "How do I take my money out of 401k without penalty?"
             ]
@@ -401,7 +377,7 @@
             ]
         },
         {
-            "input": "It depends on what you are sending.  The Apollo missions were the last set of *manned* missions to the moon, and here is the travel time:\\nLaunched: 16 July 1969 UT 13:32:00 (09:32:00 a.m. EDT)<br />\\nLanded on Moon: 20 July 1969 UT 20:17:40 (04:17:40 p.m. EDT)\\nIt took about 4 days to get there.  Rocket technology has not change too much since then so you can expect that getting people to the moon at this point would take about the same amount of time.\\nIf you are dealing with a non-human payload, you may be able to cut down time, both because it is likely lighter, and because you don't need to worry as much about damaging G-forces.\\nI've included a link that has the history of all missions to the moon, manned and unmanned.",
+            "input": "It depends on what you are sending.  The Apollo missions were the last set of *manned* missions to the moon, and here is the travel time:\\nLaunched: 16 July 1969 UT 13:32:00 (09:32:00 a.m. EDT)\\nLanded on Moon: 20 July 1969 UT 20:17:40 (04:17:40 p.m. EDT)\\nIt took about 4 days to get there.  Rocket technology has not change too much since then so you can expect that getting people to the moon at this point would take about the same amount of time.\\nIf you are dealing with a non-human payload, you may be able to cut down time, both because it is likely lighter, and because you don't need to worry as much about damaging G-forces.\\nI've included a link that has the history of all missions to the moon, manned and unmanned.",
             "output": [
                 "How long does take a space craft to get from the Earth to the Moon?"
             ]
@@ -413,7 +389,7 @@
             ]
         },
         {
-            "input": "Al - Albert, Alfred, Alan<br />\\nBob - Robert <br />\\nBeth - Elizabeth <br />\\nBill(y) - William <br />\\nCathy - Catherine <br />\\nChris - Christopher<br />\\nDeb(bie) - Deborah, Debra <br />\\nDick(y)(ie) - Richard <br />\\nDon(nie)(y) - Donald<br />\\nDom - Domenic, Dominic <br />\\nEd(die)(dy) - Edward<br />\\nFred(dy)(die) - Frederick<br />\\nJim(my)(mie) - James <br />\\nJoe(y) - Joseph <br />\\nKate - Katherine  <br />\\nKim - Kimberl(e)y <br />\\nLarry - Lawrence <br />\\nLiz - Elizabeth <br />\\nMaggie(y) - Margaret <br />\\nMargy(ie) - Margaret<br />\\nMatt(y)(ie) - Matthew <br />\\nMike - Michael <br />\\nNick - Nicholas <br />\\nPeggy - Margaret <br />\\nPhil - Phillip/Philip <br />\\nPete - Peter <br />\\nRick(y) - Richard<br />\\nRay - Raymond <br />\\nRon(ny)(ie) - Ronald, Veronica <br />\\nSteve - Steven, Stephen <br />\\nTina - Christina<br />\\nTim(my) - Timothy <br />\\nTom(my) - Thomas<br />\\nTory(ie) - Victoria <br />\\nWill(ie)(y) - William<br />\\nVic - Victor <br />\\nVin(nie)(ny) - Vincent<br />\\nVal - Valerie",
+            "input": "Al - Albert, Alfred, Alan\\nBob - Robert \\nBeth - Elizabeth \\nBill(y) - William \\nCathy - Catherine \\nChris - Christopher\\nDeb(bie) - Deborah, Debra \\nDick(y)(ie) - Richard \\nDon(nie)(y) - Donald\\nDom - Domenic, Dominic \\nEd(die)(dy) - Edward\\nFred(dy)(die) - Frederick\\nJim(my)(mie) - James \\nJoe(y) - Joseph \\nKate - Katherine  \\nKim - Kimberl(e)y \\nLarry - Lawrence \\nLiz - Elizabeth \\nMaggie(y) - Margaret \\nMargy(ie) - Margaret\\nMatt(y)(ie) - Matthew \\nMike - Michael \\nNick - Nicholas \\nPeggy - Margaret \\nPhil - Phillip/Philip \\nPete - Peter \\nRick(y) - Richard\\nRay - Raymond \\nRon(ny)(ie) - Ronald, Veronica \\nSteve - Steven, Stephen \\nTina - Christina\\nTim(my) - Timothy \\nTom(my) - Thomas\\nTory(ie) - Victoria \\nWill(ie)(y) - William\\nVic - Victor \\nVin(nie)(ny) - Vincent\\nVal - Valerie",
             "output": [
                 "Can anyone list the short name of the common names?"
             ]
@@ -425,7 +401,7 @@
             ]
         },
         {
-            "input": "There doesn't seem to be a consensus on this. \\nFrom http://www.searchforancestors.com/surnames/origin/d/dick.php: <br />\\n\"It may come from the Dutch Dyck, a bank or dike, a bulwark thrown up in the Low Countries against the sea or rivers to prevent inundation.\"\\nAccording to http://www.mybirthcare.com/favorites/M/English/meaning.asp?name=Dick<br />\\n\"Rhyming nickname from medieval times. Richard 'strong ruler' was shortened to Rick then rhymed to Dick.\"\\nI trust \"The Straight Dope\" in all things, and according to them, over the years \"Dick\" has meant \"a riding whip, an apron, abbreviation for \"dictionary,\" a policeman, a declaration, and (of course), the penis.\"  <br />\\nhttp://www.straightdope.com/mailbag/mspotteddick.html",
+            "input": "There doesn't seem to be a consensus on this. \\nFrom http://www.searchforancestors.com/surnames/origin/d/dick.php: \\n\"It may come from the Dutch Dyck, a bank or dike, a bulwark thrown up in the Low Countries against the sea or rivers to prevent inundation.\"\\nAccording to http://www.mybirthcare.com/favorites/M/English/meaning.asp?name=Dick\\n\"Rhyming nickname from medieval times. Richard 'strong ruler' was shortened to Rick then rhymed to Dick.\"\\nI trust \"The Straight Dope\" in all things, and according to them, over the years \"Dick\" has meant \"a riding whip, an apron, abbreviation for \"dictionary,\" a policeman, a declaration, and (of course), the penis.\"  \\nhttp://www.straightdope.com/mailbag/mspotteddick.html",
             "output": [
                 "Why is Dick a shortened version of the name Richard?"
             ]
@@ -485,7 +461,7 @@
             ]
         },
         {
-            "input": "I think that the main reason is that obese people should be treated as drug addict. The main problem is that both obese and drug addicts have habits that causing them to either eat or do drug. Both of them also have physical addiction that needed to be treated accordingly. Only after facing those two major factors it will be the time for diets. <br />\\nAnother major issue is that the society actually unknowingly supports obesity; let me give you an example- today in the US, an obese person can claim disability and get welfare. By that, the government actually encourages obesity. Why would someone even try to get better? <br />\\nAuthorities should condition those allowances: if you lose weight over a specified period you will continue getting it. If you did not lose weight you lose the allowance.<br />\\nWe should always keep in mind that obesity costs a lot more then just the allowance that the obese person gets. There is the health costs, taxes lost and so on.<br />\\nI say- do what you can to leave healthy life, and don’t give up",
+            "input": "I think that the main reason is that obese people should be treated as drug addict. The main problem is that both obese and drug addicts have habits that causing them to either eat or do drug. Both of them also have physical addiction that needed to be treated accordingly. Only after facing those two major factors it will be the time for diets. \\nAnother major issue is that the society actually unknowingly supports obesity; let me give you an example- today in the US, an obese person can claim disability and get welfare. By that, the government actually encourages obesity. Why would someone even try to get better? \\nAuthorities should condition those allowances: if you lose weight over a specified period you will continue getting it. If you did not lose weight you lose the allowance.\\nWe should always keep in mind that obesity costs a lot more then just the allowance that the obese person gets. There is the health costs, taxes lost and so on.\\nI say- do what you can to leave healthy life, and don’t give up",
             "output": [
                 "Why does it seem that most of the diets don't work on over weight people?"
             ]
@@ -611,7 +587,7 @@
             ]
         },
         {
-            "input": "There are nine seats on the United States Supreme Court. You must be nominated by the President of the United States, and confirmed by a majority in the U.S. Senate. Justices are appointed for life (except in cases of retirement or impeachment).\\nIt is not necessary for that person to have experience as a judge (George W. Bush's nomination of Harriet Miers http://news.search.yahoo.com/news/search?ei=UTF-8&fl=0&fr=slv5-&p=harriet+miers+%22supreme+court%22<br />\\nis not the first time a non-judge has been nominated), just a solid legal mind. Generally when a President chooses a nominee, he will look for someone whose ideals and worldview match his own. Gerald Ford famously did not make an idealogical choice when he appointed John Paul Stevens (http://www.supremecourthistory.org/04_library/subs_volumes/04_c11_f.html) <br />\\nand in subsequent years was rather disappointed at some of Stevens' decisions. \\nThere is a lot more information at the official Supreme Court site: http://www.supremecourtus.gov/",
+            "input": "There are nine seats on the United States Supreme Court. You must be nominated by the President of the United States, and confirmed by a majority in the U.S. Senate. Justices are appointed for life (except in cases of retirement or impeachment).\\nIt is not necessary for that person to have experience as a judge (George W. Bush's nomination of Harriet Miers http://news.search.yahoo.com/news/search?ei=UTF-8&fl=0&fr=slv5-&p=harriet+miers+%22supreme+court%22\\nis not the first time a non-judge has been nominated), just a solid legal mind. Generally when a President chooses a nominee, he will look for someone whose ideals and worldview match his own. Gerald Ford famously did not make an idealogical choice when he appointed John Paul Stevens (http://www.supremecourthistory.org/04_library/subs_volumes/04_c11_f.html) \\nand in subsequent years was rather disappointed at some of Stevens' decisions. \\nThere is a lot more information at the official Supreme Court site: http://www.supremecourtus.gov/",
             "output": [
                 "How do you become a judge on the Supreme Court?"
             ]
@@ -623,13 +599,13 @@
             ]
         },
         {
-            "input": "Straight from Travis Morrison (singer and guitarist) himself:<br />\\n\"It’s from the movie Groundhog Day. There’s a guy who chases after Bill Murray and tries to keep selling him different types of insurance and 'the dismemberment plan' was one of them. It just stuck.\"  In another interview, Morrison admits that when you're young, you think things are incredibly funny when, in reality, they're not THAT funny.  Considering all the nicknames they earned, I think it was a rather witty, catchy band name.  Best,<br />\\n`k.",
+            "input": "Straight from Travis Morrison (singer and guitarist) himself:\\n\"It’s from the movie Groundhog Day. There’s a guy who chases after Bill Murray and tries to keep selling him different types of insurance and 'the dismemberment plan' was one of them. It just stuck.\"  In another interview, Morrison admits that when you're young, you think things are incredibly funny when, in reality, they're not THAT funny.  Considering all the nicknames they earned, I think it was a rather witty, catchy band name.  Best,\\n`k.",
             "output": [
                 "Where did the band, The Dismemberment Plan, get their name from?"
             ]
         },
         {
-            "input": "the enigmatic and poorly translated introduction to the American port of Zero Wing is equal parts confusing and hilarious. what in the world could a &quot;zig&quot; be? well, it would seem that the word &quot;zig,&quot; unfortunately, is not yet another perplexing term lost in translation. according to sites actually dedicated to reviewing the game in spite of its connections to the &quot;all your base are belong to us&quot; phenomena, the word &quot;zig&quot; is actually a made up name for the fighter plane you pilot throughout the game. think &quot;x-wing&quot; and you're on the right track.<br />\\n&quot;Take off every zig!!&quot; likely meant that every zig fighter needed to take off to battle the mysteriously robotic villian of the game, known only as &quot;Cats.&quot;",
+            "input": "the enigmatic and poorly translated introduction to the American port of Zero Wing is equal parts confusing and hilarious. what in the world could a &quot;zig&quot; be? well, it would seem that the word &quot;zig,&quot; unfortunately, is not yet another perplexing term lost in translation. according to sites actually dedicated to reviewing the game in spite of its connections to the &quot;all your base are belong to us&quot; phenomena, the word &quot;zig&quot; is actually a made up name for the fighter plane you pilot throughout the game. think &quot;x-wing&quot; and you're on the right track.\\n&quot;Take off every zig!!&quot; likely meant that every zig fighter needed to take off to battle the mysteriously robotic villian of the game, known only as &quot;Cats.&quot;",
             "output": [
                 "What does 'zig' refer to in the All Your Base clip?"
             ]
@@ -647,7 +623,7 @@
             ]
         },
         {
-            "input": "Edwin Eugene (Buzz) Aldrin Jr<br />\\n\"On July 20, 1969, Aldrin became the second human being to set foot on the moon. He was joined Neil Armstrong on the surface for two hours of ceremonies and moon rock collecting.\"",
+            "input": "Edwin Eugene (Buzz) Aldrin Jr\\n\"On July 20, 1969, Aldrin became the second human being to set foot on the moon. He was joined Neil Armstrong on the surface for two hours of ceremonies and moon rock collecting.\"",
             "output": [
                 "What is the name of the second US astronaut to land on the moon?"
             ]
@@ -929,7 +905,7 @@
             ]
         },
         {
-            "input": "resume writing can be tricky because not only is it important to be detailed when describing skills and work experience, but it is also advantageous to balance this with brevity. be concise and to the point while packing your resume full of key information that presents your strengths as a candidate for employment.<br />\\nkeep it simple, and make sure that formatting doesn't take away from a neatly streamlined and cogent resume.<br />\\nbelow is a link to hotjobs' resume tips, which i found extremely helpful in this process.",
+            "input": "resume writing can be tricky because not only is it important to be detailed when describing skills and work experience, but it is also advantageous to balance this with brevity. be concise and to the point while packing your resume full of key information that presents your strengths as a candidate for employment.\\nkeep it simple, and make sure that formatting doesn't take away from a neatly streamlined and cogent resume.\\nbelow is a link to hotjobs' resume tips, which i found extremely helpful in this process.",
             "output": [
                 "How do I write a resume?"
             ]
@@ -1043,7 +1019,7 @@
             ]
         },
         {
-            "input": "i've heard several times that the amount of sleep each individual requires is based on a number of factors, some of which include age, weight, and even diet. everyone has different schedules, and each one is independent to one another depending on their own individual health.<br />\\ni'm not one to set an example, but i average anywhere from 5-7 hours of sleep on a regular basis. sometimes my body requires more, sometimes less, but it seems to balance out and i never feel as though i'm suffering from lack, or over abundance, of sleep.<br />\\ni've included a yahoo! health article to help shed light on some of your own personal sleep habits.",
+            "input": "i've heard several times that the amount of sleep each individual requires is based on a number of factors, some of which include age, weight, and even diet. everyone has different schedules, and each one is independent to one another depending on their own individual health.\\ni'm not one to set an example, but i average anywhere from 5-7 hours of sleep on a regular basis. sometimes my body requires more, sometimes less, but it seems to balance out and i never feel as though i'm suffering from lack, or over abundance, of sleep.\\ni've included a yahoo! health article to help shed light on some of your own personal sleep habits.",
             "output": [
                 "Do you really need 8 hours of sleep every night?"
             ]
@@ -1451,7 +1427,7 @@
             ]
         },
         {
-            "input": "it's probably not a bad idea to stock up on the following: flashlight, battery powered radio (and batteries), non-perishable food (i.e. canned food and juices), non-electric can opener, bottled water, medications (both non-prescription and prescription if taking any regularly), first aid kit, paper plates, cups, and plastic utensils, toothbrushes, toothpaste, comb, brush, contact lens supplies, and feminine hygiene supplies, plastic garbage bags and ties, change of clothes and shoes, and an extra pair of prescription glasses if needed.<br />\\nthe red cross offers a checklist for an emergency kit, the link is below.",
+            "input": "it's probably not a bad idea to stock up on the following: flashlight, battery powered radio (and batteries), non-perishable food (i.e. canned food and juices), non-electric can opener, bottled water, medications (both non-prescription and prescription if taking any regularly), first aid kit, paper plates, cups, and plastic utensils, toothbrushes, toothpaste, comb, brush, contact lens supplies, and feminine hygiene supplies, plastic garbage bags and ties, change of clothes and shoes, and an extra pair of prescription glasses if needed.\\nthe red cross offers a checklist for an emergency kit, the link is below.",
             "output": [
                 "What should I have in my disaster emergency kit stored out side my house?"
             ]
@@ -38512,7 +38488,5 @@
                 "Who was the best Batman Actor?"
             ]
         }
-    ],
-    "Contributors": "Roseleen Kaur",
-    "Categories": "Answer_Generation"
+    ]
 }
