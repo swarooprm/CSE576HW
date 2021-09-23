@@ -5,6 +5,8 @@ This directory contains the tasks that are part of this benchmark.
 
 Name | Summary | Category
 ---- | ----------- | --------
+`task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
+`task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
 `task105_propara_structured_text_generation` | Generate entities from given text | Structured Text Generation
 `task106_propara_question_generation` | Generate question from the given passage | Question Generation
 `task107_propara_classification` | Based on the passage, event, and entity, classify locations | Classification
