@@ -10,4 +10,4 @@ Name | Summary | Category
 `task313_dialogre_identify_names` | Text Identification with DialogRE | Answer Generation
 `task314_dialogre_identify_relationships` | Classifying Relationships with DialogRE | Answer Generation
 `task315_dialogre_identify_familial_relationships` | Classifying Familial Relationships with DialogRE | Answer Generation
-`task316_dialogre_prevalent_speakers` | Classifying Prevalent Speakers with DialogRE | Text Identification
+`task316_dialogre_prevalent_speakers` | Classifying Prevalent Speakers with DialogRE | Answer Generation
