@@ -63,14 +63,14 @@ for file in files:
                     try:
                         set_of_instances.remove(instance['input'])
                     except KeyError:
-                        raise Exception(f" * Looks like we have a repeated example here! Merge outputs before removing duplicates. :-/ \n {instance}")
+                        raise Exception(f" * Looks like we have a repeated example here! Merge outputs before removing duplicates. :-/  \n {instance}")
             
 
             # Make sure there are no examples repeated across instances and positive examples
             examples = [ex['input'] for ex in data['Positive Examples']]
             for instance in instances:
                 if instance['input'] in examples:
-                    raise Exception(f" * Looks like we have a same example across positive examples and instances! Drop the example from the instances. :-/ \n {instance}")
+                    raise Exception(f" * Looks like we have a same example across positive examples and instances! Drop the example from the instances. :-/  \n {instance}")
 
             file = file.replace(".json", "")
             if file not in task_readme_content:
