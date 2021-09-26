@@ -5,7 +5,7 @@ This directory contains the tasks that are part of this benchmark.
 
 Name | Summary | Category
 ---- | ----------- | --------
-`task713_deceptive_opinion_spam_classification` | Classifying Polarity of Reviews | Classification  
-`task714_deceptive_opinion_spam_classification` | Given Reviews and Polarity classify True or False | Classification
-`task715_hate_speech_offensive_classification` | Classifying Hate Speech and Offensive Texts | Classification  
-`task716_hate_speech_offensive_classification` | Given Tweets and Labels classify True or False | Classification
+`task713_deceptive_opinion_spam_classification` | Identity polarity of hotel reviews | Classification  
+`task714_deceptive_opinion_spam_classification` | Given hotel reviews and it's polarity, determine whether it's true or false | Classification
+`task715_hate_speech_offensive_classification` | Classify tweets into hate speech, offensive or neither | Classification  
+`task716_hate_speech_offensive_classification` | Given tweet and it's category, determine whether it's true or false | Classification
