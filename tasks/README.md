@@ -10,6 +10,7 @@ Name | Summary | Category
 `task737_head_qa_answer_generation.json` | Generating answers to HEAD_QA questions | Answer Generation
 `task738_head_qa_language_translation_en_to_es.json` | Given a sentence in English translate it to Spanish | Language Translation
 `task739_head_qa_language_translation_es_to_en.json` | Given a sentence in Spanish translate it to English | Language Translation
-`task740_head_qa_classification.json` | Text Classification into Medicine, Biology, Chemistry, Psychology, Nursing and Pharamacology| Text Classification
+`task740_head_qa_classification.json` | Given a multiple-choice question classify its topic into Medicine, Biology, Chemistry, Psychology, Nursing and Pharamacology | Text Classification
 `task741_ro_sts_parallel_language_translation_ro_to_en.json` | Given a sentence in Romanian translate it to English | Language Translation
 `task742_ro_sts_parallel_language_translation_en_to_ro.json` | Given a sentence in English translate it to Romanian | Language Translation 
+
