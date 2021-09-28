@@ -11,9 +11,9 @@ Name | Summary | Category
 `task385b_dart_similarity_classification` | Classify whether two sentences (from DART) are similar or not based on their relationships | Classification
 `task385c_dart_text_generation` | Generating sentences based on DART RDF relationships | Text Generation
 `task385d_dart_relationship_extraction` | Extracting RDF relationships from DART sentences | Relationship Extraction
-`task385e_dart_subject_identification` | Given a sentence (from DART), identify the subject of the sentence | Subject Identification
-`task385f_dart_predicate_identification` | Given a sentence (from DART), identify the predicate of the sentence | Predicate Identification
-`task385g_dart_object_identification` | Given a sentence (from DART), identify the object of the sentence | Object Identification
+`task385e_dart_subject_identification` | Given a sentence (from DART), identify the subject of the sentence | Token Classification
+`task385f_dart_predicate_identification` | Given a sentence (from DART), identify the predicate of the sentence | Token Classification
+`task385g_dart_object_identification` | Given a sentence (from DART), identify the object of the sentence | Token Classificationn
 `task386a_ajgt_twitter_ar_classification` | Classify Arabic tweets (based on `ajgt_twitter_ar`) as having positive or negative sentiment | Classification
 `task387a_youtube_caption_corrections_grammar_correction` | Given a set of closed captions (from `youtube_caption_corrections`), produce a grammatically correct version of those captions | Grammar Correction
 `task387b_youtube_caption_corrections_incorrect_grammar_classification` | Given a set of closed captions (from `youtube_caption_corrections`), classify which words are grammatically incorrect | Classification
