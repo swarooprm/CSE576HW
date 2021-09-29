@@ -14,9 +14,9 @@ Name | Summary | Category
 `task166_prachathai67k_sentiment_classification` | Classify the sentiment of a given article on the given genre |Classification
 `task167_prachathai67k_same_genre_classification` | Determine if the two articles given share the same sentiment fot the given genre |Classification
 `task168_pib_indian_language_identification` | Identify the language of the given statement from the 11 languages listed |Classification
-`task1000_pib_translation_oriya_urdu`| Translate from oriya to urdu | Translation
-`task1001_pib_translation_urdu_oriya`| Translate from urdu to oriya | Translation
-`task1002_pib_translation_malayalam_oriya`| Translate from malayalam to oriya | Translation
+`task1110_pib_translation_oriya_urdu`| Translate from oriya to urdu | Translation
+`task1111_pib_translation_urdu_oriya`| Translate from urdu to oriya | Translation
+`task1112_pib_translation_malayalam_oriya`| Translate from malayalam to oriya | Translation
 `task1003_pib_translation_oriya_malayalam`| Translate from oriya to malayalam | Translation
 `task1004_pib_translation_bengali_tamil`| Translate from bengali to tamil | Translation
 `task1005_pib_translation_tamil_bengali`| Translate from tamil to bengali | Translation
