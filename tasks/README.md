@@ -12,5 +12,5 @@ Name | Summary | Category
 `task005_opus_books_en-no_translation`	| Translation from English to Norwegian using opus dataset | Translation
 `task006_opus_books_en-fi_translation` | Translation from English to Finnish using opus dataset | Translation
 `task007_opus_books_en-es__translation` | Translation from English to Spanish using opus dataset | Translation
-`task008_opus_books_en-ca_translation` | Translation from Catalan to English using opus dataset | Translation
+`task008_opus_books_ca-en_translation` | Translation from Catalan to English using opus dataset | Translation
 `task009_redial_sentence_generation` | Generating next sentence to redial sentence | Sentence Generation
