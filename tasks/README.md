@@ -11,3 +11,4 @@ Name | Summary | Category
 `task946_cail2018_answer_generation` | Generating answers (based on cail2018) | Answer Generation
 `task947_md_gender_bias_gender_identification` | Identifing gender (based on md gender bias) | Gender Identification
 `task948_md_gender_bias_text_modification` | Modifying text (based on md gender bias) | Text Modification
+`task949_md_gender_bias_text_modification` | Modifying text (based on md gender bias) | Text Modification
