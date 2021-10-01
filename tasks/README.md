@@ -13,3 +13,5 @@ Name | Summary | Category
 `task76_copa_hr_classification` | Classification (based on classla/copa_hr) | Classification
 `task77_funsd_classification` | Classification (based on nielsr/FUNSD_layoutlmv2) | Classification
 `task78_funsd_classification` | Classification (based on nielsr/FUNSD_layoutlmv2) | Classification
+`task79_openPI_classification` | Classification (based on openPI) | Classification
+`task80_openPI_answer_generation` | Answer Generation (based on openPI) | Answer Generation
