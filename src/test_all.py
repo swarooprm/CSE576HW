@@ -4,7 +4,7 @@ from os import listdir
 from os.path import isfile, join
 
 # read all the tasks and make sure that they're following the right pattern
-tasks_path = 'tasks/'
+tasks_path = '../tasks/'
 
 expected_keys = [
     "Definition",
@@ -16,7 +16,7 @@ expected_keys = [
     'Source'
 ]
 
-with open("tasks/README.md", 'r') as readmef:
+with open("../tasks/README.md", 'r') as readmef:
     task_readme_content = " ".join(readmef.readlines())
 files = [f for f in listdir(tasks_path) if isfile(join(tasks_path, f))]
 files.sort()
@@ -27,7 +27,12 @@ for file in files:
         assert '.json' in file, 'the file does not seem to have a .json in it: ' + file
         file_path = tasks_path + file
         with open(file_path, 'r') as f:
-            data = json.load(f)
+            #data = json.load(f)
+            try:
+                data = json.load(f)
+            except:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
             for key in expected_keys:
                 assert key in data, f'did not find the key: {key}'
 
