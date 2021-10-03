@@ -27,7 +27,6 @@ for file in files:
         assert '.json' in file, 'the file does not seem to have a .json in it: ' + file
         file_path = tasks_path + file
         with open(file_path, 'r') as f:
-            #data = json.load(f)
             try:
                 data = json.load(f)
             except:
