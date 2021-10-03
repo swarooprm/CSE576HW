@@ -10,4 +10,4 @@ Name | Summary | Category
 `Task_657_mkb_translation`|Translation of sentence from english to hindi|Translation
 `Task_658_mkb_translation`|Translation of sentence from hindi to english|Translation 
 `Task_659_gooaq_answer_generation`|short_answer generation for given question|Answer_Generation
-`Task_660_gooaq_question_generation`|question generation for given answer|Question Generation
+`Task_660_gooaq_question_generation`|question generation for a given answer|Question Generation
