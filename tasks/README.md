@@ -9,5 +9,5 @@ Name | Summary | Category
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
 `task481_BANKING77_classification` | Givan a sentence, classify the sentence based on the needed banking operation. | Classification
 `task482_WebNLG_Classification` | Check the theme of the specified document | Classification
-`task483_WebNLG_answer_generation.json` | Givan a set of descriptions, write how many different ways have been used to express the same thing. | Answer Generation
-`task484_WebNLG_text_generation` | Given a text, write a keyword about the text. | Text Generation
+`task483_WebNLG_answer_generation` | Generating answers to WebNLG questions | Answer Generation
+`task484_WebNLG_answer_generation` | Generating texts to WebNLG sentences | Text Generation
