@@ -15,3 +15,15 @@ Name | Summary | Category
 `task78_funsd_classification` | Classification (based on nielsr/FUNSD_layoutlmv2) | Classification
 `task79_openPI_classification` | Classification (based on openPI) | Classification
 `task80_openPI_answer_generation` | Answer Generation (based on openPI) | Answer Generation
+`task72_Abductive_NLI_short_description` | Answer Generation to Abductive NLI | Answer Generation
+`task72_Abductive_NLI_alternate_description` | Answer Generation to Abductive NLI | Answer Generation
+`task72_Abductive_NLI_reverse_description` | Answer Generation to Abductive NLI | Answer Generation
+`task073_commonsenseqa_answer_generation_1` | Answer Generation to commonsenseqa | Answer Generation
+`task073_commonsenseqa_answer_generation_2` | Answer Generation to commonsenseqa | Answer Generation
+`task073_commonsenseqa_answer_generation_3` | Answer Generation to commonsenseqa | Answer Generation
+`task074_squad1.1_question_generation_1` | Question Generation to squad1.1| Question Generation
+`task074_squad1.1_question_generation_2` | Question Generation to squad1.1| Question Generation
+`task074_squad1.1_question_generation_3` | Question Generation to squad1.1| Question Generation
+`task075_squad1.1_answer_generation_1` | Answer Generation to squad1.1| Answer Generation
+`task075_squad1.1_answer_generation_2` | Answer Generation to squad1.1| Answer Generation
+`task075_squad1.1_answer_generation_3` | Answer Generation to squad1.1| Answer Generation
