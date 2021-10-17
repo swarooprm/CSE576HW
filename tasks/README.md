@@ -12,29 +12,17 @@ Name | Summary | Category
 `task451_emea_es_lt_translation` | Translate Spanish sentences to Lithuanian while preserving named entities in the original language | Translation
 `task452_emea_bg_el_classification` | Identify whether translated sentence is Greek or not. | Classification
 `task453_emea_bg_el_translation` | Translate Bulgarian sentences to Greek while preserving named entities in the original language | Translation
-
 `task212_logic2text_classification` | Given a command, classify the command in one of seven logic types. | Classification
-
 `task213_1_rocstories_correct_ending_classification` | Given the title and the first four sentences of a five sentence story, choose the correct story ending. | Classification
 `task213_2_rocstories_correct_ending_classification` | Given the title and the first four sentences of a five sentence story, choose the correct story ending. | Classification
-
 `task214_1_rocstories_incorrect_ending_classification` | Given the title and the first four sentences of a five sentence story, choose the incorrect story ending. | Classification
 `task214_2_rocstories_incorrect_ending_classification` | Given the title and the first four sentences of a five sentence story, choose the incorrect story ending. | Classification
-
-
 `task215_1_rocstories_incorrect_answer_generation` | Given the title and the first four sentences of a five sentence story, write an incorrect story ending. | Answer Generation
 `task215_2_rocstories_incorrect_answer_generation` | Given the title and the first four sentences of a five sentence story, write an incorrect story ending. | Answer Generation
-
-
 `task216_1_rocstories_correct_answer_generation` | Given the title and the first four sentences of a five sentence story, write a correct story ending. | Answer Generation
 `task216_2_rocstories_correct_answer_generation` | Given the title and the first four sentences of a five sentence story, write a correct story ending. | Answer Generation
-
-
 `task217_1_rocstories_ordering_answer_generation` | Given a five sentence story in shuffled order and the title, put the story in the correct order. | Answer Generation
 `task217_2_rocstories_ordering_answer_generation` | Given a five sentence story in shuffled order and the title, put the story in the correct order. | Answer Generation
-
-
-
 `task218_1_rocstories_swap_order_answer_generation` | Given a five sentence story and the title, determine which two sentences must be swapped so that the story makes complete sense. | Answer Generation
 `task218_2_rocstories_swap_order_answer_generation` | Given a five sentence story and the title, determine which two sentences must be swapped so that the story makes complete sense. | Answer Generation
 `task219_1_rocstories_title_answer_generation` | Given a five sentence story, generate an appropriate title for the story. | Answer Generation
