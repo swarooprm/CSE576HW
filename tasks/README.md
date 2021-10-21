@@ -40,5 +40,10 @@ Name | Summary | Category
 `task037-3_qasc_generate_related_fact` | Constructing a related fact based on a given topic word. | Text Modification
 `task037-4_qasc_generate_related_fact` | Constructing a related fact based on a given topic word. | Text Modification
 `task037-5_qasc_generate_related_fact` | Constructing a related fact based on a given topic word. | Text Modification
+`task038-1_qasc_combined_fact` | Combining two facts. | Text Modification
+`task038-2_qasc_combined_fact` | Combining two facts. | Text Modification
+`task038-3_qasc_combined_fact` | Combining two facts. | Text Modification
+`task038-4_qasc_combined_fact` | Combining two facts. | Text Modification
+`task038-5_qasc_combined_fact` | Combining two facts. | Text Modification
 `task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
