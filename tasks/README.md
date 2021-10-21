@@ -35,5 +35,10 @@ Name | Summary | Category
 `task036-3_qasc_topic_word_to_generate_related_fact` | Writing a topic word related to a given fact. | Text Modification
 `task036-4_qasc_topic_word_to_generate_related_fact` | Writing a topic word related to a given fact. | Text Modification
 `task036-5_qasc_topic_word_to_generate_related_fact` | Writing a topic word related to a given fact. | Text Modification
+`task037-1_qasc_generate_related_fact` | Constructing a related fact based on a given topic word. | Text Modification
+`task037-2_qasc_generate_related_fact` | Constructing a related fact based on a given topic word. | Text Modification
+`task037-3_qasc_generate_related_fact` | Constructing a related fact based on a given topic word. | Text Modification
+`task037-4_qasc_generate_related_fact` | Constructing a related fact based on a given topic word. | Text Modification
+`task037-5_qasc_generate_related_fact` | Constructing a related fact based on a given topic word. | Text Modification
 `task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
