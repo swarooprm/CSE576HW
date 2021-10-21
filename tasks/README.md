@@ -30,6 +30,11 @@ Name | Summary | Category
 `task028-3_drop_answer_generation` | Answering a complex reasoning question based on a passage. | Answer Generation
 `task028-4_drop_answer_generation` | Answering a complex reasoning question based on a passage. | Answer Generation
 `task028-5_drop_answer_generation` | Answering a complex reasoning question based on a passage. | Answer Generation
+`task029-1_winogrande_full_object` | Creating a pair of fill in the blank question-answer pairs on objects. | Long Text Generation
+`task029-2_winogrande_full_object` | Creating a pair of fill in the blank question-answer pairs on objects. | Long Text Generation
+`task029-3_winogrande_full_object` | Creating a pair of fill in the blank question-answer pairs on objects. | Long Text Generation
+`task029-4_winogrande_full_object` | Creating a pair of fill in the blank question-answer pairs on objects. | Long Text Generation
+`task029-5_winogrande_full_object` | Creating a pair of fill in the blank question-answer pairs on objects. | Long Text Generation
 `task036-1_qasc_topic_word_to_generate_related_fact` | Writing a topic word related to a given fact. | Text Modification
 `task036-2_qasc_topic_word_to_generate_related_fact` | Writing a topic word related to a given fact. | Text Modification
 `task036-3_qasc_topic_word_to_generate_related_fact` | Writing a topic word related to a given fact. | Text Modification
