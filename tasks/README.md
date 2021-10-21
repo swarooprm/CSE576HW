@@ -45,5 +45,10 @@ Name | Summary | Category
 `task038-3_qasc_combined_fact` | Combining two facts. | Text Modification
 `task038-4_qasc_combined_fact` | Combining two facts. | Text Modification
 `task038-5_qasc_combined_fact` | Combining two facts. | Text Modification
+`task039-1_qasc_find_overlapping_words` | Finding overlapping words between two sentences. | Verification
+`task039-2_qasc_find_overlapping_words` | Finding overlapping words between two sentences. | Verification
+`task039-3_qasc_find_overlapping_words` | Finding overlapping words between two sentences. | Verification
+`task039-4_qasc_find_overlapping_words` | Finding overlapping words between two sentences. | Verification
+`task039-5_qasc_find_overlapping_words` | Finding overlapping words between two sentences. | Verification
 `task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
