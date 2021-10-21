@@ -70,5 +70,10 @@ Name | Summary | Category
 `task043-3_essential_terms_answering_incomplete_questions` | Answering incomplete questions. | Answer Generation
 `task043-4_essential_terms_answering_incomplete_questions` | Answering incomplete questions. | Answer Generation
 `task043-5_essential_terms_answering_incomplete_questions` | Answering incomplete questions. | Answer Generation
+`task044-1_essential_terms_identifying_essential_words` | Identifying words or phrases of the question essential for choosing the correct answer. | Verification
+`task044-2_essential_terms_identifying_essential_words` | Identifying words or phrases of the question essential for choosing the correct answer. | Verification
+`task044-3_essential_terms_identifying_essential_words` | Identifying words or phrases of the question essential for choosing the correct answer. | Verification
+`task044-4_essential_terms_identifying_essential_words` | Identifying words or phrases of the question essential for choosing the correct answer. | Verification
+`task044-5_essential_terms_identifying_essential_words` | Identifying words or phrases of the question essential for choosing the correct answer. | Verification
 `task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
