@@ -1,0 +1,704 @@
+{
+    "Contributors": [
+        "Karan Niraj Naik"
+    ],
+    "Source": [
+        "Combination of WSC and enhanced Winograd Schema Challenge dataset from the paper The Sensitivity of Language Models and Humans to Winograd Schema Perturbations"
+    ],
+    "Categories": [
+        "Classification"
+    ],
+    "Definition": "U-l b given two sentences. One of them is created by paraphrasing da original one, w/ changes on an aspect, or w/ da use of synonyms. Ya task is 2 decide w@ is da difference between two sentences. Types of change r explained below:\n Tense: Da verbs in da sentence r changed in tense.\nNumber: Plural nouns, verbs and pronouns r changed into single ones, or da other way around.\nVoice: If da verbs r in active voice, they're changed 2 passive, or da other way around.\nAdverb: Da paraphrase has one adverb or more than da original sentence.\nGender: Da paraphrase differs from da original sentence in da gender of da names and pronouns.\nSynonym: Some words or phrases of da original sentence r replace w/ synonym words or phrases. Changes in da names of ppl is also considered a synonym change.",
+    "Positive Examples": [
+        {
+            "input": "original sentence: Madonna fired her trainer because  she slept with her boyfriend . paraphrase: The trainer was fired by madonna because she slept with her boyfriend .",
+            "output": "Voice",
+            "explanation": "There is a change in the voice of the sentence."
+        },
+        {
+            "input": "original sentence: Sam pulled up a chair to the piano , but  it was broken , so he had to stand instead . paraphrase: A chair was pulled up to the piano by Sam , but it was broken , so he had to stand instead .",
+            "output": "Voice",
+            "explanation": "There is a change in the voice of the sentence."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "original sentence: Pete envies Martin although he is very successful . paraphrase: Anna envies Emma although she is very successful .",
+            "output": "Tense",
+            "explanation": "There is a change in the gender of the sentence."
+        },
+        {
+            "input": "original sentence: The path to the lake was blocked ,  so we couldn't use  it . paraphrase: The path to the lake is blocked ,  so we can't use  it .",
+            "output": "Number",
+            "explanation": "There is a change in the tense of the sentence."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "original sentence: Anna did a lot better than her good friend Lucy on the test because she had studied so hard . paraphrase: Peter did a lot better than his good friend Jeff on the test because he had studied so hard .",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: Mary tucked her daughter Anne into bed ,  so that   she could sleep . paraphrase: The daughter , Anne , was tucked into bed by Mary , so that she could sleep .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: John couldn't see the stage with Billy in front of him because he is so short . paraphrase: John and Harry couldn't see the stage with Billy and Jack in front of them because they were so short .",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: I can't cut that tree down with that axe ;  it is too small . paraphrase: I can't seem to cut that tree down with that axe ;  it apparently is too small .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: Jackson was greatly influenced by Arnold ,  though   he lived two centuries later . paraphrase: Jackson is greatly influenced by Arnold ,  though he lives two centuries later .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: Dan took the rear seat while Bill claimed the front because  his \"Dibs!\" was quicker . paraphrase: Dan and Julian took the rear seat while Bill and Jake claimed the front because  their \"Dibs!\" was quicker .",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: Joan made sure to thank Susan for all the help she had given . paraphrase: John made sure to thank Bill for all the help he had given .",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: John ordered Bill to leave ,  so an hour later  he left . paraphrase: Mary ordered Anne to leave ,  so an hour later  she left .",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: Bob paid for Charlie's college education , but now Charlie acts as though it never happened . He is very ungrateful . paraphrase: Jane paid for Anne's college education , but now Anne acts as though it never happened . She is very ungrateful .",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: Bob collapsed on the sidewalk . Soon he saw Carl coming to help . He was very ill . paraphrase: Bob suddenly collapsed on the sidewalk . Soon he saw Carl quickly coming to help . He was very ill .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: Mary took out her flute and played one of her favorite pieces . She has loved  it since she was a child . paraphrase: Mary and Anne took out their flutes and played some of their favorite pieces . They have loved them since they were children .",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: John couldn't see the stage with Billy in front of him because he is so short . paraphrase: The stage couldn't be seen by John with Billy in front of him because he is so short .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: The customer walked into the bank and stabbed one of the tellers . He was immediately taken to the hospital . paraphrase: One of the tellers was stabbed by the customer that walked into the bank . He was immediately taken to the hospital .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: I saw Jim yelling at some guy in a military uniform with a huge red beard .  I don't know why he was ,  but he looked very unhappy . paraphrase: Jim was seen by me yelling at some guy in a military uniform with a huge red beard . I don't know why he was , but he looked very unhappy .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: Although they ran at about the same speed ,  Sue beat Sally because   she had such a good start . paraphrase: Although they ran at about the same speed , Sally was beaten by Sue because she had such a good start .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: John hired Bill to take care of  him . paraphrase: John thankfully hired Bill to take care of  him .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: The man couldn't lift his son because he was so weak . paraphrase: The men couldn't lift their sons because  they were so weak .",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: Fred and Alice had very warm down coats ,  but  they were not enough for the cold in Alaska . paraphrase: -",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: The customer walked into the bank and stabbed one of the tellers . He was immediately taken to the police station . paraphrase: The customer casually walked into the bank and savagely stabbed one of the tellers . He was immediately taken to the police station .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: I couldn't find a spoon , so I tried using a pen to stir my coffee .  But that turned out to be a bad idea ,  because it got full of ink . paraphrase: I couldn't find spoons , so I tried using pens to stir my coffees .  But that turned out to be a bad idea ,  because they got full of ink .",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: The journalists interviewed the stars of the new movie .    They were very persistent ,  so the interview lasted for a long time . paraphrase: The journalists recently interviewed the stars of the new movie .  They really were very persistent ,  so the interview lasted for a long time .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: When the sponsors of the bill got to the town hall ,  they were surprised to find that the room was full of opponents .    They were very much in the minority . paraphrase: When the sponsors of the bill get to the town hall ,  they will be surprised to find that the room is full of opponents .    They are very much in the minority .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: I put the cake away in the refrigerator .    It has a lot of leftovers in it . paraphrase: The cake was put away in the refrigerator by me . It has a lot of leftovers in it .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: Fred covered his eyes with his hands ,  because the wind was blowing sand around .  He opened  them when the wind stopped . paraphrase: Fred is covering his eyes with his hands , because the wind is blowing sand around . He opens them when the wind stops .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: Jim yelled at Kevin because  he was so upset . paraphrase: Jim violently yelled at Kevin because  he was so upset .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: In the storm , the tree fell down and crashed through the roof of my house . Now , I have to get it removed . paraphrase: In the storm , the roof of my house was crashed through by the tree which fell down . Now , I have to get it removed .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: Dan had to stop Bill from toying with the injured bird .  He is very compassionate . paraphrase: Dan had to quickly stop Bill from toying with the injured bird .  He really is very compassionate .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: I put the butterfly wing on the table and it broke . paraphrase: The butterfly wing was put on the table by me and it broke .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: Bob paid for Charlie's college education , but now Charlie acts as though it never happened . He is very ungrateful . paraphrase: Bob and Steve paid for Charlie and William's college education , but now Charlie and William act as though it never happened . They are very ungrateful .",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: Stretching her back ,  the woman smiled at the girl . paraphrase: Relaxedly stretching her back ,  the woman yawningly smiled at the girl .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: Fred watched TV while George went out to buy groceries .  After an hour he got back . paraphrase: Fred is watching TV while George goes to buy groceries . After an hour he is getting back .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: Archaeologists have concluded that humans lived in Laputa 20,000 years ago .   They hunted for evidence on the river banks . paraphrase: An archaeologist has concluded that a human lived in Laputa 20,000 years ago .   He hunted for evidence on the river banks .",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: I was trying to open the lock with the key ,  but someone had filled the keyhole with chewing gum ,  and I couldn't get   it in . paraphrase: I was desperately trying to open the lock with the key ,  but someone had filled the keyhole with chewing gum ,  and I couldn't get   it in .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: Sam's drawing was hung just above Tina's and it did look much better with another one below it . paraphrase: -",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: As Andrea in the crop duster passed over Susan , she could see the landing gear . paraphrase: As Andrea in the crop duster is passing over Susan , she can see the landing gear .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: George got free tickets to the play ,  but he gave them to Eric ,  even though he was particularly eager to see it . paraphrase: George recently got free tickets to the play ,  but he generously gave them to Eric ,  even though he really was particularly eager to see it .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: Thomson visited Cooper's grave in 1765 .  At that date  he had been dead for five years . paraphrase: Thomson and Williams visited Cooper and Harrison's graves in 1765 .  At that date  they had been travelling for five years .",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: When the sponsors of the bill got to the town hall ,  they were surprised to find that the room was full of opponents .    They were very much in the majority . paraphrase: -",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: Jim comforted Kevin because  he was so upset . paraphrase: Kevin was comforted by Jim because he was so upset .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: Beth didn't get angry with Sally ,  who had cut her off ,  because  she stopped and counted to ten . paraphrase: Jack didn't get angry with Peter ,  who had cut him off ,  because  he stopped and counted to ten .",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: Bill passed the half-empty plate to John because  he was full . paraphrase: Bill carefully  passed the half-empty plate to John because  he was full .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: Sam broke both his ankles and he's walking with crutches . But a month or so from now they should be better . paraphrase: -",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: John was doing research in the library when he heard a man humming and whistling .   He was very annoying . paraphrase: The man who was humming and whistling was heard by John when he was doing research in the library . He was very annoying .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: Madonna fired her trainer because she slept with  her boyfriend . paraphrase: Madonna is firing her trainer because she is sleeping with her boyfriend .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: Anne gave birth to a daughter last month . She is a very charming woman . paraphrase: Anne and Julia gave birth to daughters last month . They are very charming women .",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: This book introduced Shakespeare to Ovid ; it was a fine selection of  his writing . paraphrase: This book introduced Shakespeare and Chaucer to Ovid and Virgil ; it was a fine selection of  their writing .",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: Pam's parents came home and found her having sex with her boyfriend , Paul . They were embarrassed about it . paraphrase: Pam's parents finally came home and immediately found her passionately having sex with her boyfriend , Paul . They were rather embarrassed about it .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: The police arrested all of the gang members . They were trying to stop the drug trade in the neighborhood . paraphrase: The police are arresting all of the gang members . They are trying to stop the drug trade in the neighborhood .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: The large ball crashed right through the table because  it was made of steel . paraphrase: The table was crashed through by the large ball because it was made of steel .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: Jim signaled the barman and gestured toward  his empty glass . paraphrase: Jim is signaling the barman and gesturing toward  his empty glass .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: I stuck a pin through a carrot .  When I pulled the pin out ,    it left a hole . paraphrase: I stuck pins through carrots .  When I pulled the pins out ,    they left holes .",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: John was doing research in the library when he heard a man humming and whistling .   He was very annoying . paraphrase: Mary was doing research in the library when she heard a woman humming and whistling .   She was very annoying .",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: The lawyer asked the witness a question , but  he was reluctant to answer it . paraphrase: The lawyer loudly asked the witness a question , but  he was reluctant to answer it .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: The sculpture rolled off the shelf because it wasn't anchored . paraphrase: The sculpture is rolling off the shelf because it isn't anchored .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: This morning , Joey built a sand castle on the beach , and put a toy flag in the highest tower , but this afternoon the tide knocked it down . paraphrase: This morning , Joey cheerfully built a sand castle on the beach , and elegantly put a toy flag in the highest tower , but this afternoon the tide fiercely knocked it down .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: Bob was playing cards with Adam and was way ahead .  If Adam hadn't had a sudden run of good luck , he would have lost . paraphrase: Bob is playing cards with Adam and is way ahead . If Adam doesn't have a sudden run of good luck , he will lose .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: The firemen arrived before the police because they were coming from so far away . paraphrase: The firemen arrived shortly before the police because they were coming from so far away .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: Fred is the only man alive who still remembers my father as an infant . When Fred first saw my father ,   he was twelve months old . paraphrase: -",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: Joan made sure to thank Susan for all the help she had received . paraphrase: John made sure to thank Bill for all the help he had received .",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: Joe's uncle can still beat him at tennis ,  even though he is 30 years older . paraphrase: Joe can still be beaten at tennis by his uncle , even though he is 30 years older .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: The older students were bullying the younger ones , so we punished  them . paraphrase: The younger students were being bullied by the older ones , so we punished them .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: This book introduced Shakespeare to Ovid ; it was a major influence on his writing . paraphrase: This book introduced Shakespeare and Chaucer to Ovid and Virgil ; they were a major influence on their writing .",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: John was jogging through the park when he saw a man juggling watermelons .  He was very impressed . paraphrase: John and Peter were jogging through the park when they saw men juggling watermelons .  They were very impressed .",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: I can't cut that tree down with that axe ;  it is too small . paraphrase: The tree could not be cut with that axe by me ; it is too small .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: Bob was playing cards with Adam and was way ahead .  If Adam hadn't had a sudden run of good luck , he would have won . paraphrase: Bob is playing cards with Adam and is way ahead . If Adam doesn't have a sudden run of good luck , he will win .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: Joe's uncle can still beat him at tennis ,  even though he is 30 years older . paraphrase: Joe's uncle can still easily beat him at tennis ,  even though he is 30 years older .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: Jim signaled the barman and gestured toward  his empty glass . paraphrase: Joan signaled the barmaid and gestured toward  her empty glass .",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: Carol believed that Rebecca suspected that she had stolen the watch . paraphrase: Carol believes that Rebecca suspects that she is stealing the watch .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: We had hoped to place copies of our newsletter on all the chairs in the auditorium , but there were simply not enough of them . paraphrase: We are hoping to place copies of our newsletter on all the chairs in the auditorium , but there are simply not enough of them .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: I saw Jim yelling at some guy in a military uniform with a huge red beard .  I don't know who he was ,  but he looked very unhappy . paraphrase: I saw Jim loudly yelling at some guy in a military uniform with a huge red beard .  I don't know who he was ,  but he looked very unhappy .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: The man couldn't lift his son because he was so heavy . paraphrase: The woman couldn't lift her daughter because  she was so heavy .",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: The actress used to be named Terpsichore ,  but she changed it to Tina a few years ago ,  because she figured it was easier to pronounce . paraphrase: The actress is named Terpsichore , but she is changing it to Tina in a few years , because she figures it was easier to pronounce .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: Anna did a lot better than her good friend Lucy on the test because she had studied so hard . paraphrase: Anna is doing a lot better than her good friend Lucy on the test because she studies so hard .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: Many people start to read Paul's books and can't put them down . They are popular because Paul writes so well . paraphrase: Many people started to read Paul's books and couldn't put them down . They were popular because Paul wrote so well .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: Mary tucked her daughter Anne into bed ,  so that   she could sleep . paraphrase: Mary finally tucked her daughter Anne into bed ,  so that she could sleep .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: Anna did a lot worse than her good friend Lucy on the test because she had studied so hard . paraphrase: Anna certainly did a lot worse than her good friend Lucy on the test because she had studied so hard .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: Many people start to read Paul's books and can't put them down . They are popular because Paul writes so well . paraphrase: -",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: Alice looked for her friend Jade in the crowd .  Since she always wears a red turban , Alice spotted her quickly . paraphrase: Jack looked for his friend Henry in the crowd . Since he always wears a red turban , Jack spotted him quickly .",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: Sam broke both his ankles and he's walking with crutches . But a month or so from now they should be unnecessary . paraphrase: Sam broke both his ankles and he was walking with crutches . But a month or so from then they were unnecessary .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: Emma's mother had died long ago , and her place had been taken by an excellent woman as governess . paraphrase: Jack's father had died long ago , and his place had been taken by an excellent man as tutor .",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: Dan had to stop Bill from toying with the injured bird .  He is very compassionate . paraphrase: Bill had to be stopped by Dan from toying with the injured bird .  He is very compassionate .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: The scientists are studying three species of fish that have recently been found living in the Indian Ocean .   They appeared two years ago . paraphrase: Three species of fish that have recently been found living in the Indian Ocean are being studied by scientists . They began two years ago .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: Anne gave birth to a daughter last month . She is a very charming woman . paraphrase: A daughter was given birth to by Anne last month . She is a very charming woman .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: The user changed his password from \" GrWQWu8JyC \" to \" willow-towered Canopy Huntertropic wrestles \" as it was easy to forget . paraphrase: -",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: Jane gave Joan candy because  she was hungry . paraphrase: Jane is giving Joan candy because she is hungry .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: I put the cake away in the refrigerator .    It has a lot of butter in it . paraphrase: I just put the cake away in the refrigerator . It certainly has a lot of butter in it .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: In the storm , the tree fell down and crashed through the roof of my house . Now , I have to get it repaired . paraphrase: In the storm , the trees fell down and crashed through the roofs of my house . Now , I have to get them repaired .",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: The painting in Mark's living room shows an oak tree . it is to the right of the bookcase . paraphrase: An oak tree is shown in the painting in Mark's living room . it is to the right of the bookcase .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: The journalists interviewed the stars of the new movie .    They were very cooperative ,  so the interview lasted for a long time . paraphrase: -",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: Frank felt vindicated when his longtime rival Bill revealed that he was the winner of the competition . paraphrase: Frank feels vindicated when his longtime rival Bill reveals that he is the winner of the competition .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: The actress used to be named Terpsichore ,  but she changed it to Tina a few years ago ,  because she figured it was easier to pronounce . paraphrase: The actress actually used to be named Terpsichore ,  but she  apparently  changed it to Tina a few years ago ,  because she figured it was easier to pronounce .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: We had hoped to place copies of our newsletter on all the chairs in the auditorium , but there were simply too many of them . paraphrase: We had very much hoped to place copies of our newsletter on all the chairs in the auditorium , but there were simply too many of them .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: Mary tucked her daughter Anne into bed , so that she could work . paraphrase: The daughter , Anne , was tucked into bed by Mary , so that she could work .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: Alice tried frantically to stop her daughter from barking at the party , leaving us to wonder why she was behaving so strangely . paraphrase: Jack tried frantically to stop his son from barking at the party , leaving us to wonder why he was behaving so strangely .",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: I stuck a pin through a carrot .  When I pulled the pin out ,    it had a hole . paraphrase: I am sticking a pin through a carrot . When I pull the pin out , it will have a hole .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: During a game of tag , Ethan ran from Luke because  he was \"it\" . paraphrase: During a game of tag , Ethan is running from Luke because he is \"it\" .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: When the sponsors of the bill got to the town hall ,  they were surprised to find that the room was full of opponents .    They were very much in the minority . paraphrase: When the sponsors of the bill finally got to the town hall ,  they were rather surprised to find that the room was full of opponents .  They ultimately were very much in the minority .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: Look ! There is a shark swimming right below that duck !  It had better get away to safety fast ! paraphrase: Look ! That duck is being swum right below by a shark ! It had better get away to safety fast !",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: The man lifted the boy onto his bunk bed . paraphrase: The man joyfully lifted the boy onto his bunk bed .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: I took the water bottle out of the backpack so that  it would be lighter . paraphrase: I took the water bottles out of the backpacks so that  they would be lighter .",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: I'm sure that my map will show this building ; it is very good . paraphrase: I'm sure that my map showed this building ; it was very good .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: Thomson visited Cooper's grave in 1765 .  At that date  he had been travelling for five years . paraphrase: Thomson and Williams visited Cooper and Harrison's graves in 1765 .  At that date  they had been travelling for five years .",
+            "output": [
+                "Number"
+            ]
+        },
+        {
+            "input": "original sentence: The sculpture rolled off the shelf because it wasn't anchored . paraphrase: The sculpture slowly rolled off the shelf because it wasn't anchored .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: At the Loebner competition the judges couldn't figure out which respondents were the chatbots because they were so stupid . paraphrase: At the Loebner competition it could not be figured out by the judges which respondents were the chatbots because they were so stupid .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: The lawyer asked the witness a question , but  he was reluctant to repeat it . paraphrase: The lawyer loudly asked the witness a question , but  he was reluctant to repeat it .",
+            "output": [
+                "Adverb"
+            ]
+        },
+        {
+            "input": "original sentence: Frank was upset with Tom because the toaster he had sold him didn't work . paraphrase: -",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: John was doing research in the library when he heard a man humming and whistling .   He was very annoyed . paraphrase: The man who was humming and whistling was heard by John when he was doing research in the library . He was very annoyed .",
+            "output": [
+                "Voice"
+            ]
+        },
+        {
+            "input": "original sentence: I put the cake away in the refrigerator .    It has a lot of butter in it . paraphrase: -",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: Sam tried to paint a picture of shepherds with sheep ,  but  they ended up looking more like dogs . paraphrase: -",
+            "output": [
+                "Gender"
+            ]
+        },
+        {
+            "input": "original sentence: The firemen arrived after the police because they were coming from so far away . paraphrase: The firemen are arriving after the police because they are coming from so far away .",
+            "output": [
+                "Tense"
+            ]
+        },
+        {
+            "input": "original sentence: Tom said \"Check\" to Ralph as he took his bishop . paraphrase: Check was said by Tom to Ralph as he took his bishop .",
+            "output": [
+                "Voice"
+            ]
+        }
+    ]
+}
