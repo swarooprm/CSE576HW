@@ -65,5 +65,10 @@ Name | Summary | Category
 `task042-3_qasc_incorrect_option_generation` | Writing incorrect answers to a given question based on a given sentence. | Incorrect Answer Generation
 `task042-4_qasc_incorrect_option_generation` | Writing incorrect answers to a given question based on a given sentence. | Incorrect Answer Generation
 `task042-5_qasc_incorrect_option_generation` | Writing incorrect answers to a given question based on a given sentence. | Incorrect Answer Generation
+`task043-1_essential_terms_answering_incomplete_questions` | Answering incomplete questions. | Answer Generation
+`task043-2_essential_terms_answering_incomplete_questions` | Answering incomplete questions. | Answer Generation
+`task043-3_essential_terms_answering_incomplete_questions` | Answering incomplete questions. | Answer Generation
+`task043-4_essential_terms_answering_incomplete_questions` | Answering incomplete questions. | Answer Generation
+`task043-5_essential_terms_answering_incomplete_questions` | Answering incomplete questions. | Answer Generation
 `task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
