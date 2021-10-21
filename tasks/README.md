@@ -40,6 +40,11 @@ Name | Summary | Category
 `task030-3_winogrande_full_person` | Creating a pair of fill in the blank questions on persons. | Long Text Generation
 `task030-4_winogrande_full_person` | Creating a pair of fill in the blank questions on persons. | Long Text Generation
 `task030-5_winogrande_full_person` | Creating a pair of fill in the blank questions on persons. | Long Text Generation
+`task031-1_winogrande_question_generation_object` | Writing a fill in the blank question on objects. | Question Generation
+`task031-2_winogrande_question_generation_object` | Writing a fill in the blank question on objects. | Question Generation
+`task031-3_winogrande_question_generation_object` | Writing a fill in the blank question on objects. | Question Generation
+`task031-4_winogrande_question_generation_object` | Writing a fill in the blank question on objects. | Question Generation
+`task031-5_winogrande_question_generation_object` | Writing a fill in the blank question on objects. | Question Generation
 `task036-1_qasc_topic_word_to_generate_related_fact` | Writing a topic word related to a given fact. | Text Modification
 `task036-2_qasc_topic_word_to_generate_related_fact` | Writing a topic word related to a given fact. | Text Modification
 `task036-3_qasc_topic_word_to_generate_related_fact` | Writing a topic word related to a given fact. | Text Modification
