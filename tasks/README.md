@@ -23,8 +23,12 @@ Name | Summary | Category
 `task190b_snli_classification` | Given two sentences choose whether they agree/disagree/neither with each other. | Classification
 `task191a_hotpotqa_question_generation` | Given a set of context, supporting facts and an answer, generate the question asked based on them. | Question Generation
 `task191b_hotpotqa_question_generation` | Given a set of context, supporting facts and an answer, generate the question asked based on them. | Question Generation
+`task191c_hotpotqa_question_generation` | Given a set of context, supporting facts and an answer, generate the question asked based on them. | Question Generation
+`task191d_hotpotqa_question_generation` | Given a set of context, supporting facts and an answer, generate the question asked based on them. | Question Generation
 `task192a_hotpotqa_sentence_generation` | Given a context paragraph, question and corresponding answer, generate the supporting facts that helps in answering question. | Sentence Generation
 `task192b_hotpotqa_sentence_generation` | Given a context paragraph, question and corresponding answer, generate the supporting facts that helps in answering question. | Sentence Generation
+`task192c_hotpotqa_sentence_generation` | Given a context paragraph, question and corresponding answer, generate the supporting facts that helps in answering question. | Sentence Generation
+`task192d_hotpotqa_sentence_generation` | Given a context paragraph, question and corresponding answer, generate the supporting facts that helps in answering question. | Sentence Generation
 `task193a_duorc_question_generation` | Generate a question based on a given plot. | Question Generation
 `task193b_duorc_question_generation` | Generate a question based on a given plot. | Question Generation
 `task194a_duorc_answer_generation` | Given a plot and a question, answer the question based on the plot. | Answer Generation
