@@ -91,7 +91,7 @@ Name | Summary | Category
 `Task230_b_iirc_passage_classification` | Given 3 passages and a question, determine which passage can be used to answer the question. | Classification
 `Task230_c_iirc_passage_classification` | Given 3 passages and a question, determine which passage can be used to answer the question. | Classification
 `Task230_d_iirc_passage_classification` | Given 3 passages and a question, determine which passage can be used to answer the question. | Classification
-`task230_e_iirc_passage_classification` | Given 3 passages and a question, determine which passage can be used to answer the question. | Classification
+`Task230_e_iirc_passage_classification` | Given 3 passages and a question, determine which passage can be used to answer the question. | Classification
 `Task231_a_iirc_link_classification` | Given a question, context passage, and terms from the passage for further information search, determine which term can be used to answer the question. | Classification
 `Task231_b_iirc_link_classification` | Given a question, context passage, and terms from the passage for further information search, determine which term can be used to answer the question. | Classification
 `Task231_c_iirc_link_classification` | Given a question, context passage, and terms from the passage for further information search, determine which term can be used to answer the question. | Classification
