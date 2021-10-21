@@ -80,5 +80,10 @@ Name | Summary | Category
 `task045-3_miscellaneous_sentence_paraphrasing` | Generating sentence paraphrases. | Text Modification
 `task045-4_miscellaneous_sentence_paraphrasing` | Generating sentence paraphrases. | Text Modification
 `task045-5_miscellaneous_sentence_paraphrasing` | Generating sentence paraphrases. | Text Modification
+`task046-1_miscellaenous_question_typing` | Annotating question-answer pairs with their corresponding type(s). | Classification
+`task046-2_miscellaenous_question_typing` | Annotating question-answer pairs with their corresponding type(s). | Classification
+`task046-3_miscellaenous_question_typing` | Annotating question-answer pairs with their corresponding type(s). | Classification
+`task046-4_miscellaenous_question_typing` | Annotating question-answer pairs with their corresponding type(s). | Classification
+`task046-5_miscellaenous_question_typing` | Annotating question-answer pairs with their corresponding type(s). | Classification
 `task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
