@@ -60,6 +60,11 @@ Name | Summary | Category
 `task034-3_winogrande_question_modification_object` | Modifying a fill in the blank question on objects. | Text Modification
 `task034-4_winogrande_question_modification_object` | Modifying a fill in the blank question on objects. | Text Modification
 `task034-5_winogrande_question_modification_object` | Modifying a fill in the blank question on objects. | Text Modification
+`task035-1_winogrande_question_modification_person` | Modifying a fill in the blank question on persons. | Text Modification
+`task035-2_winogrande_question_modification_person` | Modifying a fill in the blank question on persons. | Text Modification
+`task035-3_winogrande_question_modification_person` | Modifying a fill in the blank question on persons. | Text Modification
+`task035-4_winogrande_question_modification_person` | Modifying a fill in the blank question on persons. | Text Modification
+`task035-5_winogrande_question_modification_person` | Modifying a fill in the blank question on persons. | Text Modification
 `task036-1_qasc_topic_word_to_generate_related_fact` | Writing a topic word related to a given fact. | Text Modification
 `task036-2_qasc_topic_word_to_generate_related_fact` | Writing a topic word related to a given fact. | Text Modification
 `task036-3_qasc_topic_word_to_generate_related_fact` | Writing a topic word related to a given fact. | Text Modification
