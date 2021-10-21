@@ -2,15 +2,13 @@
 
 This directory contains the tasks that are part of this benchmark. 
 
-
 Name | Summary | Category
 ---- | ----------- | --------
 
 `Task212_a_logic2text_classification` | Given a command, classify the command in one of seven logic types. | Classification
 `task212_b_logic2text_classification` | Given a command, classify the command in one of seven logic types. | Classification
 `task212_c_logic2text_classification` | Given a command, classify the command in one of seven logic types. | Classification
-`Task213_a_rocstories_correct_ending_classification` | Given the title and the first four sentences of a five sentence story, choose the correct story ending. | Classification
-`Task213_b_rocstories_correct_ending_classification` | Given the title and the first four sentences of a five sentence story, choose the correct story ending. | Classification
+`Task213_a_rocstories_correct_ending_classification` | Given the title and the first four sentences of a five sentence story, choose the correct story ending. | Classification`Task213_b_rocstories_correct_ending_classification` | Given the title and the first four sentences of a five sentence story, choose the correct story ending. | Classification
 `Task213_c_rocstories_correct_ending_classification` | Given the title and the first four sentences of a five sentence story, choose the correct story ending. | Classification
 `Task213_d_rocstories_correct_ending_classification` | Given the title and the first four sentences of a five sentence story, choose the correct story ending. | Classification
 `Task213_e_rocstories_correct_ending_classification` | Given the title and the first four sentences of a five sentence story, choose the correct story ending. | Classification
