@@ -1,0 +1,760 @@
+{
+    "Contributors": [
+        "Karan Niraj Naik"
+    ],
+    "Source": [
+        "Semantic Parser Localizer (https:\\/\\/github.com\\/stanford-oval\\/SPL)"
+    ],
+    "Categories": [
+        "Translation"
+    ],
+    "Input_language": "Chinese",
+    "Output_language": "English",
+    "Definition": "Da provided file includes inquiries abt restaurants in Chinese, and we ask u 2 translate those 2 English language. Pls bear in mind da following guidelines while doing da translation: 1) We r looking 4 da most naturally written and formal form of each sentence in ya language. We r *NOT* looking 4 colloquial forms of da sentence. We r looking 4 formal form which is how u would type ya queries in a text-based virtual assistant. 2) Da words between quotation marks *SHOULD NOT* b translated. We expect u 2 keep those values intact and include da quotation marks around them as well. 3) Da fully capitalized words like DATE_0, or DURATION_0 *SHOULD NOT* b translated. Pls keep them as they r in da translations. 4) Pls do not localize measurement units like miles 2 kilometers during ya translation. miles sb translated 2 its equivalent in ya language. 6) Note da input is all lowercased except 4 fully capitalized special placeholders (e.g. NUMBER, DATE, TIME). Pls do da same in ya translations.",
+    "Positive Examples": [
+        {
+            "input": "显 示 所 有 由 奋 芳 撰 写 的 审 查 说 明 。",
+            "output": "display all review descriptions authored by jennifer .",
+            "explanation": "The translation is accurate and correct"
+        },
+        {
+            "input": "你 能 告 诉 我  阳 新 东 路 中  山 市 場 的 评 级  \" san francisco \"?",
+            "output": "can you tell me the rating of gold mirror in \" san francisco \" ?",
+            "explanation": "The translation is accurate and correclty preserves the word san francisco"
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "淚 滴 熊 的 评 \"  Pizza Hut \" 分 如 何 ?",
+            "output": "how well is \" pizza hut \" rated ?",
+            "explanation": "The translation contains lowercased letter hence it is incorrect."
+        },
+        {
+            "input": "\" italian \" 最 近 的 尔 兰  厅 所 在 地 。",
+            "output": "where is the nearest italian restaurant .",
+            "explanation": "The position of the entity is switched hence it is incorrect."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "这 个  厅 是 哪 一  食 物",
+            "output": [
+                "what kind of food does this restaurant serve ?"
+            ]
+        },
+        {
+            "input": "最 近 的 罗 斯  馆 的 电 和 地  是 多 少 ?",
+            "output": [
+                "what is the telephone number and location of the nearest chinese restaurant ?"
+            ]
+        },
+        {
+            "input": "最 近 的 咪  咪  在 哪 里 ?",
+            "output": [
+                "where is the closest wendy 's ?"
+            ]
+        },
+        {
+            "input": "巴 黎  ",
+            "output": [
+                "show me the closest mcdonald 's"
+            ]
+        },
+        {
+            "input": "晶 晶 飾  的 电  是 多 少 ?",
+            "output": [
+                "what is the phone number for noodle nirvana ?"
+            ]
+        },
+        {
+            "input": "找 到 一 个 有 6 颗 或 6 颗 以 上 星 星 的 葡  牙  馆 。",
+            "output": [
+                "find a mexican restaurant with NUMBER_0 or more stars ."
+            ]
+        },
+        {
+            "input": " 索 罗 斯  馆 , 进 行 七 星 级 评 比 或 更 好 。",
+            "output": [
+                "search for vegetarian restaurants with NUMBER_0 star reviews or better ."
+            ]
+        },
+        {
+            "input": " 索 爱 尔 兰  馆 , 至 少 8 次 评 论 。",
+            "output": [
+                "search for italian restaurants with at least NUMBER_0 reviews ."
+            ]
+        },
+        {
+            "input": "列 出 泰 国   馆 , 评 分 较 高 为 6 个 明 星 。",
+            "output": [
+                "list italian restaurants with higher ratings that NUMBER_0 stars ."
+            ]
+        },
+        {
+            "input": "寻 找 一 个 离 我 最 近 的 墨 西 哥 �? 厅 。",
+            "output": [
+                "look for a japanese restaurant that is the closest to me ."
+            ]
+        },
+        {
+            "input": "臨 江 街 上 的 晶 晶 飾 �? 电 �? �?� �? 是 多 少 ?",
+            "output": [
+                "what 's the telephone number of the arby 's on sherman in muskegon , mi ?"
+            ]
+        },
+        {
+            "input": "最 接 近 的 �?� 西 亚 �? 馆 是 什 么 ?",
+            "output": [
+                "what is the closest italian restaurant with at least a NUMBER_0 star rating ?"
+            ]
+        },
+        {
+            "input": "最 接 近 的 淚 滴 熊 是 什 么 ?",
+            "output": [
+                "what is the closest coffee bean ?"
+            ]
+        },
+        {
+            "input": "最 近 的 泰 国 �? 厅 在 哪 里 ?",
+            "output": [
+                "where is the nearest mexican restaurant ?"
+            ]
+        },
+        {
+            "input": "显 示 对 董 的 �?� �? �? 的 评 分",
+            "output": [
+                "show me the review for harry 's seafood grill by antoine waring"
+            ]
+        },
+        {
+            "input": "晶 晶 飾 �? 的 评 级 是 多 少 ?",
+            "output": [
+                "what is the rating of that mcdonald ' ?"
+            ]
+        },
+        {
+            "input": "�?� 索 中 和 �?� 中 的 马 �?� 西 �? 馆 , 至 少 8 次 评 议 。",
+            "output": [
+                "search for an italian restaurant in dallas with at least NUMBER_0 reviews ."
+            ]
+        },
+        {
+            "input": "忠 �? �?� 路 一 段 號 中 的 咪 �?� 咪 �?� 的 评 级 是 什 么 ?",
+            "output": [
+                "what is the rating for the la unica in huntersville ?"
+            ]
+        },
+        {
+            "input": "季 候 风 的 评 级 是 什 么 ?",
+            "output": [
+                "what is the rating of olive garden ?"
+            ]
+        },
+        {
+            "input": "显 示 最 近 的 马 �?� �? 厅 的 �? 置 和 �?? 称 。",
+            "output": [
+                "show me the location and name of the nearest chinese restaurant ."
+            ]
+        },
+        {
+            "input": "显 示 最 接 近 的 溫 洲 大 餛 飩 , 至 少 有 5 颗 星 星 。",
+            "output": [
+                "show me the closest starbucks with at least NUMBER_0 stars ."
+            ]
+        },
+        {
+            "input": "�?� 索 5 个 星 �? 馆 的 10007 拉 链 �? 。",
+            "output": [
+                "search for NUMBER_0 star restaurants in the 49503 zip code ."
+            ]
+        },
+        {
+            "input": "西 贡 妈 妈 的 价 格 范 围 是 多 少 ?",
+            "output": [
+                "what is the price range for noodle express ?"
+            ]
+        },
+        {
+            "input": "6 个 星 级 拉 �? 风 �? 馆 ,",
+            "output": [
+                "show me NUMBER_0 star mexican restaurants that have more than NUMBER_1 reviews ."
+            ]
+        },
+        {
+            "input": "能 �? 能 带 我 看 看 附 近 五 星 级 �? 厅 ?",
+            "output": [
+                "can you show me all the NUMBER_0 star restaurants in the area ?"
+            ]
+        },
+        {
+            "input": "最 近 的 新 �?� 记 的 电 �? �?� �? 是 多 少 ?",
+            "output": [
+                "what is the phone number for the nearest wendy 's ?"
+            ]
+        },
+        {
+            "input": "�? 厅 的 评 级 是 多 少 ?",
+            "output": [
+                "what is the rating for this restaurant and how many reviews does it have ?"
+            ]
+        },
+        {
+            "input": "我 想 看 看 在 石 景 山 路 �?� 上 �?� 西 �? 馆 是 什 么 。",
+            "output": [
+                "i want to see what chinese restaurants are on madison avenue ."
+            ]
+        },
+        {
+            "input": "楚 �?� 有 多 少 关 于 王 府 井 烤 鸭 店 的 审 评 ?",
+            "output": [
+                "how many reviews has mike written about pizza hut ?"
+            ]
+        },
+        {
+            "input": "至 少 有 6 个 明 星 评 分 的 爱 尔 �? 厅 。",
+            "output": [
+                "find mexican restaurants with at least NUMBER_0 star rating ."
+            ]
+        },
+        {
+            "input": "显 示 DATE_0 上 翠 芬 撰 写 的 所 有 评 论 。",
+            "output": [
+                "show me all reviews written by paul on DATE_0 ."
+            ]
+        },
+        {
+            "input": "显 示 丹 丹 的 六 星 级 泰 国 接 �?� 点 评 论 。",
+            "output": [
+                "show tina 's NUMBER_0 star reviews of pizza joints ."
+            ]
+        },
+        {
+            "input": "附 近 有 8 家 明 星 俄 罗 斯 �? 厅 �?� ?",
+            "output": [
+                "are there any NUMBER_0 star mexican restaurants nearby ?"
+            ]
+        },
+        {
+            "input": "�?� 索 德 国 �?� �? 馆 , 至 少 进 行 5 次 审 查 。",
+            "output": [
+                "search for mexican restaurants with at least NUMBER_0 reviews ."
+            ]
+        },
+        {
+            "input": "找 到 一 家 �?? 供 爱 尔 食 �? 的 �? 馆 , 至 少 进 行 6 次 审 查 。",
+            "output": [
+                "find a restaurant that serves italian food with at least NUMBER_0 reviews ."
+            ]
+        },
+        {
+            "input": "最 近 的 尔 兰 �? 厅 是 什 么 ?",
+            "output": [
+                "what is the nearest mexican restaurant with a NUMBER_0 star rating ?"
+            ]
+        },
+        {
+            "input": "能 告 诉 我 最 近 的 6 星 泰 国 之 家 的 电 �? �?� �? �?� ?",
+            "output": [
+                "can you give me the phone number for the nearest NUMBER_0 star coffee house ?"
+            ]
+        },
+        {
+            "input": "�?� 纬 路 �?� 中 正 發 �?� �?� 店 评 级 是 多 少 ?",
+            "output": [
+                "what is the panda express in gainesville , fl rated ?"
+            ]
+        },
+        {
+            "input": "西 贡 妈 妈 的 明 星 评 分 是 多 少 ?",
+            "output": [
+                "what is the star rating for tilted kilt ?"
+            ]
+        },
+        {
+            "input": "最 近 的 评 分 和 评 分 是 多 少 ?",
+            "output": [
+                "what are the latest reviews and review scores for this restaurant ?"
+            ]
+        },
+        {
+            "input": "�?� 索 该 地 区 所 有 五 星 级 的 拉 �? 风 �? 厅 。",
+            "output": [
+                "search for all NUMBER_0 star , vegan restaurants in the area ."
+            ]
+        },
+        {
+            "input": "你 能 告 诉 我 最 接 近 的 咪 �?� 咪 �?� 在 哪 里 �?� ?",
+            "output": [
+                "can you tell me where the closest pizza hut is ?"
+            ]
+        },
+        {
+            "input": "王 府 井 烤 鸭 店 的 评 级 是 什 么 ?",
+            "output": [
+                "what is the rating of tgi fridays ?"
+            ]
+        },
+        {
+            "input": "德 国 �?�",
+            "output": [
+                "show me a list of vegan restaurants with at least NUMBER_0 reviews ."
+            ]
+        },
+        {
+            "input": "我 能 �?� 读 到 爱 尔 最 近 的 美 国 �? 厅 的 �?? 述 ?",
+            "output": [
+                "can i read the description of the closest italian restaurant ?"
+            ]
+        },
+        {
+            "input": "3 样 �?� 的 价 格 范 围 是 什 么 ?",
+            "output": [
+                "what is the price range for pizza ranch ?"
+            ]
+        },
+        {
+            "input": "显 示 最 接 近 的 6 星 级 �? 厅 的 �?? 述 。",
+            "output": [
+                "show description of the closest NUMBER_0 star restaurant ."
+            ]
+        },
+        {
+            "input": "最 近 的 尔 兰 �? 馆 的 电 �? �?� �? 是 多 少 ?",
+            "output": [
+                "what is the telephone number for the nearest chinese restaurant ?"
+            ]
+        },
+        {
+            "input": "哪 些 是 这 个 地 区 最 高 等 级 的 �? 厅 ?",
+            "output": [
+                "what is the highest rated restaurant in this area ?"
+            ]
+        },
+        {
+            "input": "�?� 锣 鼓 巷 �?� 厂 胡 �?� �?� 中 泰 国 �?� �? 馆 �?� 索 至 少 6 次 审 查",
+            "output": [
+                "search for vegan restaurants in lakeland , fl with at least NUMBER_0 reviews"
+            ]
+        },
+        {
+            "input": "我 离 �? 山 日 本 料 �?� 或 �?� �? �? 有 多 近 ?",
+            "output": [
+                "how close am i to art 's deli or carnegie deli ?"
+            ]
+        },
+        {
+            "input": "显 示 所 有 墨 西 哥 �? 厅 ,",
+            "output": [
+                "show me all chinese restaurants with NUMBER_0 star ratings within NUMBER_1 miles ."
+            ]
+        },
+        {
+            "input": "晶 晶 飾 �? 柜 �? 的 地 �?� 是 什 么 ?",
+            "output": [
+                "what is the address of the dunkin donuts closet to me ?"
+            ]
+        },
+        {
+            "input": "告 诉 我 甜 点 店 申 德 加 油 站 �? 厅 寿 �?� 中 和 �?� 店 的 破 碎 �?� 包 店 �? 厅 所 在 地 点 。",
+            "output": [
+                "tell me the location of flo 's chinese restaurant in scottsdale , arizona ."
+            ]
+        },
+        {
+            "input": "基 辅 罗 斯 �? 厅 的 电 �? �?� �? 是 多 少 ?",
+            "output": [
+                "what is the telephone number for krispy kreme ?"
+            ]
+        },
+        {
+            "input": "最 近 的 糯 言 酒 馆 在 哪 里 ?",
+            "output": [
+                "where is the nearest boston market ?"
+            ]
+        },
+        {
+            "input": "�? 离 最 近 的 頂 好 �?? 店 城 有 多 远 ?",
+            "output": [
+                "how far away is the closest olive garden ?"
+            ]
+        },
+        {
+            "input": "寧 �? 路 中 咪 �?� 咪 �?� 的 地 �?� 是 什 么 ?",
+            "output": [
+                "what is the address of the panda express in grand rapids , michigan ?"
+            ]
+        },
+        {
+            "input": "最 近 的 墨 西 哥 �? 厅 在 哪 里 , 至 少 进 行 5 个 星 级 审 查 ?",
+            "output": [
+                "where is the nearest mexican restaurant with at least a NUMBER_0 star review ?"
+            ]
+        },
+        {
+            "input": "5 家 在 枣 �?� 路 �?� 好 �? 街 �?� 的 五 家 最 高 评 分 的 国 料 �? 厅 的 价 格 如 何 ?",
+            "output": [
+                "what are the prices for the NUMBER_0 highest rated italian restaurants in roanoke , va ?"
+            ]
+        },
+        {
+            "input": "�?� 看 看 我 最 近 的 �?� 山 市 場 的 评 语 �?� ?",
+            "output": [
+                "let me see the reviews for the jimmy john 's nearest to me ?"
+            ]
+        },
+        {
+            "input": "什 么 是 6 星 级 国 料 �? 厅 ?",
+            "output": [
+                "what is a NUMBER_0 star mexican restaurant ?"
+            ]
+        },
+        {
+            "input": "离 我 最 近 的 哪 里 有 六 星 级 评 论 ?",
+            "output": [
+                "what places close to me have NUMBER_0 star reviews ?"
+            ]
+        },
+        {
+            "input": "在 �?� 长 街 �?� 寻 找 6 个 星 级 墨 西 哥 食 物 。",
+            "output": [
+                "search for NUMBER_0 star rated italian food in dallas ."
+            ]
+        },
+        {
+            "input": "5 星 级 评 论 , 请 给 我 看 奋 芳 写 的 。",
+            "output": [
+                "can you show me NUMBER_0 star reviews written by john smith ."
+            ]
+        },
+        {
+            "input": "西 鬧 市 集 有 多 少 个 星 级 评 论 ?",
+            "output": [
+                "how many 1 star reviews are there for peet 's coffee ?"
+            ]
+        },
+        {
+            "input": "我 想 看 看 所 有 春 涛 写 的 一 星 评 论 。",
+            "output": [
+                "i want to see all of the 1 star reviews that sheila wrote ."
+            ]
+        },
+        {
+            "input": "找 到 所 有 西 �?� �? 厅 。",
+            "output": [
+                "locate all italian restaurants ."
+            ]
+        },
+        {
+            "input": "能 �?� 找 一 个 评 分 为 6 的 �? 厅 ?",
+            "output": [
+                "can you look for a restaurant with a rating of NUMBER_0 ?"
+            ]
+        },
+        {
+            "input": "�? 往 一 家 �? 厅 预 约 至 少 8 份 评 论 。",
+            "output": [
+                "looking to book a restaurant with at least NUMBER_0 reviews ."
+            ]
+        },
+        {
+            "input": "寻 找 寧 �? 夜 市 。",
+            "output": [
+                "search for bayshore bean ."
+            ]
+        },
+        {
+            "input": "展 示 给 我 看 多 国 �? 馆 。",
+            "output": [
+                "show me vietnamese restaurants ."
+            ]
+        },
+        {
+            "input": "找 到 所 有 葡 �?� 。",
+            "output": [
+                "find all the bakeries ."
+            ]
+        },
+        {
+            "input": "显 示 所 有 �? 厅 的 评 分 与 确 切 的 六 颗 星 。",
+            "output": [
+                "show me all restaurants rated with exactly NUMBER_0 stars ."
+            ]
+        },
+        {
+            "input": "新 �?� 记 在 哪 里 ?",
+            "output": [
+                "where is los compadres ?"
+            ]
+        },
+        {
+            "input": "寻 找 �?� 牙 �? 馆 。",
+            "output": [
+                "find thai restaurants ."
+            ]
+        },
+        {
+            "input": "显 示 家 樂 �? 。",
+            "output": [
+                "show me cook out ."
+            ]
+        },
+        {
+            "input": "�?� 现 超 过 六 份 评 论 的 �? 厅 。",
+            "output": [
+                "find restaurants with more than NUMBER_0 reviews ."
+            ]
+        },
+        {
+            "input": "浦 城 街 巷 2 號 中 的 手 手 市 集 是 �?� 进 行 过 审 查 ?",
+            "output": [
+                "does the lone star steakhouse in dallas nc have a review yet ?"
+            ]
+        },
+        {
+            "input": "你 能 给 我 看 一 下 正 發 �?� �?� 店 的 收 视 率 �?� ?",
+            "output": [
+                "can you show me the ratings for j dog ?"
+            ]
+        },
+        {
+            "input": "你 能 找 到 我 所 在 �? 置 附 近 的 �? 厅 �?� ?",
+            "output": [
+                "can you find the restaurant nearest to my location ?"
+            ]
+        },
+        {
+            "input": "帮 我 找 家 墨 西 哥 。",
+            "output": [
+                "look up a mexican restaurant for me ."
+            ]
+        },
+        {
+            "input": "请 在 西 �?� 北 大 街 �?� �?� 太 货 上 给 我 找 个 �? 馆",
+            "output": [
+                "find me a restaurant on main st . please ."
+            ]
+        },
+        {
+            "input": "请 给 我 展 示 最 高 分 的 �? 厅",
+            "output": [
+                "show me the highest rated restaurant please ."
+            ]
+        },
+        {
+            "input": "哪 些 �? 厅 是 最 高 审 查 数 ?",
+            "output": [
+                "what restaurant has the highest review count ?"
+            ]
+        },
+        {
+            "input": "定 乡 �? 馆 审 查 的 目 的 是 什 么 ?",
+            "output": [
+                "what restaurant does jeff weisnear review for ?"
+            ]
+        },
+        {
+            "input": "寻 找 俄 罗 斯 �? 馆 。",
+            "output": [
+                "search for korean bbq restaurants ."
+            ]
+        },
+        {
+            "input": "当 地 有 多 少 审 查 ?",
+            "output": [
+                "how many reviews does the place have ?"
+            ]
+        },
+        {
+            "input": "最 近 的 墨 西 哥 地 点 在 哪 里 ?",
+            "output": [
+                "where is the nearest chinese place ?"
+            ]
+        },
+        {
+            "input": "附 近 有 多 少 地 方 �?� 以 �?� ?",
+            "output": [
+                "how many places to eat are nearby ?"
+            ]
+        },
+        {
+            "input": "显 示 所 有 10 颗 星 以 下 的 �? 厅 。",
+            "output": [
+                "show all the restaurants below NUMBER_0 stars ."
+            ]
+        },
+        {
+            "input": "拉 �? 风",
+            "output": [
+                "give me all the italian places ."
+            ]
+        },
+        {
+            "input": "�?� 现 被 评 为 8 以 下 的 �? 厅 。",
+            "output": [
+                "find restaurants rated lower than NUMBER_0 ."
+            ]
+        },
+        {
+            "input": "寻 找 快 �? �? 馆 。",
+            "output": [
+                "find mexican restaurants ."
+            ]
+        },
+        {
+            "input": "展 示 给 我 看 尔 兰 �? 馆 。",
+            "output": [
+                "show me french restaurants ."
+            ]
+        },
+        {
+            "input": "显 示 我 �? 山 日 本 料 �?� 。",
+            "output": [
+                "show me le pain quotidien ."
+            ]
+        },
+        {
+            "input": "超 过 六 份 评 论 ,",
+            "output": [
+                "find restaurants with more than NUMBER_0 reviews ."
+            ]
+        },
+        {
+            "input": "是 �?� 有 一 家 �?? 为 魅 酒 �?� 的 �? 厅 ?",
+            "output": [
+                "is there a restaurant named china king ?"
+            ]
+        },
+        {
+            "input": "在 我 的 地 区 最 低 分 级 的 �? 厅 是 什 么 ?",
+            "output": [
+                "what 's the lowest rated diner in my area ?"
+            ]
+        },
+        {
+            "input": "最 高 等 级 的 �? 厅 是 什 么 ?",
+            "output": [
+                "what is the highest rated restaurant ?"
+            ]
+        },
+        {
+            "input": "附 近 有 一 家 俄 罗 斯 �? 厅 �?� ?",
+            "output": [
+                "is there a japanese restaurant nearby ?"
+            ]
+        },
+        {
+            "input": "最 近 的 �? 馆 地 �?� 是 ?",
+            "output": [
+                "what 's the address of the closest restaurant ?"
+            ]
+        },
+        {
+            "input": "淚 滴 熊 在 哪 里 ?",
+            "output": [
+                "where is thai kitchen ?"
+            ]
+        },
+        {
+            "input": "展 示 给 我 看 的 多 国 料 �? 馆",
+            "output": [
+                "show me mexican restaurants"
+            ]
+        },
+        {
+            "input": "6 个 明 星 �? 厅 都 给 我 看",
+            "output": [
+                "show me all NUMBER_0 star restaurants"
+            ]
+        },
+        {
+            "input": "展 示 给 我 看 5 �?� �?� 胡 �?� �?� �? 馆",
+            "output": [
+                "show me main street restaurants"
+            ]
+        },
+        {
+            "input": "显 示 季 候 风 的 地 �?�",
+            "output": [
+                "show the address of thai corner"
+            ]
+        },
+        {
+            "input": "�?� 索 最 近 的 西 鬧 市 集 �? 馆 ?",
+            "output": [
+                "search for the nearest wendy 's restaurant ?"
+            ]
+        },
+        {
+            "input": "找 到 一 个 寿 �?� �? 厅 ?",
+            "output": [
+                "find a steak house restaurant ?"
+            ]
+        },
+        {
+            "input": "展 示 给 我 看 斯 风 �? 厅 ?",
+            "output": [
+                "show me mediterranean restaurants ?"
+            ]
+        },
+        {
+            "input": "显 示 最 佳 �? 厅",
+            "output": [
+                "show me the best rated restaurants"
+            ]
+        },
+        {
+            "input": "带 我 �?� 观 附 近 �? 厅 的 �? 馆",
+            "output": [
+                "show me restaurants near me"
+            ]
+        },
+        {
+            "input": "显 示 我 最 欣 �? 的 �? 厅",
+            "output": [
+                "show me restaurants with the most reviews"
+            ]
+        },
+        {
+            "input": "找 到 我 的 墨 西 哥 处 所",
+            "output": [
+                "find me pizza places"
+            ]
+        },
+        {
+            "input": "找 到 德 国 �?� 地 点 。",
+            "output": [
+                "find a pizza place ."
+            ]
+        },
+        {
+            "input": "展 示 给 我 看 一 个 德 国 �? 厅 。",
+            "output": [
+                "show me a sushi restaurant ."
+            ]
+        },
+        {
+            "input": "寻 找 所 有 8 颗 星 的 拉 �? 风 �? 置 。",
+            "output": [
+                "find all NUMBER_0 star bbq places ."
+            ]
+        },
+        {
+            "input": "展 示 我 的 墨 西 �? 馆 。",
+            "output": [
+                "show me italian restaurants ."
+            ]
+        },
+        {
+            "input": "找 到 所 有 8 家 明 星 �? 厅",
+            "output": [
+                "find all NUMBER_0 star diners ."
+            ]
+        },
+        {
+            "input": "�? 看 至 少 5 分 的 �? 厅",
+            "output": [
+                "i 'd like to see restaurants with at least a rating of NUMBER_0 ."
+            ]
+        }
+    ]
+}
