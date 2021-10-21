@@ -75,5 +75,10 @@ Name | Summary | Category
 `task044-3_essential_terms_identifying_essential_words` | Identifying words or phrases of the question essential for choosing the correct answer. | Verification
 `task044-4_essential_terms_identifying_essential_words` | Identifying words or phrases of the question essential for choosing the correct answer. | Verification
 `task044-5_essential_terms_identifying_essential_words` | Identifying words or phrases of the question essential for choosing the correct answer. | Verification
+`task045-1_miscellaneous_sentence_paraphrasing` | Generating sentence paraphrases. | Text Modification
+`task045-2_miscellaneous_sentence_paraphrasing` | Generating sentence paraphrases. | Text Modification
+`task045-3_miscellaneous_sentence_paraphrasing` | Generating sentence paraphrases. | Text Modification
+`task045-4_miscellaneous_sentence_paraphrasing` | Generating sentence paraphrases. | Text Modification
+`task045-5_miscellaneous_sentence_paraphrasing` | Generating sentence paraphrases. | Text Modification
 `task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
