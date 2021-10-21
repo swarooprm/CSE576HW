@@ -25,5 +25,5 @@ Name | Summary | Category
 `task027-3_drop_answer_type_generation` | Finding the answer type of a reasoning question. | Classification
 `task027-4_drop_answer_type_generation` | Finding the answer type of a reasoning question. | Classification
 `task027-5_drop_answer_type_generation` | Finding the answer type of a reasoning question. | Classification
-`task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
+`task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
