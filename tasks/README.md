@@ -55,5 +55,10 @@ Name | Summary | Category
 `task040-3_qasc_question_generation` | Creating a question based on a given sentence. | Question Generation
 `task040-4_qasc_question_generation` | Creating a question based on a given sentence. | Question Generation
 `task040-5_qasc_question_generation` | Creating a question based on a given sentence. | Question Generation
+`task041-1_qasc_answer_generation` | Writing correct answer to a given question based on a given sentence. | Answer Generation
+`task041-2_qasc_answer_generation` | Writing correct answer to a given question based on a given sentence. | Answer Generation
+`task041-3_qasc_answer_generation` | Writing correct answer to a given question based on a given sentence. | Answer Generation
+`task041-4_qasc_answer_generation` | Writing correct answer to a given question based on a given sentence. | Answer Generation
+`task041-5_qasc_answer_generation` | Writing correct answer to a given question based on a given sentence. | Answer Generation
 `task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
