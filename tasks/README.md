@@ -22,7 +22,7 @@ Name | Summary | Category
 "task175_1_spl_translation_en_pl" | Translate English questions to Polish while preserving named entities in the original language. | Translation
 "task175_2_spl_translation_en_pl" | Translate English questions to Polish while preserving named entities in the original language. | Translation
 "task176_1_break_decompose_questions_p2" | Break a question into the steps needed to answer the question. | Question Decomposition
-"task176_2_break_decompose_question_p2" | Break a question into the steps needed to answer the question. | Question Decomposition
+"task176_2_break_decompose_questions_p2" | Break a question into the steps needed to answer the question. | Question Decomposition
 "task177_1_para-nmt_paraphrasing_p2" | Given a sentence, rephrase it using another words while retaining meaning same as input. | Text Modification
 "task177_2_para-nmt_paraphrasing_p2" | Given a sentence, rephrase it using another words while retaining meaning same as input. | Text Modification
 "task178_1_quartz_question_answering_p2" |   Given a question, select the correct answer from the given options using an explanation. | Answer Generation
