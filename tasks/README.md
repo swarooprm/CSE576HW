@@ -11,6 +11,7 @@ Name | Summary | Category
 `task885_lhoestq_answer_quantity.json` | Generating answers to lhoestq questions based on quantity | Answer Generation
 `task887_lhoestq_answer_place.json` | Generating answers to lhoestq questions based on place | Answer Generation
 `task888_lhoestq_answer_frequency.json` | Generating answers to lhoestq questions based on frequency | Answer Generation
+`definitions.json` | Generated alternate defintions of the given tasks | Text Modification
 `task428_senteval_inversion.json` | Seeing if something is inverted or not | Classification
 `task429_senteval_tense.json` | Checking the tense of a particular sentence | Classification
 `task430_senteval_subject_count.json` | Confirming whether a subject is singular or plural | Classification
