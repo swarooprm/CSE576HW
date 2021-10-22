@@ -10,6 +10,7 @@ Name | Summary | Category
 `task475_C_yelp_polarity_classification` | Classify a given Yelp review to positive or negative sentiment | Classification
 `task475_D_yelp_polarity_classification` | Classify a given Yelp review to positive or negative sentiment | Classification
 `task475_E_yelp_polarity_classification` | Classify a given Yelp review to positive or negative sentiment | Classification
+`task475_F_yelp_polarity_classification` | Classify a given Yelp review to positive or negative sentiment | Classification
 `task476_A_cls_english_books_classification` | Classify a given book product review in English to positive or negative sentiment | Classification
 `task476_B_cls_english_books_classification` | Classify a given book product review in English to positive or negative sentiment | Classification
 `task477_A_cls_english_dvd_classification` | Classify a given dvd product review in English to positive or negative sentiment | Classification
@@ -39,10 +40,30 @@ Name | Summary | Category
 `task513_A_argument_stance_classification` | Given a topic and an argument, decide the stance of the argument towards the topic | Classification
 `task514_A_argument_consequence_classification` | Given a topic and an argument, decide whether the argument refers to a consequence of the topic | Classification
 `task515_A_senteval_odd_word_out` | Given a sentence judge whether a single word has been replaced with another word. | Classification
+`task515_B_senteval_odd_word_out` | Given a sentence judge whether a single word has been replaced with another word. | Classification
+`task515_C_senteval_odd_word_out` | Given a sentence judge whether a single word has been replaced with another word. | Classification
+`task515_D_senteval_odd_word_out` | Given a sentence judge whether a single word has been replaced with another word. | Classification
+`task515_E_senteval_odd_word_out` | Given a sentence judge whether a single word has been replaced with another word. | Classification
+`task515_F_senteval_odd_word_out` | Given a sentence judge whether a single word has been replaced with another word. | Classification
 `task516_A_senteval_conjoints_inversion` | Given a sentence judge whether two clausal conjoints have been inverted. | Classification
+`task516_B_senteval_conjoints_inversion` | Given a sentence judge whether two clausal conjoints have been inverted. | Classification
+`task516_C_senteval_conjoints_inversion` | Given a sentence judge whether two clausal conjoints have been inverted. | Classification
+`task516_D_senteval_conjoints_inversion` | Given a sentence judge whether two clausal conjoints have been inverted. | Classification
+`task516_E_senteval_conjoints_inversion` | Given a sentence judge whether two clausal conjoints have been inverted. | Classification
+`task516_F_senteval_conjoints_inversion` | Given a sentence judge whether two clausal conjoints have been inverted. | Classification
 `task517_A_emo_classify_emotion_of_dialogue` | Classify the emotion of a given dialogue | Classification, Sentiment Analysis
+`task517_B_emo_classify_emotion_of_dialogue` | Classify the emotion of a given dialogue | Classification, Sentiment Analysis
 `task518_A_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task518_B_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task518_C_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task518_D_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task518_E_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task518_F_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task518_G_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task518_H_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task518_I_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
 `task519_A_aquamuse_question_generation` | Given an answer generate a question that would be answered by the answer given | Question Generation
+`task519_B_aquamuse_question_generation` | Given an answer generate a question that would be answered by the answer given | Question Generation
 `task520_A_aquamuse_answer_given_in_passage` | Given a passage and a question determine if the question can be answered by the passage | Classification
 `task521_A_trivia_question_classification` | Given a text from a trivia quiz, decide the category the question belongs to | Classification
 `task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
