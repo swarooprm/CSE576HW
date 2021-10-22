@@ -12,7 +12,7 @@ Name | Summary | Category
 `task098_conala_list_intersection.json` | Generating answers | Answer Generation
 `task102_commongen_sentence_generation.json` | Generating answers | Sentence Generation
 `task103_facts2story_long_text_generation.json` | Generating answers | Long Text Generation
-`task104_semeval_2019_task10_closed_vocabulary_mathematical_answer_generation.json` | Generating answers | Math Question Answering
+`task104_semeval_2019_task10_closed_vocabulary_mathematical_answer_generation.json` | Generating answers | Math Question Answer Generation
 `task105_story_cloze-rocstories_sentence_generation.json` | Generating answers | Story Completion
 `task106_scruples_ethical_judgment.json` | Generating answers | Ethical Judgment
 `task107_splash_question_to_sql.json` | Generating answers | Structered Query Generation
