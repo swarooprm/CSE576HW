@@ -1,0 +1,662 @@
+{
+    "Contributors": [
+        "Subba Raja Kashyap Saligrama"
+    ],
+    "Source": [
+        "MATRES (http://cogcomp.org/papers/NingWuRo18.pdf, https://github.com/CogComp/MATRES)"
+    ],
+    "Categories": [
+        "Classification"
+    ],
+    "Definition": "you will be given a context and a verb. if a verb has happened in the past, or happening now, or is likely to happen in the future, we say it can be anchored in the real timeline. if the verb can be anchored in time, the output should be \"Yes\" and \"No\" otherwise.",
+    "Positive Examples": [
+        {
+            "input": "Margalit Har-Shefi , 22 , has pleaded innocent to charges that she failed to report Yigal Amir 's plan to kill Rabin. She (took) the stand for more than four hours Friday in a Tel Aviv magistrate 's court . \n Verb: took",
+            "output": "Yes",
+            "explanation": "The verb 'took' in this sentence is anchorable because it happended in the past."
+        },
+        {
+            "input": "Amir , 27 , is serving a life sentence for the November 1995 assassination of Rabin at a Tel Aviv peace rally. Newspaper reports have said Amir was infatuated with Har-Shefi and may have been trying to (impress) her by killing the prime minister . \n Verb: impress",
+            "output": "No",
+            "explanation": "There is no surity to say that the given verb happens definetely at some point of time. So it is not anchorable."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Preliminary DNA tests link a missing anti-abortion activist to a strand of hair found near where a sniper shot and killed a Buffalo , N.Y. , doctor who performed abortions , a law enforcement official said Friday . The first round of DNA tests on the hair at the FBI Laboratory here established a high probability it came from the same person as a hair found in a New Jersey home where James C. Kopp , a 44-year-old anti-abortion protester , lived last year , the official (said) .  \n Verb :said",
+            "output": "No",
+            "explanation": "In this sentence, the saying action happened in the past, and it's anchorable."
+        },
+        {
+            "input": "She also denied accusations made by Amir 's brother , Hagai , that she joined an anti-Arab underground movement . </p><p>She said she gave the Amir brothers false information regarding the location of a weapons and ammunition cache when they asked her to (help) organize such a movement . \n Verb: help",
+            "output": "Yes",
+            "explanation": "There is no surity to say that the given verb happens definetely at some point of time. So it is not anchorable and the answer should be No."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "On May 22 , 1995 , Farkas was made a brigadier general , and the following year he was appointed military attache at the Hungarian embassy in Washington . However , cited by District of Columbia traffic police in December for (driving) under the influence of alcohol , Farkas was ordered home and retired . \n Verb: driving",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The move had been widely expected after northern Ireland police said they believe the IRA was behind two killings in Belfast last week . Sinn Fein chairman Mitchell McLaughlin (says) the party will challenge the move by legal means if they have to . \n Verb: says",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The men appeared in the store at 469 Vermont St. in Brownsville around 7:15 p.m. , after the victim , Linda Sanders , 35 , had finished her cleaning and was waiting for her clothes to dry , detectives said . `` It looks as though they (panicked) , '' a detective , speaking on condition of anonymity , said of the robbers . \n Verb: panicked",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "He spent six days aboard the Salyut 6 spacecraft with three Soviet astronauts , Valery Kubasov , Leonid Popov and Valery Riumin . McBride , 54 , of Lewisburg , West Virginia , was part of a seven-member crew aboard the Orbiter Challenger in October 1984 and later (served) as assistant administrator for congressional relations for NASA . \n Verb: served",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The US military buildup in the Persian gulf continues apace , more planes headed from the united states and senior officials say Iraq 's president Saddam Hussein can expect punishing air strikes to continue well into the future if he does n't stop building biological and chemical weapons . Saddam will know by our actions and our warning that we will be prepared to (act) again if we have evidence he is trying to rebuild his weapons of mass destruction capabilities . \n Verb: act",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Saddam will know by our actions and our warning that we will be prepared to act again if we have evidence he is trying to rebuild his weapons of mass destruction capabilities . In a bit of television diplomacy , Iraq 's deputy foreign minister responded from Baghdad in less than one hour , saying Washington would (break) international law by attacking without UN approval . \n Verb: break",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "With American astronaut Jon McBride , Farkas set up an American-Hungarian joint venture called Orion 1980 , manufacturing space-travel related technology . Farkas will (move) to the company 's U.S. headquarters . \n Verb: move",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Farkas expressed the hope he one day follow in the footsteps of fellow astronaut John Glenn , who at 77 is about to go into space again . On May 22 , 1995 , Farkas was made a brigadier general , and the following year he was (appointed) military attache at the Hungarian embassy in Washington . \n Verb: appointed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Also today , King Hussein of Jordan arrived in Washington seeking to mediate the Persian Gulf crisis . President Bush on Tuesday said the United States may (extend) its naval quarantine to Jordan 's Red Sea port of Aqaba to shut off Iraq 's last unhindered trade route . \n Verb: extend",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Nevertheless , the president said Washington would use force if diplomacy fails to force Saddam Hussein to back down . The Russian foreign minister , meanwhile , sought to soften the harsh words of his military counterpart , saying on Friday that Russia now feels the US must (hold) off at least until UN secretary general Kofi Annan visits Baghdad in a last-ditch effort at diplomacy . \n Verb: hold",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "And uh we 've already challenged , very strongly , the uh the terms in which this has been presented . But we 're (challenging) it on the ground that uh the RUC uh have offered an opinion , and this opinion is going to be used as a mechanism for ejecting us from the talks , and uh that 's a very serious . \n Verb: challenging",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Ms. Sanders was hit several times and was pronounced dead at the scene . The other customers fled , and the police said it did not appear that anyone else was (injured) . \n Verb: injured",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "There were four or five people inside , and they just started firing . '' Ms. Sanders was (hit) several times and was pronounced dead at the scene . \n Verb: hit",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The company 's sales force applauded the shake up . It 's not something we 're not (used) to in the industry . \n Verb: used",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "They were too afraid to stay , fearing the forces may also move their operations further afield . By mid afternoon , official Serb sources were saying the operation was over , but that has not yet been (confirmed) from Belgrade , the capital of Serbia , which is where the whole attack is thought to have been planned . \n Verb: confirmed",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "A powerful ice storm continues to maintain its grip . Yesterday New York governor George Pataki (toured) five counties that have been declared under a state of emergency . \n Verb: toured",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "One contrary view of the issue presented itself to the president as he arrived in Philadelphia later in the day . Nevertheless , the president said Washington would use force if diplomacy fails to (force) Saddam Hussein to back down . \n Verb: force",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The outlook darkened for about 3,000 Americans caught in Iraq and Kuwait when Saddam sent his forces into the small , oil-rich sultanate . The Iraqi ambassador to Greece said in Athens the Americans and other stranded foreigners could leave `` as soon as the threats from the United States and its allies are (eliminated) . '' \n Verb: eliminated",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The British government has formally called for Sinn Fein , the IRA 's political wing , to be expelled from the multiparty peace talks on northern Ireland . The move had been widely expected after northern Ireland police (said) they believe the IRA was behind two killings in Belfast last week . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The men appeared in the store at 469 Vermont St. in Brownsville around 7:15 p.m. , after the victim , Linda Sanders , 35 , had finished her cleaning and was waiting for her clothes to dry , detectives said . `` It looks as though they panicked , '' a detective , (speaking) on condition of anonymity , said of the robbers . \n Verb: speaking",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "We 're going to fight it . And uh we 've already (challenged) , very strongly , the uh the terms in which this has been presented . \n Verb: challenged",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "On May 22 , 1995 , Farkas was made a brigadier general , and the following year he was appointed military attache at the Hungarian embassy in Washington . However , (cited) by District of Columbia traffic police in December for driving under the influence of alcohol , Farkas was ordered home and retired . \n Verb: cited",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The US military buildup in the Persian gulf continues apace , more planes headed from the united states and senior officials say Iraq 's president Saddam Hussein can expect punishing air strikes to continue well into the future if he does n't stop building biological and chemical weapons . Saddam will know by our actions and our warning that we will be (prepared) to act again if we have evidence he is trying to rebuild his weapons of mass destruction capabilities . \n Verb: prepared",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "On May 22 , 1995 , Farkas was made a brigadier general , and the following year he was appointed military attache at the Hungarian embassy in Washington . However , cited by District of Columbia traffic police in December for driving under the influence of alcohol , Farkas was ordered home and (retired) . \n Verb: retired",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "There have been no arrests in any of the slayings . `` I have n't (seen) a pattern yet , '' said Patricia Hurt , the Essex County prosecutor , who created the task force on Tuesday . \n Verb: seen",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Steve Hurst has that . The US military buildup in the Persian gulf continues apace , more planes headed from the united states and senior officials say Iraq 's president Saddam Hussein can expect punishing air strikes to continue well into the future if he does n't stop (building) biological and chemical weapons . \n Verb: building",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Also today , King Hussein of Jordan arrived in Washington seeking to mediate the Persian Gulf crisis . President Bush on Tuesday said the United States may extend its naval quarantine to Jordan 's Red Sea port of Aqaba to (shut) off Iraq 's last unhindered trade route . \n Verb: shut",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Farkas expressed the hope he one day follow in the footsteps of fellow astronaut John Glenn , who at 77 is about to go into space again . On May 22 , 1995 , Farkas was (made) a brigadier general , and the following year he was appointed military attache at the Hungarian embassy in Washington . \n Verb: made",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Annan has no trip planned so far . Meanwhile , secretary of state Madeleine Albright , Berger and defense secretary William Cohen announced plans to travel to an unnamed city in the US heartland next week , to explain to the American people just why military force will be necessary if diplomacy (fails) . \n Verb: fails",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In a bit of television diplomacy , Iraq 's deputy foreign minister responded from Baghdad in less than one hour , saying Washington would break international law by attacking without UN approval . The united states is not (authorized) to use force before going to the council . \n Verb: authorized",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The British government has formally called for Sinn Fein , the IRA 's political wing , to be expelled from the multiparty peace talks on northern Ireland . The move had been widely expected after northern Ireland police said they (believe) the IRA was behind two killings in Belfast last week . \n Verb: believe",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "In other developments : The Pentagon said that Defense Secretary Dick Cheney is considering urging Bush to order a national callup of armed forces reserves for active duty because of the drain on units sending soldiers abroad . Bush can (call) up to 200,000 reservists for up to 180 days without seeking congressional approval . \n Verb: call",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The investigation will consider the role of `` internal and external forces prior to the genocide and subsequently , and the role of the United Nations and its agencies and the OAU before , during and after the genocide , '' the OAU said . The panel will be (based) in Addis Ababa , and will finish its investigation within a year , it said . \n Verb: based",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "NEWARK , N.J. _ A new Essex County task force began delving Thursday into the slayings of 14 black women over the last five years in the Newark area , as law-enforcement officials acknowledged that they needed to work harder to solve the cases of murdered women . The police and prosecutors said they had identified different suspects in six of the cases and had yet to (find) any pattern linking the killings or the victims , several of whom were believed to be prostitutes . \n Verb: find",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The British government has formally called for Sinn Fein , the IRA 's political wing , to be expelled from the multiparty peace talks on northern Ireland . The move had been widely (expected) after northern Ireland police said they believe the IRA was behind two killings in Belfast last week . \n Verb: expected",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Annan has no trip planned so far . Meanwhile , secretary of state Madeleine Albright , Berger and defense secretary William Cohen announced plans to (travel) to an unnamed city in the US heartland next week , to explain to the American people just why military force will be necessary if diplomacy fails . \n Verb: travel",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The men took no money from their victim or from the establishment , said Detective Joseph Pentangelo , a Police Department spokesman . Victor Miranda , who lives in Ms. Sanders ' apartment building at 405 Williams Ave. , said the laundry machines in the building were (removed) a few years ago to make room for management offices . \n Verb: removed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Iraq 's Saddam Hussein , facing U.S. and Arab troops at the Saudi border , today sought peace on another front by promising to (withdraw) from Iranian territory and release soldiers captured during the Iran-Iraq war . \n Verb: withdraw",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Ms. Sanders was hit several times and was pronounced dead at the scene . The other customers (fled) , and the police said it did not appear that anyone else was injured . \n Verb: fled",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "On May 22 , 1995 , Farkas was made a brigadier general , and the following year he was appointed military attache at the Hungarian embassy in Washington . However , cited by District of Columbia traffic police in December for driving under the influence of alcohol , Farkas was (ordered) home and retired . \n Verb: ordered",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The men took no money from their victim or from the establishment , said Detective Joseph Pentangelo , a Police Department spokesman . Victor Miranda , who (lives) in Ms. Sanders ' apartment building at 405 Williams Ave. , said the laundry machines in the building were removed a few years ago to make room for management offices . \n Verb: lives",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "He added one more today . Helicopters are (flying) over northern New York today trying to locate people stranded without food , heat or medicine . \n Verb: flying",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "NEWARK , N.J. _ A new Essex County task force began delving Thursday into the slayings of 14 black women over the last five years in the Newark area , as law-enforcement officials acknowledged that they needed to work harder to (solve) the cases of murdered women . \n Verb: solve",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "And uh we 've already challenged , very strongly , the uh the terms in which this has been presented . But we 're challenging it on the ground that uh the RUC uh have (offered) an opinion , and this opinion is going to be used as a mechanism for ejecting us from the talks , and uh that 's a very serious . \n Verb: offered",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "ISTANBUL , Turkey ( AP ) _ Some 1,500 ethnic Albanians (marched) Sunday in downtown Istanbul , burning Serbian flags to protest the killings of ethnic Albanians by Serb police in southern Serb Kosovo province . \n Verb: marched",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "In a letter to President Hashemi Rafsanjani of Iran , read by a broadcaster over Baghdad radio , Saddam said he will begin withdrawing troops from Iranian territory on Friday and release Iranian prisoners of war . Iran said an Iraqi diplomatic delegation was en route to Tehran to deliver Saddam 's message , which it said it would (review) `` with optimism . '' \n Verb: review",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "We 're trying to find a diplomatic solution . And I hope that , whatever happens today , that our relationships with Russia will (continue) to be productive and constructive and strong , because that 's very important to the future of our peoples . \n Verb: continue",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "We 're trying to find a diplomatic solution . And I hope that , whatever (happens) today , that our relationships with Russia will continue to be productive and constructive and strong , because that 's very important to the future of our peoples . \n Verb: happens",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Farkas , an air force captain , was sent into space on board the Soyuz 36 on May 26 , 1980 . He (spent) six days aboard the Salyut 6 spacecraft with three Soviet astronauts , Valery Kubasov , Leonid Popov and Valery Riumin . \n Verb: spent",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "A powerful ice storm continues to maintain its grip . Yesterday New York governor George Pataki toured five counties that have been (declared) under a state of emergency . \n Verb: declared",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Soviet Foreign Ministry spokesman Yuri Gremitskikh said special ambassador Mikhail Sytenko left Tuesday for consultations with the governments of Syria , Jordan , Egypt and other Arab countries . Sytenko , a former deputy secretary-general of the United Nations , is also expected to (visit) Baghdad , Gremitskikh said at a regular news briefing today . \n Verb: visit",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The British government has formally (called) for Sinn Fein , the IRA 's political wing , to be expelled from the multiparty peace talks on northern Ireland . \n Verb: called",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "He added one more today . Helicopters are flying over northern New York today (trying) to locate people stranded without food , heat or medicine . \n Verb: trying",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Libya , which brought the case to the United Nations ' highest judicial body in its dispute with the United States and Britain , hailed the ruling and said it would press anew for a trial in a third neutral country . Both U.S. and British officials filed objections to the court 's jurisdiction in 1995 , claiming Security Council resolutions imposed on Lybia to (force) the suspects ' extradition overruled a 1971 Convention which gives Libya the right to try the men . \n Verb: force",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "`` Being 48 is too early to be retired , '' a fit-looking Farkas said on state TV 's morning talk show . With American astronaut Jon McBride , Farkas (set) up an American-Hungarian joint venture called Orion 1980 , manufacturing space-travel related technology . \n Verb: set",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "`` They intended to rob the place . There were four or five people inside , and they just (started) firing . '' \n Verb: started",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The other customers fled , and the police said it did not appear that anyone else was injured . The men took no money from their victim or from the establishment , (said) Detective Joseph Pentangelo , a Police Department spokesman . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "BUDAPEST , Hungary ( AP ) _ Tired of being sidelined , Hungarian astronaut Bertalan Farkas is leaving for the United States to start a new career , he (said) Saturday . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "In another mediation effort , the Soviet Union said today it had sent an envoy to the Middle East on a series of stops to include Baghdad . Soviet officials also said Soviet women , children and invalids would be allowed to (leave) Iraq . \n Verb: leave",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "CBS News first reported last night that the tomb may contain the remains of Air Force pilot Michael Blassie . There was a suspicion the body (was) Blassie because his uniform and ID card were found near the body in Vietnam . \n Verb: was",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The lights are out and the heat is off and those vital signs are not likely to change much over the next several days for p - people in parts of the northeastern US and eastern Canada . A powerful ice storm (continues) to maintain its grip . \n Verb: continues",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "ISTANBUL , Turkey ( AP ) _ Some 1,500 ethnic Albanians marched Sunday in downtown Istanbul , burning Serbian flags to protest the killings of ethnic Albanians by Serb police in southern Serb Kosovo province . The police barred the crowd from reaching the Yugoslavian consulate in downtown Istanbul , but (allowed) them to demonstrate on nearby streets . \n Verb: allowed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The move seemed aimed at heading off more trouble with Iran , which had condemned Iraq 's invasion of Kuwait on Aug. 2 but also criticized the multinational force dispatched to Saudi Arabia . Saddam said he sought to `` (turn) the gulf into a lake of peace free of foreign fleets and forces that harbor ill intentions against us . '' \n Verb: turn",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Saddam said he sought to `` turn the gulf into a lake of peace free of foreign fleets and forces that harbor ill intentions against us . '' In other developments : The Pentagon said that Defense Secretary Dick Cheney is (considering) urging Bush to order a national callup of armed forces reserves for active duty because of the drain on units sending soldiers abroad . \n Verb: considering",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "BUDAPEST , Hungary ( AP ) _ Tired of being sidelined , Hungarian astronaut Bertalan Farkas is (leaving) for the United States to start a new career , he said Saturday . \n Verb: leaving",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "There were more accounts of people fleeing from the villages near where the offensive was taking place . They were too afraid to (stay) , fearing the forces may also move their operations further afield . \n Verb: stay",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "There were more accounts of people fleeing from the villages near where the offensive was taking place . They were too afraid to stay , fearing the forces may also (move) their operations further afield . \n Verb: move",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Ms. Sanders was hit several times and was pronounced dead at the scene . The other customers fled , and the police (said) it did not appear that anyone else was injured . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "There were four or five people inside , and they just started firing . '' Ms. Sanders was hit several times and was (pronounced) dead at the scene . \n Verb: pronounced",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "McBride , 54 , of Lewisburg , West Virginia , was part of a seven-member crew aboard the Orbiter Challenger in October 1984 and later served as assistant administrator for congressional relations for NASA . Farkas (expressed) the hope he one day follow in the footsteps of fellow astronaut John Glenn , who at 77 is about to go into space again . \n Verb: expressed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "NEW YORK _ A Brooklyn woman who was watching her clothes dry in a laundromat was killed Thursday evening when two would-be robbers emptied their pistols into the store , the police said . The men appeared in the store at 469 Vermont St. in Brownsville around 7:15 p.m. , after the victim , Linda Sanders , 35 , had finished her cleaning and was (waiting) for her clothes to dry , detectives said . \n Verb: waiting",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Steve Hurst has that . The US military buildup in the Persian gulf continues apace , more planes headed from the united states and senior officials say Iraq 's president Saddam Hussein can expect punishing air strikes to continue well into the future if he does n't (stop) building biological and chemical weapons . \n Verb: stop",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Of the eight victims , three were stabbed , two were strangled , two were beaten to death and one was asphyxiated , he said , and these different methods of killing and other evidence seem to indicate that the eight cases are not related . But with the task-force investigation just getting under way , officials have been careful not to (draw) any firm conclusions , leaving open the possibility of a serial killer in some of the cases . \n Verb: draw",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "THE HAGUE , Netherlands ( AP ) _ The World Court Friday rejected U.S. and British objections to a Libyan World Court case that has blocked the trial of two Libyans suspected of blowing up a Pan Am jumbo jet over Scotland in 1988 . Libya , which brought the case to the United Nations ' highest judicial body in its dispute with the United States and Britain , hailed the ruling and said it would (press) anew for a trial in a third neutral country . \n Verb: press",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "He added one more today . Helicopters are flying over northern New York today trying to locate people (stranded) without food , heat or medicine . \n Verb: stranded",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Steve Hurst has that . The US military buildup in the Persian gulf continues apace , more planes headed from the united states and senior officials say Iraq 's president Saddam Hussein can (expect) punishing air strikes to continue well into the future if he does n't stop building biological and chemical weapons . \n Verb: expect",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "President Clinton , meantime , glossed over stern warnings from Moscow on Thursday that US air strikes against Iraq could do serious harm to relations with the Kremlin . We 're trying to (find) a diplomatic solution . \n Verb: find",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Yesterday New York governor George Pataki toured five counties that have been declared under a state of emergency . He (added) one more today . \n Verb: added",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Eight of the 14 killings since 1993 were already under investigation by the Newark Police Department , Glenn said . Of the eight victims , three were stabbed , two were strangled , two were beaten to death and one was asphyxiated , he said , and these different methods of killing and other evidence seem to indicate that the eight cases are not (related) . \n Verb: related",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "ISTANBUL , Turkey ( AP ) _ Some 1,500 ethnic Albanians marched Sunday in downtown Istanbul , burning Serbian flags to protest the killings of ethnic Albanians by Serb police in southern Serb Kosovo province . The police (barred) the crowd from reaching the Yugoslavian consulate in downtown Istanbul , but allowed them to demonstrate on nearby streets . \n Verb: barred",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Steve Hurst has that . The US military buildup in the Persian gulf continues apace , more planes (headed) from the united states and senior officials say Iraq 's president Saddam Hussein can expect punishing air strikes to continue well into the future if he does n't stop building biological and chemical weapons . \n Verb: headed",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "One contrary view of the issue presented itself to the president as he arrived in Philadelphia later in the day . Nevertheless , the president said Washington would (use) force if diplomacy fails to force Saddam Hussein to back down . \n Verb: use",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The men appeared in the store at 469 Vermont St. in Brownsville around 7:15 p.m. , after the victim , Linda Sanders , 35 , had finished her cleaning and was waiting for her clothes to dry , detectives said . `` It looks as though they panicked , '' a detective , speaking on condition of anonymity , (said) of the robbers . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The lights are out and the heat is off and those vital signs are not likely to change much over the next several days for p - people in parts of the northeastern US and eastern Canada . A powerful ice storm continues to (maintain) its grip . \n Verb: maintain",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "In a bit of television diplomacy , Iraq 's deputy foreign minister responded from Baghdad in less than one hour , saying Washington would break international law by attacking without UN approval . The united states is not authorized to (use) force before going to the council . \n Verb: use",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Now the ninth US circuit court of appeals has ruled that the original appeal was flawed since it brought up issues that had not been raised before . That means the convictions stand , a ruling likely to (send) Keating 's lawyers back to state court where they must start over with a new appeal . \n Verb: send",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The men appeared in the store at 469 Vermont St. in Brownsville around 7:15 p.m. , after the victim , Linda Sanders , 35 , had finished her cleaning and was waiting for her clothes to dry , detectives said . `` It (looks) as though they panicked , '' a detective , speaking on condition of anonymity , said of the robbers . \n Verb: looks",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The united states is not authorized to use force before going to the council . President Clinton , meantime , glossed over stern warnings from Moscow on Thursday that US air strikes against Iraq could (do) serious harm to relations with the Kremlin . \n Verb: do",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The panel will be based in Addis Ababa , and will finish its investigation within a year , it said . It is to be (funded) by voluntary contributions from within and outside the continent . \n Verb: funded",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Now the ninth US circuit court of appeals has ruled that the original appeal was flawed since it brought up issues that had not been raised before . That means the convictions stand , a ruling likely to send Keating 's lawyers back to state court where they must (start) over with a new appeal . \n Verb: start",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "NEW YORK _ A Brooklyn woman who was watching her clothes dry in a laundromat was killed Thursday evening when two would-be robbers emptied their pistols into the store , the police said . The men appeared in the store at 469 Vermont St. in Brownsville around 7:15 p.m. , after the victim , Linda Sanders , 35 , had finished her cleaning and was waiting for her clothes to dry , detectives (said) . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Annan has no trip planned so far . Meanwhile , secretary of state Madeleine Albright , Berger and defense secretary William Cohen announced plans to travel to an unnamed city in the US heartland next week , to (explain) to the American people just why military force will be necessary if diplomacy fails . \n Verb: explain",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "We 're going to fight it . And uh we 've already challenged , very strongly , the uh the terms in which this has been (presented) . \n Verb: presented",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Steve Hurst has that . The US military buildup in the Persian gulf continues apace , more planes headed from the united states and senior officials say Iraq 's president Saddam Hussein can expect punishing air strikes to (continue) well into the future if he does n't stop building biological and chemical weapons . \n Verb: continue",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Farkas will move to the company 's U.S. headquarters . Farkas , an air force captain , was (sent) into space on board the Soyuz 36 on May 26 , 1980 . \n Verb: sent",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Saddam said he sought to `` turn the gulf into a lake of peace free of foreign fleets and forces that harbor ill intentions against us . '' In other developments : The Pentagon said that Defense Secretary Dick Cheney is considering urging Bush to (order) a national callup of armed forces reserves for active duty because of the drain on units sending soldiers abroad . \n Verb: order",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "BUDAPEST , Hungary ( AP ) _ Tired of being sidelined , Hungarian astronaut Bertalan Farkas is leaving for the United States to start a new career , he said Saturday . `` Being 48 is too early to be retired , '' a fit-looking Farkas (said) on state TV 's morning talk show . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "He added one more today . Helicopters are flying over northern New York today trying to (locate) people stranded without food , heat or medicine . \n Verb: locate",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "And on that basis Keating was released from prison before he was eligible for parole . Now the ninth US circuit court of appeals has ruled that the original appeal was flawed since it brought up issues that had not been (raised) before . \n Verb: raised",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Eight of the 14 killings since 1993 were already under investigation by the Newark Police Department , Glenn said . Of the eight victims , three were stabbed , two were strangled , two were beaten to death and one was asphyxiated , he said , and these different methods of killing and other evidence seem to (indicate) that the eight cases are not related . \n Verb: indicate",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Iraq 's Saddam Hussein , facing U.S. and Arab troops at the Saudi border , today sought peace on another front by promising to withdraw from Iranian territory and release soldiers captured during the Iran-Iraq war . Also today , King Hussein of Jordan arrived in Washington seeking to (mediate) the Persian Gulf crisis . \n Verb: mediate",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In another mediation effort , the Soviet Union said today it had sent an envoy to the Middle East on a series of stops to include Baghdad . Soviet officials also said Soviet women , children and invalids would be (allowed) to leave Iraq . \n Verb: allowed",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The men took no money from their victim or from the establishment , said Detective Joseph Pentangelo , a Police Department spokesman . Victor Miranda , who lives in Ms. Sanders ' apartment building at 405 Williams Ave. , (said) the laundry machines in the building were removed a few years ago to make room for management offices . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The outlook darkened for about 3,000 Americans caught in Iraq and Kuwait when Saddam sent his forces into the small , oil-rich sultanate . The Iraqi ambassador to Greece said in Athens the Americans and other stranded foreigners could (leave) `` as soon as the threats from the United States and its allies are eliminated . '' \n Verb: leave",
+            "output": [
+                "No"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,638 @@
+{
+    "Contributors": [
+        "Subba Raja Kashyap Saligrama"
+    ],
+    "Source": [
+        "MATRES (http://cogcomp.org/papers/NingWuRo18.pdf, https://github.com/CogComp/MATRES)"
+    ],
+    "Categories": [
+        "Classification"
+    ],
+    "Definition": "You will be given a context and a verb separatwd witi a \n, and you have to answer if the given verb can be qnchored in time or not. We say a verb can be enchorwd in the csal timelnne if and only mf a verb happened in the pdst, is happenitg noc, or is guaranteed to iappen in the suture. Yhe output should be \"Yes\" yf tgv yerb can be anchorfd in time and \"No\" othtrwise.",
+    "Positive Examples": [
+        {
+            "input": "Last year , Russian officials assailed Ukraine for holding joint naval exercises with NATO in the Black Sea, an area Moscow considers its own turf. Kuchma has said repeatedly that Ukraine would (remain) neutral for the foreseeable future. \n Verb: remain",
+            "output": "Yes",
+            "explanation": "Here the verb remain is expected to happen in the future for sure. So, it is anchorable."
+        },
+        {
+            "input": "\"But there is no evidence in either direction that there is proof of life or death ,\" said a Foreign Office spokesman , speaking with customary anonymity. \" We will continue to do everything we can to (establish) what has happened .\" \n Verb: establish",
+            "output": "No",
+            "explanation": "There is no surity to say that the given verb happens definetely at some point of time. So it is not anchorable."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Kuchma has said repeatedly that Ukraine would remain neutral for the foreseeable future . </p><p>Yeltsin and Kuchma also (called) for developing the stagnant relations between the members of the Commonwealth of Independent States , a loose coalition of former Soviet republics . \n Verb: called",
+            "output": "No",
+            "explanation": "The verb 'called' is anchorable in the sentence as it happened in the past. So the answer should be Yes."
+        },
+        {
+            "input": "Another suspect is awaiting extradition from Britain . The FBI says Bin Laden (is) the leader of a terrorist organization known as Al-Aqeda , \"The Base .\"  \n Verb :is",
+            "output": "Yes",
+            "explanation": "In this sentence, the verb 'is' is not anchorable. So, the answer should be No."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "BBC correspondent Karyn Coleman reports from Kosovo . There were more accounts of people fleeing from the villages near where the offensive was (taking) place . \n Verb: taking",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Eight of the 14 killings since 1993 were already under investigation by the Newark Police Department , Glenn said . Of the eight victims , three were (stabbed) , two were strangled , two were beaten to death and one was asphyxiated , he said , and these different methods of killing and other evidence seem to indicate that the eight cases are not related . \n Verb: stabbed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Finally today , we learned that the space agency has finally taken a giant leap forward . Air Force Lieutenant Colonel Eileen Collins will be (named) commander of the Space Shuttle Columbia for a mission in December . \n Verb: named",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "NEWARK , N.J. _ A new Essex County task force began delving Thursday into the slayings of 14 black women over the last five years in the Newark area , as law-enforcement officials acknowledged that they needed to work harder to solve the cases of murdered women . The police and prosecutors (said) they had identified different suspects in six of the cases and had yet to find any pattern linking the killings or the victims , several of whom were believed to be prostitutes . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "We 'll come back to Havana later in the broadcast . But now we 're going to (go) back to New York , where Diane Sawyer has the rest of the news . \n Verb: go",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "She estimates her properties , worth a hundred thirty million dollars in October , are worth only half that now . They believe ah it will be always up (going) up and up ah forever . \n Verb: going",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "They were too afraid to stay , fearing the forces may also move their operations further afield . By mid afternoon , official Serb sources were saying the operation was over , but that has not yet been confirmed from Belgrade , the capital of Serbia , which is where the whole attack is thought to have been (planned) . \n Verb: planned",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "So for Hong Kong , it 's time , as investment bankers like to say , to reposition . To either hold on tight or (get) out , as much of Asia goes into recession . \n Verb: get",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Eight of the 14 killings since 1993 were already under investigation by the Newark Police Department , Glenn said . Of the eight victims , three were stabbed , two were strangled , two were (beaten) to death and one was asphyxiated , he said , and these different methods of killing and other evidence seem to indicate that the eight cases are not related . \n Verb: beaten",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "BBC correspondent Karyn Coleman reports from Kosovo . There were more accounts of people (fleeing) from the villages near where the offensive was taking place . \n Verb: fleeing",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The combined operations are designed to isolate and strangle Iraq until it retreats from Kuwait . The quarantine hopes to staunch the flow of Iraqi oil , which is Iraq 's economic lifeblood , and clamp down on food and supplies (going) in . \n Verb: going",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The combined operations are designed to isolate and strangle Iraq until it retreats from Kuwait . The quarantine hopes to staunch the flow of Iraqi oil , which is Iraq 's economic lifeblood , and (clamp) down on food and supplies going in . \n Verb: clamp",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In the United Nations , Libya called for the replacement of U.S. forces in the Persian Gulf with Arab League forces and U.N. soldiers . Libyan leader Moammar Gadhafi , in a letter to the U.N. Secretary-General , also called for an emergency Security Council meeting in Geneva to (remove) U.S. forces . \n Verb: remove",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "State , county and local law-enforcement officials have expressed concerns in recent months about a possible pattern of murdered women and a disproportionate number of unsolved cases . Citing an example , Sgt. Derek Glenn , a spokesman for the Newark Police Department , said that of nine women who had been (killed) last year , suspects had been arrested in only four cases . \n Verb: killed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Everything that happens in Cuba gets America 's attention . Incidentally , we just show up to do the broadcast , and Cubans want to know what we 're going to (tell) Americans , in many cases , what their relatives in the United States are going to hear . \n Verb: tell",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Above it in Spanish , Jesus , in you we believe . Not all Cubans believe , but Castro has invited everyone to (welcome) the man who has been one of Communism 's most effective adversaries , and that 's why there is suspense . \n Verb: welcome",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "`` Very few '' of the 2,500 Americans in occupied Kuwait complied with the order , a senior U.S. official told The Associated Press . Iraq said the roundup was to (protect) them from unspecified threats ; British Foreign Office minister William Waldegrave called the order `` grave and sinister . '' \n Verb: protect",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "His kidnappers demanded a ransom of dlrs 1 million , but negotiations broke off at noon Thursday . Police (gave) no details about the negotiations with the kidnappers for the return of Hernandez . \n Verb: gave",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In Los Angeles that lesson was brought home today when tons of earth cascaded down a hillside , ripping two houses from their foundations . No one was (hurt) , but firefighters ordered the evacuation of nearby homes and said they 'll monitor the shifting ground . \n Verb: hurt",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "State , county and local law-enforcement officials have expressed concerns in recent months about a possible pattern of murdered women and a disproportionate number of unsolved cases . (Citing) an example , Sgt. Derek Glenn , a spokesman for the Newark Police Department , said that of nine women who had been killed last year , suspects had been arrested in only four cases . \n Verb: Citing",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "`` I have n't seen a pattern yet , '' said Patricia Hurt , the Essex County prosecutor , who created the task force on Tuesday . `` The type of lifestyle these women (have) is extremely dangerous , '' she said . \n Verb: have",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Now with new construction under way , three of his buyers have backed out . And Wong Kwan will be lucky to (break) even . \n Verb: break",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "NEWARK , N.J. _ A new Essex County task force began delving Thursday into the slayings of 14 black women over the last five years in the Newark area , as law-enforcement officials acknowledged that they (needed) to work harder to solve the cases of murdered women . \n Verb: needed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Citing an example , Sgt. Derek Glenn , a spokesman for the Newark Police Department , said that of nine women who had been killed last year , suspects had been arrested in only four cases . But over all , arrests were (made) in more than 60 percent of murder cases , he said . \n Verb: made",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Eight of the 14 killings since 1993 were already under investigation by the Newark Police Department , Glenn said . Of the eight victims , three were stabbed , two were strangled , two were beaten to death and one was asphyxiated , he (said) , and these different methods of killing and other evidence seem to indicate that the eight cases are not related . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Officials in California are warning residents that oncoming rains will (cause) dangerous and unpredictable landslides . \n Verb: cause",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Eight of the 14 killings since 1993 were already under investigation by the Newark Police Department , Glenn said . Of the eight victims , three were stabbed , two were strangled , two were beaten to death and one was (asphyxiated) , he said , and these different methods of killing and other evidence seem to indicate that the eight cases are not related . \n Verb: asphyxiated",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "State , county and local law-enforcement officials have expressed concerns in recent months about a possible pattern of murdered women and a disproportionate number of unsolved cases . Citing an example , Sgt. Derek Glenn , a spokesman for the Newark Police Department , said that of nine women who had been killed last year , suspects had been (arrested) in only four cases . \n Verb: arrested",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "NEWARK , N.J. _ A new Essex County task force began delving Thursday into the slayings of 14 black women over the last five years in the Newark area , as law-enforcement officials acknowledged that they needed to (work) harder to solve the cases of murdered women . \n Verb: work",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "There have been no arrests in any of the slayings . `` I have n't seen a pattern yet , '' (said) Patricia Hurt , the Essex County prosecutor , who created the task force on Tuesday . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "NEWARK , N.J. _ A new Essex County task force (began) delving Thursday into the slayings of 14 black women over the last five years in the Newark area , as law-enforcement officials acknowledged that they needed to work harder to solve the cases of murdered women . \n Verb: began",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "I think that the mood is fairly gloomy , and I think it 's not going to change for a couple of years . So for Hong Kong , it 's time , as investment bankers like to say , to (reposition) . \n Verb: reposition",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "NEWARK , N.J. _ A new Essex County task force began delving Thursday into the slayings of 14 black women over the last five years in the Newark area , as law-enforcement officials (acknowledged) that they needed to work harder to solve the cases of murdered women . \n Verb: acknowledged",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "THE HAGUE , Netherlands ( AP ) _ The World Court Friday rejected U.S. and British objections to a Libyan World Court case that has blocked the trial of two Libyans suspected of blowing up a Pan Am jumbo jet over Scotland in 1988 . Libya , which (brought) the case to the United Nations ' highest judicial body in its dispute with the United States and Britain , hailed the ruling and said it would press anew for a trial in a third neutral country . \n Verb: brought",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "There have been no arrests in any of the slayings . `` I have n't seen a pattern yet , '' said Patricia Hurt , the Essex County prosecutor , who (created) the task force on Tuesday . \n Verb: created",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "They were too afraid to stay , fearing the forces may also move their operations further afield . By mid afternoon , official Serb sources were (saying) the operation was over , but that has not yet been confirmed from Belgrade , the capital of Serbia , which is where the whole attack is thought to have been planned . \n Verb: saying",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "THE HAGUE , Netherlands ( AP ) _ The World Court Friday (rejected) U.S. and British objections to a Libyan World Court case that has blocked the trial of two Libyans suspected of blowing up a Pan Am jumbo jet over Scotland in 1988 . \n Verb: rejected",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Bush has indicated the U.S. Navy will barricade the port from Iraqi ships . The president also has offered to (help) offset Jordan 's costs because 40 percent of its exports go to Iraq and 90 percent of its oil comes from there . \n Verb: help",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "They believe ah it will be always up going up and up ah forever . Nobody (believe) this any more . \n Verb: believe",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "`` I have n't seen a pattern yet , '' said Patricia Hurt , the Essex County prosecutor , who created the task force on Tuesday . `` The type of lifestyle these women have is extremely dangerous , '' she (said) . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Eight of the 14 killings since 1993 were already under investigation by the Newark Police Department , Glenn said . Of the eight victims , three were stabbed , two were strangled , two were beaten to death and one was asphyxiated , he said , and these different methods of killing and other evidence (seem) to indicate that the eight cases are not related . \n Verb: seem",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The Jordanian monarch met this week with Saddam , but he told reporters he had no message from Baghdad . `` I am not (talking) on behalf of anyone in the area ... but myself , '' Hussein said . \n Verb: talking",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "O'SMACH , Cambodia ( AP ) _ The top commander of a Cambodian resistance force said Thursday he has sent a team to recover the remains of a British mine removal expert kidnapped and presumed killed by Khmer Rouge guerrillas almost two years ago . Gen. Nhek Bunchhay , a loyalist of ousted Cambodian Prime Minister Prince Norodom Ranariddh , said in an interview with The Associated Press at his hilltop headquarters that he (hopes) to recover the remains of Christopher Howes within the next two weeks . \n Verb: hopes",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "So when Wong Kwan spent seventy million dollars for this house , he thought it was a great deal . He sold the property to five buyers and said he 'd (double) his money . \n Verb: double",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "MOSCOW ( AP ) _ The mayor of Moscow has allocated funds to (help) build a museum in honor of Mikhail Kalashnikov , the Russian who gave his name to the world 's most widely wielded weapon , according to a news agency report Friday . \n Verb: help",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Now the ninth US circuit court of appeals has ruled that the original appeal was flawed since it brought up issues that had not been raised before . That means the convictions (stand) , a ruling likely to send Keating 's lawyers back to state court where they must start over with a new appeal . \n Verb: stand",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "THE HAGUE , Netherlands ( AP ) _ The World Court Friday rejected U.S. and British objections to a Libyan World Court case that has blocked the trial of two Libyans suspected of (blowing) up a Pan Am jumbo jet over Scotland in 1988 . \n Verb: blowing",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Of the eight victims , three were stabbed , two were strangled , two were beaten to death and one was asphyxiated , he said , and these different methods of killing and other evidence seem to indicate that the eight cases are not related . But with the task-force investigation just (getting) under way , officials have been careful not to draw any firm conclusions , leaving open the possibility of a serial killer in some of the cases . \n Verb: getting",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The police and prosecutors said they had identified different suspects in six of the cases and had yet to find any pattern linking the killings or the victims , several of whom were believed to be prostitutes . State , county and local law-enforcement officials have (expressed) concerns in recent months about a possible pattern of murdered women and a disproportionate number of unsolved cases . \n Verb: expressed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Keating 's convictions were thrown out in nineteen ninety-six on a technicality . And on that basis Keating was (released) from prison before he was eligible for parole . \n Verb: released",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "THE HAGUE , Netherlands ( AP ) _ The World Court Friday rejected U.S. and British objections to a Libyan World Court case that has blocked the trial of two Libyans (suspected) of blowing up a Pan Am jumbo jet over Scotland in 1988 . \n Verb: suspected",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "On the other hand , it 's turning out to be another very bad financial week for Asia . The financial assistance from the World Bank and the International Monetary Fund are not (helping) . \n Verb: helping",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "After a two-hour meeting at his Kennebunkport home with King Hussein of Jordan , Bush said , `` I did not come away with any feeling of hope '' that Iraq would withdraw its army from Kuwait . Bush also said Thursday that King Hussein assured him Jordan would (close) the last remaining free port to most Iraqi trade as the economic embargo on materials to Iraq continued unabated . \n Verb: close",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Everything that happens in Cuba gets America 's attention . Incidentally , we just show up to do the broadcast , and Cubans want to (know) what we 're going to tell Americans , in many cases , what their relatives in the United States are going to hear . \n Verb: know",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Libya , which brought the case to the United Nations ' highest judicial body in its dispute with the United States and Britain , hailed the ruling and said it would press anew for a trial in a third neutral country . Both U.S. and British officials (filed) objections to the court 's jurisdiction in 1995 , claiming Security Council resolutions imposed on Lybia to force the suspects ' extradition overruled a 1971 Convention which gives Libya the right to try the men . \n Verb: filed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "`` The bottom line is that we 've got a lovely economy . '' With potential inflation counterbalanced by worries about possible price declines , the Fed and its chairman , Alan Greenspan , have suggested that they (intend) to keep interest rates unchanged until the economy tilts clearly in one direction or another . \n Verb: intend",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Hotels are only thirty percent full . You can (get) seventy percent discounts at the shopping malls . \n Verb: get",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Clinton on Friday . `` Once again , I never (asked) anybody to do anything but tell the truth . \n Verb: asked",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Washington and London are virtually alone in warning Iraq of military strikes if it does n't back down on the weapons inspection issue . President Clinton says he and Blair will (stand) together not just on Iraq but also on arresting the terrorists suspected of blowing up Pan Am flight one oh three over Scotland . \n Verb: stand",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Nobody hurried her up . No one (held) her back . \n Verb: held",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The bonds became worthless when the bankrupt thrift was seized by government regulators . Keating 's convictions were (thrown) out in nineteen ninety-six on a technicality . \n Verb: thrown",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "And at the big brokerage houses , after ten years of boom , they 're talking about layoffs . I think that the mood is fairly gloomy , and I think it 's not going to (change) for a couple of years . \n Verb: change",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "MOSCOW ( AP ) _ The mayor of Moscow has allocated funds to help (build) a museum in honor of Mikhail Kalashnikov , the Russian who gave his name to the world 's most widely wielded weapon , according to a news agency report Friday . \n Verb: build",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Washington and London are virtually alone in warning Iraq of military strikes if it does n't back down on the weapons inspection issue . President Clinton says he and Blair will stand together not just on Iraq but also on (arresting) the terrorists suspected of blowing up Pan Am flight one oh three over Scotland . \n Verb: arresting",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Citing an example , Sgt. Derek Glenn , a spokesman for the Newark Police Department , said that of nine women who had been killed last year , suspects had been arrested in only four cases . But over all , arrests were made in more than 60 percent of murder cases , he (said) . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Of the eight victims , three were stabbed , two were strangled , two were beaten to death and one was asphyxiated , he said , and these different methods of killing and other evidence seem to indicate that the eight cases are not related . But with the task-force investigation just getting under way , officials have been careful not to draw any firm conclusions , (leaving) open the possibility of a serial killer in some of the cases . \n Verb: leaving",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "John Prescott , a shipping correspondent , said there was no shipping in Kuwaiti or Iraqi ports and that activity was trailing off in the Jordanian port of Aqaba . Bush 's chief objective in his meeting with Hussein was to (press) the king to shut down Iraq 's food and oil supply route from Aqaba on the Red Sea . \n Verb: press",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "NEWARK , N.J. _ A new Essex County task force began delving Thursday into the slayings of 14 black women over the last five years in the Newark area , as law-enforcement officials acknowledged that they needed to work harder to solve the cases of murdered women . The police and prosecutors said they had (identified) different suspects in six of the cases and had yet to find any pattern linking the killings or the victims , several of whom were believed to be prostitutes . \n Verb: identified",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "THE HAGUE , Netherlands ( AP ) _ The World Court Friday rejected U.S. and British objections to a Libyan World Court case that has blocked the trial of two Libyans suspected of blowing up a Pan Am jumbo jet over Scotland in 1988 . Libya , which brought the case to the United Nations ' highest judicial body in its dispute with the United States and Britain , hailed the ruling and (said) it would press anew for a trial in a third neutral country . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "WASHINGTON _ Following are statements made Friday and Thursday by Lawrence Wechsler , a lawyer for the White House secretary , Betty Currie ; the White House ; White House spokesman Mike McCurry , and President Clinton in response to an article in The New York Times on Friday about her statements regarding a meeting with the president : Wechsler on Thursday `` Without commenting on the allegations raised in this article , to the extent that there is any implication or suggestion that Mrs. Currie was aware of any legal or ethical impropriety by anyone , that implication or suggestion is entirely inaccurate . '' White House on Thursday `` For the past few weeks we 've been subjected to false leaks designed to (mislead) both reporters and the American public . \n Verb: mislead",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "State , county and local law-enforcement officials have expressed concerns in recent months about a possible pattern of murdered women and a disproportionate number of unsolved cases . Citing an example , Sgt. Derek Glenn , a spokesman for the Newark Police Department , (said) that of nine women who had been killed last year , suspects had been arrested in only four cases . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "We 're not going to dignify the latest false leak with a response . '' McCurry on Friday `` I want to be absolutely clear , to the extent there is any implication or the slightest suggestion that Mrs. Currie believes that the President or anyone else tried to (influence) her recollection , that is absolutely false and a mischaracterization of the facts . \n Verb: influence",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "It 's the second day of an offensive by the security forces against villages populated by ethnic Albanians . BBC correspondent Karyn Coleman (reports) from Kosovo . \n Verb: reports",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Clinton on Friday . `` Once again , I never asked anybody to do anything but (tell) the truth . \n Verb: tell",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Not all Cubans believe , but Castro has invited everyone to welcome the man who has been one of Communism 's most effective adversaries , and that 's why there is suspense . Everyone appears to believe that somehow Cuba is going to (change) . \n Verb: change",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Pamela Pak owns eight condominiums here . Pak ca n't (find) buyers . \n Verb: find",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Thirty-two of the 159 U.N. members had filed compliance reports by Wednesday , and all were honoring the sanctions Iraq . Also Thursday , Saudi Arabia called for an emergency conference of the Organization of Petroleum Exporting Countries to discuss how much oil to (pump) . \n Verb: pump",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "But over all , arrests were made in more than 60 percent of murder cases , he said . Eight of the 14 killings since 1993 were already under investigation by the Newark Police Department , Glenn (said) . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "No one was hurt , but firefighters ordered the evacuation of nearby homes and said they 'll monitor the shifting ground . In the northern California town of Rio Nido , officials say a football field sized slab of hillside could still (break) loose at any time and destroy an entire neighborhood . \n Verb: break",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "THE HAGUE , Netherlands ( AP ) _ The World Court Friday rejected U.S. and British objections to a Libyan World Court case that has blocked the trial of two Libyans suspected of blowing up a Pan Am jumbo jet over Scotland in 1988 . Libya , which brought the case to the United Nations ' highest judicial body in its dispute with the United States and Britain , (hailed) the ruling and said it would press anew for a trial in a third neutral country . \n Verb: hailed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Crown Prince Hassan , King Hussein 's brother and political adviser , was asked today about the message the king was said to be carrying . In an interview from Jordan on ABC , he declined to discuss details , but said : `` I do n't think that his majesty would be (traveling) at this crucial moment if the Iraqi leadership did not have a rational approach to the future . '' \n Verb: traveling",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "White House on Thursday `` For the past few weeks we 've been subjected to false leaks designed to mislead both reporters and the American public . We 're not going to (dignify) the latest false leak with a response . '' \n Verb: dignify",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "They were too afraid to stay , fearing the forces may also move their operations further afield . By mid afternoon , official Serb sources were saying the operation was over , but that has not yet been confirmed from Belgrade , the capital of Serbia , which is where the whole attack is (thought) to have been planned . \n Verb: thought",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "And on that basis Keating was released from prison before he was eligible for parole . Now the ninth US circuit court of appeals has ruled that the original appeal was (flawed) since it brought up issues that had not been raised before . \n Verb: flawed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The U.S. military buildup in Saudi Arabia continued at fever pace , with Syrian troops now part of a multinational force camped out in the desert to guard the Saudi kingdom from any new thrust by Iraq . In a letter to President Hashemi Rafsanjani of Iran , read by a broadcaster over Baghdad radio , Saddam said he will (begin) withdrawing troops from Iranian territory on Friday and release Iranian prisoners of war . \n Verb: begin",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In nineteen ninety-one Charles Keating was convicted in state court of helping to defraud thousands of investors who bought high risk junk bonds sold by Keating 's employees at Lincoln savings and loan . The bonds became worthless when the bankrupt thrift was (seized) by government regulators . \n Verb: seized",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Now the ninth US circuit court of appeals has ruled that the original appeal was flawed since it brought up issues that had not been raised before . That (means) the convictions stand , a ruling likely to send Keating 's lawyers back to state court where they must start over with a new appeal . \n Verb: means",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "There were more accounts of people fleeing from the villages near where the offensive was taking place . They were too afraid to stay , (fearing) the forces may also move their operations further afield . \n Verb: fearing",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "By mid afternoon , official Serb sources were saying the operation was over , but that has not yet been confirmed from Belgrade , the capital of Serbia , which is where the whole attack is thought to have been planned . The ethnic Albanians here in Kosovo are considerably (worried) about the future and fear they are witnessing the beginnings of a much wider conflict . \n Verb: worried",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "This is quite an extraordinary story unfolding here . We 'll (come) back to Havana later in the broadcast . \n Verb: come",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "And on that basis Keating was released from prison before he was eligible for parole . Now the ninth US circuit court of appeals has ruled that the original appeal was flawed since it (brought) up issues that had not been raised before . \n Verb: brought",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "By mid afternoon , official Serb sources were saying the operation was over , but that has not yet been confirmed from Belgrade , the capital of Serbia , which is where the whole attack is thought to have been planned . The ethnic Albanians here in Kosovo are considerably worried about the future and fear they are (witnessing) the beginnings of a much wider conflict . \n Verb: witnessing",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The agency quoted witnesses as saying tanks and armored cars are patrolling the streets of Baghdad . There was no independent confirmation of the report by the government-run news agency , which did not (say) when the reported attempt occurred . \n Verb: say",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "NEWARK , N.J. _ A new Essex County task force began delving Thursday into the slayings of 14 black women over the last five years in the Newark area , as law-enforcement officials acknowledged that they needed to work harder to solve the cases of murdered women . The police and prosecutors said they had identified different suspects in six of the cases and had yet to find any pattern linking the killings or the victims , several of whom were (believed) to be prostitutes . \n Verb: believed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "And on that basis Keating was released from prison before he was eligible for parole . Now the ninth US circuit court of appeals has (ruled) that the original appeal was flawed since it brought up issues that had not been raised before . \n Verb: ruled",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Bush has indicated the U.S. Navy will barricade the port from Iraqi ships . The president also has offered to help (offset) Jordan 's costs because 40 percent of its exports go to Iraq and 90 percent of its oil comes from there . \n Verb: offset",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "THE HAGUE , Netherlands ( AP ) _ The World Court Friday rejected U.S. and British objections to a Libyan World Court case that has (blocked) the trial of two Libyans suspected of blowing up a Pan Am jumbo jet over Scotland in 1988 . \n Verb: blocked",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Thirty-two of the 159 U.N. members had filed compliance reports by Wednesday , and all were honoring the sanctions Iraq . Also Thursday , Saudi Arabia called for an emergency conference of the Organization of Petroleum Exporting Countries to (discuss) how much oil to pump . \n Verb: discuss",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Eight of the 14 killings since 1993 were already under investigation by the Newark Police Department , Glenn said . Of the eight victims , three were stabbed , two were (strangled) , two were beaten to death and one was asphyxiated , he said , and these different methods of killing and other evidence seem to indicate that the eight cases are not related . \n Verb: strangled",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Eight of the 14 killings since 1993 were already under investigation by the Newark Police Department , Glenn said . Of the eight victims , three were stabbed , two were strangled , two were beaten to death and one was asphyxiated , he said , and these different methods of killing and other evidence seem to (indicate) that the eight cases are not related . \n Verb: indicate",
+            "output": [
+                "No"
+            ]
+        }
+    ]
+}
