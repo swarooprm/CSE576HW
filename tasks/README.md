@@ -31,8 +31,10 @@ Name | Summary | Category
 `task192d_hotpotqa_sentence_generation` | Given a context paragraph, question and corresponding answer, generate the supporting facts that helps in answering question. | Sentence Generation
 `task193a_duorc_question_generation` | Generate a question based on a given plot. | Question Generation
 `task193b_duorc_question_generation` | Generate a question based on a given plot. | Question Generation
+`task193c_duorc_question_generation` | Generate a question based on a given plot. | Question Generation
 `task194a_duorc_answer_generation` | Given a plot and a question, answer the question based on the plot. | Answer Generation
 `task194b_duorc_answer_generation` | Given a plot and a question, answer the question based on the plot. | Answer Generation
+`task194c_duorc_answer_generation` | Given a plot and a question, answer the question based on the plot. | Answer Generation
 `task195a_sentiment140_classification` | Given a tweet, classify its sentiment as either positive or negative. | Classification
 `task195b_sentiment140_classification` | Given a tweet, classify its sentiment as either positive or negative. | Classification
 `task196a_sentiment140_answer_generation` | Given a tweet and boolean question, generate yes or no. | Answer Generation
