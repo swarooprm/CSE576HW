@@ -16,7 +16,7 @@ Name | Summary | Category
 `task429_senteval_tense.json` | Checking the tense of a particular sentence | Classification
 `task430_senteval_subject_count.json` | Confirming whether a subject is singular or plural | Classification
 `task431_senteval_object_count.json` | Confirming whether an object is singular or plural | Classification
-`task456_matres_intention_classification.json` | Deciding whether there exists a verb implying intention or not | Classification
+`task456_matres_intentional_classification.json` | Deciding whether there exists a verb implying intention or not | Classification
 `task457_matres_conditional_classification.json` | Deciding whether there exists a verb implying hypothetical condition or not | Classification
 `task458_matres_negation_classification.json` | Deciding whether there exists a negation in a given sentence or not | Classification
 `task459_matres_static_classification.json` | Checking if a given verb is static or not | Classification
