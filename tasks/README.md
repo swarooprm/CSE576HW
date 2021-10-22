@@ -21,6 +21,8 @@ Name | Summary | Category
 `task189e_snli_neutral_to_contradiction_text_modification` | Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
 `task190a_snli_classification` | Given two sentences choose whether they agree/disagree/neither with each other. | Classification
 `task190b_snli_classification` | Given two sentences choose whether they agree/disagree/neither with each other. | Classification
+`task190c_snli_classification` | Given two sentences choose whether they agree/disagree/neither with each other. | Classification
+`task190d_snli_classification` | Given two sentences choose whether they agree/disagree/neither with each other. | Classification
 `task191a_hotpotqa_question_generation` | Given a set of context, supporting facts and an answer, generate the question asked based on them. | Question Generation
 `task191b_hotpotqa_question_generation` | Given a set of context, supporting facts and an answer, generate the question asked based on them. | Question Generation
 `task191c_hotpotqa_question_generation` | Given a set of context, supporting facts and an answer, generate the question asked based on them. | Question Generation
