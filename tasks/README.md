@@ -35,3 +35,26 @@ Name | Summary | Category
 `task472_haspart_classification.json` | Determine if an entity is part of another given entity | Classification
 `task473_parsinlu_mc_classification.json` | Classify the answers based on given options | Classification
 `task474_parsinlu_mc_classification.json` | Classify the given question into different types | Classification
+`shuffled_task428_senteval_inversion.json` | Seeing if something is inverted or not | Classification
+`shuffled_task429_senteval_tense.json` | Checking the tense of a particular sentence | Classification
+`shuffled_task430_senteval_subject_count.json` | Confirming whether a subject is singular or plural | Classification
+`shuffled_task431_senteval_object_count.json` | Confirming whether an object is singular or plural | Classification
+`shuffled_task456_matres_intentional_classification.json` | Deciding whether there exists a verb implying intention or not | Classification
+`shuffled_task457_matres_conditional_classification.json` | Deciding whether there exists a verb implying hypothetical condition or not | Classification
+`shuffled_task458_matres_negation_classification.json` | Deciding whether there exists a negation in a given sentence or not | Classification
+`shuffled_task459_matres_static_classification.json` | Checking if a given verb is static or not | Classification
+`shuffled_task460_qasper_answer_generation.json` | Generating answers based on qasper dataset | Answer Generation
+`shuffled_task461_qasper_question_generation.json` | Generating questions based on qasper dataset | Question Generation
+`shuffled_task462_qasper_classification.json` | Classifying a given question into abstractive or extractive type | Classification
+`shuffled_task463_parsinlu_entailment_classification.json` | Determine whether a given hypothesis is valid or not | Classification
+`shuffled_task464_parsinlu_entailment_sentence_generation.json` | Generate a hypothesis based on label and premise | Sentence Generation
+`shuffled_task465_parsinlu_qqp_classification.json` | Determine whether a given sentence is paraphrase or not | Classification
+`shuffled_task466_parsinlu_qqp_text_modification.json` | Make a paraphrase of a given sentence | Text Modification
+`shuffled_task467_parsinlu_rc_answer_generation.json` | Generate answers to a given question | Answer Generation
+`shuffled_task468_parsinlu_rc_question_generation.json` | Generate a question that can be answered from given passage | Question Generation
+`shuffled_task469_mrqa_answer_generation.json` | Generate an answer based on the question provided from the passaage | Answer Generation
+`shuffled_task470_mrqa_question_generation.json` | Generate a question based on the given passage | Question Generation
+`shuffled_task471_haspart_answer_generation.json` | Generate an entity that is part of a given entity | Answer Generation
+`shuffled_task472_haspart_classification.json` | Determine if an entity is part of another given entity | Classification
+`shuffled_task473_parsinlu_mc_classification.json` | Classify the answers based on given options | Classification
+`shuffled_task474_parsinlu_mc_classification.json` | Classify the given question into different types | Classification
