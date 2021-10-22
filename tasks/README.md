@@ -41,6 +41,7 @@ Name | Summary | Category
 `task196b_sentiment140_answer_generation` | Given a tweet and boolean question, generate yes or no. | Answer Generation
 `task197a_mnli_domain_answer_generation` | Given two sentences, write a single word describing the common genre to which they belong. | Answer Generation
 `task197b_mnli_domain_answer_generation` | Given two sentences, write a single word describing the common genre to which they belong. | Answer Generation
+`task197c_mnli_domain_answer_generation` | Given two sentences, write a single word describing the common genre to which they belong. | Answer Generation
 `task198a_mnli_domain_classification` | Given two sentences and 10 genre choices, determine the genre to which the sentences belong. | Classification
 `task198b_mnli_domain_classification` | Given two sentences and 10 genre choices, determine the genre to which the sentences belong. | Classification
 `task199a_mnli_classification` | Given 2 sentences, determine if they clearly agree or disagree with each other or if they cannot be answered. | Classification
@@ -67,5 +68,7 @@ Name | Summary | Category
 `task209b_stancedetection_classification` | Given a topic and an argument, detect whether topic is in favor or against in the argument. | Classification
 `task210a_logic2text_structured_text_generation` | Given a natural language interpretation, generate a command using logical operations. | Structured Text Generation
 `task210b_logic2text_structured_text_generation` | Given a natural language interpretation, generate a command using logical operations. | Structured Text Generation
+`task210c_logic2text_structured_text_generation` | Given a natural language interpretation, generate a command using logical operations. | Structured Text Generation
 `task211a_logic2text_classification` | Given a command and corresponding interpretation, classify whether it is the right interpretation or not. | Classification
 `task211b_logic2text_classification` | Given a command and corresponding interpretation, classify whether it is the right interpretation or not. | Classification
+`task211c_logic2text_classification` | Given a command and corresponding interpretation, classify whether it is the right interpretation or not. | Classification
