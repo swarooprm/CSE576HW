@@ -12,6 +12,8 @@ Name | Summary | Category
 `task287_casehold_legal_incorrect_answer_generation-3` | Given a prompt from a judicial decision and multiple potential holdings, choose one of the incorrect options. | Incorrect Answer Generation
 `task287_casehold_legal_incorrect_answer_generation-4` | Given a prompt from a judicial decision and multiple potential holdings, choose one of the incorrect options. | Incorrect Answer Generation
 `task287_casehold_legal_incorrect_answer_generation-5` | Given a prompt from a judicial decision and multiple potential holdings, choose one of the incorrect options. | Incorrect Answer Generation
+`task287_casehold_legal_incorrect_answer_generation-6` | Given a prompt from a judicial decision and multiple potential holdings, choose one of the incorrect options. | Incorrect Answer Generation
+`task287_casehold_legal_incorrect_answer_generation-7` | Given a prompt from a judicial decision and multiple potential holdings, choose one of the incorrect options. | Incorrect Answer Generation
 `task288_gigaword_summarization-1` | Given a text of article, generate a title for the article. | Summarization
 `task288_gigaword_summarization-2` | Given a text of article, generate a title for the article. | Summarization
 `task288_gigaword_summarization-3` | Given a text of article, generate a title for the article. | Summarization
@@ -95,6 +97,9 @@ Name | Summary | Category
 `task303_record_incorrect_answer_generation-3` | Given a passage and a question, write an incorrect answer for the question. | Incorrect Answer Generation
 `task303_record_incorrect_answer_generation-4` | Given a passage and a question, write an incorrect answer for the question. | Incorrect Answer Generation
 `task303_record_incorrect_answer_generation-5` | Given a passage and a question, write an incorrect answer for the question. | Incorrect Answer Generation
+`task303_record_incorrect_answer_generation-6` | Given a passage and a question, write an incorrect answer for the question. | Incorrect Answer Generation
+`task303_record_incorrect_answer_generation-7` | Given a passage and a question, write an incorrect answer for the question. | Incorrect Answer Generation
+`task303_record_incorrect_answer_generation-8` | Given a passage and a question, write an incorrect answer for the question. | Incorrect Answer Generation
 `task304_numeric_fused_head_resolution-1` | Given a dialogue and a highlighted number, decide what does the number refer to | Answer Generation
 `task304_numeric_fused_head_resolution-2` | Given a dialogue and a highlighted number, decide what does the number refer to | Answer Generation
 `task304_numeric_fused_head_resolution-3` | Given a dialogue and a highlighted number, decide what does the number refer to | Answer Generation
