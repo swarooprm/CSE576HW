@@ -22,6 +22,9 @@ Name | Summary | Category
 `task393_plausible_result_generation` | Classification of the irony | Classification
 `task394.1_persianqa_question_generation` | Question Generation | Question Generation
 `task394.2_persianqa_question_generation` | Question Generation | Question Generation
+`task394.3_persianqa_question_generation` | Question Generation | Question Generation
+`task394.4_persianqa_question_generation` | Question Generation | Question Generation
+`task394.5_persianqa_question_generation` | Question Generation | Question Generation
 `task394_persianqa_question_generation` | Question Generation | Question Generation
 `task395.1_persianqa_answer_generation` | Answer Generation | Answer Generation
 `task395.2_persianqa_answer_generation` | Answer Generation | Answer Generation
