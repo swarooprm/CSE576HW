@@ -28,6 +28,7 @@ Name | Summary | Category
 `task394_persianqa_question_generation` | Question Generation | Question Generation
 `task395.1_persianqa_answer_generation` | Answer Generation | Answer Generation
 `task395.2_persianqa_answer_generation` | Answer Generation | Answer Generation
+`task395.3_persianqa_answer_generation` | Answer Generation | Answer Generation
 `task395_persianqa_answer_generation` | Answer Generation | Answer Generation
 `task396.1_persianqa_classification` | Classification of the question | Classification
 `task396.2_persianqa_classification` | Classification of the question | Classification
