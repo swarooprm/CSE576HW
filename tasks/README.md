@@ -1,10 +1,3 @@
-## Tasks List 
-
-This directory contains the tasks that are part of this benchmark. 
-
-
-Name | Summary | Category
----- | ----------- | --------
 "task168_1_strategyqa_question_decomposition_p2" | Given a yes/no question, its answer, and additional information, decompose the question. | Question Decomposition
 "task168_2_strategyqa_question_decomposition_p2" | Given a yes/no question, its answer, and additional information, decompose the question. | Question Decomposition
 "task169_1_strategyqa_sentence_generation_p2" | Given a question, write the facts one needs to know in order to answer the question. | Sentence Generation
