@@ -77,4 +77,4 @@ for file in files:
                 raise Exception(f' * looks like the task name `{file}` is not included '
                                 f'in the task file `tasks/README.md`')
 
-print("Did not find any errors! ✅")         
+print("Did not find any errors! ✅")          
