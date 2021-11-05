@@ -304,12 +304,12 @@ Name | Summary | Category
 `task427.1_hindienglish_corpora_hi-en_language_identification` | Identification of language | Classification
 `task427.2_hindienglish_corpora_hi-en_language_identification` | Identification of language | Classification
 `task427_hindienglish_corpora_hi-en_language_identification` | Identification of language | Classification
-`task547_spl_translation_entk_en` | Translating a sentence in Enlgish tokens to English | Language Translation
-`task547.1_spl_translation_entk_en` | Translating a sentence in Enlgish tokens to English | Language Translation
-`task547.2_spl_translation_entk_en` | Translating a sentence in Enlgish tokens to English | Language Translation
-`task547.3_spl_translation_entk_en` | Translating a sentence in Enlgish tokens to English | Language Translation
-`task547.4_spl_translation_entk_en` | Translating a sentence in Enlgish tokens to English | Language Translation
-`task547.5_spl_translation_entk_en` | Translating a sentence in Enlgish tokens to English | Language Translation
+`task547_spl_translation_entk_en` | Translating a sentence in English tokens to English | Language Translation
+`task547.1_spl_translation_entk_en` | Translating a sentence in English tokens to English | Language Translation
+`task547.2_spl_translation_entk_en` | Translating a sentence in English tokens to English | Language Translation
+`task547.3_spl_translation_entk_en` | Translating a sentence in English tokens to English | Language Translation
+`task547.4_spl_translation_entk_en` | Translating a sentence in English tokens to English | Language Translation
+`task547.5_spl_translation_entk_en` | Translating a sentence in English tokens to English | Language Translation
 `task548_spl_translation_en_ch` | Translating a sentence in English to Chinese | Language Translation
 `task548.1_spl_translation_en_ch` | Translating a sentence in English to Chinese | Language Translation
 `task548.2_spl_translation_en_ch` | Translating a sentence in English to Chinese | Language Translation
