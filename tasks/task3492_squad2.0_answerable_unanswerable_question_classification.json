@@ -1,0 +1,908 @@
+{
+    "Contributors": [
+        "Shailaja Keyur Sampat"
+    ],
+    "Source": [
+        "Table 2 of Squad2.0 Paper https://arxiv.org/pdf/1806.03822.pdf"
+    ],
+    "Categories": [
+        "Classification"
+    ],
+    "Definition": "1n t4is task, 40u ar3 9iven a passa93 and a qu3sti0n r3garding t4at passag3. Y0u 3ust d3t3r3in3 343t43r or n0t t43 qu3sti0n is ans33ra6l3 fr03 t43 9iv3n passag3. 1f a qu3sti0n is ans3era6l3, 0utput s40uld 63 '7ru3', 0th3r3is3 'Fals3'. Y0u 3ust not c0nsid3r an4 0ther inf0r3ati0n t4at is n0t pr0vid3d in th3 passa93 34il3 la6ellin9 7rue 0r Fals3.",
+    "Positive Examples": [
+        {
+            "input": "Passage: Exceptions to the restrictions faced by Windows Store apps are given to web browsers. The user's default browser can distribute a Metro-style web browser in same package as the desktop version, which has access to functionality unavailable to other apps, such as being able to permanently run in the background, use multiple background processes, and use Windows API code instead of WinRT (allowing for code to be re-used with the desktop version, while still taking advantage of features available to Windows Store apps, such as charms). Microsoft advertises this exception privilege \"New experience enabled\" (formerly \"Metro-style enabled\"). Question: What term did Microsoft give to its exception privilige for file browsing?",
+            "output": "False",
+            "explanation": "The passage talks about exception privilege given with respect to the entity 'web browser'. Whereas in question, this entity is replaced with 'file browser', which makes it unanswerable from the passage. Therefore, the answer is False."
+        },
+        {
+            "input": "Passage: The descendants of Rollo's Vikings and their Frankish wives would replace the Norse religion and Old Norse language with Catholicism (Christianity) and the Gallo-Romance language of the local people, blending their maternal Frankish heritage with Old Norse traditions and customs to synthesize a unique \"Norman\" culture in the north of France. The Norman language was forged by the adoption of the indigenous langue d'o\u00efl branch of Romance by a Norse-speaking ruling class, and it developed into the regional language that survives today. Question: What was replaced with the Norse religion?",
+            "output": "False",
+            "explanation": "In the passage, it is mentioned that Norse religion was replaced with Catholicism. Whereas, question asks about the entity which was replaced by Norse religion. No such information is provided in the passage which makes this question unanswerable from the passage hence output is False."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Passage: Extension causes the rock units as a whole to become longer and thinner. This is primarily accomplished through normal faulting and through the ductile stretching and thinning. Normal faults drop rock units that are higher below those that are lower. This typically results in younger units being placed below older units. Stretching of units can result in their thinning; in fact, there is a location within the Maria Fold and Thrust Belt in which the entire sedimentary sequence of the Grand Canyon can be seen over a length of less than a meter. Rocks at the depth to be ductilely stretched are often also metamorphosed. These stretched rocks can also pinch into lenses, known as boudins, after the French word for \"sausage\", because of their visual similarity. Question: Where does extension occur?",
+            "output": "True",
+            "explanation": "In the passage, the effects of extension are explained. The reason for the same are also mentioned. However, there is no answer to the question of where the extension occurs."
+        },
+        {
+            "input": "Passage: In addition to a spoken standard and a closely related written standard, Czech has several regional dialects primarily used in rural areas by speakers less proficient in other dialects or standard Czech. During the second half of the twentieth century, Czech dialect use began to weaken. By the early 1990s dialect use was stigmatized, associated with the shrinking lower class and used in literature or other media for comedic effect. Increased travel and media availability to dialect-speaking populations has encouraged them to shift to (or add to their own dialect) standard Czech. Although Czech has received considerable scholarly interest for a Slavic language, this interest has focused primarily on modern standard Czech and ancient texts rather than dialects. Standard Czech is still the norm for politicians, businesspeople and other Czechs in formal situations, but Common Czech is gaining ground in journalism and the mass media. Question: How many regional dialects does Czech have?",
+            "output": "True",
+            "explanation": "The answer to given question is 'several', which can be determined from the first sentence of the paragraph \"In addition to a spoken standard and a closely related written standard, Czech has several regional dialects primarily used in rural areas by speakers less proficient in other dialects or standard Czech\". Since this question is answerable, the output must be True."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "Passage: Oxygen is present in the atmosphere in trace quantities in the form of carbon dioxide (CO\n2). The Earth's crustal rock is composed in large part of oxides of silicon (silica SiO\n2, as found in granite and quartz), aluminium (aluminium oxide Al\n2O\n3, in bauxite and corundum), iron (iron(III) oxide Fe\n2O\n3, in hematite and rust), and calcium carbonate (in limestone). The rest of the Earth's crust is also made of oxygen compounds, in particular various complex silicates (in silicate minerals). The Earth's mantle, of much larger mass than the crust, is largely composed of silicates of magnesium and iron. Question: What is Fe2O?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: When rock units are placed under horizontal compression, they shorten and become thicker. Because rock units, other than muds, do not significantly change in volume, this is accomplished in two primary ways: through faulting and folding. In the shallow crust, where brittle deformation can occur, thrust faults form, which cause deeper rock to move on top of shallower rock. Because deeper rock is often older, as noted by the principle of superposition, this can result in older rocks moving on top of younger ones. Movement along faults can result in folding, either because the faults are not planar or because rock layers are dragged along, forming drag folds as slip occurs along the fault. Deeper in the Earth, rocks behave plastically, and fold instead of faulting. These folds can either be those where the material in the center of the fold buckles upwards, creating \"antiforms\", or where it buckles downwards, creating \"synforms\". If the tops of the rock units within the folds remain pointing upwards, they are called anticlines and synclines, respectively. If some of the units in the fold are facing downward, the structure is called an overturned anticline or syncline, and if all of the rock units are overturned or the correct up-direction is unknown, they are simply called by the most general terms, antiforms and synforms. Question: If the tops of the rock units within the folds remain pointing upwards, they are called what? ",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: There are hints in the surviving records of the ancient Egyptians that they had some knowledge of prime numbers: the Egyptian fraction expansions in the Rhind papyrus, for instance, have quite different forms for primes and for composites. However, the earliest surviving records of the explicit study of prime numbers come from the Ancient Greeks. Euclid's Elements (circa 300 BC) contain important theorems about primes, including the infinitude of primes and the fundamental theorem of arithmetic. Euclid also showed how to construct a perfect number from a Mersenne prime. The Sieve of Eratosthenes, attributed to Eratosthenes, is a simple method to compute primes, although the large primes found today with computers are not generated this way. Question: Who demonstrated how to create a perfect number from a Mersenne prime?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: In 2010 the Amazon rainforest experienced another severe drought, in some ways more extreme than the 2005 drought. The affected region was approximate 1,160,000 square miles (3,000,000 km2) of rainforest, compared to 734,000 square miles (1,900,000 km2) in 2005. The 2010 drought had three epicenters where vegetation died off, whereas in 2005 the drought was focused on the southwestern part. The findings were published in the journal Science. In a typical year the Amazon absorbs 1.5 gigatons of carbon dioxide; during 2005 instead 5 gigatons were released and in 2010 8 gigatons were released. Question: The 2010 drought had three what were vegetation increased?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Oxygen, as a supposed mild euphoric, has a history of recreational use in oxygen bars and in sports. Oxygen bars are establishments, found in Japan, California, and Las Vegas, Nevada since the late 1990s that offer higher than normal O\n2 exposure for a fee. Professional athletes, especially in American football, also sometimes go off field between plays to wear oxygen masks in order to get a \"boost\" in performance. The pharmacological effect is doubtful; a placebo effect is a more likely explanation. Available studies support a performance boost from enriched O\n2 mixtures only if they are breathed during aerobic exercise. Question: What is the effect on humans of oxygen?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Problems that can be solved in theory (e.g., given large but finite time), but which in practice take too long for their solutions to be useful, are known as intractable problems. In complexity theory, problems that lack polynomial-time solutions are considered to be intractable for more than the smallest inputs. In fact, the Cobham–Edmonds thesis states that only those problems that can be solved in polynomial time can be feasibly computed on some computational device. Problems that are known to be intractable in this sense include those that are EXPTIME-hard. If NP is not the same as P, then the NP-complete problems are also intractable in this sense. To see why exponential-time algorithms might be unusable in practice, consider a program that makes 2n operations before halting. For small n, say 100, and assuming for the sake of example that the computer does 1012 operations each second, the program would run for about 4 × 1010 years, which is the same order of magnitude as the age of the universe. Even with a much faster computer, the program would only be useful for very small instances and in that sense the intractability of a problem is somewhat independent of technological progress. Nevertheless, a polynomial time algorithm is not always practical. If its running time is, say, n15, it is unreasonable to consider it efficient and it is still useless except on small instances. Question: When are problems that have polynomial-tome solutions in complexity theory?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: One key figure in the plans for what would come to be known as American Empire, was a geographer named Isiah Bowman. Bowman was the director of the American Geographical Society in 1914. Three years later in 1917, he was appointed to then President Woodrow Wilson's inquiry in 1917. The inquiry was the idea of President Wilson and the American delegation from the Paris Peace Conference. The point of this inquiry was to build a premise that would allow for U.S authorship of a 'new world' which was to be characterized by geographical order. As a result of his role in the inquiry, Isiah Bowman would come to be known as Wilson's geographer.  Question:  Who was the director of the American Geographical Society in 1917?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Datanet 1 was the public switched data network operated by the Dutch PTT Telecom (now known as KPN). Strictly speaking Datanet 1 only referred to the network and the connected users via leased lines (using the X.121 DNIC 2041), the name also referred to the public PAD service Telepad (using the DNIC 2049). And because the main Videotex service used the network and modified PAD devices as infrastructure the name Datanet 1 was used for these services as well. Although this use of the name was incorrect all these services were managed by the same people within one department of KPN contributed to the confusion. Question: What did the public KPN service Telepad use?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: An important factor in the creation of inequality is variation in individuals' access to education. Education, especially in an area where there is a high demand for workers, creates high wages for those with this education, however, increases in education first increase and then decrease growth as well as income inequality. As a result, those who are unable to afford an education, or choose not to pursue optional education, generally receive much lower wages. The justification for this is that a lack of education leads directly to lower incomes, and thus lower aggregate savings and investment. Conversely, education raises incomes and promotes growth because it helps to unleash the productive potential of the poor. Question: What are those with lower incomes less likely to have in order to prepare for the future?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Pharmacy informatics is the combination of pharmacy practice science and applied information science. Pharmacy informaticists work in many practice areas of pharmacy, however, they may also work in information technology departments or for healthcare information technology vendor companies. As a practice area and specialist domain, pharmacy informatics is growing quickly to meet the needs of major national and international patient information projects and health system interoperability goals. Pharmacists in this area are trained to participate in medication management system development, deployment and optimization. Question: What two things can pharmacy informatics not bring together?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The path of violence and military struggle was then taken up by the Egyptian Islamic Jihad organization responsible for the assassination of Anwar Sadat in 1981. Unlike earlier anti-colonial movements the extremist group directed its attacks against what it believed were \"apostate\" leaders of Muslim states, leaders who held secular leanings or who had introduced or promoted Western/foreign ideas and practices into Islamic societies. Its views were outlined in a pamphlet written by Muhammad Abd al-Salaam Farag, in which he states: Question: Who wrote a pamphlet outlining the radical ideas of the extremists?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Western medicine was also practiced in China by the Nestorian Christians of the Yuan court, where it was sometimes labeled as huihui or Muslim medicine. The Nestorian physician Jesus the Interpreter founded the Office of Western Medicine in 1263 during the reign of Kublai. Huihui doctors staffed at two imperial hospitals were responsible for treating the imperial family and members of the court. Chinese physicians opposed Western medicine because its humoral system contradicted the yin-yang and wuxing philosophy underlying traditional Chinese medicine. No Chinese translation of Western medical works is known, but it is possible that the Chinese had access to Avicenna's The Canon of Medicine. Question: What was huihui?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The Normans had a profound effect on Irish culture and history after their invasion at Bannow Bay in 1169. Initially the Normans maintained a distinct culture and ethnicity. Yet, with time, they came to be subsumed into Irish culture to the point that it has been said that they became \"more Irish than the Irish themselves.\" The Normans settled mostly in an area in the east of Ireland, later known as the Pale, and also built many fine castles and settlements, including Trim Castle and Dublin Castle. Both cultures intermixed, borrowing from each other's language, culture and outlook. Norman descendants today can be recognised by their surnames. Names such as French, (De) Roche, Devereux, D'Arcy, Treacy and Lacy are particularly common in the southeast of Ireland, especially in the southern part of County Wexford where the first Norman settlements were established. Other Norman names such as Furlong predominate there. Another common Norman-Irish name was Morell (Murrell) derived from the French Norman name Morel. Other names beginning with Fitz (from the Norman for son) indicate Norman ancestry. These included Fitzgerald, FitzGibbons (Gibbons) dynasty, Fitzmaurice. Other families bearing such surnames as Barry (de Barra) and De Búrca (Burke) are also of Norman extraction. Question: What castles were built by the Irish?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The new British command was not in place until July. When he arrived in Albany, Abercrombie refused to take any significant actions until Loudoun approved them. Montcalm took bold action against his inertia. Building on Vaudreuil's work harassing the Oswego garrison, Montcalm executed a strategic feint by moving his headquarters to Ticonderoga, as if to presage another attack along Lake George. With Abercrombie pinned down at Albany, Montcalm slipped away and led the successful attack on Oswego in August. In the aftermath, Montcalm and the Indians under his command disagreed about the disposition of prisoners' personal effects. The Europeans did not consider them prizes and prevented the Indians from stripping the prisoners of their valuables, which angered the Indians. Question: What disagreement did Montcalm and Indians have?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The historical measure of a steam engine's energy efficiency was its \"duty\". The concept of duty was first introduced by Watt in order to illustrate how much more efficient his engines were over the earlier Newcomen designs. Duty is the number of foot-pounds of work delivered by burning one bushel (94 pounds) of coal. The best examples of Newcomen designs had a duty of about 7 million, but most were closer to 5 million. Watt's original low-pressure designs were able to deliver duty as high as 25 million, but averaged about 17. This was a three-fold improvement over the average Newcomen design. Early Watt engines equipped with high-pressure steam improved this to 65 million. Question: What is the weight of a bushel of coal in pounds?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Funding for private schools is generally provided through student tuition, endowments, scholarship/voucher funds, and donations and grants from religious organizations or private individuals. Government funding for religious schools is either subject to restrictions or possibly forbidden, according to the courts' interpretation of the Establishment Clause of the First Amendment or individual state Blaine Amendments. Non-religious private schools theoretically could qualify for such funding without hassle, preferring the advantages of independent control of their student admissions and course content instead of the public funding they could get with charter status. Question: Why would course content funding be restricted by the courts?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: There are also several smaller freight operators and numerous tourist railways operating over lines which were once parts of a state-owned system. Victorian lines mainly use the 1,600 mm (5 ft 3 in) broad gauge. However, the interstate trunk routes, as well as a number of branch lines in the west of the state have been converted to 1,435 mm (4 ft 8 1/2 in) standard gauge. Two tourist railways operate over 760 mm (2 ft 6 in) narrow gauge lines, which are the remnants of five formerly government-owned lines which were built in mountainous areas. Question: Where were the narrow gauge rail lines demolished in Victoria?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: For the 2012–13 school year annual tuition was $38,000, with a total cost of attendance of $57,000. Beginning 2007, families with incomes below $60,000 pay nothing for their children to attend, including room and board. Families with incomes between $60,000 to $80,000 pay only a few thousand dollars per year, and families earning between $120,000 and $180,000 pay no more than 10% of their annual incomes. In 2009, Harvard offered grants totaling $414 million across all eleven divisions;[further explanation needed] $340 million came from institutional funds, $35 million from federal support, and $39 million from other outside support. Grants total 88% of Harvard's aid for undergraduate students, with aid also provided by loans (8%) and work-study (4%). Question: What else were families with incomes below $38,000 not required to pay for in 2009?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: After the 1940s, the Gothic style on campus began to give way to modern styles. In 1955, Eero Saarinen was contracted to develop a second master plan, which led to the construction of buildings both north and south of the Midway, including the Laird Bell Law Quadrangle (a complex designed by Saarinen); a series of arts buildings; a building designed by Ludwig Mies van der Rohe for the university's School of Social Service Administration;, a building which is to become the home of the Harris School of Public Policy Studies by Edward Durrell Stone, and the Regenstein Library, the largest building on campus, a brutalist structure designed by Walter Netsch of the Chicago firm Skidmore, Owings & Merrill. Another master plan, designed in 1999 and updated in 2004, produced the Gerald Ratner Athletics Center (2003), the Max Palevsky Residential Commons (2001), South Campus Residence Hall and dining commons (2009), a new children's hospital, and other construction, expansions, and restorations. In 2011, the university completed the glass dome-shaped Joe and Rika Mansueto Library, which provides a grand reading room for the university library and prevents the need for an off-campus book depository. Question: After which decade did modern styles give way to Gothic styles on campus?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Hence, 6 is not prime. The image at the right illustrates that 12 is not prime: 12 = 3 · 4. No even number greater than 2 is prime because by definition, any such number n has at least three distinct divisors, namely 1, 2, and n. This implies that n is not prime. Accordingly, the term odd prime refers to any prime number greater than 2. Similarly, when written in the usual decimal system, all prime numbers larger than 5 end in 1, 3, 7, or 9, since even numbers are multiples of 2 and numbers ending in 0 or 5 are multiples of 5. Question: What name is given to any prime number larger than 2?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: A job where there are many workers willing to work a large amount of time (high supply) competing for a job that few require (low demand) will result in a low wage for that job. This is because competition between workers drives down the wage. An example of this would be jobs such as dish-washing or customer service. Competition amongst workers tends to drive down wages due to the expendable nature of the worker in relation to his or her particular job. A job where there are few able or willing workers (low supply), but a large need for the positions (high demand), will result in high wages for that job. This is because competition between employers for employees will drive up the wage. Examples of this would include jobs that require highly developed skills, rare abilities, or a high level of risk. Competition amongst employers tends to drive up wages due to the nature of the job, since there is a relative shortage of workers for the particular position. Professional and labor organizations may limit the supply of workers which results in higher demand and greater incomes for members. Members may also receive higher wages through collective bargaining, political influence, or corruption. Question: While competition between workers drives down wages for jobs with a high supply of worker, whose competition drives wages up for the inverse?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The historian Frederick W. Mote wrote that the usage of the term \"social classes\" for this system was misleading and that the position of people within the four-class system was not an indication of their actual social power and wealth, but just entailed \"degrees of privilege\" to which they were entitled institutionally and legally, so a person's standing within the classes was not a guarantee of their standing, since there were rich and well socially standing Chinese while there were less rich Mongol and Semu than there were Mongol and Semu who lived in poverty and were ill treated. Question: Who thought that the Yuan's social class system should be called social classes?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: In 1096, Crusaders passing by the siege of Amalfi were joined by Bohemond of Taranto and his nephew Tancred with an army of Italo-Normans. Bohemond was the de facto leader of the Crusade during its passage through Asia Minor. After the successful Siege of Antioch in 1097, Bohemond began carving out an independent principality around that city. Tancred was instrumental in the conquest of Jerusalem and he worked for the expansion of the Crusader kingdom in Transjordan and the region of Galilee.[citation needed] Question: When did Tancred lay siege to Antioch?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: For many geologic applications, isotope ratios of radioactive elements are measured in minerals that give the amount of time that has passed since a rock passed through its particular closure temperature, the point at which different radiometric isotopes stop diffusing into and out of the crystal lattice. These are used in geochronologic and thermochronologic studies. Common methods include uranium-lead dating, potassium-argon dating, argon-argon dating and uranium-thorium dating. These methods are used for a variety of applications. Dating of lava and volcanic ash layers found within a stratigraphic sequence can provide absolute age data for sedimentary rock units which do not contain radioactive isotopes and calibrate relative dating techniques. These methods can also be used to determine ages of pluton emplacement. Thermochemical techniques can be used to determine temperature profiles within the crust, the uplift of mountain ranges, and paleotopography. Question: What is one thing ash layers can be used to determine in a crystal lattice?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: On 1 February 2007, the eve of the publication of IPCC's major report on climate, a study was published suggesting that temperatures and sea levels have been rising at or above the maximum rates proposed during the last IPCC report in 2001. The study compared IPCC 2001 projections on temperature and sea level change with observations. Over the six years studied, the actual temperature rise was near the top end of the range given by IPCC's 2001 projection, and the actual sea level rise was above the top of the range of the IPCC projection. Question: Below what levels were the projected sea levels in the 2001 IPCC projection?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Steam engines are external combustion engines, where the working fluid is separate from the combustion products. Non-combustion heat sources such as solar power, nuclear power or geothermal energy may be used. The ideal thermodynamic cycle used to analyze this process is called the Rankine cycle. In the cycle, water is heated and transforms into steam within a boiler operating at a high pressure. When expanded through pistons or turbines, mechanical work is done. The reduced-pressure steam is then condensed and pumped back into the boiler. Question: At what pressure is nuclear power heated in the Rankine cycle?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The embargo had a negative influence on the US economy by causing immediate demands to address the threats to U.S. energy security. On an international level, the price increases changed competitive positions in many industries, such as automobiles. Macroeconomic problems consisted of both inflationary and deflationary impacts. The embargo left oil companies searching for new ways to increase oil supplies, even in rugged terrain such as the Arctic. Finding oil and developing new fields usually required five to ten years before significant production. Question: What did developing new oil fields have a negative influence on?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Subsequently, Californios (dissatisfied with inequitable taxes and land laws) and pro-slavery southerners in the lightly populated \"Cow Counties\" of southern California attempted three times in the 1850s to achieve a separate statehood or territorial status separate from Northern California. The last attempt, the Pico Act of 1859, was passed by the California State Legislature and signed by the State governor John B. Weller. It was approved overwhelmingly by nearly 75% of voters in the proposed Territory of Colorado. This territory was to include all the counties up to the then much larger Tulare County (that included what is now Kings, most of Kern, and part of Inyo counties) and San Luis Obispo County. The proposal was sent to Washington, D.C. with a strong advocate in Senator Milton Latham. However, the secession crisis following the election of Abraham Lincoln in 1860 led to the proposal never coming to a vote. Question: Who was elected in 1859?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Free oxygen also occurs in solution in the world's water bodies. The increased solubility of O\n2 at lower temperatures (see Physical properties) has important implications for ocean life, as polar oceans support a much higher density of life due to their higher oxygen content. Water polluted with plant nutrients such as nitrates or phosphates may stimulate growth of algae by a process called eutrophication and the decay of these organisms and other biomaterials may reduce amounts of O\n2 in eutrophic water bodies. Scientists assess this aspect of water quality by measuring the water's biochemical oxygen demand, or the amount of O\n2 needed to restore it to a normal concentration. Question: Why do polar oceans support reduced amounts of life?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The Scotland Act 1998, which was passed by the Parliament of the United Kingdom and given royal assent by Queen Elizabeth II on 19 November 1998, governs the functions and role of the Scottish Parliament and delimits its legislative competence. The Scotland Act 2012 extends the devolved competencies. For the purposes of parliamentary sovereignty, the Parliament of the United Kingdom at Westminster continues to constitute the supreme legislature of Scotland. However, under the terms of the Scotland Act, Westminster agreed to devolve some of its responsibilities over Scottish domestic policy to the Scottish Parliament. Such \"devolved matters\" include education, health, agriculture and justice. The Scotland Act enabled the Scottish Parliament to pass primary legislation on these issues. A degree of domestic authority, and all foreign policy, remain with the UK Parliament in Westminster. The Scottish Parliament has the power to pass laws and has limited tax-varying capability. Another of the roles of the Parliament is to hold the Scottish Government to account. Question: Who passed the Scotland Act of 1988?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: AUSTPAC was an Australian public X.25 network operated by Telstra. Started by Telecom Australia in the early 1980s, AUSTPAC was Australia's first public packet-switched data network, supporting applications such as on-line betting, financial applications — the Australian Tax Office made use of AUSTPAC — and remote terminal access to academic institutions, who maintained their connections to AUSTPAC up until the mid-late 1990s in some cases. Access can be via a dial-up terminal to a PAD, or, by linking a permanent X.25 node to the network.[citation needed] Question: What was the Australian public X.75 network operated by Telstra?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: John Schmitt and Ben Zipperer (2006) of the CEPR point to economic liberalism and the reduction of business regulation along with the decline of union membership as one of the causes of economic inequality. In an analysis of the effects of intensive Anglo-American liberal policies in comparison to continental European liberalism, where unions have remained strong, they concluded \"The U.S. economic and social model is associated with substantial levels of social exclusion, including high levels of income inequality, high relative and absolute poverty rates, poor and unequal educational outcomes, poor health outcomes, and high rates of crime and incarceration. At the same time, the available evidence provides little support for the view that U.S.-style labor-market flexibility dramatically improves labor-market outcomes. Despite popular prejudices to the contrary, the U.S. economy consistently affords a lower level of economic mobility than all the continental European countries for which data is available.\" Question: What types of organizations are on a decline in the US which adversely effects economic mobility?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: In the laboratory, biostratigraphers analyze rock samples from outcrop and drill cores for the fossils found in them. These fossils help scientists to date the core and to understand the depositional environment in which the rock units formed. Geochronologists precisely date rocks within the stratigraphic section in order to provide better absolute bounds on the timing and rates of deposition. Magnetic stratigraphers look for signs of magnetic reversals in igneous rock units within the drill cores. Other scientists perform stable isotope studies on the rocks to gain information about past climate. Question: What do geochronologists look for in drill cores?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The principle of cross-cutting relationships pertains to the formation of faults and the age of the sequences through which they cut. Faults are younger than the rocks they cut; accordingly, if a fault is found that penetrates some formations but not those on top of it, then the formations that were cut are older than the fault, and the ones that are not cut must be younger than the fault. Finding the key bed in these situations may help determine whether the fault is a normal fault or a thrust fault. Question: What are key beds younger than?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Trade liberalization may shift economic inequality from a global to a domestic scale. When rich countries trade with poor countries, the low-skilled workers in the rich countries may see reduced wages as a result of the competition, while low-skilled workers in the poor countries may see increased wages. Trade economist Paul Krugman estimates that trade liberalisation has had a measurable effect on the rising inequality in the United States. He attributes this trend to increased trade with poor countries and the fragmentation of the means of production, resulting in low skilled jobs becoming more tradeable. However, he concedes that the effect of trade on inequality in America is minor when compared to other causes, such as technological innovation, a view shared by other experts. Empirical economists Max Roser and Jesus Crespo-Cuaresma find support in the data that international trade is increasing income inequality. They empirically confirm the predictions of the Stolper–Samuelson theorem regarding the effects of international trade on the distribution of incomes. Lawrence Katz estimates that trade has only accounted for 5-15% of rising income inequality. Robert Lawrence argues that technological innovation and automation has meant that low-skilled jobs have been replaced by machine labor in wealthier nations, and that wealthier countries no longer have significant numbers of low-skilled manufacturing workers that could be affected by competition from poor countries. Question: What has replaced higher skilled workers in the United States?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: On the other hand, higher economic inequality tends to increase entrepreneurship rates at the individual level (self-employment). However, most of it is often based on necessity rather than opportunity. Necessity-based entrepreneurship is motivated by survival needs such as income for food and shelter (\"push\" motivations), whereas opportunity-based entrepreneurship is driven by achievement-oriented motivations (\"pull\") such as vocation and more likely to involve the pursue of new products, services, or underserved market needs. The economic impact of the former type of entrepreneurialism tends to be redistributive while the latter is expected to foster technological progress and thus have a more positive impact on economic growth. Question: What is the increased rates of self-employment based on?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Another major division within Islamism is between what Graham E. Fuller has described as the fundamentalist \"guardians of the tradition\" (Salafis, such as those in the Wahhabi movement) and the \"vanguard of change and Islamic reform\" centered around the Muslim Brotherhood. Olivier Roy argues that \"Sunni pan-Islamism underwent a remarkable shift in the second half of the 20th century\" when the Muslim Brotherhood movement and its focus on Islamisation of pan-Arabism was eclipsed by the Salafi movement with its emphasis on \"sharia rather than the building of Islamic institutions,\" and rejection of Shia Islam. Following the Arab Spring, Roy has described Islamism as \"increasingly interdependent\" with democracy in much of the Arab Muslim world, such that \"neither can now survive without the other.\" While Islamist political culture itself may not be democratic, Islamists need democratic elections to maintain their legitimacy. At the same time, their popularity is such that no government can call itself democratic that excludes mainstream Islamist groups. Question: What has Islamism been increasingly interdependent with following the non-Arab Spring?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Trevithick continued his own experiments using a trio of locomotives, concluding with the Catch Me Who Can in 1808. Only four years later, the successful twin-cylinder locomotive Salamanca by Matthew Murray was used by the edge railed rack and pinion Middleton Railway. In 1825 George Stephenson built the Locomotion for the Stockton and Darlington Railway. This was the first public steam railway in the world and then in 1829, he built The Rocket which was entered in and won the Rainhill Trials. The Liverpool and Manchester Railway opened in 1830 making exclusive use of steam power for both passenger and freight trains. Question: For what railroad did Stephenson build a locomotive in 1825?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The shape of the Rhine delta is determined by two bifurcations: first, at Millingen aan de Rijn, the Rhine splits into Waal and Pannerdens Kanaal, which changes its name to Nederrijn at Angeren, and second near Arnhem, the IJssel branches off from the Nederrijn. This creates three main flows, two of which change names rather often. The largest and southern main branch begins as Waal and continues as Boven Merwede (\"Upper Merwede\"), Beneden Merwede (\"Lower Merwede\"), Noord River (\"North River\"), Nieuwe Maas (\"New Meuse\"), Het Scheur (\"the Rip\") and Nieuwe Waterweg (\"New Waterway\"). The middle flow begins as Nederrijn, then changes into Lek, then joins the Noord, thereby forming Nieuwe Maas. The northern flow keeps the name IJssel until it flows into Lake IJsselmeer. Three more flows carry significant amounts of water: the Nieuwe Merwede (\"New Merwede\"), which branches off from the southern branch where it changes from Boven to Beneden Merwede; the Oude Maas (\"Old Meuse\"), which branches off from the southern branch where it changes from Beneden Merwede into Noord, and Dordtse Kil, which branches off from Oude Maas. Question: What is the translation of Oude Maas?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Immigrants arrived from all over the world to search for gold, especially from Ireland and China. Many Chinese miners worked in Victoria, and their legacy is particularly strong in Bendigo and its environs. Although there was some racism directed at them, there was not the level of anti-Chinese violence that was seen at the Lambing Flat riots in New South Wales. However, there was a riot at Buckland Valley near Bright in 1857. Conditions on the gold fields were cramped and unsanitary; an outbreak of typhoid at Buckland Valley in 1854 killed over 1,000 miners. Question: Where is the Asian gold miners strongest in Victoria?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: On the other hand, higher economic inequality tends to increase entrepreneurship rates at the individual level (self-employment). However, most of it is often based on necessity rather than opportunity. Necessity-based entrepreneurship is motivated by survival needs such as income for food and shelter (\"push\" motivations), whereas opportunity-based entrepreneurship is driven by achievement-oriented motivations (\"pull\") such as vocation and more likely to involve the pursue of new products, services, or underserved market needs. The economic impact of the former type of entrepreneurialism tends to be redistributive while the latter is expected to foster technological progress and thus have a more positive impact on economic growth. Question: What type of entrepreneurship leads to advancements in technology?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Plotting the relationship between level of income and inequality, Kuznets saw middle-income developing economies level of inequality bulging out to form what is now known as the Kuznets curve. Kuznets demonstrated this relationship using cross-sectional data. However, more recent testing of this theory with superior panel data has shown it to be very weak. Kuznets' curve predicts that income inequality will eventually decrease given time. As an example, income inequality did fall in the United States during its High school movement from 1910 to 1940 and thereafter.[citation needed] However, recent data shows that the level of income inequality began to rise after the 1970s. This does not necessarily disprove Kuznets' theory.[citation needed] It may be possible that another Kuznets' cycle is occurring, specifically the move from the manufacturing sector to the service sector.[citation needed] This implies that it may be possible for multiple Kuznets' cycles to be in effect at any given time. Question: What may be possible for multiple Kuznets' cycles to be in at any given time?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: When some species, including Bathyctena chuni, Euplokamis stationis and Eurhamphaea vexilligera, are disturbed, they produce secretions (ink) that luminesce at much the same wavelengths as their bodies. Juveniles will luminesce more brightly in relation to their body size than adults, whose luminescence is diffused over their bodies. Detailed statistical investigation has not suggested the function of ctenophores' bioluminescence nor produced any correlation between its exact color and any aspect of the animals' environments, such as depth or whether they live in coastal or mid-ocean waters. Question: What does ocean water do to luminescence from certain animals?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Among the most well-known experiments in structural geology are those involving orogenic wedges, which are zones in which mountains are built along convergent tectonic plate boundaries. In the analog versions of these experiments, horizontal layers of sand are pulled along a lower surface into a back stop, which results in realistic-looking patterns of faulting and the growth of a critically tapered (all angles remain the same) orogenic wedge. Numerical models work in the same way as these analog models, though they are often more sophisticated and can include patterns of erosion and uplift in the mountain belt. This helps to show the relationship between erosion and the shape of the mountain range. These studies can also give useful information about pathways for metamorphism through pressure, temperature, space, and time. Question: What does critically tapered mean? ",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: There are also many places commemorating the heroic history of Warsaw. Pawiak, an infamous German Gestapo prison now occupied by a Mausoleum of Memory of Martyrdom and the museum, is only the beginning of a walk in the traces of Heroic City. The Warsaw Citadel, an impressive 19th-century fortification built after the defeat of the November Uprising, was a place of martyr for the Poles. Another important monument, the statue of Little Insurgent located at the ramparts of the Old Town, commemorates the children who served as messengers and frontline troops in the Warsaw Uprising, while the impressive Warsaw Uprising Monument by Wincenty Kućma was erected in memory of the largest insurrection of World War II. Question: What was the name of the infamous German Heroic prison?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The acme of the horizontal engine was the Corliss steam engine, patented in 1849, which was a four-valve counter flow engine with separate steam admission and exhaust valves and automatic variable steam cutoff. When Corliss was given the Rumford medal the committee said that \"no one invention since Watt's time has so enhanced the efficiency of the steam engine\". In addition to using 30% less steam, it provided more uniform speed due to variable steam cut off, making it well suited to manufacturing, especially cotton spinning. Question: How much less steam did the Corliss engine use compared to the Watt engine?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Packet switching contrasts with another principal networking paradigm, circuit switching, a method which pre-allocates dedicated network bandwidth specifically for each communication session, each having a constant bit rate and latency between nodes. In cases of billable services, such as cellular communication services, circuit switching is characterized by a fee per unit of connection time, even when no data is transferred, while packet switching may be characterized by a fee per unit of information transmitted, such as characters, packets, or messages. Question: How is information charged differently for Circuit Switching?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The relationship of ctenophores to the rest of Metazoa is very important to our understanding of the early evolution of animals and the origin of multicellularity. It has been the focus of debate for many years. Ctenophores have been purported to be the sister lineage to the Bilateria, sister to the Cnidaria, sister to Cnidaria, Placozoa and Bilateria, and sister to all other animal phyla. A series of studies that looked at the presence and absence of members of gene families and signalling pathways (e.g., homeoboxes, nuclear receptors, the Wnt signaling pathway, and sodium channels) showed evidence congruent with the latter two scenarios, that ctenophores are either sister to Cnidaria, Placozoa and Bilateria or sister to all other animal phyla. Several more recent studies comparing complete sequenced genomes of ctenophores with other sequenced animal genomes have also supported ctenophores as the sister lineage to all other animals. This position would suggest that neural and muscle cell types were either lost in major animal lineages (e.g., Porifera) or that they evolved independently in the ctenophore lineage. However, other researchers have argued that the placement of Ctenophora as sister to all other animals is a statistical anomaly caused by the high rate of evolution in ctenophore genomes, and that Porifera (sponges) is the earliest-diverging animal phylum instead. Ctenophores and sponges are also the only known animal phyla that lack any true hox genes. Question: What do some researchers believe is the earliest-diverging animal phylum is?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The final major evolution of the steam engine design was the use of steam turbines starting in the late part of the 19th century. Steam turbines are generally more efficient than reciprocating piston type steam engines (for outputs above several hundred horsepower), have fewer moving parts, and provide rotary power directly instead of through a connecting rod system or similar means. Steam turbines virtually replaced reciprocating engines in electricity generating stations early in the 20th century, where their efficiency, higher speed appropriate to generator service, and smooth rotation were advantages. Today most electric power is provided by steam turbines. In the United States 90% of the electric power is produced in this way using a variety of heat sources. Steam turbines were extensively applied for propulsion of large ships throughout most of the 20th century. Question: What percentage of electrical power in the United States is made by steam turbines?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: There were 158,349 households, of which 68,511 (43.3%) had children under the age of 18 living in them, 69,284 (43.8%) were opposite-sex married couples living together, 30,547 (19.3%) had a female householder with no husband present, 11,698 (7.4%) had a male householder with no wife present. There were 12,843 (8.1%) unmarried opposite-sex partnerships, and 1,388 (0.9%) same-sex married couples or partnerships. 35,064 households (22.1%) were made up of individuals and 12,344 (7.8%) had someone living alone who was 65 years of age or older. The average household size was 3.07. There were 111,529 families (70.4% of all households); the average family size was 3.62. Question: What was the average household size?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Immunology is strongly experimental in everyday practice but is also characterized by an ongoing theoretical attitude. Many theories have been suggested in immunology from the end of the nineteenth century up to the present time. The end of the 19th century and the beginning of the 20th century saw a battle between \"cellular\" and \"humoral\" theories of immunity. According to the cellular theory of immunity, represented in particular by Elie Metchnikoff, it was cells – more precisely, phagocytes – that were responsible for immune responses. In contrast, the humoral theory of immunity, held, among others, by Robert Koch and Emil von Behring, stated that the active immune agents were soluble components (molecules) found in the organism’s \"humors\" rather than its cells. Question: Under Elie Metchnikoff's cellular theory, what cells were responsible for immune response?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: In the China of the Yuan, or Mongol era, various important developments in the arts occurred or continued in their development, including the areas of painting, mathematics, calligraphy, poetry, and theater, with many great artists and writers being famous today. Due to the coming together of painting, poetry, and calligraphy at this time many of the artists practicing these different pursuits were the same individuals, though perhaps more famed for one area of their achievements than others. Often in terms of the further development of landscape painting as well as the classical joining together of the arts of painting, poetry, and calligraphy, the Song dynasty and the Yuan dynasty are linked together. In the area of Chinese painting during the Yuan dynasty there were many famous painters. In the area of calligraphy many of the great calligraphers were from the Yuan dynasty era. In Yuan poetry, the main development was the qu, which was used among other poetic forms by most of the famous Yuan poets. Many of the poets were also involved in the major developments in the theater during this time, and the other way around, with people important in the theater becoming famous through the development of the sanqu type of qu. One of the key factors in the mix of the zaju variety show was the incorporation of poetry both classical and of the newer qu form. One of the important cultural developments during the Yuan era was the consolidation of poetry, painting, and calligraphy into a unified piece of the type that tends to come to mind when people think of classical Chinese art. Another important aspect of Yuan times is the increasing incorporation of the then current, vernacular Chinese into both the qu form of poetry and the zaju variety show. Another important consideration regarding Yuan dynasty arts and culture is that so much of it has survived in China, relatively to works from the Tang dynasty and Song dynasty, which have often been better preserved in places such as the Shosoin, in Japan. Question: What type of arts flourished in the Yuan?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Other components are often present; pumps (such as an injector) to supply water to the boiler during operation, condensers to recirculate the water and recover the latent heat of vaporisation, and superheaters to raise the temperature of the steam above its saturated vapour point, and various mechanisms to increase the draft for fireboxes. When coal is used, a chain or screw stoking mechanism and its drive engine or motor may be included to move the fuel from a supply bin (bunker) to the firebox. See: Mechanical stoker Question: What mechanism moves coal from a bunker to the firebox?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: One of its earliest massive implementations was brought about by Egyptians against the British occupation in the 1919 Revolution. Civil disobedience is one of the many ways people have rebelled against what they deem to be unfair laws. It has been used in many nonviolent resistance movements in India (Gandhi's campaigns for independence from the British Empire), in Czechoslovakia's Velvet Revolution and in East Germany to oust their communist governments, In South Africa in the fight against apartheid, in the American Civil Rights Movement, in the Singing Revolution to bring independence to the Baltic countries from the Soviet Union, recently with the 2003 Rose Revolution in Georgia and the 2004 Orange Revolution in Ukraine, among other various movements worldwide. Question: What is it called when people in society rebel against laws they think are unfair?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Following the Nice Treaty, there was an attempt to reform the constitutional law of the European Union and make it more transparent; this would have also produced a single constitutional document. However, as a result of the referendum in France and the referendum in the Netherlands, the 2004 Treaty establishing a Constitution for Europe never came into force. Instead, the Lisbon Treaty was enacted. Its substance was very similar to the proposed constitutional treaty, but it was formally an amending treaty, and – though it significantly altered the existing treaties – it did not completely replace them. Question: Which caused the reform to come into force?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Geographical theories such as environmental determinism also suggested that tropical environments created uncivilized people in need of European guidance. For instance, American geographer Ellen Churchill Semple argued that even though human beings originated in the tropics they were only able to become fully human in the temperate zone. Tropicality can be paralleled with Edward Said’s Orientalism as the west’s construction of the east as the \"other\". According to Siad, orientalism allowed Europe to establish itself as the superior and the norm, which justified its dominance over the essentialized Orient. Question:  By justification certain racial and geographical theories, Asia thought of itself as what?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: A static equilibrium between two forces is the most usual way of measuring forces, using simple devices such as weighing scales and spring balances. For example, an object suspended on a vertical spring scale experiences the force of gravity acting on the object balanced by a force applied by the \"spring reaction force\", which equals the object's weight. Using such tools, some quantitative force laws were discovered: that the force of gravity is proportional to volume for objects of constant density (widely exploited for millennia to define standard weights); Archimedes' principle for buoyancy; Archimedes' analysis of the lever; Boyle's law for gas pressure; and Hooke's law for springs. These were all formulated and experimentally verified before Isaac Newton expounded his Three Laws of Motion. Question: Complex devices such as weighing scales are used when measuring what?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Much of the work of the Scottish Parliament is done in committee. The role of committees is stronger in the Scottish Parliament than in other parliamentary systems, partly as a means of strengthening the role of backbenchers in their scrutiny of the government and partly to compensate for the fact that there is no revising chamber. The principal role of committees in the Scottish Parliament is to take evidence from witnesses, conduct inquiries and scrutinise legislation. Committee meetings take place on Tuesday, Wednesday and Thursday morning when Parliament is sitting. Committees can also meet at other locations throughout Scotland. Question: Which group has a primary role scrutinizing witnesses?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Civil disobedients have chosen a variety of different illegal acts. Bedau writes, \"There is a whole class of acts, undertaken in the name of civil disobedience, which, even if they were widely practiced, would in themselves constitute hardly more than a nuisance (e.g. trespassing at a nuclear-missile installation)...Such acts are often just a harassment and, at least to the bystander, somewhat inane...The remoteness of the connection between the disobedient act and the objectionable law lays such acts open to the charge of ineffectiveness and absurdity.\" Bedau also notes, though, that the very harmlessness of such entirely symbolic illegal protests toward public policy goals may serve a propaganda purpose. Some civil disobedients, such as the proprietors of illegal medical cannabis dispensaries and Voice in the Wilderness, which brought medicine to Iraq without the permission of the U.S. Government, directly achieve a desired social goal (such as the provision of medication to the sick) while openly breaking the law. Julia Butterfly Hill lived in Luna, a 180-foot (55 m)-tall, 600-year-old California Redwood tree for 738 days, successfully preventing it from being cut down. Question: How long did Julia Butterfly Hill live near a nuclear-missile installation?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Its counties of Los Angeles, Orange, San Diego, San Bernardino, and Riverside are the five most populous in the state and all are in the top 15 most populous counties in the United States. Question: What are the five most populous counties in the United States?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Since all modern ctenophores except the beroids have cydippid-like larvae, it has widely been assumed that their last common ancestor also resembled cydippids, having an egg-shaped body and a pair of retractable tentacles. Richard Harbison's purely morphological analysis in 1985 concluded that the cydippids are not monophyletic, in other words do not contain all and only the descendants of a single common ancestor that was itself a cydippid. Instead he found that various cydippid families were more similar to members of other ctenophore orders than to other cydippids. He also suggested that the last common ancestor of modern ctenophores was either cydippid-like or beroid-like. A molecular phylogeny analysis in 2001, using 26 species, including 4 recently discovered ones, confirmed that the cydippids are not monophyletic and concluded that the last common ancestor of modern ctenophores was cydippid-like. It also found that the genetic differences between these species were very small – so small that the relationships between the Lobata, Cestida and Thalassocalycida remained uncertain. This suggests that the last common ancestor of modern ctenophores was relatively recent, and perhaps was lucky enough to survive the Cretaceous–Paleogene extinction event 65.5 million years ago while other lineages perished. When the analysis was broadened to include representatives of other phyla, it concluded that cnidarians are probably more closely related to bilaterians than either group is to ctenophores but that this diagnosis is uncertain. Question: In what time period did the Lobata, Cestida and Thalassocalycida become extinct?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Southern California is also home to the Port of Los Angeles, the United States' busiest commercial port; the adjacent Port of Long Beach, the United States' second busiest container port; and the Port of San Diego. Question: What is the United State's second-busiest commercial port?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: New Rochelle, located in the county of Westchester on the north shore of Long Island Sound, seemed to be the great location of the Huguenots in New York. It is said that they landed on the coastline peninsula of Davenports Neck called \"Bauffet's Point\" after traveling from England where they had previously taken refuge on account of religious persecution, four years before the revocation of the Edict of Nantes. They purchased from John Pell, Lord of Pelham Manor, a tract of land consisting of six thousand one hundred acres with the help of Jacob Leisler. It was named New Rochelle after La Rochelle, their former strong-hold in France. A small wooden church was first erected in the community, followed by a second church that built of stone. Previous to the erection of it, the strong men would often walk twenty-three miles on Saturday evening, the distance by the road from New Rochelle to New York, to attend the Sunday service. The church was eventually replaced by a third, Trinity-St. Paul's Episcopal Church, which contains heirlooms including the original bell from the French Huguenot Church \"Eglise du St. Esperit\" on Pine Street in New York City, which is preserved as a relic in the tower room. The Huguenot cemetery, or \"Huguenot Burial Ground\", has since been recognized as a historic cemetery that is the final resting place for a wide range of the Huguenot founders, early settlers and prominent citizens dating back more than three centuries. Question: Whose decision was it to name the new town New Rochelle?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Civil disobedience is usually defined as pertaining to a citizen's relation to the state and its laws, as distinguished from a constitutional impasse in which two public agencies, especially two equally sovereign branches of government, conflict. For instance, if the head of government of a country were to refuse to enforce a decision of that country's highest court, it would not be civil disobedience, since the head of government would be acting in her or his capacity as public official rather than private citizen. Question: What two public agencies conflict under the defnintion of civil disobedience?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: People who climb mountains or fly in non-pressurized fixed-wing aircraft sometimes have supplemental O\n2 supplies.[h] Passengers traveling in (pressurized) commercial airplanes have an emergency supply of O\n2 automatically supplied to them in case of cabin depressurization. Sudden cabin pressure loss activates chemical oxygen generators above each seat, causing oxygen masks to drop. Pulling on the masks \"to start the flow of oxygen\" as cabin safety instructions dictate, forces iron filings into the sodium chlorate inside the canister. A steady stream of oxygen gas is then produced by the exothermic reaction. Question: What event would necessitate airline passengers to need a supplemental supply of oxygen? ",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Downtown San Diego is the central business district of San Diego, though the city is filled with business districts. These include Carmel Valley, Del Mar Heights, Mission Valley, Rancho Bernardo, Sorrento Mesa, and University City. Most of these districts are located in Northern San Diego and some within North County regions. Question: What business districts are located in Northern downtown San Diego?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: According to economists David Castells-Quintana and Vicente Royuela, increasing inequality harms economic growth. High and persistent unemployment, in which inequality increases, has a negative effect on subsequent long-run economic growth. Unemployment can harm growth not only because it is a waste of resources, but also because it generates redistributive pressures and subsequent distortions, drives people to poverty, constrains liquidity limiting labor mobility, and erodes self-esteem promoting social dislocation, unrest and conflict. Policies aiming at controlling unemployment and in particular at reducing its inequality-associated effects support economic growth. Question: Policies which try to control unemployment support economic growth because they reduce what?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Southern California is home to Los Angeles International Airport, the second-busiest airport in the United States by passenger volume (see World's busiest airports by passenger traffic) and the third by international passenger volume (see Busiest airports in the United States by international passenger traffic); San Diego International Airport the busiest single runway airport in the world; Van Nuys Airport, the world's busiest general aviation airport; major commercial airports at Orange County, Bakersfield, Ontario, Burbank and Long Beach; and numerous smaller commercial and general aviation airports. Question: What ranking in terms of busiest airports from international passenger volume is the Los Angeles International Airport?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: In the laboratory, biostratigraphers analyze rock samples from outcrop and drill cores for the fossils found in them. These fossils help scientists to date the core and to understand the depositional environment in which the rock units formed. Geochronologists precisely date rocks within the stratigraphic section in order to provide better absolute bounds on the timing and rates of deposition. Magnetic stratigraphers look for signs of magnetic reversals in igneous rock units within the drill cores. Other scientists perform stable isotope studies on the rocks to gain information about past climate. Question: What do magnetic straitigraphers precisely date?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Since then, and so far, general relativity has been acknowledged as the theory that best explains gravity. In GR, gravitation is not viewed as a force, but rather, objects moving freely in gravitational fields travel under their own inertia in straight lines through curved space-time – defined as the shortest space-time path between two space-time events. From the perspective of the object, all motion occurs as if there were no gravitation whatsoever. It is only when observing the motion in a global sense that the curvature of space-time can be observed and the force is inferred from the object's curved path. Thus, the straight line path in space-time is seen as a curved line in space, and it is called the ballistic trajectory of the object. For example, a basketball thrown from the ground moves in a parabola, as it is in a uniform gravitational field. Its space-time trajectory (when the extra ct dimension is added) is almost a straight line, slightly curved (with the radius of curvature of the order of few light-years). The time derivative of the changing momentum of the object is what we label as \"gravitational force\". Question: What is viewed as a force in GR?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: News of the two battles reached England in August. After several months of negotiations, the government of the Duke of Newcastle decided to send an army expedition the following year to dislodge the French. They chose Major General Edward Braddock to lead the expedition. Word of the British military plans leaked to France well before Braddock's departure for North America. In response, King Louis XV dispatched six regiments to New France under the command of Baron Dieskau in 1755. The British, intending to blockade French ports, sent out their fleet in February 1755, but the French fleet had already sailed. Admiral Edward Hawke detached a fast squadron to North America in an attempt to intercept the French. Question: When did French learn about Braddock's plans?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: From 2005 to 2014, there were two Major League Soccer teams in Los Angeles — the LA Galaxy and Chivas USA — that both played at the StubHub Center and were local rivals. However, Chivas were suspended following the 2014 MLS season, with a second MLS team scheduled to return in 2018. Question: How many Major Soccer League teams were in Los Angeles from 2005-2014?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: A Pharmacy Technician in the UK is considered a health care professional and often does not work under the direct supervision of a pharmacist (if employed in a hospital pharmacy) but instead is supervised and managed by other senior pharmacy technicians. In the UK the role of a PhT has grown and responsibility has been passed on to them to manage the pharmacy department and specialised areas in pharmacy practice allowing pharmacists the time to specialise in their expert field as medication consultants spending more time working with patients and in research. A pharmacy technician once qualified has to register as a professional on the General Pharmaceutical Council (GPhC) register. The GPhC is the governing body for pharmacy health care professionals and this is who regulates the practice of pharmacists and pharmacy technicians. Question: What types of responsibilities might a pharmacy technician have?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Some of the income was dispensed in the form of aid to other underdeveloped nations whose economies had been caught between higher oil prices and lower prices for their own export commodities, amid shrinking Western demand. Much went for arms purchases that exacerbated political tensions, particularly in the Middle East. Saudi Arabia spent over 100 billion dollars in the ensuing decades for helping spread its fundamentalist interpretation of Islam, known as Wahhabism, throughout the world, via religious charities such al-Haramain Foundation, which often also distributed funds to violent Sunni extremist groups such as Al-Qaeda and the Taliban. Question: What is a fundamentalist interpretation of Islam called?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Southern California consists of one of the more varied collections of geologic, topographic, and natural ecosystem landscapes in a diversity outnumbering other major regions in the state and country. The region spans from Pacific Ocean islands, shorelines, beaches, and coastal plains, through the Transverse and Peninsular Ranges with their peaks, into the large and small interior valleys, to the vast deserts of California. Question: What types of collections does desert California have?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: From the late 1340s onwards, people in the countryside suffered from frequent natural disasters such as droughts, floods and the resulting famines, and the government's lack of effective policy led to a loss of popular support. In 1351, the Red Turban Rebellion started and grew into a nationwide uprising. In 1354, when Toghtogha led a large army to crush the Red Turban rebels, Toghun Temür suddenly dismissed him for fear of betrayal. This resulted in Toghun Temür's restoration of power on the one hand and a rapid weakening of the central government on the other. He had no choice but to rely on local warlords' military power, and gradually lost his interest in politics and ceased to intervene in political struggles. He fled north to Shangdu from Khanbaliq (present-day Beijing) in 1368 after the approach of the forces of the Míng dynasty (1368–1644), founded by Zhu Yuanzhang in the south. He had tried to regain Khanbaliq, which eventually failed; he died in Yingchang (located in present-day Inner Mongolia) two years later (1370). Yingchang was seized by the Ming shortly after his death. Some royal family members still lived in Henan today. Question:  Who had Toghtogha tried to defend?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Steam engines frequently possess two independent mechanisms for ensuring that the pressure in the boiler does not go too high; one may be adjusted by the user, the second is typically designed as an ultimate fail-safe. Such safety valves traditionally used a simple lever to restrain a plug valve in the top of a boiler. One end of the lever carried a weight or spring that restrained the valve against steam pressure. Early valves could be adjusted by engine drivers, leading to many accidents when a driver fastened the valve down to allow greater steam pressure and more power from the engine. The more recent type of safety valve uses an adjustable spring-loaded valve, which is locked such that operators may not tamper with its adjustment unless a seal illegally is broken. This arrangement is considerably safer.[citation needed] Question: What type of valve is used by recent springs?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The concept environmental determinism served as a moral justification for domination of certain territories and peoples. It was believed that a certain person's behaviours were determined by the environment in which they lived and thus validated their domination. For example, people living in tropical environments were seen as \"less civilized\" therefore justifying colonial control as a civilizing mission. Across the three waves of European colonialism (first in the Americas, second in Asia and lastly in Africa), environmental determinism was used to categorically place indigenous people in a racial hierarchy. This takes two forms, orientalism and tropicality. Question:  What were the three forms of environmental determinism?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Imperialism and colonialism both dictate the political and economic advantage over a land and the indigenous populations they control, yet scholars sometimes find it difficult to illustrate the difference between the two. Although imperialism and colonialism focus on the suppression of an other, if colonialism refers to the process of a country taking physical control of another, imperialism refers to the political and monetary dominance, either formally or informally. Colonialism is seen to be the architect deciding how to start dominating areas and then imperialism can be seen as creating the idea behind conquest cooperating with colonialism. Colonialism is when the imperial nation begins a conquest over an area and then eventually is able to rule over the areas the previous nation had controlled. Colonialism's core meaning is the exploitation of the valuable assets and supplies of the nation that was conquered and the conquering nation then gaining the benefits from the spoils of the war. The meaning of imperialism is to create an empire, by conquering the other state's lands and therefore increasing its own dominance. Colonialism is the builder and preserver of the colonial possessions in an area by a population coming from a foreign region. Colonialism can completely change the existing social structure, physical structure and economics of an area; it is not unusual that the characteristics of the conquering peoples are inherited by the conquered indigenous populations. Question:  what do conquering people take away from native populations?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Until 1932 the generally accepted length of the Rhine was 1,230 kilometres (764 miles). In 1932 the German encyclopedia Knaurs Lexikon stated the length as 1,320 kilometres (820 miles), presumably a typographical error. After this number was placed into the authoritative Brockhaus Enzyklopädie, it became generally accepted and found its way into numerous textbooks and official publications. The error was discovered in 2010, and the Dutch Rijkswaterstaat confirms the length at 1,232 kilometres (766 miles).[note 1] Question: Who stated a change of the length of the Rhine?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: An Islamist movement influenced by Salafism and the jihad in Afghanistan, as well as the Muslim Brotherhood, was the FIS or Front Islamique de Salut (the Islamic Salvation Front) in Algeria. Founded as a broad Islamist coalition in 1989 it was led by Abbassi Madani, and a charismatic Islamist young preacher, Ali Belhadj. Taking advantage of economic failure and unpopular social liberalization and secularization by the ruling leftist-nationalist FLN government, it used its preaching to advocate the establishment of a legal system following Sharia law, economic liberalization and development program, education in Arabic rather than French, and gender segregation, with women staying home to alleviate the high rate of unemployment among young Algerian men. The FIS won sweeping victories in local elections and it was going to win national elections in 1991 when voting was canceled by a military coup d'état. Question: What were the national elections in 1994 canceled by?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: From here, the situation becomes more complicated, as the Dutch name Rijn no longer coincides with the main flow of water. Two thirds of the water flow volume of the Rhine flows farther west, through the Waal and then, via the Merwede and Nieuwe Merwede (De Biesbosch), merging with the Meuse, through the Hollands Diep and Haringvliet estuaries, into the North Sea. The Beneden Merwede branches off, near Hardinxveld-Giessendam and continues as the Noord, to join the Lek, near the village of Kinderdijk, to form the Nieuwe Maas; then flows past Rotterdam and continues via Het Scheur and the Nieuwe Waterweg, to the North Sea. The Oude Maas branches off, near Dordrecht, farther down rejoining the Nieuwe Maas to form Het Scheur. Question: Which direction does two thirds of the Rhine flow outside of Germany?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The smaller the economic inequality, the more waste and pollution is created, resulting in many cases, in more environmental degradation. This can be explained by the fact that as the poor people in the society become more wealthy, it increases their yearly carbon emissions. This relation is expressed by the Environmental Kuznets Curve (EKC).[not in citation given] It should be noted here however that in certain cases, with great economic inequality, there is nonetheless not more waste and pollution created as the waste/pollution is cleaned up better afterwards (water treatment, filtering, ...).... Also note that the whole of the increase in environmental degradation is the result of the increase of emissions per person being multiplied by a multiplier. If there were fewer people however, this multiplier would be lower, and thus the amount of environmental degradation would be lower as well. As such, the current high level of population has a large impact on this as well. If (as WWF argued), population levels would start to drop to a sustainable level (1/3 of current levels, so about 2 billion people), human inequality can be addressed/corrected, while still not resulting in an increase of environmental damage. Question: When political inequality is smaller, more waste and pollution is?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Germanic tribes crossed the Rhine in the Migration period, by the 5th century establishing the kingdoms of Francia on the Lower Rhine, Burgundy on the Upper Rhine and Alemannia on the High Rhine. This \"Germanic Heroic Age\" is reflected in medieval legend, such as the Nibelungenlied which tells of the hero Siegfried killing a dragon on the Drachenfels (Siebengebirge) (\"dragons rock\"), near Bonn at the Rhine and of the Burgundians and their court at Worms, at the Rhine and Kriemhild's golden treasure, which was thrown into the Rhine by Hagen. Question: When did the \"Germanic Heroic Age\" end?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The French and Indian War (1754–1763) was the North American theater of the worldwide Seven Years' War. The war was fought between the colonies of British America and New France, with both sides supported by military units from their parent countries of Great Britain and France, as well as Native American allies. At the start of the war, the French North American colonies had a population of roughly 60,000 European settlers, compared with 2 million in the British North American colonies. The outnumbered French particularly depended on the Indians. Long in conflict, the metropole nations declared war on each other in 1756, escalating the war from a regional affair into an intercontinental conflict. Question: Who fought in the French and Indian war?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The Standard Industrial Classification and the newer North American Industry Classification System have a classification system for companies that perform or otherwise engage in construction. To recognize the differences of companies in this sector, it is divided into three subsectors: building construction, heavy and civil engineering construction, and specialty trade contractors. There are also categories for construction service firms (e.g., engineering, architecture) and construction managers (firms engaged in managing construction projects without assuming direct financial responsibility for completion of the construction project). Question: What are construction managers?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: In 1939, c. 1,300,000 people lived in Warsaw, but in 1945 – only 420,000. During the first years after the war, the population growth was c. 6%, so shortly the city started to suffer from the lack of flats and of areas for new houses. The first remedial measure was the Warsaw area enlargement (1951) – but the city authorities were still forced to introduce residency registration limitations: only the spouses and children of the permanent residents as well as some persons of public importance (like renowned specialists) were allowed to get the registration, hence halving the population growth in the following years. It also bolstered some kind of conviction among Poles that Varsovians thought of themselves as better only because they lived in the capital. Unfortunately this belief still lives on in Poland (although not as much as it used to be) – even though since 1990 there are no limitations to residency registration anymore. Question: When did the Warsaw area enlargement take place?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Pharmacists are healthcare professionals with specialised education and training who perform various roles to ensure optimal health outcomes for their patients through the quality use of medicines. Pharmacists may also be small-business proprietors, owning the pharmacy in which they practice. Since pharmacists know about the mode of action of a particular drug, and its metabolism and physiological effects on the human body in great detail, they play an important role in optimisation of a drug treatment for an individual. Question: What types of health outcomes do pharmacists never have with their patients?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: One of its earliest massive implementations was brought about by Egyptians against the British occupation in the 1919 Revolution. Civil disobedience is one of the many ways people have rebelled against what they deem to be unfair laws. It has been used in many nonviolent resistance movements in India (Gandhi's campaigns for independence from the British Empire), in Czechoslovakia's Velvet Revolution and in East Germany to oust their communist governments, In South Africa in the fight against apartheid, in the American Civil Rights Movement, in the Singing Revolution to bring independence to the Baltic countries from the Soviet Union, recently with the 2003 Rose Revolution in Georgia and the 2004 Orange Revolution in Ukraine, among other various movements worldwide. Question: Whose occupation did the Egyptians resist in the 2003 Rose Revolution?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: IPCC author Richard Lindzen has made a number of criticisms of the TAR. Among his criticisms, Lindzen has stated that the WGI Summary for Policymakers (SPM) does not faithfully summarize the full WGI report. For example, Lindzen states that the SPM understates the uncertainty associated with climate models. John Houghton, who was a co-chair of TAR WGI, has responded to Lindzen's criticisms of the SPM. Houghton has stressed that the SPM is agreed upon by delegates from many of the world's governments, and that any changes to the SPM must be supported by scientific evidence. Question: Which IPCC author criticized the TAR?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Orientalism, as theorized by Edward Said, refers to how the West developed an imaginative geography of the East. This imaginative geography relies on an essentializing discourse that represents neither the diversity nor the social reality of the East. Rather, by essentializing the East, this discourse uses the idea of place-based identities to create difference and distance between \"we\" the West and \"them\" the East, or \"here\" in the West and \"there\" in the East. This difference was particularly apparent in textual and visual works of early European studies of the Orient that positioned the East as irrational and backward in opposition to the rational and progressive West. Defining the East as a negative vision of itself, as its inferior, not only increased the West’s sense of self, but also was a way of ordering the East and making it known to the West so that it could be dominated and controlled. The discourse of Orientalism therefore served as an ideological justification of early Western imperialism, as it formed a body of knowledge and ideas that rationalized social, cultural, political, and economic control of other territories. Question: Orientalism refers to how the West developed a what of the East?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Central Banking economist Raghuram Rajan argues that \"systematic economic inequalities, within the United States and around the world, have created deep financial 'fault lines' that have made [financial] crises more likely to happen than in the past\" – the Financial crisis of 2007–08 being the most recent example. To compensate for stagnating and declining purchasing power, political pressure has developed to extend easier credit to the lower and middle income earners – particularly to buy homes – and easier credit in general to keep unemployment rates low. This has given the American economy a tendency to go \"from bubble to bubble\" fueled by unsustainable monetary stimulation. Question: What does Rajan feel hasn't created deep financial fault lines?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The Rhine (Romansh: Rein, German: Rhein, French: le Rhin, Dutch: Rijn) is a European river that begins in the Swiss canton of Graubünden in the southeastern Swiss Alps, forms part of the Swiss-Austrian, Swiss-Liechtenstein border, Swiss-German and then the Franco-German border, then flows through the Rhineland and eventually empties into the North Sea in the Netherlands. The biggest city on the river Rhine is Cologne, Germany with a population of more than 1,050,000 people. It is the second-longest river in Central and Western Europe (after the Danube), at about 1,230 km (760 mi),[note 2][note 1] with an average discharge of about 2,900 m3/s (100,000 cu ft/s). Question: How long is the Rhine? ",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: A function problem is a computational problem where a single output (of a total function) is expected for every input, but the output is more complex than that of a decision problem, that is, it isn't just yes or no. Notable examples include the traveling salesman problem and the integer factorization problem. Question: What is a computational solution where a single input is expected for every input?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The principle of inclusions and components states that, with sedimentary rocks, if inclusions (or clasts) are found in a formation, then the inclusions must be older than the formation that contains them. For example, in sedimentary rocks, it is common for gravel from an older formation to be ripped up and included in a newer layer. A similar situation with igneous rocks occurs when xenoliths are found. These foreign bodies are picked up as magma or lava flows, and are incorporated, later to cool in the matrix. As a result, xenoliths are older than the rock which contains them. Question: Where is the gravel from that is found in xenoliths?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: In general, there are three sectors of construction: buildings, infrastructure and industrial. Building construction is usually further divided into residential and non-residential (commercial/institutional). Infrastructure is often called heavy/highway, heavy civil or heavy engineering. It includes large public works, dams, bridges, highways, water/wastewater and utility distribution. Industrial includes refineries, process chemical, power generation, mills and manufacturing plants. There are other ways to break the industry into sectors or markets. Question: Refineries, process chemical, power generation, mills and manufacturing plants are under what sector of construction?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Thanks to numerous musical venues, including the Teatr Wielki, the Polish National Opera, the Chamber Opera, the National Philharmonic Hall and the National Theatre, as well as the Roma and Buffo music theatres and the Congress Hall in the Palace of Culture and Science, Warsaw hosts many events and festivals. Among the events worth particular attention are: the International Frédéric Chopin Piano Competition, the International Contemporary Music Festival Warsaw Autumn, the Jazz Jamboree, Warsaw Summer Jazz Days, the International Stanisław Moniuszko Vocal Competition, the Mozart Festival, and the Festival of Old Music. Question: What does autumn host many of?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Unlike animals, plants lack phagocytic cells, but many plant immune responses involve systemic chemical signals that are sent through a plant. Individual plant cells respond to molecules associated with pathogens known as Pathogen-associated molecular patterns or PAMPs. When a part of a plant becomes infected, the plant produces a localized hypersensitive response, whereby cells at the site of infection undergo rapid apoptosis to prevent the spread of the disease to other parts of the plant. Systemic acquired resistance (SAR) is a type of defensive response used by plants that renders the entire plant resistant to a particular infectious agent. RNA silencing mechanisms are particularly important in this systemic response as they can block virus replication. Question: What is a kind of defense response that makes the entire plant resistant to a particular agent?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Germanic tribes crossed the Rhine in the Migration period, by the 5th century establishing the kingdoms of Francia on the Lower Rhine, Burgundy on the Upper Rhine and Alemannia on the High Rhine. This \"Germanic Heroic Age\" is reflected in medieval legend, such as the Nibelungenlied which tells of the hero Siegfried killing a dragon on the Drachenfels (Siebengebirge) (\"dragons rock\"), near Bonn at the Rhine and of the Burgundians and their court at Worms, at the Rhine and Kriemhild's golden treasure, which was thrown into the Rhine by Hagen. Question: What is the translation of Siebengebirge?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Students at the University of Chicago run over 400 clubs and organizations known as Recognized Student Organizations (RSOs). These include cultural and religious groups, academic clubs and teams, and common-interest organizations. Notable extracurricular groups include the University of Chicago College Bowl Team, which has won 118 tournaments and 15 national championships, leading both categories internationally. The university's competitive Model United Nations team was the top ranked team in North America in 2013-14 and 2014-2015. Among notable RSOs are the nation's longest continuously running student film society Doc Films, organizing committee for the University of Chicago Scavenger Hunt, the twice-weekly student newspaper The Chicago Maroon, the alternative weekly student newspaper South Side Weekly, the nation's second oldest continuously running student improvisational theater troupe Off-Off Campus, and the university-owned radio station WHPK. Question: During what years was the Model United Nations team ranked first in South America?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: In 1700 several hundred French Huguenots migrated from England to the colony of Virginia, where the English Crown had promised them land grants in Lower Norfolk County. When they arrived, colonial authorities offered them instead land 20 miles above the falls of the James River, at the abandoned Monacan village known as Manakin Town, now in Powhatan County. Some settlers landed in present-day Chesterfield County. On 12 May 1705, the Virginia General Assembly passed an act to naturalise the 148 Huguenots still resident at Manakintown. Of the original 390 settlers in the isolated settlement, many had died; others lived outside town on farms in the English style; and others moved to different areas. Gradually they intermarried with their English neighbors. Through the 18th and 19th centuries, descendants of the French migrated west into the Piedmont, and across the Appalachian Mountains into the West of what became Kentucky, Tennessee, Missouri, and other states. In the Manakintown area, the Huguenot Memorial Bridge across the James River and Huguenot Road were named in their honor, as were many local features, including several schools, including Huguenot High School. Question: How many French Huguenots eventually moved to Missouri from Manakin Town?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The development of fundamental theories for forces proceeded along the lines of unification of disparate ideas. For example, Isaac Newton unified the force responsible for objects falling at the surface of the Earth with the force responsible for the orbits of celestial mechanics in his universal theory of gravitation. Michael Faraday and James Clerk Maxwell demonstrated that electric and magnetic forces were unified through one consistent theory of electromagnetism. In the 20th century, the development of quantum mechanics led to a modern understanding that the first three fundamental forces (all except gravity) are manifestations of matter (fermions) interacting by exchanging virtual particles called gauge bosons. This standard model of particle physics posits a similarity between the forces and led scientists to predict the unification of the weak and electromagnetic forces in electroweak theory subsequently confirmed by observation. The complete formulation of the standard model predicts an as yet unobserved Higgs mechanism, but observations such as neutrino oscillations indicate that the standard model is incomplete. A Grand Unified Theory allowing for the combination of the electroweak interaction with the strong force is held out as a possibility with candidate theories such as supersymmetry proposed to accommodate some of the outstanding unsolved problems in physics. Physicists are still attempting to develop self-consistent unification models that would combine all four fundamental interactions into a theory of everything. Einstein tried and failed at this endeavor, but currently the most popular approach to answering this question is string theory.:212–219 Question: In the 19th century, the development of quantum mechanics led to what?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: During the divestment from South Africa movement in the late 1980s, student activists erected a symbolic \"shantytown\" on Harvard Yard and blockaded a speech given by South African Vice Consul Duke Kent-Brown. The Harvard Management Company repeatedly refused to divest, stating that \"operating expenses must not be subject to financially unrealistic strictures or carping by the unsophisticated or by special interest groups.\" However, the university did eventually reduce its South African holdings by $230 million (out of $400 million) in response to the pressure. Question: When was the divestment from South Africa movement? ",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Other predecessors of the Reformed church included the pro-reform and Gallican Roman Catholics, such as Jacques Lefevre (c. 1455–1536). The Gallicans briefly achieved independence for the French church, on the principle that the religion of France could not be controlled by the Bishop of Rome, a foreign power. During the Protestant Reformation, Lefevre, a professor at the University of Paris, published his French translation of the New Testament in 1523, followed by the whole Bible in the French language in 1530. William Farel was a student of Lefevre who went on to become a leader of the Swiss Reformation, establishing a Protestant government in Geneva. Jean Cauvin (John Calvin), another student at the University of Paris, also converted to Protestantism. Long after the sect was suppressed by Francis I, the remaining French Waldensians, then mostly in the Luberon region, sought to join William Farel, Calvin and the Reformation, and Olivetan published a French Bible for them. The French Confession of 1559 shows a decidedly Calvinistic influence. Sometime between 1550 and 1580, members of the Reformed church in France came to be commonly known as Huguenots.[citation needed] Question: Who was one of the most prominent French Waldensians?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Hence, 6 is not prime. The image at the right illustrates that 12 is not prime: 12 = 3 · 4. No even number greater than 2 is prime because by definition, any such number n has at least three distinct divisors, namely 1, 2, and n. This implies that n is not prime. Accordingly, the term odd prime refers to any prime number greater than 2. Similarly, when written in the usual decimal system, all prime numbers larger than 5 end in 1, 3, 7, or 9, since even numbers are multiples of 2 and numbers ending in 0 or 5 are multiples of 5. Question: What are the specific divisors of all even numbers larger than 2?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The exodus of Huguenots from France created a brain drain, as many Huguenots had occupied important places in society. The kingdom did not fully recover for years. The French crown's refusal to allow non-Catholics to settle in New France may help to explain that colony's slow rate of population growth compared to that of the neighbouring British colonies, which opened settlement to religious dissenters. By the time of the French and Indian War (the North American front of the Seven Years' War), a sizeable population of Huguenot descent lived in the British colonies, and many participated in the British defeat of New France in 1759-60. Question: Who won the Seven Years' War?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Construction is the process of constructing a building or infrastructure. Construction differs from manufacturing in that manufacturing typically involves mass production of similar items without a designated purchaser, while construction typically takes place on location for a known client. Construction as an industry comprises six to nine percent of the gross domestic product of developed countries. Construction starts with planning,[citation needed] design, and financing and continues until the project is built and ready for use. Question: What involves limited production with a designated purchase? ",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: OPEC soon lost its preeminent position, and in 1981, its production was surpassed by that of other countries. Additionally, its own member nations were divided. Saudi Arabia, trying to recover market share, increased production, pushing prices down, shrinking or eliminating profits for high-cost producers. The world price, which had peaked during the 1979 energy crisis at nearly $40 per barrel, decreased during the 1980s to less than $10 per barrel. Adjusted for inflation, oil briefly fell back to pre-1973 levels. This \"sale\" price was a windfall for oil-importing nations, both developing and developed. Question: What did OPEC do to gain market share in 1979?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The addition of new rock units, both depositionally and intrusively, often occurs during deformation. Faulting and other deformational processes result in the creation of topographic gradients, causing material on the rock unit that is increasing in elevation to be eroded by hillslopes and channels. These sediments are deposited on the rock unit that is going down. Continual motion along the fault maintains the topographic gradient in spite of the movement of sediment, and continues to create accommodation space for the material to deposit. Deformational events are often also associated with volcanism and igneous activity. Volcanic ashes and lavas accumulate on the surface, and igneous intrusions enter from below. Dikes, long, planar igneous intrusions, enter along cracks, and therefore often form in large numbers in areas that are being actively deformed. This can result in the emplacement of dike swarms, such as those that are observable across the Canadian shield, or rings of dikes around the lava tube of a volcano. Question: What does motion along dike swarms maintain?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: While constitutional law concerns the European Union's governance structure, administrative law binds EU institutions and member states to follow the law. Both member states and the Commission have a general legal right or \"standing\" (locus standi) to bring claims against EU institutions and other member states for breach of the treaties. From the EU's foundation, the Court of Justice also held that the Treaties allowed citizens or corporations to bring claims against EU and member state institutions for violation of the Treaties and Regulations, if they were properly interpreted as creating rights and obligations. However, under Directives, citizens or corporations were said in 1986 to not be allowed to bring claims against other non-state parties. This meant courts of member states were not bound to apply an EU law where a national rule conflicted, even though the member state government could be sued, if it would impose an obligation on another citizen or corporation. These rules on \"direct effect\" limit the extent to which member state courts are bound to administer EU law. All actions by EU institutions can be subject to judicial review, and judged by standards of proportionality, particularly where general principles of law, or fundamental rights are engaged. The remedy for a claimant where there has been a breach of the law is often monetary damages, but courts can also require specific performance or will grant an injunction, in order to ensure the law is effective as possible. Question: Which type of law did not concern the Eu's governance structure?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Anti-inflammatory drugs are often used to control the effects of inflammation. Glucocorticoids are the most powerful of these drugs; however, these drugs can have many undesirable side effects, such as central obesity, hyperglycemia, osteoporosis, and their use must be tightly controlled. Lower doses of anti-inflammatory drugs are often used in conjunction with cytotoxic or immunosuppressive drugs such as methotrexate or azathioprine. Cytotoxic drugs inhibit the immune response by killing dividing cells such as activated T cells. However, the killing is indiscriminate and other constantly dividing cells and their organs are affected, which causes toxic side effects. Immunosuppressive drugs such as cyclosporin prevent T cells from responding to signals correctly by inhibiting signal transduction pathways. Question: What are the most powerful class of anti-inflammatory drugs?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: In 1872, the Central Pacific Railroad established a station near Easterby's—by now a hugely productive wheat farm—for its new Southern Pacific line. Soon there was a store around the station and the store grew the town of Fresno Station, later called Fresno. Many Millerton residents, drawn by the convenience of the railroad and worried about flooding, moved to the new community. Fresno became an incorporated city in 1885. By 1931 the Fresno Traction Company operated 47 streetcars over 49 miles of track. Question: In what year did Fresno become an incorporated city?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Many types of Turing machines are used to define complexity classes, such as deterministic Turing machines, probabilistic Turing machines, non-deterministic Turing machines, quantum Turing machines, symmetric Turing machines and alternating Turing machines. They are all equally powerful in principle, but when resources (such as time or space) are bounded, some of these may be more powerful than others. Question: Turing machines are commonly employed to define what? ",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Politically, the system of government created by Kublai Khan was the product of a compromise between Mongolian patrimonial feudalism and the traditional Chinese autocratic-bureaucratic system. Nevertheless, socially the educated Chinese elite were in general not given the degree of esteem that they had been accorded previously under native Chinese dynasties. Although the traditional Chinese elite were not given their share of power, the Mongols and the Semuren (various allied groups from Central Asia and the western end of the empire) largely remained strangers to the mainstream Chinese culture, and this dichotomy gave the Yuan regime a somewhat strong \"colonial\" coloration. The unequal treatment is possibly due to the fear of transferring power to the ethnic Chinese under their rule. The Mongols and Semuren were given certain advantages in the dynasty, and this would last even after the restoration of the imperial examination in the early 14th century. In general there were very few North Chinese or Southerners reaching the highest-post in the government compared with the possibility that Persians did so in the Ilkhanate. Later the Yongle Emperor of the Ming dynasty also mentioned the discrimination that existed during the Yuan dynasty. In response to an objection against the use of \"barbarians\" in his government, the Yongle Emperor answered: \"... Discrimination was used by the Mongols during the Yuan dynasty, who employed only \"Mongols and Tartars\" and discarded northern and southern Chinese and this was precisely the cause that brought disaster upon them\". Question: How did the unequal treatment of Chinese versus Mongols in the Yuan make the dynasty seem?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Advances in polynomial algebra were made by mathematicians during the Yuan era. The mathematician Zhu Shijie (1249–1314) solved simultaneous equations with up to four unknowns using a rectangular array of coefficients, equivalent to modern matrices. Zhu used a method of elimination to reduce the simultaneous equations to a single equation with only one unknown. His method is described in the Jade Mirror of the Four Unknowns, written in 1303. The opening pages contain a diagram of Pascal's triangle. The summation of a finite arithmetic series is also covered in the book. Question: When did Zhu Shijie get a new job?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Many faults are able to produce a magnitude 6.7+ earthquake, such as the San Andreas Fault, which can produce a magnitude 8.0 event. Other faults include the San Jacinto Fault, the Puente Hills Fault, and the Elsinore Fault Zone. The USGS has released a California Earthquake forecast which models Earthquake occurrence in California. Question: What does the UGSS California Earthquake forecast model?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: While many homes in the neighborhood date back to the 1930s or before, the neighborhood is also home to several public housing developments built between the 1960s and 1990s by the Fresno Housing Authority. The US Department of Housing and Urban Development has also built small subdivisions of single-family homes in the area for purchase by low-income working families. There have been numerous attempts to revitalize the neighborhood, including the construction of a modern shopping center on the corner of Fresno and B streets, an aborted attempt to build luxury homes and a golf course on the western edge of the neighborhood, and some new section 8 apartments have been built along Church Ave west of Elm St. Cargill Meat Solutions and Foster Farms both have large processing facilities in the neighborhood, and the stench from these (and other small industrial facilities) has long plagued area residents. The Fresno Chandler Executive Airport is also on the West Side. Due to its position on the edge of the city and years of neglect by developers, is not a true \"inner-city\" neighborhood, and there are many vacant lots, strawberry fields and vineyards throughout the neighborhood. The neighborhood has very little retail activity, aside from the area near Fresno Street and State Route 99 Freeway (Kearney Palm Shopping Center, built in the late 1990s) and small corner markets scattered throughout. Question: What organization built homes in the neighborhood in the 1930s?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Since its founding, the EU has operated among an increasing plurality of national and globalising legal systems. This has meant both the European Court of Justice and the highest national courts have had to develop principles to resolve conflicts of laws between different systems. Within the EU itself, the Court of Justice's view is that if EU law conflicts with a provision of national law, then EU law has primacy. In the first major case in 1964, Costa v ENEL, a Milanese lawyer, and former shareholder of an energy company, named Mr Costa refused to pay his electricity bill to Enel, as a protest against the nationalisation of the Italian energy corporations. He claimed the Italian nationalisation law conflicted with the Treaty of Rome, and requested a reference be made to both the Italian Constitutional Court and the Court of Justice under TFEU article 267. The Italian Constitutional Court gave an opinion that because the nationalisation law was from 1962, and the treaty was in force from 1958, Costa had no claim. By contrast, the Court of Justice held that ultimately the Treaty of Rome in no way prevented energy nationalisation, and in any case under the Treaty provisions only the Commission could have brought a claim, not Mr Costa. However, in principle, Mr Costa was entitled to plead that the Treaty conflicted with national law, and the court would have a duty to consider his claim to make a reference if there would be no appeal against its decision. The Court of Justice, repeating its view in Van Gend en Loos, said member states \"albeit within limited spheres, have restricted their sovereign rights and created a body of law applicable both to their nationals and to themselves\" on the \"basis of reciprocity\". EU law would not \"be overridden by domestic legal provisions, however framed... without the legal basis of the community itself being called into question.\" This meant any \"subsequent unilateral act\" of the member state inapplicable. Similarly, in Amministrazione delle Finanze v Simmenthal SpA, a company, Simmenthal SpA, claimed that a public health inspection fee under an Italian law of 1970 for importing beef from France to Italy was contrary to two Regulations from 1964 and 1968. In \"accordance with the principle of the precedence of Community law,\" said the Court of Justice, the \"directly applicable measures of the institutions\" (such as the Regulations in the case) \"render automatically inapplicable any conflicting provision of current national law\". This was necessary to prevent a \"corresponding denial\" of Treaty \"obligations undertaken unconditionally and irrevocably by member states\", that could \"imperil the very foundations of the\" EU. But despite the views of the Court of Justice, the national courts of member states have not accepted the same analysis. Question: What was the reason the Italian Constitutional court gave that resulted in Mr. Costa losing his his claim against ENEL?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: 2013 Economics Nobel prize winner Robert J. Shiller said that rising inequality in the United States and elsewhere is the most important problem. Increasing inequality harms economic growth. High and persistent unemployment, in which inequality increases, has a negative effect on subsequent long-run economic growth. Unemployment can harm growth not only because it is a waste of resources, but also because it generates redistributive pressures and subsequent distortions, drives people to poverty, constrains liquidity limiting labor mobility, and erodes self-esteem promoting social dislocation, unrest and conflict. Policies aiming at controlling unemployment and in particular at reducing its inequality-associated effects support economic growth. Question: What's one factor in eroding self-esteem?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Chemical barriers also protect against infection. The skin and respiratory tract secrete antimicrobial peptides such as the β-defensins. Enzymes such as lysozyme and phospholipase A2 in saliva, tears, and breast milk are also antibacterials. Vaginal secretions serve as a chemical barrier following menarche, when they become slightly acidic, while semen contains defensins and zinc to kill pathogens. In the stomach, gastric acid and proteases serve as powerful chemical defenses against ingested pathogens. Question: What fluids are enzymes not found in?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: In 1929, the university's fifth president, Robert Maynard Hutchins, took office; the university underwent many changes during his 24-year tenure. Hutchins eliminated varsity football from the university in an attempt to emphasize academics over athletics, instituted the undergraduate college's liberal-arts curriculum known as the Common Core, and organized the university's graduate work into its current[when?] four divisions. In 1933, Hutchins proposed an unsuccessful plan to merge the University of Chicago and Northwestern University into a single university. During his term, the University of Chicago Hospitals (now called the University of Chicago Medical Center) finished construction and enrolled its first medical students. Also, the Committee on Social Thought, an institution distinctive of the university, was created. Question: What did the university undergo during Hutchins 33 year tenure?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: where  is the mass of the object,  is the velocity of the object and  is the distance to the center of the circular path and  is the unit vector pointing in the radial direction outwards from the center. This means that the unbalanced centripetal force felt by any object is always directed toward the center of the curving path. Such forces act perpendicular to the velocity vector associated with the motion of an object, and therefore do not change the speed of the object (magnitude of the velocity), but only the direction of the velocity vector. The unbalanced force that accelerates an object can be resolved into a component that is perpendicular to the path, and one that is tangential to the path. This yields both the tangential force, which accelerates the object by either slowing it down or speeding it up, and the radial (centripetal) force, which changes its direction. Question: What is another word for centripetal force?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Construction is the process of constructing a building or infrastructure. Construction differs from manufacturing in that manufacturing typically involves mass production of similar items without a designated purchaser, while construction typically takes place on location for a known client. Construction as an industry comprises six to nine percent of the gross domestic product of developed countries. Construction starts with planning,[citation needed] design, and financing and continues until the project is built and ready for use. Question: How much of a developed countries GDP does manufacturing comprise?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Virtually all nuclear power plants generate electricity by heating water to provide steam that drives a turbine connected to an electrical generator. Nuclear-powered ships and submarines either use a steam turbine directly for main propulsion, with generators providing auxiliary power, or else employ turbo-electric transmission, where the steam drives a turbo generator set with propulsion provided by electric motors. A limited number of steam turbine railroad locomotives were manufactured. Some non-condensing direct-drive locomotives did meet with some success for long haul freight operations in Sweden and for express passenger work in Britain, but were not repeated. Elsewhere, notably in the U.S.A., more advanced designs with electric transmission were built experimentally, but not reproduced. It was found that steam turbines were not ideally suited to the railroad environment and these locomotives failed to oust the classic reciprocating steam unit in the way that modern diesel and electric traction has done.[citation needed] Question: In a nuclear power plant, what is the steam turbine connected to?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The customary law of Normandy was developed between the 10th and 13th centuries and survives today through the legal systems of Jersey and Guernsey in the Channel Islands. Norman customary law was transcribed in two customaries in Latin by two judges for use by them and their colleagues: These are the Très ancien coutumier (Very ancient customary), authored between 1200 and 1245; and the Grand coutumier de Normandie (Great customary of Normandy, originally Summa de legibus Normanniae in curia laïcali), authored between 1235 and 1245. Question: Where are Jersey and Guernsey",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: To classify the computation time (or similar resources, such as space consumption), one is interested in proving upper and lower bounds on the minimum amount of time required by the most efficient algorithm solving a given problem. The complexity of an algorithm is usually taken to be its worst-case complexity, unless specified otherwise. Analyzing a particular algorithm falls under the field of analysis of algorithms. To show an upper bound T(n) on the time complexity of a problem, one needs to show only that there is a particular algorithm with running time at most T(n). However, proving lower bounds is much more difficult, since lower bounds make a statement about all possible algorithms that solve a given problem. The phrase \"all possible algorithms\" includes not just the algorithms known today, but any algorithm that might be discovered in the future. To show a lower bound of T(n) for a problem requires showing that no algorithm can have time complexity lower than T(n). Question: What is easy about proving lower bounds?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The needs of soy farmers have been used to justify many of the controversial transportation projects that are currently developing in the Amazon. The first two highways successfully opened up the rainforest and led to increased settlement and deforestation. The mean annual deforestation rate from 2000 to 2005 (22,392 km2 or 8,646 sq mi per year) was 18% higher than in the previous five years (19,018 km2 or 7,343 sq mi per year). Although deforestation has declined significantly in the Brazilian Amazon between 2004 and 2014, there has been an increase to the present day. Question: The rate of clearing of forest from 2000 to 2005 was how many square miles per year?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Since its founding, the EU has operated among an increasing plurality of national and globalising legal systems. This has meant both the European Court of Justice and the highest national courts have had to develop principles to resolve conflicts of laws between different systems. Within the EU itself, the Court of Justice's view is that if EU law conflicts with a provision of national law, then EU law has primacy. In the first major case in 1964, Costa v ENEL, a Milanese lawyer, and former shareholder of an energy company, named Mr Costa refused to pay his electricity bill to Enel, as a protest against the nationalisation of the Italian energy corporations. He claimed the Italian nationalisation law conflicted with the Treaty of Rome, and requested a reference be made to both the Italian Constitutional Court and the Court of Justice under TFEU article 267. The Italian Constitutional Court gave an opinion that because the nationalisation law was from 1962, and the treaty was in force from 1958, Costa had no claim. By contrast, the Court of Justice held that ultimately the Treaty of Rome in no way prevented energy nationalisation, and in any case under the Treaty provisions only the Commission could have brought a claim, not Mr Costa. However, in principle, Mr Costa was entitled to plead that the Treaty conflicted with national law, and the court would have a duty to consider his claim to make a reference if there would be no appeal against its decision. The Court of Justice, repeating its view in Van Gend en Loos, said member states \"albeit within limited spheres, have restricted their sovereign rights and created a body of law applicable both to their nationals and to themselves\" on the \"basis of reciprocity\". EU law would not \"be overridden by domestic legal provisions, however framed... without the legal basis of the community itself being called into question.\" This meant any \"subsequent unilateral act\" of the member state inapplicable. Similarly, in Amministrazione delle Finanze v Simmenthal SpA, a company, Simmenthal SpA, claimed that a public health inspection fee under an Italian law of 1970 for importing beef from France to Italy was contrary to two Regulations from 1964 and 1968. In \"accordance with the principle of the precedence of Community law,\" said the Court of Justice, the \"directly applicable measures of the institutions\" (such as the Regulations in the case) \"render automatically inapplicable any conflicting provision of current national law\". This was necessary to prevent a \"corresponding denial\" of Treaty \"obligations undertaken unconditionally and irrevocably by member states\", that could \"imperil the very foundations of the\" EU. But despite the views of the Court of Justice, the national courts of member states have not accepted the same analysis. Question: What has operated among a decreasing plurality of national and globalising legal systems?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The project must adhere to zoning and building code requirements. Constructing a project that fails to adhere to codes does not benefit the owner. Some legal requirements come from malum in se considerations, or the desire to prevent things that are indisputably bad – bridge collapses or explosions. Other legal requirements come from malum prohibitum considerations, or things that are a matter of custom or expectation, such as isolating businesses to a business district and residences to a residential district. An attorney may seek changes or exemptions in the law that governs the land where the building will be built, either by arguing that a rule is inapplicable (the bridge design will not cause a collapse), or that the custom is no longer needed (acceptance of live-work spaces has grown in the community). Question: Constructing a project that fails to adhere to codes does not benefit whom?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: A procedural consequence of the establishment of the Scottish Parliament is that Scottish MPs sitting in the UK House of Commons are able to vote on domestic legislation that applies only to England, Wales and Northern Ireland – whilst English, Scottish, Welsh and Northern Irish Westminster MPs are unable to vote on the domestic legislation of the Scottish Parliament. This phenomenon is known as the West Lothian question and has led to criticism. Following the Conservative victory in the 2015 UK election, standing orders of the House of Commons were changed to give MPs representing English constituencies a new \"veto\" over laws only affecting England. Question: Following the Liberal victory in 2015, standing orders were changed to do what?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The Amazon rainforest (Portuguese: Floresta Amazônica or Amazônia; Spanish: Selva Amazónica, Amazonía or usually Amazonia; French: Forêt amazonienne; Dutch: Amazoneregenwoud), also known in English as Amazonia or the Amazon Jungle, is a moist broadleaf forest that covers most of the Amazon basin of South America. This basin encompasses 7,000,000 square kilometres (2,700,000 sq mi), of which 5,500,000 square kilometres (2,100,000 sq mi) are covered by the rainforest. This region includes territory belonging to nine nations. The majority of the forest is contained within Brazil, with 60% of the rainforest, followed by Peru with 13%, Colombia with 10%, and with minor amounts in Venezuela, Ecuador, Bolivia, Guyana, Suriname and French Guiana. States or departments in four nations contain \"Amazonas\" in their names. The Amazon represents over half of the planet's remaining rainforests, and comprises the largest and most biodiverse tract of tropical rainforest in the world, with an estimated 390 billion individual trees divided into 16,000 species. Question: How many square kilometers of rainforest is covered in the basin?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: In the 1890s, the University of Chicago, fearful that its vast resources would injure smaller schools by drawing away good students, affiliated with several regional colleges and universities: Des Moines College, Kalamazoo College, Butler University, and Stetson University. In 1896, the university affiliated with Shimer College in Mount Carroll, Illinois. Under the terms of the affiliation, the schools were required to have courses of study comparable to those at the university, to notify the university early of any contemplated faculty appointments or dismissals, to make no faculty appointment without the university's approval, and to send copies of examinations for suggestions. The University of Chicago agreed to confer a degree on any graduating senior from an affiliated school who made a grade of A for all four years, and on any other graduate who took twelve weeks additional study at the University of Chicago. A student or faculty member of an affiliated school was entitled to free tuition at the University of Chicago, and Chicago students were eligible to attend an affiliated school on the same terms and receive credit for their work. The University of Chicago also agreed to provide affiliated schools with books and scientific apparatus and supplies at cost; special instructors and lecturers without cost except travel expenses; and a copy of every book and journal published by the University of Chicago Press at no cost. The agreement provided that either party could terminate the affiliation on proper notice. Several University of Chicago professors disliked the program, as it involved uncompensated additional labor on their part, and they believed it cheapened the academic reputation of the university. The program passed into history by 1910. Question: What year did the university team up with Shimer College?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Decision problems are one of the central objects of study in computational complexity theory. A decision problem is a special type of computational problem whose answer is either yes or no, or alternately either 1 or 0. A decision problem can be viewed as a formal language, where the members of the language are instances whose output is yes, and the non-members are those instances whose output is no. The objective is to decide, with the aid of an algorithm, whether a given input string is a member of the formal language under consideration. If the algorithm deciding this problem returns the answer yes, the algorithm is said to accept the input string, otherwise it is said to reject the input. Question: What can be viewed as an informal language where the language instances whose input is yes?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: According to PolitiFact the top 400 richest Americans \"have more wealth than half of all Americans combined.\" According to the New York Times on July 22, 2014, the \"richest 1 percent in the United States now own more wealth than the bottom 90 percent\". Inherited wealth may help explain why many Americans who have become rich may have had a \"substantial head start\". In September 2012, according to the Institute for Policy Studies, \"over 60 percent\" of the Forbes richest 400 Americans \"grew up in substantial privilege\". Question: What Institute published findings in September 2012 regarding the Forbes richest 400 Americans?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Although lacking historical connections to the Middle East, Japan was the country most dependent on Arab oil. 71% of its imported oil came from the Middle East in 1970. On November 7, 1973, the Saudi and Kuwaiti governments declared Japan a \"nonfriendly\" country to encourage it to change its noninvolvement policy. It received a 5% production cut in December, causing a panic. On November 22, Japan issued a statement \"asserting that Israel should withdraw from all of the 1967 territories, advocating Palestinian self-determination, and threatening to reconsider its policy toward Israel if Israel refused to accept these preconditions\". By December 25, Japan was considered an Arab-friendly state. Question: Which country is the most dependent on Arab oil?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Long-term active memory is acquired following infection by activation of B and T cells. Active immunity can also be generated artificially, through vaccination. The principle behind vaccination (also called immunization) is to introduce an antigen from a pathogen in order to stimulate the immune system and develop specific immunity against that particular pathogen without causing disease associated with that organism. This deliberate induction of an immune response is successful because it exploits the natural specificity of the immune system, as well as its inducibility. With infectious disease remaining one of the leading causes of death in the human population, vaccination represents the most effective manipulation of the immune system mankind has developed. Question: What artificial method of spreading immunity causes disease? ",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Their local rivals, Polonia Warsaw, have significantly fewer supporters, yet they managed to win Ekstraklasa Championship in 2000. They also won the country’s championship in 1946, and won the cup twice as well. Polonia's home venue is located at Konwiktorska Street, a ten-minute walk north from the Old Town. Polonia was relegated from the country's top flight in 2013 because of their disastrous financial situation. They are now playing in the 4th league (5th tier in Poland) -the bottom professional league in the National – Polish Football Association (PZPN) structure. Question: Why was Polonia relegated from the country's top flight in 2013?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The crisis reduced the demand for large cars. Japanese imports, primarily the Toyota Corona, the Toyota Corolla, the Datsun B210, the Datsun 510, the Honda Civic, the Mitsubishi Galant (a captive import from Chrysler sold as the Dodge Colt), the Subaru DL, and later the Honda Accord all had four cylinder engines that were more fuel efficient than the typical American V8 and six cylinder engines. Japanese imports became mass-market leaders with unibody construction and front-wheel drive, which became de facto standards. Question: What type of engines does the American car typically have?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Land-based steam engines could exhaust much of their steam, as feed water was usually readily available. Prior to and during World War I, the expansion engine dominated marine applications where high vessel speed was not essential. It was however superseded by the British invention steam turbine where speed was required, for instance in warships, such as the dreadnought battleships, and ocean liners. HMS Dreadnought of 1905 was the first major warship to replace the proven technology of the reciprocating engine with the then-novel steam turbine.[citation needed] Question: What was an example of a type of warship that required expansion engines?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Of the 129 MSPs, 73 are elected to represent first past the post constituencies and are known as \"Constituency MSPs\". Voters choose one member to represent the constituency, and the member with most votes is returned as a constituency MSP. The 73 Scottish Parliament constituencies shared the same boundaries as the UK Parliament constituencies in Scotland, prior to the 2005 reduction in the number of Scottish MPs, with the exception of Orkney and Shetland which each return their own constituency MSP. Currently, the average Scottish Parliament constituency comprises 55,000 electors. Given the geographical distribution of population in Scotland, this results in constituencies of a smaller area in the Central Lowlands, where the bulk of Scotland's population live, and much larger constituency areas in the north and west of the country, which have a low population density. The island archipelagos of Orkney, Shetland and the Western Isles comprise a much smaller number of electors, due to their dispersed population and distance from the Scottish Parliament in Edinburgh. If a Constituency MSP resigns from Parliament, this triggers a by-election in his or her constituency, where a replacement MSP is returned from one of the parties by the plurality system. Question: What is the number of Constituency MSPs?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Imperialism has played an important role in the histories of Japan, Korea, the Assyrian Empire, the Chinese Empire, the Roman Empire, Greece, the Byzantine Empire, the Persian Empire, the Ottoman Empire, Ancient Egypt, the British Empire, India, and many other empires. Imperialism was a basic component to the conquests of Genghis Khan during the Mongol Empire, and of other war-lords. Historically recognized Muslim empires number in the dozens. Sub-Saharan Africa has also featured dozens of empires that predate the European colonial era, for example the Ethiopian Empire, Oyo Empire, Asante Union, Luba Empire, Lunda Empire, and Mutapa Empire. The Americas during the pre-Columbian era also had large empires such as the Aztec Empire and the Incan Empire. Question: How many Muslim empires have used imperialism?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Pathogens can rapidly evolve and adapt, and thereby avoid detection and neutralization by the immune system; however, multiple defense mechanisms have also evolved to recognize and neutralize pathogens. Even simple unicellular organisms such as bacteria possess a rudimentary immune system, in the form of enzymes that protect against bacteriophage infections. Other basic immune mechanisms evolved in ancient eukaryotes and remain in their modern descendants, such as plants and invertebrates. These mechanisms include phagocytosis, antimicrobial peptides called defensins, and the complement system. Jawed vertebrates, including humans, have even more sophisticated defense mechanisms, including the ability to adapt over time to recognize specific pathogens more efficiently. Adaptive (or acquired) immunity creates immunological memory after an initial response to a specific pathogen, leading to an enhanced response to subsequent encounters with that same pathogen. This process of acquired immunity is the basis of vaccination. Question: The idea of acquired immunity in jawed vertebrates is the basis of what medical treatment?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Several barriers protect organisms from infection, including mechanical, chemical, and biological barriers. The waxy cuticle of many leaves, the exoskeleton of insects, the shells and membranes of externally deposited eggs, and skin are examples of mechanical barriers that are the first line of defense against infection. However, as organisms cannot be completely sealed from their environments, other systems act to protect body openings such as the lungs, intestines, and the genitourinary tract. In the lungs, coughing and sneezing mechanically eject pathogens and other irritants from the respiratory tract. The flushing action of tears and urine also mechanically expels pathogens, while mucus secreted by the respiratory and gastrointestinal tract serves to trap and entangle microorganisms. Question: What is an example of a mechanical barrier on leaves?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Other forms of plague have been implicated by modern scientists. The modern bubonic plague has a mortality rate of 30–75% and symptoms including fever of 38–41 °C (100–106 °F), headaches, painful aching joints, nausea and vomiting, and a general feeling of malaise. Left untreated, of those that contract the bubonic plague, 80 percent die within eight days. Pneumonic plague has a mortality rate of 90 to 95 percent. Symptoms include fever, cough, and blood-tinged sputum. As the disease progresses, sputum becomes free flowing and bright red. Septicemic plague is the least common of the three forms, with a mortality rate near 100%. Symptoms are high fevers and purple skin patches (purpura due to disseminated intravascular coagulation). In cases of pneumonic and particularly septicemic plague, the progress of the disease is so rapid that there would often be no time for the development of the enlarged lymph nodes that were noted as buboes. Question: How fast does pneumonic plague usually kill most people when left untreated?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: There are also many places commemorating the heroic history of Warsaw. Pawiak, an infamous German Gestapo prison now occupied by a Mausoleum of Memory of Martyrdom and the museum, is only the beginning of a walk in the traces of Heroic City. The Warsaw Citadel, an impressive 19th-century fortification built after the defeat of the November Uprising, was a place of martyr for the Poles. Another important monument, the statue of Little Insurgent located at the ramparts of the Old Town, commemorates the children who served as messengers and frontline troops in the Warsaw Uprising, while the impressive Warsaw Uprising Monument by Wincenty Kućma was erected in memory of the largest insurrection of World War II. Question: What commemorates Warsaw's heroic history?",
+            "output": [
+                "True"
+            ]
+        }
+    ]
+}

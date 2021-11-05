@@ -1,0 +1,818 @@
+{
+    "Contributors": [
+        "Shailaja Keyur Sampat"
+    ],
+    "Source": [
+        "Table 2 of Squad2.0 Paper https://arxiv.org/pdf/1806.03822.pdf"
+    ],
+    "Categories": [
+        "Classification"
+    ],
+    "Definition": "In this task, you will get a passage and a question about that passage. You must specify whether the question can be answered on the basis of the given passage or not. If a question can be answered, the output should be \"True,\" otherwise \"False.\" Other information not included in the passage should not be taken into account in the designation True or False.', 'In this task, you will receive a passage and a question about that passage. You must determine whether the question can be answered on the basis of the given passage or not. If a question can be answered, the output should be \"True,\" otherwise \"False.\" Other information not included in the passage must not be taken into account when designing True or False.', 'In this task, you will receive a passage and a question about that passage. You must specify whether the question can be answered on the basis of the given passage or not. If a question can be answered, the output should be \"True,\" otherwise \"False.\" Other information not included in the passage should not be taken into account when designing true or false.",
+    "Positive Examples": [
+        {
+            "input": "Passage: In 1919 Father James Burns became president of Notre Dame, and in three years he produced an academic revolution that brought the school up to national standards by adopting the elective system and moving away from the university's traditional scholastic and classical emphasis. By contrast, the Jesuit colleges, bastions of academic conservatism, were reluctant to move to a system of electives. Their graduates were shut out of Harvard Law School for that reason. Notre Dame continued to grow over the years, adding more colleges, programs, and sports teams. By 1921, with the addition of the College of Commerce, Notre Dame had grown from a small college to a university with five colleges and a professional law school. The university continued to expand and add new residence halls and buildings with each subsequent president. Question: Over how many years did the change to national standards undertaken at Notre Dame in the early 20th century take place?",
+            "output": "True",
+            "explanation": "The answer to given question is 'three years', which can be determined from the first sentence of the paragraph \"In 1919 Father James Burns became president of Notre Dame, and in three years he produced an academic revolution that brought the school up to national standards by adopting the elective system and moving away from the university's traditional scholastic and classical emphasis\". Since this question is answerable, the output is True."
+        },
+        {
+            "input": "Passage: Madonna released the Material Girl clothing line, which she designed with her daughter, Lourdes. The 1980s inspired clothing line, borrowed from Madonna's punk-girl style when she rose to fame in the 1980s, was released under the Macy's label. Madonna also opened a series of fitness centers around the world named Hard Candy Fitness. In November 2011, Madonna and MG Icon announced the release of a second fashion brand called Truth or Dare by Madonna to include footwear, underclothing, and accessories. She also directed her second feature film, W.E., a biographic about the affair between King Edward VIII and Wallis Simpson; it was co-written with Alek Keshishian. Critical and commercial response to the film was negative. Madonna contributed the ballad \"Masterpiece\" for the film's soundtrack, which won her a Golden Globe Award for Best Original Song. Question: Material Girl clothing line is released under which brand?",
+            "output": "True",
+            "explanation": "The answer to given question is 'Macy's', which can be determined from the second sentence of the paragraph \"The 1980s inspired clothing line, borrowed from Madonna's punk-girl style when she rose to fame in the 1980s, was released under the Macy's label\". Since this question is answerable, the output is True."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Passage: The pound-force has a metric counterpart, less commonly used than the newton: the kilogram-force (kgf) (sometimes kilopond), is the force exerted by standard gravity on one kilogram of mass. The kilogram-force leads to an alternate, but rarely used unit of mass: the metric slug (sometimes mug or hyl) is that mass that accelerates at 1 m\u00b7s\u22122 when subjected to a force of 1 kgf. The kilogram-force is not a part of the modern SI system, and is generally deprecated; however it still sees use for some purposes as expressing aircraft weight, jet thrust, bicycle spoke tension, torque wrench settings and engine output torque. Other arcane units of force include the sth\u00e8ne, which is equivalent to 1000 N, and the kip, which is equivalent to 1000 lbf. Question: What seldom used term of a unit of force equal to 1000 pound s of force?",
+            "output": "kip",
+            "explanation": "The output of this task must be True or False. In this task, you do not have to answer the question. Instead, you have to determine whether or not the question is answerable given a passage."
+        },
+        {
+            "input": "Passage: Although the reciprocating steam engine is no longer in widespread commercial use, various companies are exploring or exploiting the potential of the engine as an alternative to internal combustion engines. The company Energiprojekt AB in Sweden has made progress in using modern materials for harnessing the power of steam. The efficiency of Energiprojekt's steam engine reaches some 27-30% on high-pressure engines. It is a single-step, 5-cylinder engine (no compound) with superheated steam and consumes approx. 4 kg (8.8 lb) of steam per kWh.[not in citation given] Question: Where is Energyproject AB located?",
+            "output": "False",
+            "explanation":"The answer to the question lies directly within the passage. The Energyproject is situaated in Sweden which can be interpreted from the second statement."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "Passage: Religiously affiliated and denominational schools form a subcategory of private schools. Some such schools teach religious education, together with the usual academic subjects to impress their particular faith's beliefs and traditions in the students who attend. Others use the denomination as more of a general label to describe on what the founders based their belief, while still maintaining a fine distinction between academics and religion. They include parochial schools, a term which is often used to denote Roman Catholic schools. Other religious groups represented in the K-12 private education sector include Protestants, Jews, Muslims and the Orthodox Christians. Question: What category are schools put into that maintain a line between academics and religion?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: A deterministic Turing machine is the most basic Turing machine, which uses a fixed set of rules to determine its future actions. A probabilistic Turing machine is a deterministic Turing machine with an extra supply of random bits. The ability to make probabilistic decisions often helps algorithms solve problems more efficiently. Algorithms that use random bits are called randomized algorithms. A non-deterministic Turing machine is a deterministic Turing machine with an added feature of non-determinism, which allows a Turing machine to have multiple possible future actions from a given state. One way to view non-determinism is that the Turing machine branches into many possible computational paths at each step, and if it solves the problem in any of these branches, it is said to have solved the problem. Clearly, this model is not meant to be a physically realizable model, it is just a theoretically interesting abstract machine that gives rise to particularly interesting complexity classes. For examples, see non-deterministic algorithm. Question: What is a deterministic Turing machine with an extra supply of random ribbons?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The conflict is known by multiple names. In British America, wars were often named after the sitting British monarch, such as King William's War or Queen Anne's War. As there had already been a King George's War in the 1740s, British colonists named the second war in King George's reign after their opponents, and it became known as the French and Indian War. This traditional name continues as the standard in the United States, but it obscures the fact that Indians fought on both sides of the conflict, and that this was part of the Seven Years' War, a much larger conflict between France and Great Britain. American historians generally use the traditional name or sometimes the Seven Years' War. Other, less frequently used names for the war include the Fourth Intercolonial War and the Great War for the Empire. Question: When wasn't King George's war?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The other third of the water flows through the Pannerdens Kanaal and redistributes in the IJssel and Nederrijn. The IJssel branch carries one ninth of the water flow of the Rhine north into the IJsselmeer (a former bay), while the Nederrijn carries approximately two ninths of the flow west along a route parallel to the Waal. However, at Wijk bij Duurstede, the Nederrijn changes its name and becomes the Lek. It flows farther west, to rejoin the Noord River into the Nieuwe Maas and to the North Sea. Question: If two thirds of the Rhine flows through Waal, where does the other third flow through?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The following four timelines show the geologic time scale. The first shows the entire time from the formation of the Earth to the present, but this compresses the most recent eon. Therefore, the second scale shows the most recent eon with an expanded scale. The second scale compresses the most recent era, so the most recent era is expanded in the third scale. Since the Quaternary is a very short period with short epochs, it is further expanded in the fourth scale. The second, third, and fourth timelines are therefore each subsections of their preceding timeline as indicated by asterisks. The Holocene (the latest epoch) is too small to be shown clearly on the third timeline on the right, another reason for expanding the fourth scale. The Pleistocene (P) epoch. Q stands for the Quaternary period. Question: Which timeline is further expanded in the fourth scale?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Of particular concern with Internet pharmacies is the ease with which people, youth in particular, can obtain controlled substances (e.g., Vicodin, generically known as hydrocodone) via the Internet without a prescription issued by a doctor/practitioner who has an established doctor-patient relationship. There are many instances where a practitioner issues a prescription, brokered by an Internet server, for a controlled substance to a \"patient\" s/he has never met.[citation needed] In the United States, in order for a prescription for a controlled substance to be valid, it must be issued for a legitimate medical purpose by a licensed practitioner acting in the course of legitimate doctor-patient relationship. The filling pharmacy has a corresponding responsibility to ensure that the prescription is valid. Often, individual state laws outline what defines a valid patient-doctor relationship. Question: What is not an obligation of a pharmacy filling a prescription?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The first full-scale working railway steam locomotive was built by Richard Trevithick in the United Kingdom and, on 21 February 1804, the world's first railway journey took place as Trevithick's unnamed steam locomotive hauled a train along the tramway from the Pen-y-darren ironworks, near Merthyr Tydfil to Abercynon in south Wales. The design incorporated a number of important innovations that included using high-pressure steam which reduced the weight of the engine and increased its efficiency. Trevithick visited the Newcastle area later in 1804 and the colliery railways in north-east England became the leading centre for experimentation and development of steam locomotives. Question: On what date did the first railway trip in England occur?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: A computational problem can be viewed as an infinite collection of instances together with a solution for every instance. The input string for a computational problem is referred to as a problem instance, and should not be confused with the problem itself. In computational complexity theory, a problem refers to the abstract question to be solved. In contrast, an instance of this problem is a rather concrete utterance, which can serve as the input for a decision problem. For example, consider the problem of primality testing. The instance is a number (e.g. 15) and the solution is \"yes\" if the number is prime and \"no\" otherwise (in this case \"no\"). Stated another way, the instance is a particular input to the problem, and the solution is the output corresponding to the given input. Question: What can be viewed as a limited collection of instances together with a solution for every instance?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The specific devolved matters are all subjects which are not explicitly stated in Schedule 5 to the Scotland Act as reserved matters. All matters that are not specifically reserved are automatically devolved to the Scottish Parliament. Most importantly, this includes agriculture, fisheries and forestry, economic development, education, environment, food standards, health, home affairs, Scots law – courts, police and fire services, local government, sport and the arts, transport, training, tourism, research and statistics and social work. The Scottish Parliament has the ability to alter income tax in Scotland by up to 3 pence in the pound. The 2012 Act conferred further fiscal devolution including borrowing powers and some other unconnected matters such as setting speed limits and control of air guns. Question: Setting speed limits was one of the further devolutions which was conferred by what act?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Warsaw lies in east-central Poland about 300 km (190 mi) from the Carpathian Mountains and about 260 km (160 mi) from the Baltic Sea, 523 km (325 mi) east of Berlin, Germany. The city straddles the Vistula River. It is located in the heartland of the Masovian Plain, and its average elevation is 100 metres (330 ft) above sea level. The highest point on the left side of the city lies at a height of 115.7 metres (379.6 ft) (\"Redutowa\" bus depot, district of Wola), on the right side – 122.1 metres (400.6 ft) (\"Groszówka\" estate, district of Wesoła, by the eastern border). The lowest point lies at a height 75.6 metres (248.0 ft) (at the right bank of the Vistula, by the eastern border of Warsaw). There are some hills (mostly artificial) located within the confines of the city – e.g. Warsaw Uprising Hill (121 metres (397.0 ft)), Szczęśliwice hill (138 metres (452.8 ft) – the highest point of Warsaw in general). Question: Where is the lowest point of Wesola located?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Baran developed the concept of distributed adaptive message block switching during his research at the RAND Corporation for the US Air Force into survivable communications networks, first presented to the Air Force in the summer of 1961 as briefing B-265, later published as RAND report P-2626 in 1962, and finally in report RM 3420 in 1964. Report P-2626 described a general architecture for a large-scale, distributed, survivable communications network. The work focuses on three key ideas: use of a decentralized network with multiple paths between any two points, dividing user messages into message blocks, later called packets, and delivery of these messages by store and forward switching. Question: What was developed for the RAND Corporation?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Various princes of the Holy Land arrived in Limassol at the same time, in particular Guy de Lusignan. All declared their support for Richard provided that he support Guy against his rival Conrad of Montferrat. The local barons abandoned Isaac, who considered making peace with Richard, joining him on the crusade, and offering his daughter in marriage to the person named by Richard. But Isaac changed his mind and tried to escape. Richard then proceeded to conquer the whole island, his troops being led by Guy de Lusignan. Isaac surrendered and was confined with silver chains, because Richard had promised that he would not place him in irons. By 1 June, Richard had conquered the whole island. His exploit was well publicized and contributed to his reputation; he also derived significant financial gains from the conquest of the island. Richard left for Acre on 5 June, with his allies. Before his departure, he named two of his Norman generals, Richard de Camville and Robert de Thornham, as governors of Cyprus. Question: Who led Issacs troops to Cyprus?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: In 1929, the university's fifth president, Robert Maynard Hutchins, took office; the university underwent many changes during his 24-year tenure. Hutchins eliminated varsity football from the university in an attempt to emphasize academics over athletics, instituted the undergraduate college's liberal-arts curriculum known as the Common Core, and organized the university's graduate work into its current[when?] four divisions. In 1933, Hutchins proposed an unsuccessful plan to merge the University of Chicago and Northwestern University into a single university. During his term, the University of Chicago Hospitals (now called the University of Chicago Medical Center) finished construction and enrolled its first medical students. Also, the Committee on Social Thought, an institution distinctive of the university, was created. Question: In what year was the university's 5th president granted his position?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: In the centre of Basel, the first major city in the course of the stream, is located the \"Rhine knee\"; this is a major bend, where the overall direction of the Rhine changes from West to North. Here the High Rhine ends. Legally, the Central Bridge is the boundary between High and Upper Rhine. The river now flows North as Upper Rhine through the Upper Rhine Plain, which is about 300 km long and up to 40 km wide. The most important tributaries in this area are the Ill below of Strasbourg, the Neckar in Mannheim and the Main across from Mainz. In Mainz, the Rhine leaves the Upper Rhine Valley and flows through the Mainz Basin. Question: What is the boundary between the High and Upper Rhine? ",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The acme of the horizontal engine was the Corliss steam engine, patented in 1849, which was a four-valve counter flow engine with separate steam admission and exhaust valves and automatic variable steam cutoff. When Corliss was given the Rumford medal the committee said that \"no one invention since Watt's time has so enhanced the efficiency of the steam engine\". In addition to using 30% less steam, it provided more uniform speed due to variable steam cut off, making it well suited to manufacturing, especially cotton spinning. Question: What award was inspired by Corliss?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: In one experiment, Lavoisier observed that there was no overall increase in weight when tin and air were heated in a closed container. He noted that air rushed in when he opened the container, which indicated that part of the trapped air had been consumed. He also noted that the tin had increased in weight and that increase was the same as the weight of the air that rushed back in. This and other experiments on combustion were documented in his book Sur la combustion en général, which was published in 1777. In that work, he proved that air is a mixture of two gases; 'vital air', which is essential to combustion and respiration, and azote (Gk. ἄζωτον \"lifeless\"), which did not support either. Azote later became nitrogen in English, although it has kept the name in French and several other European languages. Question: When was the book, Sur, published?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The mouth of the Rhine into Lake Constance forms an inland delta. The delta is delimited in the West by the Alter Rhein (\"Old Rhine\") and in the East by a modern canalized section. Most of the delta is a nature reserve and bird sanctuary. It includes the Austrian towns of Gaißau, Höchst and Fußach. The natural Rhine originally branched into at least two arms and formed small islands by precipitating sediments. In the local Alemannic dialect, the singular is pronounced \"Isel\" and this is also the local pronunciation of Esel (\"Donkey\"). Many local fields have an official name containing this element. Question: What is the delta delimited in the North by?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Many locals and tourists frequent the southern California coast for its popular beaches, and the desert city of Palm Springs is popular for its resort feel and nearby open spaces. Question: Who visits Palm Springs for the beaches?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The Premier of Victoria is the leader of the political party or coalition with the most seats in the Legislative Assembly. The Premier is the public face of government and, with cabinet, sets the legislative and political agenda. Cabinet consists of representatives elected to either house of parliament. It is responsible for managing areas of government that are not exclusively the Commonwealth's, by the Australian Constitution, such as education, health and law enforcement. The current Premier of Victoria is Daniel Andrews. Question: Who sets the legislative agenda in Victoria?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Orientalism, as theorized by Edward Said, refers to how the West developed an imaginative geography of the East. This imaginative geography relies on an essentializing discourse that represents neither the diversity nor the social reality of the East. Rather, by essentializing the East, this discourse uses the idea of place-based identities to create difference and distance between \"we\" the West and \"them\" the East, or \"here\" in the West and \"there\" in the East. This difference was particularly apparent in textual and visual works of early European studies of the Orient that positioned the East as irrational and backward in opposition to the rational and progressive West. Defining the East as a negative vision of itself, as its inferior, not only increased the West’s sense of self, but also was a way of ordering the East and making it known to the West so that it could be dominated and controlled. The discourse of Orientalism therefore served as an ideological justification of early Western imperialism, as it formed a body of knowledge and ideas that rationalized social, cultural, political, and economic control of other territories. Question: What was used by the West to justify control over eastern territories?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Both X.25 and Frame Relay provide connection-oriented operations. But X.25 does it at the network layer of the OSI Model. Frame Relay does it at level two, the data link layer. Another major difference between X.25 and Frame Relay is that X.25 requires a handshake between the communicating parties before any user packets are transmitted. Frame Relay does not define any such handshakes. X.25 does not define any operations inside the packet network. It only operates at the user-network-interface (UNI). Thus, the network provider is free to use any procedure it wishes inside the network. X.25 does specify some limited re-transmission procedures at the UNI, and its link layer protocol (LAPB) provides conventional HDLC-type link management procedures. Frame Relay is a modified version of ISDN's layer two protocol, LAPD and LAPB. As such, its integrity operations pertain only between nodes on a link, not end-to-end. Any retransmissions must be carried out by higher layer protocols. The X.25 UNI protocol is part of the X.25 protocol suite, which consists of the lower three layers of the OSI Model. It was widely used at the UNI for packet switching networks during the 1980s and early 1990s, to provide a standardized interface into and out of packet networks. Some implementations used X.25 within the network as well, but its connection-oriented features made this setup cumbersome and inefficient. Frame relay operates principally at layer two of the OSI Model. However, its address field (the Data Link Connection ID, or DLCI) can be used at the OSI network layer, with a minimum set of procedures. Thus, it rids itself of many X.25 layer 3 encumbrances, but still has the DLCI as an ID beyond a node-to-node layer two link protocol. The simplicity of Frame Relay makes it faster and more efficient than X.25. Because Frame relay is a data link layer protocol, like X.25 it does not define internal network routing operations. For X.25 its packet IDs---the virtual circuit and virtual channel numbers have to be correlated to network addresses. The same is true for Frame Relays DLCI. How this is done is up to the network provider. Frame Relay, by virtue of having no network layer procedures is connection-oriented at layer two, by using the HDLC/LAPD/LAPB Set Asynchronous Balanced Mode (SABM). X.25 connections are typically established for each communication session, but it does have a feature allowing a limited amount of traffic to be passed across the UNI without the connection-oriented handshake. For a while, Frame Relay was used to interconnect LANs across wide area networks. However, X.25 and well as Frame Relay have been supplanted by the Internet Protocol (IP) at the network layer, and the Asynchronous Transfer Mode (ATM) and or versions of Multi-Protocol Label Switching (MPLS) at layer two. A typical configuration is to run IP over ATM or a version of MPLS. <Uyless Black, X.25 and Related Protocols, IEEE Computer Society, 1991> <Uyless Black, Frame Relay Networks, McGraw-Hill, 1998> <Uyless Black, MPLS and Label Switching Networks, Prentice Hall, 2001> < Uyless Black, ATM, Volume I, Prentice Hall, 1995> Question: When was Frame Relay's protocols used at UNI?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Upper and lower bounds are usually stated using the big O notation, which hides constant factors and smaller terms. This makes the bounds independent of the specific details of the computational model used. For instance, if T(n) = 7n2 + 15n + 40, in big O notation one would write T(n) = O(n2). Question: What is usually not stated using the big O notation?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: This contributed to the \"Oil Shock\". After 1971, OPEC was slow to readjust prices to reflect this depreciation. From 1947 to 1967, the dollar price of oil had risen by less than two percent per year. Until the oil shock, the price had also remained fairly stable versus other currencies and commodities. OPEC ministers had not developed institutional mechanisms to update prices in sync with changing market conditions, so their real incomes lagged. The substantial price increases of 1973–1974 largely returned their prices and corresponding incomes to Bretton Woods levels in terms of commodities such as gold. Question: What happened to Bretton Woods income due to prices not being in sync with the market?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Another of the Egyptian groups which employed violence in their struggle for Islamic order was al-Gama'a al-Islamiyya (Islamic Group). Victims of their campaign against the Egyptian state in the 1990s included the head of the counter-terrorism police (Major General Raouf Khayrat), a parliamentary speaker (Rifaat al-Mahgoub), dozens of European tourists and Egyptian bystanders, and over 100 Egyptian police. Ultimately the campaign to overthrow the government was unsuccessful, and the major jihadi group, Jamaa Islamiya (or al-Gama'a al-Islamiyya), renounced violence in 2003. Other lesser known groups include the Islamic Liberation Party, Salvation from Hell and Takfir wal-Hijra, and these groups have variously been involved in activities such as attempted assassinations of political figures, arson of video shops and attempted takeovers of government buildings. Question: How did the Islamic Group's campaign to support the government turn out?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Originating as the Jama'at al-Tawhid wal-Jihad in 1999, it pledged allegiance to al-Qaeda in 2004, participated in the Iraqi insurgency that followed the March 2003 invasion of Iraq by Western forces, joined the fight in the Syrian Civil War beginning in March 2011, and was expelled from al-Qaeda in early 2014, (which complained of its failure to consult and \"notorious intransigence\"). The group gained prominence after it drove Iraqi government forces out of key cities in western Iraq in a 2014 offensive. The group is adept at social media, posting Internet videos of beheadings of soldiers, civilians, journalists and aid workers, and is known for its destruction of cultural heritage sites. The United Nations has held ISIL responsible for human rights abuses and war crimes, and Amnesty International has reported ethnic cleansing by the group on a \"historic scale\". The group has been designated a terrorist organisation by the United Nations, the European Union and member states, the United States, India, Indonesia, Turkey, Saudi Arabia, Syria and other countries. Question: Why did al-Qaeda tell ISIL to take a hike?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Since its invention in 1269, the 'Phags-pa script, a unified script for spelling Mongolian, Tibetan, and Chinese languages, was preserved in the court until the end of the dynasty. Most of the Emperors could not master written Chinese, but they could generally converse well in the language. The Mongol custom of long standing quda/marriage alliance with Mongol clans, the Onggirat, and the Ikeres, kept the imperial blood purely Mongol until the reign of Tugh Temur, whose mother was a Tangut concubine. The Mongol Emperors had built large palaces and pavilions, but some still continued to live as nomads at times. Nevertheless, a few other Yuan emperors actively sponsored cultural activities; an example is Tugh Temur (Emperor Wenzong), who wrote poetry, painted, read Chinese classical texts, and ordered the compilation of books. Question: The mother of which emperor was a concubine?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Southern California includes the heavily built-up urban area stretching along the Pacific coast from Ventura, through the Greater Los Angeles Area and the Inland Empire, and down to Greater San Diego. Southern California's population encompasses seven metropolitan areas, or MSAs: the Los Angeles metropolitan area, consisting of Los Angeles and Orange counties; the Inland Empire, consisting of Riverside and San Bernardino counties; the San Diego metropolitan area; the Oxnard–Thousand Oaks–Ventura metropolitan area; the Santa Barbara metro area; the San Luis Obispo metropolitan area; and the El Centro area. Out of these, three are heavy populated areas: the Los Angeles area with over 12 million inhabitants, the Riverside-San Bernardino area with over four million inhabitants, and the San Diego area with over 3 million inhabitants. For CSA metropolitan purposes, the five counties of Los Angeles, Orange, Riverside, San Bernardino, and Ventura are all combined to make up the Greater Los Angeles Area with over 17.5 million people. With over 22 million people, southern California contains roughly 60 percent of California's population. Question: What percent of California's 22 million people live in southern California?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: In 1096, Crusaders passing by the siege of Amalfi were joined by Bohemond of Taranto and his nephew Tancred with an army of Italo-Normans. Bohemond was the de facto leader of the Crusade during its passage through Asia Minor. After the successful Siege of Antioch in 1097, Bohemond began carving out an independent principality around that city. Tancred was instrumental in the conquest of Jerusalem and he worked for the expansion of the Crusader kingdom in Transjordan and the region of Galilee.[citation needed] Question: What was the name of Bohemond's nephew?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: French irregular forces (Canadian scouts and Indians) harassed Fort William Henry throughout the first half of 1757. In January they ambushed British rangers near Ticonderoga. In February they launched a daring raid against the position across the frozen Lake George, destroying storehouses and buildings outside the main fortification. In early August, Montcalm and 7,000 troops besieged the fort, which capitulated with an agreement to withdraw under parole. When the withdrawal began, some of Montcalm's Indian allies, angered at the lost opportunity for loot, attacked the British column, killing and capturing several hundred men, women, children, and slaves. The aftermath of the siege may have contributed to the transmission of smallpox into remote Indian populations; as some Indians were reported to have traveled from beyond the Mississippi to participate in the campaign and returned afterward having been exposed to European carriers. Question: During withdrawal from Fort William Henry, what did some Indian allies of French do?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The revocation forbade Protestant services, required education of children as Catholics, and prohibited emigration. It proved disastrous to the Huguenots and costly for France. It precipitated civil bloodshed, ruined commerce, and resulted in the illegal flight from the country of hundreds of thousands of Protestants, many of whom became intellectuals, doctors and business leaders in Britain as well as Holland, Prussia, and South Africa. Four thousand emigrated to the North American colonies, where they settled in New York and Virginia, especially. The English welcomed the French refugees, providing money from both government and private agencies to aid their relocation. Those Huguenots who stayed in France became Catholics and were called \"new converts\". Question: How did the revocation restrict Huguenot travel?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Germanic tribes crossed the Rhine in the Migration period, by the 5th century establishing the kingdoms of Francia on the Lower Rhine, Burgundy on the Upper Rhine and Alemannia on the High Rhine. This \"Germanic Heroic Age\" is reflected in medieval legend, such as the Nibelungenlied which tells of the hero Siegfried killing a dragon on the Drachenfels (Siebengebirge) (\"dragons rock\"), near Bonn at the Rhine and of the Burgundians and their court at Worms, at the Rhine and Kriemhild's golden treasure, which was thrown into the Rhine by Hagen. Question: Where did the hero Siegfried discover the rock?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Traveling south on Interstate 5, the main gap to continued urbanization is Camp Pendleton. The cities and communities along Interstate 15 and Interstate 215 are so inter-related that Temecula and Murrieta have as much connection with the San Diego metropolitan area as they do with the Inland Empire. To the east, the United States Census Bureau considers the San Bernardino and Riverside County areas, Riverside-San Bernardino area as a separate metropolitan area from Los Angeles County. While many commute to L.A. and Orange Counties, there are some differences in development, as most of San Bernardino and Riverside Counties (the non-desert portions) were developed in the 1980s and 1990s. Newly developed exurbs formed in the Antelope Valley north of Los Angeles, the Victor Valley and the Coachella Valley with the Imperial Valley. Also, population growth was high in the Bakersfield-Kern County, Santa Maria and San Luis Obispo areas. Question: What was developed in 1980?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: In modern particle physics, forces and the acceleration of particles are explained as a mathematical by-product of exchange of momentum-carrying gauge bosons. With the development of quantum field theory and general relativity, it was realized that force is a redundant concept arising from conservation of momentum (4-momentum in relativity and momentum of virtual particles in quantum electrodynamics). The conservation of momentum can be directly derived from the homogeneity or symmetry of space and so is usually considered more fundamental than the concept of a force. Thus the currently known fundamental forces are considered more accurately to be \"fundamental interactions\".:199–128 When particle A emits (creates) or absorbs (annihilates) virtual particle B, a momentum conservation results in recoil of particle A making impression of repulsion or attraction between particles A A' exchanging by B. This description applies to all forces arising from fundamental interactions. While sophisticated mathematical descriptions are needed to predict, in full detail, the accurate result of such interactions, there is a conceptually simple way to describe such interactions through the use of Feynman diagrams. In a Feynman diagram, each matter particle is represented as a straight line (see world line) traveling through time, which normally increases up or to the right in the diagram. Matter and anti-matter particles are identical except for their direction of propagation through the Feynman diagram. World lines of particles intersect at interaction vertices, and the Feynman diagram represents any force arising from an interaction as occurring at the vertex with an associated instantaneous change in the direction of the particle world lines. Gauge bosons are emitted away from the vertex as wavy lines and, in the case of virtual particle exchange, are absorbed at an adjacent vertex. Question: What is more fundamental than force in quanton field theory?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Before World War II, Fresno had many ethnic neighborhoods, including Little Armenia, German Town, Little Italy, and Chinatown. In 1940, the Census Bureau reported Fresno's population as 94.0% white, 3.3% black and 2.7% Asian. (Incongruously, Chinatown was primarily a Japanese neighborhood and today Japanese-American businesses still remain). During 1942, Pinedale, in what is now North Fresno, was the site of the Pinedale Assembly Center, an interim facility for the relocation of Fresno area Japanese Americans to internment camps. The Fresno Fairgrounds was also utilized as an assembly center. Question: What area of Fresno were the Fresno Fairgrounds located in?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: There is evidence that there have been significant changes in Amazon rainforest vegetation over the last 21,000 years through the Last Glacial Maximum (LGM) and subsequent deglaciation. Analyses of sediment deposits from Amazon basin paleolakes and from the Amazon Fan indicate that rainfall in the basin during the LGM was lower than for the present, and this was almost certainly associated with reduced moist tropical vegetation cover in the basin. There is debate, however, over how extensive this reduction was. Some scientists argue that the rainforest was reduced to small, isolated refugia separated by open forest and grassland; other scientists argue that the rainforest remained largely intact but extended less far to the north, south, and east than is seen today. This debate has proved difficult to resolve because the practical limitations of working in the rainforest mean that data sampling is biased away from the center of the Amazon basin, and both explanations are reasonably well supported by the available data. Question: Scientists disagree with how the Amazon rainforest changed over time with some arguing that it was reduced to isolated refugia seperated by what?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: After the revocation of the Edict of Nantes, the Dutch Republic received the largest group of Huguenot refugees, an estimated total of 75,000 to 100,000 people. Amongst them were 200 clergy. Many came from the region of the Cévennes, for instance, the village of Fraissinet-de-Lozère. This was a huge influx as the entire population of the Dutch Republic amounted to ca. 2 million at that time. Around 1700, it is estimated that nearly 25% of the Amsterdam population was Huguenot.[citation needed] In 1705, Amsterdam and the area of West Frisia were the first areas to provide full citizens rights to Huguenot immigrants, followed by the Dutch Republic in 1715. Huguenots intermarried with Dutch from the outset. Question: What was the population of the Dutch Republic before this emigration?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The primary law of the EU consists mainly of the founding treaties, the \"core\" treaties being the Treaty on European Union (TEU) and the Treaty on the Functioning of the European Union (TFEU). The Treaties contain formal and substantive provisions, which frame policies of the European Union institutions and determine the division of competences between the European Union and its member states. The TEU establishes that European Union law applies to the metropolitan territories of the member states, as well as certain islands and overseas territories, including Madeira, the Canary Islands and the French overseas departments. European Union law also applies in territories where a member state is responsible for external relations, for example Gibraltar and the Åland islands. The TEU allows the European Council to make specific provisions for regions, as for example done for customs matters in Gibraltar and Saint-Pierre-et-Miquelon. The TEU specifically excludes certain regions, for example the Faroe Islands, from the jurisdiction of European Union law. Treaties apply as soon as they enter into force, unless stated otherwise, and are generally concluded for an unlimited period. The TEU provides that commitments entered into by the member states between themselves before the treaty was signed no longer apply.[vague] All EU member states are regarded as subject to the general obligation of the principle of cooperation, as stated in the TEU, whereby member states are obliged not to take measure which could jeopardise the attainment of the TEU objectives. The Court of Justice of the European Union can interpret the Treaties, but it cannot rule on their validity, which is subject to international law. Individuals may rely on primary law in the Court of Justice of the European Union if the Treaty provisions have a direct effect and they are sufficiently clear, precise and unconditional. Question: What are the core treaties that the primary law of the EU consists of?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Another factor in the early 1990s that worked to radicalize the Islamist movement was the Gulf War, which brought several hundred thousand US and allied non-Muslim military personnel to Saudi Arabian soil to put an end to Saddam Hussein's occupation of Kuwait. Prior to 1990 Saudi Arabia played an important role in restraining the many Islamist groups that received its aid. But when Saddam, secularist and Ba'athist dictator of neighboring Iraq, attacked Saudi Arabia (his enemy in the war), western troops came to protect the Saudi monarchy. Islamists accused the Saudi regime of being a puppet of the west. Question:  Whose puppet did Islamists support the Saudi regime of being?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Some theories developed in the 1970s established possible avenues through which inequality may have a positive effect on economic development. According to a 1955 review, savings by the wealthy, if these increase with inequality, were thought to offset reduced consumer demand. A 2013 report on Nigeria suggests that growth has risen with increased income inequality. Some theories popular from the 1950s to 2011 incorrectly stated that inequality had a positive effect on economic development. Analyses based on comparing yearly equality figures to yearly growth rates were misleading because it takes several years for effects to manifest as changes to economic growth. IMF economists found a strong association between lower levels of inequality in developing countries and sustained periods of economic growth. Developing countries with high inequality have \"succeeded in initiating growth at high rates for a few years\" but \"longer growth spells are robustly associated with more equality in the income distribution.\" Question: What are shorter growth spells associated with?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The further decline of Byzantine state-of-affairs paved the road to a third attack in 1185, when a large Norman army invaded Dyrrachium, owing to the betrayal of high Byzantine officials. Some time later, Dyrrachium—one of the most important naval bases of the Adriatic—fell again to Byzantine hands. Question: Where was Dyrrachium located?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: More than 26,000 square kilometres (10,000 sq mi) of Victorian farmland are sown for grain, mostly in the state's west. More than 50% of this area is sown for wheat, 33% for barley and 7% for oats. A further 6,000 square kilometres (2,300 sq mi) is sown for hay. In 2003–04, Victorian farmers produced more than 3 million tonnes of wheat and 2 million tonnes of barley. Victorian farms produce nearly 90% of Australian pears and third of apples. It is also a leader in stone fruit production. The main vegetable crops include asparagus, broccoli, carrots, potatoes and tomatoes. Last year, 121,200 tonnes of pears and 270,000 tonnes of tomatoes were produced. Question: What percentage of farmland grows beans?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: After World War II, under a Communist regime set up by the conquering Soviets, the \"Bricks for Warsaw\" campaign was initiated, and large prefabricated housing projects were erected in Warsaw to address the housing shortage, along with other typical buildings of an Eastern Bloc city, such as the Palace of Culture and Science, a gift from the Soviet Union. The city resumed its role as the capital of Poland and the country's centre of political and economic life. Many of the historic streets, buildings, and churches were restored to their original form. In 1980, Warsaw's historic Old Town was inscribed onto UNESCO's World Heritage list. Question: What campaign did the Communist regime initiate after WWI?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: In the arts and entertainment, minimalist composer Philip Glass, dancer, choreographer and leader in the field of dance anthropology Katherine Dunham, Bungie founder and developer of the Halo video game series Alex Seropian, Serial host Sarah Koenig, actor Ed Asner, Pulitzer Prize for Criticism winning film critic and the subject of the 2014 documentary film Life Itself Roger Ebert, director, writer, and comedian Mike Nichols, film director and screenwriter Philip Kaufman, and Carl Van Vechten, photographer and writer, are graduates. Question: What comedian is also a university graduate? ",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Most species are hermaphrodites—a single animal can produce both eggs and sperm, meaning it can fertilize its own egg, not needing a mate. Some are simultaneous hermaphrodites, which can produce both eggs and sperm at the same time. Others are sequential hermaphrodites, in which the eggs and sperm mature at different times. Fertilization is generally external, although platyctenids' eggs are fertilized inside their parents' bodies and kept there until they hatch. The young are generally planktonic and in most species look like miniature cydippids, gradually changing into their adult shapes as they grow. The exceptions are the beroids, whose young are miniature beroids with large mouths and no tentacles, and the platyctenids, whose young live as cydippid-like plankton until they reach near-adult size, but then sink to the bottom and rapidly metamorphose into the adult form. In at least some species, juveniles are capable of reproduction before reaching the adult size and shape. The combination of hermaphroditism and early reproduction enables small populations to grow at an explosive rate. Question: What can a simultaneous hermaphrodite do?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Paul Revere was descended from Huguenot refugees, as was Henry Laurens, who signed the Articles of Confederation for South Carolina; Jack Jouett, who made the ride from Cuckoo Tavern to warn Thomas Jefferson and others that Tarleton and his men were on their way to arrest him for crimes against the king; Francis Marion, and a number of other leaders of the American Revolution and later statesmen. The last active Huguenot congregation in North America worships in Charleston, South Carolina, at a church that dates to 1844. The Huguenot Society of America maintains Manakin Episcopal Church in Virginia as an historic shrine with occasional services. The Society has chapters in numerous states, with the one in Texas being the largest. Question: What signer of the Articles of Confederation was descended from Huguenots?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Oxygen gas can also be produced through electrolysis of water into molecular oxygen and hydrogen. DC electricity must be used: if AC is used, the gases in each limb consist of hydrogen and oxygen in the explosive ratio 2:1. Contrary to popular belief, the 2:1 ratio observed in the DC electrolysis of acidified water does not prove that the empirical formula of water is H2O unless certain assumptions are made about the molecular formulae of hydrogen and oxygen themselves. A similar method is the electrocatalytic O\n2 evolution from oxides and oxoacids. Chemical catalysts can be used as well, such as in chemical oxygen generators or oxygen candles that are used as part of the life-support equipment on submarines, and are still part of standard equipment on commercial airliners in case of depressurization emergencies. Another air separation technology involves forcing air to dissolve through ceramic membranes based on zirconium dioxide by either high pressure or an electric current, to produce nearly pure O\n2 gas. Question: Electrolysis of what can be used to produce oxygen and hydrogen?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The four-year, full-time undergraduate program comprises a minority of enrollments at the university and emphasizes instruction with an \"arts and sciences focus\". Between 1978 and 2008, entering students were required to complete a core curriculum of seven classes outside of their concentration. Since 2008, undergraduate students have been required to complete courses in eight General Education categories: Aesthetic and Interpretive Understanding, Culture and Belief, Empirical and Mathematical Reasoning, Ethical Reasoning, Science of Living Systems, Science of the Physical Universe, Societies of the World, and United States in the World. Harvard offers a comprehensive doctoral graduate program and there is a high level of coexistence between graduate and undergraduate degrees. The Carnegie Foundation for the Advancement of Teaching, The New York Times, and some students have criticized Harvard for its reliance on teaching fellows for some aspects of undergraduate education; they consider this to adversely affect the quality of education. Question: Who does the Carnegie Foundation depend on for some aspects of undergraduate education?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: According to PolitiFact the top 400 richest Americans \"have more wealth than half of all Americans combined.\" According to the New York Times on July 22, 2014, the \"richest 1 percent in the United States now own more wealth than the bottom 90 percent\". Inherited wealth may help explain why many Americans who have become rich may have had a \"substantial head start\". In September 2012, according to the Institute for Policy Studies, \"over 60 percent\" of the Forbes richest 400 Americans \"grew up in substantial privilege\". Question: What is considered as a potential disadvantage for wealth for some Americans?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The fundamental theorem of arithmetic continues to hold in unique factorization domains. An example of such a domain is the Gaussian integers Z[i], that is, the set of complex numbers of the form a + bi where i denotes the imaginary unit and a and b are arbitrary integers. Its prime elements are known as Gaussian primes. Not every prime (in Z) is a Gaussian prime: in the bigger ring Z[i], 2 factors into the product of the two Gaussian primes (1 + i) and (1 − i). Rational primes (i.e. prime elements in Z) of the form 4k + 3 are Gaussian primes, whereas rational primes of the form 4k + 1 are not. Question: What theorem remains valid in unique Gaussian primes?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: In the early years, many Huguenots also settled in the area of present-day Charleston, South Carolina. In 1685, Rev. Elie Prioleau from the town of Pons in France, was among the first to settle there. He became pastor of the first Huguenot church in North America in that city. After the Revocation of the Edict of Nantes in 1685, several Huguenot families of Norman and Carolingian nobility and descent, including Edmund Bohun of Suffolk England from the Humphrey de Bohun line of French royalty descended from Charlemagne, Jean Postell of Dieppe France, Alexander Pepin, Antoine Poitevin of Orsement France, and Jacques de Bordeaux of Grenoble, immigrated to the Charleston Orange district. They were very successful at marriage and property speculation. After petitioning the British Crown in 1697 for the right to own land in the Baronies, they prospered as slave owners on the Cooper, Ashepoo, Ashley and Santee River plantations they purchased from the British Landgrave Edmund Bellinger. Some of their descendants moved into the Deep South and Texas, where they developed new plantations. Question: In what year was Charleston, North Carolina founded?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: As of the census of 2000, there were 427,652 people, 140,079 households, and 97,915 families residing in the city. The population density was 4,097.9 people per square mile (1,582.2/km²). There were 149,025 housing units at an average density of 1,427.9 square miles (3,698 km2). The racial makeup of the city was 50.2% White, 8.4% Black or African American, 1.6% Native American, 11.2% Asian (about a third of which is Hmong), 0.1% Pacific Islander, 23.4% from other races, and 5.2% from two or more races. Hispanic or Latino of any race were 39.9% of the population. Question: How many families per square mile are there in Fresno?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: In 1993, Galor and Zeira showed that inequality in the presence of credit market imperfections has a long lasting detrimental effect on human capital formation and economic development. A 1996 study by Perotti examined the channels through which inequality may affect economic growth. He showed that, in accordance with the credit market imperfection approach, inequality is associated with lower level of human capital formation (education, experience, and apprenticeship) and higher level of fertility, and thereby lower levels of growth. He found that inequality is associated with higher levels of redistributive taxation, which is associated with lower levels of growth from reductions in private savings and investment. Perotti concluded that, \"more equal societies have lower fertility rates and higher rates of investment in education. Both are reflected in higher rates of growth. Also, very unequal societies tend to be politically and socially unstable, which is reflected in lower rates of investment and therefore growth.\" Question: What did a 1996 study by Perotti examine?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The tallest building in Downtown Jacksonville's skyline is the Bank of America Tower, constructed in 1990 as the Barnett Center. It has a height of 617 ft (188 m) and includes 42 floors. Other notable structures include the 37-story Wells Fargo Center (with its distinctive flared base making it the defining building in the Jacksonville skyline), originally built in 1972-74 by the Independent Life and Accident Insurance Company, and the 28 floor Riverplace Tower which, when completed in 1967, was the tallest precast, post-tensioned concrete structure in the world. Question: In the shortest building in downtown Jacksonville?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: It is possible to use a mechanism based on a pistonless rotary engine such as the Wankel engine in place of the cylinders and valve gear of a conventional reciprocating steam engine. Many such engines have been designed, from the time of James Watt to the present day, but relatively few were actually built and even fewer went into quantity production; see link at bottom of article for more details. The major problem is the difficulty of sealing the rotors to make them steam-tight in the face of wear and thermal expansion; the resulting leakage made them very inefficient. Lack of expansive working, or any means of control of the cutoff is also a serious problem with many such designs.[citation needed] Question: What is an example of a rotary engine without pistons?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Individual Huguenots settled at the Cape of Good Hope from as early as 1671 with the arrival of François Villion (Viljoen). The first Huguenot to arrive at the Cape of Good Hope was however Maria de la Queillerie, wife of commander Jan van Riebeeck (and daughter of a Walloon church minister), who arrived on 6 April 1652 to establish a settlement at what is today Cape Town. The couple left for the Far East ten years later. On 31 December 1687 the first organised group of Huguenots set sail from the Netherlands to the Dutch East India Company post at the Cape of Good Hope. The largest portion of the Huguenots to settle in the Cape arrived between 1688 and 1689 in seven ships as part of the organised migration, but quite a few arrived as late as 1700; thereafter, the numbers declined and only small groups arrived at a time. Question: In what year was Francois Villion born?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The Age of Imperialism, a time period beginning around 1700, saw (generally European) industrializing nations engaging in the process of colonizing, influencing, and annexing other parts of the world in order to gain political power.[citation needed] Although imperialist practices have existed for thousands of years, the term \"Age of Imperialism\" generally refers to the activities of European powers from the early 18th century through to the middle of the 20th century, for example, the \"The Great Game\" in Persian lands, the \"Scramble for Africa\" and the \"Open Door Policy\" in China. Question: When did the age of Imperialism begin?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Before World War II, Fresno had many ethnic neighborhoods, including Little Armenia, German Town, Little Italy, and Chinatown. In 1940, the Census Bureau reported Fresno's population as 94.0% white, 3.3% black and 2.7% Asian. (Incongruously, Chinatown was primarily a Japanese neighborhood and today Japanese-American businesses still remain). During 1942, Pinedale, in what is now North Fresno, was the site of the Pinedale Assembly Center, an interim facility for the relocation of Fresno area Japanese Americans to internment camps. The Fresno Fairgrounds was also utilized as an assembly center. Question: What was the Pinedale Assembly Center?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: In the aftermath of generally poor French results in most theaters of the Seven Years' War in 1758, France's new foreign minister, the duc de Choiseul, decided to focus on an invasion of Britain, to draw British resources away from North America and the European mainland. The invasion failed both militarily and politically, as Pitt again planned significant campaigns against New France, and sent funds to Britain's ally on the mainland, Prussia, and the French Navy failed in the 1759 naval battles at Lagos and Quiberon Bay. In one piece of good fortune, some French supply ships managed to depart France, eluding the British blockade of the French coast. Question: What naval battles did France lose in 1795?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Starting in the late 1950s, American computer scientist Paul Baran developed the concept Distributed Adaptive Message Block Switching with the goal to provide a fault-tolerant, efficient routing method for telecommunication messages as part of a research program at the RAND Corporation, funded by the US Department of Defense. This concept contrasted and contradicted the theretofore established principles of pre-allocation of network bandwidth, largely fortified by the development of telecommunications in the Bell System. The new concept found little resonance among network implementers until the independent work of Donald Davies at the National Physical Laboratory (United Kingdom) (NPL) in the late 1960s. Davies is credited with coining the modern name packet switching and inspiring numerous packet switching networks in Europe in the decade following, including the incorporation of the concept in the early ARPANET in the United States. Question: What did the RAND Corporation do?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: One of the most famous people born in Warsaw was Maria Skłodowska-Curie, who achieved international recognition for her research on radioactivity and was the first female recipient of the Nobel Prize. Famous musicians include Władysław Szpilman and Frédéric Chopin. Though Chopin was born in the village of Żelazowa Wola, about 60 km (37 mi) from Warsaw, he moved to the city with his family when he was seven months old. Casimir Pulaski, a Polish general and hero of the American Revolutionary War, was born here in 1745. Question: Who was Frédéric Chopin?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: In the United Kingdom and several other Commonwealth countries including Australia and Canada, the use of the term is generally restricted to primary and secondary educational levels; it is almost never used of universities and other tertiary institutions. Private education in North America covers the whole gamut of educational activity, ranging from pre-school to tertiary level institutions. Annual tuition fees at K-12 schools range from nothing at so called 'tuition-free' schools to more than $45,000 at several New England preparatory schools. Question: What term does the UK, Australia and Canada always use when referring to universities?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Before the St. Elizabeth's flood (1421), the Meuse flowed just south of today's line Merwede-Oude Maas to the North Sea and formed an archipelago-like estuary with Waal and Lek. This system of numerous bays, estuary-like extended rivers, many islands and constant changes of the coastline, is hard to imagine today. From 1421 to 1904, the Meuse and Waal merged further upstream at Gorinchem to form Merwede. For flood protection reasons, the Meuse was separated from the Waal through a lock and diverted into a new outlet called \"Bergse Maas\", then Amer and then flows into the former bay Hollands Diep. Question: What flood impacted the Meuse?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Another example of scientific research which suggests that previous estimates by the IPCC, far from overstating dangers and risks, have actually understated them is a study on projected rises in sea levels. When the researchers' analysis was \"applied to the possible scenarios outlined by the Intergovernmental Panel on Climate Change (IPCC), the researchers found that in 2100 sea levels would be 0.5–1.4 m [50–140 cm] above 1990 levels. These values are much greater than the 9–88 cm as projected by the IPCC itself in its Third Assessment Report, published in 2001\". This may have been due, in part, to the expanding human understanding of climate. Question: Who projected the 1990 levels in the third assessment report?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: \"The Islamic State\", formerly known as the \"Islamic State of Iraq and the Levant\" and before that as the \"Islamic State of Iraq\", (and called the acronym Daesh by its many detractors), is a Wahhabi/Salafi jihadist extremist militant group which is led by and mainly composed of Sunni Arabs from Iraq and Syria. In 2014, the group proclaimed itself a caliphate, with religious, political and military authority over all Muslims worldwide. As of March 2015[update], it had control over territory occupied by ten million people in Iraq and Syria, and has nominal control over small areas of Libya, Nigeria and Afghanistan. (While a self-described state, it lacks international recognition.) The group also operates or has affiliates in other parts of the world, including North Africa and South Asia. Question: What did the Islamic State proclaim itself in 2014?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Harbor improvements since the late 19th century have made Jacksonville a major military and civilian deep-water port. Its riverine location facilitates two United States Navy bases and the Port of Jacksonville, Florida's third largest seaport. The two US Navy bases, Blount Island Command and the nearby Naval Submarine Base Kings Bay form the third largest military presence in the United States. Significant factors in the local economy include services such as banking, insurance, healthcare and logistics. As with much of Florida, tourism is also important to the Jacksonville area, particularly tourism related to golf. People from Jacksonville may be called \"Jacksonvillians\" or \"Jaxsons\" (also spelled \"Jaxons\"). Question: What has made Jacksonville a major military and civilian court since the 1900s?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Prime ideals are the points of algebro-geometric objects, via the notion of the spectrum of a ring. Arithmetic geometry also benefits from this notion, and many concepts exist in both geometry and number theory. For example, factorization or ramification of prime ideals when lifted to an extension field, a basic problem of algebraic number theory, bears some resemblance with ramification in geometry. Such ramification questions occur even in number-theoretic questions solely concerned with integers. For example, prime ideals in the ring of integers of quadratic number fields can be used in proving quadratic reciprocity, a statement that concerns the solvability of quadratic equations Question: What does quadratic reciprocity seek to achieve?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Oxygen is the most abundant chemical element by mass in the Earth's biosphere, air, sea and land. Oxygen is the third most abundant chemical element in the universe, after hydrogen and helium. About 0.9% of the Sun's mass is oxygen. Oxygen constitutes 49.2% of the Earth's crust by mass and is the major component of the world's oceans (88.8% by mass). Oxygen gas is the second most common component of the Earth's atmosphere, taking up 20.8% of its volume and 23.1% of its mass (some 1015 tonnes).[d] Earth is unusual among the planets of the Solar System in having such a high concentration of oxygen gas in its atmosphere: Mars (with 0.1% O\n2 by volume) and Venus have far lower concentrations. The O\n2 surrounding these other planets is produced solely by ultraviolet radiation impacting oxygen-containing molecules such as carbon dioxide. Question: How is oxygen produced from carbon dioxide on the other planets of the solar system?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The Victorian Alps in the northeast are the coldest part of Victoria. The Alps are part of the Great Dividing Range mountain system extending east-west through the centre of Victoria. Average temperatures are less than 9 °C (48 °F) in winter and below 0 °C (32 °F) in the highest parts of the ranges. The state's lowest minimum temperature of −11.7 °C (10.9 °F) was recorded at Omeo on 13 June 1965, and again at Falls Creek on 3 July 1970. Temperature extremes for the state are listed in the table below: Question: In what direction does the mountain system extend?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Reciprocating piston type steam engines remained the dominant source of power until the early 20th century, when advances in the design of electric motors and internal combustion engines gradually resulted in the replacement of reciprocating (piston) steam engines in commercial usage, and the ascendancy of steam turbines in power generation. Considering that the great majority of worldwide electric generation is produced by turbine type steam engines, the \"steam age\" is continuing with energy levels far beyond those of the turn of the 19th century. Question: What is continuing with energy levels far beyond the turn of the 20th century?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Starting in 1965, Donald Davies at the National Physical Laboratory, UK, independently developed the same message routing methodology as developed by Baran. He called it packet switching, a more accessible name than Baran's, and proposed to build a nationwide network in the UK. He gave a talk on the proposal in 1966, after which a person from the Ministry of Defence (MoD) told him about Baran's work. A member of Davies' team (Roger Scantlebury) met Lawrence Roberts at the 1967 ACM Symposium on Operating System Principles and suggested it for use in the ARPANET. Question: Why not a worldwide network as opposed to simply a UK only network?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: John Schmitt and Ben Zipperer (2006) of the CEPR point to economic liberalism and the reduction of business regulation along with the decline of union membership as one of the causes of economic inequality. In an analysis of the effects of intensive Anglo-American liberal policies in comparison to continental European liberalism, where unions have remained strong, they concluded \"The U.S. economic and social model is associated with substantial levels of social exclusion, including high levels of income inequality, high relative and absolute poverty rates, poor and unequal educational outcomes, poor health outcomes, and high rates of crime and incarceration. At the same time, the available evidence provides little support for the view that U.S.-style labor-market flexibility dramatically improves labor-market outcomes. Despite popular prejudices to the contrary, the U.S. economy consistently affords a lower level of economic mobility than all the continental European countries for which data is available.\" Question: Which set of countries have higher economic mobility than the United States?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Since all modern ctenophores except the beroids have cydippid-like larvae, it has widely been assumed that their last common ancestor also resembled cydippids, having an egg-shaped body and a pair of retractable tentacles. Richard Harbison's purely morphological analysis in 1985 concluded that the cydippids are not monophyletic, in other words do not contain all and only the descendants of a single common ancestor that was itself a cydippid. Instead he found that various cydippid families were more similar to members of other ctenophore orders than to other cydippids. He also suggested that the last common ancestor of modern ctenophores was either cydippid-like or beroid-like. A molecular phylogeny analysis in 2001, using 26 species, including 4 recently discovered ones, confirmed that the cydippids are not monophyletic and concluded that the last common ancestor of modern ctenophores was cydippid-like. It also found that the genetic differences between these species were very small – so small that the relationships between the Lobata, Cestida and Thalassocalycida remained uncertain. This suggests that the last common ancestor of modern ctenophores was relatively recent, and perhaps was lucky enough to survive the Cretaceous–Paleogene extinction event 65.5 million years ago while other lineages perished. When the analysis was broadened to include representatives of other phyla, it concluded that cnidarians are probably more closely related to bilaterians than either group is to ctenophores but that this diagnosis is uncertain. Question: Which genus of ctenophores does not have cydipped-like larvae?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: By the late 19th century scientists realized that air could be liquefied, and its components isolated, by compressing and cooling it. Using a cascade method, Swiss chemist and physicist Raoul Pierre Pictet evaporated liquid sulfur dioxide in order to liquefy carbon dioxide, which in turn was evaporated to cool oxygen gas enough to liquefy it. He sent a telegram on December 22, 1877 to the French Academy of Sciences in Paris announcing his discovery of liquid oxygen. Just two days later, French physicist Louis Paul Cailletet announced his own method of liquefying molecular oxygen. Only a few drops of the liquid were produced in either case so no meaningful analysis could be conducted. Oxygen was liquified in stable state for the first time on March 29, 1883 by Polish scientists from Jagiellonian University, Zygmunt Wróblewski and Karol Olszewski. Question: By what century did researchers see that they could liquefy air?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: On August 15, 1971, the United States unilaterally pulled out of the Bretton Woods Accord. The US abandoned the Gold Exchange Standard whereby the value of the dollar had been pegged to the price of gold and all other currencies were pegged to the dollar, whose value was left to \"float\" (rise and fall according to market demand). Shortly thereafter, Britain followed, floating the pound sterling. The other industrialized nations followed suit with their respective currencies. Anticipating that currency values would fluctuate unpredictably for a time, the industrialized nations increased their reserves (by expanding their money supplies) in amounts far greater than before. The result was a depreciation of the dollar and other industrialized nations' currencies. Because oil was priced in dollars, oil producers' real income decreased. In September 1971, OPEC issued a joint communiqué stating that, from then on, they would price oil in terms of a fixed amount of gold. Question: What happened to other currencies value when the US abandoned oil?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: There were 158,349 households, of which 68,511 (43.3%) had children under the age of 18 living in them, 69,284 (43.8%) were opposite-sex married couples living together, 30,547 (19.3%) had a female householder with no husband present, 11,698 (7.4%) had a male householder with no wife present. There were 12,843 (8.1%) unmarried opposite-sex partnerships, and 1,388 (0.9%) same-sex married couples or partnerships. 35,064 households (22.1%) were made up of individuals and 12,344 (7.8%) had someone living alone who was 65 years of age or older. The average household size was 3.07. There were 111,529 families (70.4% of all households); the average family size was 3.62. Question: What was the average family size?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Gamma delta T cells (γδ T cells) possess an alternative T cell receptor (TCR) as opposed to CD4+ and CD8+ (αβ) T cells and share the characteristics of helper T cells, cytotoxic T cells and NK cells. The conditions that produce responses from γδ T cells are not fully understood. Like other 'unconventional' T cell subsets bearing invariant TCRs, such as CD1d-restricted Natural Killer T cells, γδ T cells straddle the border between innate and adaptive immunity. On one hand, γδ T cells are a component of adaptive immunity as they rearrange TCR genes to produce receptor diversity and can also develop a memory phenotype. On the other hand, the various subsets are also part of the innate immune system, as restricted TCR or NK receptors may be used as pattern recognition receptors. For example, large numbers of human Vγ9/Vδ2 T cells respond within hours to common molecules produced by microbes, and highly restricted Vδ1+ T cells in epithelia respond to stressed epithelial cells. Question: What type of T cells help with both innnate and adaptive immunity?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: It is usually recognized that lawbreaking, if it is not done publicly, at least must be publicly announced in order to constitute civil disobedience. But Stephen Eilmann argues that if it is necessary to disobey rules that conflict with morality, we might ask why disobedience should take the form of public civil disobedience rather than simply covert lawbreaking. If a lawyer wishes to help a client overcome legal obstacles to securing her or his natural rights, he might, for instance, find that assisting in fabricating evidence or committing perjury is more effective than open disobedience. This assumes that common morality does not have a prohibition on deceit in such situations. The Fully Informed Jury Association's publication \"A Primer for Prospective Jurors\" notes, \"Think of the dilemma faced by German citizens when Hitler's secret police demanded to know if they were hiding a Jew in their house.\" By this definition, civil disobedience could be traced back to the Book of Exodus, where Shiphrah and Puah refused a direct order of Pharaoh but misrepresented how they did it. (Exodus 1: 15-19) Question: Stephen Eilmann demonstrates covert law breaking in Nazi Germany.   Citizen's illegally had been doing what? ",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Among the most well-known experiments in structural geology are those involving orogenic wedges, which are zones in which mountains are built along convergent tectonic plate boundaries. In the analog versions of these experiments, horizontal layers of sand are pulled along a lower surface into a back stop, which results in realistic-looking patterns of faulting and the growth of a critically tapered (all angles remain the same) orogenic wedge. Numerical models work in the same way as these analog models, though they are often more sophisticated and can include patterns of erosion and uplift in the mountain belt. This helps to show the relationship between erosion and the shape of the mountain range. These studies can also give useful information about pathways for metamorphism through pressure, temperature, space, and time. Question: What does an analog model have that a numerical model doesn not?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Jacksonville is the largest city by population in the U.S. state of Florida, and the largest city by area in the contiguous United States. It is the county seat of Duval County, with which the city government consolidated in 1968. Consolidation gave Jacksonville its great size and placed most of its metropolitan population within the city limits; with an estimated population of 853,382 in 2014, it is the most populous city proper in Florida and the Southeast, and the 12th most populous in the United States. Jacksonville is the principal city in the Jacksonville metropolitan area, with a population of 1,345,596 in 2010. Question: What County was Jacksonville the seat of prior to 1968?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Legally, only non-profit trusts and societies can run schools in India. They will have to satisfy a number of infrastructure and human resource related criteria to get Recognition (a form of license) from the government. Critics of this system point out that this leads to corruption by school inspectors who check compliance and to fewer schools in a country that has the largest adult illiterate population in the world. While official data does not capture the real extent of private schooling in the country, various studies have reported unpopularity of government schools and an increasing number of private schools. The Annual Status of Education Report (ASER), which evaluates learning levels in rural India, has been reporting poorer academic achievement in government schools than in private schools. A key difference between the government and private schools is that the medium of education in private schools is English while it is the local language in government schools. Question: What country has the most illiterate adults in the world?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Packet switching contrasts with another principal networking paradigm, circuit switching, a method which pre-allocates dedicated network bandwidth specifically for each communication session, each having a constant bit rate and latency between nodes. In cases of billable services, such as cellular communication services, circuit switching is characterized by a fee per unit of connection time, even when no data is transferred, while packet switching may be characterized by a fee per unit of information transmitted, such as characters, packets, or messages. Question: Packet switching speed is determined by what factor? ",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Each chapter has a number of authors who are responsible for writing and editing the material. A chapter typically has two \"coordinating lead authors\", ten to fifteen \"lead authors\", and a somewhat larger number of \"contributing authors\". The coordinating lead authors are responsible for assembling the contributions of the other authors, ensuring that they meet stylistic and formatting requirements, and reporting to the Working Group chairs. Lead authors are responsible for writing sections of chapters. Contributing authors prepare text, graphs or data for inclusion by the lead authors. Question: What is the one lead author responsible for?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Both before and after the 1708 passage of the Foreign Protestants Naturalization Act, an estimated 50,000 Protestant Walloons and Huguenots fled to England, with many moving on to Ireland and elsewhere. In relative terms, this was one of the largest waves of immigration ever of a single ethnic community to Britain. Andrew Lortie (born André Lortie), a leading Huguenot theologian and writer who led the exiled community in London, became known for articulating their criticism of the Pope and the doctrine of transubstantiation during Mass. Question: Who was the famous Huguenot theologian and writer in London?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Southern California is also home to a large home grown surf and skateboard culture. Companies such as Volcom, Quiksilver, No Fear, RVCA, and Body Glove are all headquartered here. Professional skateboarder Tony Hawk, professional surfers Rob Machado, Tim Curran, Bobby Martinez, Pat O'Connell, Dane Reynolds, and Chris Ward, and professional snowboarder Shaun White live in southern California. Some of the world's legendary surf spots are in southern California as well, including Trestles, Rincon, The Wedge, Huntington Beach, and Malibu, and it is second only to the island of Oahu in terms of famous surf breaks. Some of the world's biggest extreme sports events, including the X Games, Boost Mobile Pro, and the U.S. Open of Surfing are all in southern California. Southern California is also important to the world of yachting. The annual Transpacific Yacht Race, or Transpac, from Los Angeles to Hawaii, is one of yachting's premier events. The San Diego Yacht Club held the America's Cup, the most prestigious prize in yachting, from 1988 to 1995 and hosted three America's Cup races during that time. Question: What famous snowbaorder lives in southern California?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: A few years after the First Crusade, in 1107, the Normans under the command of Bohemond, Robert's son, landed in Valona and besieged Dyrrachium using the most sophisticated military equipment of the time, but to no avail. Meanwhile, they occupied Petrela, the citadel of Mili at the banks of the river Deabolis, Gllavenica (Ballsh), Kanina and Jericho. This time, the Albanians sided with the Normans, dissatisfied by the heavy taxes the Byzantines had imposed upon them. With their help, the Normans secured the Arbanon passes and opened their way to Dibra. The lack of supplies, disease and Byzantine resistance forced Bohemond to retreat from his campaign and sign a peace treaty with the Byzantines in the city of Deabolis. Question: Who was Bohemond's son?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: As northwest Europe slowly began to warm up from 22,000 years ago onward, frozen subsoil and expanded alpine glaciers began to thaw and fall-winter snow covers melted in spring. Much of the discharge was routed to the Rhine and its downstream extension. Rapid warming and changes of vegetation, to open forest, began about 13,000 BP. By 9000 BP, Europe was fully forested. With globally shrinking ice-cover, ocean water levels rose and the English Channel and North Sea re-inundated. Meltwater, adding to the ocean and land subsidence, drowned the former coasts of Europe transgressionally. Question: When was Europe fully forested and recovered from the last Ice Age?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Merit Network, Inc., an independent non-profit 501(c)(3) corporation governed by Michigan's public universities, was formed in 1966 as the Michigan Educational Research Information Triad to explore computer networking between three of Michigan's public universities as a means to help the state's educational and economic development. With initial support from the State of Michigan and the National Science Foundation (NSF), the packet-switched network was first demonstrated in December 1971 when an interactive host to host connection was made between the IBM mainframe computer systems at the University of Michigan in Ann Arbor and Wayne State University in Detroit. In October 1972 connections to the CDC mainframe at Michigan State University in East Lansing completed the triad. Over the next several years in addition to host to host interactive connections the network was enhanced to support terminal to host connections, host to host batch connections (remote job submission, remote printing, batch file transfer), interactive file transfer, gateways to the Tymnet and Telenet public data networks, X.25 host attachments, gateways to X.25 data networks, Ethernet attached hosts, and eventually TCP/IP and additional public universities in Michigan join the network. All of this set the stage for Merit's role in the NSFNET project starting in the mid-1980s. Question: What set the stage for Merits role in NSFNET",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The Rhine emerges from Lake Constance, flows generally westward, as the Hochrhein, passes the Rhine Falls, and is joined by its major tributary, the river Aare. The Aare more than doubles the Rhine's water discharge, to an average of nearly 1,000 m3/s (35,000 cu ft/s), and provides more than a fifth of the discharge at the Dutch border. The Aare also contains the waters from the 4,274 m (14,022 ft) summit of Finsteraarhorn, the highest point of the Rhine basin. The Rhine roughly forms the German-Swiss border from Lake Constance with the exceptions of the canton of Schaffhausen and parts of the cantons of Zürich and Basel-Stadt, until it turns north at the so-called Rhine knee at Basel, leaving Switzerland. Question: Where does Lake Constance emerge from?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Seismologists can use the arrival times of seismic waves in reverse to image the interior of the Earth. Early advances in this field showed the existence of a liquid outer core (where shear waves were not able to propagate) and a dense solid inner core. These advances led to the development of a layered model of the Earth, with a crust and lithosphere on top, the mantle below (separated within itself by seismic discontinuities at 410 and 660 kilometers), and the outer core and inner core below that. More recently, seismologists have been able to create detailed images of wave speeds inside the earth in the same way a doctor images a body in a CT scan. These images have led to a much more detailed view of the interior of the Earth, and have replaced the simplified layered model with a much more dynamic model. Question: What is the size of the mantle?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The project must adhere to zoning and building code requirements. Constructing a project that fails to adhere to codes does not benefit the owner. Some legal requirements come from malum in se considerations, or the desire to prevent things that are indisputably bad – bridge collapses or explosions. Other legal requirements come from malum prohibitum considerations, or things that are a matter of custom or expectation, such as isolating businesses to a business district and residences to a residential district. An attorney may seek changes or exemptions in the law that governs the land where the building will be built, either by arguing that a rule is inapplicable (the bridge design will not cause a collapse), or that the custom is no longer needed (acceptance of live-work spaces has grown in the community). Question: What is malum in se considerations?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: In the 1960s, a series of discoveries, the most important of which was seafloor spreading, showed that the Earth's lithosphere, which includes the crust and rigid uppermost portion of the upper mantle, is separated into a number of tectonic plates that move across the plastically deforming, solid, upper mantle, which is called the asthenosphere. There is an intimate coupling between the movement of the plates on the surface and the convection of the mantle: oceanic plate motions and mantle convection currents always move in the same direction, because the oceanic lithosphere is the rigid upper thermal boundary layer of the convecting mantle. This coupling between rigid plates moving on the surface of the Earth and the convecting mantle is called plate tectonics. Question: What are the lithosphere and asthenosphere called when coupled together?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The CYCLADES packet switching network was a French research network designed and directed by Louis Pouzin. First demonstrated in 1973, it was developed to explore alternatives to the early ARPANET design and to support network research generally. It was the first network to make the hosts responsible for reliable delivery of data, rather than the network itself, using unreliable datagrams and associated end-to-end protocol mechanisms. Concepts of this network influenced later ARPANET architecture. Question: What was a first for this network ",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Ctenophores used to be regarded as \"dead ends\" in marine food chains because it was thought their low ratio of organic matter to salt and water made them a poor diet for other animals. It is also often difficult to identify the remains of ctenophores in the guts of possible predators, although the combs sometimes remain intact long enough to provide a clue. Detailed investigation of chum salmon, Oncorhynchus keta, showed that these fish digest ctenophores 20 times as fast as an equal weight of shrimps, and that ctenophores can provide a good diet if there are enough of them around. Beroids prey mainly on other ctenophores. Some jellyfish and turtles eat large quantities of ctenophores, and jellyfish may temporarily wipe out ctenophore populations. Since ctenophores and jellyfish often have large seasonal variations in population, most fish that prey on them are generalists, and may have a greater effect on populations than the specialist jelly-eaters. This is underlined by an observation of herbivorous fishes deliberately feeding on gelatinous zooplankton during blooms in the Red Sea. The larvae of some sea anemones are parasites on ctenophores, as are the larvae of some flatworms that parasitize fish when they reach adulthood. Question: Where is it hard to identify the remains of salmon in?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Construction projects can suffer from preventable financial problems. Underbids happen when builders ask for too little money to complete the project. Cash flow problems exist when the present amount of funding cannot cover the current costs for labour and materials, and because they are a matter of having sufficient funds at a specific time, can arise even when the overall total is enough. Fraud is a problem in many fields, but is notoriously prevalent in the construction field. Financial planning for the project is intended to ensure that a solid plan with adequate safeguards and contingency plans are in place before the project is started and is required to ensure that the plan is properly executed over the life of the project. Question: What financial issue is notoriously prevalent in the construction field?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: In the arts and entertainment, minimalist composer Philip Glass, dancer, choreographer and leader in the field of dance anthropology Katherine Dunham, Bungie founder and developer of the Halo video game series Alex Seropian, Serial host Sarah Koenig, actor Ed Asner, Pulitzer Prize for Criticism winning film critic and the subject of the 2014 documentary film Life Itself Roger Ebert, director, writer, and comedian Mike Nichols, film director and screenwriter Philip Kaufman, and Carl Van Vechten, photographer and writer, are graduates. Question: What video game series did Alex Seropian make?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Since 7500 yr ago, a situation with tides and currents, very similar to present has existed. Rates of sea-level rise had dropped so far, that natural sedimentation by the Rhine and coastal processes together, could compensate the transgression by the sea; in the last 7000 years, the coast line was roughly at the same location. In the southern North Sea, due to ongoing tectonic subsidence, the sea level is still rising, at the rate of about 1–3 cm (0.39–1.18 in) per century (1 metre or 39 inches in last 3000 years). Question: Why is the current sea level rising?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Rail transport in Victoria is provided by several private and public railway operators who operate over government-owned lines. Major operators include: Metro Trains Melbourne which runs an extensive, electrified, passenger system throughout Melbourne and suburbs; V/Line which is now owned by the Victorian Government, operates a concentrated service to major regional centres, as well as long distance services on other lines; Pacific National, CFCL Australia which operate freight services; Great Southern Rail which operates The Overland Melbourne—Adelaide; and NSW TrainLink which operates XPTs Melbourne—Sydney. Question: Which rail line operates Around the island?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Following the conquest of Dali in 1253, the former ruling Duan dynasty were appointed as governors-general, recognized as imperial officials by the Yuan, Ming, and Qing-era governments, principally in the province of Yunnan. Succession for the Yuan dynasty, however, was an intractable problem, later causing much strife and internal struggle. This emerged as early as the end of Kublai's reign. Kublai originally named his eldest son, Zhenjin, as the Crown Prince, but he died before Kublai in 1285. Thus, Zhenjin's third son, with the support of his mother Kökejin and the minister Bayan, succeeded the throne and ruled as Temür Khan, or Emperor Chengzong, from 1294 to 1307. Temür Khan decided to maintain and continue much of the work begun by his grandfather. He also made peace with the western Mongol khanates as well as neighboring countries such as Vietnam, which recognized his nominal suzerainty and paid tributes for a few decades. However, the corruption in the Yuan dynasty began during the reign of Temür Khan. Question:  What was Temur Khan's Japanese-style name?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Kublai's government faced financial difficulties after 1279. Wars and construction projects had drained the Mongol treasury. Efforts to raise and collect tax revenues were plagued by corruption and political scandals. Mishandled military expeditions followed the financial problems. Kublai's second invasion of Japan in 1281 failed because of an inauspicious typhoon. Kublai botched his campaigns against Annam, Champa, and Java, but won a Pyrrhic victory against Burma. The expeditions were hampered by disease, an inhospitable climate, and a tropical terrain unsuitable for the mounted warfare of the Mongols. The Tran dynasty which ruled Annam (Dai Viet) crushed and defeated the Mongols at the Battle of Bạch Dằng (1288). The Chinese region of Fujian was the original home of the Chinese Tran (Chen) clan before they migrated under Trần Kinh (陳京, Chén Jīng) to Dai Viet and whose descendants established the Trần dynasty which ruled Vietnam Dại Việt, and certain members of the clan could still speak Chinese such as when a Yuan dynasty envoy had a meeting with the Chinese-speaking Trần prince Trần Quốc Tuấn (later King Trần Hưng Dạo) in 1282. Professor Liam Kelley noted that people from Song dynasty China like Zhao Zhong and Xu Zongdao fled to Tran dynasty ruled Vietnam after the Mongol invasion of the Song and they helped the Tran fight against the Mongol invasion. The Tran dynasty originated from the Fujian region of China as did the Daoist cleric Xu Zongdao who recorded the Mongol invasion and referred to them as \"Northern bandits\". Annam, Burma, and Champa recognized Mongol hegemony and established tributary relations with the Yuan dynasty. Question:  How was Kublai's administration running out of money?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The Norman dynasty had a major political, cultural and military impact on medieval Europe and even the Near East. The Normans were famed for their martial spirit and eventually for their Christian piety, becoming exponents of the Catholic orthodoxy into which they assimilated. They adopted the Gallo-Romance language of the Frankish land they settled, their dialect becoming known as Norman, Normaund or Norman French, an important literary language. The Duchy of Normandy, which they formed by treaty with the French crown, was a great fief of medieval France, and under Richard I of Normandy was forged into a cohesive and formidable principality in feudal tenure. The Normans are noted both for their culture, such as their unique Romanesque architecture and musical traditions, and for their significant military accomplishments and innovations. Norman adventurers founded the Kingdom of Sicily under Roger II after conquering southern Italy on the Saracens and Byzantines, and an expedition on behalf of their duke, William the Conqueror, led to the Norman conquest of England at the Battle of Hastings in 1066. Norman cultural and military influence spread from these new European centres to the Crusader states of the Near East, where their prince Bohemond I founded the Principality of Antioch in the Levant, to Scotland and Wales in Great Britain, to Ireland, and to the coasts of north Africa and the Canary Islands. Question: What religion were the Normans",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: This contributed to the \"Oil Shock\". After 1971, OPEC was slow to readjust prices to reflect this depreciation. From 1947 to 1967, the dollar price of oil had risen by less than two percent per year. Until the oil shock, the price had also remained fairly stable versus other currencies and commodities. OPEC ministers had not developed institutional mechanisms to update prices in sync with changing market conditions, so their real incomes lagged. The substantial price increases of 1973–1974 largely returned their prices and corresponding incomes to Bretton Woods levels in terms of commodities such as gold. Question: What happened in 1973-1974?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Trevithick continued his own experiments using a trio of locomotives, concluding with the Catch Me Who Can in 1808. Only four years later, the successful twin-cylinder locomotive Salamanca by Matthew Murray was used by the edge railed rack and pinion Middleton Railway. In 1825 George Stephenson built the Locomotion for the Stockton and Darlington Railway. This was the first public steam railway in the world and then in 1829, he built The Rocket which was entered in and won the Rainhill Trials. The Liverpool and Manchester Railway opened in 1830 making exclusive use of steam power for both passenger and freight trains. Question: What was the name of the locomotive that debuted in 1808?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: In southern Europe, the stage was set in the Triassic Period of the Mesozoic Era, with the opening of the Tethys Ocean, between the Eurasian and African tectonic plates, between about 240 MBP and 220 MBP (million years before present). The present Mediterranean Sea descends from this somewhat larger Tethys sea. At about 180 MBP, in the Jurassic Period, the two plates reversed direction and began to compress the Tethys floor, causing it to be subducted under Eurasia and pushing up the edge of the latter plate in the Alpine Orogeny of the Oligocene and Miocene Periods. Several microplates were caught in the squeeze and rotated or were pushed laterally, generating the individual features of Mediterranean geography: Iberia pushed up the Pyrenees; Italy, the Alps, and Anatolia, moving west, the mountains of Greece and the islands. The compression and orogeny continue today, as shown by the ongoing raising of the mountains a small amount each year and the active volcanoes. Question: What period did plates reverse directions to compress the Tethys floor?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Due to the fact that the bureaucracy was dominated by El Temür, Tugh Temür is known for his cultural contribution instead. He adopted many measures honoring Confucianism and promoting Chinese cultural values. His most concrete effort to patronize Chinese learning was founding the Academy of the Pavilion of the Star of Literature (Chinese: 奎章閣學士院), first established in the spring of 1329 and designed to undertake \"a number of tasks relating to the transmission of Confucian high culture to the Mongolian imperial establishment\". The academy was responsible for compiling and publishing a number of books, but its most important achievement was its compilation of a vast institutional compendium named Jingshi Dadian (Chinese: 經世大典). Tugh Temür supported Zhu Xi's Neo-Confucianism and also devoted himself in Buddhism. Question:  What was the least notable publication of Tugh's academy?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Specialty pharmacies supply high cost injectable, oral, infused, or inhaled medications that are used for chronic and complex disease states such as cancer, hepatitis, and rheumatoid arthritis. Unlike a traditional community pharmacy where prescriptions for any common medication can be brought in and filled, specialty pharmacies carry novel medications that need to be properly stored, administered, carefully monitored, and clinically managed. In addition to supplying these drugs, specialty pharmacies also provide lab monitoring, adherence counseling, and assist patients with cost-containment strategies needed to obtain their expensive specialty drugs. It is currently the fastest growing sector of the pharmaceutical industry with 19 of 28 newly FDA approved medications in 2013 being specialty drugs. Question: What types of diseases are specialty drugs often used against?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: When B cells and T cells are activated and begin to replicate, some of their offspring become long-lived memory cells. Throughout the lifetime of an animal, these memory cells remember each specific pathogen encountered and can mount a strong response if the pathogen is detected again. This is \"adaptive\" because it occurs during the lifetime of an individual as an adaptation to infection with that pathogen and prepares the immune system for future challenges. Immunological memory can be in the form of either passive short-term memory or active long-term memory. Question: What cells mount a weak response if a pathogen is detected again?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Möngke Khan commenced a military campaign against the Chinese Song dynasty in southern China. The Mongol force that invaded southern China was far greater than the force they sent to invade the Middle East in 1256. He died in 1259 without a successor. Kublai returned from fighting the Song in 1260 when he learned that his brother, Ariq Böke, was challenging his claim to the throne. Kublai convened a kurultai in Kaiping that elected him Great Khan. A rival kurultai in Mongolia proclaimed Ariq Böke Great Khan, beginning a civil war. Kublai depended on the cooperation of his Chinese subjects to ensure that his army received ample resources. He bolstered his popularity among his subjects by modeling his government on the bureaucracy of traditional Chinese dynasties and adopting the Chinese era name of Zhongtong. Ariq Böke was hampered by inadequate supplies and surrendered in 1264. All of the three western khanates (Golden Horde, Chagatai Khanate and Ilkhanate) became functionally autonomous, although only the Ilkhans truly recognized Kublai as Great Khan. Civil strife had permanently divided the Mongol Empire. Question:  Where did Mongke Khan defend the Song dynasty?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Immediately after Decision Time a \"Members Debate\" is held, which lasts for 45 minutes. Members Business is a debate on a motion proposed by an MSP who is not a Scottish minister. Such motions are on issues which may be of interest to a particular area such as a member's own constituency, an upcoming or past event or any other item which would otherwise not be accorded official parliamentary time. As well as the proposer, other members normally contribute to the debate. The relevant minister, whose department the debate and motion relate to \"winds up\" the debate by speaking after all other participants. Question: How long does the Members Debate last?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The University of Chicago also maintains facilities apart from its main campus. The university's Booth School of Business maintains campuses in Singapore, London, and the downtown Streeterville neighborhood of Chicago. The Center in Paris, a campus located on the left bank of the Seine in Paris, hosts various undergraduate and graduate study programs. In fall 2010, the University of Chicago also opened a center in Beijing, near Renmin University's campus in Haidian District. The most recent additions are a center in New Delhi, India, which opened in 2014, and a center in Hong Kong which opened in 2015. Question: Which campus is located on the right banks of the Seine?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Around 1685, Huguenot refugees found a safe haven in the Lutheran and Reformed states in Germany and Scandinavia. Nearly 50,000 Huguenots established themselves in Germany, 20,000 of whom were welcomed in Brandenburg-Prussia, where they were granted special privileges (Edict of Potsdam) and churches in which to worship (such as the Church of St. Peter and St. Paul, Angermünde) by Frederick William, Elector of Brandenburg and Duke of Prussia. The Huguenots furnished two new regiments of his army: the Altpreußische Infantry Regiments No. 13 (Regiment on foot Varenne) and 15 (Regiment on foot Wylich). Another 4,000 Huguenots settled in the German territories of Baden, Franconia (Principality of Bayreuth, Principality of Ansbach), Landgraviate of Hesse-Kassel, Duchy of Württemberg, in the Wetterau Association of Imperial Counts, in the Palatinate and Palatinate-Zweibrücken, in the Rhine-Main-Area (Frankfurt), in modern-day Saarland; and 1,500 found refuge in Hamburg, Bremen and Lower Saxony. Three hundred refugees were granted asylum at the court of George William, Duke of Brunswick-Lüneburg in Celle. Question: What protestant religions made Northern European counties safe for Huguenot immigration?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Their local rivals, Polonia Warsaw, have significantly fewer supporters, yet they managed to win Ekstraklasa Championship in 2000. They also won the country’s championship in 1946, and won the cup twice as well. Polonia's home venue is located at Konwiktorska Street, a ten-minute walk north from the Old Town. Polonia was relegated from the country's top flight in 2013 because of their disastrous financial situation. They are now playing in the 4th league (5th tier in Poland) -the bottom professional league in the National – Polish Football Association (PZPN) structure. Question: When did Polonia Ekstraklasa win the country's championship prior to 2000?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Larger drugs (>500 Da) can provoke a neutralizing immune response, particularly if the drugs are administered repeatedly, or in larger doses. This limits the effectiveness of drugs based on larger peptides and proteins (which are typically larger than 6000 Da). In some cases, the drug itself is not immunogenic, but may be co-administered with an immunogenic compound, as is sometimes the case for Taxol. Computational methods have been developed to predict the immunogenicity of peptides and proteins, which are particularly useful in designing therapeutic antibodies, assessing likely virulence of mutations in viral coat particles, and validation of proposed peptide-based drug treatments. Early techniques relied mainly on the observation that hydrophilic amino acids are overrepresented in epitope regions than hydrophobic amino acids; however, more recent developments rely on machine learning techniques using databases of existing known epitopes, usually on well-studied virus proteins, as a training set. A publicly accessible database has been established for the cataloguing of epitopes from pathogens known to be recognizable by B cells. The emerging field of bioinformatics-based studies of immunogenicity is referred to as immunoinformatics. Immunoproteomics is the study of large sets of proteins (proteomics) involved in the immune response. Question: What kind of amino acids are overrepresented in epitope regions?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: About 61.1% of Victorians describe themselves as Christian. Roman Catholics form the single largest religious group in the state with 26.7% of the Victorian population, followed by Anglicans and members of the Uniting Church. Buddhism is the state's largest non-Christian religion, with 168,637 members as of the most recent census. Victoria is also home of 152,775 Muslims and 45,150 Jews. Hinduism is the fastest growing religion. Around 20% of Victorians claim no religion. Amongst those who declare a religious affiliation, church attendance is low. Question: How many Victorians are Buddhist?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Chemical barriers also protect against infection. The skin and respiratory tract secrete antimicrobial peptides such as the β-defensins. Enzymes such as lysozyme and phospholipase A2 in saliva, tears, and breast milk are also antibacterials. Vaginal secretions serve as a chemical barrier following menarche, when they become slightly acidic, while semen contains defensins and zinc to kill pathogens. In the stomach, gastric acid and proteases serve as powerful chemical defenses against ingested pathogens. Question: When do vaginal secretions become less acidic?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The origin of electric and magnetic fields would not be fully explained until 1864 when James Clerk Maxwell unified a number of earlier theories into a set of 20 scalar equations, which were later reformulated into 4 vector equations by Oliver Heaviside and Josiah Willard Gibbs. These \"Maxwell Equations\" fully described the sources of the fields as being stationary and moving charges, and the interactions of the fields themselves. This led Maxwell to discover that electric and magnetic fields could be \"self-generating\" through a wave that traveled at a speed that he calculated to be the speed of light. This insight united the nascent fields of electromagnetic theory with optics and led directly to a complete description of the electromagnetic spectrum. Question: Who first fully explained the origins of magnetic and electric fields?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Historically, forces were first quantitatively investigated in conditions of static equilibrium where several forces canceled each other out. Such experiments demonstrate the crucial properties that forces are additive vector quantities: they have magnitude and direction. When two forces act on a point particle, the resulting force, the resultant (also called the net force), can be determined by following the parallelogram rule of vector addition: the addition of two vectors represented by sides of a parallelogram, gives an equivalent resultant vector that is equal in magnitude and direction to the transversal of the parallelogram. The magnitude of the resultant varies from the difference of the magnitudes of the two forces to their sum, depending on the angle between their lines of action. However, if the forces are acting on an extended body, their respective lines of application must also be specified in order to account for their effects on the motion of the body. Question: What is also called the nut force?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The principle of cross-cutting relationships pertains to the formation of faults and the age of the sequences through which they cut. Faults are younger than the rocks they cut; accordingly, if a fault is found that penetrates some formations but not those on top of it, then the formations that were cut are older than the fault, and the ones that are not cut must be younger than the fault. Finding the key bed in these situations may help determine whether the fault is a normal fault or a thrust fault. Question: Rocks on top of a fault that are cut are always older or younger than the fault itself?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: The official record high temperature for Fresno is 115 °F (46.1 °C), set on July 8, 1905, while the official record low is 17 °F (−8 °C), set on January 6, 1913. The average windows for 100 °F (37.8 °C)+, 90 °F (32.2 °C)+, and freezing temperatures are June 1 thru September 13, April 26 thru October 9, and December 10 thru January 28, respectively, and no freeze occurred between in the 1983/1984 season. Annual rainfall has ranged from 23.57 inches (598.7 mm) in the \"rain year\" from July 1982 to June 1983 down to 4.43 inches (112.5 mm) from July 1933 to June 1934. The most rainfall in one month was 9.54 inches (242.3 mm) in November 1885 and the most rainfall in 24 hours 3.55 inches (90.2 mm) on November 18, 1885. Measurable precipitation falls on an average of 48 days annually. Snow is a rarity; the heaviest snowfall at the airport was 2.2 inches (0.06 m) on January 21, 1962. Question: What is the record low for July?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Lake Constance consists of three bodies of water: the Obersee (\"upper lake\"), the Untersee (\"lower lake\"), and a connecting stretch of the Rhine, called the Seerhein (\"Lake Rhine\"). The lake is situated in Germany, Switzerland and Austria near the Alps. Specifically, its shorelines lie in the German states of Bavaria and Baden-Württemberg, the Austrian state of Vorarlberg, and the Swiss cantons of Thurgau and St. Gallen. The Rhine flows into it from the south following the Swiss-Austrian border. It is located at approximately 47°39′N 9°19′E﻿ / ﻿47.650°N 9.317°E﻿ / 47.650; 9.317. Question: How many bodies of water make up the Rhine?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: In 1939, c. 1,300,000 people lived in Warsaw, but in 1945 – only 420,000. During the first years after the war, the population growth was c. 6%, so shortly the city started to suffer from the lack of flats and of areas for new houses. The first remedial measure was the Warsaw area enlargement (1951) – but the city authorities were still forced to introduce residency registration limitations: only the spouses and children of the permanent residents as well as some persons of public importance (like renowned specialists) were allowed to get the registration, hence halving the population growth in the following years. It also bolstered some kind of conviction among Poles that Varsovians thought of themselves as better only because they lived in the capital. Unfortunately this belief still lives on in Poland (although not as much as it used to be) – even though since 1990 there are no limitations to residency registration anymore. Question: What had the number of people living in Poland declined to by 1945?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Prince Louis de Condé, along with his sons Daniel and Osias,[citation needed] arranged with Count Ludwig von Nassau-Saarbrücken to establish a Huguenot community in present-day Saarland in 1604. The Count supported mercantilism and welcomed technically skilled immigrants into his lands, regardless of their religion. The Condés established a thriving glass-making works, which provided wealth to the principality for many years. Other founding families created enterprises based on textiles and such traditional Huguenot occupations in France. The community and its congregation remain active to this day, with descendants of many of the founding families still living in the region. Some members of this community emigrated to the United States in the 1890s. Question: Which noble helped establish the Huguenot settlement in Saarland?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Mortgage bankers, accountants, and cost engineers are likely participants in creating an overall plan for the financial management of the building construction project. The presence of the mortgage banker is highly likely, even in relatively small projects since the owner's equity in the property is the most obvious source of funding for a building project. Accountants act to study the expected monetary flow over the life of the project and to monitor the payouts throughout the process. Cost engineers and estimators apply expertise to relate the work and materials involved to a proper valuation. Cost overruns with government projects have occurred when the contractor identified change orders or project changes that increased costs, which are not subject to competition from other firms as they have already been eliminated from consideration after the initial bid. Question: The presence of who is highly likely even in small projects?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: In his extensively detailed report, Céloron wrote, \"All I can say is that the Natives of these localities are very badly disposed towards the French, and are entirely devoted to the English. I don't know in what way they could be brought back.\" Even before his return to Montreal, reports on the situation in the Ohio Country were making their way to London and Paris, each side proposing that action be taken. William Shirley, the expansionist governor of the Province of Massachusetts Bay, was particularly forceful, stating that British colonists would not be safe as long as the French were present. Conflicts between the colonies, accomplished through raiding parties that included Indian allies, had taken place for decades, leading to a brisk trade in European colonial captives from either side. Question: How did Celeron feel about Native languages?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: The clinical pharmacist's role involves creating a comprehensive drug therapy plan for patient-specific problems, identifying goals of therapy, and reviewing all prescribed medications prior to dispensing and administration to the patient. The review process often involves an evaluation of the appropriateness of the drug therapy (e.g., drug choice, dose, route, frequency, and duration of therapy) and its efficacy. The pharmacist must also monitor for potential drug interactions, adverse drug reactions, and assess patient drug allergies while designing and initiating a drug therapy plan. Question: What are some other factors a pharmacist must monitor?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Fresno is served by State Route 99, the main north/south freeway that connects the major population centers of the California Central Valley. State Route 168, the Sierra Freeway, heads east to the city of Clovis and Huntington Lake. State Route 41 (Yosemite Freeway/Eisenhower Freeway) comes into Fresno from Atascadero in the south, and then heads north to Yosemite. State Route 180 (Kings Canyon Freeway) comes from the west via Mendota, and from the east in Kings Canyon National Park going towards the city of Reedley. Question: What is another name for the Yosemite Freeway?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: When considering computational problems, a problem instance is a string over an alphabet. Usually, the alphabet is taken to be the binary alphabet (i.e., the set {0,1}), and thus the strings are bitstrings. As in a real-world computer, mathematical objects other than bitstrings must be suitably encoded. For example, integers can be represented in binary notation, and graphs can be encoded directly via their adjacency matrices, or by encoding their adjacency lists in binary. Question: What is another term for the the string of a problem question?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: Approximately one million Protestants in modern France represent some 2% of its population. Most are concentrated in Alsace in northeast France and the Cévennes mountain region in the south, who still regard themselves as Huguenots to this day.[citation needed] A diaspora of French Australians still considers itself Huguenot, even after centuries of exile. Long integrated into Australian society, it is encouraged by the Huguenot Society of Australia to embrace and conserve its cultural heritage, aided by the Society's genealogical research services. Question:  How many Protestants are there in the Cevennes mountain region?",
+            "output": [
+                "False"
+            ]
+        },
+        {
+            "input": "Passage: To classify the computation time (or similar resources, such as space consumption), one is interested in proving upper and lower bounds on the minimum amount of time required by the most efficient algorithm solving a given problem. The complexity of an algorithm is usually taken to be its worst-case complexity, unless specified otherwise. Analyzing a particular algorithm falls under the field of analysis of algorithms. To show an upper bound T(n) on the time complexity of a problem, one needs to show only that there is a particular algorithm with running time at most T(n). However, proving lower bounds is much more difficult, since lower bounds make a statement about all possible algorithms that solve a given problem. The phrase \"all possible algorithms\" includes not just the algorithms known today, but any algorithm that might be discovered in the future. To show a lower bound of T(n) for a problem requires showing that no algorithm can have time complexity lower than T(n). Question: Which bound of time is more difficult to establish?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: Even before Washington returned, Dinwiddie had sent a company of 40 men under William Trent to that point, where in the early months of 1754 they began construction of a small stockaded fort. Governor Duquesne sent additional French forces under Claude-Pierre Pecaudy de Contrecœur to relieve Saint-Pierre during the same period, and Contrecœur led 500 men south from Fort Venango on April 5, 1754. When these forces arrived at the fort on April 16, Contrecœur generously allowed Trent's small company to withdraw. He purchased their construction tools to continue building what became Fort Duquesne. Question: When did British begin to build fort under William Trent?",
+            "output": [
+                "True"
+            ]
+        },
+        {
+            "input": "Passage: On 18 November 2015, Sky announced Sky Q, a range of products and services to be available in 2016. The Sky Q range consists of three set top boxes (Sky Q, Sky Q Silver and Sky Q Mini), a broadband router (Sky Q Hub) and mobile applications. The Sky Q set top boxes introduce a new user interface, Wi-Fi hotspot functionality, Power-line and Bluetooth connectivity and a new touch-sensitive remote control. The Sky Q Mini set top boxes connect to the Sky Q Silver set top boxes with a Wi-Fi or Power-line connection rather than receive their own satellite feeds. This allows all set top boxes in a household to share recordings and other media. The Sky Q Silver set top box is capable of receiving and displaying UHD broadcasts, which Sky will introduce later in 2016. Question: What are the Sky Q mini set top boxes never able to connect to?",
+            "output": [
+                "False"
+            ]
+        }
+    ]
+}
