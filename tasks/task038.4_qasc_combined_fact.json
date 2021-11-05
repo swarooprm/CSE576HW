@@ -1,0 +1,1578 @@
+{
+    "Contributors": [
+        "Swaroop Mishra",
+        "Daniel Khashabi",
+        "Jacob Anderson"
+    ],
+    "Source": "qasc",
+    "Categories": [
+        "Text Modification"
+    ],
+    "Definition": "Merge the given deux facts to write a concluded fact. Note that, there should be some parts of the firstly and seconds fact which are not referred in this conclude doing. Uour combining facto should be the resulting of a chain between the deux facts. Fetters forma when two facts connect together to producing a concluding fact. An instance of a strings is: \"insecticide cause contaminate\" (fact1) + \"polluting can hurting animals\" (fact2) → \"insecticides can detriment wildlife\" (concluding fact)\nThings to preventing: -\nConcentrate & Cautious: Parts of the concluding fact overlapping with the outset and the secondly facto. Pour erected such a  conclusion fact, a useful ways is to borrow the theme from one doing and the ceases outcome from another facto.",
+    "Positive Examples": [
+        {
+            "input": "Fact1: pesticides cause pollution. \nFact2: pollution can harm animals.",
+            "output": "pesticides can harm animals.",
+            "explanation": "This is a good concluding fact that is entailed from combining Fact1 and Fact2. Also, it does not contain everything present in Fact1 and Fact2."
+        },
+        {
+            "input": "Fact1: a solar panel converts sunlight into electricity. \nFact2: sunlight comes from the sun.",
+            "output": "a solar panel converts energy from the sun into electricity.",
+            "explanation": "This is a good concluding fact that is entailed from combining Fact1 and Fact2. Also, it does not contain everything present in Fact1 and Fact2."
+        },
+        {
+            "input": "Fact1: running requires a lot of energy. \nFact2: doing a marathon involves lots of running.",
+            "output": "doing a marathon requires a lot of energy.",
+            "explanation": "This is a good concluding fact that is entailed from combining Fact1 and Fact2. Also, it does not contain everything present in Fact1 and Fact2."
+        },
+        {
+            "input": "Fact1: soil is formed by rocks eroding. \nFact2: rain can erode rocks.",
+            "output": "rain can help form soil.",
+            "explanation": "This is a good concluding fact that is entailed from combining Fact1 and Fact2. Also, it does not contain everything present in Fact1 and Fact2."
+        },
+        {
+            "input": "Fact1: a plant requires water for survival. \nFact2: rain provides water to plants.",
+            "output": "rain helps plants to survive.",
+            "explanation": "This is a good concluding fact that is entailed from combining Fact1 and Fact2. Also, it does not contain everything present in Fact1 and Fact2."
+        },
+        {
+            "input": "Fact1: a radio converts electrical energy into vibrations. \nFact2: vibrations in the air form sound.",
+            "output": "a radio converts electrical energy into sound.",
+            "explanation": "This is a good concluding fact that is entailed from combining Fact1 and Fact2. Also, it does not contain everything present in Fact1 and Fact2."
+        },
+        {
+            "input": "Fact1: habitat destruction causes animals to move to find shelter in another habitat. \nFact2: chopping down trees results in habitat destruction.",
+            "output": "chopping down trees causes animals to move to another habitat.",
+            "explanation": "This is a good concluding fact that is entailed from combining Fact1 and Fact2. Also, it does not contain everything present in Fact1 and Fact2."
+        },
+        {
+            "input": "Fact1: a protractor is used for measuring the angles of a triangular object. \nFact2: a prism has a triangular shape.",
+            "output": "a protractor can be used to measure the angles of a prism.",
+            "explanation": "This is a good concluding fact that is entailed from combining Fact1 and Fact2. Also, it does not contain everything present in Fact1 and Fact2."
+        },
+        {
+            "input": "Fact1: lightning can cause a forest fire. \nFact2: forest fires can harm animals.",
+            "output": "lightning can cause harm to animals.",
+            "explanation": "This is a good concluding fact that is entailed from combining Fact1 and Fact2. Also, it does not contain everything present in Fact1 and Fact2."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Fact1: pesticides cause pollution. \nFact2: pollution can harm animals.",
+            "output": "pesticides cause pollution which harm animals.",
+            "explanation": "Even though the conclusion is entailed from Fact1and Fact2, it contains everything present in Fact1 and Fact2, which is an undesireable attribute."
+        },
+        {
+            "input": "Fact1: a solar panel converts sunlight into electricity. \nFact2: sunlight comes from the sun.",
+            "output": "a solar panel converts energy from the sun i.e. the sunlight into electricity.",
+            "explanation": "Even though the conclusion is entailed from Fact1and Fact2, it contains everything present in Fact1 and Fact2, which is an undesireable attribute."
+        },
+        {
+            "input": "Fact1: running requires a lot of energy. \nFact2: doing a marathon involves lots of running.",
+            "output": "doing a marathon does not require a lot of energy.",
+            "explanation": "This is a bad answer as it introduces the word \"does not\" which contradictins the conclusion made from Fact1 and Fact2."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "Fact1: Some viruses have an envelope of phospholipids and proteins.\nFact2: Proteins are sometimes coats of a virus.",
+            "output": [
+                "some viruses have a coating of phospholipids"
+            ]
+        },
+        {
+            "input": "Fact1: bacteria can cause people to become ill\nFact2: Properly and frequently washing hands when handling food helps eliminate bacteria.",
+            "output": [
+                "Proper hand washing can help people from getting ill"
+            ]
+        },
+        {
+            "input": "Fact1: Cartilage is a tough tissue that contains a protein called collagen.\nFact2: Many collagen fibrils come together and form a collagen and forma collagen fiber.",
+            "output": [
+                "Cartilage is a tough tissue made up of fibrils."
+            ]
+        },
+        {
+            "input": "Fact1: Vertebrates are all chordates that have a backbone.\nFact2: All chordates have jaws.",
+            "output": [
+                "Vertebrates have a jaw and a backbone."
+            ]
+        },
+        {
+            "input": "Fact1: Feathers help birds fly and provide insulation.\nFact2: Class Aves is for the birds, literally.",
+            "output": [
+                "Feathers help animals in the class Aves fly and give them insulation."
+            ]
+        },
+        {
+            "input": "Fact1: Algae have varied life cycles.\nFact2: Some, such as the green algae, are plants.",
+            "output": [
+                "plants have varied life cycles"
+            ]
+        },
+        {
+            "input": "Fact1: most canyons are formed by flowing rivers through erosion over long periods of time\nFact2: Deep canyons and valleys are carved out.",
+            "output": [
+                "deep valleys are formed by flowing rivers through erosion over long periods of time"
+            ]
+        },
+        {
+            "input": "Fact1: Ejaculation occurs when muscle contractions propel sperm from the epididymes.\nFact2: Ejaculation is the expulsion of semen.",
+            "output": [
+                "the expulsion of semen occurs when muscle contractions propel sperm from the epididymes."
+            ]
+        },
+        {
+            "input": "Fact1: if an animal lives under ground then that animal will be protected from a wild fire\nFact2: Fire heat can kill.",
+            "output": [
+                "living underground can keep animals from being killed"
+            ]
+        },
+        {
+            "input": "Fact1: if an object is kicked then force is exerted on that object\nFact2: When a soccer ball is kicked, it is compressed.",
+            "output": [
+                "Force being exerted on a soccer ball compresses it."
+            ]
+        },
+        {
+            "input": "Fact1: a greenhouse is used to protect plants by keeping them warm\nFact2: Then the planted seeds are placed in a warm greenhouse.",
+            "output": [
+                "planted seeds can be protected in a greenhouse"
+            ]
+        },
+        {
+            "input": "Fact1: a stem is used to store water by some plants\nFact2: Ferns are vascular plants.",
+            "output": [
+                "ferns use stems to store water"
+            ]
+        },
+        {
+            "input": "Fact1: Vertebrates are all chordates that have a backbone.\nFact2: Mammals are like other chordates in that they have backbones.",
+            "output": [
+                "Mammals are like other vertebrates that have a backbone"
+            ]
+        },
+        {
+            "input": "Fact1: chemical weathering causes iron in rock to oxidize\nFact2: Also pyrite within the altered wall rock is oxidized to limonite, geothite and hematite.",
+            "output": [
+                "chemical weathering causes pyrite to change to limonite, geothite and hematite"
+            ]
+        },
+        {
+            "input": "Fact1: Viruses cause many human diseases.\nFact2: Influenza virus causes widespread human disease.",
+            "output": [
+                "influenza causes widespread disease"
+            ]
+        },
+        {
+            "input": "Fact1: a doorbell converts electrical energy into sound\nFact2: When the sound waves hit the eardrum in the middle ear, the eardrum starts to vibrate.",
+            "output": [
+                "A doorbell's ring makes the eardrum vibrate. "
+            ]
+        },
+        {
+            "input": "Fact1: a black hole is formed by a high-mass star collapses\nFact2: Black holes are considered to be spheres.",
+            "output": [
+                "high-mass stars collapsing forms a sphere"
+            ]
+        },
+        {
+            "input": "Fact1: touch can be used for detecting texture\nFact2: Since skin is the largest organ in the body, touch is extremely important.",
+            "output": [
+                "The largest organ in the body can be used for detecting texture."
+            ]
+        },
+        {
+            "input": "Fact1: preventing the transfer of heat from an organims 's body causes that organism to keep warm\nFact2: Body heat is trapped in the haircoat.",
+            "output": [
+                "The haircoat of an organism helps keep it warm"
+            ]
+        },
+        {
+            "input": "Fact1: All plants have a characteristic life cycle that includes alternation of generations.\nFact2: Bamboos are among the most useful of all plants.",
+            "output": [
+                "bamboo has  a characteristic life cycle that includes alternation of generations."
+            ]
+        },
+        {
+            "input": "Fact1: a airplane is used for moving people across bodies of water\nFact2: An ocean is a vast body of salt water.",
+            "output": [
+                "airplanes are used for moving people across oceans"
+            ]
+        },
+        {
+            "input": "Fact1: a graduated cylinder is used to measure volume of a liquid\nFact2: Students learn to use a graduated cylinder and measure in mL. 2.",
+            "output": [
+                "Graduated cylinders measure liquids in mL."
+            ]
+        },
+        {
+            "input": "Fact1: the sun causes water to evaporate more quickly by adding heat\nFact2: High humidity can cause mildew, while dry heat and direct sunlight can cause drying and cracking.",
+            "output": [
+                "the sun causes water to evaporate more which can cause drying and cracking"
+            ]
+        },
+        {
+            "input": "Fact1: Plants are multicellular eukaryotes with cell walls made of cellulose.\nFact2: Basically, fiber is cellulose .",
+            "output": [
+                "Plants cell walls are made of fiber."
+            ]
+        },
+        {
+            "input": "Fact1: protein is used to repair cells by the human body\nFact2: Biomolecules, such as proteins, are composed of one or many chains folded into compact forms.",
+            "output": [
+                "Biomolecules are used to repair cells by the human body"
+            ]
+        },
+        {
+            "input": "Fact1: bacteria in soil convert atmospheric nitrogen into a form usable by plants\nFact2: Rhizobial bacteria convert atmospheric nitrogen into nitrate fertilizers in a form usable by plants.",
+            "output": [
+                "Rhizobial bacteria converts nitrogen into a fertilizer for plants"
+            ]
+        },
+        {
+            "input": "Fact1: Sex hormones are chemical messengers that control sexual development and reproduction.\nFact2: Chemical messengers carry signals from one nerve branch to another.",
+            "output": [
+                "Sex hormones carry signals that control sexual development and reproduction."
+            ]
+        },
+        {
+            "input": "Fact1: if something is outside during the day then that something will receive sunlight\nFact2: If there is sun, there is sunlight, there is day.",
+            "output": [
+                "If something is outside during the day then that thing will receive sun."
+            ]
+        },
+        {
+            "input": "Fact1: Veins generally carry deoxygenated blood.\nFact2: Arteries and veins are blood vessels.",
+            "output": [
+                "blood vessels generally carry deoxygenated blood"
+            ]
+        },
+        {
+            "input": "Fact1: a telephone is used for communication by humans over long distances\nFact2: Communicating is as much about listening as it is about talking.",
+            "output": [
+                "A telephone is used by people to listen and talk over long distances."
+            ]
+        },
+        {
+            "input": "Fact1: burning wood is used to produce heat\nFact2: Heat is added and the temperature of the water increases.",
+            "output": [
+                "burning wood is used to increase temperature"
+            ]
+        },
+        {
+            "input": "Fact1: natural disasters can cause animals to leave an environment\nFact2: Floods are the most common type of natural disaster.",
+            "output": [
+                "floods can cause animals to leave an environment"
+            ]
+        },
+        {
+            "input": "Fact1: when the seasons change from the summer to the fall , the amount of daylight will decrease\nFact2: Symptoms of their depressive illness are worsened by decreased daylight.",
+            "output": [
+                "When the seasons change from the summer to the fall, symptoms of some depressive illnesses worsen."
+            ]
+        },
+        {
+            "input": "Fact1: a airplane is used for moving people across bodies of water\nFact2: Jet airplanes burn fuel throughout the flight to overcome air resistance.",
+            "output": [
+                "fuel is burned to move people across bodies of water"
+            ]
+        },
+        {
+            "input": "Fact1: if fossils of a water animal or plant are found in a place then that place used to be covered by water in the past\nFact2: Fish are a diverse group of animals that live and breathe in water.",
+            "output": [
+                "If fossils of a fish are found in a place then that place used to be covered by water in the past."
+            ]
+        },
+        {
+            "input": "Fact1: Hair helps to insulate and protect the body.\nFact2: All mammals have hair.",
+            "output": [
+                "most mammals have insulation that also protects the body"
+            ]
+        },
+        {
+            "input": "Fact1: contact between rocks over long periods of time causes rocks to smooth\nFact2: First, limestone is a strong rock.",
+            "output": [
+                "contact between limestone causes it to smooth"
+            ]
+        },
+        {
+            "input": "Fact1: Most salamanders use their sense of smell to find a mate.\nFact2: Salamanders are a type of amphibian.",
+            "output": [
+                "a type of amphibian uses their sense of smell to find a mate"
+            ]
+        },
+        {
+            "input": "Fact1: Flagella help prokaryotes move.\nFact2: Like flagella, they are composed of protein.",
+            "output": [
+                "protein help prokaryotes move"
+            ]
+        },
+        {
+            "input": "Fact1: a magnet moving in a coil of copper wire can cause an electric current\nFact2: Electricity is passed through the copper to magnetize the core.",
+            "output": [
+                "copper can be magnetized"
+            ]
+        },
+        {
+            "input": "Fact1: Courtship is behavior that is intended to attract a mate.\nFact2: Almost all animals display colors to attract a mate or to scare off a predator.",
+            "output": [
+                "Courtship can be manifested by displays of color."
+            ]
+        },
+        {
+            "input": "Fact1: uneven heating of the Earth 's surface cause wind\nFact2: Wind is a movement of air, and air is invisible.",
+            "output": [
+                "uneven heating of the Earth 's surface causes a movement of air"
+            ]
+        },
+        {
+            "input": "Fact1: when a hemisphere is tilted away from the sun , that hemisphere receives less direct sunlight\nFact2: Because of this tilt, the northern hemisphere receives less direct sunlight (creating winter) while the southern hemisphere receives more direct sunlight (creating summer).",
+            "output": [
+                "a hemisphere is tilted away from the sun creating winter"
+            ]
+        },
+        {
+            "input": "Fact1: Freshwater biomes have water that contains little or no salt.\nFact2: Estuaries display characteristics of both marine and freshwater biomes.",
+            "output": [
+                "freshwater environments have little salt"
+            ]
+        },
+        {
+            "input": "Fact1: Echinoderms lack respiratory and excretory systems.\nFact2: Starfish and sea urchins are also echinoderms.",
+            "output": [
+                "Starfish lack respiratory and excretory systems."
+            ]
+        },
+        {
+            "input": "Fact1: a rubber band snapping causes the particles in the rubber band to vibrate\nFact2: Convection is the transmission of heat by the mass movement of the heated particles.",
+            "output": [
+                "a rubber band snapping causes it to heat up"
+            ]
+        },
+        {
+            "input": "Fact1: looking at bright objects has a negative impact on the eyes\nFact2: Like the retina of the eye, the intense light of the Sun can burn the imager damaging the camcorder.",
+            "output": [
+                "Looking at bright objects have a negative impact on the retina"
+            ]
+        },
+        {
+            "input": "Fact1: Cancer cells divide more often than normal cells, and grow out of control.\nFact2: Cancer can cause death.",
+            "output": [
+                "death can occur when cells divide more often than normal cells and grow out of control"
+            ]
+        },
+        {
+            "input": "Fact1: an egg requires warmth to survive\nFact2: Survival is a natural reaction known as staying alive.",
+            "output": [
+                "an egg requires warmth to stay alive"
+            ]
+        },
+        {
+            "input": "Fact1: Urine is the liquid waste product of the body that is excreted by the urinary system.\nFact2: Acid urine is usually darker thatn alkaline urine.",
+            "output": [
+                "Liquid waste can be acidic."
+            ]
+        },
+        {
+            "input": "Fact1: staying warm has a positive impact on an animal 's survival\nFact2: People cover up with a blanket to stay warm.",
+            "output": [
+                "Blankets have a positive impact on an animal's survival"
+            ]
+        },
+        {
+            "input": "Fact1: Fungi spores can develop into new haploid individuals without being fertilized.\nFact2: Haploid cells multiply asexually through mitosis.",
+            "output": [
+                "Fungi spores can multiply through mitosis."
+            ]
+        },
+        {
+            "input": "Fact1: igneous rocks are formed from magma cooling\nFact2: Magma that erupts through volcanoes is known as lava.",
+            "output": [
+                "Igneous rocks are formed through volcanoes erupting and lava."
+            ]
+        },
+        {
+            "input": "Fact1: scales are used for protection by scaled animals\nFact2: Generally, reptiles are thought of as being land dwelling animals with scales.",
+            "output": [
+                "Reptiles have scales for protection."
+            ]
+        },
+        {
+            "input": "Fact1: uneven heating of the Earth 's surface cause wind\nFact2: Some winds are destructive.",
+            "output": [
+                "uneven heating of the Earth 's surface causes destruction"
+            ]
+        },
+        {
+            "input": "Fact1: the vanes rotating in an electric fan causes air to move\nFact2: Fans move air, providing a cooling breeze.",
+            "output": [
+                "Cool breezes are provided by vanes rotating in an electric fan."
+            ]
+        },
+        {
+            "input": "Fact1: a firecracker converts chemical energy into sound\nFact2: Sound waves vibrate.",
+            "output": [
+                "a firecracker converts chemical energy into vibrating waves"
+            ]
+        },
+        {
+            "input": "Fact1: Earthworms are important deposit feeders that help form and enrich soil.\nFact2: Good soil grows good plants.",
+            "output": [
+                "earthworms help plants grow"
+            ]
+        },
+        {
+            "input": "Fact1: Organisms cluster around hydrothermal vents in the ocean floor.\nFact2: Hydrothermal vents are fissures in the ocean floor that leak hot, acidic water.",
+            "output": [
+                "Organisms cluster around fissures in the ocean floor that leak hot, acidic water."
+            ]
+        },
+        {
+            "input": "Fact1: carpooling decreases the amount of cars used to travel to a place\nFact2: Cars are a significant source of air pollution.",
+            "output": [
+                "Carpooling reduces air pollution"
+            ]
+        },
+        {
+            "input": "Fact1: a plant requires photosynthesis to grow\nFact2: Photosynthesis requires the chlorophyll molecule.",
+            "output": [
+                "plants require chlorophyll to grow"
+            ]
+        },
+        {
+            "input": "Fact1: Earthworms are important deposit feeders that help form and enrich soil.\nFact2: Deposit feeders ingest sediment and extract food particles.",
+            "output": [
+                "Earthworms ingest sediment and extract food particles which enriches soil"
+            ]
+        },
+        {
+            "input": "Fact1: if heat is conducted to an object then that object will become hot\nFact2: Metals conduct heat well.",
+            "output": [
+                "Metals become hot readily"
+            ]
+        },
+        {
+            "input": "Fact1: Most invertebrates have a nervous system.\nFact2: Invertebrates are animals without a backbone.",
+            "output": [
+                "Most animals without backbones have a nervous system."
+            ]
+        },
+        {
+            "input": "Fact1: Cells are organized into tissues, and tissues form organs.\nFact2: Examples of animal organs are kidneys and hearts.",
+            "output": [
+                "cells are grouped into tissues, and tissues form the kidneys"
+            ]
+        },
+        {
+            "input": "Fact1: a solar panel converts sunlight into electricity\nFact2: Sunlight is composed of photons, or particles of solar energy.",
+            "output": [
+                "A solar panel converts photons into electricity."
+            ]
+        },
+        {
+            "input": "Fact1: erosion causes a river to become deeper and wider\nFact2: Weathering and erosion continue to shape it today.",
+            "output": [
+                "Weathering causes a river to become deeper and wider."
+            ]
+        },
+        {
+            "input": "Fact1: Endocrine hormones travel throughout the body in the blood.\nFact2: Endocrine glands secrete directly into the blood.",
+            "output": [
+                "glands secrete hormones"
+            ]
+        },
+        {
+            "input": "Fact1: changes in the pH of soil can cause plants to die\nFact2: Compost balances the pH of soil.",
+            "output": [
+                "compost balances soil"
+            ]
+        },
+        {
+            "input": "Fact1: a doorbell converts electrical energy into sound\nFact2: Electricity is a kinetic energy.",
+            "output": [
+                "a doorbell converts  kinetic  energy into sound"
+            ]
+        },
+        {
+            "input": "Fact1: sunlight and rain can cause a rainbow\nFact2: Rainbows are very pretty.",
+            "output": [
+                "sunlight and rain are pretty"
+            ]
+        },
+        {
+            "input": "Fact1: freezing means changing from a liquid into a solid by reducing heat energy\nFact2: Solidification , or freezing, occurs when a liquid turns into a solid.",
+            "output": [
+                "changing from a liquid into a solid by reducing heat energy solidifies"
+            ]
+        },
+        {
+            "input": "Fact1: Viruses contain DNA but not much else.\nFact2: Some smallpox viruses are maintained in laboratories.",
+            "output": [
+                "smallpox contains DNA but not much else"
+            ]
+        },
+        {
+            "input": "Fact1: Aging is associated with the death of cells.\nFact2: Old cells have short telomeres.",
+            "output": [
+                "aging is associated with short telomeres"
+            ]
+        },
+        {
+            "input": "Fact1: Carbon monoxide is a gas produced by furnaces and other devices that burn fuel.\nFact2: Excessive accumulation build-up of carbon monoxide can cause suffocation.",
+            "output": [
+                "gas furnaces can cause suffocation"
+            ]
+        },
+        {
+            "input": "Fact1: a solution is formed by one substance being dissolved in another substance\nFact2: Water acts as the solvent and the dissolved substances act as the solutes.",
+            "output": [
+                "a solution is formed by solutes being dissolved in solvents"
+            ]
+        },
+        {
+            "input": "Fact1: a plant requires sunlight for photosynthesis\nFact2: Ferns are one type of seedless plant.",
+            "output": [
+                "ferns require sunlight for photosynthesis"
+            ]
+        },
+        {
+            "input": "Fact1: friction causes the speed of an object to decrease\nFact2: Friction is dependant on the texture of both surfaces.",
+            "output": [
+                "The texture of surfaces can cause the speed of an object to decrease."
+            ]
+        },
+        {
+            "input": "Fact1: Cells that divide uncontrollably may form a tumor, or abnormal mass of cells.\nFact2: For example, a fibroid is a tumor, a wart is a tumor, and cancers are tumors.",
+            "output": [
+                "Cells that divide uncontrollably may form a fibroid."
+            ]
+        },
+        {
+            "input": "Fact1: Passive immunity lasts only as long as the antibodies survive in body fluids.\nFact2: Booster shots are needed periodically to build up the passive immunity again.",
+            "output": [
+                "Booster shots are needed after antibodies won't survive in body fluids"
+            ]
+        },
+        {
+            "input": "Fact1: Genes that are located on the same chromosome are called linked genes.\nFact2: Genes and chromosomes exist in pairs.",
+            "output": [
+                "genes on the same pair are linked"
+            ]
+        },
+        {
+            "input": "Fact1: a rubber band snapping causes the particles in the rubber band to vibrate\nFact2: Elastics are rubber bands that connect the upper and lower braces.",
+            "output": [
+                "An elastic snapping causes the particles in the elastic to vibrate."
+            ]
+        },
+        {
+            "input": "Fact1: if heat is conducted to an object then that object will become hot\nFact2: Air conducts heat poorly.",
+            "output": [
+                "air does not accept heat very well"
+            ]
+        },
+        {
+            "input": "Fact1: Brain cells die quickly if their oxygen supply is cut off.\nFact2: Blood carries oxygen to the brain.",
+            "output": [
+                "Brain cells die quickly if their blood supply is cut off"
+            ]
+        },
+        {
+            "input": "Fact1: friction causes an object to lose energy\nFact2: Byproducts of friction Friction is a force acting against motion.",
+            "output": [
+                " Force acting against motion causes an object to lose energy."
+            ]
+        },
+        {
+            "input": "Fact1: Gametes then unite in fertilization and form a diploid zygote.\nFact2: Mitosis produces diploid cells.",
+            "output": [
+                "Gametes then unite in fertilization and begin Mitosis"
+            ]
+        },
+        {
+            "input": "Fact1: Some arthropods have special excretory structures.\nFact2: All insects are arthropods.",
+            "output": [
+                "Insects have special excretory structures."
+            ]
+        },
+        {
+            "input": "Fact1: Roundworms may be free-living or parasitic.\nFact2: Internal parasites harm their hosts in many ways.",
+            "output": [
+                "roundworms can harm their hosts"
+            ]
+        },
+        {
+            "input": "Fact1: Soil can be depleted of nutrients.\nFact2: Wampanucket soils are prime farmland soils.",
+            "output": [
+                "Farmland can be depleted of nutrients."
+            ]
+        },
+        {
+            "input": "Fact1: Gene flow occurs when individuals move into or out of a population.\nFact2: Genetic diversity can be maintained in small populations by even a small amount of gene flow.",
+            "output": [
+                "Genetic diversity can be maintained when individuals move into or out of a population"
+            ]
+        },
+        {
+            "input": "Fact1: seed dispersal has a positive impact on a plant\nFact2: Moisture levels before planting and flowering have the greatest impact on yield.",
+            "output": [
+                "Seed dispersal has a positive impact on flowering and yield."
+            ]
+        },
+        {
+            "input": "Fact1: dew is formed when water vapor condenses over night\nFact2: Condensation is water vapor changing to liquid water.",
+            "output": [
+                "Dew is formed when vapor changes to liquid"
+            ]
+        },
+        {
+            "input": "Fact1: glass cause refraction of light\nFact2: Refraction Refraction is the bending of light rays.",
+            "output": [
+                "glass causes bending of light rays"
+            ]
+        },
+        {
+            "input": "Fact1: Chloroplasts are organelles that are found in the cells of plants and algae.\nFact2: Mosses are nonvascular plants.",
+            "output": [
+                "Chloroplasts are organelles that are found in the cells of mosses."
+            ]
+        },
+        {
+            "input": "Fact1: if seeds stick to the fur of an animal then that seed will be transported by the animal\nFact2: Most plants grow from seeds.",
+            "output": [
+                "animal fur can help plants grow"
+            ]
+        },
+        {
+            "input": "Fact1: completing a circuit causes electricity to flow through that circuit\nFact2: Electricity is electrons in motion.",
+            "output": [
+                "completing a circuit causes electrons to flow through that circuit"
+            ]
+        },
+        {
+            "input": "Fact1: Evolution occurs by a process called natural selection.\nFact2: Evolution is a sequence of variation and selection.",
+            "output": [
+                "evolution produces variation"
+            ]
+        },
+        {
+            "input": "Fact1: fog is formed by water vapor condensing in the air\nFact2: Fog When driving, fog is an obstacle or a hindrance that makes things obscure.",
+            "output": [
+                "hindrances to driving are formed by water vapor condensing in the air"
+            ]
+        },
+        {
+            "input": "Fact1: Insulin is a hormone that helps cells absorb sugar from the blood.\nFact2: Blood Sugar Glucose is sugar.",
+            "output": [
+                "Insulin is a hormone that helps cells absorb glucose from the blood."
+            ]
+        },
+        {
+            "input": "Fact1: a mold spore has a negative impact on the respiratory system\nFact2: Molds and spores thrive in water-damaged furniture and carpets.",
+            "output": [
+                "water-damaged carpets have a negative impact on the respiratory system"
+            ]
+        },
+        {
+            "input": "Fact1: some flowers become fruits\nFact2: Ferns have no flowers, fruits or seeds.",
+            "output": [
+                "some plants have no flowers"
+            ]
+        },
+        {
+            "input": "Fact1: Secondary growth forms secondary vascular tissues and bark.\nFact2: Trees have the ability to undergo secondary growth and produce a woody body.",
+            "output": [
+                "trees form secondary vascular tissues and bark"
+            ]
+        },
+        {
+            "input": "Fact1: a thermal insulator slows the transfer of heat\nFact2: Convection is the transfer of heat in fluids.",
+            "output": [
+                "A thermal insulator slows the convection in fluids."
+            ]
+        },
+        {
+            "input": "Fact1: if a neutral atom loses an electron then an atom with a negative charge will be formed\nFact2: Ions are atoms or groups of atoms that carry a positive or negative electrical charge.",
+            "output": [
+                "An ion is formed after a neutral atom loses an electron"
+            ]
+        },
+        {
+            "input": "Fact1: gases from burning coal and oil dissolving in water in the atmosphere causes acid rain\nFact2: Acid rain kills trees .",
+            "output": [
+                "gases from burning coal and oil dissolving in water in the atmosphere kills trees"
+            ]
+        },
+        {
+            "input": "Fact1: planting trees has a positive impact on an ecosystem\nFact2: Knowledge of woodland ecosystems is advantageous.",
+            "output": [
+                "Planting trees has a positive impact on woodlands."
+            ]
+        },
+        {
+            "input": "Fact1: nerves can be used to feel heat and pressure on the skin\nFact2: Sensory neurons run anteriorly from the nerve ring to the sensory organs in the head.",
+            "output": [
+                "sensory neurons can be used to feel heat and pressure on the skin"
+            ]
+        },
+        {
+            "input": "Fact1: radioactive dating is used to determine the age of fossils\nFact2: Radioactive isotopes are commonly used for dating .",
+            "output": [
+                "Radioactive isotopes are commonly used to determine fossil age."
+            ]
+        },
+        {
+            "input": "Fact1: smoking tobacco decreases stamina\nFact2: Manual dexterity and physical stamina are vital.",
+            "output": [
+                "smoking tobacco decreases manual dexterity"
+            ]
+        },
+        {
+            "input": "Fact1: Humans have collected and grown mushrooms for food for thousands of years.\nFact2: Mushrooms are an example of fungi.",
+            "output": [
+                "Humans have collected and grown fungi for food for thousands of years."
+            ]
+        },
+        {
+            "input": "Fact1: global warming is when worldwide temperature increases\nFact2: Temperature Temperature is an measurement of the amount of heat.",
+            "output": [
+                "Global warming is when heat worldwide increases."
+            ]
+        },
+        {
+            "input": "Fact1: treating water is used to remove harmful substances before drinking\nFact2: Boiling is the safest method of treating water.",
+            "output": [
+                "Water can be boiled to remove harmful substances before drinking."
+            ]
+        },
+        {
+            "input": "Fact1: Female gametophytes produce eggs inside the ovaries of flowers.\nFact2: Female gametophytes remain unisexual.",
+            "output": [
+                "Unisexual gametophytes produce eggs inside the ovaries of flowers"
+            ]
+        },
+        {
+            "input": "Fact1: Running water is better able to dissolve oxygen and nutrients than standing water.\nFact2: Streams and creeks provide running water.",
+            "output": [
+                "streams and creeks are better able to dissolve oxygen and nutrients than standing water."
+            ]
+        },
+        {
+            "input": "Fact1: Plants have specialized reproductive organs.\nFact2: All orange trees are plants.",
+            "output": [
+                "trees have specialized reproductive organs"
+            ]
+        },
+        {
+            "input": "Fact1: a warm front causes cloudy and rainy weather\nFact2: Stratus clouds are associated with a warm front.",
+            "output": [
+                "stratus clouds are associated with cloudy and rainy weather."
+            ]
+        },
+        {
+            "input": "Fact1: Vertebrate chordates have a backbone.\nFact2: Invertebrates have no vertebrae or backbone.",
+            "output": [
+                "Vertebrate chordates have a vertebrae."
+            ]
+        },
+        {
+            "input": "Fact1: Chromosomes are coiled structures made of DNA and proteins.\nFact2: DNA is the stuff of life.",
+            "output": [
+                "chromosomes are the stuff of life"
+            ]
+        },
+        {
+            "input": "Fact1: Ethologists usually study how animals behave in their natural environment.\nFact2: Environments reflect native habitats.",
+            "output": [
+                "Ethologists usually study how animals behave in their habitats  "
+            ]
+        },
+        {
+            "input": "Fact1: treating water is used to remove harmful substances before drinking\nFact2: Chlorine is also used to treat water.",
+            "output": [
+                "Chlorine is also used to remove harmful substances from water before drinking"
+            ]
+        },
+        {
+            "input": "Fact1: Producers are organisms that produce food for themselves and other organisms.\nFact2: Green plants are producers .",
+            "output": [
+                "green plants make food for themselves and other organisms"
+            ]
+        },
+        {
+            "input": "Fact1: Lions live in social groups called prides.\nFact2: Lions hunt together to provide food for the pride.",
+            "output": [
+                "Lions live in groups and hunt together for food."
+            ]
+        },
+        {
+            "input": "Fact1: webbed feet are used for moving faster through water by aquatic animals\nFact2: Ducks have webbed feet, designed for swimming.",
+            "output": [
+                "Feet designed for swimming are used for moving faster through water."
+            ]
+        },
+        {
+            "input": "Fact1: Macroevolution is evolution over geologic time above the level of the species.\nFact2: Speciation events are thus examples of macroevolution.",
+            "output": [
+                "evolution over geologic time above the level of the species includes speciation events"
+            ]
+        },
+        {
+            "input": "Fact1: an organism requires energy for growth\nFact2: Plants and animals are organisms.",
+            "output": [
+                "plants require energy for growth"
+            ]
+        },
+        {
+            "input": "Fact1: using a car causes pollution\nFact2: Volkswagen remains the top European car brand sold in America.",
+            "output": [
+                "volkswagen causes pollution"
+            ]
+        },
+        {
+            "input": "Fact1: powering an electrical device with a battery requires a path for electricity to flow through a closed circuit\nFact2: Electrons flow continuously in a closed circuit.",
+            "output": [
+                "powering an electrical device with a battery requires a path for electrons to flow continuously"
+            ]
+        },
+        {
+            "input": "Fact1: electrical current running through a wire causes that wire to heat up\nFact2: An electrical current is a flow of electrons.",
+            "output": [
+                "a flow of electrons running through a wire causes that wire to heat up"
+            ]
+        },
+        {
+            "input": "Fact1: carbon dioxide concentrations in the air have increased over the last decade dramatically\nFact2: Carbon dioxide is the chief culprit in the increased threat of global warming in recent decades.",
+            "output": [
+                "The rise in carbon dioxide concentrations contributes to the increase in global warming threats."
+            ]
+        },
+        {
+            "input": "Fact1: Pressure receptors are found mainly in the skin.\nFact2: Different receptors for heat and cold are probably present in the skin.",
+            "output": [
+                "pressure,heat and,cold points on skin"
+            ]
+        },
+        {
+            "input": "Fact1: Amphibians have a relatively complex circulatory system with a three-chambered heart.\nFact2: All frogs are amphibians.",
+            "output": [
+                "Frogs have a relatively complex circulatory system with a three-chambered heart."
+            ]
+        },
+        {
+            "input": "Fact1: extreme heat and pressure change rock into metamorphic rock\nFact2: Marble is a form of metamorphic rock.",
+            "output": [
+                "extreme heat and pressure changes rock into marble"
+            ]
+        },
+        {
+            "input": "Fact1: staying warm has a positive impact on an animal 's survival\nFact2: If it's cold weather, dress warmly and warm up longer.",
+            "output": [
+                "Dress for cold weather because you are also an animal."
+            ]
+        },
+        {
+            "input": "Fact1: if a thermal conductor is exposed to a source of heat then that conductor may become hot\nFact2: Metals are also known as being good conductors of heat, or thermal conductors.",
+            "output": [
+                "a metal may become hot if exposed to heat"
+            ]
+        },
+        {
+            "input": "Fact1: using a gasoline engine requires burning gasoline\nFact2: Gasoline is used in cars, boats, motorcycles, lawn mowers and other engines.",
+            "output": [
+                "using a car requires burning gasoline"
+            ]
+        },
+        {
+            "input": "Fact1: All animals are heterotrophs.\nFact2: All cats are animals.",
+            "output": [
+                "all cats are heterotrophs"
+            ]
+        },
+        {
+            "input": "Fact1: lack of moisture in the air causes low amounts of rainfall\nFact2: Damage is intensified by moisture stress during drought.",
+            "output": [
+                "low amounts of rainfall intensify damage during drought"
+            ]
+        },
+        {
+            "input": "Fact1: Mammals conserve body heat with their hair or fur.\nFact2: Mammals Hair or fur covers the bodies of most mammals.",
+            "output": [
+                "Mammals conserve body heat with their fuzzy, protective covering."
+            ]
+        },
+        {
+            "input": "Fact1: wind causes erosion\nFact2: Wind erosion severely damages soils and crops.",
+            "output": [
+                "Wind can severely damage soils and crops"
+            ]
+        },
+        {
+            "input": "Fact1: Aggression is behavior that is intended to cause harm or pain.\nFact2: Abuse means causing intentional pain or harm.",
+            "output": [
+                "Aggression is behavior that is intentionally abusive."
+            ]
+        },
+        {
+            "input": "Fact1: Most genes contain the instructions for a single protein.\nFact2: Genes are made of DNA, the substrate of hereditary information.",
+            "output": [
+                "DNA can contain the instructions for a single protein."
+            ]
+        },
+        {
+            "input": "Fact1: Meiosis is the type of cell division that produces gametes.\nFact2: Female gametes are eggs or ova.",
+            "output": [
+                "Meiosis produces eggs or ova?"
+            ]
+        },
+        {
+            "input": "Fact1: if something is outside during the day then that something will receive sunlight\nFact2: Sunlight Green plants require sunlight in order to grow.",
+            "output": [
+                "Green plants grow best outside."
+            ]
+        },
+        {
+            "input": "Fact1: seasons cause change to the environment\nFact2: Wildlife Habitat the native environment of an animal.",
+            "output": [
+                "Seasons cause change to the native habitat of animals."
+            ]
+        },
+        {
+            "input": "Fact1: a graduated cylinder is used to measure volume of a liquid\nFact2: Liquid volume is measured using a unit called a liter.",
+            "output": [
+                "graduated cylinder measure in liters"
+            ]
+        },
+        {
+            "input": "Fact1: a mold spore has a negative impact on the respiratory system\nFact2: Mold spores, for example, are microscopic.",
+            "output": [
+                "Microscopic organisms can have a negative impact on the respiratory system."
+            ]
+        },
+        {
+            "input": "Fact1: friction causes the temperature of an object to increase\nFact2: Heat and temperature are the same.",
+            "output": [
+                "friction causes heat of an object to increase"
+            ]
+        },
+        {
+            "input": "Fact1: Flowers attract animal pollinators.\nFact2: Bees are effective pollinators.",
+            "output": [
+                "flowers attract bees"
+            ]
+        },
+        {
+            "input": "Fact1: All chemical reactions require activation energy to get started.\nFact2: Catalysts lower the activation energy.",
+            "output": [
+                "A catalyst can lower the energy cost of a chemical reaction."
+            ]
+        },
+        {
+            "input": "Fact1: Some parasites kill their host, but most do not.\nFact2: Parasites are organisms which live off a host.",
+            "output": [
+                "Some organisms which live off a host kill it, but most do not."
+            ]
+        },
+        {
+            "input": "Fact1: an electrical insulator slows the transfer of electricity\nFact2: Plastic is an insulator of electricity.",
+            "output": [
+                "Plastic slows the transfer of electricity"
+            ]
+        },
+        {
+            "input": "Fact1: friction causes the speed of an object to decrease\nFact2: Friction from the brake lining causes heat.",
+            "output": [
+                "Slowing the car by applying the brakes generates"
+            ]
+        },
+        {
+            "input": "Fact1: Sponges are a source of food for many species of fish.\nFact2: Sponges live on the bottom of oceans, rivers, and streams.",
+            "output": [
+                "many species of fish find food on the bottom of oceans"
+            ]
+        },
+        {
+            "input": "Fact1: increasing heat causes thermal expansion\nFact2: Heating by direct heat is usually too hot.",
+            "output": [
+                "Making an object hot causes thermal expansion."
+            ]
+        },
+        {
+            "input": "Fact1: Plants exhibit phototropism, or growing toward a light source.\nFact2: Many light sources such as the sun and most artificial lights produce unpolarized light.",
+            "output": [
+                "Plants exhibit phototropism, or growing toward the sun or artificial light."
+            ]
+        },
+        {
+            "input": "Fact1: Oxygen is just one substance transported by the blood.\nFact2: Blood typifies the life, for the life is in the blood.",
+            "output": [
+                "Oxygen typifies life"
+            ]
+        },
+        {
+            "input": "Fact1: Petals attract pollinators to the flower.\nFact2: Hummingbirds are the most common bird pollinators.",
+            "output": [
+                "petals attract hummingbirds to the flower"
+            ]
+        },
+        {
+            "input": "Fact1: Muscle contraction occurs when muscle fibers get shorter.\nFact2: Fibers are oriented diagonally across fiber.",
+            "output": [
+                "muscle contraction occurs when a diagonally oriented part of muscle gets shorter"
+            ]
+        },
+        {
+            "input": "Fact1: mechanical weathering is when rocks are broken down by mechanical means\nFact2: Sediment, and sedimentary rock, is made of particles broken down from other rocks.",
+            "output": [
+                "mechanical weathering produces Sediment"
+            ]
+        },
+        {
+            "input": "Fact1: Viruses contain DNA but not much else.\nFact2: DNA can reproduce itself.",
+            "output": [
+                "viruses can reproduce themselves"
+            ]
+        },
+        {
+            "input": "Fact1: intense heat has a negative impact on an organism\nFact2: To have the form of heat is to be-hot.",
+            "output": [
+                "If an organism is too hot, it has a negative impact."
+            ]
+        },
+        {
+            "input": "Fact1: Some insects can use their antennae to detect sound.\nFact2: An insect's head has two feelers, or antennae.",
+            "output": [
+                "Some insects can use their feelers to detect sound."
+            ]
+        },
+        {
+            "input": "Fact1: absorbing energy causes objects to heat\nFact2: Crystal Balls Crystal balls have special uses as ritual objects.",
+            "output": [
+                "absorbing energy causes crystal balls to heat"
+            ]
+        },
+        {
+            "input": "Fact1: Vertebrate chordates have a backbone.\nFact2: Strength correlates with our spinal cord and our nerves, our backbone.",
+            "output": [
+                "Vertebrate chordates have a spinal cord and nerves"
+            ]
+        },
+        {
+            "input": "Fact1: chlorophyll is used for absorbing light energy by plants\nFact2: All plants are of bush type.",
+            "output": [
+                "chlorophyll is used for absorbing light energy by bushes"
+            ]
+        },
+        {
+            "input": "Fact1: Sight is the ability to sense light, and the eye is the organ that senses light.\nFact2: Without light there is no sense of vision.",
+            "output": [
+                "The eye is the organ you need to see light which creates vision"
+            ]
+        },
+        {
+            "input": "Fact1: treating water is used to remove harmful substances before drinking\nFact2: Ordinary tap water can be full of harmful substances like chlorine, pesticides and heavy metals.",
+            "output": [
+                "treating water is used to remove chlorine, pesticides, and heavy metals before drinking"
+            ]
+        },
+        {
+            "input": "Fact1: wind and rain cause erosion\nFact2: Soil erosion, or rather soil movement, is a natural process.",
+            "output": [
+                "wind and rain cause soil movement"
+            ]
+        },
+        {
+            "input": "Fact1: Passive immunity lasts only as long as the antibodies survive in body fluids.\nFact2: Inside the body, blood is normally a fluid.",
+            "output": [
+                "passive immunity lasts only as long as the antibodies survive in blood"
+            ]
+        },
+        {
+            "input": "Fact1: telephones are used for communication by two people by transmitting sound\nFact2: When a wave is audible, it is called a sound wave .",
+            "output": [
+                "Telephones are used for communication by transmitting audible waves."
+            ]
+        },
+        {
+            "input": "Fact1: Oxygen is essential for cellular respiration for all aerobic organisms.\nFact2: Fungi are aerobic organisms.",
+            "output": [
+                "oxygen is essential for cellular respiration for fungi"
+            ]
+        },
+        {
+            "input": "Fact1: better senses have a positive impact on an animal 's survival\nFact2: All dogs are animals .",
+            "output": [
+                "betters senses have a positive impact on a dog's survival"
+            ]
+        },
+        {
+            "input": "Fact1: Energy enters ecosystems in the form of sunlight or chemical compounds.\nFact2: Biomes are global ecosystems.",
+            "output": [
+                "Energy enters biomes in the form of sunlight or chemical compounds."
+            ]
+        },
+        {
+            "input": "Fact1: Marine species live mainly in shallow coastal waters.\nFact2: Seahorses inhabit shallow coastal waters, especially seagrass beds, coral reefs and mangrove swamps.",
+            "output": [
+                "Seahorses are marine species."
+            ]
+        },
+        {
+            "input": "Fact1: Sweating reduces body heat.\nFact2: Body fluids are lost during fevers because of sweating.",
+            "output": [
+                "fevers dehydrate because of sweat"
+            ]
+        },
+        {
+            "input": "Fact1: hibernation is used for conserving energy by some animals\nFact2: Animals that sleep through the winter are said to hibernate.",
+            "output": [
+                "Animals sleep through winter to conserve energy"
+            ]
+        },
+        {
+            "input": "Fact1: loud noises can cause animals to startle\nFact2: When startled or hurt, hamsters can deliver quite a bite.",
+            "output": [
+                "loud noises can cause hamsters to deliver quite a bite"
+            ]
+        },
+        {
+            "input": "Fact1: a ship is used for moving people across bodies of water\nFact2: Commonly, a bridge is a structure built to cross a body of water.",
+            "output": [
+                "For short distances, bridges can replace ships."
+            ]
+        },
+        {
+            "input": "Fact1: Antigens are molecules that the immune system recognizes as foreign to the body.\nFact2: Antigens are proteins foreign to the body.",
+            "output": [
+                "antigens are proteins"
+            ]
+        },
+        {
+            "input": "Fact1: Evolution occurs in response to a change in the environment.\nFact2: Evolution Evolution is the changing pattern of life forms.",
+            "output": [
+                "lifeforms change their pattern in response to change in environment"
+            ]
+        },
+        {
+            "input": "Fact1: Evaporation of sweat uses energy, and the energy comes from body heat.\nFact2: Heat When exercising, the body creates excess heat.",
+            "output": [
+                "Evaporation of sweat uses energy, and the energy comes from exercise"
+            ]
+        },
+        {
+            "input": "Fact1: magnetism can cause objects to repel each other\nFact2: The agent responsible for the push or pull is the magnetic force .",
+            "output": [
+                "Force can cause objects to repel each other"
+            ]
+        },
+        {
+            "input": "Fact1: Carbon cycles quickly between organisms and the atmosphere.\nFact2: Carbon dioxide is controlled by the carbon cycle.",
+            "output": [
+                "Carbon dioxide is controled by the carbon circle and is transferred between organisms and atmosphere"
+            ]
+        },
+        {
+            "input": "Fact1: electrocution causes harm to an organism\nFact2: Electrocution deaths as a result of a horse chewing on an electrical cord are fairly common.",
+            "output": [
+                "electrical death causes harm to an organism"
+            ]
+        },
+        {
+            "input": "Fact1: erosion of soil has a negative impact on the environment\nFact2: Plants keep the soil on the land.",
+            "output": [
+                "erosion of land has a negative impact on the environment"
+            ]
+        },
+        {
+            "input": "Fact1: a greenhouse is used to protect plants from the cold\nFact2: The air in the greenhouse is humid.",
+            "output": [
+                "Protection and humidity is important for plants."
+            ]
+        },
+        {
+            "input": "Fact1: the number of rings in a tree trunk can be used to estimate the age of the tree\nFact2: Tree rings are examined to learn the forest age and growth rate.",
+            "output": [
+                "the rings in a tree determined the growth rate of the forest"
+            ]
+        },
+        {
+            "input": "Fact1: friction causes the temperature of an object to increase\nFact2: Astrogarden objects are toys.",
+            "output": [
+                "Friction causes the temperature of a toy to increase"
+            ]
+        },
+        {
+            "input": "Fact1: poison causes harm to living things\nFact2: Arsenic compounds are poisonous.",
+            "output": [
+                "Arsenic compounds cause harm to living things"
+            ]
+        },
+        {
+            "input": "Fact1: cellular respiration is when a cell converts from oxygen and carbohydrates into carbon dioxide, water, and energy\nFact2: Lymphocytes are B cells, T cells and NK cells.",
+            "output": [
+                "Lymphocytes use respiration to convert oxygen and carbohydrates into carbon dioxide, water and energy"
+            ]
+        },
+        {
+            "input": "Fact1: Molecules of DNA are encoded with instructions that tell cells what to do.\nFact2: DNA DNA is deoxyribonucleic acid.",
+            "output": [
+                "molecules of deoxyribonucleic acid are encoded with instructions that tell cells what to do"
+            ]
+        },
+        {
+            "input": "Fact1: Population size influences the chances of a species surviving.\nFact2: Flowers Includes All Plant Species.",
+            "output": [
+                "population size influences the chances of flowers surviving"
+            ]
+        },
+        {
+            "input": "Fact1: a stove is used for cooking by generating heat\nFact2: Wood burning stoves provided heat for warmth and cooking.",
+            "output": [
+                "Wood burning stoves create heat for warmth"
+            ]
+        },
+        {
+            "input": "Fact1: Cells secrete acids and bases to maintain the proper pH for enzymes to work.\nFact2: Acids and bases are electrolytes.",
+            "output": [
+                "Cells secrete electrolytes to maintain the proper pH for enzymes to work."
+            ]
+        },
+        {
+            "input": "Fact1: Animals use saturated fatty acids to store energy.\nFact2: Potential energy is stationary, stored energy.",
+            "output": [
+                "Animals use saturated fatty acids to create stationary potential energy"
+            ]
+        },
+        {
+            "input": "Fact1: absorbing sunlight causes objects to heat\nFact2: Collector panels absorb sunlight to heat air.",
+            "output": [
+                "collector panels heat objects with sunlight"
+            ]
+        },
+        {
+            "input": "Fact1: plant reproduction often requires pollen\nFact2: Bees feed on nectar and pollen.",
+            "output": [
+                "Plant reproduction often requires bees and nectar."
+            ]
+        },
+        {
+            "input": "Fact1: Caecilians can be found in moist soil near rivers and streams in tropical regions.\nFact2: Salamanders, frogs, toads, caecilians Class Reptilia.",
+            "output": [
+                "Reptilians can be found in moist soil near rivers and streams in tropical regions."
+            ]
+        },
+        {
+            "input": "Fact1: bacteria cause food poisoning\nFact2: Food poisoning is a serious illness.",
+            "output": [
+                "bacteria causes serious illness"
+            ]
+        },
+        {
+            "input": "Fact1: Cells are organized into tissues, and tissues form organs.\nFact2: Different tissues then combine to form specialised organs .",
+            "output": [
+                "Cells are organized into tissues, and tissues combine into specialized organs"
+            ]
+        },
+        {
+            "input": "Fact1: Most invertebrates have a nervous system.\nFact2: Jellyfish and insects are invertebrates.",
+            "output": [
+                "Jellyfish have a nervous system"
+            ]
+        },
+        {
+            "input": "Fact1: Freshwater biomes have water that contains little or no salt.\nFact2: Another name for salt is sodium.",
+            "output": [
+                "Freshwater biomes have water that contains little or not sodium."
+            ]
+        },
+        {
+            "input": "Fact1: Ribosomes are small organelles where proteins are made.\nFact2: Bacteria contain no organelles.",
+            "output": [
+                "Bacteria do not have ribosomes for protein production."
+            ]
+        },
+        {
+            "input": "Fact1: a pan is used for cooking food by heating food in it on a stove\nFact2: Food, like chicken and potatoes are recommended.",
+            "output": [
+                "Chicken and potatoes can be cooked in a pan on the stove"
+            ]
+        },
+        {
+            "input": "Fact1: evaporation can be used for separating a solute from a solvent in a solution\nFact2: Water as a Solvent Water is an excellent solvent.",
+            "output": [
+                "evaporation can be used for separating a solute from Water"
+            ]
+        },
+        {
+            "input": "Fact1: being burried under soil and mud changes vegetation into peat through extreme heat and pressure in a swamp over a long period of time\nFact2: Bogs are composed of peat.",
+            "output": [
+                "being buried under soil and mud changes vegetation into bogs through extreme pressure and heat"
+            ]
+        },
+        {
+            "input": "Fact1: sexual reproduction increases genetic diversity\nFact2: Diversity leads to vast genetic potential.",
+            "output": [
+                "Sexual reproduction increases genetic potential "
+            ]
+        },
+        {
+            "input": "Fact1: Echinoderms use pheromones to communicate with each other.\nFact2: Starfish and sea urchins are also echinoderms.",
+            "output": [
+                "starfish use pheromones to communicate with each other"
+            ]
+        },
+        {
+            "input": "Fact1: electricity is used as an energy source by electrical devices\nFact2: Once a device is plugged into electrical outlets, it can communicate with other devices.",
+            "output": [
+                "electricity is used as an energy source to electrical outlets"
+            ]
+        },
+        {
+            "input": "Fact1: if a thermal conductor is exposed to a source of heat then that conductor may become hot\nFact2: Copper is a great thermal conductor.",
+            "output": [
+                "if copper is exposed to a source of heat then it may become hot"
+            ]
+        },
+        {
+            "input": "Fact1: Heterotrophs get food by eating other living things.\nFact2: Animals are heterotrophs, or other-feeders.",
+            "output": [
+                "Animals get food by eating other living things"
+            ]
+        },
+        {
+            "input": "Fact1: soil erosion means soil loss through wind\nFact2: Erosion also damages the thin soil.",
+            "output": [
+                "Wind can cause damage to thin soil."
+            ]
+        },
+        {
+            "input": "Fact1: burning wood is used to produce heat\nFact2: Birch trees are deciduous and the wood burns hot and fast, as if soaked with oil or kerosene.",
+            "output": [
+                "birch trees are wood used to produce heat."
+            ]
+        },
+        {
+            "input": "Fact1: water vapor cooling causes that water vapor to condense\nFact2: Vapor condenses, falls and seeps into the ground.",
+            "output": [
+                "Water vapor cooling causes that water to fall and seep into the ground."
+            ]
+        },
+        {
+            "input": "Fact1: if an object is made of a material then that object has the properties of that material\nFact2: Strength of materials is the study of properties of materials.",
+            "output": [
+                "objects have strength"
+            ]
+        },
+        {
+            "input": "Fact1: Chordates have a complete digestive system and a closed circulatory system.\nFact2: All chordates have jaws.",
+            "output": [
+                "animals with jaws have a complete digestive system and a closed circulatory system."
+            ]
+        },
+        {
+            "input": "Fact1: the Himalayas were formed by rock folding\nFact2: If the rocks are not as brittle, they will either tilt or fold.",
+            "output": [
+                "Himalayas are comprised of brittle rock"
+            ]
+        },
+        {
+            "input": "Fact1: Chromosomes are coiled structures made of DNA and proteins.\nFact2: Sex chromosomes determine gender.",
+            "output": [
+                "The determination of gender is coiled structures made of DNA and proteins"
+            ]
+        },
+        {
+            "input": "Fact1: an animal requires warmth for survival\nFact2: Without blubber, their fur is essential for survival.",
+            "output": [
+                "an animal requires fur as it is essential for warmth."
+            ]
+        },
+        {
+            "input": "Fact1: Migrants typically travel long distances.\nFact2: Although some of Kew's butterflies are fairly sedentary, others are great migrants.",
+            "output": [
+                "some butterflies travel long distances"
+            ]
+        },
+        {
+            "input": "Fact1: insulated material can be used for keeping warm\nFact2: Building insulation is a cellulose material made of ground computer paper and cardboard boxes.",
+            "output": [
+                "Cellulose material can be used to keep a home warm."
+            ]
+        },
+        {
+            "input": "Fact1: ice wedging is when ice causes rocks to crack by expanding in openings\nFact2: Ice wedging is extremely effective in a moist but cold climate.",
+            "output": [
+                "moist, cold climates cause rocks to crack by ice expanding in openings"
+            ]
+        },
+        {
+            "input": "Fact1: All plants have a characteristic life cycle that includes alternation of generations.\nFact2: All plants are of bush type.",
+            "output": [
+                "bushes have a life cycle that includes alternation of generations"
+            ]
+        },
+        {
+            "input": "Fact1: Glucose is used for energy by the cells of most organisms.\nFact2: Glucose metabolism relates to how cells use or store glucose.",
+            "output": [
+                "cells store glucose"
+            ]
+        },
+        {
+            "input": "Fact1: Most protists have motility.\nFact2: Protists are single-celled microscopic organisms like amoebae.",
+            "output": [
+                "amoebae have motility"
+            ]
+        },
+        {
+            "input": "Fact1: Most modern gymnosperms are trees with woody trunks.\nFact2: Gymnosperms are the plants that are known as evergreens.",
+            "output": [
+                "Evergreens are mostly trees with woody trunks."
+            ]
+        },
+        {
+            "input": "Fact1: Ribosomes are structures in the cytoplasm where proteins are made.\nFact2: Rough endoplasmic reticulum has ribosomes attached d.",
+            "output": [
+                "structures where proteins are made are located on rough endoplasmic reticulum"
+            ]
+        },
+        {
+            "input": "Fact1: Courtship is behavior that is intended to attract a mate.\nFact2: Moose courtship begins in autumn.",
+            "output": [
+                "moose begin behavior intended to attract a mate in autumn"
+            ]
+        },
+        {
+            "input": "Fact1: Heterotrophs get food by eating other living things.\nFact2: All fish are heterotrophic.",
+            "output": [
+                "fish get food by eating other living things"
+            ]
+        },
+        {
+            "input": "Fact1: a tape measure is used to measure length\nFact2: Length is how long something is.",
+            "output": [
+                "a tape measure is used to measure how long something is."
+            ]
+        },
+        {
+            "input": "Fact1: Most genes contain the instructions for a single protein.\nFact2: Genes are blueprints for the construction of proteins.",
+            "output": [
+                "genes contain blueprints"
+            ]
+        },
+        {
+            "input": "Fact1: fire converts chemical energy into light and heat energy\nFact2: Intensity is the amount of heat energy released by the fire.",
+            "output": [
+                "Intensity is the amount of chemical energy released by a fire"
+            ]
+        },
+        {
+            "input": "Fact1: Chemical bonds form when substances react with one another.\nFact2: Paper is formed by the chemical bonding of fibers.",
+            "output": [
+                "paper is formed by substances reacting with one another"
+            ]
+        },
+        {
+            "input": "Fact1: Cells vary in size as well as shape, but all cells are very small.\nFact2: Most cells are too small to be seen without a microscope.",
+            "output": [
+                "Cells vary in size as well as shape and are seen with a microscope"
+            ]
+        },
+        {
+            "input": "Fact1: threatening behavior causes a fight-or-flight response in animals\nFact2: Stress triggers the fight or flight response within the body.",
+            "output": [
+                "Threatening behavior triggers stress within animals"
+            ]
+        },
+        {
+            "input": "Fact1: Mammals have a layer of fat under the skin to help insulate the body.\nFact2: Glass insulation keeps beverage warm for hours.",
+            "output": [
+                "Mammals have a layer of fat under the skin to keep them warm."
+            ]
+        },
+        {
+            "input": "Fact1: Mollusks are a major food source for other organisms, including humans.\nFact2: Many organisms are omnivores with variable diets.",
+            "output": [
+                "Humans have variable diets and some consume mollusks as a major food source."
+            ]
+        },
+        {
+            "input": "Fact1: moss causes chemical weathering\nFact2: Mosses lack the roots and stems that other plants have.",
+            "output": [
+                "Plants lacking roots and stems cause chemical weathering."
+            ]
+        },
+        {
+            "input": "Fact1: Earthworm burrows help aerate soil, which is also good for plants.\nFact2: Earthworms help soils breathe.",
+            "output": [
+                "aerating soil helps it breathe"
+            ]
+        },
+        {
+            "input": "Fact1: Flatworms belong to the phylum Platyhelminthes.\nFact2: Flatworms have brains.",
+            "output": [
+                "Somethign belonging to the phylum Platyhelminthes has a brain"
+            ]
+        },
+        {
+            "input": "Fact1: Food consists of organic molecules that store energy in their chemical bonds.\nFact2: Organic foods contain no chemicals, preservatives, or artificial colorings.",
+            "output": [
+                "organic food has no preservatives"
+            ]
+        },
+        {
+            "input": "Fact1: erosion causes a river to become deeper and wider\nFact2: Erosion is the work of wind, water, and time.",
+            "output": [
+                "the work of wind, water, and time causes a river to become deeper and wider"
+            ]
+        },
+        {
+            "input": "Fact1: Plants respond to daily and seasonal cycles and to disease.\nFact2: Temperature follows a seasonal cycle.",
+            "output": [
+                "Plants respond to temperature."
+            ]
+        },
+        {
+            "input": "Fact1: Temperature falls from the equator to the poles.\nFact2: Temperature Temperature is an measurement of the amount of heat.",
+            "output": [
+                "heat amounts are measured from the equator to the poles "
+            ]
+        },
+        {
+            "input": "Fact1: All animals are heterotrophs.\nFact2: Heterotrophic growth is slow and inefficient.",
+            "output": [
+                "all animals have growth that is slow and inefficient."
+            ]
+        },
+        {
+            "input": "Fact1: vein deposits of gold and silver are formed by igneous intrusion\nFact2: Intrusive igneous rocks form underground.",
+            "output": [
+                "Vein deposits of gold and silver are formed underground."
+            ]
+        },
+        {
+            "input": "Fact1: healing requires rest\nFact2: Healing requires energy.",
+            "output": [
+                "energy requires rest"
+            ]
+        },
+        {
+            "input": "Fact1: Feathers help birds fly and provide insulation.\nFact2: Penguins keep warm with layers of insulation.",
+            "output": [
+                "Feathers help birds fly and keep warm"
+            ]
+        },
+        {
+            "input": "Fact1: boiling is when liquids are heated above their boiling point\nFact2: Vapor pressure is about liquids boiling.",
+            "output": [
+                "Vapor pressure  is when liquids are heated"
+            ]
+        },
+        {
+            "input": "Fact1: Animals may compete for territory, water, food, or mates.\nFact2: Every living being needs food.",
+            "output": [
+                "Animals compete to live"
+            ]
+        }
+    ]
+}
