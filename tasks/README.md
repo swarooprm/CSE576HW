@@ -15,59 +15,82 @@ Name | Summary | Category
 `task62_recipe_nlg_ner_generation` | generate the ner given its required ingredients given in recipe-nlg Dataset | ner Generation
 `task63_recipe_nlg_ner_generation` | generate the ner given its directions in recipe-nlg Dataset | ner Generation
 `task64_recipe_nlg_text_generation` |  generate the unknown step by knowing the other steps given in the directions in recipe-nlg Dataset | Text Generation|  generate the unknown step by knowing the other steps given in the directions in recipe-nlg Dataset | Missing Step Generation
-`task047_a_miscellaenous_answering_science_questions` |  Answering simple science questions. | Answer Generation
-`task047_b_miscellaenous_answering_science_questions` |  Answering simple science questions. | Answer Generation
-`task048_a_multirc_question_generation` |  Constructing questions based on the information present in the passage. | Question Generation
-`task048_b_multirc_question_generation` |  Constructing questions based on the information present in the passage. | Question Generation
-`task049_a_multirc_questions_needed_to_answer` |  Identifying sentences needed to answer a given question. | Classification
-`task049_b_multirc_questions_needed_to_answer` |  Identifying sentences needed to answer a given question. | Classification
-`task050_a_multirc_answerability` |  Finding answerability of questions based on a given sentence. | Classification
-`task050_b_multirc_answerability` |  Finding answerability of questions based on a given sentence. | Classification
-`task050_c_multirc_answerability` |  Finding answerability of questions based on a given sentence. | Classification
-`task051_a_multirc_correct_answer_single_sentence`	| Generating correct answer to single-sentence questions.	| Answer Generation
-`task051_b_multirc_correct_answer_single_sentence`	| Generating correct answer to single-sentence questions.	| Answer Generation
-`task051_c_multirc_correct_answer_single_sentence`	| Generating correct answer to single-sentence questions.	| Answer Generation
-`task052_a_multirc_identify_bad_question`	| Identifying bad questions.	| Classification
-`task052_b_multirc_identify_bad_question`	| Identifying bad questions.	| Classification
-`task053_a_multirc_correct_bad_question`	| Correcting bad questions. | Text Modification
-`task053_b_multirc_correct_bad_question`	| Correcting bad questions. | Text Modification
-`task054_a_multirc_write_correct_answer`	| Writing A Correct Answer for a Reading Comprehension Task.	| Answer Generation
-`task054_b_multirc_write_correct_answer`	| Writing A Correct Answer for a Reading Comprehension Task.	| Answer Generation
-`task054_c_multirc_write_correct_answer`	| Writing A Correct Answer for a Reading Comprehension Task.	| Answer Generation
-`task055_a_multirc_write_incorrect_answer`	| Writing Incorrect Answers for a Reading Comprehension Task. | Incorrect AnswerGeneration
-`task055_b_multirc_write_incorrect_answer`	| Writing Incorrect Answers for a Reading Comprehension Task. | Incorrect AnswerGeneration
-`task055_c_multirc_write_incorrect_answer`	| Writing Incorrect Answers for a Reading Comprehension Task. | Incorrect AnswerGeneration
-`task056_a_multirc_classify_correct_answer`	| Classifying Good Correct Answers.	| Classification
-`task056_b_multirc_classify_correct_answer`	| Classifying Good Correct Answers.	| Classification
-`task057_a_multirc_classify_incorrect_answer`	| Classifying Good Incorrect Answers.	| Classification
-`task057_b_multirc_classify_incorrect_answer`	| Classifying Good Incorrect Answers.	| Classification
-`task058_a_multirc_question_answering`	| Reading Comprehension Over Multiple Sentences.	| Classification
-`task058_b_multirc_question_answering`	| Reading Comprehension Over Multiple Sentences.	| Classification
-`task059_a_ropes_story_generation`	| Generating a story about relations in the given paragraph.	| Long Text Generation
-`task059_b_ropes_story_generation`	| Generating a story about relations in the given paragraph.	| Long Text Generation
-`task059_c_ropes_story_generation`	| Generating a story about relations in the given paragraph.	| Long Text Generation
-`task060_a_ropes_question_generation`	| Constructing questions regarding relations in the given paragraph.	| Question Generation
-`task060_b_ropes_question_generation`	| Constructing questions regarding relations in the given paragraph.	| Question Generation
-`task060_c_ropes_question_generation`	| Constructing questions regarding relations in the given paragraph.	| Question Generation
-`task061_a_ropes_answer_generation`	| Answering questions regarding relations in the given paragraph.	| Answer Generation
-`task061_b_ropes_answer_generation`	| Answering questions regarding relations in the given paragraph.	| Answer Generation
-`task061_c_ropes_answer_generation`	| Answering questions regarding relations in the given paragraph.	| Answer Generation
-`task062_a_bigbench_repeat_copy_logic`	|  Generating text that follows simple logical operations such as "repeat", "before", "after" etc.	| Logic
-`task062_b_bigbench_repeat_copy_logic`	|  Generating text that follows simple logical operations such as "repeat", "before", "after" etc.	| Logic
-`task062_c_bigbench_repeat_copy_logic`	|  Generating text that follows simple logical operations such as "repeat", "before", "after" etc.	| Logic
-`task065_a_timetravel_consistent_sentence_classification`	| Choosing the option that makes a given short story consistent. | Classification
-`task065_b_timetravel_consistent_sentence_classification`	| Choosing the option that makes a given short story consistent. | Classification
-`task065_c_timetravel_consistent_sentence_classification`	| Choosing the option that makes a given short story consistent. | Classification
-`task066_a_timetravel_binary_consistency_classification`	| Identifying if the given sentence is consistent with the given story. | Classification
-`task066_b_timetravel_binary_consistency_classification`	| Identifying if the given sentence is consistent with the given story. | Classification
-`task066_c_timetravel_binary_consistency_classification`	| Identifying if the given sentence is consistent with the given story. | Classification
-`task067_a_abductivenli_answer_generation`	|  Generating text that completes a story based on the beginning and ending.	| Answer Generation
-`task067_b_abductivenli_answer_generation`	|  Generating text that completes a story based on the beginning and ending.	| Answer Generation
-`task068_a_abductivenli_incorrect_answer_generation`	|  Generating text that modifies a story to be incorrect based on the beginning, middle, and ending.	| Answer Generation
-`task068_b_abductivenli_incorrect_answer_generation`	|  Generating text that modifies a story to be incorrect based on the beginning, middle, and ending.	| Answer Generation
-`task069_a_abductivenli_classification`	|  Choosing text that completes a story based on given beginning and ending.	| Classification
-`task069_b_abductivenli_classification`	|  Choosing text that completes a story based on given beginning and ending.	| Classification
-`task070_a_abductivenli_incorrect_classification`	|  Choosing text that incorrectly completes a story based on given beginning and ending.	| Classification
-`task070_b_abductivenli_incorrect_classification`	|  Choosing text that incorrectly completes a story based on given beginning and ending.	| Classification
-`task071_a_abductivenli_answer_generation`	|  Generating text that completes a story based on given beginning and middle.	| Answer Generation
-`task071_b_abductivenli_answer_generation`	|  Generating text that completes a story based on given beginning and middle.	| Answer Generation
+`task047_miscellaenous_answering_science_questions`	| Answering simple science questions.	| Answer Generation
+`task048_multirc_question_generation`	| Constructing questions based on the information present in the passage.	| Question Generation
+`task049_multirc_questions_needed_to_answer`	| Identifying sentences needed to answer a given question.	| Classification
+`task050_multirc_answerability`	| Finding answerability of questions based on a given sentence.	| Classification
+`task051_multirc_correct_answer_single_sentence`	| Generating correct answer to single-sentence questions.	| Answer Generation
+`task052_multirc_identify_bad_question`	| Identifying bad questions.	| Classification
+`task053_multirc_correct_bad_question`	| Correcting bad questions. | Text Modification
+`task054_multirc_write_correct_answer`	| Writing A Correct Answer for a Reading Comprehension Task.	| Answer Generation
+`task055_multirc_write_incorrect_answer`	| Writing Incorrect Answers for a Reading Comprehension Task. | Incorrect AnswerGeneration
+`task056_multirc_classify_correct_answer`	| Classifying Good Correct Answers.	| Classification
+`task057_multirc_classify_incorrect_answer`	| Classifying Good Incorrect Answers.	| Classification
+`task058_multirc_question_answering`	| Reading Comprehension Over Multiple Sentences.	| Classification
+`task059_ropes_story_generation`	| Generating a story about relations in the given paragraph.	| Long Text Generation
+`task060_ropes_question_generation`	| Constructing questions regarding relations in the given paragraph.	| Question Generation
+`task061_ropes_answer_generation`	| Answering questions regarding relations in the given paragraph.	| Answer Generation
+`task062_bigbench_repeat_copy_logic`	|  Generating text that follows simple logical operations such as "repeat", "before", "after" etc.	| Logic
+`task065_timetravel_consistent_sentence_classification`	| Choosing the option that makes a given short story consistent. | Classification
+`task066_timetravel_binary_consistency_classification`	| Identifying if the given sentence is consistent with the given story. | Classification
+`task067_abductivenli_answer_generation`	|  Generating text that completes a story based on the beginning and ending.	| Answer Generation
+`task068_abductivenli_incorrect_answer_generation`	|  Generating text that modifies a story to be incorrect based on the beginning, middle, and ending.	| Answer Generation
+`task069_abductivenli_classification`	|  Choosing text that completes a story based on given beginning and ending.	| Classification
+`task070_abductivenli_incorrect_classification`	|  Choosing text that incorrectly completes a story based on given beginning and ending.	| Classification
+`task071_abductivenli_answer_generation`	|  Generating text that completes a story based on given beginning and middle.	| Answer Generation
+`task047.1_miscellaenous_answering_science_questions` |  Answering simple science questions. | Answer Generation
+`task047.2_miscellaenous_answering_science_questions` |  Answering simple science questions. | Answer Generation
+`task048.1_multirc_question_generation` |  Constructing questions based on the information present in the passage. | Question Generation
+`task048.2_multirc_question_generation` |  Constructing questions based on the information present in the passage. | Question Generation
+`task049.1_multirc_questions_needed_to_answer` |  Identifying sentences needed to answer a given question. | Classification
+`task049.2_multirc_questions_needed_to_answer` |  Identifying sentences needed to answer a given question. | Classification
+`task050.1_multirc_answerability` |  Finding answerability of questions based on a given sentence. | Classification
+`task050.2_multirc_answerability` |  Finding answerability of questions based on a given sentence. | Classification
+`task050.3_multirc_answerability` |  Finding answerability of questions based on a given sentence. | Classification
+`task051.1_multirc_correct_answer_single_sentence`	| Generating correct answer to single-sentence questions.	| Answer Generation
+`task051.2_multirc_correct_answer_single_sentence`	| Generating correct answer to single-sentence questions.	| Answer Generation
+`task051.3_multirc_correct_answer_single_sentence`	| Generating correct answer to single-sentence questions.	| Answer Generation
+`task052.1_multirc_identify_bad_question`	| Identifying bad questions.	| Classification
+`task052.2_multirc_identify_bad_question`	| Identifying bad questions.	| Classification
+`task053.1_multirc_correct_bad_question`	| Correcting bad questions. | Text Modification
+`task053.2_multirc_correct_bad_question`	| Correcting bad questions. | Text Modification
+`task054.1_multirc_write_correct_answer`	| Writing A Correct Answer for a Reading Comprehension Task.	| Answer Generation
+`task054.2_multirc_write_correct_answer`	| Writing A Correct Answer for a Reading Comprehension Task.	| Answer Generation
+`task054.3_multirc_write_correct_answer`	| Writing A Correct Answer for a Reading Comprehension Task.	| Answer Generation
+`task055.1_multirc_write_incorrect_answer`	| Writing Incorrect Answers for a Reading Comprehension Task. | Incorrect AnswerGeneration
+`task055.2_multirc_write_incorrect_answer`	| Writing Incorrect Answers for a Reading Comprehension Task. | Incorrect AnswerGeneration
+`task055.3_multirc_write_incorrect_answer`	| Writing Incorrect Answers for a Reading Comprehension Task. | Incorrect AnswerGeneration
+`task056.1_multirc_classify_correct_answer`	| Classifying Good Correct Answers.	| Classification
+`task056.2_multirc_classify_correct_answer`	| Classifying Good Correct Answers.	| Classification
+`task057.1_multirc_classify_incorrect_answer`	| Classifying Good Incorrect Answers.	| Classification
+`task057.2_multirc_classify_incorrect_answer`	| Classifying Good Incorrect Answers.	| Classification
+`task058.1_multirc_question_answering`	| Reading Comprehension Over Multiple Sentences.	| Classification
+`task058.2_multirc_question_answering`	| Reading Comprehension Over Multiple Sentences.	| Classification
+`task059.1_ropes_story_generation`	| Generating a story about relations in the given paragraph.	| Long Text Generation
+`task059.2_ropes_story_generation`	| Generating a story about relations in the given paragraph.	| Long Text Generation
+`task059.3_ropes_story_generation`	| Generating a story about relations in the given paragraph.	| Long Text Generation
+`task060.1_ropes_question_generation`	| Constructing questions regarding relations in the given paragraph.	| Question Generation
+`task060.2_ropes_question_generation`	| Constructing questions regarding relations in the given paragraph.	| Question Generation
+`task060.3_ropes_question_generation`	| Constructing questions regarding relations in the given paragraph.	| Question Generation
+`task061.1_ropes_answer_generation`	| Answering questions regarding relations in the given paragraph.	| Answer Generation
+`task061.2_ropes_answer_generation`	| Answering questions regarding relations in the given paragraph.	| Answer Generation
+`task061.3_ropes_answer_generation`	| Answering questions regarding relations in the given paragraph.	| Answer Generation
+`task062.1_bigbench_repeat_copy_logic`	|  Generating text that follows simple logical operations such as "repeat", "before", "after" etc.	| Logic
+`task062.2_bigbench_repeat_copy_logic`	|  Generating text that follows simple logical operations such as "repeat", "before", "after" etc.	| Logic
+`task062.3_bigbench_repeat_copy_logic`	|  Generating text that follows simple logical operations such as "repeat", "before", "after" etc.	| Logic
+`task065.1_timetravel_consistent_sentence_classification`	| Choosing the option that makes a given short story consistent. | Classification
+`task065.2_timetravel_consistent_sentence_classification`	| Choosing the option that makes a given short story consistent. | Classification
+`task065.3_timetravel_consistent_sentence_classification`	| Choosing the option that makes a given short story consistent. | Classification
+`task066.1_timetravel_binary_consistency_classification`	| Identifying if the given sentence is consistent with the given story. | Classification
+`task066.2_timetravel_binary_consistency_classification`	| Identifying if the given sentence is consistent with the given story. | Classification
+`task066.3_timetravel_binary_consistency_classification`	| Identifying if the given sentence is consistent with the given story. | Classification
+`task067.1_abductivenli_answer_generation`	|  Generating text that completes a story based on the beginning and ending.	| Answer Generation
+`task067.2_abductivenli_answer_generation`	|  Generating text that completes a story based on the beginning and ending.	| Answer Generation
+`task068.1_abductivenli_incorrect_answer_generation`	|  Generating text that modifies a story to be incorrect based on the beginning, middle, and ending.	| Answer Generation
+`task068.2_abductivenli_incorrect_answer_generation`	|  Generating text that modifies a story to be incorrect based on the beginning, middle, and ending.	| Answer Generation
+`task069.1_abductivenli_classification`	|  Choosing text that completes a story based on given beginning and ending.	| Classification
+`task069.2_abductivenli_classification`	|  Choosing text that completes a story based on given beginning and ending.	| Classification
+`task070.1_abductivenli_incorrect_classification`	|  Choosing text that incorrectly completes a story based on given beginning and ending.	| Classification
+`task070.2_abductivenli_incorrect_classification`	|  Choosing text that incorrectly completes a story based on given beginning and ending.	| Classification
+`task071.1_abductivenli_answer_generation`	|  Generating text that completes a story based on given beginning and middle.	| Answer Generation
+`task071.2_abductivenli_answer_generation`	|  Generating text that completes a story based on given beginning and middle.	| Answer Generation
