@@ -1,0 +1,2263 @@
+{
+    "Contributors": [
+        "Mehrad Moradshahi"
+    ],
+    "Source": [
+        "Semantic Parser Localizer (https://github.com/stanford-oval/SPL)"
+    ],
+    "Categories": [
+        "Translation"
+    ],
+    "Input_language": [
+        "English"
+    ],
+    "Output_language": [
+        "Arabic"
+    ],
+    "Definition": "The provided file includes inquiries about restaurants, and we ask you to translate those to the Arabic language. Please bear in mind the following guidelines while doing the translation: 1) We are looking for the most naturally written and formal form of each sentence in your language. We are *NOT* looking for colloquial forms of the sentence. We are looking for formal form which is how you would type your queries in a text-based virtual assistant. 2) The words between quotation marks *SHOULD NOT* be translated. We expect you to keep those values intact and include the quotation marks around them as well. 3) The fully capitalized words like DATE_0, or DURATION_0 *SHOULD NOT* be translated. Please keep them as they are in the translations. 4) Please do not localize measurement units like miles to kilometers during your translation. miles should be translated to its equivalent in your language. 6) Note the input is all lowercased except for fully capitalized special placeholders (e.g. NUMBER, DATE, TIME). Please do the same in your translations.",
+    "Domains": [
+        "Public Places -> Restaurants"
+    ],
+    "Positive Examples": [
+        {
+            "input": "are there any \" italian \" restaurants nearby with 1 star reviews ?",
+            "output": "\u0647\u0644 \u0647\u0646\u0627\u0643 \u0623\u064a \u0645\u0637\u0627\u0639\u0645 \" italian \" \u0628\u0627\u0644\u0642\u0631\u0628 \u0645\u0646 1 \u0645\u0646 \u0627\u0644\u062a\u0642\u064a\u064a\u0645\u0627\u062a \u0628\u0627\u0644\u0646\u062c\u0648\u0645\u061f",
+            "explanation": "The translation correctly preserves \" italian \" entity and is accurate"
+        },
+        {
+            "input": "what kind of food does this restaurant serve ?",
+            "output": "\u0645\u0627 \u0646\u0648\u0639 \u0627\u0644\u0637\u0639\u0627\u0645 \u0627\u0644\u0630\u064a \u064a\u0642\u062f\u0645\u0647 \u0647\u0630\u0627 \u0627\u0644\u0645\u0637\u0639\u0645\u061f",
+            "explanation": "The translation is fluent, formal, and accurate"
+        },
+        {
+            "input": "what is the telephone number and location of the nearest \" chinese \" restaurant ?",
+            "output": "\u0645\u0627 \u0647\u0648 \u0631\u0642\u0645 \u0647\u0627\u062a\u0641 \u0648\u0645\u0648\u0642\u0639 \u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \" chinese \"\u061f",
+            "explanation": "The translation correctly preserves \" chinese \" entity. It's also fluent, correct, and lowercased."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "where is the closest \" wendy 's \" ?",
+            "output": "\u0623\u064a\u0646 \u064a\u0648\u062c\u062f \u0623\u0642\u0631\u0628 wendy 's\u061f",
+            "explanation": "Translation contain the entity \" wendy 's \" but quotation marks are dropped"
+        },
+        {
+            "input": "show me the closest \" mcdonald 's \"",
+            "output": "\u0623\u0631\u0646\u064a \u0623\u0642\u0631\u0628 \" McDonald's \"",
+            "explanation": "The output is not lowercased"
+        },
+        {
+            "input": "display all review descriptions authored by \" jennifer \" .",
+            "output": "\u0627\u0639\u0631\u0636 \u062c\u0645\u064a\u0639 \u0627\u0644\u062a\u064a \u0643\u062a\u0628\u0647\u0627 \" jennifer \".",
+            "explanation": "Translation of review descriptions is omitted from the output"
+        },
+        {
+            "input": "what is the phone number for \" noodle nirvana \" ?",
+            "output": "\u0645\u0627 \u0647\u0648 \u0631\u0642\u0645 \u0647\u0627\u062a\u0641 \" \u0627\u0644\u0645\u0639\u0643\u0631\u0648\u0646\u0629 \u0646\u064a\u0631\u0641\u0627\u0646\u0627 \"\u061f",
+            "explanation": "The restaurant name \" noodle nirvana \" is translated to \" \u0627\u0644\u0645\u0639\u0643\u0631\u0648\u0646\u0629 \u0646\u064a\u0631\u0641\u0627\u0646\u0627 \" instead of being kept intact"
+        },
+        {
+            "input": "can you tell me the rating of \" gold mirror \" in \" san francisco \" ?",
+            "output": "\u0647\u0644 \u064a\u0645\u0643\u0646\u0643 \u0623\u0646 \u062a\u062e\u0628\u0631\u0646\u064a \u0639\u0646 \u062a\u0635\u0646\u064a\u0641 \" san francisco \" \u0641\u064a \" gold mirror \"\u061f",
+            "explanation": "The position of entities is switched in the output"
+        }
+    ],
+    "Instances": [
+        {
+            "input": "find a \" mexican \" restaurant with 7 or more stars .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0639\u0645 \" mexican \" \u064a\u062d\u0645\u0644 7 \u0623\u0648 \u0623\u0643\u062b\u0631 \u0645\u0646 \u0627\u0644\u0646\u062c\u0648\u0645."
+            ]
+        },
+        {
+            "input": "search for \" vegetarian \" restaurants with 0 star reviews or better .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 \" vegetarian \" \u0628\u062a\u0642\u064a\u064a\u0645 0 \u0645\u0646 \u0627\u0644\u0646\u062c\u0648\u0645 \u0623\u0648 \u0623\u0641\u0636\u0644."
+            ]
+        },
+        {
+            "input": "search for \" italian \" restaurants with at least 4 reviews .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" italian \" \u0645\u0639 4 \u0645\u0646 \u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644."
+            ]
+        },
+        {
+            "input": "list \" italian \" restaurants with higher ratings that 4 stars .",
+            "output": [
+                "\u0642\u0645 \u0628\u0625\u062f\u0631\u0627\u062c \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" italian \" \u0630\u0627\u062a \u0627\u0644\u062a\u0635\u0646\u064a\u0641\u0627\u062a \u0627\u0644\u0623\u0639\u0644\u0649 \u0627\u0644\u062a\u064a \u064a\u0628\u0644\u063a 4 \u0645\u0646 \u0627\u0644\u0646\u062c\u0648\u0645."
+            ]
+        },
+        {
+            "input": "look for a \" japanese \" restaurant that is the closest to me .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0639\u0645 \" japanese \" \u0627\u0644\u0623\u0642\u0631\u0628 \u0625\u0644\u064a."
+            ]
+        },
+        {
+            "input": "what 's the telephone number of the \" arby 's \" on \" sherman in muskegon , mi \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0631\u0642\u0645 \u0647\u0627\u062a\u0641 \" arby 's \" \u0641\u064a \" sherman in muskegon , mi \"\u061f"
+            ]
+        },
+        {
+            "input": "what is the closest \" italian \" restaurant with at least a 6 star rating ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \" italian \" \u062d\u0627\u0635\u0644 \u0639\u0644\u0649 \u062a\u0635\u0646\u064a\u0641 6 \u0645\u0646 \u0627\u0644\u0646\u062c\u0648\u0645 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644\u061f"
+            ]
+        },
+        {
+            "input": "what is the closest \" coffee bean \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u064a \u0623\u0642\u0631\u0628 \" coffee bean \"\u061f"
+            ]
+        },
+        {
+            "input": "where is the nearest \" mexican \" restaurant ?",
+            "output": [
+                "\u0623\u064a\u0646 \u064a\u0648\u062c\u062f \u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \" mexican \"\u061f"
+            ]
+        },
+        {
+            "input": "show me the review for \" harry 's seafood grill \" by \" antoine waring \"",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u062a\u0639\u0644\u064a\u0642\u064b\u0627 \u0644\u0640 \" harry 's seafood grill \" \u0645\u0646 \u0637\u0631\u0641 \" antoine waring \""
+            ]
+        },
+        {
+            "input": "how well is \" pizza hut \" rated ?",
+            "output": [
+                "\u0645\u0627 \u0645\u062f\u0649 \u062c\u0648\u062f\u0629 \" pizza hut \"\u061f"
+            ]
+        },
+        {
+            "input": "what is the rating of that \" mcdonald ' \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u062a\u0635\u0646\u064a\u0641 \" mcdonald ' \"\u061f"
+            ]
+        },
+        {
+            "input": "where is the nearest \" italian \" restaurant .",
+            "output": [
+                "\u0623\u064a\u0646 \u064a\u0648\u062c\u062f \u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \" italian \"."
+            ]
+        },
+        {
+            "input": "search for an \" italian \" restaurant in \" dallas \" with at least 9 reviews .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0639\u0645 \" italian \" \u0641\u064a \" dallas \" \u0645\u0639 9 \u0645\u0646 \u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644."
+            ]
+        },
+        {
+            "input": "what is the rating for the \" la unica \" in \" huntersville \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u062a\u0642\u064a\u064a\u0645 \" la unica \" \u0641\u064a \" huntersville \"\u061f"
+            ]
+        },
+        {
+            "input": "what is the rating of \" olive garden \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u062a\u0642\u064a\u064a\u0645 \" olive garden \"\u061f"
+            ]
+        },
+        {
+            "input": "show me the location and name of the nearest \" chinese \" restaurant .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0645\u0643\u0627\u0646 \u0648\u0627\u0633\u0645 \u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \" chinese \"."
+            ]
+        },
+        {
+            "input": "show me the closest \" starbucks \" with at least 10 stars .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0623\u0642\u0631\u0628 \" starbucks \" \u0645\u0639 10 \u0646\u062c\u0645\u0629 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644."
+            ]
+        },
+        {
+            "input": "search for 4 star restaurants in the \" 49503 \" zip code .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 4 \u0646\u062c\u0648\u0645 \u0641\u064a \u0627\u0644\u0631\u0645\u0632 \u0627\u0644\u0628\u0631\u064a\u062f\u064a \" 49503 \"."
+            ]
+        },
+        {
+            "input": "what is the price range for \" noodle express \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0627\u0644\u0646\u0637\u0627\u0642 \u0627\u0644\u0633\u0639\u0631\u064a \u0644\u0640 \" noodle express \"\u061f"
+            ]
+        },
+        {
+            "input": "show me 5 star \" mexican \" restaurants that have more than 10 reviews .",
+            "output": [
+                "\u0623\u0638\u0647\u0631 \u0644\u064a 5 \u0645\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" mexican \" \u0627\u0644\u062a\u064a \u062a\u062d\u062a\u0648\u064a \u0639\u0644\u0649 \u0623\u0643\u062b\u0631 \u0645\u0646 10 \u0645\u0646 \u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a."
+            ]
+        },
+        {
+            "input": "can you show me all the 6 star restaurants in the area ?",
+            "output": [
+                "\u0647\u0644 \u064a\u0645\u0643\u0646\u0643 \u0623\u0646 \u062a\u0631\u064a\u0646\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0645\u0646 \u0641\u0626\u0629 6 \u0646\u062c\u0648\u0645 \u0641\u064a \u0627\u0644\u0645\u0646\u0637\u0642\u0629\u061f"
+            ]
+        },
+        {
+            "input": "what is the phone number for the nearest \" wendy 's \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0631\u0642\u0645 \u0647\u0627\u062a\u0641 \u0623\u0642\u0631\u0628 \" wendy 's \"\u061f"
+            ]
+        },
+        {
+            "input": "what is the rating for this restaurant and how many reviews does it have ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u062a\u0635\u0646\u064a\u0641 \u0647\u0630\u0627 \u0627\u0644\u0645\u0637\u0639\u0645 \u0648\u0643\u0645 \u0639\u062f\u062f \u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0627\u0644\u062a\u064a \u062d\u0635\u0644 \u0639\u0644\u064a\u0647\u0627\u061f"
+            ]
+        },
+        {
+            "input": "i want to see what \" chinese \" restaurants are on \" madison avenue \" .",
+            "output": [
+                "\u0623\u0631\u064a\u062f \u0623\u0646 \u0623\u0631\u0649 \u0645\u0627 \u0647\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" chinese \" \u0627\u0644\u0645\u0648\u062c\u0648\u062f\u0629 \u0641\u064a \u0634\u0627\u0631\u0639 \" madison avenue \"."
+            ]
+        },
+        {
+            "input": "how many reviews has \" mike \" written about \" pizza hut \" ?",
+            "output": [
+                "\u0643\u0645 \u0639\u062f\u062f \u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0627\u0644\u062a\u064a \u0643\u062a\u0628\u0647\u0627 \" mike \" \u0639\u0646 \" pizza hut \"\u061f"
+            ]
+        },
+        {
+            "input": "find \" mexican \" restaurants with at least 6 star rating .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" mexican \" \u0628\u062a\u0635\u0646\u064a\u0641 6 \u0645\u0646 \u0627\u0644\u0646\u062c\u0648\u0645 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644."
+            ]
+        },
+        {
+            "input": "show me all reviews written by \" paul \" on DATE_0 .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0627\u0644\u062a\u064a \u0643\u062a\u0628\u0647\u0627 \" paul \" \u0641\u064a date_0."
+            ]
+        },
+        {
+            "input": "show \" tina \" 's 0 star reviews of \" pizza \" joints .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u062a\u0639\u0644\u064a\u0642\u0627\u062a \" tina \" \u0627\u0644\u0640 0 \u0628\u0627\u0644\u0646\u062c\u0648\u0645 \u0628\u0634\u0623\u0646 \" pizza \"."
+            ]
+        },
+        {
+            "input": "are there any 0 star \" mexican \" restaurants nearby ?",
+            "output": [
+                "\u0647\u0644 \u062a\u0648\u062c\u062f \u0645\u0637\u0627\u0639\u0645 0 \u0646\u062c\u0648\u0645 \" mexican \" \u0641\u064a \u0627\u0644\u062c\u0648\u0627\u0631\u061f"
+            ]
+        },
+        {
+            "input": "search for \" mexican \" restaurants with at least 6 reviews .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 \" mexican \" \u062a\u062d\u062a\u0648\u064a \u0639\u0644\u0649 6 \u0645\u0646 \u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644."
+            ]
+        },
+        {
+            "input": "find a restaurant that serves \" italian \" food with at least 4 reviews .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0639\u0645 \u064a\u0642\u062f\u0645 \u0627\u0644\u0637\u0639\u0627\u0645 \" italian \" \u0645\u0639 4 \u062a\u0639\u0644\u064a\u0642 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644."
+            ]
+        },
+        {
+            "input": "what is the nearest \" mexican \" restaurant with a 8 star rating ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \" mexican \" \u0628\u062a\u0635\u0646\u064a\u0641 8 \u0646\u062c\u0648\u0645\u061f"
+            ]
+        },
+        {
+            "input": "can you give me the phone number for the nearest 8 star \" coffee \" house ?",
+            "output": [
+                "\u0647\u0644 \u064a\u0645\u0643\u0646 \u0623\u0646 \u062a\u0639\u0637\u064a\u0646\u064a \u0631\u0642\u0645 \u0627\u0644\u0647\u0627\u062a\u0641 \u0644\u0623\u0642\u0631\u0628 \u0628\u064a\u062a \" coffee  \" \u0628\u0640 8 \u0645\u0646 \u0646\u062c\u0648\u0645\u061f"
+            ]
+        },
+        {
+            "input": "what is the \" panda express \" in \" gainesville , fl \" rated ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u062a\u0635\u0646\u064a\u0641 \" panda express \" \u0641\u064a \" gainesville , fl \"\u061f"
+            ]
+        },
+        {
+            "input": "what is the star rating for \" tilted kilt \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u062a\u0635\u0646\u064a\u0641 \" tilted kilt \" \u0628\u0627\u0644\u0646\u062c\u0648\u0645\u061f"
+            ]
+        },
+        {
+            "input": "what are the latest reviews and review scores for this restaurant ?",
+            "output": [
+                "\u0645\u0627 \u0647\u064a \u0622\u062e\u0631 \u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0648\u0627\u0644\u062a\u0642\u064a\u064a\u0645\u0627\u062a \u0644\u0647\u0630\u0627 \u0627\u0644\u0645\u0637\u0639\u0645\u061f"
+            ]
+        },
+        {
+            "input": "where is the closest \" starbucks \" ?",
+            "output": [
+                "\u0623\u064a\u0646 \u064a\u0648\u062c\u062f \u0623\u0642\u0631\u0628 \" starbucks \"\u061f"
+            ]
+        },
+        {
+            "input": "search for all 10 star , \" vegan \" restaurants in the area .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" vegan \" \u0645\u0646 \u0641\u0626\u0629 10 \u0646\u062c\u0648\u0645 \u0641\u064a \u0627\u0644\u0645\u0646\u0637\u0642\u0629."
+            ]
+        },
+        {
+            "input": "can you tell me where the closest \" pizza hut \" is ?",
+            "output": [
+                "\u0647\u0644 \u064a\u0645\u0643\u0646\u0643 \u0623\u0646 \u062a\u062e\u0628\u0631\u0646\u064a \u0623\u064a\u0646 \u0623\u0642\u0631\u0628 \" pizza hut \"\u061f"
+            ]
+        },
+        {
+            "input": "what is the rating of \" tgi fridays \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u062a\u0635\u0646\u064a\u0641 \" tgi fridays \"\u061f"
+            ]
+        },
+        {
+            "input": "show me a list of \" vegan \" restaurants with at least 2 reviews .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0642\u0627\u0626\u0645\u0629 \u0645\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" vegan \" \u0627\u0644\u062a\u064a \u062a\u062d\u062a\u0648\u064a \u0639\u0644\u0649 2 \u0645\u0646 \u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644."
+            ]
+        },
+        {
+            "input": "can i read the description of the closest \" italian \" restaurant ?",
+            "output": [
+                "\u0647\u0644 \u064a\u0645\u0643\u0646\u0646\u064a \u0642\u0631\u0627\u0621\u0629 \u0648\u0635\u0641 \u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \" italian \"\u061f"
+            ]
+        },
+        {
+            "input": "what is the price range for \" pizza ranch \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0627\u0644\u0646\u0637\u0627\u0642 \u0627\u0644\u0633\u0639\u0631\u064a \u0644\u0640 \" pizza ranch \"\u061f"
+            ]
+        },
+        {
+            "input": "show description of the closest 2 star restaurant .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0648\u0635\u0641 \u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \u0645\u0646 \u0635\u0646\u0641 2 \u0646\u062c\u0648\u0645."
+            ]
+        },
+        {
+            "input": "what is the telephone number for the nearest \" chinese \" restaurant ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0631\u0642\u0645 \u0647\u0627\u062a\u0641 \u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \" chinese \"\u061f"
+            ]
+        },
+        {
+            "input": "what is the highest rated restaurant in this area ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0627\u0644\u0645\u0637\u0639\u0645 \u0627\u0644\u0623\u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645\u064b\u0627 \u0641\u064a \u0647\u0630\u0647 \u0627\u0644\u0645\u0646\u0637\u0642\u0629\u061f"
+            ]
+        },
+        {
+            "input": "search for \" vegan \" restaurants in \" lakeland , fl \" with at least 3 reviews",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 \" vegan \" \u0641\u064a \" lakeland , fl \" \u0645\u0639 3 \u0645\u0646 \u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644"
+            ]
+        },
+        {
+            "input": "how close am i to \" art 's deli \" or \" carnegie deli \" ?",
+            "output": [
+                "\u0645\u0627 \u0645\u062f\u0649 \u0642\u0631\u0628\u064a \u0645\u0646 \" art 's deli \" \u0623\u0648 \" carnegie deli \"\u061f"
+            ]
+        },
+        {
+            "input": "show me all \" chinese \" restaurants with 5 star ratings within 1 miles .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" chinese \" \u0627\u0644\u062a\u064a \u062d\u0635\u0644\u062a \u0639\u0644\u0649 5 \u0645\u0646 \u0627\u0644\u062a\u0642\u064a\u064a\u0645\u0627\u062a \u0628\u0627\u0644\u0646\u062c\u0648\u0645 \u0636\u0645\u0646 1 \u0645\u064a\u0644."
+            ]
+        },
+        {
+            "input": "what is the address of the \" dunkin donuts \" closet to me ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0639\u0646\u0648\u0627\u0646 \u062e\u0632\u0627\u0646\u0629 \" dunkin donuts \" \u0628\u0627\u0644\u0646\u0633\u0628\u0629 \u0644\u064a\u061f"
+            ]
+        },
+        {
+            "input": "tell me the location of \" flo 's \" \" chinese \" restaurant in \" scottsdale , arizona \" .",
+            "output": [
+                "\u0623\u062e\u0628\u0631\u0646\u064a \u0628\u0645\u0643\u0627\u0646 \u0645\u0637\u0639\u0645 \" flo 's \" \" chinese \" \u0641\u064a \" scottsdale , arizona \"."
+            ]
+        },
+        {
+            "input": "what is the telephone number for \" krispy kreme \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0631\u0642\u0645 \u0647\u0627\u062a\u0641 \" krispy kreme \"\u061f"
+            ]
+        },
+        {
+            "input": "where is the nearest \" boston market \" ?",
+            "output": [
+                "\u0623\u064a\u0646 \u064a\u0642\u0639 \u0623\u0642\u0631\u0628 \" boston market \"\u061f"
+            ]
+        },
+        {
+            "input": "how far away is the closest \" olive garden \" ?",
+            "output": [
+                "\u0643\u0645 \u062a\u0628\u0639\u062f \u0623\u0642\u0631\u0628 \" olive garden \"\u061f"
+            ]
+        },
+        {
+            "input": "what is the address of the \" panda express \" in \" grand rapids , michigan \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0639\u0646\u0648\u0627\u0646  \" panda express \" \u0641\u064a \" grand rapids , michigan \"\u061f"
+            ]
+        },
+        {
+            "input": "where is the nearest \" mexican \" restaurant with at least a 7 star review ?",
+            "output": [
+                "\u0623\u064a\u0646 \u064a\u0648\u062c\u062f \u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \" mexican \" \u0628\u062a\u0642\u064a\u064a\u0645 7 \u0645\u0646 \u0627\u0644\u0646\u062c\u0648\u0645 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644\u061f"
+            ]
+        },
+        {
+            "input": "what are the prices for the 0 highest rated \" italian \" restaurants in \" roanoke , va \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u064a \u0623\u0633\u0639\u0627\u0631 \u0623\u0641\u0636\u0644 0 \u0645\u0637\u0627\u0639\u0645 \"italian\" \u0645\u0635\u0646\u0641\u0629 \u0641\u064a \"roanoke , va\"\u061f"
+            ]
+        },
+        {
+            "input": "let me see the reviews for the \" jimmy john 's \" nearest to me ?",
+            "output": [
+                "\u062f\u0639\u0646\u064a \u0623\u0631\u0649 \u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0644\u0623\u0642\u0631\u0628 \" jimmy john 's \" \u0628\u0627\u0644\u0646\u0633\u0628\u0629 \u0644\u064a\u061f"
+            ]
+        },
+        {
+            "input": "what is a 5 star \" mexican \" restaurant ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0627\u0644\u0645\u0637\u0639\u0645 \" mexican \" \u0628\u0640 5 \u0646\u062c\u0648\u0645\u061f"
+            ]
+        },
+        {
+            "input": "what places close to me have 2 star reviews ?",
+            "output": [
+                "\u0645\u0627 \u0627\u0644\u0623\u0645\u0627\u0643\u0646 \u0627\u0644\u0642\u0631\u064a\u0628\u0629 \u0645\u0646\u064a \u0627\u0644\u062a\u064a \u062a\u062d\u062a\u0648\u064a \u0639\u0644\u0649 2 \u0645\u0646 \u0627\u0644\u062a\u0642\u064a\u064a\u0645\u0627\u062a \u0628\u0627\u0644\u0646\u062c\u0648\u0645\u061f"
+            ]
+        },
+        {
+            "input": "search for 8 star rated \" italian \" food in \" dallas \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0639\u0645 \" italian \" \u0645\u0635\u0646\u0641 \u0628\u0640 8 \u0645\u0646 \u0627\u0644\u0646\u062c\u0648\u0645 \u0641\u064a \" dallas \"."
+            ]
+        },
+        {
+            "input": "can you show me 8 star reviews written by \" john smith \" .",
+            "output": [
+                "\u0647\u0644 \u064a\u0645\u0643\u0646\u0643 \u0623\u0646 \u062a\u0631\u064a\u0646\u064a 8 \u0645\u0646 \u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0627\u0644\u062a\u064a \u0643\u062a\u0628\u0647\u0627 \" john smith \"\u061f"
+            ]
+        },
+        {
+            "input": "how many 1 star reviews are there for \" peet 's coffee \" ?",
+            "output": [
+                "\u0643\u0645 \u0639\u062f\u062f \u062a\u0642\u064a\u064a\u0645\u0627\u062a \u0627\u0644\u0646\u062c\u0645\u0629 \u0627\u0644\u0648\u0627\u062d\u062f\u0629 \u0644\u0640 \" peet 's coffee \"\u061f"
+            ]
+        },
+        {
+            "input": "i want to see all of the 1 star reviews that \" sheila \" wrote .",
+            "output": [
+                "\u0623\u0631\u064a\u062f \u0623\u0646 \u0623\u0631\u0649 \u062c\u0645\u064a\u0639 \u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0627\u0644\u062a\u064a \u0643\u062a\u0628\u062a\u0647\u0627 \" sheila \" \u0628\u0646\u062c\u0645\u0629 \u0648\u0627\u062d\u062f\u0629."
+            ]
+        },
+        {
+            "input": "locate all \" italian \" restaurants .",
+            "output": [
+                "\u062a\u062d\u062f\u064a\u062f \u0645\u0648\u0642\u0639 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" italian \"."
+            ]
+        },
+        {
+            "input": "can you look for a restaurant with a rating of 8 ?",
+            "output": [
+                "\u0647\u0644 \u064a\u0645\u0643\u0646\u0643 \u0627\u0644\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0639\u0645 \u0628\u062a\u0642\u064a\u064a\u0645 8\u061f"
+            ]
+        },
+        {
+            "input": "looking to book a restaurant with at least 7 reviews .",
+            "output": [
+                "\u0623\u062a\u0637\u0644\u0639 \u0644\u062d\u062c\u0632 \u0645\u0637\u0639\u0645 \u0628\u0640 7 \u062a\u0639\u0644\u064a\u0642\u064b\u0627 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644"
+            ]
+        },
+        {
+            "input": "search for \" bayshore bean \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \"bayshore bean\"."
+            ]
+        },
+        {
+            "input": "show me \" vietnamese \" restaurants .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0645\u0637\u0627\u0639\u0645 \"vietnamese\"."
+            ]
+        },
+        {
+            "input": "find all the \" bakeries \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u062c\u0645\u064a\u0639 \"bakeries\"."
+            ]
+        },
+        {
+            "input": "show me all restaurants rated with exactly 7 stars .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u062a\u0642\u064a\u064a\u0645 7 \u0646\u062c\u0648\u0645 \u0628\u0627\u0644\u0636\u0628\u0637."
+            ]
+        },
+        {
+            "input": "where is \" los compadres \" ?",
+            "output": [
+                "\u0623\u064a\u0646 \"los compadres\"\u061f"
+            ]
+        },
+        {
+            "input": "find \" thai \" restaurants .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0645\u0637\u0627\u0639\u0645 \"thai\"."
+            ]
+        },
+        {
+            "input": "show me \" cook out \" .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \"cook out\"."
+            ]
+        },
+        {
+            "input": "find restaurants with more than 7 reviews .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 \u0623\u0643\u062b\u0631 \u0645\u0646 7 \u0645\u0631\u0627\u062c\u0639\u0629."
+            ]
+        },
+        {
+            "input": "does the \" lone star steakhouse \" in \" dallas nc \" have a review yet ?",
+            "output": [
+                "\u0647\u0644 \"lone star steakhouse\" \u0641\u064a \"dallas nc\" \u062d\u0627\u0635\u0644 \u0639\u0644\u0649 \u0623\u064a \u0645\u0631\u0627\u062c\u0639\u0629\u061f"
+            ]
+        },
+        {
+            "input": "can you show me the ratings for \" j dog \" ?",
+            "output": [
+                "\u0647\u0644 \u064a\u0645\u0643\u0646\u0643 \u0623\u0646 \u062a\u0631\u064a\u0646\u064a \u062a\u0642\u064a\u064a\u0645\u0627\u062a \"j dog\"\u061f"
+            ]
+        },
+        {
+            "input": "can you find the restaurant nearest to my location ?",
+            "output": [
+                "\u0647\u0644 \u064a\u0645\u0643\u0646\u0643 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u0627\u0644\u0645\u0637\u0639\u0645 \u0627\u0644\u0623\u0642\u0631\u0628 \u0644\u0645\u0648\u0642\u0639\u064a\u061f"
+            ]
+        },
+        {
+            "input": "look up a \" mexican \" restaurant for me .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0644\u064a \u0639\u0646 \u0645\u0637\u0639\u0645 \"mexican\"."
+            ]
+        },
+        {
+            "input": "find me a restaurant on \" main st . \" please .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0644\u064a \u0639\u0646 \u0645\u0637\u0639\u0645 \"main st .\" \u0645\u0646 \u0641\u0636\u0644\u0643."
+            ]
+        },
+        {
+            "input": "show me the highest rated restaurant please .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0627\u0644\u0645\u0637\u0639\u0645 \u0627\u0644\u0623\u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645\u064b\u0627 \u0645\u0646 \u0641\u0636\u0644\u0643."
+            ]
+        },
+        {
+            "input": "what restaurant has the highest review count ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0627\u0644\u0645\u0637\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644 \u0639\u0644\u0649 \u0623\u0639\u0644\u0649 \u0639\u062f\u062f \u0645\u0646 \u0627\u0644\u0645\u0631\u0627\u062c\u0639\u0627\u062a\u061f"
+            ]
+        },
+        {
+            "input": "what restaurant does \" jeff weisnear \" review for ?",
+            "output": [
+                "\u0645\u0627 \u0627\u0644\u0645\u0637\u0639\u0645 \u0627\u0644\u0630\u064a \u0642\u062f\u0645 \"jeff weisnear \" \u0645\u0631\u0627\u062c\u0639\u0629 \u0639\u0644\u064a\u0647\u061f"
+            ]
+        },
+        {
+            "input": "search for \" korean bbq \" restaurants .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 \"korean bbq\"."
+            ]
+        },
+        {
+            "input": "how many reviews does the place have ?",
+            "output": [
+                "\u0643\u0645 \u0639\u062f\u062f \u0627\u0644\u0645\u0631\u0627\u062c\u0639\u0627\u062a \u0627\u0644\u062d\u0627\u0635\u0644 \u0639\u0644\u064a\u0647\u0627 \u0647\u0630\u0627 \u0627\u0644\u0645\u0643\u0627\u0646\u061f"
+            ]
+        },
+        {
+            "input": "where is the nearest \" chinese \" place ?",
+            "output": [
+                "\u0623\u064a\u0646 \u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \"chinese\"\u061f"
+            ]
+        },
+        {
+            "input": "how many places to eat are nearby ?",
+            "output": [
+                "\u0643\u0645 \u0639\u062f\u062f \u0627\u0644\u0623\u0645\u0627\u0643\u0646 \u0627\u0644\u0642\u0631\u064a\u0628\u0629 \u0644\u062a\u0646\u0627\u0648\u0644 \u0627\u0644\u0637\u0639\u0627\u0645\u061f"
+            ]
+        },
+        {
+            "input": "show all the restaurants below 1 stars .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 \u0623\u0642\u0644 \u0645\u0646 1 \u0646\u062c\u0648\u0645."
+            ]
+        },
+        {
+            "input": "give me all the \" italian \" places .",
+            "output": [
+                "\u0623\u0628\u062d\u062b \u0639\u0646 \u062c\u0645\u064a\u0639 \u0645\u0637\u0627\u0639\u0645 \"italian\"."
+            ]
+        },
+        {
+            "input": "find restaurants rated lower than 5 .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u0627\u0644\u062a\u0642\u064a\u064a\u0645 \u0627\u0644\u0623\u0642\u0644 \u0645\u0646 5."
+            ]
+        },
+        {
+            "input": "find \" mexican \" restaurants .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 \"mexican\"."
+            ]
+        },
+        {
+            "input": "show me \" french \" restaurants .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0645\u0637\u0627\u0639\u0645 \"french\"."
+            ]
+        },
+        {
+            "input": "show me \" le pain quotidien \" .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \"le pain quotidien\"."
+            ]
+        },
+        {
+            "input": "find restaurants with more than 1 reviews .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 \u0623\u0643\u062b\u0631 \u0645\u0646 1 \u0645\u0631\u0627\u062c\u0639\u0629."
+            ]
+        },
+        {
+            "input": "is there a restaurant named \" china king \" ?",
+            "output": [
+                "\u0647\u0644 \u064a\u0648\u062c\u062f \u0645\u0637\u0639\u0645 \u0627\u0633\u0645\u0647 \"china king\"\u061f"
+            ]
+        },
+        {
+            "input": "what 's the lowest rated diner in my area ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0623\u0642\u0644 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u062a\u0642\u064a\u064a\u0645\u064b\u0627 \u0641\u064a \u0645\u0646\u0637\u0642\u062a\u064a\u061f"
+            ]
+        },
+        {
+            "input": "what is the highest rated restaurant ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0627\u0644\u0645\u0637\u0639\u0645 \u0627\u0644\u0623\u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645\u064b\u0627\u061f"
+            ]
+        },
+        {
+            "input": "is there a \" japanese \" restaurant nearby ?",
+            "output": [
+                "\u0647\u0644 \u0647\u0646\u0627\u0643 \u0645\u0637\u0639\u0645 \"japanese\" \u0642\u0631\u064a\u0628\u061f"
+            ]
+        },
+        {
+            "input": "what 's the address of the closest restaurant ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0639\u0646\u0648\u0627\u0646 \u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645\u061f"
+            ]
+        },
+        {
+            "input": "where is \" thai kitchen \" ?",
+            "output": [
+                "\u0623\u064a\u0646 \"thai kitchen\"\u061f"
+            ]
+        },
+        {
+            "input": "show me \" mexican \" restaurants",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0645\u0637\u0627\u0639\u0645 \"mexican\""
+            ]
+        },
+        {
+            "input": "show me all 7 star restaurants",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 7 \u0646\u062c\u0648\u0645"
+            ]
+        },
+        {
+            "input": "show me \" main street \" restaurants",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0645\u0637\u0627\u0639\u0645 \"main street\""
+            ]
+        },
+        {
+            "input": "show the address of \" thai corner \"",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0639\u0646\u0648\u0627\u0646 \"thai corner\""
+            ]
+        },
+        {
+            "input": "search for the nearest \" wendy 's \" restaurant ?",
+            "output": [
+                "\u0647\u0644 \u062a\u0628\u062d\u062b \u0639\u0646 \u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \"wendy's\"\u061f"
+            ]
+        },
+        {
+            "input": "find a \" steak house \" restaurant ?",
+            "output": [
+                "\u0647\u0644 \u062a\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0639\u0645 \"steak house\"\u061f"
+            ]
+        },
+        {
+            "input": "show me \" mediterranean \" restaurants ?",
+            "output": [
+                "\u0647\u0644 \u062a\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 \"mediterranean\"\u061f"
+            ]
+        },
+        {
+            "input": "show me the best rated restaurants",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0623\u0641\u0636\u0644 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u062a\u0642\u064a\u064a\u0645\u064b\u0627"
+            ]
+        },
+        {
+            "input": "show me restaurants near me",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0642\u0631\u064a\u0628\u0629 \u0645\u0646\u064a"
+            ]
+        },
+        {
+            "input": "show me restaurants with the most reviews",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 \u0623\u0643\u062b\u0631 \u0627\u0644\u0645\u0631\u0627\u062c\u0639\u0627\u062a"
+            ]
+        },
+        {
+            "input": "find me \" pizza \" places",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0644\u064a \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 \"pizza\""
+            ]
+        },
+        {
+            "input": "find a \" pizza \" place .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0639\u0645 \"pizza\"."
+            ]
+        },
+        {
+            "input": "show me a \" sushi \" restaurant .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0645\u0637\u0639\u0645 \"sushi\"."
+            ]
+        },
+        {
+            "input": "find all 8 star \" bbq \" places .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u062c\u0645\u064a\u0639 \u0645\u0637\u0627\u0639\u0645 \"bbq\" \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 8 \u0646\u062c\u0648\u0645."
+            ]
+        },
+        {
+            "input": "show me \" italian \" restaurants .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0645\u0637\u0627\u0639\u0645 \"italian\"."
+            ]
+        },
+        {
+            "input": "find all 5 star diners .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 5 \u0646\u062c\u0648\u0645."
+            ]
+        },
+        {
+            "input": "i 'd like to see restaurants with at least a rating of 2 .",
+            "output": [
+                "\u0623\u0631\u063a\u0628 \u0641\u064a \u0631\u0624\u064a\u0629 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645 2 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644."
+            ]
+        },
+        {
+            "input": "can you show me \" italian \" restaurants ?",
+            "output": [
+                "\u0647\u0644 \u064a\u0645\u0643\u0646\u0643 \u0623\u0646 \u062a\u0631\u064a\u0646\u064a \u0645\u0637\u0627\u0639\u0645 \"italian\"\u061f"
+            ]
+        },
+        {
+            "input": "what is the price range for the top rated \" mexican \" restaurant ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0627\u0644\u0646\u0637\u0627\u0642 \u0627\u0644\u0633\u0639\u0631\u064a \u0644\u0644\u0645\u0637\u0639\u0645 \"mexican\" \u0627\u0644\u0623\u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645\u064b\u0627\u061f"
+            ]
+        },
+        {
+            "input": "find \" mod pizza \" for me .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0644\u064a \u0639\u0646 \"mod pizza\"."
+            ]
+        },
+        {
+            "input": "who wrote the latest review for \" first wok \" ?",
+            "output": [
+                "\u0645\u0646 \u0627\u0644\u0630\u064a \u0643\u062a\u0628 \u0622\u062e\u0631 \u0645\u0631\u0627\u062c\u0639\u0629 \u0644\u0640 \"first wok\"\u061f"
+            ]
+        },
+        {
+            "input": "show me restaurants with a rating of 5 .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645 5."
+            ]
+        },
+        {
+            "input": "find me some \" coffee \" shops .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0628\u0639\u0636 \u0645\u0642\u0627\u0647\u064a \"coffee\"."
+            ]
+        },
+        {
+            "input": "search for \" hamburger \" joints .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 \"hamburger\"."
+            ]
+        },
+        {
+            "input": "what are the restaurants reviewed by \" mark \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u0642\u062f\u0645 \"mark\" \u0645\u0631\u0627\u062c\u0639\u0627\u062a \u0639\u0646\u0647\u0627\u061f"
+            ]
+        },
+        {
+            "input": "show me all the restaurants with a rating of more than 0 .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645 \u064a\u0632\u064a\u062f \u0639\u0646 0."
+            ]
+        },
+        {
+            "input": "look for \" american \" restaurants close by .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 \"american\" \u0628\u0627\u0644\u062c\u0648\u0627\u0631."
+            ]
+        },
+        {
+            "input": "show me any \" mexican \" restaurant .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0623\u064a \u0645\u0637\u0639\u0645 \"mexican\"."
+            ]
+        },
+        {
+            "input": "find all of the restaurants that have a rating about 3 .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645 \u0642\u0631\u064a\u0628 \u0625\u0644\u0649 3."
+            ]
+        },
+        {
+            "input": "locate \" los cabos \" for me .",
+            "output": [
+                "\u062d\u062f\u062f \u0644\u064a \u0645\u0648\u0642\u0639 \"los cabos\"."
+            ]
+        },
+        {
+            "input": "tell me the postal code for \" red robin \" .",
+            "output": [
+                "\u0623\u062e\u0628\u0631\u0646\u064a \u0628\u0627\u0644\u0631\u0645\u0632 \u0627\u0644\u0628\u0631\u064a\u062f\u064a \u0644\u0640 \"red robin\"."
+            ]
+        },
+        {
+            "input": "display a list of \" thai \" restaurants .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0642\u0627\u0626\u0645\u0629 \u0645\u0637\u0627\u0639\u0645 \"thai\"."
+            ]
+        },
+        {
+            "input": "find all restaurants in my downtown area .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0644\u064a \u0639\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0641\u064a \u0645\u0646\u0637\u0642\u0629 \u0648\u0633\u0637 \u0647\u0630\u0647 \u0627\u0644\u0645\u062f\u064a\u0646\u0629."
+            ]
+        },
+        {
+            "input": "display restaurants with at least 5 reviews .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 5 \u0645\u0631\u0627\u062c\u0639\u0629 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644."
+            ]
+        },
+        {
+            "input": "show me all restaurant reviews by \" john smith \" .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u0642\u062f\u0645 \"john smith\" \u0645\u0631\u0627\u062c\u0639\u0627\u062a \u0639\u0646\u0647\u0627."
+            ]
+        },
+        {
+            "input": "search for \" china wok \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \"china wok\"."
+            ]
+        },
+        {
+            "input": "show me \" sushi \" restaurants .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0645\u0637\u0627\u0639\u0645 \"sushi\"."
+            ]
+        },
+        {
+            "input": "show me 1 star restaurants .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 \u0646\u062c\u0645\u0629 \u0648\u0627\u062d\u062f\u0629."
+            ]
+        },
+        {
+            "input": "find all restaurants with a rating of 10 .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645 10."
+            ]
+        },
+        {
+            "input": "search for \" luby 's cafeteria \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \"luby 's cafeteria\"."
+            ]
+        },
+        {
+            "input": "search for all 7 star restaurants .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 7 \u0646\u062c\u0648\u0645."
+            ]
+        },
+        {
+            "input": "search for \" italian \" restaurants .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 \"italian\"."
+            ]
+        },
+        {
+            "input": "show me restaurants with a 4 reviews .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 4 \u0645\u0631\u0627\u062c\u0639\u0629."
+            ]
+        },
+        {
+            "input": "show all restaurants with a rating of 0 or higher .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u062a\u0642\u064a\u064a\u0645 0 \u0623\u0648 \u0623\u0639\u0644\u0649."
+            ]
+        },
+        {
+            "input": "search for \" itlaian \" cuisine restaurants .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0628\u0627\u0644\u0646\u0643\u0647\u0629 \" itlaian \"."
+            ]
+        },
+        {
+            "input": "show restaurants with at least 3 reviews .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a 3 \u0645\u064f\u0631\u0627\u062c\u0639\u0627\u062a \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644."
+            ]
+        },
+        {
+            "input": "display any restaurants with overall rating of 3 or above .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0623\u064a \u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u062a\u0635\u0646\u064a\u0641 \u0639\u0627\u0645 \u0628\u062f\u0631\u062c\u0629 3 \u0623\u0648 \u0623\u0639\u0644\u0649."
+            ]
+        },
+        {
+            "input": "i want to see some \" indian \" restaurants .",
+            "output": [
+                "\u0623\u0631\u063a\u0628 \u0641\u064a \u0627\u0644\u0625\u0637\u0644\u0627\u0639 \u0639\u0644\u0649 \u0628\u0639\u0636 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" indian \"."
+            ]
+        },
+        {
+            "input": "what is the closest restaurant to me ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \u0644\u064a\u061f"
+            ]
+        },
+        {
+            "input": "search for \" burger king \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \" burger king \"."
+            ]
+        },
+        {
+            "input": "show me restaurants that have a rating of at least 3 stars .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u0644\u0647\u0627 \u062a\u0642\u064a\u064a\u0645 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644 3 \u0646\u062c\u0645\u0629."
+            ]
+        },
+        {
+            "input": "find me a restaurant called \" lenny 's \"",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0644\u064a \u0639\u0646 \u0645\u0637\u0639\u0645 \u064a\u064f\u0633\u0645\u0649 \" lenny 's \""
+            ]
+        },
+        {
+            "input": "show me all \" german \" restaurants .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" german \""
+            ]
+        },
+        {
+            "input": "i would like to find \" brenda 's french soul food \" .",
+            "output": [
+                "\u0623\u0631\u063a\u0628 \u0641\u064a \u0625\u064a\u062c\u0627\u062f \" brenda 's french soul food \"."
+            ]
+        },
+        {
+            "input": "i want to see all \" italian \" restaurants .",
+            "output": [
+                "\u0623\u0631\u063a\u0628 \u0641\u064a \u0627\u0644\u0625\u0637\u0644\u0627\u0639 \u0639\u0644\u0649 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" italian \"."
+            ]
+        },
+        {
+            "input": "show me all restaurants that are rated 6 star .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u062a\u0642\u064a\u064a\u0645 6 \u0646\u0642\u0627\u0637."
+            ]
+        },
+        {
+            "input": "find me all restaurants that serve \" new american \" cuisine .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0644\u064a \u0639\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u062a\u064f\u0642\u062f\u0645 \u0627\u0644\u0637\u0639\u0627\u0645 \" new american \"."
+            ]
+        },
+        {
+            "input": "look for \" mai lee \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \" mai lee \"."
+            ]
+        },
+        {
+            "input": "find the \" vietnamese \" restaurants .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" vietnamese \"."
+            ]
+        },
+        {
+            "input": "find all reviews from \" jane \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u064f\u0631\u0627\u062c\u0639\u0627\u062a \u0645\u0646 \" jane \"."
+            ]
+        },
+        {
+            "input": "show restaurants with over 8 reviews .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u0627\u0644\u0645\u064f\u0631\u0627\u062c\u0639\u0627\u062a \u0623\u0639\u0644\u0649 \u0645\u0646 8."
+            ]
+        },
+        {
+            "input": "find the restaurants with a rating of 8 .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u062a\u0642\u064a\u064a\u0645 8."
+            ]
+        },
+        {
+            "input": "please give me a list of restaurants that are rated 1 and up .",
+            "output": [
+                "\u064a\u064f\u0631\u062c\u0649 \u0625\u0639\u0637\u0627\u0626\u064a \u0642\u0627\u0626\u0645\u0629 \u0628\u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u062a\u0642\u064a\u064a\u0645 1 \u0641\u0623\u0639\u0644\u0649."
+            ]
+        },
+        {
+            "input": "can you find the highest rated \" thai \" restaurant , please .",
+            "output": [
+                "\u0647\u0644 \u064a\u064f\u0645\u0643\u0646\u0643 \u0625\u064a\u062c\u0627\u062f \u0645\u0637\u0627\u0639\u0645 \" thai \" \u0630\u0627\u062a \u0623\u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645\u060c \u0631\u062c\u0627\u0621\u064b."
+            ]
+        },
+        {
+            "input": "i want to see the top \" mexican \" restaurants .",
+            "output": [
+                "\u0623\u0631\u063a\u0628 \u0641\u064a \u0627\u0644\u0625\u0637\u0644\u0627\u0639 \u0639\u0644\u0649 \u0623\u0639\u0644\u0649 \u0645\u0637\u0627\u0639\u0645 \" mexican \"."
+            ]
+        },
+        {
+            "input": "can you show me restaurants that have more than 10 reviews ?",
+            "output": [
+                "\u0647\u0644 \u064a\u0645\u0643\u0646\u0643 \u0623\u0646 \u062a\u0639\u0631\u0636 \u0644\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u0644\u0647\u0627 \u0645\u0627 \u064a\u0632\u064a\u062f \u0639\u0644\u0649 10 \u0645\u064f\u0631\u0627\u062c\u0639\u0627\u062a\u061f"
+            ]
+        },
+        {
+            "input": "search for \" mcdonald 's \"",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \" mcdonald 's \"."
+            ]
+        },
+        {
+            "input": "show all \" mark \" 's reviews",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u062c\u0645\u064a\u0639 \u0645\u064f\u0631\u0627\u062c\u0639\u0627\u062a \" mark \"."
+            ]
+        },
+        {
+            "input": "look up restaurants in \" las vegas \"",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0641\u064a \" las vegas \"."
+            ]
+        },
+        {
+            "input": "find \" cracker barrel \"",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \" cracker barrel \""
+            ]
+        },
+        {
+            "input": "show me \" mexican \" restaurants .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" mexican \"."
+            ]
+        },
+        {
+            "input": "find restaurants with at least 10 reviews .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u0627\u0644\u0645\u064f\u0631\u0627\u062c\u0639\u0627\u062a 10 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644."
+            ]
+        },
+        {
+            "input": "find \" fuel pizza \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \" fuel pizza \"."
+            ]
+        },
+        {
+            "input": "what is the closest restaurant ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645\u061f"
+            ]
+        },
+        {
+            "input": "show me all restaurants with ratings of at least 8 stars .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u062a\u0642\u064a\u064a\u0645 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644 8 \u0646\u062c\u0645\u0629."
+            ]
+        },
+        {
+            "input": "find \" atomic ramen \"",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \" atomic ramen \"."
+            ]
+        },
+        {
+            "input": "tell all the restaurants rated 9 or higher",
+            "output": [
+                "\u0623\u0628\u0644\u063a\u0646\u064a \u0628\u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0628\u062a\u0642\u064a\u064a\u0645 9 \u0623\u0648 \u0623\u0639\u0644\u0649"
+            ]
+        },
+        {
+            "input": "show me the restaurant with the most reviews",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u0627\u0644\u062a\u0642\u064a\u064a\u0645\u0627\u062a \u0627\u0644\u0623\u0643\u0628\u0631"
+            ]
+        },
+        {
+            "input": "find restaurants reviewed by \" arthur smith \"",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u0645\u064f\u0631\u0627\u062c\u0639\u0627\u062a \" arthur smith \""
+            ]
+        },
+        {
+            "input": "find restaurants rated 4 stars or higher .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0628\u062a\u0642\u064a\u064a\u0645 4 \u0646\u062c\u0648\u0645 \u0623\u0648 \u0623\u0639\u0644\u0649."
+            ]
+        },
+        {
+            "input": "list the restaurants with over 1 reviews .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0642\u0627\u0626\u0645\u0629 \u0628\u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u062a\u0642\u064a\u064a\u0645\u0627\u062a \u0623\u0639\u0644\u0649 \u0645\u0646 1."
+            ]
+        },
+        {
+            "input": "search for \" chipotle \"",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \" chipotle \""
+            ]
+        },
+        {
+            "input": "show me \" ethiopian \" restaurants .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0645\u0637\u0627\u0639\u0645 \" ethiopian \"."
+            ]
+        },
+        {
+            "input": "show me restaurants with more than 2 reviews .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u0645\u064f\u0631\u0627\u062c\u0639\u0627\u062a \u062a\u0632\u064a\u062f \u0639\u0646 2."
+            ]
+        },
+        {
+            "input": "find all the restaurants rated higher than 1 .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u062a\u0642\u064a\u064a\u0645 \u0623\u0639\u0644\u0649 \u0645\u0646 1."
+            ]
+        },
+        {
+            "input": "search for \" outback steakhouse \" ?",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \" outback steakhouse \"\u061f"
+            ]
+        },
+        {
+            "input": "find a \" italian \" restaurant .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" italian \"."
+            ]
+        },
+        {
+            "input": "list all the restaurants with higher than 1 stars .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0642\u0627\u0626\u0645\u0629 \u0628\u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u062a\u0642\u064a\u064a\u0645 \u0623\u0639\u0644\u0649 \u0645\u0646 1 \u0646\u062c\u0645\u0629."
+            ]
+        },
+        {
+            "input": "what is the address of the \" mei wei \" restaurant ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0639\u0646\u0648\u0627\u0646 \u0645\u0637\u0639\u0645 \" mei wei \"\u061f"
+            ]
+        },
+        {
+            "input": "what is the rating of \" mei wei \" restaurant ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u062a\u0642\u064a\u064a\u0645 \u0645\u0637\u0639\u0645 \" mei wei \"\u061f"
+            ]
+        },
+        {
+            "input": "what is the address of the nearest \" coffee \" shop ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0639\u0646\u0648\u0627\u0646 \u0623\u0642\u0631\u0628 \u0645\u0642\u0647\u0649 \" coffee \"\u061f"
+            ]
+        },
+        {
+            "input": "show me restaurants in the \" west suburbs \" please .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0641\u064a \" west suburbs \" \u0631\u062c\u0627\u0621\u064b."
+            ]
+        },
+        {
+            "input": "find me some places to eat in \" detroit \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0644\u064a \u0639\u0646 \u0628\u0639\u0636 \u0627\u0644\u0623\u0645\u0627\u0643\u0646 \u0644\u062a\u0646\u0627\u0648\u0644 \u0627\u0644\u0637\u0639\u0627\u0645 \u0641\u064a \" detroit \"."
+            ]
+        },
+        {
+            "input": "look up restaurants that have 10 star ratings for me please .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u062a\u0642\u064a\u064a\u0645 10 \u0646\u062c\u0648\u0645 \u0631\u062c\u0627\u0621\u064b."
+            ]
+        },
+        {
+            "input": "show me all the restaurants that \" john grace \" has reviewed .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u0631\u0627\u062c\u0639\u0647\u0627 \" john grace \"."
+            ]
+        },
+        {
+            "input": "show me reviews written by \" bill story \" .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0627\u0644\u0645\u064f\u0631\u0627\u062c\u0639\u0627\u062a \u0627\u0644\u062a\u064a \u0643\u062a\u0628\u0647\u0627 \" bill story \"."
+            ]
+        },
+        {
+            "input": "how many reviews have been posted for \" old town doughnuts \" ?",
+            "output": [
+                "\u0643\u0645 \u0639\u062f\u062f \u0627\u0644\u0645\u064f\u0631\u0627\u062c\u0639\u0627\u062a \u0627\u0644\u062a\u064a \u062a\u0645 \u0646\u0634\u0631\u0647\u0627 \u0644\u0640 \" old town doughnuts \"\u061f"
+            ]
+        },
+        {
+            "input": "how many restaurants have an average rating above 6 ?",
+            "output": [
+                "\u0643\u0645 \u0639\u062f\u062f \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u062a\u0642\u064a\u064a\u0645 \u0645\u062a\u0648\u0633\u0637 \u0623\u0639\u0644\u0649 \u0645\u0646 6\u061f"
+            ]
+        },
+        {
+            "input": "what 's the address of the \" mcdonald 's \" on \" parker road \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0639\u0646\u0648\u0627\u0646 \" mcdonald 's \" \u0641\u064a \" parker road \"\u061f"
+            ]
+        },
+        {
+            "input": "i want \" mexican \" food",
+            "output": [
+                "\u0623\u0631\u063a\u0628 \u0641\u064a \u0637\u0639\u0627\u0645 \" mexican \""
+            ]
+        },
+        {
+            "input": "something \" spicy \" over 10 star rating .",
+            "output": [
+                "\u0634\u064a\u0626\u0627\u064b \" spicy \" \u0630\u0648 \u062a\u0642\u064a\u064a\u0645 \u0623\u0639\u0644\u0649 \u0645\u0646 10 \u0646\u062c\u0648\u0645."
+            ]
+        },
+        {
+            "input": "i 'd like any food with more than 10 reviews .",
+            "output": [
+                "\u0623\u0631\u063a\u0628 \u0641\u064a \u0623\u064a \u0637\u0639\u0627\u0645 \u064a\u0632\u064a\u062f \u0639\u0644\u0649 10 \u0645\u064f\u0631\u0627\u062c\u0639\u0629."
+            ]
+        },
+        {
+            "input": "where can i find the nearest \" chinese \" joint .",
+            "output": [
+                "\u0645\u0646 \u0623\u064a\u0646 \u064a\u0645\u0643\u0646\u0646\u064a \u0625\u064a\u062c\u0627\u062f \u0623\u0642\u0631\u0628 \u0645\u0634\u062a\u0631\u0643 \" chinese \"."
+            ]
+        },
+        {
+            "input": "search all reviews by \" john oyster \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u064f\u0631\u0627\u062c\u0639\u0627\u062a \u0627\u0644\u062a\u064a \u0642\u062f\u0645\u0647\u0627 \" john oyster \"."
+            ]
+        },
+        {
+            "input": "i would like a \" mexican \" restaurant .",
+            "output": [
+                "\u0623\u0631\u063a\u0628 \u0641\u064a \u0645\u0637\u0639\u0645 \" mexican \"."
+            ]
+        },
+        {
+            "input": "i would like all restaurants with 3 stars and above .",
+            "output": [
+                "\u0623\u0631\u063a\u0628 \u0641\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a 3 \u0646\u062c\u0648\u0645 \u0623\u0648 \u0623\u0639\u0644\u0649."
+            ]
+        },
+        {
+            "input": "show me \" los dos amigos \"",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \" los dos amigos \""
+            ]
+        },
+        {
+            "input": "show me restaurants with the most reviews .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u0623\u0643\u062b\u0631 \u0645\u064f\u0631\u0627\u062c\u0639\u0627\u062a."
+            ]
+        },
+        {
+            "input": "i want restaurants rated 9 or higher .",
+            "output": [
+                "\u0623\u0631\u063a\u0628 \u0641\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0628\u062a\u0642\u064a\u064a\u0645 9 \u0623\u0648 \u0623\u0639\u0644\u0649."
+            ]
+        },
+        {
+            "input": "find restaurants in zip code \" 21269 \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0628\u0627\u0644\u0643\u0648\u062f \u0627\u0644\u0628\u0631\u064a\u062f\u064a \" 21269 \"."
+            ]
+        },
+        {
+            "input": "i want restaurants with more than 9 reviews .",
+            "output": [
+                "\u0623\u0631\u063a\u0628 \u0641\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u0645\u064f\u0631\u0627\u062c\u0639\u0627\u062a \u062a\u0632\u064a\u062f \u0639\u0646 9."
+            ]
+        },
+        {
+            "input": "display all the restaurants that have at least a rating of 2 .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u0644\u0647\u0627 \u062a\u0642\u064a\u064a\u0645 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644 2."
+            ]
+        },
+        {
+            "input": "do a search for restaurants that have been reviewed by at least 2 people .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u062a\u0645\u062a \u0645\u064f\u0631\u0627\u062c\u0639\u062a\u0647\u0627 \u0645\u0646 \u062e\u0644\u0627\u0644 2 \u0634\u062e\u0635 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644."
+            ]
+        },
+        {
+            "input": "bring up \" italian \" restaurants .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" italian \"."
+            ]
+        },
+        {
+            "input": "could you preform a search for the restaurant , \" thai foon \" ?",
+            "output": [
+                "\u0647\u0644 \u064a\u0645\u0643\u0646\u0643 \u0625\u062c\u0631\u0627\u0621 \u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0639\u0645 \" thai foon \"\u061f"
+            ]
+        },
+        {
+            "input": "search for \" dairy queen \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \" dairy queen \"."
+            ]
+        },
+        {
+            "input": "search for all 3 star restaurants .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u062a \u0627\u0644\u0640 3 \u0646\u062c\u0648\u0645."
+            ]
+        },
+        {
+            "input": "show me \" greek \" restaurants .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" greek \"."
+            ]
+        },
+        {
+            "input": "show me restaurants with more than 9 posted reviews .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u0644\u062f\u064a\u0647\u0627 \u0623\u0643\u062b\u0631 \u0645\u0646 9 \u062a\u0639\u0644\u064a\u0642/\u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0645\u0646\u0634\u0648\u0631(\u0629)."
+            ]
+        },
+        {
+            "input": "can you find me a \" mcdonalds \" in my area ?",
+            "output": [
+                "\u0647\u0644 \u064a\u0645\u0643\u0646\u0643 \u0623\u0646 \u062a\u0639\u062b\u0631 \u0644\u064a \u0639\u0644\u0649 \" mcdonalds \" \u0641\u064a \u0645\u0646\u0637\u0642\u062a\u064a\u061f"
+            ]
+        },
+        {
+            "input": "where are the best \" fast food \" joints in my area .",
+            "output": [
+                "\u0623\u064a\u0646 \u062a\u0648\u062c\u062f \u0623\u0641\u0636\u0644 \u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0640 \" fast food \" \u0627\u0644\u0645\u0648\u062c\u0648\u062f\u0629 \u0641\u064a \u0645\u0646\u0637\u0642\u062a\u064a."
+            ]
+        },
+        {
+            "input": "what is the address of the \" mcdonads \" in this area .",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u0640 \" mcdonads \" \u0627\u0644\u0645\u0648\u062c\u0648\u062f \u0641\u064a \u0647\u0630\u0647 \u0627\u0644\u0645\u0646\u0637\u0642\u0629."
+            ]
+        },
+        {
+            "input": "what are the highest ranked \" burger \" joints in the 4 mile area around \" asheville nc \" .",
+            "output": [
+                "\u0645\u0627 \u0647\u064a \u0623\u0639\u0644\u0649 \u0648\u0623\u0641\u0636\u0644 \u0627\u0644\u0640 \" burger \" \u0627\u0644\u0645\u0648\u062c\u0648\u062f\u0629 \u0636\u0645\u0646 \u0645\u0646\u0637\u0642\u0629 4 \u0645\u064a\u0644 \u062d\u0648\u0644 \" asheville nc \""
+            ]
+        },
+        {
+            "input": "show me all the restaurants that are located on \" federal highway \" ?",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0645\u0648\u062c\u0648\u062f\u0629 \u0641\u064a \" federal highway \"\u061f"
+            ]
+        },
+        {
+            "input": "which restaurant has the highest amounts of reviews ?",
+            "output": [
+                "\u0623\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0644\u062f\u064a\u0647 \u0623\u0643\u0628\u0631 \u0639\u062f\u062f \u0645\u0646 \u0627\u0644\u062a\u0642\u064a\u064a\u0645\u0627\u062a\u061f"
+            ]
+        },
+        {
+            "input": "what date was \" jim \" 's review posted ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u062a\u0627\u0631\u064a\u062e \u0646\u0634\u0631 \u062a\u0642\u064a\u064a\u0645 \" jim \"\u061f"
+            ]
+        },
+        {
+            "input": "which restaurants are on \" main street \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0645\u0648\u062c\u0648\u062f\u0629 \u0641\u064a \" main street \"\u061f"
+            ]
+        },
+        {
+            "input": "find me \" mexican \" food",
+            "output": [
+                "\u062c\u062f \u0644\u064a \u0645\u0637\u0639\u0645 \" mexican \""
+            ]
+        },
+        {
+            "input": "show me restaurants in \" kansas city , mo \"",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0645\u0648\u062c\u0648\u062f\u0629 \u0641\u064a \" kansas city , mo \""
+            ]
+        },
+        {
+            "input": "show me \" mexican \" restaurants in the area .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0640 \" mexican \" \u0627\u0644\u0645\u0648\u062c\u0648\u062f\u0629 \u0641\u064a \u0627\u0644\u0645\u0646\u0637\u0642\u0629."
+            ]
+        },
+        {
+            "input": "provide me the telephone number for the nearest \" mexican \" restaurant in \" 93312 \" zip .",
+            "output": [
+                "\u0623\u0639\u0637\u064a\u0646\u064a \u0631\u0642\u0645 \u0627\u0644\u0647\u0627\u062a\u0641 \u0627\u0644\u062e\u0627\u0635 \u0628\u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \" mexican \" \u0645\u0648\u062c\u0648\u062f \u0636\u0645\u0646 \u0627\u0644\u0631\u0645\u0632 \u0627\u0644\u0628\u0631\u064a\u062f\u064a \u0627\u0644\u062a\u0627\u0644\u064a \"93312\"."
+            ]
+        },
+        {
+            "input": "find restaurants with more than 3 reviews .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u0644\u062f\u064a\u0647\u0627 \u0623\u0643\u062b\u0631 \u0645\u0646 3 \u062a\u0642\u064a\u064a\u0645."
+            ]
+        },
+        {
+            "input": "where is the closest \" mcdonalds \"",
+            "output": [
+                "\u0623\u064a\u0646 \u064a\u0648\u062c\u062f \u0623\u0642\u0631\u0628 \" mcdonalds \" \u061f"
+            ]
+        },
+        {
+            "input": "where is a \" mexican \" restaurant with more than 0 good reviews ?",
+            "output": [
+                "\u0623\u064a\u0646 \u064a\u0648\u062c\u062f \u0645\u0637\u0639\u0645 \" mexican \" \u0644\u062f\u064a\u0647 \u0623\u0643\u062b\u0631 \u0645\u0646 0 \u062a\u0642\u064a\u064a\u0645 \u062c\u064a\u062f\u061f"
+            ]
+        },
+        {
+            "input": "show all ratings made by \" mr gucci loafers \"",
+            "output": [
+                "\u0639\u0631\u0636 \u0643\u0644 \u0627\u0644\u062a\u0642\u064a\u064a\u0645\u0627\u062a \u0627\u0644\u0645\u0646\u0634\u0648\u0631\u0629 \u0645\u0646 \u0642\u0628\u0644 \" mr gucci loafers \""
+            ]
+        },
+        {
+            "input": "search for \" steakhouse \" restaurants in my city",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0640 \" steakhouse \" \u0627\u0644\u0645\u0648\u062c\u0648\u062f\u0629 \u0641\u064a \u0645\u062f\u064a\u0646\u062a\u064a"
+            ]
+        },
+        {
+            "input": "show me reviews written by \" amy \" .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0627\u0644\u0645\u0631\u0627\u062c\u0639\u0627\u062a \u0627\u0644\u062a\u064a \u0643\u062a\u0628\u062a\u0647\u0627 \" amy \"."
+            ]
+        },
+        {
+            "input": "where can i find the closest \" wawa \" ?",
+            "output": [
+                "\u0623\u064a\u0646 \u064a\u0645\u0643\u0646\u0646\u064a \u0623\u0646 \u0623\u062c\u062f \u0623\u0642\u0631\u0628 \" wawa \"\u061f"
+            ]
+        },
+        {
+            "input": "search for \" big woodys \"",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \" big woodys \""
+            ]
+        },
+        {
+            "input": "search for an \" egyptian \" restaurant .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0639\u0645 \" egyptian \"."
+            ]
+        },
+        {
+            "input": "show me restaurants with a minimum 5 star rating .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u062d\u0635\u0644\u062a \u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645 \u0628\u0640 5 \u0646\u062c\u0648\u0645 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644."
+            ]
+        },
+        {
+            "input": "how many reviews are there at \" starbucks \" ?",
+            "output": [
+                "\u0643\u0645 \u0639\u062f\u062f \u0627\u0644\u0645\u0631\u0627\u062c\u0639\u0627\u062a \u0627\u0644\u0645\u0648\u062c\u0648\u062f\u0629 \u0628\u0627\u0644\u0646\u0633\u0628\u0629 \u0644\u0640 \" starbucks \"\u061f"
+            ]
+        },
+        {
+            "input": "show me \" thai \" restaurants .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0645\u0637\u0627\u0639\u0645 \" thai \"."
+            ]
+        },
+        {
+            "input": "how far is the nearest \" applebee 's \" ?",
+            "output": [
+                "\u0643\u0645 \u0645\u0646 \u0627\u0644\u0645\u0633\u0627\u0641\u0629 \u064a\u0628\u0639\u062f \u0627\u0644\u0640 \" applebee 's \"\u061f"
+            ]
+        },
+        {
+            "input": "located \" mexican \" food close to here",
+            "output": [
+                "\u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" mexican \" \u0627\u0644\u062a\u064a \u062a\u0645 \u062a\u062d\u062f\u064a\u062f\u0647\u0627 \u0628\u0627\u0644\u0642\u0631\u0628 \u0645\u0646 \u0647\u0646\u0627"
+            ]
+        },
+        {
+            "input": "show me \" white castle \"",
+            "output": [
+                "\u0623\u0631\u0646\u064a \" white castle \""
+            ]
+        },
+        {
+            "input": "search for \" japanese \" restaurants with at least 4 stars .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0640 \" japanese \" \u0627\u0644\u062a\u064a \u0644\u062f\u064a\u0647\u0627 4 \u0646\u062c\u0648\u0645 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644."
+            ]
+        },
+        {
+            "input": "tell me the rating of \" wendy 's \" .",
+            "output": [
+                "\u0642\u0644 \u0644\u064a \u062a\u0635\u0646\u064a\u0641 \" wendy 's \"."
+            ]
+        },
+        {
+            "input": "list \" japanese \" restaurants .",
+            "output": [
+                "\u0625\u062f\u0631\u0627\u062c \u0627\u0644\u0645\u0637\u0627\u0639\u0645\u0627\u0644\u0640 \" japanese \"."
+            ]
+        },
+        {
+            "input": "what 's the highest rated \" pizza \" place in the \" city center \" ?",
+            "output": [
+                "\u0623\u064a\u0646 \u062a\u0648\u062c\u062f \u0627\u0644\u0640 \" pizza \" \u0627\u0644\u062a\u064a \u0644\u062f\u064a\u0647\u0627 \u0623\u0639\u0644\u0649 \u062a\u0635\u0646\u064a\u0641 \u0641\u064a \" city center \"\u061f"
+            ]
+        },
+        {
+            "input": "search for a \" vegan \" restaurant with at least 8 reviews .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 \" vegan \" \u0644\u062f\u064a\u0647\u0627 8 \u0645\u0631\u0627\u062c\u0639\u0627\u062a \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644."
+            ]
+        },
+        {
+            "input": "give me a 5 star restaurant nearby .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0642\u0631\u064a\u0628\u0629 \u0627\u0644\u062a\u064a \u0644\u062f\u064a\u0647\u0627 5 \u0646\u062c\u0648\u0645."
+            ]
+        },
+        {
+            "input": "find restaurants with the most reviews .",
+            "output": [
+                "\u062c\u062f \u0644\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u0644\u062f\u064a\u0647\u0627 \u0623\u0643\u0628\u0631 \u0642\u062f\u0631 \u0645\u0646 \u0627\u0644\u0645\u0631\u0627\u062c\u0639\u0627\u062a."
+            ]
+        },
+        {
+            "input": "search for \" billy 's barbecue \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \" billy 's barbecue \"."
+            ]
+        },
+        {
+            "input": "i want to see restaurants with more than 0 reviews .",
+            "output": [
+                "\u0623\u0631\u064a\u062f \u0623\u0646 \u0623\u0631\u0649 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u0644\u062f\u064a\u0647\u0627 \u0623\u0643\u062b\u0631 \u0645\u0646 0 \u0645\u0631\u0627\u062c\u0639\u0629."
+            ]
+        },
+        {
+            "input": "find restaurants that sell \" spaghetti \" .",
+            "output": [
+                "\u0625\u064a\u062c\u0627\u062f \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u062a\u0628\u064a\u0639 \u0627\u0644\u0640 \" spaghetti \"."
+            ]
+        },
+        {
+            "input": "what 's the name of the \" italian \" restaurant on \" main street \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0627\u0633\u0645 \u0627\u0644\u0645\u0637\u0639\u0645 \u0627\u0644\u0640 \" italian \" \u0627\u0644\u0645\u0648\u062c\u0648\u062f \u0641\u064a \" main street \"\u061f"
+            ]
+        },
+        {
+            "input": "show me the highest rated restaurant .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0623\u0639\u0644\u0649 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u062a\u0642\u064a\u064a\u0645\u064b\u0627."
+            ]
+        },
+        {
+            "input": "where is the nearest \" mcdonald 's \" ?",
+            "output": [
+                "\u0623\u064a\u0646 \u064a\u0648\u062c\u062f \u0623\u0642\u0631\u0628 \" mcdonald 's \"\u061f"
+            ]
+        },
+        {
+            "input": "show me 8 star \" mexican \" restaurants",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0640 \" mexican \" \u0627\u0644\u062a\u064a \u0644\u062f\u064a\u0647\u0627 \u0623\u0643\u062b\u0631 \u0645\u0646 8 \u0646\u062c\u0648\u0645"
+            ]
+        },
+        {
+            "input": "find all restaurants rated higher than 5",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u0644\u062f\u064a\u0647\u0627 \u062a\u0642\u064a\u064a\u0645 \u0623\u0643\u062b\u0631 \u0645\u0646 5 \u0646\u062c\u0648\u0645"
+            ]
+        },
+        {
+            "input": "show me a list of restaurants with less than 9 reviews .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u0644\u062f\u064a\u0647\u0627 \u0623\u0642\u0644 \u0645\u0646 9 \u0645\u0631\u0627\u062c\u0639\u0627\u062a."
+            ]
+        },
+        {
+            "input": "show me nearby \" mexican \" restaurants .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0640 \" mexican \" \u0627\u0644\u0642\u0631\u064a\u0628\u0629."
+            ]
+        },
+        {
+            "input": "search for restaurants in \" reno , nevada \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0645\u0648\u062c\u0648\u062f\u0629 \u0641\u064a \" reno , nevada \"."
+            ]
+        },
+        {
+            "input": "show me \" thai \" restaurants",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0640 \" thai \""
+            ]
+        },
+        {
+            "input": "which \" chinese \" restaurant has the most reviews ?",
+            "output": [
+                "\u0623\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0640 \" chinese \""
+            ]
+        },
+        {
+            "input": "what is \" ramen nagi \" 's rating ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u062a\u0635\u0646\u064a\u0641 \" ramen nagi \"\u061f"
+            ]
+        },
+        {
+            "input": "look for \" olive garden \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \" olive garden \"."
+            ]
+        },
+        {
+            "input": "what restaurants have received 1 or more reviews ?",
+            "output": [
+                "\u0645\u0627 \u0647\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u062a\u0644\u0642\u062a 1 \u0645\u0631\u0627\u062c\u0639\u0629 \u0623\u0648 \u0623\u0643\u062b\u0631\u061f"
+            ]
+        },
+        {
+            "input": "find reviews from \" george \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0631\u0627\u062c\u0639\u0627\u062a \" george \"."
+            ]
+        },
+        {
+            "input": "show me \" american \" restaurants",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0640 \" american \""
+            ]
+        },
+        {
+            "input": "tell me the \" american \" restaurants .",
+            "output": [
+                "\u0623\u062e\u0628\u0631\u0646\u064a \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0640 \" american \"."
+            ]
+        },
+        {
+            "input": "give me all of the \" mexican \" restaurants with at least 9 stars .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0640 \" mexican \" \u0627\u0644\u062a\u064a \u0644\u062f\u064a\u0647\u0627 9 \u0646\u062c\u0648\u0645 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644."
+            ]
+        },
+        {
+            "input": "search for \" rocky 's pizza \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \" rocky 's pizza \"."
+            ]
+        },
+        {
+            "input": "is there a \" red lobster \" near me ?",
+            "output": [
+                "\u0647\u0644 \u064a\u0648\u062c\u062f \u0647\u0646\u0627\u0643 \u0623\u064a \" red lobster \" \u0628\u0627\u0644\u0642\u0631\u0628 \u0645\u0646\u064a\u061f"
+            ]
+        },
+        {
+            "input": "find all of the \" indian \" restaurants",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0640 \" indian \""
+            ]
+        },
+        {
+            "input": "what is the rating of the \" oak street steakhouse \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u062a\u0635\u0646\u064a\u0641 \u0645\u0637\u0639\u0645 \u0627\u0644\u0640 \" oak street steakhouse \"\u061f"
+            ]
+        },
+        {
+            "input": "show me restaurants in zip code \" 28078 \" .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0645\u0648\u062c\u0648\u062f\u0629 \u0636\u0645\u0646 \u0627\u0644\u0631\u0645\u0632 \u0627\u0644\u0628\u0631\u064a\u062f\u064a \u0627\u0644\u062a\u0627\u0644\u064a \"28078\"."
+            ]
+        },
+        {
+            "input": "what \" mexican \" restaurant has the most reviews ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0627\u0644\u0645\u0637\u0639\u0645 \u0627\u0644\u0640 \" mexican \" \u0627\u0644\u0630\u064a \u0644\u062f\u064a\u0647 \u0623\u0643\u0628\u0631 \u0639\u062f\u062f \u0645\u0646 \u0627\u0644\u062a\u0642\u064a\u064a\u0645\u0627\u062a\u061f"
+            ]
+        },
+        {
+            "input": "what kind of rating does \" panda express \" have",
+            "output": [
+                "\u0645\u0627 \u0646\u0648\u0639 \u0627\u0644\u062a\u0642\u064a\u064a\u0645\u0627\u062a \u0627\u0644\u062a\u064a \u062d\u0635\u0644 \u0639\u0644\u064a\u0647\u0627 \u0627\u0644\u0640 \" panda express \""
+            ]
+        },
+        {
+            "input": "show me \" italian \" restaurants nearby .",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0640 \" italian \" \u0627\u0644\u0642\u0631\u064a\u0628\u0629."
+            ]
+        },
+        {
+            "input": "please show me reviews that were written for \" cracker barrel \" this year .",
+            "output": [
+                "\u0627\u0644\u0631\u062c\u0627\u0621\u0639\u0631\u0636 \u0627\u0644\u0645\u0631\u0627\u062c\u0639\u0627\u062a \u0627\u0644\u062a\u064a \u0643\u064f\u062a\u0628\u062a \u0639\u0646 \u0627\u0644\u0640 \" cracker barrel \" \u0647\u0630\u0627 \u0627\u0644\u0639\u0627\u0645."
+            ]
+        },
+        {
+            "input": "find restaurants with 6 stars .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u0627\u0644\u0640 6 \u0646\u062c\u0648\u0645."
+            ]
+        },
+        {
+            "input": "what is the phone number for \" sampan \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0631\u0642\u0645 \u0627\u0644\u0647\u0627\u062a\u0641 \u0627\u0644\u062e\u0627\u0635 \u0628\u0640 \" sampan \"\u061f"
+            ]
+        },
+        {
+            "input": "can i see reviews for the \" gunnisack \" ?",
+            "output": [
+                "\u0647\u0644 \u064a\u0645\u0643\u0646\u0646\u064a \u0631\u0624\u064a\u0629 \u0627\u0644\u0645\u0631\u0627\u062c\u0639\u0627\u062a \u0627\u0644\u062e\u0627\u0635\u0629 \u0628\u0640 \" the gunnisack \"\u061f"
+            ]
+        },
+        {
+            "input": "please tell me the location of \" dave 's seafood shack \" .",
+            "output": [
+                "\u064a\u0631\u062c\u0649 \u062a\u0632\u0648\u064a\u062f\u064a \u0628\u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u0640 \" dave 's seafood shack \"."
+            ]
+        },
+        {
+            "input": "what is the address of the nearest \" fast food \" place ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0639\u0646\u0648\u0627\u0646 \u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \" fast food \"\u061f"
+            ]
+        },
+        {
+            "input": "search for \" gates barbecue \" ?",
+            "output": [
+                "\u0627\u0644\u0628\u062d\u062b \u0639\u0646 \" gates barbecue \"\u061f"
+            ]
+        },
+        {
+            "input": "find restaurants within one mile from here .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0645\u0648\u062c\u0648\u062f\u0629 \u0639\u0644\u0649 \u0628\u0639\u062f \u0645\u064a\u0644 \u0648\u0627\u062d\u062f \u0645\u0646 \u0647\u0646\u0627."
+            ]
+        },
+        {
+            "input": "what is the closest \" italian \" restaurant to me",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \" italian \" \u0645\u0646\u064a\u061f"
+            ]
+        },
+        {
+            "input": "show restaurants with at least 1 reviews",
+            "output": [
+                "\u0623\u0631\u0646\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u0644\u062f\u064a\u0647\u0627 1 \u0645\u0631\u0627\u062c\u0639\u0627\u062a \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644"
+            ]
+        },
+        {
+            "input": "are there any \" indian \" restaurants near me ?",
+            "output": [
+                "\u0647\u0644 \u062a\u0648\u062c\u062f \u0647\u0646\u0627\u0643 \u0623\u064a\u0629 \u0645\u0637\u0627\u0639\u0645 \" indian \" \u0642\u0631\u064a\u0628\u0629 \u0645\u0646\u064a\u061f"
+            ]
+        },
+        {
+            "input": "give me the telephone number of a 9 star restaurant .",
+            "output": [
+                "\u0623\u0639\u0637\u0646\u064a \u0631\u0642\u0645 \u0647\u0627\u062a\u0641 \u0645\u0637\u0639\u0645 \u062d\u0627\u0635\u0644 \u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645 9 \u0646\u062c\u0648\u0645 ."
+            ]
+        },
+        {
+            "input": "show me all the of review written by \" alex smith \" about \" chinese \" restaurants .",
+            "output": [
+                "\u0623\u0631\u0650\u0646\u064a \u0643\u0644 \u0627\u0644\u062a\u0642\u064a\u064a\u0645\u0627\u062a \u0627\u0644\u062a\u064a \u062f\u0648\u0651\u0646\u0647\u0627 \" alex smith \" \u062d\u0648\u0644 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" chinese \" ."
+            ]
+        },
+        {
+            "input": "show highest rated \" coffee \" shop withing 7 miles .",
+            "output": [
+                "\u0623\u0638\u0647\u0631 \u0645\u062a\u062c\u0631 \" coffee \" \u062d\u0627\u0635\u0644 \u0639\u0644\u0649 \u0623\u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645 \u0648\u064a\u0642\u0639 \u0639\u0644\u0649 \u0628\u0639\u062f 7 \u0623\u0645\u064a\u0627\u0644 ."
+            ]
+        },
+        {
+            "input": "show me restaurants rated between 3 and 5 .",
+            "output": [
+                "\u0623\u0631\u0650\u0646\u064a \u0645\u0637\u0627\u0639\u0645 \u062a\u0642\u064a\u064a\u0645\u0647\u0627 \u0628\u064a\u0646 3 \u0648 5 ."
+            ]
+        },
+        {
+            "input": "what is the price range of the nearest \" mexican \" restaurant ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0646\u0637\u0627\u0642 \u0627\u0644\u0623\u0633\u0639\u0627\u0631 \u0644\u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \" mexican \" \u061f"
+            ]
+        },
+        {
+            "input": "show restaurants in \" san francisco \" .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0641\u064a \" san francisco \" ."
+            ]
+        },
+        {
+            "input": "find all \" mexican \" restaurants .",
+            "output": [
+                "\u062c\u0650\u062f \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" mexican \" ."
+            ]
+        },
+        {
+            "input": "search for \" sushi joy \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \" sushi joy \"."
+            ]
+        },
+        {
+            "input": "find me \" italian \" restaurants",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0644\u064a \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 \" italian \" ."
+            ]
+        },
+        {
+            "input": "can you find me the telephone number for \" rookie 's bar & grill \" ?",
+            "output": [
+                "\u0647\u0644 \u064a\u0645\u0643\u0646\u0643 \u0623\u0646 \u062a\u062c\u062f \u0644\u064a \u0631\u0642\u0645 \u0647\u0627\u062a\u0641 \" rookie 's bar & grill \" \u061f"
+            ]
+        },
+        {
+            "input": "what is the phone number for \" ginger china \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0631\u0642\u0645 \u0647\u0627\u062a\u0641 \"ginger china \" \u061f"
+            ]
+        },
+        {
+            "input": "give the phone number of a restaurant with 1 or more reviews",
+            "output": [
+                "\u0627\u0639\u0637\u0646\u064a \u0631\u0642\u0645 \u0647\u0627\u062a\u0641 \u0645\u0637\u0639\u0645 \u0644\u062f\u064a\u0647 1 \u0623\u0648 \u0623\u0643\u062b\u0631 \u0645\u0646 \u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a ."
+            ]
+        },
+        {
+            "input": "find me \" in-n-out burger \" .",
+            "output": [
+                "\u0627\u0639\u062b\u0631 \u0644\u064a \u0639\u0644\u0649 \" in-n-out burger \" ."
+            ]
+        },
+        {
+            "input": "show me all 2 star restaurants .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645 2 \u0646\u062c\u0648\u0645 ."
+            ]
+        },
+        {
+            "input": "search for a 1 star rated \" coffee \" shop located nearby .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u062a\u062c\u0631 \" coffee \" \u062d\u0627\u0635\u0644 \u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645 1 \u0646\u062c\u0648\u0645 \u0648\u064a\u062a\u0648\u0627\u062c\u062f \u0628\u0627\u0644\u0642\u0631\u0628 \u0645\u0646\u064a ."
+            ]
+        },
+        {
+            "input": "show me reviews written by \" bruce \" .",
+            "output": [
+                "\u0623\u0638\u0647\u0631 \u0644\u064a \u062a\u0642\u064a\u064a\u0645\u0627\u062a \u0643\u062a\u0628\u0647\u0627 \" bruce \" ."
+            ]
+        },
+        {
+            "input": "find all restaurants rated higher than 6",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645  \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645 \u0623\u0639\u0644\u0649 \u0645\u0646 6"
+            ]
+        },
+        {
+            "input": "search for a \" mexican \" restaurant .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0639\u0645 \" mexican \" ."
+            ]
+        },
+        {
+            "input": "are there any one star reviews ?",
+            "output": [
+                "\u0647\u0644 \u0647\u0646\u0627\u0643 \u062a\u0642\u064a\u064a\u0645\u0627\u062a \u0645\u0646 \u0646\u062c\u0645\u0629 \u0648\u0627\u062d\u062f\u0629 \u061f"
+            ]
+        },
+        {
+            "input": "search for restaurants with more than 10 reviews .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 \u0639\u062f\u062f \u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0623\u0643\u062b\u0631 \u0645\u0646 10 ."
+            ]
+        },
+        {
+            "input": "what is the top rated 9 star restaurant ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0623\u0641\u0636\u0644 \u0645\u0637\u0639\u0645 \u062d\u0627\u0626\u0632 \u0639\u0644\u0649 \u062f\u0631\u062c\u0629 \u062a\u0642\u064a\u064a\u0645  9 \u0646\u062c\u0648\u0645 \u061f"
+            ]
+        },
+        {
+            "input": "what is the telephone and address for \" ruth 's chris \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0647\u0627\u062a\u0641 \u0648\u0639\u0646\u0648\u0627\u0646 \" ruth 's chris \" \u061f"
+            ]
+        },
+        {
+            "input": "show me \" aunt chilada 's \"",
+            "output": [
+                "\u0623\u0631\u0650\u0646\u064a \" aunt chilada 's \""
+            ]
+        },
+        {
+            "input": "are there any \" mexican \" restaurants with more than 9 reviews ?",
+            "output": [
+                "\u0647\u0644 \u0647\u0646\u0627\u0643 \u0645\u0637\u0627\u0639\u0645 \" mexican \" \u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 \u0639\u062f\u062f \u062a\u0642\u064a\u064a\u0645\u0627\u062a \u0623\u0643\u062b\u0631 \u0645\u0646 9 \u061f"
+            ]
+        },
+        {
+            "input": "find places in \" 17111 \" .",
+            "output": [
+                "\u0627\u0639\u062b\u0631 \u0639\u0644\u0649 \u0627\u0645\u0627\u0643\u0646 \u0641\u064a \" 17111 \"."
+            ]
+        },
+        {
+            "input": "show me all \" italian \" restaurants .",
+            "output": [
+                "\u0623\u0631\u0650\u0646\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" italian \" ."
+            ]
+        },
+        {
+            "input": "give me the name of a \" mexican \" restaurant .",
+            "output": [
+                "\u0623\u0639\u0637\u0646\u064a \u0627\u0633\u0645 \u0645\u0637\u0639\u0645 \" mexican \" ."
+            ]
+        },
+        {
+            "input": "show me 10 star rated restaurants on \" locust street \" .",
+            "output": [
+                "\u0623\u0631\u0650\u0646\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u0644\u062f\u064a\u0647\u0627 \u062a\u0642\u064a\u064a\u0645 10 \u0646\u062c\u0648\u0645 \u0648\u062a\u0642\u0639 \u0641\u064a \" locust street \" ."
+            ]
+        },
+        {
+            "input": "show me a list of \" italian \" restaurants .",
+            "output": [
+                "\u0623\u0631\u0650\u0646\u064a \u0642\u0627\u0626\u0645\u0629 \u0628\u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" italian \"."
+            ]
+        },
+        {
+            "input": "show me all restaurants reviewed by \" restaurantgirl_84 \" .",
+            "output": [
+                "\u0623\u0638\u0647\u0631 \u0644\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u062a\u0645 \u062a\u0642\u064a\u064a\u0645\u0647\u0627 \u0645\u0646 \u0642\u0628\u0644 \" restaurantgirl_84 \" ."
+            ]
+        },
+        {
+            "input": "i 'd like to know the location of \" dunkin donuts \" ?",
+            "output": [
+                "\u0623\u0648\u062f \u0623\u0646 \u0623\u0639\u0631\u0641 \u0645\u0648\u0642\u0639 \" dunkin donuts \" \u061f"
+            ]
+        },
+        {
+            "input": "show me a \" chinese \" restaurant with a rating of 9 .",
+            "output": [
+                "\u0623\u0631\u0650\u0646\u064a \u0645\u0637\u0639\u0645 \" chinese \" \u062d\u0627\u0635\u0644 \u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645 9 ."
+            ]
+        },
+        {
+            "input": "which restaurant has the most reviews ?",
+            "output": [
+                "\u0623\u064a \u0645\u0637\u0639\u0645 \u0644\u062f\u064a\u0647 \u0623\u0643\u0628\u0631 \u0639\u062f\u062f \u0645\u0646 \u0627\u0644\u062a\u0642\u064a\u064a\u0645\u0627\u062a \u061f"
+            ]
+        },
+        {
+            "input": "search for \" french \" restaurants .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 \" french \"."
+            ]
+        },
+        {
+            "input": "give me reviews for \" jade buffet \" .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u062a\u0642\u064a\u064a\u0645\u0627\u062a \" jade buffet \" ."
+            ]
+        },
+        {
+            "input": "what is the price range for \" ramen nagi \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0646\u0637\u0627\u0642 \u0627\u0644\u0623\u0633\u0639\u0627\u0631 \u0639\u0646\u062f \" ramen nagi \" \u061f"
+            ]
+        },
+        {
+            "input": "find \" italian \" restaurants with at least 10 reviews .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" italian \" \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 \u0639\u062f\u062f \u062a\u0642\u064a\u064a\u0645\u0627\u062a 10 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644 ."
+            ]
+        },
+        {
+            "input": "where is the closest \" dairy queen \" ?",
+            "output": [
+                "\u0623\u064a\u0646 \u064a\u0642\u0639 \u0623\u0642\u0631\u0628 \" dairy queen \" \u061f"
+            ]
+        },
+        {
+            "input": "find all restaurants in \" chicago \" .",
+            "output": [
+                "\u062c\u0650\u062f \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0641\u064a \" chicago \" ."
+            ]
+        },
+        {
+            "input": "is there a restaurant in zipcode \" 19101 \" ?",
+            "output": [
+                "\u0647\u0644 \u064a\u0648\u062c\u062f \u0645\u0637\u0639\u0645 \u064a\u0642\u0639 \u0641\u064a \u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u062a\u0627\u0628\u0639\u0629 \u0644\u0644\u0631\u0645\u0632 \u0627\u0644\u0628\u0631\u064a\u062f\u064a \" 19101 \" \u061f"
+            ]
+        },
+        {
+            "input": "i 'm looking for \" armenian \" restaurants",
+            "output": [
+                "\u0623\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 \" armenian \""
+            ]
+        },
+        {
+            "input": "show me reviews for \" dunkin ' donuts \" from the last 8 days .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0644\u064a \u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0639\u0644\u0649 \"dunkin ' donuts\" \u0622\u062e\u0631 8 \u0623\u064a\u0627\u0645 ."
+            ]
+        },
+        {
+            "input": "show me all of the 10 star restaurants nearby .",
+            "output": [
+                "\u0623\u0631\u0650\u0646\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u0642\u0631\u064a\u0628\u0629 \u0630\u0627\u062a \u0641\u0626\u0629 10 \u0646\u062c\u0648\u0645 ."
+            ]
+        },
+        {
+            "input": "display restaurants with more than 9 reviews .",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 \u0639\u062f\u062f \u062a\u0642\u064a\u064a\u0645\u0627\u062a 9 ."
+            ]
+        },
+        {
+            "input": "i need to find all 8 star restaurants .",
+            "output": [
+                "\u0623\u0646\u0627 \u0628\u062d\u0627\u062c\u0629 \u0625\u0644\u0649 \u0627\u0644\u0639\u062b\u0648\u0631 \u0639\u0644\u0649 \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0630\u0627\u062a \u0641\u0626\u0629 8 \u0646\u062c\u0648\u0645 ."
+            ]
+        },
+        {
+            "input": "find \" italian \" restaurants .",
+            "output": [
+                "\u0627\u0639\u062b\u0631 \u0639\u0644\u0649 \u0645\u0637\u0627\u0639\u0645 \" italian \" ."
+            ]
+        },
+        {
+            "input": "show me \" mexican \" restaurants with at least a 9 star rating .",
+            "output": [
+                "\u0623\u0631\u0650\u0646\u064a \u0645\u0637\u0627\u0639\u0645 \" mexican \" \u062d\u0627\u0635\u0644\u0629 \u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645 9 \u0646\u062c\u0648\u0645 \u0639\u0644\u0649 \u0627\u0644\u0623\u0642\u0644 ."
+            ]
+        },
+        {
+            "input": "search for \" sushi king \" restaurant for me .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0644\u064a \u0639\u0646 \u0645\u0637\u0639\u0645 \" sushi king \" ."
+            ]
+        },
+        {
+            "input": "search for \" mexican \" restaurants",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" mexican \""
+            ]
+        },
+        {
+            "input": "show me \" japanese \" restaurants .",
+            "output": [
+                "\u0623\u0631\u0650\u0646\u064a \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" japanese \" ."
+            ]
+        },
+        {
+            "input": "what is the price range for my closest \" chinese \" restaurant ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0646\u0637\u0627\u0642 \u0627\u0644\u0623\u0633\u0639\u0627\u0631 \u0644\u0623\u0642\u0631\u0628 \u0645\u0637\u0639\u0645 \" chinese \" \u061f"
+            ]
+        },
+        {
+            "input": "show me restaurants on \" main street \" .",
+            "output": [
+                "\u0623\u0631\u0650\u0646\u064a \u0645\u0637\u0627\u0639\u0645  \u062a\u0642\u0639 \u0641\u064a \" main street \" ."
+            ]
+        },
+        {
+            "input": "show me the top 10 \" steak house \" restaurants in \" orlando \" .",
+            "output": [
+                "\u0623\u0631\u0650\u0646\u064a \u0623\u0641\u0636\u0644 10 \u0645\u0637\u0627\u0639\u0645 \" steak house \" \u0641\u064a \" orlando \" ."
+            ]
+        },
+        {
+            "input": "show me all restaurants reviewed by \" alex smith \" .",
+            "output": [
+                "\u0623\u0631\u0650\u0646\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u0642\u0627\u0645 \" alex smith \" \u0628\u062a\u0642\u064a\u064a\u0645\u0647\u0627 ."
+            ]
+        },
+        {
+            "input": "show me \" nomad pizza \" .",
+            "output": [
+                "\u0623\u0631\u0650\u0646\u064a \" nomad pizza \" ."
+            ]
+        },
+        {
+            "input": "show me all \" chinese \" restaurants with reviews made in the last month",
+            "output": [
+                "\u0623\u0631\u0650\u0646\u064a \u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \" chinese \" \u0627\u0644\u062a\u064a \u062a\u0645 \u062a\u0642\u064a\u064a\u0645\u0647\u0627 \u0641\u064a \u0627\u0644\u0634\u0647\u0631 \u0627\u0644\u0645\u0627\u0636\u064a"
+            ]
+        },
+        {
+            "input": "display restaurants that were rated above 2",
+            "output": [
+                "\u0627\u0639\u0631\u0636 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 \u0627\u0644\u062a\u064a \u062a\u0645 \u062a\u0642\u064a\u064a\u0645\u0647\u0627 \u0628\u0623\u0643\u062b\u0631 \u0645\u0646 2"
+            ]
+        },
+        {
+            "input": "i 'm in the mood for \" italian \" food .",
+            "output": [
+                "\u0623\u0646\u0627 \u0623\u0631\u063a\u0628 \u0628\u062a\u0646\u0627\u0648\u0644 \u0637\u0639\u0627\u0645 \" italian \" ."
+            ]
+        },
+        {
+            "input": "search for \" mexican \" restaurants with reviews from the past month .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 \" mexican \" \u0645\u0639 \u0639\u0631\u0636 \u0644\u062a\u0642\u064a\u064a\u0645\u0627\u062a \u0627\u0644\u0634\u0647\u0631 \u0627\u0644\u0645\u0627\u0636\u064a ."
+            ]
+        },
+        {
+            "input": "find the address for \" on the borders mexican grill and cantina \" .",
+            "output": [
+                "\u0627\u0639\u062b\u0631 \u0639\u0644\u0649 \u0639\u0646\u0648\u0627\u0646 \" on the borders mexican grill and cantina \" ."
+            ]
+        },
+        {
+            "input": "show me restaurant reviews written by \" fat charlie \" .",
+            "output": [
+                "\u0623\u0631\u0650\u0646\u064a \u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0627\u0644\u064a \u062f\u0648\u0651\u0646\u0647\u0627 \" fat charlie \" \u0639\u0646 \u0627\u0644\u0645\u0637\u0627\u0639\u0645 ."
+            ]
+        },
+        {
+            "input": "find me a \" french \" restaurant .",
+            "output": [
+                "\u062c\u0650\u062f \u0644\u064a \u0645\u0637\u0639\u0645 \" french \" ."
+            ]
+        },
+        {
+            "input": "look for a \" red lobster \" in the \" 85053 \" zip code .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \" red lobster \" \u0641\u064a \u0627\u0644\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u062a\u0627\u0628\u0639\u0629 \u0644\u0644\u0631\u0645\u0632 \u0627\u0644\u0628\u0631\u064a\u062f\u064a \" 85053 \" ."
+            ]
+        },
+        {
+            "input": "find restaurants in \" denver , colorado \" .",
+            "output": [
+                "\u0627\u0628\u062d\u062b \u0639\u0646 \u0645\u0637\u0627\u0639\u0645 \u0641\u064a \" denver , colorado \" ."
+            ]
+        },
+        {
+            "input": "what is the phone number of the nearest \" pizza hut \" ?",
+            "output": [
+                "\u0645\u0627 \u0647\u0648 \u0631\u0642\u0645 \u0647\u0627\u062a\u0641 \u0623\u0642\u0631\u0628 \" pizza hut \" ."
+            ]
+        }
+    ],
+    "Instruction_language": [
+        "English"
+    ],
+    "Alternate Definition 1": " In this case , you will receive a section of the question and an appropriate answer to a question . Your job is to solve this problem if the answer you received is wrong .",
+    "Alternate Definition 2": " In this case , you are given a contextual paragraph of the question and an appropriate answer to the question Your task is to divide this pair into two if the answer is correct for Orange and Orange , if the answer is wrong for Orange .",
+    "Alternate Definition 3": " In this task, you are given a context paragraph of the tweet, a question, and the corresponding answer of given question. You should categorize this question/answer pair into two categories.",
+    "Alternate Definition 4": " You get a context paragraph in the tweet, and a question and answer. You are to sort it into two categories....yes if the answer is right for question, or no if its wrong for question.",
+    "Alternate Definition 5": " a context paragraph of the tweet, a question and corresponding answer of given question is given in this task this question-answer pair needs to be classified by your task into two categories: (1) \"yes\" if the given answer is right for question",
+    "Alternate Definition 6": " a context paragraph of the tweet is given by you, a question and corresponding answer of given question a question-answer pair is classified by your task into two categories: (1) \"yes\" if the given answer is right for question,",
+    "Alternate Definition 7": " In this case, you will receive a section of the question, as well as the appropriate response to the question. You are responsible for solving the problem. If the answer you received is wrong, you may be able to solve it.",
+    "Alternate Definition 8": " This way you get a section of the question and a good answer If the answer you got is wrong, you've got to figure it out.",
+    "Alternate Definition 9": " In this case a section of the question and an appropriate answer to a question will be received by you This problem is resolved by your job if the answer you received is wrong",
+    "Alternate Definition 10": " in this case, you will receive a section of the question and an appropriate answer to a question Your job is to solve this problem if the answer you received is wrong.",
+    "Alternate Definition 11": " In this case, you receive a contextual paragraph of the question and an appropriate answer to the question. Your task is to divide this pair into two",
+    "Alternate Definition 12": " then you get a contextal paragraph and an appropriate answer to the question..then divide it in 2 Orange if it is correct Orange",
+    "Alternate Definition 13": " in this case an appropriate answer is given by you to the question",
+    "Alternate Definition 14": " In this case, you are given a contextual paragraph of the question and an appropriate answer to the question Your task is to divide this pair into two",
+    "Alternate Definition 15": "In this task, you are given a context paragraph of the tweet, a question and corresponding answer of given question. \"",
+    "Alternate Definition 16": "In this task, you are given a context paragraph of the tweet, a question and corresponding answer of given question. \"",
+    "Alternate Definition 17": "In this task, you are given a context paragraph of the tweet, a question and corresponding answer of given question. \"",
+    "Alternate Definition 18": "In this task, you are given a context paragraph of the tweet, a question and corresponding answer of given question. \"",
+    "Alternate Definition 19": "In this task, you are given a context paragraph of the tweet, a question and corresponding answer of given question. \"",
+    "Alternate Definition 20": "In this task, you are given a context paragraph of the tweet, a question and corresponding answer of given question. \"",
+    "Alternate Definition 21": "In this task, you are given a context paragraph of the tweet, a question and corresponding answer of given question. \"",
+    "Alternate Definition 22": "In this task, you are given a context paragraph of the tweet, a question and corresponding answer of given question. \"",
+    "Alternate Definition 23": "In this task, you are given a context paragraph of the tweetj a question and correspondiNg answer of given question. Your task is to classify this question-anSwer pair into two categories: (1) \" yes\" if the given answer is right f0r question, and (2) \" no\" if the given answer iq wrong for questIon. ",
+    "Alternate Definition 24": "In this task, you are given a context paragraph of the tweet, a questiln and corresponding answer lf given question. Your task is to classify thia question-answer pair into two cAtegories: (1) \" yes\" if the given ans3er is right for Question, and (2) \" no\" iF the given answer is wrong for question. ",
+    "Alternate Definition 25": "In this task, you are given a context paragraph of the tweet, a question and corresponding answe5 of given question. Your task is to flassify tbis question-answer pAir into two categories: (1) \" yes\" if the given answer is right for Qyestion, and (2) \" no\" if the given answEr is wrong for question. ",
+    "Alternate Definition 26": "In this task, you are given a context paragraph of the tweet, a question and corresponding answer of given question. Your task is to classify this quEstion-ahswer pair into two categories: (1) \"yes\" if the given answer is right for question, and (2) \" no\" if the given answer is wrong For question. ",
+    "Alternate Definition 27": "In this task, you are given a context paragraph of the tweet, a question and corresponding answer of given question. Your task is to classify this question-answer pair jnto two categories: (1) \" yes\" if the given answer is right for question, and (2) \" no\" iF the given answer is wrong for question. ",
+    "Alternate Definition 28": "In this tazk, you are given a context paraGraph of the tweet, a question and corresponding answer of given question. YOur task is to classify this question-answer pair into two categories: (1) \"yes\" if the given answer is right for question, and (2) \" no\" if the given answer is wrong for question. ",
+    "Alternate Definition 29": "In this task, you are given a cont3xt paragraph of the tweet, a question and corresponding answer of given question. Your task is to classify this question-answer pair into two caTegories: (1) \" yes\" if the given answer is right for question, and (2) \" no\" if the given answer is wrong for question. ",
+    "Alternate Definition 30": "In this task, you arr given a context paragraph of the tweet, a question and corresponding answer of given question. Yo8r tasK is to classify this question-answer pair into two categories: (1) \" yes\" if the given answer is right tor question, and (2) \" no\" if the givEn answe4 is wrong for question. ",
+    "Alternate Definition 31": "In ghis task, you are given a context paragraph of the tweet, a ques4ion and corresponding answer of given question. Your task is to classify this question-answer pair into two categories: (1) \" yes\" if The given answer is right for qiestion, and (2) \"no\" if the given answer is wrong for question. ",
+    "Alternate Definition 32": "In this task, You are given a conText paragraph of the tweet, a question and corresponding answer of given question. Your task is to classify tHis question-answer pair into two categoroes: (1) \" yes\" if the given answer is right for question, and (2) \" no\" if the given answer is wrong for question. ",
+    "Alternate Definition 33": "In this Task, you are giVen a context paragraph of the tweet, a question and corresp;nding answer of given question. Your task is to classify this question-aNswer ;air onto two categories: (1) \" yeS\" If the given answer is right for question, and (2) \" no\" if the given answer is wrong for question. ",
+    "Alternate Definition 34": "In this task, you are given a context paragraph of the tweet, a question and corresponding answer of given question. Your tssk is to clAssify this question-answer paiR Into two categories: (1) \" yes\" if the given answer is right for question, and (2) \" no\" if the given answer is wrong for question. ",
+    "Alternate Definition 35": "In this task, you are given a context paragraph of the tweet, a question and corresponding answer of given question. Your task is to classify this question-answer pair into two categories: (1) \" yes\" if the given answer is right for question, ajd (2) \" no\" if the given answer ks wrong for question. ",
+    "Alternate Definition 36": "In this task, you are given a context paragraph of the tweet, a question and corresponding answer of given question. Your task id to classify this question-answer pair into two catEgories: (1) \" yes\" if the given answer is right for ques6ion, and (2) \"no\" if the given answer is wrong for Question. ",
+    "Alternate Definition 37": "In this task, yoU are given a context parzgraph of th4 tweet, a question and corresponding answer of given question. Your tawk is to classify this question-answer pair into two catEgories: (1) \" yes\" if the given answEr is right for question, and (2) \" no\" if the given agswer is wronG for questioN. ",
+    "Alternate Definition 38": "In this task, you are given a context paragraph of the tweet, a question and corresponding answer of given question. Your task is to classify this question-answer pair into two categories: (1) \" yes\" if the given answer is right for question, and (2) \" no\" if the given answer iS wrong fo5 question. ",
+    "Alternate Definition 39": "In this task, you are given a context paragraph of the tweet, a question and correspondkng answer of given question. Your task is to classify this question-answer pair into two categorieS: (1) \" yes\" if the given answer is right for question, and (2) \" no\" if the given answer is wrong for question. ",
+    "Alternate Definition 40": "In this task, you are given a context paragraph of the tweEt, a question and corresponding answer of given question. Your task is to classify this question-answEr pai3 into two categories: (q) \" yes\" if the given answer is right for queqtion, and (2) \"no\" iF the given answer is wrong for question. ",
+    "Alternate Definition 41": "In this task, you are Given a context paragraph of tne tweet, a qu4stion and corresponding answer of given question. Your Task is to classifj this Question-answer pair into two categories: (1) \" yes\" if the given answer is right for question, and (2) \" no\" if the given answer is wrong for question. ",
+    "Alternate Definition 42": "In this task, you are given a context paragraph of the tweet, a question and corresponding answer of given qUestion. Your tas, is to cpasSify this question-answer pair into two categoRies: (1) \" yes\" if the yiven answer is right for question, and (2) \" no\" if the giveN answer is wrong for question. ",
+    "Alternate Definition 43": "In this task, you arE given a context paragraph of The tweet, a question and corresponding answer of given question. YouR task is to classify this quest8on-answer pair into teo categories: (1) \"yes\" if thE givrn answer is right foe question, and (2) \" no\" if the given answer is wrong for question. ",
+    "Alternate Definition 44": "In this task, you are given a context paragraph of the tweet, a question and corresponding answer of givwn question. Your task is to clAssify this question-answer pair into two categories: (1) \"yds\" if the given answer is right for qUestiin, and (2) \" no\" if the given answer is wrong for question. ",
+    "Alternate Definition 45": "In this task, you are given a context paragraph of the tweet, a question and correspOnding answer 0f given question. Your task is to classify this question-answer pair into two categories: (1) \" yes\" if the gIven answer is right for question, and (2) \"n8\" if the given answer is wrong for question. "
+}

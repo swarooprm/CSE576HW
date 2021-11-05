@@ -1,0 +1,2465 @@
+{
+    "Contributors": [
+        "Mehrad Moradshahi"
+    ],
+    "Source": [
+        "Semantic Parser Localizer (https://github.com/stanford-oval/SPL)"
+    ],
+    "Categories": [
+        "Translation"
+    ],
+    "Input_language": [
+        "English"
+    ],
+    "Output_language": [
+        "Finnish"
+    ],
+    "Definition": "The provided file includes inquiries about restaurants, and we ask you to translate those to the Finnish language. Please bear in mind the following guidelines while doing the translation: 1) We are looking for the most naturally written and formal form of each sentence in your language. We are *NOT* looking for colloquial forms of the sentence. We are looking for formal form which is how you would type your queries in a text-based virtual assistant. 2) The words between quotation marks *SHOULD NOT* be translated. We expect you to keep those values intact and include the quotation marks around them as well. 3) The fully capitalized words like DATE_0, or DURATION_0 *SHOULD NOT* be translated. Please keep them as they are in the translations. 4) Please do not localize measurement units like miles to kilometers during your translation. miles should be translated to its equivalent in your language. 6) Note the input is all lowercased except for fully capitalized special placeholders (e.g. NUMBER, DATE, TIME). Please do the same in your translations.",
+    "Domains": [
+        "Public Places -> Restaurants"
+    ],
+    "Positive Examples": [
+        {
+            "input": "are there any \" italian \" restaurants nearby with 10 star reviews ?",
+            "output": "l\u00f6ytyyk\u00f6 l\u00e4helt\u00e4ni yht\u00e4\u00e4n \" italian \" ravintolaa joka on saanut v\u00e4hint\u00e4\u00e4n 10 t\u00e4hden arvioita?",
+            "explanation": "The translation correctly preserves \" italian \" entity and is accurate"
+        },
+        {
+            "input": "what kind of food does this restaurant serve ?",
+            "output": "millaista ruokaa t\u00e4ss\u00e4 ravintolassa tarjoillaan ?",
+            "explanation": "The translation is fluent, formal, and accurate"
+        },
+        {
+            "input": "what is the telephone number and location of the nearest \" chinese \" restaurant ?",
+            "output": "mik\u00e4 on l\u00e4himm\u00e4n \" chinese \" ravintolan puhelinnumero ja sijainti ?",
+            "explanation": "The translation correctly preserves \" chinese \" entity. It's also fluent, correct, and lowercased."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "where is the closest \" wendy 's \" ?",
+            "output": "miss\u00e4 on l\u00e4hin wendy 's ?",
+            "explanation": "Translation contain the entity \" wendy 's \" but quotation marks are dropped"
+        },
+        {
+            "input": "show me the closest \" mcdonald 's \"",
+            "output": "n\u00e4yt\u00e4 minulle l\u00e4hin \" McDonald's \"",
+            "explanation": "The output is not lowercased"
+        },
+        {
+            "input": "display all review descriptions authored by \" jennifer \" .",
+            "output": "n\u00e4yt\u00e4 kaikki k\u00e4ytt\u00e4j\u00e4n \" jennifer \" kirjoittamat .",
+            "explanation": "Translation of review descriptions is omitted from the output"
+        },
+        {
+            "input": "what is the phone number for \" noodle nirvana \" ?",
+            "output": "mik\u00e4 on ravintolan \" nuudeli nirvana \" puhelinnumero ?",
+            "explanation": "The restaurant name \" noodle nirvana \" is translated to \" nuudeli nirvana \" instead of being kept intact"
+        },
+        {
+            "input": "can you tell me the rating of \" gold mirror \" in \" san francisco \" ?",
+            "output": "voitko kertoa minulle ravintolan \" san francisco \" arvosanan kohteessa \" gold mirror \" ?",
+            "explanation": "The position of entities is switched in the output"
+        }
+    ],
+    "Instances": [
+        {
+            "input": "find a \" mexican \" restaurant with 0 or more stars .",
+            "output": [
+                "etsi \" mexican \" ravintola joka on saanut 0 tai useamman t\u00e4hden ."
+            ]
+        },
+        {
+            "input": "search for \" vegetarian \" restaurants with 6 star reviews or better .",
+            "output": [
+                "etsi \" vegetarian \" ravintola joka on saanut 6 tai useamman t\u00e4htiarvion ."
+            ]
+        },
+        {
+            "input": "search for \" italian \" restaurants with at least 3 reviews .",
+            "output": [
+                "etsi \" italian \" ravintoloita joilla on v\u00e4hint\u00e4\u00e4n 3 arvostelua ."
+            ]
+        },
+        {
+            "input": "list \" italian \" restaurants with higher ratings that 3 stars .",
+            "output": [
+                "listaa \" italian \" ravintolat jotka ovat saaneet yli 3 t\u00e4hte\u00e4 ."
+            ]
+        },
+        {
+            "input": "look for a \" japanese \" restaurant that is the closest to me .",
+            "output": [
+                "etsi minua l\u00e4hin \" japanese \" ravintola ."
+            ]
+        },
+        {
+            "input": "what 's the telephone number of the \" arby 's \" on \" sherman in muskegon , mi \" ?",
+            "output": [
+                "mik\u00e4 on ravintolan \" arby 's \" puhelinnumero kohteessa \" sherman in muskegon , mi \" ?"
+            ]
+        },
+        {
+            "input": "what is the closest \" italian \" restaurant with at least a 8 star rating ?",
+            "output": [
+                "mik\u00e4 on l\u00e4hin \" italian \" ravintola joka on saanut v\u00e4hint\u00e4\u00e4n 8 t\u00e4hden arvion ?"
+            ]
+        },
+        {
+            "input": "what is the closest \" coffee bean \" ?",
+            "output": [
+                "mik\u00e4 on l\u00e4hin \" coffee bean \" ?"
+            ]
+        },
+        {
+            "input": "where is the nearest \" mexican \" restaurant ?",
+            "output": [
+                "miss\u00e4 on l\u00e4hin \" mexican \" ravintola ?"
+            ]
+        },
+        {
+            "input": "show me the review for \" harry 's seafood grill \" by \" antoine waring \"",
+            "output": [
+                "n\u00e4yt\u00e4 minulle k\u00e4ytt\u00e4j\u00e4n \" antoine waring \" kirjoittama arvio ravintolasta \" harry 's seafood grill \""
+            ]
+        },
+        {
+            "input": "how well is \" pizza hut \" rated ?",
+            "output": [
+                "kuinka hyv\u00e4n arvion \" pizza hut \" on saanut ?"
+            ]
+        },
+        {
+            "input": "what is the rating of that \" mcdonald ' \" ?",
+            "output": [
+                "mik\u00e4 on tuon \" mcdonald ' \" ravintolan arvio ?"
+            ]
+        },
+        {
+            "input": "where is the nearest \" italian \" restaurant .",
+            "output": [
+                "miss\u00e4 on l\u00e4hin \" italian \" ravintola ?"
+            ]
+        },
+        {
+            "input": "search for an \" italian \" restaurant in \" dallas \" with at least 8 reviews .",
+            "output": [
+                "etsi kohteessa \" dallas \" olevia \" italian \" ravintoloita joilla on v\u00e4hint\u00e4\u00e4n 8 arviota ."
+            ]
+        },
+        {
+            "input": "what is the rating for the \" la unica \" in \" huntersville \" ?",
+            "output": [
+                "mik\u00e4 on kohteessa \" huntersville \" sijaitsevan \" la unica \" ravintolan arvosana ?"
+            ]
+        },
+        {
+            "input": "what is the rating of \" olive garden \" ?",
+            "output": [
+                "mik\u00e4 on \" olive garden \" ravintolan arvosana ?"
+            ]
+        },
+        {
+            "input": "show me the location and name of the nearest \" chinese \" restaurant .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle l\u00e4himm\u00e4n \" chinese \" ravintolan sijainti ja nimi ."
+            ]
+        },
+        {
+            "input": "show me the closest \" starbucks \" with at least 10 stars .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle l\u00e4hin \" starbucks \" joka on saanut v\u00e4hint\u00e4\u00e4n 10 t\u00e4hte\u00e4 ."
+            ]
+        },
+        {
+            "input": "search for 8 star restaurants in the \" 49503 \" zip code .",
+            "output": [
+                "etsi 8 t\u00e4hte\u00e4 saaneita ravintoloita postinumerolla \" 49503 \" ."
+            ]
+        },
+        {
+            "input": "what is the price range for \" noodle express \" ?",
+            "output": [
+                "mik\u00e4 on ravintolan \" noodle express \" hintahaarukka ?"
+            ]
+        },
+        {
+            "input": "show me 2 star \" mexican \" restaurants that have more than 5 reviews .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle 2 t\u00e4hden \" mexican \" ravintolat joilla on yli 5 arviota ."
+            ]
+        },
+        {
+            "input": "can you show me all the 4 star restaurants in the area ?",
+            "output": [
+                "voitko n\u00e4ytt\u00e4\u00e4 minulle kaikki alueen 4 t\u00e4hden ravintolat ?"
+            ]
+        },
+        {
+            "input": "what is the phone number for the nearest \" wendy 's \" ?",
+            "output": [
+                "mik\u00e4 on l\u00e4himm\u00e4n \" wendy 's \" ravintolan puhelinnumero ?"
+            ]
+        },
+        {
+            "input": "what is the rating for this restaurant and how many reviews does it have ?",
+            "output": [
+                "mik\u00e4 on ravintolan luokitus ja montako arvostelua sill\u00e4 on ?"
+            ]
+        },
+        {
+            "input": "i want to see what \" chinese \" restaurants are on \" madison avenue \" .",
+            "output": [
+                "haluan n\u00e4hd\u00e4 kohteessa \" madison avenue \" olevat \" chinese \" ravintolat ."
+            ]
+        },
+        {
+            "input": "how many reviews has \" mike \" written about \" pizza hut \" ?",
+            "output": [
+                "kuinka monta arvostelua k\u00e4ytt\u00e4j\u00e4 \" mike \" on kirjoittanut ravintolasta \" pizza hut \" ?"
+            ]
+        },
+        {
+            "input": "find \" mexican \" restaurants with at least 9 star rating .",
+            "output": [
+                "etsi v\u00e4hint\u00e4\u00e4n 9 t\u00e4htiarvion saaneet \" mexican \" ravintolat ."
+            ]
+        },
+        {
+            "input": "show me all reviews written by \" paul \" on DATE_0 .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki k\u00e4ytt\u00e4j\u00e4n \" paul \" date_0 kirjoittamat arviot ."
+            ]
+        },
+        {
+            "input": "show \" tina \" 's 3 star reviews of \" pizza \" joints .",
+            "output": [
+                "n\u00e4yt\u00e4 k\u00e4ytt\u00e4j\u00e4n \" tina \" 3 t\u00e4hden arviot \" pizza \" ravintoloista ."
+            ]
+        },
+        {
+            "input": "are there any 5 star \" mexican \" restaurants nearby ?",
+            "output": [
+                "onko l\u00e4hell\u00e4 5 t\u00e4hte\u00e4 saaneita \" mexican \" ravintoloita ?"
+            ]
+        },
+        {
+            "input": "search for \" mexican \" restaurants with at least 4 reviews .",
+            "output": [
+                "etsi \" mexican \" ravintoloita joilla on v\u00e4hint\u00e4\u00e4n 4 arvostelua ."
+            ]
+        },
+        {
+            "input": "find a restaurant that serves \" italian \" food with at least 2 reviews .",
+            "output": [
+                "etsi \" italian \" ruokaa tarjoilevia ravintoloita joilla on v\u00e4hint\u00e4\u00e4n 2 arvostelua ."
+            ]
+        },
+        {
+            "input": "what is the nearest \" mexican \" restaurant with a 6 star rating ?",
+            "output": [
+                "mik\u00e4 on l\u00e4hin 6 t\u00e4hden arvion saanut \" mexican \" ravintola ?"
+            ]
+        },
+        {
+            "input": "can you give me the phone number for the nearest 2 star \" coffee \" house ?",
+            "output": [
+                "voitko antaa minulle l\u00e4himm\u00e4n 2 t\u00e4hden saaneen \" coffee \" kahvilan puhelinnumeron ?"
+            ]
+        },
+        {
+            "input": "what is the \" panda express \" in \" gainesville , fl \" rated ?",
+            "output": [
+                "millaisen arvion \" panda express \" kohteessa \" gainesville , fl \" on saanut ?"
+            ]
+        },
+        {
+            "input": "what is the star rating for \" tilted kilt \" ?",
+            "output": [
+                "millaisen t\u00e4htiarvion \" tilted kilt \" on saanut ?"
+            ]
+        },
+        {
+            "input": "what are the latest reviews and review scores for this restaurant ?",
+            "output": [
+                "mitk\u00e4 ovat ravintolan uusimmat arvostelut ja arvostelupisteet ?"
+            ]
+        },
+        {
+            "input": "where is the closest \" starbucks \" ?",
+            "output": [
+                "miss\u00e4 on l\u00e4hin \" starbucks \" ?"
+            ]
+        },
+        {
+            "input": "search for all 3 star , \" vegan \" restaurants in the area .",
+            "output": [
+                "n\u00e4yt\u00e4 kaikki alueen 3 t\u00e4hte\u00e4 saaneet \" vegan \" ravintolat ."
+            ]
+        },
+        {
+            "input": "can you tell me where the closest \" pizza hut \" is ?",
+            "output": [
+                "voitko kertoa miss\u00e4 l\u00e4hin \" pizza hut \" on ?"
+            ]
+        },
+        {
+            "input": "what is the rating of \" tgi fridays \" ?",
+            "output": [
+                "millaisen arvion \" tgi fridays \" on saanut ?"
+            ]
+        },
+        {
+            "input": "show me a list of \" vegan \" restaurants with at least 7 reviews .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki v\u00e4hint\u00e4\u00e4n 7 arviota saaneet \" vegan \" ravintolat ."
+            ]
+        },
+        {
+            "input": "can i read the description of the closest \" italian \" restaurant ?",
+            "output": [
+                "voinko lukea l\u00e4himm\u00e4n \" italian \" ravintolan kuvauksen ?"
+            ]
+        },
+        {
+            "input": "what is the price range for \" pizza ranch \" ?",
+            "output": [
+                "mik\u00e4 on ravintolan \" pizza ranch \" hintahaarukka ?"
+            ]
+        },
+        {
+            "input": "show description of the closest 9 star restaurant .",
+            "output": [
+                "n\u00e4yt\u00e4 l\u00e4himm\u00e4n 9  t\u00e4hte\u00e4 saaneen ravintolan kuvaus ."
+            ]
+        },
+        {
+            "input": "what is the telephone number for the nearest \" chinese \" restaurant ?",
+            "output": [
+                "mik\u00e4 on l\u00e4himm\u00e4n \" chinese \" ravintolan puhelinnumero ?"
+            ]
+        },
+        {
+            "input": "what is the highest rated restaurant in this area ?",
+            "output": [
+                "mik\u00e4 on t\u00e4m\u00e4n alueen parhaiten arvioitu ravintola ?"
+            ]
+        },
+        {
+            "input": "search for \" vegan \" restaurants in \" lakeland , fl \" with at least 0 reviews",
+            "output": [
+                "etsi v\u00e4hint\u00e4\u00e4n 0  arviota saaneet \" vegan \" ravintolat kohteessa \" lakeland , fl \""
+            ]
+        },
+        {
+            "input": "how close am i to \" art 's deli \" or \" carnegie deli \" ?",
+            "output": [
+                "kuinka l\u00e4hell\u00e4 on \" art 's deli \" tai \" carnegie deli \" ?"
+            ]
+        },
+        {
+            "input": "show me all \" chinese \" restaurants with 0 star ratings within 3 miles .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki 0  t\u00e4htiarvion saaneet \" chinese \" ravintolat 3 mailin s\u00e4teell\u00e4 ."
+            ]
+        },
+        {
+            "input": "what is the address of the \" dunkin donuts \" closet to me ?",
+            "output": [
+                "mik\u00e4 on minua l\u00e4hinn\u00e4 olevan \" dunkin donuts \" ravintolan osoite ?"
+            ]
+        },
+        {
+            "input": "tell me the location of \" flo 's \" \" chinese \" restaurant in \" scottsdale , arizona \" .",
+            "output": [
+                "kerro minulle \" flo 's \" \" chinese \" ravintolan sijainti kohteessa \" scottsdale , arizona \" ."
+            ]
+        },
+        {
+            "input": "what is the telephone number for \" krispy kreme \" ?",
+            "output": [
+                "mik\u00e4 on ravintolan \" krispy kreme \" puhelinnumero ?"
+            ]
+        },
+        {
+            "input": "where is the nearest \" boston market \" ?",
+            "output": [
+                "miss\u00e4 on l\u00e4hin \" boston market \" ?"
+            ]
+        },
+        {
+            "input": "how far away is the closest \" olive garden \" ?",
+            "output": [
+                "kuinka kaukana on l\u00e4hin \" olive garden \" ?"
+            ]
+        },
+        {
+            "input": "what is the address of the \" panda express \" in \" grand rapids , michigan \" ?",
+            "output": [
+                "mik\u00e4 on ravintolan \" panda express \" osoite kohteessa \" grand rapids , michigan \" ?"
+            ]
+        },
+        {
+            "input": "where is the nearest \" mexican \" restaurant with at least a 0 star review ?",
+            "output": [
+                "miss\u00e4 on l\u00e4hin v\u00e4hint\u00e4\u00e4n 0 t\u00e4htiarvion saanut \" mexican \" ravintola ?"
+            ]
+        },
+        {
+            "input": "what are the prices for the 5 highest rated \" italian \" restaurants in \" roanoke , va \" ?",
+            "output": [
+                "millaiset hinnat 5 parhaaksi arvioidussa \" italian \" ravintolassa kohteessa \" roanoke , va \" ?"
+            ]
+        },
+        {
+            "input": "let me see the reviews for the \" jimmy john 's \" nearest to me ?",
+            "output": [
+                "voitko n\u00e4ytt\u00e4\u00e4 minulle l\u00e4himm\u00e4n \" jimmy john 's \" ravintolat arviot ?"
+            ]
+        },
+        {
+            "input": "what is a 2 star \" mexican \" restaurant ?",
+            "output": [
+                "mik\u00e4 on 2 t\u00e4hte\u00e4 saanut \" mexican \" ravintola ?"
+            ]
+        },
+        {
+            "input": "what places close to me have 6 star reviews ?",
+            "output": [
+                "mitk\u00e4 minua l\u00e4himm\u00e4t ravintolat ovat saaneet 6 t\u00e4hden arviot ?"
+            ]
+        },
+        {
+            "input": "search for 4 star rated \" italian \" food in \" dallas \" .",
+            "output": [
+                "etsi 4 t\u00e4hte\u00e4 saaneita \" italian \" ruokaa tarjoilevia ravintoloita kohteessa \" dallas \" ."
+            ]
+        },
+        {
+            "input": "can you show me 2 star reviews written by \" john smith \" .",
+            "output": [
+                "voitko n\u00e4ytt\u00e4\u00e4 minulle k\u00e4ytt\u00e4j\u00e4n \" john smith \" kirjoittamat 2 t\u00e4hden arviot ."
+            ]
+        },
+        {
+            "input": "how many 1 star reviews are there for \" peet 's coffee \" ?",
+            "output": [
+                "kuinka monta 1 t\u00e4hden arviota \" peet 's coffee \" o nsaanut ?"
+            ]
+        },
+        {
+            "input": "i want to see all of the 1 star reviews that \" sheila \" wrote .",
+            "output": [
+                "haluan n\u00e4hd\u00e4 kaikki k\u00e4ytt\u00e4j\u00e4n \" sheila \" kirjoittamat 1 t\u00e4hden arviot ."
+            ]
+        },
+        {
+            "input": "locate all \" italian \" restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 kaikki \" italian \" ravintolat ."
+            ]
+        },
+        {
+            "input": "can you look for a restaurant with a rating of 0 ?",
+            "output": [
+                "voitko etsi\u00e4 ravintolan jonka arvio on 0 ?"
+            ]
+        },
+        {
+            "input": "looking to book a restaurant with at least 10 reviews .",
+            "output": [
+                "haluan varata p\u00f6yd\u00e4n ravintolasta joka on saanut v\u00e4hint\u00e4\u00e4n 10 arviota ."
+            ]
+        },
+        {
+            "input": "search for \" bayshore bean \" .",
+            "output": [
+                "hae \" bayshore bean \"."
+            ]
+        },
+        {
+            "input": "show me \" vietnamese \" restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" vietnamese \" ravintolat."
+            ]
+        },
+        {
+            "input": "find all the \" bakeries \" .",
+            "output": [
+                "l\u00f6yd\u00e4 kaikki \" bakeries \"."
+            ]
+        },
+        {
+            "input": "show me all restaurants rated with exactly 7 stars .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki ravintolat, joiden luokitus on t\u00e4sm\u00e4lleen 7 t\u00e4hte\u00e4."
+            ]
+        },
+        {
+            "input": "where is \" los compadres \" ?",
+            "output": [
+                "miss\u00e4 on \" los compadres \"?"
+            ]
+        },
+        {
+            "input": "find \" thai \" restaurants .",
+            "output": [
+                "l\u00f6yd\u00e4 \" thai \"-ravintoloita."
+            ]
+        },
+        {
+            "input": "show me \" cook out \" .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" cook out \"."
+            ]
+        },
+        {
+            "input": "find restaurants with more than 7 reviews .",
+            "output": [
+                "l\u00f6yd\u00e4 ravintoloita, joilla on enemm\u00e4n kuin 7 arvostelua."
+            ]
+        },
+        {
+            "input": "does the \" lone star steakhouse \" in \" dallas nc \" have a review yet ?",
+            "output": [
+                "onko \" lone star steakhouse \" -ravintolalla paikassa \" dallas nc \" viel\u00e4 yht\u00e4\u00e4n arvostelua?"
+            ]
+        },
+        {
+            "input": "can you show me the ratings for \" j dog \" ?",
+            "output": [
+                "voitko n\u00e4ytt\u00e4\u00e4 minulle \" j dog \" -ravintolan arvostelut?"
+            ]
+        },
+        {
+            "input": "can you find the restaurant nearest to my location ?",
+            "output": [
+                "voitko l\u00f6yt\u00e4\u00e4 sijaintiani l\u00e4hinn\u00e4 olevan ravintolan?"
+            ]
+        },
+        {
+            "input": "look up a \" mexican \" restaurant for me .",
+            "output": [
+                "hae minulle \" mexican \" ravintola."
+            ]
+        },
+        {
+            "input": "find me a restaurant on \" main st . \" please .",
+            "output": [
+                "l\u00f6yd\u00e4 minulle ravintola paikasta \" main st . \"."
+            ]
+        },
+        {
+            "input": "show me the highest rated restaurant please .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle korkeimman luokituksen omaava ravintola."
+            ]
+        },
+        {
+            "input": "what restaurant has the highest review count ?",
+            "output": [
+                "mill\u00e4 ravintolalla on eniten arvosteluja?"
+            ]
+        },
+        {
+            "input": "what restaurant does \" jeff weisnear \" review for ?",
+            "output": [
+                "mille ravintolalle \" jeff weisnear \" tekee arvosteluja?"
+            ]
+        },
+        {
+            "input": "search for \" korean bbq \" restaurants .",
+            "output": [
+                "hae \" korean bbq \" -ravintoloita."
+            ]
+        },
+        {
+            "input": "how many reviews does the place have ?",
+            "output": [
+                "kuinka monta arvostelua paikalla on?"
+            ]
+        },
+        {
+            "input": "where is the nearest \" chinese \" place ?",
+            "output": [
+                "miss\u00e4 on l\u00e4hin \" chinese \" ravintola?"
+            ]
+        },
+        {
+            "input": "how many places to eat are nearby ?",
+            "output": [
+                "kuinka monta ruokapaikkaa on l\u00e4hist\u00f6ll\u00e4?"
+            ]
+        },
+        {
+            "input": "show all the restaurants below 1 stars .",
+            "output": [
+                "n\u00e4yt\u00e4 kaikki ravintolat, joilla on alle 1 t\u00e4hte\u00e4."
+            ]
+        },
+        {
+            "input": "give me all the \" italian \" places .",
+            "output": [
+                "anna minulle kaikki \" italian \" ravintolat."
+            ]
+        },
+        {
+            "input": "find restaurants rated lower than 10 .",
+            "output": [
+                "l\u00f6yd\u00e4 ravintoloita, joiden luokitus on alle 10."
+            ]
+        },
+        {
+            "input": "find \" mexican \" restaurants .",
+            "output": [
+                "l\u00f6yd\u00e4 \" mexican \" ravintoloita."
+            ]
+        },
+        {
+            "input": "show me \" french \" restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" french \" ravintolat."
+            ]
+        },
+        {
+            "input": "show me \" le pain quotidien \" .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" le pain quotidien \"."
+            ]
+        },
+        {
+            "input": "find restaurants with more than 5 reviews .",
+            "output": [
+                "l\u00f6yd\u00e4 ravintoloita, joilla on yli 5 arvostelua."
+            ]
+        },
+        {
+            "input": "is there a restaurant named \" china king \" ?",
+            "output": [
+                "onko olemassa ravintola nimelt\u00e4 \" china king \"?"
+            ]
+        },
+        {
+            "input": "what 's the lowest rated diner in my area ?",
+            "output": [
+                "mill\u00e4 alueeni ravintolalla on huonoin luokitus?"
+            ]
+        },
+        {
+            "input": "what is the highest rated restaurant ?",
+            "output": [
+                "mill\u00e4 ravintolalla on paras luokitus?"
+            ]
+        },
+        {
+            "input": "is there a \" japanese \" restaurant nearby ?",
+            "output": [
+                "onko l\u00e4hist\u00f6ll\u00e4 \" japanese \" ravintolaa?"
+            ]
+        },
+        {
+            "input": "what 's the address of the closest restaurant ?",
+            "output": [
+                "mik\u00e4 on l\u00e4himm\u00e4n ravintolan osoite?"
+            ]
+        },
+        {
+            "input": "where is \" thai kitchen \" ?",
+            "output": [
+                "miss\u00e4 on \" thai kitchen \"?"
+            ]
+        },
+        {
+            "input": "show me \" mexican \" restaurants",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" mexican \" ravintolat"
+            ]
+        },
+        {
+            "input": "show me all 1 star restaurants",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki 1 t\u00e4hden ravintolat"
+            ]
+        },
+        {
+            "input": "show me \" main street \" restaurants",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" main street \" -ravintolat"
+            ]
+        },
+        {
+            "input": "show the address of \" thai corner \"",
+            "output": [
+                "n\u00e4yt\u00e4 \" thai corner \" -ravintolan osoite"
+            ]
+        },
+        {
+            "input": "search for the nearest \" wendy 's \" restaurant ?",
+            "output": [
+                "hae l\u00e4hin \" wendy 's \"-ravintola?"
+            ]
+        },
+        {
+            "input": "find a \" steak house \" restaurant ?",
+            "output": [
+                "l\u00f6yd\u00e4 \" steak house \" -ravintola?"
+            ]
+        },
+        {
+            "input": "show me \" mediterranean \" restaurants ?",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" mediterranean \" ravintolat."
+            ]
+        },
+        {
+            "input": "show me the best rated restaurants",
+            "output": [
+                "n\u00e4yt\u00e4 minulle parhaan luokituksen omaavat ravintolat."
+            ]
+        },
+        {
+            "input": "show me restaurants near me",
+            "output": [
+                "n\u00e4yt\u00e4 minulle l\u00e4hell\u00e4 olevat ravintolat"
+            ]
+        },
+        {
+            "input": "show me restaurants with the most reviews",
+            "output": [
+                "n\u00e4yt\u00e4 minulle ravintolat, joilla on eniten arvosteluja"
+            ]
+        },
+        {
+            "input": "find me \" pizza \" places",
+            "output": [
+                "l\u00f6yd\u00e4 me \" pizza \"-ravintoloita"
+            ]
+        },
+        {
+            "input": "find a \" pizza \" place .",
+            "output": [
+                "l\u00f6yd\u00e4 \" pizza \"-ravintola."
+            ]
+        },
+        {
+            "input": "show me a \" sushi \" restaurant .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" sushi \"-ravintola."
+            ]
+        },
+        {
+            "input": "find all 0 star \" bbq \" places .",
+            "output": [
+                "l\u00f6yd\u00e4 kaikki 0 t\u00e4hden \" bbq \"-ravintolat."
+            ]
+        },
+        {
+            "input": "show me \" italian \" restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" italian \"-ravintolat."
+            ]
+        },
+        {
+            "input": "find all 2 star diners .",
+            "output": [
+                "l\u00f6yd\u00e4 kaikki 2 t\u00e4hden ruokapaikat."
+            ]
+        },
+        {
+            "input": "i 'd like to see restaurants with at least a rating of 9 .",
+            "output": [
+                "haluaisin n\u00e4hd\u00e4 ravintoloita, joiden luokitus on v\u00e4hint\u00e4\u00e4n 9 ."
+            ]
+        },
+        {
+            "input": "can you show me \" italian \" restaurants ?",
+            "output": [
+                "voitko n\u00e4ytt\u00e4\u00e4 minulle \" italian \" ravintoloita?"
+            ]
+        },
+        {
+            "input": "what is the price range for the top rated \" mexican \" restaurant ?",
+            "output": [
+                "millainen on parhaan luokituksen omaavan \" mexican \" ravintolan hintataso?"
+            ]
+        },
+        {
+            "input": "find \" mod pizza \" for me .",
+            "output": [
+                "l\u00f6yd\u00e4 minulle \" mod pizza \"."
+            ]
+        },
+        {
+            "input": "who wrote the latest review for \" first wok \" ?",
+            "output": [
+                "kuka on kirjoittanut uusimman arvostelun ravintolalle \" first wok \"?"
+            ]
+        },
+        {
+            "input": "show me restaurants with a rating of 1 .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle ravintoloita, joiden luokitus on 1 ."
+            ]
+        },
+        {
+            "input": "find me some \" coffee \" shops .",
+            "output": [
+                "l\u00f6yd\u00e4 me \" coffee \"-kahviloita."
+            ]
+        },
+        {
+            "input": "search for \" hamburger \" joints .",
+            "output": [
+                "hae \" hamburger \"-paikkoja."
+            ]
+        },
+        {
+            "input": "what are the restaurants reviewed by \" mark \" ?",
+            "output": [
+                "mit\u00e4 ravintoloita \" mark \" on arvostellut?"
+            ]
+        },
+        {
+            "input": "show me all the restaurants with a rating of more than 3 .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki ravintolat, joiden luokitus on yli 3."
+            ]
+        },
+        {
+            "input": "look for \" american \" restaurants close by .",
+            "output": [
+                "etsi \" american \" ravintoloita l\u00e4helt\u00e4."
+            ]
+        },
+        {
+            "input": "show me any \" mexican \" restaurant .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle mik\u00e4 tahansa \" mexican \" ravintola."
+            ]
+        },
+        {
+            "input": "find all of the restaurants that have a rating about 8 .",
+            "output": [
+                "l\u00f6yd\u00e4 kaikki ravintolat, joiden luokitus on yli 8 ."
+            ]
+        },
+        {
+            "input": "locate \" los cabos \" for me .",
+            "output": [
+                "etsi minulle \" los cabos \"."
+            ]
+        },
+        {
+            "input": "tell me the postal code for \" red robin \" .",
+            "output": [
+                "kerro minulle \" red robin \" -ravintolan postinumero."
+            ]
+        },
+        {
+            "input": "display a list of \" thai \" restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 \" thai \" ravintoloiden luettelo."
+            ]
+        },
+        {
+            "input": "find all restaurants in my downtown area .",
+            "output": [
+                "l\u00f6yd\u00e4 kaikki ravintolat kaupunkini keskustassa."
+            ]
+        },
+        {
+            "input": "display restaurants with at least 6 reviews .",
+            "output": [
+                "n\u00e4yt\u00e4 ravintolat, joilla on v\u00e4hint\u00e4\u00e4n 6 arvostelua."
+            ]
+        },
+        {
+            "input": "show me all restaurant reviews by \" john smith \" .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki henkil\u00f6n \" john smith \" ravintola-arvostelut."
+            ]
+        },
+        {
+            "input": "search for \" china wok \" .",
+            "output": [
+                "hae \" china wok \"."
+            ]
+        },
+        {
+            "input": "show me \" sushi \" restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" sushi \"-ravintoloita."
+            ]
+        },
+        {
+            "input": "show me 1 star restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle 1-t\u00e4hden ravintoloita."
+            ]
+        },
+        {
+            "input": "find all restaurants with a rating of 9 .",
+            "output": [
+                "l\u00f6yd\u00e4 kaikki ravintolat, joiden luokitus on 9 ."
+            ]
+        },
+        {
+            "input": "search for \" luby 's cafeteria \" .",
+            "output": [
+                "hae \" luby 's cafeteria \"."
+            ]
+        },
+        {
+            "input": "search for all 6 star restaurants .",
+            "output": [
+                "hae kaikki 6 t\u00e4hden ravintolat."
+            ]
+        },
+        {
+            "input": "search for \" italian \" restaurants .",
+            "output": [
+                "hae \" italian \" ravintoloita."
+            ]
+        },
+        {
+            "input": "show me restaurants with a 5 reviews .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle ravintolat, joilla on 5 arvostelua."
+            ]
+        },
+        {
+            "input": "show all restaurants with a rating of 1 or higher .",
+            "output": [
+                "n\u00e4yt\u00e4 kaikki v\u00e4hint\u00e4\u00e4n arvion 1 saaneet ravintolat ."
+            ]
+        },
+        {
+            "input": "search for \" itlaian \" cuisine restaurants .",
+            "output": [
+                "etsi \" itlaian \" ruokaa tarjoilevia ravintoloita ."
+            ]
+        },
+        {
+            "input": "show restaurants with at least 10 reviews .",
+            "output": [
+                "n\u00e4yt\u00e4 ravintolat joilla on v\u00e4hint\u00e4\u00e4n 10 arviota ."
+            ]
+        },
+        {
+            "input": "display any restaurants with overall rating of 3 or above .",
+            "output": [
+                "n\u00e4yt\u00e4 kaikki ravintolat joiden yleisarvio on v\u00e4hint\u00e4\u00e4n 3 ."
+            ]
+        },
+        {
+            "input": "i want to see some \" indian \" restaurants .",
+            "output": [
+                "haluan n\u00e4hd\u00e4 joitain \" indian \" ravintoloita ."
+            ]
+        },
+        {
+            "input": "show me 2 star restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle 2 t\u00e4hte\u00e4 saaneet ravintolat ."
+            ]
+        },
+        {
+            "input": "what is the closest restaurant to me ?",
+            "output": [
+                "mik\u00e4 on minua l\u00e4hin ravintola ?"
+            ]
+        },
+        {
+            "input": "search for \" burger king \" .",
+            "output": [
+                "etsi ravintolaa \" burger king \" ."
+            ]
+        },
+        {
+            "input": "show me restaurants that have a rating of at least 1 stars .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle ravintolat joiden arvio on v\u00e4hint\u00e4\u00e4n 1 t\u00e4hte\u00e4 ."
+            ]
+        },
+        {
+            "input": "find me a restaurant called \" lenny 's \"",
+            "output": [
+                "etsi minulle ravintola jonka nimi on \" lenny 's \""
+            ]
+        },
+        {
+            "input": "show me all \" german \" restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki \" german \" ravintolat ."
+            ]
+        },
+        {
+            "input": "i would like to find \" brenda 's french soul food \" .",
+            "output": [
+                "haluan l\u00f6yt\u00e4\u00e4 \" brenda 's french soul food \" ."
+            ]
+        },
+        {
+            "input": "i want to see all \" italian \" restaurants .",
+            "output": [
+                "haluan n\u00e4hd\u00e4 kaikki \" italian \" ravintolat ."
+            ]
+        },
+        {
+            "input": "show me all restaurants that are rated 8 star .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki ravintolat jotka ovat saaneet 8 t\u00e4hte\u00e4."
+            ]
+        },
+        {
+            "input": "find me all restaurants that serve \" new american \" cuisine .",
+            "output": [
+                "etsi minulle kaikki ravintolat jotka tarjoilevat \" new american \" ruokaa ."
+            ]
+        },
+        {
+            "input": "look for \" mai lee \" .",
+            "output": [
+                "etsi \" mai lee \" ."
+            ]
+        },
+        {
+            "input": "find the \" vietnamese \" restaurants .",
+            "output": [
+                "etsi \" vietnamese \" ravintoloita ."
+            ]
+        },
+        {
+            "input": "find all reviews from \" jane \" .",
+            "output": [
+                "etsi kaikki k\u00e4ytt\u00e4j\u00e4n \" jane \" kirjoittamat arviot ."
+            ]
+        },
+        {
+            "input": "show restaurants with over 3 reviews .",
+            "output": [
+                "n\u00e4yt\u00e4 yli 3 arviota saaneet ravintolat"
+            ]
+        },
+        {
+            "input": "find the restaurants with a rating of 8 .",
+            "output": [
+                "etsi kaikki arvion 8 saaneet ravintolat ."
+            ]
+        },
+        {
+            "input": "please give me a list of restaurants that are rated 7 and up .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle lista ravintoloista joiden arvio on 7 tai parempi ."
+            ]
+        },
+        {
+            "input": "can you find the highest rated \" thai \" restaurant , please .",
+            "output": [
+                "voitko etsi\u00e4 parhaaksi arvioidun \" thai \" ravintolan kiitos ."
+            ]
+        },
+        {
+            "input": "i want to see the top \" mexican \" restaurants .",
+            "output": [
+                "halua n\u00e4hd\u00e4 parhaat \" mexican \" ravintolat ."
+            ]
+        },
+        {
+            "input": "can you show me restaurants that have more than 4 reviews ?",
+            "output": [
+                "voitko n\u00e4ytt\u00e4\u00e4 minulle ravintolat joilla on yli 4 arviota ?"
+            ]
+        },
+        {
+            "input": "search for \" mcdonald 's \"",
+            "output": [
+                "etsi \" mcdonald 's \""
+            ]
+        },
+        {
+            "input": "show all \" mark \" 's reviews",
+            "output": [
+                "n\u00e4yt\u00e4 kaikki k\u00e4ytt\u00e4j\u00e4n \" mark \" arviot"
+            ]
+        },
+        {
+            "input": "look up restaurants in \" las vegas \"",
+            "output": [
+                "etsi ravintoloita kohteessa \" las vegas \""
+            ]
+        },
+        {
+            "input": "find \" cracker barrel \"",
+            "output": [
+                "etsi \" cracker barrel \""
+            ]
+        },
+        {
+            "input": "show me \" mexican \" restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" mexican \" ravintolat ."
+            ]
+        },
+        {
+            "input": "find restaurants with at least 0 reviews .",
+            "output": [
+                "etsi ravintoloita joilla on v\u00e4hint\u00e4\u00e4n 0 arvostelua ."
+            ]
+        },
+        {
+            "input": "find \" fuel pizza \" .",
+            "output": [
+                "etsi \" fuel pizza \" ."
+            ]
+        },
+        {
+            "input": "what is the closest restaurant ?",
+            "output": [
+                "mik\u00e4 on l\u00e4hin ravintola ?"
+            ]
+        },
+        {
+            "input": "show me all restaurants with ratings of at least 9 stars .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki ravintolat joiden arvio on v\u00e4hint\u00e4\u00e4n 9 t\u00e4hte\u00e4 ."
+            ]
+        },
+        {
+            "input": "find \" atomic ramen \"",
+            "output": [
+                "etsi \" atomic ramen \""
+            ]
+        },
+        {
+            "input": "tell all the restaurants rated 1 or higher",
+            "output": [
+                "kerro kaikki ravintolat joiden arviot on 1 tai parempi"
+            ]
+        },
+        {
+            "input": "show me the restaurant with the most reviews",
+            "output": [
+                "n\u00e4yt\u00e4 minulle eniten arvioita saaneet ravintolat"
+            ]
+        },
+        {
+            "input": "find restaurants reviewed by \" arthur smith \"",
+            "output": [
+                "etsi k\u00e4ytt\u00e4j\u00e4n \" arthur smith \" arvioimat ravintolat"
+            ]
+        },
+        {
+            "input": "find restaurants rated 5 stars or higher .",
+            "output": [
+                "etsi ravintolat joiden arvio on 5 t\u00e4hte\u00e4 tai enemm\u00e4n ."
+            ]
+        },
+        {
+            "input": "list the restaurants with over 2 reviews .",
+            "output": [
+                "listaa yli 2 arviota saaneet ravintolat ."
+            ]
+        },
+        {
+            "input": "search for \" chipotle \"",
+            "output": [
+                "etsi \" chipotle \""
+            ]
+        },
+        {
+            "input": "show me \" ethiopian \" restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" ethiopian \" ravintolat ."
+            ]
+        },
+        {
+            "input": "show me restaurants with more than 5 reviews .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle ravintolat jotka ovat saaneet yli 5 arviota ."
+            ]
+        },
+        {
+            "input": "find all the restaurants rated higher than 7 .",
+            "output": [
+                "etsi kaikki yli arvion 7 saaneet ravintolat ."
+            ]
+        },
+        {
+            "input": "search for \" outback steakhouse \" ?",
+            "output": [
+                "etsi \" outback steakhouse \" ?"
+            ]
+        },
+        {
+            "input": "find a \" italian \" restaurant .",
+            "output": [
+                "etsi \" italian \" ravintola ."
+            ]
+        },
+        {
+            "input": "list all the restaurants with higher than 3 stars .",
+            "output": [
+                "listaa kaikki ravintolat jotka ovat saaneet yli 3 t\u00e4hte\u00e4 ."
+            ]
+        },
+        {
+            "input": "what is the address of the \" mei wei \" restaurant ?",
+            "output": [
+                "mik\u00e4 on \" mei wei \" revintolan osoite ?"
+            ]
+        },
+        {
+            "input": "what is the rating of \" mei wei \" restaurant ?",
+            "output": [
+                "mik\u00e4 on \" mei wei \" ravintolan arvosana ?"
+            ]
+        },
+        {
+            "input": "what is the address of the nearest \" coffee \" shop ?",
+            "output": [
+                "mik\u00e4 on l\u00e4himm\u00e4n \" coffee \" myyv\u00e4n paikan osoite?"
+            ]
+        },
+        {
+            "input": "show me restaurants in the \" west suburbs \" please .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle ravintolat alueella \" west suburbs \" kiitos ."
+            ]
+        },
+        {
+            "input": "find me some places to eat in \" detroit \" .",
+            "output": [
+                "etsi minulle ruokapaikka kohteessa \" detroit \" ."
+            ]
+        },
+        {
+            "input": "look up restaurants that have 2 star ratings for me please .",
+            "output": [
+                "etsi minulle ravintolat joiden t\u00e4htiarvio on 2 kiitos ."
+            ]
+        },
+        {
+            "input": "show me all the restaurants that \" john grace \" has reviewed .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki ravintolat jotka \" john grace \" on arvioinut ."
+            ]
+        },
+        {
+            "input": "show me reviews written by \" bill story \" .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki k\u00e4ytt\u00e4j\u00e4n \" bill story \" kirjoittamat arviot ."
+            ]
+        },
+        {
+            "input": "how many reviews have been posted for \" old town doughnuts \" ?",
+            "output": [
+                "kuinka monta arviota \" old town doughnuts \" on saanut ?"
+            ]
+        },
+        {
+            "input": "how many restaurants have an average rating above 10 ?",
+            "output": [
+                "kuinka monen ravintolan keskim\u00e4\u00e4r\u00e4inen arvio on yli 10 ?"
+            ]
+        },
+        {
+            "input": "what 's the address of the \" mcdonald 's \" on \" parker road \" ?",
+            "output": [
+                "mik\u00e4 on \" mcdonald 's \" ravintolan osoite kohteessa \" parker road \" ?"
+            ]
+        },
+        {
+            "input": "i want \" mexican \" food",
+            "output": [
+                "haluan \" mexican \" ruokaa"
+            ]
+        },
+        {
+            "input": "something \" spicy \" over 0 star rating .",
+            "output": [
+                "jotain \" spicy \" yli 0 t\u00e4htiarvosanalla ."
+            ]
+        },
+        {
+            "input": "i 'd like any food with more than 0 reviews .",
+            "output": [
+                "haluaisin mit\u00e4 tahansa ruokaa yli 0 arviolla ."
+            ]
+        },
+        {
+            "input": "where can i find the nearest \" chinese \" joint .",
+            "output": [
+                "mist\u00e4 l\u00f6ytyy l\u00e4hin \" chinese \" ruokapaikka ."
+            ]
+        },
+        {
+            "input": "search all reviews by \" john oyster \" .",
+            "output": [
+                "etsi kaikki k\u00e4ytt\u00e4j\u00e4n \" john oyster \" kirjoittamat arviot ."
+            ]
+        },
+        {
+            "input": "i would like a \" mexican \" restaurant .",
+            "output": [
+                "haluaisin sy\u00f6d\u00e4 \" mexican \" ravintolassa."
+            ]
+        },
+        {
+            "input": "i would like all restaurants with 1 stars and above .",
+            "output": [
+                "haluaisin kaikki ravintolat jotka ovat saaneet 1 t\u00e4hte\u00e4 tai enemm\u00e4n ."
+            ]
+        },
+        {
+            "input": "show me \" los dos amigos \"",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" los dos amigos \""
+            ]
+        },
+        {
+            "input": "show me restaurants with the most reviews .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle eniten arvioita saaneet ravintolat ."
+            ]
+        },
+        {
+            "input": "i want restaurants rated 6 or higher .",
+            "output": [
+                "haluan ravintoloita joiden arvio on 6 tai parempi ."
+            ]
+        },
+        {
+            "input": "find restaurants in zip code \" 21269 \" .",
+            "output": [
+                "etsi ravintolat postinumeroalueella \" 21269 \" ."
+            ]
+        },
+        {
+            "input": "i want restaurants with more than 10 reviews .",
+            "output": [
+                "haluan ravintolat joilla on yli 10 arviota ."
+            ]
+        },
+        {
+            "input": "display all the restaurants that have at least a rating of 4 .",
+            "output": [
+                "n\u00e4yt\u00e4 kaikki ravintolat joiden arvio on v\u00e4hint\u00e4\u00e4n 4 ."
+            ]
+        },
+        {
+            "input": "do a search for restaurants that have been reviewed by at least 10 people .",
+            "output": [
+                "etsi ravintoloita joista ainakin 10 k\u00e4ytt\u00e4j\u00e4\u00e4 on kirjoittanut arvion ."
+            ]
+        },
+        {
+            "input": "bring up \" italian \" restaurants .",
+            "output": [
+                "nouda \" italian \" ravintolat ."
+            ]
+        },
+        {
+            "input": "could you preform a search for the restaurant , \" thai foon \" ?",
+            "output": [
+                "voitko suorittaa haun ravintolalle \" thai foon \" ?"
+            ]
+        },
+        {
+            "input": "search for \" dairy queen \" .",
+            "output": [
+                "etsi \" dairy queen \" ."
+            ]
+        },
+        {
+            "input": "search for all 9 star restaurants .",
+            "output": [
+                "hae kaikki 9 t\u00e4hden ravintolat."
+            ]
+        },
+        {
+            "input": "show me \" greek \" restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" greek \" ravintolat."
+            ]
+        },
+        {
+            "input": "show me restaurants with more than 4 posted reviews .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle ravintolat, joilla on yli 4 julkaistua arvostelua."
+            ]
+        },
+        {
+            "input": "can you find me a \" mcdonalds \" in my area ?",
+            "output": [
+                "voitko l\u00f6yt\u00e4\u00e4 minulle \" mcdonalds \"-ravintolan l\u00e4helt\u00e4ni?"
+            ]
+        },
+        {
+            "input": "where are the best \" fast food \" joints in my area .",
+            "output": [
+                "miss\u00e4 ovat parhaat \" fast food \" -ravintolat alueellani?"
+            ]
+        },
+        {
+            "input": "what is the address of the \" mcdonads \" in this area .",
+            "output": [
+                "mik\u00e4 on t\u00e4m\u00e4n alueen \" mcdonads \"-ravintolan osoite?"
+            ]
+        },
+        {
+            "input": "what are the highest ranked \" burger \" joints in the 1 mile area around \" asheville nc \" .",
+            "output": [
+                "mitk\u00e4 ovat parhaan luokituksen omaavat \" burger \" paikat 1 mailin sis\u00e4ll\u00e4 paikasta \" asheville nc \"?"
+            ]
+        },
+        {
+            "input": "show me all the restaurants that are located on \" federal highway \" ?",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki ravintolat, jotka sijaitsevat paikassa \" federal highway \"?"
+            ]
+        },
+        {
+            "input": "which restaurant has the highest amounts of reviews ?",
+            "output": [
+                "mill\u00e4 ravintolalla on eniten arvosteluja?"
+            ]
+        },
+        {
+            "input": "what date was \" jim \" 's review posted ?",
+            "output": [
+                "min\u00e4 p\u00e4iv\u00e4n\u00e4 julkaistiin k\u00e4ytt\u00e4j\u00e4n \" jim \" arvostelu?"
+            ]
+        },
+        {
+            "input": "which restaurants are on \" main street \" ?",
+            "output": [
+                "mitk\u00e4 ravintolat sijaitsevat paikassa \" main street \"?"
+            ]
+        },
+        {
+            "input": "find me \" mexican \" food",
+            "output": [
+                "l\u00f6yd\u00e4 minulle \" mexican \" ruokaa"
+            ]
+        },
+        {
+            "input": "show me restaurants in \" kansas city , mo \"",
+            "output": [
+                "n\u00e4yt\u00e4 minulle ravintoloita paikassa \" kansas city , mo \""
+            ]
+        },
+        {
+            "input": "show me \" mexican \" restaurants in the area .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle alueen \" mexican \" ravintolat."
+            ]
+        },
+        {
+            "input": "provide me the telephone number for the nearest \" mexican \" restaurant in \" 93312 \" zip .",
+            "output": [
+                "anna minulle l\u00e4himm\u00e4n \" mexican \" ravintolan puhelinnumero postimuneron \" 93312 \" alueella."
+            ]
+        },
+        {
+            "input": "find restaurants with more than 2 reviews .",
+            "output": [
+                "l\u00f6yd\u00e4 ravintoloita, joilla on yli 2 arvostelua."
+            ]
+        },
+        {
+            "input": "where is the closest \" mcdonalds \"",
+            "output": [
+                "miss\u00e4 on l\u00e4hin \" mcdonalds \""
+            ]
+        },
+        {
+            "input": "where is a \" mexican \" restaurant with more than 0 good reviews ?",
+            "output": [
+                "miss\u00e4 on \" mexican \" ravintola, jolla on yli 0 hyv\u00e4 arvostelua?"
+            ]
+        },
+        {
+            "input": "show all ratings made by \" mr gucci loafers \"",
+            "output": [
+                "n\u00e4yt\u00e4 kaikki k\u00e4ytt\u00e4j\u00e4n \" mr gucci loafers \" tekem\u00e4t arviot"
+            ]
+        },
+        {
+            "input": "search for \" steakhouse \" restaurants in my city",
+            "output": [
+                "hae \" steakhouse \" ravintoloita kaupungissani"
+            ]
+        },
+        {
+            "input": "show me reviews written by \" amy \" .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle k\u00e4ytt\u00e4j\u00e4n \" amy \" kirjoittamat arvostelut."
+            ]
+        },
+        {
+            "input": "where can i find the closest \" wawa \" ?",
+            "output": [
+                "mist\u00e4 l\u00f6ytyy l\u00e4hin \" wawa \"?"
+            ]
+        },
+        {
+            "input": "search for \" big woodys \"",
+            "output": [
+                "hae \" big woodys \""
+            ]
+        },
+        {
+            "input": "search for an \" egyptian \" restaurant .",
+            "output": [
+                "hae \" egyptian \" ravintola."
+            ]
+        },
+        {
+            "input": "show me restaurants with a minimum 6 star rating .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle ravintolat, joilla on v\u00e4hint\u00e4\u00e4n 6 t\u00e4hden luokitus."
+            ]
+        },
+        {
+            "input": "how many reviews are there at \" starbucks \" ?",
+            "output": [
+                "kuinka monta arvostelua on \" starbucks \"-ravintolalla?"
+            ]
+        },
+        {
+            "input": "show me \" thai \" restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" thai \" ravintolat."
+            ]
+        },
+        {
+            "input": "how far is the nearest \" applebee 's \" ?",
+            "output": [
+                "kuinka kaukana on l\u00e4hin \" applebee 's \"?"
+            ]
+        },
+        {
+            "input": "located \" mexican \" food close to here",
+            "output": [
+                "hae \" mexican \" ruokaa l\u00e4helt\u00e4"
+            ]
+        },
+        {
+            "input": "show me \" white castle \"",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" white castle \""
+            ]
+        },
+        {
+            "input": "search for \" japanese \" restaurants with at least 2 stars .",
+            "output": [
+                "hae \" japanese \" ravintoloita, joilla on v\u00e4hint\u00e4\u00e4n 2 t\u00e4hte\u00e4."
+            ]
+        },
+        {
+            "input": "tell me the rating of \" wendy 's \" .",
+            "output": [
+                "kerro minulle \" wendy 's \"-ravintolan luokitus."
+            ]
+        },
+        {
+            "input": "list \" japanese \" restaurants .",
+            "output": [
+                "luettele \" japanese \" ravintolat."
+            ]
+        },
+        {
+            "input": "what 's the highest rated \" pizza \" place in the \" city center \" ?",
+            "output": [
+                "mik\u00e4 on korkeimman luokituksen omaava \" pizza \" paikka kohteessa \" city center \"?"
+            ]
+        },
+        {
+            "input": "search for a \" vegan \" restaurant with at least 3 reviews .",
+            "output": [
+                "hae \" vegan \" ravintola, jolla on v\u00e4hint\u00e4\u00e4n 3 arvostelua."
+            ]
+        },
+        {
+            "input": "give me a 3 star restaurant nearby .",
+            "output": [
+                "kerro minulle 3 t\u00e4hden ravintolat l\u00e4helt\u00e4."
+            ]
+        },
+        {
+            "input": "find restaurants with the most reviews .",
+            "output": [
+                "l\u00f6yd\u00e4 ravintolat, joilla on eniten arvosteluja."
+            ]
+        },
+        {
+            "input": "search for \" billy 's barbecue \" .",
+            "output": [
+                "hae \" billy 's barbecue \"."
+            ]
+        },
+        {
+            "input": "i want to see restaurants with more than 0 reviews .",
+            "output": [
+                "haluan n\u00e4hd\u00e4 ravintolat, joilla on yli 0 arvostelua."
+            ]
+        },
+        {
+            "input": "find restaurants that sell \" spaghetti \" .",
+            "output": [
+                "l\u00f6yd\u00e4 ravintolat, joiden ruokalistalla on \" spaghetti \"."
+            ]
+        },
+        {
+            "input": "what 's the name of the \" italian \" restaurant on \" main street \" ?",
+            "output": [
+                "mik\u00e4 on paikassa \" main street \" sijaitsevan \" italian \" ravintolan nimi?"
+            ]
+        },
+        {
+            "input": "show me the highest rated restaurant .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle korkeimman luokituksen omaava ravintola."
+            ]
+        },
+        {
+            "input": "where is the nearest \" mcdonald 's \" ?",
+            "output": [
+                "miss\u00e4 on l\u00e4hin \" mcdonald 's \"?"
+            ]
+        },
+        {
+            "input": "show me 5 star \" mexican \" restaurants",
+            "output": [
+                "n\u00e4yt\u00e4 minulle 5 t\u00e4hden \" mexican \" ravintolat"
+            ]
+        },
+        {
+            "input": "find all restaurants rated higher than 7",
+            "output": [
+                "l\u00f6yd\u00e4 kaikki ravintolat, joiden luokitus on korkeampi kuin 7"
+            ]
+        },
+        {
+            "input": "show me a list of restaurants with less than 1 reviews .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle luettelo ravintoloista, joilla on alle 1 arvostelua."
+            ]
+        },
+        {
+            "input": "show me nearby \" mexican \" restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle l\u00e4hell\u00e4 olevat \" mexican \" ravintolat."
+            ]
+        },
+        {
+            "input": "search for restaurants in \" reno , nevada \" .",
+            "output": [
+                "hae ravintoloita paikassa \" reno , nevada \"."
+            ]
+        },
+        {
+            "input": "show me \" thai \" restaurants",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" thai \" ravintoloita"
+            ]
+        },
+        {
+            "input": "which \" chinese \" restaurant has the most reviews ?",
+            "output": [
+                "mill\u00e4 \" chinese \" ravintolalla on eniten arvosteluja?"
+            ]
+        },
+        {
+            "input": "what is \" ramen nagi \" 's rating ?",
+            "output": [
+                "mik\u00e4 on \" ramen nagi \" -ravintolan luokitus?"
+            ]
+        },
+        {
+            "input": "look for \" olive garden \" .",
+            "output": [
+                "hae \" olive garden \"."
+            ]
+        },
+        {
+            "input": "what restaurants have received 7 or more reviews ?",
+            "output": [
+                "mitk\u00e4 ravintolat ovat saaneet yli 7 arvostelua?"
+            ]
+        },
+        {
+            "input": "find reviews from \" george \" .",
+            "output": [
+                "l\u00f6yd\u00e4 arvosteluja k\u00e4ytt\u00e4j\u00e4lt\u00e4 \" george \"."
+            ]
+        },
+        {
+            "input": "show me \" american \" restaurants",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" american \" ravintolat"
+            ]
+        },
+        {
+            "input": "tell me the \" american \" restaurants .",
+            "output": [
+                "kerro minulle \" american \" ravintoloista."
+            ]
+        },
+        {
+            "input": "give me all of the \" mexican \" restaurants with at least 1 stars .",
+            "output": [
+                "anna minulle kaikki \" mexican \" ravintolat, joilla on v\u00e4hint\u00e4\u00e4n 1 t\u00e4hte\u00e4."
+            ]
+        },
+        {
+            "input": "search for \" rocky 's pizza \" .",
+            "output": [
+                "hae \" rocky 's pizza \"."
+            ]
+        },
+        {
+            "input": "is there a \" red lobster \" near me ?",
+            "output": [
+                "onko minua l\u00e4hell\u00e4 \" red lobster \" -ravintolaa?"
+            ]
+        },
+        {
+            "input": "find all of the \" indian \" restaurants",
+            "output": [
+                "l\u00f6yd\u00e4 kaikki \" indian \" ravintolat"
+            ]
+        },
+        {
+            "input": "what is the rating of the \" oak street steakhouse \" ?",
+            "output": [
+                "mik\u00e4 on \" oak street steakhouse \" -ravintolan luokitus?"
+            ]
+        },
+        {
+            "input": "show me restaurants in zip code \" 28078 \" .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle ravintolat postinumeron \" 28078 \" alueella."
+            ]
+        },
+        {
+            "input": "what \" mexican \" restaurant has the most reviews ?",
+            "output": [
+                "mill\u00e4 \" mexican \" ravintolalla on eniten arvosteluja?"
+            ]
+        },
+        {
+            "input": "what kind of rating does \" panda express \" have",
+            "output": [
+                "millainen luokitus on \" panda express \" -ravintolalla"
+            ]
+        },
+        {
+            "input": "show me \" italian \" restaurants nearby .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle l\u00e4hell\u00e4 olevat \" italian \" ravintolat."
+            ]
+        },
+        {
+            "input": "please show me reviews that were written for \" cracker barrel \" this year .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" cracker barrel \" -ravintolalle t\u00e4n\u00e4 vuonna kirjoitetut arvostelut."
+            ]
+        },
+        {
+            "input": "find restaurants with 2 stars .",
+            "output": [
+                "l\u00f6yd\u00e4 ravintolat, joilla on 2 t\u00e4hte\u00e4."
+            ]
+        },
+        {
+            "input": "what is the phone number for \" sampan \" ?",
+            "output": [
+                "mik\u00e4 on \" sampan \"-ravintolan puhelinnumero?"
+            ]
+        },
+        {
+            "input": "can i see reviews for the \" gunnisack \" ?",
+            "output": [
+                "voinko n\u00e4hd\u00e4 \" the gunnisack \" -ravintolan arvosteluja?"
+            ]
+        },
+        {
+            "input": "please tell me the location of \" dave 's seafood shack \" .",
+            "output": [
+                "kerro minulle \" dave 's seafood shack \" -ravintolan sijainti."
+            ]
+        },
+        {
+            "input": "what is the address of the nearest \" fast food \" place ?",
+            "output": [
+                "mik\u00e4 on l\u00e4himm\u00e4n \" fast food \" -ravintolan osoite?"
+            ]
+        },
+        {
+            "input": "search for \" gates barbecue \" ?",
+            "output": [
+                "hae \" gates barbecue \"."
+            ]
+        },
+        {
+            "input": "find restaurants within one mile from here .",
+            "output": [
+                "l\u00f6yd\u00e4 ravintoloita t\u00e4\u00e4lt\u00e4 mailin sis\u00e4ll\u00e4."
+            ]
+        },
+        {
+            "input": "what is the closest \" italian \" restaurant to me",
+            "output": [
+                "mik\u00e4 on minua l\u00e4hinn\u00e4 oleva \" italian \" ravintola?"
+            ]
+        },
+        {
+            "input": "show restaurants with at least 5 reviews",
+            "output": [
+                "n\u00e4yt\u00e4 ravintoa, joilla on v\u00e4hint\u00e4\u00e4n 5 arvostelua."
+            ]
+        },
+        {
+            "input": "are there any \" indian \" restaurants near me ?",
+            "output": [
+                "onko l\u00e4hell\u00e4ni \" indian \" ravintoloita?"
+            ]
+        },
+        {
+            "input": "give me the telephone number of a 7 star restaurant .",
+            "output": [
+                "anna minulle puhelinnumero 7 t\u00e4hden ravintolaan."
+            ]
+        },
+        {
+            "input": "show me all the of review written by \" alex smith \" about \" chinese \" restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki kirjoittajan \" alex smith \" arvostelut \" chinese \" ravintoloista."
+            ]
+        },
+        {
+            "input": "show highest rated \" coffee \" shop withing 7 miles .",
+            "output": [
+                "n\u00e4yt\u00e4 parhaiten arvosteltu \" coffee \" puoti 7 mailin s\u00e4teell\u00e4."
+            ]
+        },
+        {
+            "input": "show me restaurants rated between 8 and 7 .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle ravintolat arvostelulla 8 ja 7 v\u00e4list\u00e4."
+            ]
+        },
+        {
+            "input": "what is the price range of the nearest \" mexican \" restaurant ?",
+            "output": [
+                "mik\u00e4 on l\u00e4himm\u00e4n \" mexican \" ravintolan hintaluokka?"
+            ]
+        },
+        {
+            "input": "show restaurants in \" san francisco \" .",
+            "output": [
+                "n\u00e4yt\u00e4 ravintolat paikassa \" san francisco \"."
+            ]
+        },
+        {
+            "input": "find all \" mexican \" restaurants .",
+            "output": [
+                "etsi kaikki \" mexican \" ravintolat."
+            ]
+        },
+        {
+            "input": "search for \" sushi joy \" .",
+            "output": [
+                "etsi \" sushi joy \" ."
+            ]
+        },
+        {
+            "input": "find me \" italian \" restaurants",
+            "output": [
+                "etsi minulle \" italian \" ravintoloita."
+            ]
+        },
+        {
+            "input": "can you find me the telephone number for \" rookie 's bar & grill \" ?",
+            "output": [
+                "voitko etsi\u00e4 minulle paikan \" rookie 's bar & grill \" puhelinnumeron?"
+            ]
+        },
+        {
+            "input": "what is the phone number for \" ginger china \" ?",
+            "output": [
+                "mik\u00e4 on ravintolan \" ginger china \" puhelinnumero?"
+            ]
+        },
+        {
+            "input": "give the phone number of a restaurant with 8 or more reviews",
+            "output": [
+                "anna puhelinnumero ravintolaan, jolla on 8 tai enemm\u00e4n arvosteluja"
+            ]
+        },
+        {
+            "input": "find me \" in-n-out burger \" .",
+            "output": [
+                "etsi minulle \" in-n-out burger \"."
+            ]
+        },
+        {
+            "input": "show me all 2 star restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki 2 t\u00e4hden ravintolat."
+            ]
+        },
+        {
+            "input": "search for a 4 star rated \" coffee \" shop located nearby .",
+            "output": [
+                "etsi 4 t\u00e4hden \" coffee \" paikka l\u00e4hialueelta."
+            ]
+        },
+        {
+            "input": "show me reviews written by \" bruce \" .",
+            "output": [
+                "n\u00e4yt\u00e4 arvostelut, joiden kirjoittaja on \" bruce \"."
+            ]
+        },
+        {
+            "input": "find all restaurants rated higher than 3",
+            "output": [
+                "etsi kaikki ravintolat jotka on arvosteltu yli 3"
+            ]
+        },
+        {
+            "input": "search for a \" mexican \" restaurant .",
+            "output": [
+                "etsi \" mexican \" ravintolaa."
+            ]
+        },
+        {
+            "input": "are there any one star reviews ?",
+            "output": [
+                "onko yht\u00e4\u00e4n yhden t\u00e4hden arvioita?"
+            ]
+        },
+        {
+            "input": "search for restaurants with more than 10 reviews .",
+            "output": [
+                "etsi ravintoloita, joilla on yli 10 arvostelua."
+            ]
+        },
+        {
+            "input": "what is the top rated 6 star restaurant ?",
+            "output": [
+                "mik\u00e4 on parhaiten arvosteltu 6 t\u00e4hden ravintola?"
+            ]
+        },
+        {
+            "input": "what is the telephone and address for \" ruth 's chris \" ?",
+            "output": [
+                "mik\u00e4 on ravintolan \" ruth 's chris \" puhelinnumero ja osoite?"
+            ]
+        },
+        {
+            "input": "show me \" aunt chilada 's \"",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" aunt chilada 's \""
+            ]
+        },
+        {
+            "input": "are there any \" mexican \" restaurants with more than 0 reviews ?",
+            "output": [
+                "onko yht\u00e4\u00e4n \" mexican \" ravintolaa, jolla on yli 0 arvostelua?"
+            ]
+        },
+        {
+            "input": "find places in \" 17111 \" .",
+            "output": [
+                "etsi paikkoja alueella \" 17111 \"."
+            ]
+        },
+        {
+            "input": "show me all \" italian \" restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki \" italian \" ravintolat."
+            ]
+        },
+        {
+            "input": "give me the name of a \" mexican \" restaurant .",
+            "output": [
+                "anna minulle \" mexican \" ravintolan nimi."
+            ]
+        },
+        {
+            "input": "show me 7 star rated restaurants on \" locust street \" .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle 7 t\u00e4hden ravintolat kadulla \" locust street \"."
+            ]
+        },
+        {
+            "input": "show me a list of \" italian \" restaurants .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle lista \" italian \" ravintoloista."
+            ]
+        },
+        {
+            "input": "show me all restaurants reviewed by \" restaurantgirl_84 \" .",
+            "output": [
+                "n\u00e4yt\u00e4 kaikki \" restaurantgirl_84 \" arvostelemat ravintolat."
+            ]
+        },
+        {
+            "input": "i 'd like to know the location of \" dunkin donuts \" ?",
+            "output": [
+                "haluaisin tiet\u00e4\u00e4 ravintolan \" dunkin donuts \" sijainnin?"
+            ]
+        },
+        {
+            "input": "show me a \" chinese \" restaurant with a rating of 9 .",
+            "output": [
+                "n\u00e4yt\u00e4 \" chinese \" ravintola, jonka arvostelu on 9."
+            ]
+        },
+        {
+            "input": "which restaurant has the most reviews ?",
+            "output": [
+                "mill\u00e4 ravintolalla on eniten arvosteluja?"
+            ]
+        },
+        {
+            "input": "search for \" french \" restaurants .",
+            "output": [
+                "etsi \" french \" ravintoloita."
+            ]
+        },
+        {
+            "input": "give me reviews for \" jade buffet \" .",
+            "output": [
+                "anna ravintolan \" jade buffet \" arvostelut."
+            ]
+        },
+        {
+            "input": "what is the price range for \" ramen nagi \" ?",
+            "output": [
+                "mik\u00e4 on hintaluokka ravintolassa \" ramen nagi \"?"
+            ]
+        },
+        {
+            "input": "find \" italian \" restaurants with at least 9 reviews .",
+            "output": [
+                "etsi \" italian \" ravintoloita, joilla on v\u00e4hint\u00e4\u00e4n 9 arvostelua."
+            ]
+        },
+        {
+            "input": "where is the closest \" dairy queen \" ?",
+            "output": [
+                "miss\u00e4 on l\u00e4hin \" dairy queen \"?"
+            ]
+        },
+        {
+            "input": "find all restaurants in \" chicago \" .",
+            "output": [
+                "etsi kaikki ravintolat paikassa \" chicago \"."
+            ]
+        },
+        {
+            "input": "is there a restaurant in zipcode \" 19101 \" ?",
+            "output": [
+                "onko postinumeroalueella \" 19101 \" ravintolaa?"
+            ]
+        },
+        {
+            "input": "i 'm looking for \" armenian \" restaurants",
+            "output": [
+                "etsin\" armenian \" ravintoloita."
+            ]
+        },
+        {
+            "input": "show me reviews for \" dunkin ' donuts \" from the last 10 days .",
+            "output": [
+                "n\u00e4yt\u00e4 arvostelut \"dunkin ' donuts\" viimeisen 10 p\u00e4iv\u00e4n ajalta."
+            ]
+        },
+        {
+            "input": "show me all of the 4 star restaurants nearby .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki 4 t\u00e4hden ravintolat l\u00e4hialueilla."
+            ]
+        },
+        {
+            "input": "display restaurants with more than 6 reviews .",
+            "output": [
+                "n\u00e4yt\u00e4 ravintolat, joilla on yli 6 arvostelua."
+            ]
+        },
+        {
+            "input": "i need to find all 8 star restaurants .",
+            "output": [
+                "minun on l\u00f6ydett\u00e4v\u00e4 kaikki 8 t\u00e4hden ravintolat."
+            ]
+        },
+        {
+            "input": "find \" italian \" restaurants .",
+            "output": [
+                "etsi tyylin \" italian \" ravintolat."
+            ]
+        },
+        {
+            "input": "show me \" mexican \" restaurants with at least a 6 star rating .",
+            "output": [
+                "n\u00e4yt\u00e4 \" mexican \" ravintolat, joilla on ainakin 6 t\u00e4hden luokitus."
+            ]
+        },
+        {
+            "input": "search for \" sushi king \" restaurant for me .",
+            "output": [
+                "etsi\" sushi king \" ravintola minulle."
+            ]
+        },
+        {
+            "input": "search for \" mexican \" restaurants",
+            "output": [
+                "etsi tyylin \" mexican \" ravintoloita."
+            ]
+        },
+        {
+            "input": "show me \" japanese \" restaurants .",
+            "output": [
+                "etsi tyylin \" japanese \" ravintoloita."
+            ]
+        },
+        {
+            "input": "what is the price range for my closest \" chinese \" restaurant ?",
+            "output": [
+                "mik\u00e4 on l\u00e4himm\u00e4n \" chinese \" ravintolan hintataso?"
+            ]
+        },
+        {
+            "input": "show me restaurants on \" main street \" .",
+            "output": [
+                "n\u00e4yt\u00e4 ravintolat kadulla \" main street \"."
+            ]
+        },
+        {
+            "input": "show me the top 6 \" steak house \" restaurants in \" orlando \" .",
+            "output": [
+                "n\u00e4yt\u00e4 top 6 parhaat \" steak house \" paikassa \" orlando \"."
+            ]
+        },
+        {
+            "input": "show me all restaurants reviewed by \" alex smith \" .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle ravintolat, jotka \" alex smith \" on arvostellut."
+            ]
+        },
+        {
+            "input": "show me \" nomad pizza \" .",
+            "output": [
+                "n\u00e4yt\u00e4 minulle \" nomad pizza \"."
+            ]
+        },
+        {
+            "input": "show me all \" chinese \" restaurants with reviews made in the last month",
+            "output": [
+                "n\u00e4yt\u00e4 minulle kaikki \" chinese \" ravintolat, joilla on arvosteluja viimeiselt\u00e4 kuukaudelta"
+            ]
+        },
+        {
+            "input": "display restaurants that were rated above 5",
+            "output": [
+                "n\u00e4yt\u00e4 ravintolat, jotka on arvosteltu yli 5."
+            ]
+        },
+        {
+            "input": "i 'm in the mood for \" italian \" food .",
+            "output": [
+                "mieleni tekee \" italian \" ruokaa."
+            ]
+        },
+        {
+            "input": "search for \" mexican \" restaurants with reviews from the past month .",
+            "output": [
+                "etsi \" mexican \" ravintoloita, joilla on arvosteluja viimeiselt\u00e4 kuukaudelta."
+            ]
+        },
+        {
+            "input": "find the address for \" on the borders mexican grill and cantina \" .",
+            "output": [
+                "etsi osoite ravintolalle \" on the borders mexican grill and cantina \" ."
+            ]
+        },
+        {
+            "input": "show me restaurant reviews written by \" fat charlie \" .",
+            "output": [
+                "n\u00e4yt\u00e4 ravintola-arvostelut, jotka on kirjoittanut \" fat charlie \"."
+            ]
+        },
+        {
+            "input": "find me a \" french \" restaurant .",
+            "output": [
+                "etsi minulle \" french \" ravintola."
+            ]
+        },
+        {
+            "input": "look for a \" red lobster \" in the \" 85053 \" zip code .",
+            "output": [
+                "etsi \" red lobster \" ravintolaa\" 85053 \" postinumeroalueella."
+            ]
+        },
+        {
+            "input": "find restaurants in \" denver , colorado \" .",
+            "output": [
+                "etsi ravintoloita alueella \" denver , colorado \"."
+            ]
+        },
+        {
+            "input": "what is the phone number of the nearest \" pizza hut \" ?",
+            "output": [
+                "mik\u00e4 on l\u00e4himm\u00e4n \" pizza hut \" puhelinnumero?"
+            ]
+        }
+    ],
+    "Instruction_language": [
+        "English"
+    ],
+    "Alternate Definition 1": " In that context , there was some more information about a particular < unk > term from the book and a response . Your task is to create a question that can use the information provided to get the answer you want .",
+    "Alternate Definition 2": " In this case , you will receive additional information about the specific related term from the letter and the answer Your job is to generate a question that can use the information provided to obtain the term .",
+    "Alternate Definition 3": " To perform this task, you are given a statement, further information available on a particular linked term from the statement, and an answer term. You have the responsibility to generate a question using the information provided to obtain the given answer.",
+    "Alternate Definition 4": " it's a statement and a link to a related term and then an answer. your job is to generate a question that can use the information provided to obtain the given answer.",
+    "Alternate Definition 5": " a statement, further information available on a particular linked term from the statement, and an answer term are given in this task a question that can be generated by your job is created by your job.",
+    "Alternate Definition 6": " a statement is given by you, further information available on a particular linked term from the statement and an answer term. a question can be generated by your job that is to use the information provided to obtain the given answer",
+    "Alternate Definition 7": " In that context, there was some additional information about a particular term from the book, as well as a response. It is your task to create a question that uses the information provided to get the answer you want.",
+    "Alternate Definition 8": " There was some more info about that term in the book and a response Create a question that can use the information provided to get the answer you want.",
+    "Alternate Definition 9": " a particular term was taken by an author your task is to create a question that can use the information provided to get the answer you want.",
+    "Alternate Definition 10": " In that context there was some more information about a particular term from the book and a response. Your task is to create a question that can use the information provided to get the answer you want.",
+    "Alternate Definition 11": " In this case, you will receive additional information about the specific related term from the letter and the answer. Your job is to generate a question that can",
+    "Alternate Definition 12": " you will also get more info out of letter which will bring up the answer ya got to generate a question then get the term u want",
+    "Alternate Definition 13": " In this case additional information about the specific related term is received by you from the letter and the answer Your job is to generate a question that can use",
+    "Alternate Definition 14": " In this case, you will receive additional information about the specific related term from the letter and the answer Your job is to generate a question that can",
+    "Alternate Definition 15": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to make a question which can be used to obtain the given answer",
+    "Alternate Definition 16": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question which will use the information provided to obtain the answer",
+    "Alternate Definition 17": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question using the information provided to obtain the given answer",
+    "Alternate Definition 18": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that uses the information provided to obtain the given answer",
+    "Alternate Definition 19": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to produce a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 20": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to get the given answer",
+    "Alternate Definition 21": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 22": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 23": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question which uses the information provided to obtain the given answer",
+    "Alternate Definition 24": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that uses the information supplied to obtain the given answer",
+    "Alternate Definition 25": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question which can use the information provided to get the given answer",
+    "Alternate Definition 26": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that uses the information provided to obtain the given answer",
+    "Alternate Definition 27": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to get the given answer",
+    "Alternate Definition 28": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question which can use the information provided to obtain the given answer",
+    "Alternate Definition 29": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 30": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to receive the answer given",
+    "Alternate Definition 31": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to get the answer",
+    "Alternate Definition 32": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to write a question that can use the information provided to get the given answer",
+    "Alternate Definition 33": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that can use the information provided to get the given answer",
+    "Alternate Definition 34": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that uses the information provided to obtain the given answer",
+    "Alternate Definition 35": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to get the given answer",
+    "Alternate Definition 36": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 37": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 38": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the provided information to get the given answer",
+    "Alternate Definition 39": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that can use the information provided to obtain the answer",
+    "Alternate Definition 40": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that uses the information provided to obtain the given answer",
+    "Alternate Definition 41": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to get the given answer",
+    "Alternate Definition 42": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question which can use the information provided to obtain the given answer",
+    "Alternate Definition 43": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 44": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 45": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to write a question using the information provided to obtain the given answer",
+    "Alternate Definition 46": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question using the information provided to obtain the given answer",
+    "Alternate Definition 47": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question which can use the information supplied to obtain the given answer",
+    "Alternate Definition 48": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that uses the information provided to obtain the given answer",
+    "Alternate Definition 49": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question which can use the information provided to obtain the given answer",
+    "Alternate Definition 50": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 51": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. you have a job to generate a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 52": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 53": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question using the information provided to obtain the given answer",
+    "Alternate Definition 54": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that can use the information provided to get the given answer",
+    "Alternate Definition 55": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to make a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 56": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that uses the information provided to obtain the given answer",
+    "Alternate Definition 57": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 58": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 59": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question which uses the information provided to determine the answer",
+    "Alternate Definition 60": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that will use the information provided to obtain the answer",
+    "Alternate Definition 61": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question which can use the information provided to obtain the answer",
+    "Alternate Definition 62": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 63": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that can use the information provided to get the given answer",
+    "Alternate Definition 64": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question which can use the information provided to get the given answer",
+    "Alternate Definition 65": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 66": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 67": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question using the information you provided to obtain the given answer",
+    "Alternate Definition 68": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that uses the information provided for the given answer",
+    "Alternate Definition 69": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question using the information provided to obtain the given answer",
+    "Alternate Definition 70": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that uses the information provided to obtain the given answer",
+    "Alternate Definition 71": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to get the given answer",
+    "Alternate Definition 72": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 73": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question using the information provided to get the given answer",
+    "Alternate Definition 74": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question using the information provided to obtain the given answer",
+    "Alternate Definition 75": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information to get the given answer",
+    "Alternate Definition 76": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. you have the job of generating a question that can use the information given to obtain the given answer",
+    "Alternate Definition 77": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information given to obtain the given answer",
+    "Alternate Definition 78": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that uses the information provided to obtain the given answer",
+    "Alternate Definition 79": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to get the given answer",
+    "Alternate Definition 80": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 81": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 82": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that uses the information given to get the given answer",
+    "Alternate Definition 83": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that uses the information to obtain the given answer",
+    "Alternate Definition 84": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to develop a question that can use the information provided to receive the given answer",
+    "Alternate Definition 85": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that uses the information provided to get the given answer",
+    "Alternate Definition 86": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that can use the information supplied to obtain the given answer",
+    "Alternate Definition 87": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information to obtain the given answer",
+    "Alternate Definition 88": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that uses the information provided to obtain the given answer",
+    "Alternate Definition 89": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question which can use the information provided to obtain the given answer",
+    "Alternate Definition 90": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 91": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question using the information provided to obtain the given answer",
+    "Alternate Definition 92": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. you need to create a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 93": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that uses the information provided to obtain the given answer",
+    "Alternate Definition 94": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information to obtain the given answer",
+    "Alternate Definition 95": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question which can use the information provided to obtain the given answer",
+    "Alternate Definition 96": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 97": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 98": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that uses the provided information to obtain the given answer",
+    "Alternate Definition 99": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question using the information supplied to obtain the given answer",
+    "Alternate Definition 100": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information to get the given answer",
+    "Alternate Definition 101": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to obtain the answer",
+    "Alternate Definition 102": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that uses the information provided to obtain the given answer",
+    "Alternate Definition 103": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to get the given answer",
+    "Alternate Definition 104": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 105": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the provided information to obtain the given answer",
+    "Alternate Definition 106": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question using the information provided to obtain the given answer",
+    "Alternate Definition 107": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to get the answer",
+    "Alternate Definition 108": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that uses the information provided to obtain the given answer",
+    "Alternate Definition 109": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 110": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 111": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that uses the provided information to obtain the given answer",
+    "Alternate Definition 112": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question using the information provided to get the given answer",
+    "Alternate Definition 113": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that can use the information provided to get the answer",
+    "Alternate Definition 114": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that uses the information provided to get the given answer",
+    "Alternate Definition 115": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that can use the information provided to obtain the answer",
+    "Alternate Definition 116": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question which can use the information supplied to obtain the given answer",
+    "Alternate Definition 117": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to create a question that can use the information provided to get the given answer",
+    "Alternate Definition 118": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information given to obtain the given answer",
+    "Alternate Definition 119": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to get the given answer",
+    "Alternate Definition 120": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. your job is to generate a question that can use the information provided to obtain the given answer",
+    "Alternate Definition 121": "In this task, you're given a statement, further ibformation available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 122": "In this task, you're given a statement, furthee information available on a particular linked term from the Statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 123": "In this task, you're given a statement, furthe3 information available on a particular linked term from the sTatement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 124": "In this task, yo7're giden a statement, further information available on a particular linked term from the statement, and an answer term. Yo83 job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 125": "In this 6wsk, you're given a statement, further informati9n available on a particular liNked term from the statement, and an answer term. Your job is to generate s question that can use the information 0rovided to obtain the given answer. ",
+    "Alternate Definition 126": "In this taskm you'rE given a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 127": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the giveh answeRl ",
+    "Alternate Definition 128": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to genErate a question that can use the inFormation provided to obtain the given answer. ",
+    "Alternate Definition 129": "In this task, you're given a statemegt, further informat7on available on a particular linked term from the statement, and an answer term. Your yob is to generate a qu4stion that can use the informztion provided to Obtain the given answer. ",
+    "Alternate Definition 130": "In this task, you're given a statement, girther information available on a particular linkEd term from the statement, and an ansWer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 131": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer terM. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 132": "In this task, you're given a statement, further inFormation available on a particular linked term frlm the statement, and an answer term. Your job is to generate a question that can use the informatiob provided to obtain the given answer. ",
+    "Alternate Definition 133": "In this task, you're given a statement, further information available on a particular linked term from the stateMent, and an answer term. Your job is to generate a question that can use the information provided to obtaij the given answer. ",
+    "Alternate Definition 134": "In this task, you're given a statement, further information availwble on a partIcupar linked term from the statement, and an answer term. YoUr job is to generate a question tHat can use the information provided to obtain the gIven anSwer. ",
+    "Alternate Definition 135": "In this task, yku're given a statement, FuRther information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 136": "In thiS task, you're given a statement, further information available on a particular ;inked term from the statement, and an answEr term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 137": "In this task, yoU're given a statement, further information available on a particular linked term from the statement, and an answer term. YOur job is to generate a quesTion that can use the informati;n provided to obtain tte given answer. ",
+    "Alternate Definition 138": "In this task, you're given a statement, fUrther information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given aNswer. ",
+    "Alternate Definition 139": "In th9s task, you're given a statement, further informatioN available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 140": "In this task, you'rE given a statement, further Information available on a particuLar linked term from the statement, and an answer term. Your job is to gEnerate a question that cAn use the information profided to obtain the given ansWer. ",
+    "Alternate Definition 141": "In this task, you're given a statement, further information available on a particular linked term crom the statement, and an answeR term. Your joB is to generate a queetion that can usE the information provided to obtain the given answer. ",
+    "Alternate Definition 142": "In this task, you're given a statement, further informatioj available on a parTicular linked term ffom the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 143": "In tHis task, you're given a statement, furtHer information available on a particular linked term from the statement, and an answer term. Your job is To generate a question that can use the information provided to obTain the given answer. ",
+    "Alternate Definition 144": "In thiq task, you're Given a statement, further information avaipable on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the informatiOn provided to obtain the given answef. ",
+    "Alternate Definition 145": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the Information provided to obtain the given answer. ",
+    "Alternate Definition 146": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 147": "In this taskk you're giveN a statement, furTher information available on a particular linkdd term from the statement, and an answer term. Your job is to generate a quest8on that can use tge info3mation Provided to obtain the given answer. ",
+    "Alternate Definition 148": "In this task, you're given a statement, further information availwblE on a particular linked term froH the statement, and an answer term. Your job is to generate a question that can use the inforjation provided to obtain the given answer. ",
+    "Alternate Definition 149": "In this task, you're given a statement, rurther information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtAin the given answer. ",
+    "Alternate Definition 150": "In this task, you're given a statement, furtHer information available on a particular linked terh from the sta5ement, and An answer term. Your job is to generate a queshion that can use the information provided to obtain the given ajswer. ",
+    "Alternate Definition 151": "Ib this task, you're given a statement, further information available on a particular linked term from the statement, and an answeR term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 152": "In this task, you're given a statement, further informatIon available on a particular linked term from the statement, and an answer term. Your job is to generatr a question ttat can use the information provided to ohtain the given answer. ",
+    "Alternate Definition 153": "In this task, you're given a statement, further information available on s particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 154": "In this task, you're given a statement, further information available on a partiCular Linked term from the statement, and an answer terml Your job is to generate a question that can use the information provided to ob4ain the given answer. ",
+    "Alternate Definition 155": "In this task, you're given a statement, further information ava9lAble on a particulAr linked term from the statement, and an answer term. Your job is to Generate a question that can use the information provided to obtain thd given answer. ",
+    "Alternate Definition 156": "In this task, you're given a statement, furthed information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use thf information provided to obtain the given answer. ",
+    "Alternate Definition 157": "In this task, you'ee given a statement, further information availqble on a particular linked term from the statement, anc an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 158": "In this task, you're given a statement, furTher inforMation available on a particular linked term from the statement, and an answer term. Your job is to generate a questiln that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 159": "In this task, you're given a atAtement, further information available on a particular linked terh from yhe statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 160": "In this task, youpre given a statement, further informafion svailable on a particular linked term from the statement, and an answer 4erm. Your job is to generate a question that can use the information provided To obtain the given answer. ",
+    "Alternate Definition 161": "In this task, you're given a statement, further infOrmation available on a particular linked term from thw statement, and an anseer term. Your job is to generate a question thaf can use the information provired to obtain the given answer. ",
+    "Alternate Definition 162": "In this task, you're giden a statement, further information available on a particular linked terk from the statement, and an answer tegm. YouR job is to generate a question that can use the informati9n provided to obtain the given answer/ ",
+    "Alternate Definition 163": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information providef to obtain the given answer. ",
+    "Alternate Definition 164": "In this task, you're given a statement, further information available on a particuLar linked term from the statement, and an answer term. Your job is to generate a question that can use the information p3ovided to obtain the given aNswer. ",
+    "Alternate Definition 165": "In this task, you're given a statement, fUrther ibformation available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can usE the information provided to obtain tye given AnSwer. ",
+    "Alternate Definition 166": "In tjis task, you'rE given a statement, further information available on a partIcular linked term from the statement, and an answer term. Your job is to generatE a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 167": "In this task, you're given a statement, further information aVailable on a particular linked rerm from the statement, and an answer term. Your job is to generate a quewtion that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 168": "In this task, you're given a statement, furgher information available on a partiCular linked term from tHe statement, and an answer term. Your job is to genErate a question that can use the information p3ovided to obtain the given answer. ",
+    "Alternate Definition 169": "In this task, you're given a stafement, further information available on a partiCulzr linked term from the statekent, and an answer term. Your job is to geberate a question that can use the information provided to obtain 5he given answer. ",
+    "Alternate Definition 170": "In This task, you're given a statement, further informatiOn available on a particular linked term from the statement, and an znswer term. Your yob is to generzte a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 171": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generafe a question that can use the information provided to obtain the givEn answer. ",
+    "Alternate Definition 172": "In This task, you're given a statement, further inforMation available on a particular linked term fRom the statement, and an answer term. Your job is to gEnerate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 173": "In This task, you're giveN a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question tHat can use the information proVided to obtain the given answer. ",
+    "Alternate Definition 174": "In this task, you're given a statement, further imfoRmation AvAilable on a particular llnked term from the statement, and an answer term. Your job is to generate A question thaT can use the information provided to obtain the given answer. ",
+    "Alternate Definition 175": "In this task, you're Givdn a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the giveN ansWer. ",
+    "Alternate Definition 176": "In this task, you're given a statement, further informatoon available on a particular linked tErm from the statemenT, and an answer term. Your job iS to geNerate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 177": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question tuat can use the information provided to obtain the given answer. ",
+    "Alternate Definition 178": "In this task, yOu're given a statement, further information available on a particular linked term from the sgatement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 179": "In thIs task, you're givej a statement, further information available on a particular linked term from the statement, and wn answer term. Your job is to generate a questiin that can use the information provided 5o obtain the given answer. ",
+    "Alternate Definition 180": "In this task, you're given a statement, further information available on a particjlar linked term crOm the statement, and an answer term. Your job 9s to generate a qufstion that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 181": "In this task, you're given a statement, further information available on a particular linked term from thE statement, and an answer term. Your job is to generate a question that can use The information provided to lbtain the given answer. ",
+    "Alternate Definition 182": "In this tssk, you're given a statement, further information available on a particulad linked term from the ststement, and an answer term. Your job is to geneRate a questiOn that can use the information provided to obtain the given snsw2r. ",
+    "Alternate Definition 183": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given aNswer. ",
+    "Alternate Definition 184": "In this task, you're given a statement, further informatiin available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can Use the information provided to obtain the given answer. ",
+    "Alternate Definition 185": "In this task, you're given a statement, further infoRmation available on a partichlar linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided tO obta8n th4 given amswer. ",
+    "Alternate Definition 186": "In this taSk, you're given a statement, fuRther information acailable on a particular linked term from the statement, and an answer term. Your job is to generAte a question that can use the information provided to obtain the gIven answer. ",
+    "Alternate Definition 187": "In thjs task, you're gIven a statement, further information available on a particular linked term from the statemenT, and an answer term. Your jOb is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 188": "In this task, you'Re given a statemEnt, further information available on a particular linked term from thr statement, and an answer tsgm. Your job is to genErate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 189": "In this task, you're given a starement, further information avAilable on a particular linked term from the etatement, and an answer term. Your job is to generate a qudstion that can uSe the information provided to obtain the given answer. ",
+    "Alternate Definition 190": "In ghis task, you're given a statement, further information available on a particular linked term from the statem3nt, and an answer term. Your job is to generate a question that can use the information provkded to obtain the given answer. ",
+    "Alternate Definition 191": "In this task, you're given a statement, furTher information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the informati0n provided to obtain the given answEr. ",
+    "Alternate Definition 192": "In this task, you're given a statementj further information avAilable on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the informatIon provided to obtain the given answer. ",
+    "Alternate Definition 193": "In this task, you're given a statement, further information avaiLable on a particular linked term from the statement, and an answer term. Your job is to generate a questioh that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 194": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a questiln that can use the information provided to obtain the givfn answer. ",
+    "Alternate Definition 195": "In this task, you're given a statement, further information available on a particylar linked term from the statement, and an answer term. YoUr job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 196": "In this task, you're given a statement, further igformation available on a particular linked term from the statement, and an answer term. Your job 9s to generate a question that can us3 the information provided to obtain the given answeR. ",
+    "Alternate Definition 197": "In this task, you're giveb a ststement, further inflrmation available on a particular linked term from the statement. and an answer term. Your job is to gEnerate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 198": "In thiw task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provised to obtain the given answer. ",
+    "Alternate Definition 199": "In this task, you're given a statement, further information available on a partIcular linked term from the sgatement, aNd an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 200": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Your jOb is to generate a question that can use the infoRmation provided to obtain the given answer. ",
+    "Alternate Definition 201": "In this taSk, you're Given a statement, further infOrmation available on a particular linked term from the statement, and an answer term. Yokr job is to generate a question that can use the information proviDed to obtain the given answer. ",
+    "Alternate Definition 202": "In this task, you're given a statement, further information availabke on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain tHe given answer. ",
+    "Alternate Definition 203": "In this task, you're giveN a statement, further information available on a particjlar linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 204": "In this task, you're given a statement, Further information available oN a parTiculAr linked term frok the ctatemeNt, and an answer teRm. Your job is to gene4ate a question that can use the information provided to obtain the niveN answEr. ",
+    "Alternate Definition 205": "In this task, you're given a staTement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given answER. ",
+    "Alternate Definition 206": "In this task, you're given a statement, further iNformation available on a particular linked term from the statement, and an answer term. Your job is to generate q question that can use the information provided to obTain the given answer. ",
+    "Alternate Definition 207": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the info3mation provided to obtain the given answer. ",
+    "Alternate Definition 208": "In this task, you're given a statement, further information available on a particylar linked term from the statement, and an answeR term. Your job is to generate a question that can use the information provideD to obtain the given ansder. ",
+    "Alternate Definition 209": "In this task, you're given a statement, further information available on a paRticular linked teRm from the statement, and an answer term. Your job is to gegerate a question that can use the information provided to obtain the given answee. ",
+    "Alternate Definition 210": "In this task, you're given a statement, further information available on a particular linked tErm from the statemenT, and an answer term. Your job is to geNerate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 211": "In this yask, you're given a statemeNt, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the gkven answer. ",
+    "Alternate Definition 212": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided tO oBtain tHe given answer. ",
+    "Alternate Definition 213": "In this task, you're given a statement, further information available on a particular linked term from the sgatement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given Answer. ",
+    "Alternate Definition 214": "In this task, you're giveN a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 215": "In this task, yoU're given a statement, further information available on a particular linked term from the statement, and an answer tErm. Your job is to generate a question that caj use the information provided to oBtain the given answer. ",
+    "Alternate Definition 216": "In this task, you're given a statement, further information available on a particulaR linked term from the statement, and an answer tErm. Your job is to generate a question that can use the information proVided to obtain tHe giVen answer. ",
+    "Alternate Definition 217": "In this task, you're given a statement, further information availAble on A parricular linked term from the statement, and an answef term. Your job is to generate a quEstion that cah use the unformation provided to obtain the given ans2er. ",
+    "Alternate Definition 218": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 219": "In this task, you're given a statement, further Information available on a particular linked term from the statement, and An answer term. Your job is to generate a quesfion that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 220": "In this task, yo8're given a statement, further information available on a particular linked term from the statement, and an answer term. Your job Is to generate a question that can use the informatioN provided to obtain the given answer. ",
+    "Alternate Definition 221": "In this task, you're given a statsment, furtheR information available on a parTicular linked term from the statement, and an answer term. Your job is tO Generate a question that can use the informatiOn provided to obtain th3 given answer. ",
+    "Alternate Definition 222": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. YoUr job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 223": "In this taSk, you're given a stateMent, further informatioN available on a particular linked term from the statement, anr an answer term. Your job is to generate a question that can use the information provided to obtain the tiven answer. ",
+    "Alternate Definition 224": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer Term. Your job is to generate a question that can usE the informwtion provided to obtain the given anSwer. ",
+    "Alternate Definition 225": "In this tasK, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Your jOb is to generate a question that Can use the infoRmation provided to Obtain the given answer. ",
+    "Alternate Definition 226": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Youg job is to generate a 1uestion that can use the informatIpn provided to Obtain the given answe5. ",
+    "Alternate Definition 227": "In 5his task, you're given a statement, further inforMation available on a particulaR linked term from the statement, and an answer term. Your job is to generate a questiOn that can use tHe information provided to obtain the given answer. ",
+    "Alternate Definition 228": "In this task, you're given a statement, further information availablw on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtqin the given answer. ",
+    "Alternate Definition 229": "In this task, you're given a statement, further information available in a particular linked term frlm the Statement, and an answer term. Your job is to generate a question that can use the inforMation provided to obtain the given ahswer. ",
+    "Alternate Definition 230": "In this task, you're given a statement, further information available on a particUlar linked term from the statement, and an answer term. Your job is to generatw a question that can use the informatioN provided to obtain the given answer. ",
+    "Alternate Definition 231": "IN thls task, you're given a statement, further information available on a particular linked term from the statwment, and an aNswer term; Your job is to generate a question rhat can use the information provided to obtain the given answer. ",
+    "Alternate Definition 232": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given ans2er. ",
+    "Alternate Definition 233": "In this task, you're given a statement, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 234": "In this task, you're given a Statement, further information available on a parricular linked term from the stateMent, and qn answer term. Your job is to generate a question that can use the informAtion provided to obtain the given answer. ",
+    "Alternate Definition 235": "In this task, you're given a statEment, further information available on a particular linked term from the statement, and an answer term. Your job is to generate a question that can use the information provided tO obtain the given anSwer. ",
+    "Alternate Definition 236": "In this task, you're given a sTatement, furrher information available on a particu/ar linked term from the stagement, and an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 237": "In this task, you're given a statement, durther informatiOn available on a particular linked term from the statement, and an answer term. Your job is to generate a questioj that can use the information provided tO obtain the given answer. ",
+    "Alternate Definition 238": "In this task, you're given a statement, further information available on a particular linked term from tHe statement, and an ajswer term. Your job is tO generate a question that can use the information provided to obtain the given answer. ",
+    "Alternate Definition 239": "In this task, you're given a statement, further information available on a particular linked term from the state,ent, and an answer term. YouR job is to generate a question that can uwe the information provid4d to obtain the given answer. ",
+    "Alternate Definition 240": "In tnis task, you're given a statement, further invormation available on a particular linked term from the statement, and an answer term. Your job is to generate a question that cAn uSe the informatiOn provided to obtain the given answer. ",
+    "Alternate Definition 241": "In this task, you're given a statement, fUrther information available on a Particular linked term from the statement, ajd an answer term. Your job is to generate a question that can use the information provided to obtain the given answer. "
+}
