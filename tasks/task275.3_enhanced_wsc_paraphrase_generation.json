@@ -1,0 +1,2205 @@
+{
+    "Contributors": [
+        "Karan Niraj Naik"
+    ],
+    "Source": [
+        "Combination of WSC and enhanced Winograd Schema Challenge dataset from the paper The Sensitivity of Language Models and Humans to Winograd Schema Perturbations"
+    ],
+    "Categories": [
+        "Text Modification"
+    ],
+    "Definition": "In this task, you will be given a sentence or two along with a change aspect. You should change the given text in the given aspect. Aspects are explained below:\n Tense: Change the tense of the verbs in the text. If they are in past tense, change them to present, and if they are in present tense, change them to past tense.\nNumber: Change the number of the nouns in the given text. Make plurals into singles and single into plurals. Remember to change the corresponding pronouns accordingly.\nVoice: If the verbs are in active voice, change them to be passive, otherwise, change them to be in active voice.\nAdverb: add one or multiple adverbs to the text.\nGender: If the text contains female names and pronouns, substitute them with male names and pronouns. Do the same for sentences with mala names and pronouns.",
+    "Positive Examples": [
+        {
+            "input": "sentence: Tom gave Ralph a lift to school so   he wouldn't have to walk . aspect: Voice",
+            "output": "Ralph was given a lift to school by Tom so he wouldn't have to walk .",
+            "explanation": "Here the voice of the sentence is correctly changed"
+        },
+        {
+            "input": "sentence: In the storm , the tree fell down and crashed through the roof of my house . Now , I have to get it repaired . aspect: Tense",
+            "output": "In the storm , the tree is falling down and crashing through the roof of my house . Now , I will have to get it repaired .",
+            "explanation": "Here the tense of the sentence is correctly changed"
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "sentence: Jackson was greatly influenced by Arnold ,  though   he lived two centuries later . aspect: Adverb",
+            "output": "Jackson was greatly influenced by Arnold ,  though he actually lived two centuries later .",
+            "explanation": "Here the adverb of the sentence is incorrectly changed"
+        },
+        {
+            "input": "sentence: The cat was lying by the mouse hole waiting for the mouse ,  but it was too impatient . aspect: Tense",
+            "output": "The cat is lying by the mouse hole waiting for the mouse , but it is too impatient .",
+            "explanation": "Here the tense of the sentence is incorrectly changed"
+        }
+    ],
+    "Instances": [
+        {
+            "input": "sentence: We went to the lake , because a shark had been seen at the ocean beach , so it was a dangerous place to swim . aspect: Voice",
+            "output": [
+                "The lake was gone to by us , because a shark had been seen at the ocean beach , so it was a dangerous place to swim ."
+            ]
+        },
+        {
+            "input": "sentence: Fred covered his eyes with his hands , because the wind was blowing sand around . He lowered them when the wind stopped . aspect: Number",
+            "output": [
+                "Fred covered his eye with his hand ,  because the wind was blowing sand around .  He lowered  it when the wind stopped ."
+            ]
+        },
+        {
+            "input": "sentence: Emma did not pass the ball to Janie although she saw that she was open . aspect: Voice",
+            "output": [
+                "The ball was not passed by Emma to Janie although she saw that she was open ."
+            ]
+        },
+        {
+            "input": "sentence: The sun was covered by a thick cloud all morning , but luckily , by the time the picnic started , it was gone . aspect: Tense",
+            "output": [
+                "The sun is covered by a thick cloud all morning , but luckily , by the time the picnic starts , it will be gone ."
+            ]
+        },
+        {
+            "input": "sentence: Lily spoke to Donna , breaking her silence . aspect: Number",
+            "output": [
+                "Lily and Emma spoke to Donna and Rachel ,  breaking  their silence ."
+            ]
+        },
+        {
+            "input": "sentence: Madonna fired her trainer because she slept with her boyfriend . aspect: Adverb",
+            "output": [
+                "Madonna angrily fired her trainer because she slept with  her boyfriend .",
+                "Madonna angrily fired her trainer because she slept with her boyfriend ."
+            ]
+        },
+        {
+            "input": "sentence: Tom said \"Check\" to Ralph as he took his bishop . aspect: Gender",
+            "output": [
+                "Linda said \"Check\" to Nina as she took  her bishop ."
+            ]
+        },
+        {
+            "input": "sentence: Adam can't leave work here until Bob arrives to replace him . If Bob had left home for work on time , he would be gone by this time . aspect: Tense",
+            "output": [
+                "Adam couldn't leave work here until Bob arrived to replace him . If Bob had left home for work on time , he would have been gone by this time ."
+            ]
+        },
+        {
+            "input": "sentence: Bob paid for Charlie's college education , but now Charlie acts as though it never happened . He is very ungrateful . aspect: Voice",
+            "output": [
+                "Charlie's college education was paid for by Bob , but now Charlie acts as though it never happened . He is very ungrateful ."
+            ]
+        },
+        {
+            "input": "sentence: Paul tried to call George on the phone , but he wasn't successful . aspect: Tense",
+            "output": [
+                "Paul is trying to call George on the phone , but he isn't successful ."
+            ]
+        },
+        {
+            "input": "sentence: Dan had to stop Bill from toying with the injured bird . He is very cruel . aspect: Voice",
+            "output": [
+                "Bill had to be stopped by Dan from toying with the injured bird .  He is very cruel ."
+            ]
+        },
+        {
+            "input": "sentence: Jane gave Joan candy because she wasn't hungry . aspect: Adverb",
+            "output": [
+                "Jane cheerfully gave Joan candy because  she wasn't hungry ."
+            ]
+        },
+        {
+            "input": "sentence: The lawyer asked the witness a question , but he was reluctant to answer it . aspect: Gender",
+            "output": [
+                "The lawyer asked the witness a question ,  but  she was reluctant to answer it ."
+            ]
+        },
+        {
+            "input": "sentence: Fred covered his eyes with his hands , because the wind was blowing sand around . He opened them when the wind stopped . aspect: Tense",
+            "output": [
+                "Fred is covering his eyes with his hands , because the wind is blowing sand around . He opens them when the wind stops ."
+            ]
+        },
+        {
+            "input": "sentence: I'm sure that my map will show this building ; it is very famous . aspect: Voice",
+            "output": [
+                "I'm sure that the building will be shown by my map ; it is very famous ."
+            ]
+        },
+        {
+            "input": "sentence: We had hoped to place copies of our newsletter on all the chairs in the auditorium , but there were simply not enough of them . aspect: Adverb",
+            "output": [
+                "We had very much hoped to place copies of our newsletter on all the chairs in the auditorium , but there were simply not enough of them ."
+            ]
+        },
+        {
+            "input": "sentence: At the Loebner competition the judges couldn't figure out which respondents were the chatbots because they were so stupid . aspect: Voice",
+            "output": [
+                "At the Loebner competition it could not be figured out by the judges which respondents were the chatbots because they were so stupid ."
+            ]
+        },
+        {
+            "input": "sentence: The customer walked into the bank and stabbed one of the tellers . He was immediately taken to the police station . aspect: Adverb",
+            "output": [
+                "The customer casually walked into the bank and savagely stabbed one of the tellers . He was immediately taken to the police station ."
+            ]
+        },
+        {
+            "input": "sentence: I took the water bottle out of the backpack so that it would be handy . aspect: Voice",
+            "output": [
+                "The water bottle was taken out of the backpack by me so that it would be handy ."
+            ]
+        },
+        {
+            "input": "sentence: Fred and Alice had very warm down coats , but they were not prepared for the cold in Alaska . aspect: Adverb",
+            "output": [
+                "Fred and Alice certainly had very warm down coats ,  but they were not really prepared for the cold in Alaska ."
+            ]
+        },
+        {
+            "input": "sentence: The firemen arrived before the police because they were coming from so far away . aspect: Tense",
+            "output": [
+                "The firemen are arriving before the police because they are coming from so far away ."
+            ]
+        },
+        {
+            "input": "sentence: Sara borrowed the book from the library because she needs it for an article she is working on . She reads it when she gets home from work . aspect: Adverb",
+            "output": [
+                "Sara just borrowed the book from the library because she needs it for an article she is working on . She carefully reads  it when she gets home from work ."
+            ]
+        },
+        {
+            "input": "sentence: Everyone really loved the oatmeal cookies ; only a few people liked the chocolate chip cookies . Next time , we should make fewer of them . aspect: Tense",
+            "output": [
+                "Everyone really loves the oatmeal cookies ; only a few people like the chocolate chip cookies . Next time , we should make fewer of them ."
+            ]
+        },
+        {
+            "input": "sentence: Bill passed the half-empty plate to John because he was full . aspect: Number",
+            "output": [
+                "Bill and Jake passed the half-empty plate to John and Luke because they were full ."
+            ]
+        },
+        {
+            "input": "sentence: Sam and Amy are passionately in love , but Amy's parents are unhappy about it , because they are snobs . aspect: Number",
+            "output": [
+                "Sam is passionately in love , but Sam's father is unhappy about it ,  because  he is a snob ."
+            ]
+        },
+        {
+            "input": "sentence: The delivery truck zoomed by the school bus because it was going so slow . aspect: Number",
+            "output": [
+                "The delivery trucks zoomed by the school buses because they were going so slow ."
+            ]
+        },
+        {
+            "input": "sentence: This morning , Joey built a sand castle on the beach , and put a toy flag in the highest tower , but this afternoon the tide knocked it down . aspect: Number",
+            "output": [
+                "This morning , Joey and Bill built sand castles on the beach , and put toy flags in the highest towers , but this afternoon the tide knocked them down ."
+            ]
+        },
+        {
+            "input": "sentence: Although they ran at about the same speed , Sue beat Sally because she had such a good start . aspect: Number",
+            "output": [
+                "Although they ran at about the same speed ,  Sue and Joan beat Sally and Mary because   they had such a good start ."
+            ]
+        },
+        {
+            "input": "sentence: Emma did not pass the ball to Janie although she was open . aspect: Gender",
+            "output": [
+                "Bill did not pass the ball to Steven although he was open ."
+            ]
+        },
+        {
+            "input": "sentence: I saw Jim yelling at some guy in a military uniform with a huge red beard . I don't know why he was , but he looked very unhappy . aspect: Tense",
+            "output": [
+                "I see Jim yelling at some guy in a military uniform with a huge red beard .  I don't know why he is ,  but he looks very unhappy ."
+            ]
+        },
+        {
+            "input": "sentence: Anne gave birth to a daughter last month . She is a very charming woman . aspect: Tense",
+            "output": [
+                "Anne is giving birth to a daughter next month . She is a very charming woman ."
+            ]
+        },
+        {
+            "input": "sentence: George got free tickets to the play , but he gave them to Eric , even though he was particularly eager to see it . aspect: Gender",
+            "output": [
+                "Lily got free tickets to the play ,  but she gave them to Joan ,  even though she was particularly eager to see it ."
+            ]
+        },
+        {
+            "input": "sentence: Alice tried frantically to stop her daughter from chatting at the party , leaving us to wonder why she was behaving so strangely . aspect: Tense",
+            "output": [
+                "Alice is trying frantically to stop her daughter from chatting at the party , leaving us to wonder why she is behaving so strangely ."
+            ]
+        },
+        {
+            "input": "sentence: Tom said \"Check\" to Ralph as he took his bishop . aspect: Tense",
+            "output": [
+                "Tom is saying \"Check\" to Ralph as he takes his bishop ."
+            ]
+        },
+        {
+            "input": "sentence: Joe's uncle can still beat him at tennis , even though he is 30 years older . aspect: Tense",
+            "output": [
+                "Joe's uncle could still beat him at tennis ,  even though he was 30 years older ."
+            ]
+        },
+        {
+            "input": "sentence: Grace was happy to trade me her sweater for my jacket . She thinks it looks great on her . aspect: Number",
+            "output": [
+                "Grace was happy to trade me her sweaters for my jackets . She thinks they look great on her ."
+            ]
+        },
+        {
+            "input": "sentence: It was a summer afternoon , and the dog was sitting in the middle of the lawn . After a while , it got up and moved to a spot under the tree , because it was hot . aspect: Adverb",
+            "output": [
+                "It was a summer afternoon ,  and the dog was lazily sitting in the middle of the lawn .  After a while , it slowly got up and moved to a spot under the tree ,  because  it was hot ."
+            ]
+        },
+        {
+            "input": "sentence: I poured water from the bottle into the cup until it was empty . aspect: Voice",
+            "output": [
+                "Water was poured by me from the bottle into the cup until it was empty ."
+            ]
+        },
+        {
+            "input": "sentence: Sam's drawing was hung just above Tina's and it did look much better with another one below it . aspect: Tense",
+            "output": [
+                "Sam's drawing is being hung just above Tina's and it looks much better with another one below it ."
+            ]
+        },
+        {
+            "input": "sentence: The delivery truck zoomed by the school bus because it was going so fast . aspect: Voice",
+            "output": [
+                "The school bus was zoomed by by the delivery truck because it was going so fast ."
+            ]
+        },
+        {
+            "input": "sentence: Tom said \"Check\" to Ralph as he moved his bishop . aspect: Voice",
+            "output": [
+                "Check was said by Tom to Ralph as he moved his bishop ."
+            ]
+        },
+        {
+            "input": "sentence: It was a summer afternoon , and the dog was sitting in the middle of the lawn . After a while , it got up and moved to a spot under the tree , because it was hot . aspect: Voice",
+            "output": [
+                "It was a summer afternoon , and the lawn was sat in the middle of by the dog . After a while , it got up and moved to a spot under the tree , because it was hot ."
+            ]
+        },
+        {
+            "input": "sentence: I took the water bottle out of the backpack so that it would be lighter . aspect: Voice",
+            "output": [
+                "The water bottle was taken out of the backpack by me so that it would be lighter ."
+            ]
+        },
+        {
+            "input": "sentence: Anne gave birth to a daughter last month . She is a very charming baby . aspect: Adverb",
+            "output": [
+                "Anne supposedly gave birth to a daughter last month . She is a very charming baby ."
+            ]
+        },
+        {
+            "input": "sentence: Tom threw his schoolbag down to Ray after he reached the top of the stairs . aspect: Voice",
+            "output": [
+                "The schoolbag was thrown down to Ray by Tom after he reached the top of the stairs ."
+            ]
+        },
+        {
+            "input": "sentence: Joe has sold his house and bought a new one a few miles away . He will be moving out of it on Thursday . aspect: Tense",
+            "output": [
+                "Joe is selling his house and buying a new one a few miles away . He will be moving out of it on Thursday ."
+            ]
+        },
+        {
+            "input": "sentence: Pam's parents came home and found her having sex with her boyfriend , Paul . They were embarrassed about it . aspect: Adverb",
+            "output": [
+                "Pam's parents finally came home and immediately found her passionately having sex with her boyfriend , Paul . They were rather embarrassed about it ."
+            ]
+        },
+        {
+            "input": "sentence: Carol believed that Rebecca suspected that she had stolen the watch . aspect: Adverb",
+            "output": [
+                "Carol readily believed that Rebecca strongly suspected that she had brazenly stolen the watch ."
+            ]
+        },
+        {
+            "input": "sentence: Jane knocked on Susan's door , but there was no answer . She was out . aspect: Gender",
+            "output": [
+                "Peter knocked on Bill's door ,  but there was no answer . He was out ."
+            ]
+        },
+        {
+            "input": "sentence: John ordered Bill to leave , so an hour later he left . aspect: Voice",
+            "output": [
+                "Bill was ordered by John to leave , so an hour later he left ."
+            ]
+        },
+        {
+            "input": "sentence: Sam and Amy are passionately in love , but Amy's parents are unhappy about it , because they are fifteen . aspect: Adverb",
+            "output": [
+                "Sam and Amy are passionately in love , but Amy's parents are very unhappy about it ,  because  they are fifteen ."
+            ]
+        },
+        {
+            "input": "sentence: Bob was playing cards with Adam and was way ahead . If Adam hadn't had a sudden run of good luck , he would have won . aspect: Adverb",
+            "output": [
+                "Bob was carefuly playing cards with Adam and was way ahead .  If Adam hadn't ultimately had a sudden run of good luck , he would have won ."
+            ]
+        },
+        {
+            "input": "sentence: I was trying to open the lock with the key , but someone had filled the keyhole with chewing gum , and I couldn't get it in . aspect: Voice",
+            "output": [
+                "I was trying to open the lock with the key , but the keyhole had been filled with chewing gum by someone , and I couldn't get it in ."
+            ]
+        },
+        {
+            "input": "sentence: The man couldn't lift his son because he was so heavy . aspect: Number",
+            "output": [
+                "The men couldn't lift their sons because  they were so heavy ."
+            ]
+        },
+        {
+            "input": "sentence: George got free tickets to the play , but he gave them to Eric , because he was particularly eager to see it . aspect: Voice",
+            "output": [
+                "Free tickets to the play were gotten by George , but they were given by him to Eric , because he was particularly eager to see it ."
+            ]
+        },
+        {
+            "input": "sentence: In the storm , the tree fell down and crashed through the roof of my house . Now , I have to get it removed . aspect: Adverb",
+            "output": [
+                "In the storm , the tree abruptly fell down and savagely crashed through the roof of my house . Now , I have to get it removed ."
+            ]
+        },
+        {
+            "input": "sentence: The sculpture rolled off the shelf because it wasn't anchored . aspect: Tense",
+            "output": [
+                "The sculpture is rolling off the shelf because it isn't anchored ."
+            ]
+        },
+        {
+            "input": "sentence: Grace was happy to trade me her sweater for my jacket . She thinks it looks dowdy on her . aspect: Number",
+            "output": [
+                "Grace was happy to trade me her sweaters for my jackets . She thinks they look dowdy on her ."
+            ]
+        },
+        {
+            "input": "sentence: Bob collapsed on the sidewalk . Soon he saw Carl coming to help . He was very concerned . aspect: Adverb",
+            "output": [
+                "Bob suddenly collapsed on the sidewalk . Soon he saw Carl quickly coming to help . He was very concerned ."
+            ]
+        },
+        {
+            "input": "sentence: The painting in Mark's living room shows an oak tree . it is to the right of the bookcase . aspect: Adverb",
+            "output": [
+                "The painting in Mark's living room supposedly shows an oak tree . it is to the right of the bookcase ."
+            ]
+        },
+        {
+            "input": "sentence: John ordered Bill to leave , so an hour later he left . aspect: Gender",
+            "output": [
+                "Mary ordered Anne to leave ,  so an hour later  she left ."
+            ]
+        },
+        {
+            "input": "sentence: The father carried the sleeping boy in his arms . aspect: Gender",
+            "output": [
+                "The mother carried the sleeping girl in her arms ."
+            ]
+        },
+        {
+            "input": "sentence: Bob collapsed on the sidewalk . Soon he saw Carl coming to help . He was very concerned . aspect: Gender",
+            "output": [
+                "Lucy collapsed on the sidewalk . Soon she saw Mary coming to help . She was very concerned ."
+            ]
+        },
+        {
+            "input": "sentence: Anne gave birth to a daughter last month . She is a very charming baby . aspect: Tense",
+            "output": [
+                "Anne is giving birth to a daughter next month . She is a very charming baby ."
+            ]
+        },
+        {
+            "input": "sentence: Bill passed the half-empty plate to John because he was full . aspect: Adverb",
+            "output": [
+                "Bill carefully  passed the half-empty plate to John because  he was full ."
+            ]
+        },
+        {
+            "input": "sentence: Jane knocked on the door , and Susan answered it . She invited her to come out . aspect: Tense",
+            "output": [
+                "Jane is knocking on the door , and Susan is answering it . She  is inviting her to come out ."
+            ]
+        },
+        {
+            "input": "sentence: The actress used to be named Terpsichore , but she changed it to Tina a few years ago , because she figured it was easier to pronounce . aspect: Adverb",
+            "output": [
+                "The actress actually used to be named Terpsichore ,  but she  apparently  changed it to Tina a few years ago ,  because she figured it was easier to pronounce ."
+            ]
+        },
+        {
+            "input": "sentence: The lawyer asked the witness a question , but he was reluctant to repeat it . aspect: Voice",
+            "output": [
+                "The witness was asked a question by the lawyer , but he was reluctant to repeat it ."
+            ]
+        },
+        {
+            "input": "sentence: The cat was lying by the mouse hole waiting for the mouse , but it was too cautious . aspect: Number",
+            "output": [
+                "The cats were lying by the mouse holes waiting for the mice ,  but they were too cautious ."
+            ]
+        },
+        {
+            "input": "sentence: The father carried the sleeping boy in his bassinet . aspect: Number",
+            "output": [
+                "The fathers carried the sleeping boys in their bassinets ."
+            ]
+        },
+        {
+            "input": "sentence: I poured water from the bottle into the cup until it was full . aspect: Number",
+            "output": [
+                "I poured water from the bottles into the cups until they were full ."
+            ]
+        },
+        {
+            "input": "sentence: The woman held the girl against her chest . aspect: Tense",
+            "output": [
+                "The woman is holding the girl against her chest ."
+            ]
+        },
+        {
+            "input": "sentence: The journalists interviewed the stars of the new movie . They were very cooperative , so the interview lasted for a long time . aspect: Number",
+            "output": [
+                "The journalist interviewed the star of the new movie .    She were very cooperative ,  so the interview lasted for a long time ."
+            ]
+        },
+        {
+            "input": "sentence: Pete envies Martin although he is very successful . aspect: Tense",
+            "output": [
+                "Pete envied Martin although he was very successful ."
+            ]
+        },
+        {
+            "input": "sentence: Bob paid for Charlie's college education , but now Charlie acts as though it never happened . He is very ungrateful . aspect: Number",
+            "output": [
+                "Bob and Steve paid for Charlie and William's college education , but now Charlie and William act as though it never happened . They are very ungrateful ."
+            ]
+        },
+        {
+            "input": "sentence: When Tommy dropped his ice cream , Timmy giggled , so father gave him a stern look . aspect: Tense",
+            "output": [
+                "When Tommy drops his ice cream , Timmy giggles , so father gives him a stern look ."
+            ]
+        },
+        {
+            "input": "sentence: Emma did not pass the ball to Janie although she saw that she was open . aspect: Adverb",
+            "output": [
+                "Emma did not actually pass the ball to Janie although she clearly saw that she was open ."
+            ]
+        },
+        {
+            "input": "sentence: Dan took the rear seat while Bill claimed the front because his \"Dibs!\" was slow . aspect: Adverb",
+            "output": [
+                "Dan actually took the rear seat while Bill always claimed the front because  his \"Dibs!\" was slow ."
+            ]
+        },
+        {
+            "input": "sentence: The foxes are getting in at night and attacking the chickens . I shall have to kill them . aspect: Number",
+            "output": [
+                "The fox is getting in at night and attacking the chicken .  I shall have to kill  it ."
+            ]
+        },
+        {
+            "input": "sentence: The table won't fit through the doorway because it is too wide . aspect: Adverb",
+            "output": [
+                "The table won't fully fit through the doorway because it is too wide ."
+            ]
+        },
+        {
+            "input": "sentence: Jane gave Joan candy because she wasn't hungry . aspect: Number",
+            "output": [
+                "Jane and Lucy gave Joan and Anne candy because  they weren't hungry ."
+            ]
+        },
+        {
+            "input": "sentence: John promised Bill to leave , so an hour later he left . aspect: Adverb",
+            "output": [
+                "John repeatedly promised Bill to leave , so an hour later he hurriedly left."
+            ]
+        },
+        {
+            "input": "sentence: They broadcast an announcement , but a subway came into the station and I couldn't hear it . aspect: Number",
+            "output": [
+                "They broadcast announcements ,  but subways came into the station and I couldn't hear them ."
+            ]
+        },
+        {
+            "input": "sentence: Fred watched TV while George went out to buy groceries . After an hour he got up . aspect: Tense",
+            "output": [
+                "Fred is watching TV while George goes to buy groceries . After an hour he is getting up ."
+            ]
+        },
+        {
+            "input": "sentence: Jane knocked on Susan's door , but there was no answer . She was out . aspect: Adverb",
+            "output": [
+                "Jane repeatedly knocked on Susan's door ,  but there was no answer . She really was out ."
+            ]
+        },
+        {
+            "input": "sentence: Jane knocked on Susan's door but she did not get an answer . aspect: Adverb",
+            "output": [
+                "Jane loudly knocked on Susan's door but she did not get an answer ."
+            ]
+        },
+        {
+            "input": "sentence: The painting in Mark's living room shows an oak tree . it is to the right of the bookcase . aspect: Tense",
+            "output": [
+                "The painting in Mark's living room showed an oak tree . it was to the right of the bookcase ."
+            ]
+        },
+        {
+            "input": "sentence: Jim signaled the barman and gestured toward his bathroom key . aspect: Tense",
+            "output": [
+                "Jim is signaling the barman and gesturing toward his bathroom key ."
+            ]
+        },
+        {
+            "input": "sentence: The dog chased the cat , which ran up a tree . It waited at the bottom . aspect: Adverb",
+            "output": [
+                "The dog rapidly chased the cat , which ran up a tree . It waited at the bottom ."
+            ]
+        },
+        {
+            "input": "sentence: Everyone really loved the oatmeal cookies ; only a few people liked the chocolate chip cookies . Next time , we should make fewer of them . aspect: Adverb",
+            "output": [
+                "Everyone really loved the oatmeal cookies ; only a few people actually liked the chocolate chip cookies .  Next time ,  we definitely should make fewer of   them ."
+            ]
+        },
+        {
+            "input": "sentence: If the con artist had succeeded in fooling Sam , he would have gotten a lot of money . aspect: Adverb",
+            "output": [
+                "If the con artist had repeatedly succeeded in fooling Sam , he would have gotten a lot of money ."
+            ]
+        },
+        {
+            "input": "sentence: Pam's parents came home and found her having sex with her boyfriend , Paul . They were furious about it . aspect: Tense",
+            "output": [
+                "Pam's parents are coming home and will find her having sex with her boyfriend , Paul . They will be furious about it ."
+            ]
+        },
+        {
+            "input": "sentence: John was doing research in the library when he heard a man humming and whistling . He was very annoyed . aspect: Number",
+            "output": [
+                "John and Steve were doing research in the library when they heard men humming and whistling .  They were very annoyed ."
+            ]
+        },
+        {
+            "input": "sentence: Sam tried to paint a picture of shepherds with sheep , but they ended up looking more like golfers . aspect: Adverb",
+            "output": [
+                "Sam diligently tried to paint a picture of shepherds with sheep ,  but  they somehow ended up looking more like golfers ."
+            ]
+        },
+        {
+            "input": "sentence: Joe's uncle can still beat him at tennis , even though he is 30 years younger . aspect: Number",
+            "output": [
+                "Joe and David's uncles can still beat them at tennis ,  even though they are 30 years younger ."
+            ]
+        },
+        {
+            "input": "sentence: The dog chased the cat , which ran up a tree . It waited at the top . aspect: Tense",
+            "output": [
+                "The dog is chasing the cat , which is running up a tree . It is waiting at the top ."
+            ]
+        },
+        {
+            "input": "sentence: The city councilmen refused the demonstrators a permit because they advocated violence . aspect: Tense",
+            "output": [
+                "The city councilmen are refusing the demonstrators a permit because they advocate violence ."
+            ]
+        },
+        {
+            "input": "sentence: Bob collapsed on the sidewalk . Soon he saw Carl coming to help . He was very ill . aspect: Number",
+            "output": [
+                "Bob and Henry collapsed on the sidewalk . Soon they saw Carl and Ben coming to help . They were very ill ."
+            ]
+        },
+        {
+            "input": "sentence: Steve follows Fred's example in everything . He influences him hugely . aspect: Tense",
+            "output": [
+                "Steve followed Fred's example in everything . He influenced him hugely ."
+            ]
+        },
+        {
+            "input": "sentence: Sam took French classes from Adam , because he was known to speak it fluently . aspect: Gender",
+            "output": [
+                "Jane took French classes from Lucy ,  because  she was known to speak it fluently ."
+            ]
+        },
+        {
+            "input": "sentence: The actress used to be named Terpsichore , but she changed it to Tina a few years ago , because she figured it was too hard to pronounce . aspect: Adverb",
+            "output": [
+                "The actress actually used to be named Terpsichore ,  but she apparently changed it to Tina a few years ago ,  because she figured it was too hard to pronounce ."
+            ]
+        },
+        {
+            "input": "sentence: When the sponsors of the bill got to the town hall , they were surprised to find that the room was full of opponents . They were very much in the majority . aspect: Adverb",
+            "output": [
+                "When the sponsors of the bill finally got to the town hall ,  they were rather surprised to find that the room was full of opponents .    They ultimately  were very much in the majority ."
+            ]
+        },
+        {
+            "input": "sentence: Jackson was greatly influenced by Arnold , though he lived two centuries earlier . aspect: Tense",
+            "output": [
+                "Jackson is greatly influenced by Arnold , though he lives two centuries earlier ."
+            ]
+        },
+        {
+            "input": "sentence: Tom threw his schoolbag down to Ray after he reached the bottom of the stairs . aspect: Gender",
+            "output": [
+                "Julia threw her schoolbag down to Anna after  she reached the bottom of the stairs ."
+            ]
+        },
+        {
+            "input": "sentence: At the Loebner competition the judges couldn't figure out which respondents were the chatbots because they were so stupid . aspect: Number",
+            "output": [
+                "At the Loebner competition the judge couldn't figure out which respondent was the chatbot because he was so stupid ."
+            ]
+        },
+        {
+            "input": "sentence: Anne gave birth to a daughter last month . She is a very charming woman . aspect: Number",
+            "output": [
+                "Anne and Julia gave birth to daughters last month . They are very charming women ."
+            ]
+        },
+        {
+            "input": "sentence: I tried to paint a picture of an orchard , with lemons in the lemon trees , but they came out looking more like light bulbs . aspect: Number",
+            "output": [
+                "I tried to paint a picture of an orchard ,  with a lemon in a lemon tree ,  but  it came out looking more like a light bulb ."
+            ]
+        },
+        {
+            "input": "sentence: I couldn't find a spoon , so I tried using a pen to stir my coffee . But that turned out to be a bad idea , because it got full of ink . aspect: Adverb",
+            "output": [
+                "I couldn't really find a spoon , so I briefly tried using a pen to stir my coffee .  But that quickly turned out to be a bad idea ,  because it got full of ink ."
+            ]
+        },
+        {
+            "input": "sentence: John couldn't see the stage with Billy in front of him because he is so short . aspect: Number",
+            "output": [
+                "John and Harry couldn't see the stage with Billy and Jack in front of them because they were so short ."
+            ]
+        },
+        {
+            "input": "sentence: The user changed his password from \" GrWQWu8JyC \" to \" willow-towered Canopy Huntertropic wrestles \" as it was easy to forget . aspect: Tense",
+            "output": [
+                "The user is changing his password from \" GrWQWu8JyC \" to \" willow-towered Canopy Huntertropic wrestles \" as it is easy to forget ."
+            ]
+        },
+        {
+            "input": "sentence: Mary took out her flute and played one of her favorite pieces . She has had it since she was a child . aspect: Tense",
+            "output": [
+                "Mary is taking out her flute and playing one of her favorite pieces . She has had it since she was a child ."
+            ]
+        },
+        {
+            "input": "sentence: The foxes are getting in at night and attacking the chickens . They have gotten very nervous . aspect: Number",
+            "output": [
+                "The fox is getting in at night and attacking the chicken .    It has gotten very nervous ."
+            ]
+        },
+        {
+            "input": "sentence: The user changed his password from \" GrWQWu8JyC \" to \" willow-towered Canopy Huntertropic wrestles \" as it was easy to forget . aspect: Adverb",
+            "output": [
+                "The user deliberately changed his password from \" GrWQWu8JyC \" to \" willow-towered Canopy Huntertropic wrestles \" as it was easy to forget ."
+            ]
+        },
+        {
+            "input": "sentence: Joe has sold his house and bought a new one a few miles away . He will be moving out of it on Thursday . aspect: Voice",
+            "output": [
+                "The house has been sold by Joe and a new one a few miles away has been bought . It will be moved out of by him on Thursday ."
+            ]
+        },
+        {
+            "input": "sentence: The scientists are studying three species of fish that have recently been found living in the Indian Ocean . They appeared two years ago . aspect: Voice",
+            "output": [
+                "Three species of fish that have recently been found living in the Indian Ocean are being studied by scientists . They began two years ago ."
+            ]
+        },
+        {
+            "input": "sentence: As Andrea in the crop duster passed over Susan , she could see the landing gear . aspect: Voice",
+            "output": [
+                "As Susan was passed over by Andrea in the crop duster  , she could see the landing gear ."
+            ]
+        },
+        {
+            "input": "sentence: I stuck a pin through a carrot . When I pulled the pin out , it had a hole . aspect: Adverb",
+            "output": [
+                "I rapidly stuck a pin through a carrot .  When I subsequently pulled the pin out , it expectedly had a hole ."
+            ]
+        },
+        {
+            "input": "sentence: Sam pulled up a chair to the piano , but it was broken , so he had to sing instead . aspect: Number",
+            "output": [
+                "Sam and Henry pulled up chairs to the pianos , but  they were broken , so they had to sing instead ."
+            ]
+        },
+        {
+            "input": "sentence: The actress used to be named Terpsichore , but she changed it to Tina a few years ago , because she figured it was easier to pronounce . aspect: Gender",
+            "output": [
+                "The actor used to be named Jacchus ,  but he changed it to Jake a few years ago ,  because he figured it was easier to pronounce ."
+            ]
+        },
+        {
+            "input": "sentence: The cat was lying by the mouse hole waiting for the mouse , but it was too impatient . aspect: Tense",
+            "output": [
+                "The cat is lying by the mouse hole waiting for the mouse , but it is too impatient ."
+            ]
+        },
+        {
+            "input": "sentence: Anne gave birth to a daughter last month . She is a very charming baby . aspect: Voice",
+            "output": [
+                "A daughter was given birth to by Anne last month . She is a very charming baby ."
+            ]
+        },
+        {
+            "input": "sentence: As Ollie carried Tommy up the long winding steps , his legs ached . aspect: Number",
+            "output": [
+                "As Ollie and Johnny carried Tommy and Larry up the long winding steps ,   their legs ached ."
+            ]
+        },
+        {
+            "input": "sentence: Tom gave Ralph a lift to school so he wouldn't have to drive alone . aspect: Number",
+            "output": [
+                "Tom and Bill gave Ralph and Josh a lift to school so  they wouldn't have to drive alone ."
+            ]
+        },
+        {
+            "input": "sentence: Billy cried because Toby wouldn't share his toy . aspect: Number",
+            "output": [
+                "Billy and Jimmy cried because Toby and Henry wouldn't share  their toy ."
+            ]
+        },
+        {
+            "input": "sentence: I can't cut that tree down with that axe ; it is too thick . aspect: Voice",
+            "output": [
+                "The tree could not be cut with that axe by me ;  it is too thick ."
+            ]
+        },
+        {
+            "input": "sentence: I tried to paint a picture of an orchard , with lemons in the lemon trees , but they came out looking more like telephone poles . aspect: Number",
+            "output": [
+                "I tried to paint a picture of an orchard ,  with a lemon in a lemon tree ,  but  it came out looking more like a telephone pole ."
+            ]
+        },
+        {
+            "input": "sentence: I was trying to open the lock with the key , but someone had filled the keyhole with chewing gum , and I couldn't get it out . aspect: Voice",
+            "output": [
+                "I was trying to open the lock with the key , but the keyhole had been filled with chewing gum by someone , and I couldn't get it out ."
+            ]
+        },
+        {
+            "input": "sentence: Tom gave Ralph a lift to school so he wouldn't have to walk . aspect: Gender",
+            "output": [
+                "Nina gave Jill a lift to school so  she wouldn't have to walk ."
+            ]
+        },
+        {
+            "input": "sentence: The lawyer asked the witness a question , but he was reluctant to answer it . aspect: Voice",
+            "output": [
+                "The witness was asked a question by the lawyer , but he was reluctant to answer it ."
+            ]
+        },
+        {
+            "input": "sentence: We went to the lake , because a shark had been seen at the ocean beach , so it was a safer place to swim . aspect: Adverb",
+            "output": [
+                "We hurriedly went to the lake ,  because a shark had been seen at the ocean beach ,  so   it was a safer place to swim ."
+            ]
+        },
+        {
+            "input": "sentence: Sam's drawing was hung just above Tina's and it did look much better with another one below it . aspect: Number",
+            "output": [
+                "Sam's drawings were hung just above Tina's and they did look much better with other ones below them ."
+            ]
+        },
+        {
+            "input": "sentence: Susan knew that Ann's son had been in a car accident , so she told her about it . aspect: Voice",
+            "output": [
+                "It was known by Susan that Ann's son had been in a car accident , so she told her about it ."
+            ]
+        },
+        {
+            "input": "sentence: Carol believed that Rebecca suspected that she had stolen the watch . aspect: Voice",
+            "output": [
+                "It was believed by Carol that Rebecca suspected that she had stolen the watch ."
+            ]
+        },
+        {
+            "input": "sentence: Three species of fish that have recently been found living in the Indian Ocean are being studied by scientists . They began two years ago . aspect: Tense",
+            "output": [
+                "Three species of fish that have recently been found living in the Indian Ocean were being studied by scientists . They began two years ago ."
+            ]
+        },
+        {
+            "input": "sentence: Look ! There is a minnow swimming right below that duck ! It had better get away to safety fast ! aspect: Number",
+            "output": [
+                "Look ! There are minnows swimming right below those ducks ! They had better get away to safety fast !"
+            ]
+        },
+        {
+            "input": "sentence: Mary tucked her daughter Anne into bed , so that she could work . aspect: Adverb",
+            "output": [
+                "Mary finally tucked her daughter Anne into bed , so that she could work ."
+            ]
+        },
+        {
+            "input": "sentence: I couldn't put the pot on the shelf because it was too tall . aspect: Voice",
+            "output": [
+                "The pot couldn't be put on the shelf by me because it was too tall ."
+            ]
+        },
+        {
+            "input": "sentence: I was trying to open the lock with the key , but someone had filled the keyhole with chewing gum , and I couldn't get it in . aspect: Adverb",
+            "output": [
+                "I was desperately trying to open the lock with the key ,  but someone had filled the keyhole with chewing gum ,  and I couldn't get   it in ."
+            ]
+        },
+        {
+            "input": "sentence: Jane knocked on Susan's door but she did not answer . aspect: Adverb",
+            "output": [
+                "Jane loudly knocked on Susan's door but she did not answer ."
+            ]
+        },
+        {
+            "input": "sentence: When the sponsors of the bill got to the town hall , they were surprised to find that the room was full of opponents . They were very much in the minority . aspect: Adverb",
+            "output": [
+                "When the sponsors of the bill finally got to the town hall ,  they were rather surprised to find that the room was full of opponents .  They ultimately were very much in the minority ."
+            ]
+        },
+        {
+            "input": "sentence: I stuck a pin through a carrot . When I pulled the pin out , it had a hole . aspect: Tense",
+            "output": [
+                "I am sticking a pin through a carrot . When I pull the pin out , it will have a hole ."
+            ]
+        },
+        {
+            "input": "sentence: Paul tried to call George on the phone , but he wasn't successful . aspect: Adverb",
+            "output": [
+                "Paul continuously tried to call George on the phone , but he wasn't successful ."
+            ]
+        },
+        {
+            "input": "sentence: The firemen arrived before the police because they were coming from so far away . aspect: Number",
+            "output": [
+                "The fireman arrived before the policeman because he was coming from so far away ."
+            ]
+        },
+        {
+            "input": "sentence: The man lifted the boy onto his shoulders . aspect: Voice",
+            "output": [
+                "The boy was lifted by the man onto his shoulders ."
+            ]
+        },
+        {
+            "input": "sentence: The lawyer asked the witness a question , but he was reluctant to answer it . aspect: Tense",
+            "output": [
+                "The lawyer is asking the witness a question , but he is reluctant to answer it ."
+            ]
+        },
+        {
+            "input": "sentence: John was doing research in the library when he heard a man humming and whistling . He was very annoying . aspect: Tense",
+            "output": [
+                "John is doing research in the library when he hears a man humming and whistling . He is very annoying ."
+            ]
+        },
+        {
+            "input": "sentence: In the storm , the tree fell down and crashed through the roof of my house . Now , I have to get it repaired . aspect: Adverb",
+            "output": [
+                "In the storm , the tree abruptly fell down and savagely crashed through the roof of my house . Now , I have to get it repaired ."
+            ]
+        },
+        {
+            "input": "sentence: The sculpture rolled off the shelf because it wasn't level . aspect: Adverb",
+            "output": [
+                "The sculpture slowly rolled off the shelf because it wasn't level ."
+            ]
+        },
+        {
+            "input": "sentence: The woman held the girl against her will . aspect: Adverb",
+            "output": [
+                "The woman simply held the girl against  her will ."
+            ]
+        },
+        {
+            "input": "sentence: Bob paid for Charlie's college education , but now Charlie acts as though it never happened . He is very ungrateful . aspect: Tense",
+            "output": [
+                "Bob is paying for Charlie's college education , but now Charlie is acting as though it isn't happening . He is very ungrateful ."
+            ]
+        },
+        {
+            "input": "sentence: I couldn't find a spoon , so I tried using a pen to stir my coffee . But that turned out to be a bad idea , because it got full of coffee . aspect: Voice",
+            "output": [
+                "A spoon couldn't be found , so I tried using a pen to stir my coffee . But that turned out to be a bad idea , because it got full of coffee ."
+            ]
+        },
+        {
+            "input": "sentence: The delivery truck zoomed by the school bus because it was going so slow . aspect: Voice",
+            "output": [
+                "The school bus was zoomed by by the delivery truck because it was going so slow ."
+            ]
+        },
+        {
+            "input": "sentence: Sam took French classes from Adam , because he was known to speak it fluently . aspect: Tense",
+            "output": [
+                "Sam is taking French classes from Adam , because he is known to speak it fluently ."
+            ]
+        },
+        {
+            "input": "sentence: Beth didn't get angry with Sally , who had cut her off , because she stopped and counted to ten . aspect: Number",
+            "output": [
+                "Beth and Emma didn't get angry with Sally and Lucy ,  who had cut them off ,  because  they stopped and counted to ten ."
+            ]
+        },
+        {
+            "input": "sentence: John was doing research in the library when he heard a man humming and whistling . He was very annoying . aspect: Adverb",
+            "output": [
+                "John was quietly doing research in the library when he suddenly heard a man humming and whistling .   He was very annoying ."
+            ]
+        },
+        {
+            "input": "sentence: John was jogging through the park when he saw a man juggling watermelons . He was very impressive . aspect: Gender",
+            "output": [
+                "Mary was jogging through the park when she saw a woman juggling watermelons .  She was very impressive ."
+            ]
+        },
+        {
+            "input": "sentence: The delivery truck zoomed by the school bus because it was going so fast . aspect: Number",
+            "output": [
+                "The delivery trucks zoomed by the school buses because they were going so fast ."
+            ]
+        },
+        {
+            "input": "sentence: Mary took out her flute and played one of her favorite pieces . She has had it since she was a child . aspect: Adverb",
+            "output": [
+                "Mary just took out her flute and beautifully played one of her favorite pieces . She has had it since she was a child ."
+            ]
+        },
+        {
+            "input": "sentence: If the con artist had succeeded in fooling Sam , he would have gotten a lot of money . aspect: Number",
+            "output": [
+                "If the con artists had succeeded in fooling Sam and Julian , they would have gotten a lot of money ."
+            ]
+        },
+        {
+            "input": "sentence: Sam took French classes from Adam , because he was eager to speak it fluently . aspect: Gender",
+            "output": [
+                "Jane took French classes from Lucy ,  because  she was eager to speak it fluently ."
+            ]
+        },
+        {
+            "input": "sentence: Although they ran at about the same speed , Sue beat Sally because she had such a bad start . aspect: Adverb",
+            "output": [
+                "Although they ran at about the same speed ,  Sue soundly beat Sally because   she had such a bad start ."
+            ]
+        },
+        {
+            "input": "sentence: Archaeologists have concluded that humans lived in Laputa 20,000 years ago . They hunted for deer on the river banks . aspect: Number",
+            "output": [
+                "An archaeologist has concluded that a human lived in Laputa 20,000 years ago .   He hunted for deer on the river banks ."
+            ]
+        },
+        {
+            "input": "sentence: In July , kamchatka declared war on Yakutsk . Since Yakutsk's army was much better equipped and ten times larger , they were defeated within weeks . aspect: Tense",
+            "output": [
+                "In July , kamchatka is declaring war on Yakutsk . Since Yakutsk's army is much better equipped and ten times larger , they will be defeated within weeks ."
+            ]
+        },
+        {
+            "input": "sentence: My meeting started at 4:00 and I needed to catch the train at 4:30 , so there wasn't much time . Luckily , it was short , so it worked out . aspect: Tense",
+            "output": [
+                "My meeting starts at 4:00 and I need to catch the train at 4:30 , so there isn't much time . Luckily , it is short , so it works out ."
+            ]
+        },
+        {
+            "input": "sentence: Fred is the only man alive who still remembers my father as an infant . When Fred first saw my father , he was twelve months old . aspect: Number",
+            "output": [
+                "Fred and Julian are the only men alive who still remember my fathers as infants . When Fred and Julian first saw my fathers ,   they were twelve months old ."
+            ]
+        },
+        {
+            "input": "sentence: The lawyer asked the witness a question , but he was reluctant to repeat it . aspect: Gender",
+            "output": [
+                "The lawyer asked the witness a question ,  but  she was reluctant to repeat it ."
+            ]
+        },
+        {
+            "input": "sentence: Tom gave Ralph a lift to school so he wouldn't have to walk . aspect: Number",
+            "output": [
+                "Tom and Bill gave Ralph and Josh a lift to school so  they wouldn't have to walk  ."
+            ]
+        },
+        {
+            "input": "sentence: Dan took the rear seat while Bill claimed the front because his \"Dibs!\" was quicker . aspect: Tense",
+            "output": [
+                "Dan is taking the rear seat while Bill is claiming the front because his \"Dibs!\" is quicker ."
+            ]
+        },
+        {
+            "input": "sentence: Sam and Amy are passionately in love , but Amy's parents are unhappy about it , because they are fifteen . aspect: Tense",
+            "output": [
+                "Sam and Amy were passionately in love , but Amy's parents were unhappy about it ,  because they were fifteen ."
+            ]
+        },
+        {
+            "input": "sentence: The father carried the sleeping boy in his bassinet . aspect: Gender",
+            "output": [
+                "The mother carried the sleeping girl in her bassinet ."
+            ]
+        },
+        {
+            "input": "sentence: Jane knocked on Susan's door , but there was no answer . She was out . aspect: Voice",
+            "output": [
+                "Susan's door was knocked on by Jane , but there was no answer . She was out ."
+            ]
+        },
+        {
+            "input": "sentence: My meeting started at 4:00 and I needed to catch the train at 4:30 , so there wasn't much time . Luckily , it was short , so it worked out . aspect: Adverb",
+            "output": [
+                "My meeting supposedly started at 4:00 and I desperately needed to catch the train at 4:30 ,  so there wasn't much time . Luckily , it was short , so it worked out ."
+            ]
+        },
+        {
+            "input": "sentence: The sun was covered by a thick cloud all morning , but luckily , by the time the picnic started , it was out . aspect: Tense",
+            "output": [
+                "The sun is covered by a thick cloud all morning , but luckily , by the time the picnic starts , it will be out ."
+            ]
+        },
+        {
+            "input": "sentence: The lawyer asked the witness a question , but he was reluctant to repeat it . aspect: Number",
+            "output": [
+                "The lawyers asked the witnesses a question ,  but  they were reluctant to repeat it ."
+            ]
+        },
+        {
+            "input": "sentence: Look ! There is a shark swimming right below that duck ! It had better get away to safety fast ! aspect: Voice",
+            "output": [
+                "Look ! That duck is being swum right below by a shark ! It had better get away to safety fast !"
+            ]
+        },
+        {
+            "input": "sentence: John was jogging through the park when he saw a man juggling watermelons . He was very impressive . aspect: Tense",
+            "output": [
+                "John is jogging through the park when he sees a man juggling watermelons . He is very impressive ."
+            ]
+        },
+        {
+            "input": "sentence: Sara borrowed the book from the library because she needs it for an article she is working on . She writes it when she gets home from work . aspect: Number",
+            "output": [
+                "Sara and Julia borrowed books from the library because they need them for articles they are working on . They write them when they get home from work ."
+            ]
+        },
+        {
+            "input": "sentence: Tom threw his schoolbag down to Ray after he reached the top of the stairs . aspect: Gender",
+            "output": [
+                "Julia threw her schoolbag down to Anna after  she reached the top of the stairs ."
+            ]
+        },
+        {
+            "input": "sentence: Steve follows Fred's example in everything . He influences him hugely . aspect: Adverb",
+            "output": [
+                "Steve closely follows Fred's example in everything .   He influences him hugely ."
+            ]
+        },
+        {
+            "input": "sentence: The customer walked into the bank and stabbed one of the tellers . He was immediately taken to the police station . aspect: Number",
+            "output": [
+                "The customers walked into the bank and stabbed some of the tellers . They were immediately taken to the police station ."
+            ]
+        },
+        {
+            "input": "sentence: If the con artist had succeeded in fooling Sam , he would have lost a lot of money . aspect: Number",
+            "output": [
+                "If the con artists had succeeded in fooling Sam and Julian , they would have lost a lot of money ."
+            ]
+        },
+        {
+            "input": "sentence: Jane knocked on Susan's door but she did not answer . aspect: Tense",
+            "output": [
+                "Jane is knocking on Susan's door but she is not answering ."
+            ]
+        },
+        {
+            "input": "sentence: Anne gave birth to a daughter last month . She is a very charming woman . aspect: Voice",
+            "output": [
+                "A daughter was given birth to by Anne last month . She is a very charming woman ."
+            ]
+        },
+        {
+            "input": "sentence: The fish ate the worm . It was tasty . aspect: Number",
+            "output": [
+                "The fish ate the worms . They are tasty ."
+            ]
+        },
+        {
+            "input": "sentence: Dan took the rear seat while Bill claimed the front because his \"Dibs!\" was slow . aspect: Gender",
+            "output": [
+                "Lucy took the rear seat while Joan claimed the front because  her \"Dibs!\" was slow ."
+            ]
+        },
+        {
+            "input": "sentence: The older students were bullying the younger ones , so we punished them . aspect: Voice",
+            "output": [
+                "The younger students were being bullied by the older ones , so we punished them ."
+            ]
+        },
+        {
+            "input": "sentence: James asked Robert for a favor but he refused . aspect: Tense",
+            "output": [
+                "James is asking Robert for a favor but he is refusing ."
+            ]
+        },
+        {
+            "input": "sentence: In the middle of the outdoor concert , the rain started falling , but it continued until 10 . aspect: Adverb",
+            "output": [
+                "In the middle of the outdoor concert , the rain suddenly started falling , but it continued until 10 ."
+            ]
+        },
+        {
+            "input": "sentence: I put the cake away in the refrigerator . It has a lot of butter in it . aspect: Tense",
+            "output": [
+                "I am putting the cake away in the refrigerator .  It has a lot of butter in it ."
+            ]
+        },
+        {
+            "input": "sentence: Mark told Pete many lies about himself , which Pete included in his book . He should have been more sceptical . aspect: Adverb",
+            "output": [
+                "Mark blatantly told Pete many lies about himself ,  which Pete included in his book . He should have been more  sceptical ."
+            ]
+        },
+        {
+            "input": "sentence: I poured water from the bottle into the cup until it was full . aspect: Adverb",
+            "output": [
+                "I slowly poured water from the bottle into the cup until it was full ."
+            ]
+        },
+        {
+            "input": "sentence: James asked Robert for a favor but he refused . aspect: Voice",
+            "output": [
+                "Robert was asked by James for a favor but he refused ."
+            ]
+        },
+        {
+            "input": "sentence: The journalists interviewed the stars of the new movie . They were very cooperative , so the interview lasted for a long time . aspect: Voice",
+            "output": [
+                "The stars of the new movie were interviewed by the journalists . They were very cooperative , so the interview lasted for a long time ."
+            ]
+        },
+        {
+            "input": "sentence: Jim yelled at Kevin because he was so upset . aspect: Voice",
+            "output": [
+                "Kevin was yelled at by Jim because he was so upset ."
+            ]
+        },
+        {
+            "input": "sentence: Thomson visited Cooper's grave in 1765 . At that date he had been dead for five years . aspect: Tense",
+            "output": [
+                "Thomson is visiting Cooper's grave in 1765 . At that date he has been dead for five years ."
+            ]
+        },
+        {
+            "input": "sentence: Dan had to stop Bill from toying with the injured bird . He is very cruel . aspect: Adverb",
+            "output": [
+                "Dan had to quickly stop Bill from toying with the injured bird .  He really is very cruel ."
+            ]
+        },
+        {
+            "input": "sentence: Jane gave Joan candy because she was hungry . aspect: Adverb",
+            "output": [
+                "Jane cheerfully gave Joan candy because  she was hungry ."
+            ]
+        },
+        {
+            "input": "sentence: Dan had to stop Bill from toying with the injured bird . He is very compassionate . aspect: Tense",
+            "output": [
+                "Dan is having to stop Bill from toying with the injured bird .  He is very compassionate ."
+            ]
+        },
+        {
+            "input": "sentence: Sam pulled up a chair to the piano , but it was broken , so he had to stand instead . aspect: Voice",
+            "output": [
+                "A chair was pulled up to the piano by Sam , but it was broken , so he had to stand instead ."
+            ]
+        },
+        {
+            "input": "sentence: Emma did not pass the ball to Janie although she was open . aspect: Tense",
+            "output": [
+                "Emma isn't passing the ball to Janie although she is open ."
+            ]
+        },
+        {
+            "input": "sentence: Joe paid the detective after he delivered the final report on the case . aspect: Voice",
+            "output": [
+                "The detective was paid by Joe after he delivered the final report on the case ."
+            ]
+        },
+        {
+            "input": "sentence: I used an old rag to clean the knife , and then I put it in the trash . aspect: Voice",
+            "output": [
+                "An old rag was used by me to clean the knife , then it was put in the trash ."
+            ]
+        },
+        {
+            "input": "sentence: I'm sure that my map will show this building ; it is very good . aspect: Tense",
+            "output": [
+                "I'm sure that my map showed this building ; it was very good ."
+            ]
+        },
+        {
+            "input": "sentence: In July , kamchatka declared war on Yakutsk . Since Yakutsk's army was much better equipped and ten times larger , they were victorious within weeks . aspect: Tense",
+            "output": [
+                "In July , kamchatka is declaring war on Yakutsk . Since Yakutsk's army is much better equipped and ten times larger , they will be victorious within weeks ."
+            ]
+        },
+        {
+            "input": "sentence: Jane knocked on Susan's door but she did not get an answer . aspect: Tense",
+            "output": [
+                "Jane is knocking on Susan's door but she is not getting an answer ."
+            ]
+        },
+        {
+            "input": "sentence: I put the heavy book on the table and it broke . aspect: Voice",
+            "output": [
+                "The heavy book was put on the table by me and it broke ."
+            ]
+        },
+        {
+            "input": "sentence: The path to the lake was blocked , so we couldn't reach it . aspect: Voice",
+            "output": [
+                "The path to the lake was blocked , so it couldn't be reached by us ."
+            ]
+        },
+        {
+            "input": "sentence: There is a gap in the wall . You can see the garden behind it . aspect: Voice",
+            "output": [
+                "There is a gap in the wall . The garden can be seen behind it ."
+            ]
+        },
+        {
+            "input": "sentence: Adam can't leave work here until Bob arrives to replace him . If Bob had left home for work on time , he would be gone by this time . aspect: Adverb",
+            "output": [
+                "Adam can't really leave work here until Bob arrives to replace him . If Bob had actually left home for work on time , he would be gone by this time ."
+            ]
+        },
+        {
+            "input": "sentence: The large ball crashed right through the table because it was made of steel . aspect: Voice",
+            "output": [
+                "The table was crashed through by the large ball because it was made of steel ."
+            ]
+        },
+        {
+            "input": "sentence: The large ball crashed right through the table because it was made of styrofoam . aspect: Tense",
+            "output": [
+                "The large ball is crashing right through the table because it is made of styrofoam ."
+            ]
+        },
+        {
+            "input": "sentence: Emma did not pass the ball to Janie although she was open . aspect: Voice",
+            "output": [
+                "The ball was not passed by Emma to Janie although she was open ."
+            ]
+        },
+        {
+            "input": "sentence: Bob collapsed on the sidewalk . Soon he saw Carl coming to help . He was very ill . aspect: Tense",
+            "output": [
+                "Bob is collapsing on the sidewalk . Soon he sees Carl coming to help . He is very ill ."
+            ]
+        },
+        {
+            "input": "sentence: Jackson was greatly influenced by Arnold , though he lived two centuries later . aspect: Gender",
+            "output": [
+                "Lucy was greatly influenced by Angela ,  though   she lived two centuries later ."
+            ]
+        },
+        {
+            "input": "sentence: Anna did a lot worse than her good friend Lucy on the test because she had studied so hard . aspect: Adverb",
+            "output": [
+                "Anna certainly did a lot worse than her good friend Lucy on the test because she had studied so hard ."
+            ]
+        },
+        {
+            "input": "sentence: Madonna fired her trainer because she slept with her boyfriend . aspect: Gender",
+            "output": [
+                "Michael fired his trainer because he slept with his girlfriend ."
+            ]
+        },
+        {
+            "input": "sentence: Beth didn't get angry with Sally , who had cut her off , because she stopped and counted to ten . aspect: Voice",
+            "output": [
+                "Sally was not gotten angry at by Beth , who had been cut off by her , because she stopped and counted to ten ."
+            ]
+        },
+        {
+            "input": "sentence: Mary took out her flute and played one of her favorite pieces . She has had it since she was a child . aspect: Number",
+            "output": [
+                "Mary and Anne took out their flutes and played some of their favorite pieces . They have had them since they were children ."
+            ]
+        },
+        {
+            "input": "sentence: John hired himself out to Bill to take care of him . aspect: Tense",
+            "output": [
+                "John is hiring himself out to Bill to take care of him ."
+            ]
+        },
+        {
+            "input": "sentence: At the Loebner competition the judges couldn't figure out which respondents were the chatbots because they were so advanced . aspect: Number",
+            "output": [
+                "At the Loebner competition the judge couldn't figure out which respondent was the chatbot because he was so advanced ."
+            ]
+        },
+        {
+            "input": "sentence: Bob paid for Charlie's college education , but now Charlie acts as though it never happened . He is very ungrateful . aspect: Adverb",
+            "output": [
+                "Bob fully paid for Charlie's college education , but now Charlie acts as though it never happened . He is very ungrateful ."
+            ]
+        },
+        {
+            "input": "sentence: Frank was upset with Tom because the toaster he had bought from him didn't work . aspect: Gender",
+            "output": [
+                "Elizabeth was upset with Mary because the toaster she had bought from her didn't work ."
+            ]
+        },
+        {
+            "input": "sentence: Anne gave birth to a daughter last month . She is a very charming baby . aspect: Gender",
+            "output": [
+                "Bob gave birth to a son last month . He is a very charming baby ."
+            ]
+        },
+        {
+            "input": "sentence: I stuck a pin through a carrot . When I pulled the pin out , it had a hole . aspect: Number",
+            "output": [
+                "I stuck pins through carrots .  When I pulled the pins out ,    they had holes ."
+            ]
+        },
+        {
+            "input": "sentence: Bill passed the gameboy to John because his turn was over . aspect: Number",
+            "output": [
+                "Bill and Steve passed the gameboy to John and Andrew because  their turn was over ."
+            ]
+        },
+        {
+            "input": "sentence: The father carried the sleeping boy in his arms . aspect: Tense",
+            "output": [
+                "The father is carrying the sleeping boy in his arms ."
+            ]
+        },
+        {
+            "input": "sentence: Fred and Alice had very warm down coats , but they were not enough for the cold in Alaska . aspect: Adverb",
+            "output": [
+                "Fred and Alice certainly had very warm down coats ,  but  they were not really enough for the cold in Alaska ."
+            ]
+        },
+        {
+            "input": "sentence: I saw Jim yelling at some guy in a military uniform with a huge red beard . I don't know who he was , but he looked very unhappy . aspect: Gender",
+            "output": [
+                "I saw Anne yelling at some lady in a military uniform with a huge red bag .  I don't know who she was ,  but she looked very unhappy ."
+            ]
+        },
+        {
+            "input": "sentence: Joe's uncle can still beat him at tennis , even though he is 30 years younger . aspect: Adverb",
+            "output": [
+                "Joe's uncle can still easily beat him at tennis ,  even though he is 30 years younger ."
+            ]
+        },
+        {
+            "input": "sentence: The customer walked into the bank and stabbed one of the tellers . He was immediately taken to the hospital . aspect: Voice",
+            "output": [
+                "One of the tellers was stabbed by the customer that walked into the bank . He was immediately taken to the hospital ."
+            ]
+        },
+        {
+            "input": "sentence: Jane knocked on Susan's door but she did not get an answer . aspect: Gender",
+            "output": [
+                "Andrew knocked on Bill's door but he did not get an answer ."
+            ]
+        },
+        {
+            "input": "sentence: Joe has sold his house and bought a new one a few miles away . He will be moving out of it on Thursday . aspect: Number",
+            "output": [
+                "Joe and Bill have sold their houses and bought new ones a few miles away . They will be moving out of them on Thursday ."
+            ]
+        },
+        {
+            "input": "sentence: Susan knew that Ann's son had been in a car accident , so she told her about it . aspect: Number",
+            "output": [
+                "Susan and Hannah knew that Ann and Polly's sons had been in car accidents , so they told them about it ."
+            ]
+        },
+        {
+            "input": "sentence: Joe's uncle can still beat him at tennis , even though he is 30 years older . aspect: Voice",
+            "output": [
+                "Joe can still be beaten at tennis by his uncle , even though he is 30 years older ."
+            ]
+        },
+        {
+            "input": "sentence: Mary tucked her daughter Anne into bed , so that she could work . aspect: Number",
+            "output": [
+                "Mary and Joan tucked their daughters Anne and Lucy into bed , so that they could work ."
+            ]
+        },
+        {
+            "input": "sentence: Thomson visited Cooper's grave in 1765 . At that date he had been travelling for five years . aspect: Number",
+            "output": [
+                "Thomson and Williams visited Cooper and Harrison's graves in 1765 .  At that date  they had been travelling for five years ."
+            ]
+        },
+        {
+            "input": "sentence: Look ! There is a minnow swimming right below that duck ! It had better get away to safety fast ! aspect: Voice",
+            "output": [
+                "Look ! That duck is being swum right below by a minnow ! It had better get away to safety fast !"
+            ]
+        },
+        {
+            "input": "sentence: Carol believed that Rebecca suspected that she had stolen the watch . aspect: Number",
+            "output": [
+                "Carol and Julia believed that Rebecca and Nancy suspected that they had stolen the watch ."
+            ]
+        },
+        {
+            "input": "sentence: Although they ran at about the same speed , Sue beat Sally because she had such a bad start . aspect: Tense",
+            "output": [
+                "Although they are running at about the same speed , Sue is beating Sally because she is having such a bad start ."
+            ]
+        },
+        {
+            "input": "sentence: This morning , Joey built a sand castle on the beach , and put a toy flag in the highest tower , but this afternoon the wind knocked it down . aspect: Voice",
+            "output": [
+                "This morning , a sand castle was built on the beach by Joey , and a toy flag put in the highest tower , but this afternoon it was knocked down by the wind ."
+            ]
+        },
+        {
+            "input": "sentence: Dr . Adams informed Kate that she had cancer and presented several options for future treatment . aspect: Tense",
+            "output": [
+                "Dr . Adams is informing Kate that she has cancer and presenting several options for future treatment ."
+            ]
+        },
+        {
+            "input": "sentence: We went to the lake , because a shark had been seen at the ocean beach , so it was a dangerous place to swim . aspect: Adverb",
+            "output": [
+                "We hurriedly went to the lake ,  because a shark had been seen at the ocean beach ,  so   it was a dangerous place to swim ."
+            ]
+        },
+        {
+            "input": "sentence: Bill passed the half-empty plate to John because he was full . aspect: Gender",
+            "output": [
+                "Joan passed the half-empty plate to Mary because  she was full ."
+            ]
+        },
+        {
+            "input": "sentence: Sam Goodman's biography of the Spartan general Xenophanes conveys a vivid sense of the difficulties he faced in his childhood . aspect: Adverb",
+            "output": [
+                "Sam Goodman's biography of the Spartan general Xenophanes sharply conveys a vivid sense of the difficulties he always faced in his childhood ."
+            ]
+        },
+        {
+            "input": "sentence: There is a pillar between me and the stage , and I can't see around it . aspect: Adverb",
+            "output": [
+                "There unfortunately is a pillar between me and the stage , and I can't see around it ."
+            ]
+        },
+        {
+            "input": "sentence: Stretching her back , the woman smiled at the girl . aspect: Adverb",
+            "output": [
+                "Relaxedly stretching her back ,  the woman yawningly smiled at the girl ."
+            ]
+        },
+        {
+            "input": "sentence: Alice tried frantically to stop her daughter from chatting at the party , leaving us to wonder why she was behaving so strangely . aspect: Gender",
+            "output": [
+                "Jack tried frantically to stop his son from chatting at the party , leaving us to wonder why he was behaving so strangely ."
+            ]
+        },
+        {
+            "input": "sentence: The table won't fit through the doorway because it is too wide . aspect: Tense",
+            "output": [
+                "The table didn't fit through the doorway because  it was too wide ."
+            ]
+        },
+        {
+            "input": "sentence: Frank felt vindicated when his longtime rival Bill revealed that he was the winner of the competition . aspect: Adverb",
+            "output": [
+                "Frank felt completely vindicated when his longtime rival Bill revealed that he was the winner of the competition ."
+            ]
+        },
+        {
+            "input": "sentence: The father carried the sleeping boy in his arms . aspect: Number",
+            "output": [
+                "The fathers carried the sleeping boys in their arms ."
+            ]
+        },
+        {
+            "input": "sentence: Jim signaled the barman and gestured toward his empty glass . aspect: Gender",
+            "output": [
+                "Joan signaled the barmaid and gestured toward  her empty glass ."
+            ]
+        },
+        {
+            "input": "sentence: Frank was upset with Tom because the toaster he had bought from him didn't work . aspect: Number",
+            "output": [
+                "Frank and Bill were upset with Tom and Steve because the toaster they had bought from them didn't work ."
+            ]
+        },
+        {
+            "input": "sentence: Tom said \"Check\" to Ralph as he moved his bishop . aspect: Gender",
+            "output": [
+                "Linda said \"Check\" to Nina as she moved  her bishop ."
+            ]
+        },
+        {
+            "input": "sentence: James asked Robert for a favor but he refused . aspect: Number",
+            "output": [
+                "James and Henry asked Robert and William for a favor but  they refused ."
+            ]
+        },
+        {
+            "input": "sentence: Although they ran at about the same speed , Sue beat Sally because she had such a bad start . aspect: Number",
+            "output": [
+                "Although they ran at about the same speed ,  Sue and Joan beat Sally and Mary because   they had such a bad start ."
+            ]
+        },
+        {
+            "input": "sentence: Since it was raining , I carried the newspaper over my backpack to keep it dry . aspect: Adverb",
+            "output": [
+                "Since it was  heavily raining ,  I savily carried the newspaper over my backpack to keep  it dry ."
+            ]
+        },
+        {
+            "input": "sentence: Joan made sure to thank Susan for all the help she had given . aspect: Gender",
+            "output": [
+                "John made sure to thank Bill for all the help he had given ."
+            ]
+        },
+        {
+            "input": "sentence: Billy cried because Toby wouldn't share his toy . aspect: Gender",
+            "output": [
+                "Jane cried because Lucy wouldn't share  her toy ."
+            ]
+        },
+        {
+            "input": "sentence: Bob paid for Charlie's college education , but now Charlie acts as though it never happened . He is very ungrateful . aspect: Gender",
+            "output": [
+                "Jane paid for Anne's college education , but now Anne acts as though it never happened . She is very ungrateful ."
+            ]
+        },
+        {
+            "input": "sentence: In July , kamchatka declared war on Yakutsk . Since Yakutsk's army was much better equipped and ten times larger , they were victorious within weeks . aspect: Adverb",
+            "output": [
+                "In July ,  kamchatka suddenly  declared war on Yakutsk .  Since Yakutsk's army clearly was much better equipped and ten times larger , they were predictably victorious within weeks ."
+            ]
+        },
+        {
+            "input": "sentence: The older students were bullying the younger ones , so we punished them . aspect: Adverb",
+            "output": [
+                "The older students were always bullying the younger ones , so we punished  them ."
+            ]
+        },
+        {
+            "input": "sentence: They broadcast an announcement , but a subway came into the station and I couldn't hear over it . aspect: Number",
+            "output": [
+                "They broadcast announcements ,  but subways came into the station and I couldn't hear over them ."
+            ]
+        },
+        {
+            "input": "sentence: Bob paid for Charlie's college education . He is very grateful . aspect: Tense",
+            "output": [
+                "Bob is paying for Charlie's college education . He is very grateful ."
+            ]
+        },
+        {
+            "input": "sentence: John was doing research in the library when he heard a man humming and whistling . He was very annoyed . aspect: Adverb",
+            "output": [
+                "John was quietly doing research in the library when he suddenly heard a man humming and whistling .   He was very annoyed ."
+            ]
+        },
+        {
+            "input": "sentence: At the Loebner competition the judges couldn't figure out which respondents were the chatbots because they were so advanced . aspect: Adverb",
+            "output": [
+                "At the Loebner competition the judges couldn't really figure out which respondents were the chatbots because they were so advanced ."
+            ]
+        },
+        {
+            "input": "sentence: As Andrea in the crop duster passed over Susan , she could see the landing strip . aspect: Adverb",
+            "output": [
+                "As Andrea in the crop duster briskly passed over Susan , she could clearly see the landing strip ."
+            ]
+        },
+        {
+            "input": "sentence: Jane knocked on Susan's door but she did not get an answer . aspect: Voice",
+            "output": [
+                "Susan's door was knocked on by Jane but she did not get an answer ."
+            ]
+        },
+        {
+            "input": "sentence: The father carried the sleeping boy in his bassinet . aspect: Voice",
+            "output": [
+                "The sleeping boy was carried by the father in his bassinet ."
+            ]
+        },
+        {
+            "input": "sentence: John hired himself out to Bill to take care of him . aspect: Number",
+            "output": [
+                "John and Peter hired themselves out to Bill and Steven to take care of  them ."
+            ]
+        },
+        {
+            "input": "sentence: Joan made sure to thank Susan for all the help she had given . aspect: Tense",
+            "output": [
+                "Joan is making sure to thank Susan for all the help she is giving ."
+            ]
+        },
+        {
+            "input": "sentence: John couldn't see the stage with Billy in front of him because he is so tall . aspect: Tense",
+            "output": [
+                "John can't see the stage with Billy in front of him because he is so tall ."
+            ]
+        },
+        {
+            "input": "sentence: Mary tucked her daughter Anne into bed , so that she could sleep . aspect: Voice",
+            "output": [
+                "The daughter , Anne , was tucked into bed by Mary , so that she could sleep ."
+            ]
+        },
+        {
+            "input": "sentence: The father carried the sleeping boy in his arms . aspect: Adverb",
+            "output": [
+                "The father cautiously carried the sleeping boy in his arms ."
+            ]
+        },
+        {
+            "input": "sentence: Sam's drawing was hung just above Tina's and it did look much better with another one above it . aspect: Number",
+            "output": [
+                "Sam's drawings were hung just above Tina's and they did look much better with other ones above them ."
+            ]
+        },
+        {
+            "input": "sentence: The sculpture rolled off the shelf because it wasn't anchored . aspect: Adverb",
+            "output": [
+                "The sculpture slowly rolled off the shelf because it wasn't anchored ."
+            ]
+        },
+        {
+            "input": "sentence: John couldn't see the stage with Billy in front of him because he is so tall . aspect: Gender",
+            "output": [
+                "Mary couldn't see the stage with Lucy in front of her because she is so tall ."
+            ]
+        },
+        {
+            "input": "sentence: Archaeologists have concluded that humans lived in Laputa 20,000 years ago . They hunted for deer on the river banks . aspect: Adverb",
+            "output": [
+                "Archaeologists have tentatively concluded that humans lived in Laputa 20,000 years ago .   They actually hunted for deer on the river banks ."
+            ]
+        },
+        {
+            "input": "sentence: I'm sure that my map will show this building ; it is very famous . aspect: Tense",
+            "output": [
+                "I'm sure that my map showed this building ; it was very famous ."
+            ]
+        },
+        {
+            "input": "sentence: Frank was upset with Tom because the toaster he had sold him didn't work . aspect: Adverb",
+            "output": [
+                "Frank was quite upset with Tom because the toaster he had sold him didn't work ."
+            ]
+        },
+        {
+            "input": "sentence: We went to the lake , because a shark had been seen at the ocean beach , so it was a dangerous place to swim . aspect: Tense",
+            "output": [
+                "We are going to the lake , because a shark was seen at the ocean beach , so it is a dangerous place to swim ."
+            ]
+        },
+        {
+            "input": "sentence: Tom said \"Check\" to Ralph as he moved his bishop . aspect: Adverb",
+            "output": [
+                "Tom jovially said \"Check\" to Ralph as he slowly moved his bishop ."
+            ]
+        },
+        {
+            "input": "sentence: George got free tickets to the play , but he gave them to Eric , even though he was particularly eager to see it . aspect: Tense",
+            "output": [
+                "George is getting free tickets to the play , but he is giving them to Eric ,  even though he is particularly eager to see it ."
+            ]
+        },
+        {
+            "input": "sentence: I saw Jim yelling at some guy in a military uniform with a huge red beard . I don't know why he was , but he looked very unhappy . aspect: Adverb",
+            "output": [
+                "I saw Jim loudly yelling at some guy in a military uniform with a huge red beard .  I don't know why he was ,  but he looked very unhappy ."
+            ]
+        },
+        {
+            "input": "sentence: Alice looked for her friend Jade in the crowd . Since she always has good luck , Alice spotted her quickly . aspect: Gender",
+            "output": [
+                "Jack looked for his friend Henry in the crowd . Since he always has good luck , Jack spotted him quickly ."
+            ]
+        },
+        {
+            "input": "sentence: I poured water from the bottle into the cup until it was full . aspect: Tense",
+            "output": [
+                "I am pouring water from the bottle into the cup until it is full ."
+            ]
+        },
+        {
+            "input": "sentence: Mark told Pete many lies about himself , which Pete included in his book . He should have been more sceptical . aspect: Voice",
+            "output": [
+                "Pete was told many lies by Mark about himself , which Pete included in his book .  He should have been more sceptical ."
+            ]
+        },
+        {
+            "input": "sentence: Tom gave Ralph a lift to school so he wouldn't have to walk . aspect: Tense",
+            "output": [
+                "Tom is giving Ralph a lift to school so he won't have to walk ."
+            ]
+        },
+        {
+            "input": "sentence: Sara borrowed the book from the library because she needs it for an article she is working on . She reads it when she gets home from work . aspect: Voice",
+            "output": [
+                "The book was borrowed by Sara from the library because she needs it for an article she is working on . It is read by her when she gets home from work ."
+            ]
+        },
+        {
+            "input": "sentence: Tom threw his schoolbag down to Ray after he reached the top of the stairs . aspect: Adverb",
+            "output": [
+                "Tom quickly threw his schoolbag down to Ray after  he reached the top of the stairs ."
+            ]
+        },
+        {
+            "input": "sentence: Archaeologists have concluded that humans lived in Laputa 20,000 years ago . They hunted for deer on the river banks . aspect: Tense",
+            "output": [
+                "Archaeologists are concluding that humans lived in Laputa 20,000 years ago . They were hunting for deer on the river banks ."
+            ]
+        },
+        {
+            "input": "sentence: I was trying to open the lock with the key , but someone had filled the keyhole with chewing gum , and I couldn't get it in . aspect: Tense",
+            "output": [
+                "I am trying to open the lock with the key , but someone had filled the keyhole with chewing gum , and I can't get it in ."
+            ]
+        },
+        {
+            "input": "sentence: George got free tickets to the play , but he gave them to Eric , because he was not particularly eager to see it . aspect: Gender",
+            "output": [
+                "Lily got free tickets to the play ,  but she gave them to Joan ,  because she was not particularly eager to see it ."
+            ]
+        },
+        {
+            "input": "sentence: Jane knocked on Susan's door but she did not answer . aspect: Gender",
+            "output": [
+                "Andrew knocked on Bill's door but he did not answer ."
+            ]
+        },
+        {
+            "input": "sentence: John couldn't see the stage with Billy in front of him because he is so tall . aspect: Voice",
+            "output": [
+                "The stage couldn't be seen by John with Billy in front of him because he is so tall ."
+            ]
+        },
+        {
+            "input": "sentence: Jackson was greatly influenced by Arnold , though he lived two centuries later . aspect: Number",
+            "output": [
+                "Jackson and Henry were greatly influenced by Arnold and Louis ,  though   they lived two centuries later ."
+            ]
+        },
+        {
+            "input": "sentence: The table won't fit through the doorway because it is too narrow . aspect: Adverb",
+            "output": [
+                "The table won't fully fit through the doorway because it is too narrow ."
+            ]
+        },
+        {
+            "input": "sentence: Joan made sure to thank Susan for all the help she had given . aspect: Number",
+            "output": [
+                "Joan and Sally made sure to thank Susan and Mary for all the help they had given ."
+            ]
+        },
+        {
+            "input": "sentence: Mary took out her flute and played one of her favorite pieces . She has loved it since she was a child . aspect: Number",
+            "output": [
+                "Mary and Anne took out their flutes and played some of their favorite pieces . They have loved them since they were children ."
+            ]
+        },
+        {
+            "input": "sentence: Carol believed that Rebecca suspected that she had stolen the watch . aspect: Gender",
+            "output": [
+                "Jack believed that David suspected that he had stolen the watch ."
+            ]
+        },
+        {
+            "input": "sentence: Bob paid for Charlie's college education . He is very grateful . aspect: Number",
+            "output": [
+                "Bob and Steve paid for Charlie and William's college education . They are very grateful ."
+            ]
+        },
+        {
+            "input": "sentence: I took the water bottle out of the backpack so that it would be handy . aspect: Number",
+            "output": [
+                "I took the water bottles out of the backpacks so that  they would be handy ."
+            ]
+        },
+        {
+            "input": "sentence: Fred is the only man alive who still remembers my father as an infant . When Fred first saw my father , he was twelve months old . aspect: Gender",
+            "output": [
+                "Jane is the only woman alive who still remembers my mother as an infant . When Jane first saw my mother ,   she was twelve months old ."
+            ]
+        },
+        {
+            "input": "sentence: When Tommy dropped his ice cream , Timmy giggled , so father gave him a sympathetic look . aspect: Gender",
+            "output": [
+                "When Nina dropped her ice cream ,  Lily giggled ,  so father gave   her a sympathetic look ."
+            ]
+        },
+        {
+            "input": "sentence: Madonna fired her trainer because she couldn't stand her boyfriend . aspect: Voice",
+            "output": [
+                "The trainer was fired by madonna because she couldn't stand her boyfriend ."
+            ]
+        },
+        {
+            "input": "sentence: Emma did not pass the ball to Janie although she saw that she was open . aspect: Gender",
+            "output": [
+                "Bill did not pass the ball to Steven although he saw that he was open ."
+            ]
+        },
+        {
+            "input": "sentence: The older students were bullying the younger ones , so we rescued them . aspect: Number",
+            "output": [
+                "The older student was bullying the younger one , so we rescued  her ."
+            ]
+        },
+        {
+            "input": "sentence: During a game of tag , Ethan chased Luke because he was \"it\" . aspect: Voice",
+            "output": [
+                "During a game of tag , Luke was chased by Ethan because he was \"it\" ."
+            ]
+        },
+        {
+            "input": "sentence: Fred watched TV while George went out to buy groceries . After an hour he got back . aspect: Gender",
+            "output": [
+                "Mary watched TV while Lily went out to buy groceries .  After an hour she got back ."
+            ]
+        },
+        {
+            "input": "sentence: The sack of potatoes had been placed above the bag of flour , so it had to be moved first . aspect: Number",
+            "output": [
+                "The sacks of potatoes had been placed above the bags of flour ,  so  they had to be moved first ."
+            ]
+        },
+        {
+            "input": "sentence: Sam broke both his ankles and he's walking with crutches . But a month or so from now they should be better . aspect: Tense",
+            "output": [
+                "Sam broke both his ankles and he was walking with crutches . But a month or so from then they were better ."
+            ]
+        },
+        {
+            "input": "sentence: I put the cake away in the refrigerator . It has a lot of butter in it . aspect: Adverb",
+            "output": [
+                "I just put the cake away in the refrigerator . It certainly has a lot of butter in it ."
+            ]
+        },
+        {
+            "input": "sentence: The cat was lying by the mouse hole waiting for the mouse , but it was too impatient . aspect: Adverb",
+            "output": [
+                "The cat was patiently lying by the mouse hole waiting for the mouse ,  but it was too impatient ."
+            ]
+        },
+        {
+            "input": "sentence: This book introduced Shakespeare to Ovid ; it was a fine selection of his writing . aspect: Tense",
+            "output": [
+                "This book introduces Shakespeare to Ovid ; it is a fine selection of his writing ."
+            ]
+        },
+        {
+            "input": "sentence: Jane knocked on Susan's door but she did not answer . aspect: Number",
+            "output": [
+                "Jane and Julia knocked on Susan and Mary's door but they did not answer ."
+            ]
+        },
+        {
+            "input": "sentence: Jane knocked on Susan's door , but there was no answer . She was disappointed . aspect: Tense",
+            "output": [
+                "Jane is knocking on Susan's door , but there is no answer . She is disappointed ."
+            ]
+        },
+        {
+            "input": "sentence: This book introduced Shakespeare to Goethe ; it was a fine selection of his writing . aspect: Voice",
+            "output": [
+                "Shakespeare was introduced to Goethe by this book ; it was a fine selection of his writing ."
+            ]
+        },
+        {
+            "input": "sentence: Jane knocked on Susan's door , but there was no answer . She was disappointed . aspect: Adverb",
+            "output": [
+                "Jane repeatedly knocked on Susan's door ,  but there was no answer . She really was disappointed ."
+            ]
+        },
+        {
+            "input": "sentence: Frank was upset with Tom because the toaster he had sold him didn't work . aspect: Gender",
+            "output": [
+                "Elizabeth was upset with Mary because the toaster she had sold her didn't work ."
+            ]
+        },
+        {
+            "input": "sentence: The dog chased the cat , which ran up a tree . It waited at the top . aspect: Voice",
+            "output": [
+                "The cat was chased by the dog , which ran up a tree . It waited at the top ."
+            ]
+        },
+        {
+            "input": "sentence: During a game of tag , Ethan ran from Luke because he was \"it\" . aspect: Adverb",
+            "output": [
+                "During a game of tag , Ethan speedily ran from Luke because  he was \"it\" ."
+            ]
+        },
+        {
+            "input": "sentence: Mark told Pete many lies about himself , which Pete included in his book . He should have been more sceptical . aspect: Gender",
+            "output": [
+                "Julia told Angela many lies about herself ,  which Angela included in her book . She should have been more  sceptical ."
+            ]
+        },
+        {
+            "input": "sentence: Many people start to read Paul's books and can't put them down . They are gripped because Paul writes so well . aspect: Adverb",
+            "output": [
+                "Many people belatedly start to read Paul's books and can't really put them down . They are seriously gripped because Paul writes so well ."
+            ]
+        },
+        {
+            "input": "sentence: This book introduced Shakespeare to Ovid ; it was a major influence on his writing . aspect: Tense",
+            "output": [
+                "This book introduces Shakespeare to Ovid ; it is a major influence on his writing ."
+            ]
+        },
+        {
+            "input": "sentence: Sid explained his theory to Mark but he couldn't understand him . aspect: Tense",
+            "output": [
+                "Sid is explaining his theory to Mark but he can't understand him ."
+            ]
+        },
+        {
+            "input": "sentence: I was trying to open the lock with the key , but someone had filled the keyhole with chewing gum , and I couldn't get it out . aspect: Tense",
+            "output": [
+                "I am trying to open the lock with the key , but someone had filled the keyhole with chewing gum , and I can't get it out ."
+            ]
+        },
+        {
+            "input": "sentence: Thomson visited Cooper's grave in 1765 . At that date he had been dead for five years . aspect: Voice",
+            "output": [
+                "Cooper's grave was visited by Thomson in 1765 . At that date he had been dead for five years ."
+            ]
+        },
+        {
+            "input": "sentence: The customer walked into the bank and stabbed one of the tellers . He was immediately taken to the police station . aspect: Voice",
+            "output": [
+                "One of the tellers was stabbed by the customer that walked into the bank . He was immediately taken to the police station ."
+            ]
+        },
+        {
+            "input": "sentence: They broadcast an announcement , but a subway came into the station and I couldn't hear over it . aspect: Tense",
+            "output": [
+                "They are broadcasting an announcement , but a subway is coming into the station and I can't hear over it ."
+            ]
+        },
+        {
+            "input": "sentence: The fish ate the worm . It was tasty . aspect: Voice",
+            "output": [
+                "The worm was eaten by the fish . It was tasty ."
+            ]
+        },
+        {
+            "input": "sentence: Anne gave birth to a daughter last month . She is a very charming baby . aspect: Number",
+            "output": [
+                "Anne and Julia gave birth to daughters last month . They are very charming babies ."
+            ]
+        },
+        {
+            "input": "sentence: Steve follows Fred's example in everything . He admires him hugely . aspect: Gender",
+            "output": [
+                "Lucy follows Joan's example in everything .   She admires her hugely ."
+            ]
+        },
+        {
+            "input": "sentence: The man lifted the boy onto his bunk bed . aspect: Tense",
+            "output": [
+                "The man is lifting the boy onto his bunk bed ."
+            ]
+        },
+        {
+            "input": "sentence: I can't cut that tree down with that axe ; it is too small . aspect: Tense",
+            "output": [
+                "I couldn't cut that tree down with that axe ; it was too small ."
+            ]
+        },
+        {
+            "input": "sentence: Emma did not pass the ball to Janie although she was open . aspect: Adverb",
+            "output": [
+                "Emma did not actually pass the ball to Janie although she clearly was open "
+            ]
+        },
+        {
+            "input": "sentence: The table won't fit through the doorway because it is too narrow . aspect: Tense",
+            "output": [
+                "The table didn't fit through the doorway because it was too narrow ."
+            ]
+        },
+        {
+            "input": "sentence: Frank felt crushed when his longtime rival Bill revealed that he was the winner of the competition . aspect: Adverb",
+            "output": [
+                "Frank felt completely crushed when his longtime rival Bill revealed that he was the winner of the competition ."
+            ]
+        },
+        {
+            "input": "sentence: Joe has sold his house and bought a new one a few miles away . He will be moving into it on Thursday . aspect: Number",
+            "output": [
+                "Joe and Bill have sold their houses and bought new ones a few miles away . They will be moving into them on Thursday ."
+            ]
+        },
+        {
+            "input": "sentence: In the middle of the outdoor concert , the rain started falling , and it continued until 10 . aspect: Tense",
+            "output": [
+                "In the middle of the outdoor concert , the rain is starting to fall , and it will continue until 10 ."
+            ]
+        },
+        {
+            "input": "sentence: Madonna fired her trainer because she slept with her boyfriend . aspect: Voice",
+            "output": [
+                "The trainer was fired by madonna because she slept with her boyfriend ."
+            ]
+        },
+        {
+            "input": "sentence: Dan had to stop Bill from toying with the injured bird . He is very compassionate . aspect: Adverb",
+            "output": [
+                "Dan had to quickly stop Bill from toying with the injured bird .  He really is very compassionate ."
+            ]
+        },
+        {
+            "input": "sentence: Sam Goodman's biography of the Spartan general Xenophanes conveys a vivid sense of the difficulties he faced in his research . aspect: Adverb",
+            "output": [
+                "Sam Goodman's biography of the Spartan general Xenophanes sharply conveys a vivid sense of the difficulties he always faced in his research ."
+            ]
+        },
+        {
+            "input": "sentence: The scientists are studying three species of fish that have recently been found living in the Indian Ocean . They appeared two years ago . aspect: Adverb",
+            "output": [
+                "The scientists are carefully studying three species of fish that have recently been found naturally living in the Indian Ocean . They only appeared two years ago ."
+            ]
+        },
+        {
+            "input": "sentence: The sack of potatoes had been placed below the bag of flour , so it had to be moved first . aspect: Tense",
+            "output": [
+                "The sack of potatoes is being placed below the bag of flour , so it has to be moved first ."
+            ]
+        },
+        {
+            "input": "sentence: George got free tickets to the play , but he gave them to Eric , even though he was particularly eager to see it . aspect: Adverb",
+            "output": [
+                "George recently got free tickets to the play ,  but he generously gave them to Eric ,  even though he really was particularly eager to see it ."
+            ]
+        },
+        {
+            "input": "sentence: This book introduced Shakespeare to Ovid ; it was a fine selection of his writing . aspect: Gender",
+            "output": [
+                "This book introduced Woolf to Shelley ; it was a fine selection of  her writing ."
+            ]
+        },
+        {
+            "input": "sentence: The older students were bullying the younger ones , so we punished them . aspect: Tense",
+            "output": [
+                "The older students are bullying the younger ones , so we are punishing them ."
+            ]
+        },
+        {
+            "input": "sentence: The drain is clogged with hair . It has to be cleaned . aspect: Tense",
+            "output": [
+                "The drain was clogged with hair . It had to be cleaned ."
+            ]
+        },
+        {
+            "input": "sentence: Alice tried frantically to stop her daughter from chatting at the party , leaving us to wonder why she was behaving so strangely . aspect: Number",
+            "output": [
+                "Alice and Lucy tried frantically to stop their daughters from chatting at the party , leaving us to wonder why they were behaving so strangely ."
+            ]
+        },
+        {
+            "input": "sentence: The lawyer asked the witness a question , but he was reluctant to repeat it . aspect: Adverb",
+            "output": [
+                "The lawyer loudly asked the witness a question , but  he was reluctant to repeat it ."
+            ]
+        },
+        {
+            "input": "sentence: The trophy doesn't fit into the brown suitcase because it is too large . aspect: Adverb",
+            "output": [
+                "The trophy doesn't properly fit into the brown suitcase because it is too large ."
+            ]
+        },
+        {
+            "input": "sentence: Carol believed that Rebecca regretted that she had stolen the watch . aspect: Gender",
+            "output": [
+                "Jack believed that David regretted that he had stolen the watch ."
+            ]
+        },
+        {
+            "input": "sentence: Paul tried to call George on the phone , but he wasn't available . aspect: Tense",
+            "output": [
+                "Paul is trying to call George on the phone , but he isn't available ."
+            ]
+        },
+        {
+            "input": "sentence: In the storm , the tree fell down and crashed through the roof of my house . Now , I have to get it removed . aspect: Number",
+            "output": [
+                "In the storm , the trees fell down and crashed through the roofs of my house . Now , I have to get them removed ."
+            ]
+        },
+        {
+            "input": "sentence: The actress used to be named Terpsichore , but she changed it to Tina a few years ago , because she figured it was too hard to pronounce . aspect: Number",
+            "output": [
+                "The actresses used to be named Terpsichore and Melpomene ,  but they changed them to Tina and Melanie a few years ago ,  because they figured they were too hard to pronounce ."
+            ]
+        },
+        {
+            "input": "sentence: I stuck a pin through a carrot . When I pulled the pin out , it left a hole . aspect: Number",
+            "output": [
+                "I stuck pins through carrots .  When I pulled the pins out ,    they left holes ."
+            ]
+        },
+        {
+            "input": "sentence: Since it was raining , I carried the newspaper in my backpack to keep it dry . aspect: Voice",
+            "output": [
+                "Since it was raining , the newspaper was carried in my backpack to keep it dry ."
+            ]
+        },
+        {
+            "input": "sentence: There is a gap in the wall . You can see the garden behind it . aspect: Tense",
+            "output": [
+                "There was a gap in the wall . You could see the garden behind it ."
+            ]
+        },
+        {
+            "input": "sentence: Fred is the only man still alive who remembers my great-grandfather . He was a remarkable man . aspect: Number",
+            "output": [
+                "Fred and Julian are the only men still alive who remember my great-grandfathers .   They were remarkable men ."
+            ]
+        },
+        {
+            "input": "sentence: Dan had to stop Bill from toying with the injured bird . He is very cruel . aspect: Tense",
+            "output": [
+                "Dan is having to stop Bill from toying with the injured bird . He is very cruel ."
+            ]
+        },
+        {
+            "input": "sentence: Pam's parents came home and found her having sex with her boyfriend , Paul . They were furious about it . aspect: Number",
+            "output": [
+                "Pam's parents came home and found her having sex with her boyfriend , Paul . She was furious about it ."
+            ]
+        },
+        {
+            "input": "sentence: Sam and Amy are passionately in love , but Amy's parents are unhappy about it , because they are fifteen . aspect: Number",
+            "output": [
+                "Sam is passionately in love , but Sam's father is unhappy about it ,  because  he is fifteen ."
+            ]
+        }
+    ]
+}
