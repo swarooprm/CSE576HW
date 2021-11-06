@@ -17,7 +17,7 @@ Name | Summary | Category
 `task073.3_commonsenseqa_answer_generation.json` | Answer Generation to CommonsenseQA | Answer Generation
 `task073.4_commonsenseqa_answer_generation.json` | Answer Generation to CommonsenseQA | Answer Generation
 `task073.5_commonsenseqa_answer_generation.json` | Answer Generation to CommonsenseQA | Answer Generation
-`task074_squad1.1_question_generation.json.rtf` | Question Generation to SQuAD 1.1 | Question Generation
+`task074_squad1.1_question_generation.json` | Question Generation to SQuAD 1.1 | Question Generation
 `task074.1_squad1.1_question_generation.json` | Question Generation to SQuAD 1.1 | Question Generation
 `task074.2_squad1.1_question_generation.json` | Question Generation to SQuAD 1.1 | Question Generation
 `task074.3_squad1.1_question_generation.json` | Question Generation to SQuAD 1.1 | Question Generation
