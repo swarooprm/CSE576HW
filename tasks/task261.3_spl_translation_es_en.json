@@ -1,0 +1,784 @@
+{
+    "Contributors": [
+        "Karan Niraj Naik"
+    ],
+    "Source": [
+        "Semantic Parser Localizer (https:\\/\\/github.com\\/stanford-oval\\/SPL)"
+    ],
+    "Categories": [
+        "Translation"
+    ],
+    "Input_language": "Spanish",
+    "Output_language": "English",
+    "Definition": "The provided file includes inquiries about restaurants in Spanish, and we ask you to translate those to English language. Please bear in mind the following guidelines while doing the translation: 1) We're looking for the most naturally written and formal form of each sentence in your language. We're *NOT* looking for colloquial forms of the sentence. We're looking for formal form which is how you'd type your queries in a text-based virtual assistant. 2) The words between quotation marks *SHOULD NOT* be translated. We expect you to keep those values intact and include the quotation marks around them as well. 3) The fully capitalized words like DATE_0, or DURATION_0 *SHOULD NOT* be translated. Please keep them as they're in the translations. 4) Please don't localize measurement units like miles to kilometers during your translation. miles should be translated to its equivalent in your language. 6) Note the input is all lowercased except for fully capitalized special placeholders (e.g. NUMBER, DATE, TIME). Please do the same in your translations.",
+    "Positive Examples": [
+        {
+            "input": "¿puede decirme la calificacio�?n de esteban en calle orellana \" san francisco \"?",
+            "output": "can you tell me the rating of gold mirror in \" san francisco \" ?",
+            "explanation": "Translation correctly preserves the word san francisco"
+        },
+        {
+            "input": "bu�?squeda de sushi restaurantes con 7 estrellas o mejor .",
+            "output": "search for vegetarian restaurants with 7 star reviews or better .",
+            "explanation": "Translation is correct and accurate."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "¿do�?nde esta�? el restaurante ma�?s cercano \" Italian Restaurant .\" .",
+            "output": "where is the nearest \"italian restaurant \" .",
+            "explanation": "Here the translation lowercased the italian restaurant hence it is incorrect."
+        },
+        {
+            "input": "¿cua�?l es la calificacio�?n para el asador cristobal en calle ternera 4 ?",
+            "output": "what is the rating for the la unica in huntersville ?",
+            "explanation": "Here the translation is incorrect hence it is incorrect."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "¿cua�?l es la direccio�?n del restaurante charnela ?",
+            "output": [
+                "what is the address of the mei wei restaurant ?"
+            ]
+        },
+        {
+            "input": "¿cua�?l es la calificacio�?n del restaurante la cruzada ?",
+            "output": [
+                "what is the rating of mei wei restaurant ?"
+            ]
+        },
+        {
+            "input": "¿cua�?l es la direccio�?n de la tienda tailandesa ma�?s cercana ?",
+            "output": [
+                "what is the address of the nearest coffee shop ?"
+            ]
+        },
+        {
+            "input": "mue�?strame restaurantes en el calle conchas 9 esquina con costanilla de los angeles por favor .",
+            "output": [
+                "show me restaurants in the west suburbs please ."
+            ]
+        },
+        {
+            "input": "encontrarme algunos lugares para comer en calle echegaray 7 .",
+            "output": [
+                "find me some places to eat in detroit ."
+            ]
+        },
+        {
+            "input": "busca restaurantes que tengan 5 estrellas para mi�? por favor .",
+            "output": [
+                "look up restaurants that have NUMBER_0 star ratings for me please ."
+            ]
+        },
+        {
+            "input": "mue�?strame todos los restaurantes que manununu976 ha revisado .",
+            "output": [
+                "show me all the restaurants that john grace has reviewed ."
+            ]
+        },
+        {
+            "input": "mue�?strame comentarios escritos por ramirog436 .",
+            "output": [
+                "show me reviews written by bill story ."
+            ]
+        },
+        {
+            "input": "¿cua�?ntas reseñas se han publicado para el mollete ?",
+            "output": [
+                "how many reviews have been posted for old town doughnuts ?"
+            ]
+        },
+        {
+            "input": "¿cua�?ntos restaurantes tienen una calificacio�?n media superior a 5 ?",
+            "output": [
+                "how many restaurants have an average rating above NUMBER_0 ?"
+            ]
+        },
+        {
+            "input": "¿cua�?l es la direccio�?n de la bbq burger en calle bola 4 ?",
+            "output": [
+                "what 's the address of the mcdonald 's on parker road ?"
+            ]
+        },
+        {
+            "input": "quiero comida para saludable",
+            "output": [
+                "i want mexican food"
+            ]
+        },
+        {
+            "input": "algo saludable sobre 8 estrellas .",
+            "output": [
+                "something spicy over NUMBER_0 star rating ."
+            ]
+        },
+        {
+            "input": "me gustari�?a cualquier comida con ma�?s de 6 opiniones .",
+            "output": [
+                "i 'd like any food with more than NUMBER_0 reviews ."
+            ]
+        },
+        {
+            "input": "¿do�?nde puedo encontrar el lugar libanesa ma�?s cercano ?",
+            "output": [
+                "where can i find the nearest chinese joint ."
+            ]
+        },
+        {
+            "input": "buscar todas las opiniones por adisfrutaratope .",
+            "output": [
+                "search all reviews by john oyster ."
+            ]
+        },
+        {
+            "input": "me gustari�?a un restaurante pizza .",
+            "output": [
+                "i would like a mexican restaurant ."
+            ]
+        },
+        {
+            "input": "me gustari�?a que todos los restaurantes con 6 estrellas y ma�?s .",
+            "output": [
+                "i would like all restaurants with NUMBER_0 stars and above ."
+            ]
+        },
+        {
+            "input": "mue�?strame tabaxco",
+            "output": [
+                "show me los dos amigos"
+            ]
+        },
+        {
+            "input": "mue�?strame restaurantes sopas .",
+            "output": [
+                "show me mexican restaurants ."
+            ]
+        },
+        {
+            "input": "quiero restaurantes con un valor de 6 o ma�?s .",
+            "output": [
+                "i want restaurants rated NUMBER_0 or higher ."
+            ]
+        },
+        {
+            "input": "encontrar restaurantes en el co�?digo postal 08007 .",
+            "output": [
+                "find restaurants in zip code 21269 ."
+            ]
+        },
+        {
+            "input": "quiero restaurantes con ma�?s de 6 opiniones .",
+            "output": [
+                "i want restaurants with more than NUMBER_0 reviews ."
+            ]
+        },
+        {
+            "input": "mostrar todos los restaurantes que tienen al menos una calificacio�?n de 8 .",
+            "output": [
+                "display all the restaurants that have at least a rating of NUMBER_0 ."
+            ]
+        },
+        {
+            "input": "hacer una bu�?squeda de restaurantes que han sido revisados por al menos 6 personas .",
+            "output": [
+                "do a search for restaurants that have been reviewed by at least NUMBER_0 people ."
+            ]
+        },
+        {
+            "input": "- crear restaurantes sopas .",
+            "output": [
+                "bring up italian restaurants ."
+            ]
+        },
+        {
+            "input": "¿podri�?as preparar una bu�?squeda para el restaurante, fast chicken ?",
+            "output": [
+                "could you preform a search for the restaurant , thai foon ?"
+            ]
+        },
+        {
+            "input": "buscar vietnam24 .",
+            "output": [
+                "search for dairy queen ."
+            ]
+        },
+        {
+            "input": "bu�?squeda de todos los restaurantes de 10 estrellas .",
+            "output": [
+                "search for all NUMBER_0 star restaurants ."
+            ]
+        },
+        {
+            "input": "mue�?strame restaurantes libanesa .",
+            "output": [
+                "show me greek restaurants ."
+            ]
+        },
+        {
+            "input": "mostrarme restaurantes con ma�?s de 6 comentarios .",
+            "output": [
+                "show me restaurants with more than NUMBER_0 posted reviews ."
+            ]
+        },
+        {
+            "input": "¿puedes encontrarme un taperia princesa en mi a�?rea ?",
+            "output": [
+                "can you find me a mcdonalds in my area ?"
+            ]
+        },
+        {
+            "input": "donde se encuentran las mejores juntas pizza en mi a�?rea .",
+            "output": [
+                "where are the best fast food joints in my area ."
+            ]
+        },
+        {
+            "input": "¿cua�?l es la direccio�?n del minarai en esta a�?rea ?",
+            "output": [
+                "what is the address of the mcdonads in this area ."
+            ]
+        },
+        {
+            "input": "cua�?les son las ma�?s altas portuguesa , en la zona de 5 millas alrededor de kelly lake .",
+            "output": [
+                "what are the highest ranked burger joints in the NUMBER_0 mile area around asheville nc ."
+            ]
+        },
+        {
+            "input": "mue�?strame todos los restaurantes que se encuentran en calle principe de vergara ?",
+            "output": [
+                "show me all the restaurants that are located on federal highway ?"
+            ]
+        },
+        {
+            "input": "¿que�? restaurante tiene las mayores cantidades de cri�?ticas ?",
+            "output": [
+                "which restaurant has the highest amounts of reviews ?"
+            ]
+        },
+        {
+            "input": "¿que�? fecha fue publicada la revisio�?n de monica f ?",
+            "output": [
+                "what date was jim 's review posted ?"
+            ]
+        },
+        {
+            "input": "¿que�? restaurantes hay en libertad 12 ?",
+            "output": [
+                "which restaurants are on main street ?"
+            ]
+        },
+        {
+            "input": "encontrarme sudamericana",
+            "output": [
+                "find me mexican food"
+            ]
+        },
+        {
+            "input": "mue�?strame restaurantes en avenida alfonso xiii",
+            "output": [
+                "show me restaurants in kansas city , mo"
+            ]
+        },
+        {
+            "input": "mue�?strame restaurantes libanesa en la zona .",
+            "output": [
+                "show me mexican restaurants in the area ."
+            ]
+        },
+        {
+            "input": "proporcionarme el nu�?mero de tele�?fono del restaurante coreana ma�?s cercano en 28760 .",
+            "output": [
+                "provide me the telephone number for the nearest mexican restaurant in 93312 zip ."
+            ]
+        },
+        {
+            "input": "encontrar restaurantes con ma�?s de 10 opiniones .",
+            "output": [
+                "find restaurants with more than NUMBER_0 reviews ."
+            ]
+        },
+        {
+            "input": "donde esta�? el via napoli restaurant and pizzeria ma�?s cercano",
+            "output": [
+                "where is the closest mcdonalds"
+            ]
+        },
+        {
+            "input": "¿do�?nde esta�? un restaurante de de oriente medio con ma�?s de 5 buenas opiniones ?",
+            "output": [
+                "where is a mexican restaurant with more than NUMBER_0 good reviews ?"
+            ]
+        },
+        {
+            "input": "mostrar todas las calificaciones hechas por alexpatri",
+            "output": [
+                "show all ratings made by mr gucci loafers"
+            ]
+        },
+        {
+            "input": "buscar saludable restaurantes en mi ciudad",
+            "output": [
+                "search for steakhouse restaurants in my city"
+            ]
+        },
+        {
+            "input": "mue�?strame las cri�?ticas escritas por couldbebetter .",
+            "output": [
+                "show me reviews written by amy ."
+            ]
+        },
+        {
+            "input": "¿do�?nde puedo encontrar la taberna batavia healthy food de waterdog ma�?s cercana ?",
+            "output": [
+                "where can i find the closest wawa ?"
+            ]
+        },
+        {
+            "input": "bu�?squeda de hermanos ordas",
+            "output": [
+                "search for big woodys"
+            ]
+        },
+        {
+            "input": "buscar un latina restaurante .",
+            "output": [
+                "search for an egyptian restaurant ."
+            ]
+        },
+        {
+            "input": "mue�?strame restaurantes con un mi�?nimo de 6 estrellas .",
+            "output": [
+                "show me restaurants with a minimum NUMBER_0 star rating ."
+            ]
+        },
+        {
+            "input": "¿cua�?ntas reseñas hay en marieta ?",
+            "output": [
+                "how many reviews are there at starbucks ?"
+            ]
+        },
+        {
+            "input": "mue�?strame restaurantes saludable .",
+            "output": [
+                "show me thai restaurants ."
+            ]
+        },
+        {
+            "input": "¿hasta que�? punto esta�? la casa de mayura de te�? ma�?s cercana ?",
+            "output": [
+                "how far is the nearest applebee 's ?"
+            ]
+        },
+        {
+            "input": "comida venezolana cerca de aqui�?",
+            "output": [
+                "located mexican food close to here"
+            ]
+        },
+        {
+            "input": "mue�?strame el centro comercial restaurante bosco de lobos comercial de kintetsu .",
+            "output": [
+                "show me white castle"
+            ]
+        },
+        {
+            "input": "bu�?squeda de tailandesa restaurantes con al menos 5 estrellas .",
+            "output": [
+                "search for japanese restaurants with at least NUMBER_0 stars ."
+            ]
+        },
+        {
+            "input": "di�?game la calificacio�?n de bar cerveriz .",
+            "output": [
+                "tell me the rating of wendy 's ."
+            ]
+        },
+        {
+            "input": "lista de restaurantes sopas .",
+            "output": [
+                "list japanese restaurants ."
+            ]
+        },
+        {
+            "input": "¿cua�?l es el lugar tailandesa ma�?s alto en la calle orfila 6 ?",
+            "output": [
+                "what 's the highest rated pizza place in the city center ?"
+            ]
+        },
+        {
+            "input": "buscar un restaurante sudamericana con al menos 6 comentarios .",
+            "output": [
+                "search for a vegan restaurant with at least NUMBER_0 reviews ."
+            ]
+        },
+        {
+            "input": "mue�?strame restaurantes tailandesa .",
+            "output": [
+                "show me mexican restaurants ."
+            ]
+        },
+        {
+            "input": "dame un restaurante de 5 estrellas cerca .",
+            "output": [
+                "give me a NUMBER_0 star restaurant nearby ."
+            ]
+        },
+        {
+            "input": "encontrar restaurantes con la mayori�?a de opiniones .",
+            "output": [
+                "find restaurants with the most reviews ."
+            ]
+        },
+        {
+            "input": "buscar piantao .",
+            "output": [
+                "search for billy 's barbecue ."
+            ]
+        },
+        {
+            "input": "quiero ver restaurantes con ma�?s de 6 opiniones .",
+            "output": [
+                "i want to see restaurants with more than NUMBER_0 reviews ."
+            ]
+        },
+        {
+            "input": "encontrar restaurantes que venden sudamericana .",
+            "output": [
+                "find restaurants that sell spaghetti ."
+            ]
+        },
+        {
+            "input": "¿cua�?l es el nombre del restaurante coreana en plaza cortes 10 ?",
+            "output": [
+                "what 's the name of the italian restaurant on main street ?"
+            ]
+        },
+        {
+            "input": "mue�?strame el restaurante ma�?s valorado .",
+            "output": [
+                "show me the highest rated restaurant ."
+            ]
+        },
+        {
+            "input": "¿do�?nde esta�? la pokelolo ma�?s cercana ?",
+            "output": [
+                "where is the nearest mcdonald 's ?"
+            ]
+        },
+        {
+            "input": "me muestran 6 estrellas coreana restaurantes",
+            "output": [
+                "show me NUMBER_0 star mexican restaurants"
+            ]
+        },
+        {
+            "input": "encontrar todos los restaurantes ma�?s valorados que 8",
+            "output": [
+                "find all restaurants rated higher than NUMBER_0"
+            ]
+        },
+        {
+            "input": "mue�?strame una lista de restaurantes con menos de 6 opiniones .",
+            "output": [
+                "show me a list of restaurants with less than NUMBER_0 reviews ."
+            ]
+        },
+        {
+            "input": "mue�?strame restaurantes cercanos portuguesa .",
+            "output": [
+                "show me nearby mexican restaurants ."
+            ]
+        },
+        {
+            "input": "bu�?squeda de restaurantes en calle aguila 2 .",
+            "output": [
+                "search for restaurants in reno , nevada ."
+            ]
+        },
+        {
+            "input": "muestrame restaurantes tailandesa",
+            "output": [
+                "show me thai restaurants"
+            ]
+        },
+        {
+            "input": "¿que�? restaurante saludable tiene ma�?s opiniones ?",
+            "output": [
+                "which chinese restaurant has the most reviews ?"
+            ]
+        },
+        {
+            "input": "¿que�? es la calificacio�?n cannibal raw bar madrid ?",
+            "output": [
+                "what is ramen nagi 's rating ?"
+            ]
+        },
+        {
+            "input": "buscar bodegas melibea .",
+            "output": [
+                "look for olive garden ."
+            ]
+        },
+        {
+            "input": "¿que�? restaurantes han recibido 6 o ma�?s opiniones ?",
+            "output": [
+                "what restaurants have received NUMBER_0 or more reviews ?"
+            ]
+        },
+        {
+            "input": "encontrar reseñas de felipesan .",
+            "output": [
+                "find reviews from george ."
+            ]
+        },
+        {
+            "input": "mostrarme libanesa restaurantes",
+            "output": [
+                "show me american restaurants"
+            ]
+        },
+        {
+            "input": "dime los restaurantes marisco .",
+            "output": [
+                "tell me the american restaurants ."
+            ]
+        },
+        {
+            "input": "dame todos los restaurantes pizza con al menos 5 estrellas .",
+            "output": [
+                "give me all of the mexican restaurants with at least NUMBER_0 stars ."
+            ]
+        },
+        {
+            "input": "bu�?squeda de bodega joan .",
+            "output": [
+                "search for rocky 's pizza ."
+            ]
+        },
+        {
+            "input": "¿hay una la creperia rosa cerca de mi�? ?",
+            "output": [
+                "is there a red lobster near me ?"
+            ]
+        },
+        {
+            "input": "encontrar todos los restaurantes de libanesa",
+            "output": [
+                "find all of the indian restaurants"
+            ]
+        },
+        {
+            "input": "¿cua�?l es la calificacio�?n del triciclo ?",
+            "output": [
+                "what is the rating of the oak street steakhouse ?"
+            ]
+        },
+        {
+            "input": "mue�?strame restaurantes en co�?digo postal 08036 .",
+            "output": [
+                "show me restaurants in zip code 28078 ."
+            ]
+        },
+        {
+            "input": "¿que�? restaurante tailandesa tiene la mayori�?a de las cri�?ticas ?",
+            "output": [
+                "what mexican restaurant has the most reviews ?"
+            ]
+        },
+        {
+            "input": "¿que�? clase de calificacio�?n tiene pizzeria el trebol",
+            "output": [
+                "what kind of rating does panda express have"
+            ]
+        },
+        {
+            "input": "mue�?strame restaurantes pizza cerca .",
+            "output": [
+                "show me italian restaurants nearby ."
+            ]
+        },
+        {
+            "input": "por favor mue�?streme las cri�?ticas que se han escrito para noname bar madrid este año .",
+            "output": [
+                "please show me reviews that were written for cracker barrel this year ."
+            ]
+        },
+        {
+            "input": "encontrar restaurantes con 6 estrellas .",
+            "output": [
+                "find restaurants with NUMBER_0 stars ."
+            ]
+        },
+        {
+            "input": "¿cua�?l es el nu�?mero de tele�?fono del la perejila ?",
+            "output": [
+                "what is the phone number for sampan ?"
+            ]
+        },
+        {
+            "input": "¿puedo ver las cri�?ticas para el burger shack ?",
+            "output": [
+                "can i see reviews for the gunnisack ?"
+            ]
+        },
+        {
+            "input": "por favor dime la ubicacio�?n de restaurante avinyo 10 .",
+            "output": [
+                "please tell me the location of dave 's seafood shack ."
+            ]
+        },
+        {
+            "input": "¿cua�?l es la direccio�?n del lugar ma�?s cercano a la sopas ?",
+            "output": [
+                "what is the address of the nearest fast food place ?"
+            ]
+        },
+        {
+            "input": "buscar pantin grill ?",
+            "output": [
+                "search for gates barbecue ?"
+            ]
+        },
+        {
+            "input": "encontrar restaurantes a una milla de aqui�? .",
+            "output": [
+                "find restaurants within one mile from here ."
+            ]
+        },
+        {
+            "input": "¿cua�?l es el restaurante sopas ma�?s cercano a mi�?",
+            "output": [
+                "what is the closest italian restaurant to me"
+            ]
+        },
+        {
+            "input": "mostrar restaurantes con al menos 5 opiniones",
+            "output": [
+                "show restaurants with at least NUMBER_0 reviews"
+            ]
+        },
+        {
+            "input": "¿hay algu�?n restaurante libanesa cerca de mi�? ?",
+            "output": [
+                "are there any indian restaurants near me ?"
+            ]
+        },
+        {
+            "input": "dame el nu�?mero de tele�?fono de un restaurante de 10 estrellas .",
+            "output": [
+                "give me the telephone number of a NUMBER_0 star restaurant ."
+            ]
+        },
+        {
+            "input": "mue�?strame todo el arti�?culo escrito por juanamadorg acerca de restaurantes saludable .",
+            "output": [
+                "show me all the of review written by alex smith about chinese restaurants ."
+            ]
+        },
+        {
+            "input": "mostrar tienda del centro de ma�?s valorada con 5 millas .",
+            "output": [
+                "show highest rated coffee shop withing NUMBER_0 miles ."
+            ]
+        },
+        {
+            "input": "mostrarme restaurantes entre 5 y 5 .",
+            "output": [
+                "show me restaurants rated between NUMBER_0 and NUMBER_1 ."
+            ]
+        },
+        {
+            "input": "¿cua�?l es el rango de precios del restaurante portuguesa ma�?s cercano ?",
+            "output": [
+                "what is the price range of the nearest mexican restaurant ?"
+            ]
+        },
+        {
+            "input": "mostrar restaurantes en calle altamirano .",
+            "output": [
+                "show restaurants in san francisco ."
+            ]
+        },
+        {
+            "input": "encontrar todos los restaurantes venezolana .",
+            "output": [
+                "find all mexican restaurants ."
+            ]
+        },
+        {
+            "input": "- buscar marieta .",
+            "output": [
+                "search for sushi joy ."
+            ]
+        },
+        {
+            "input": "encue�?ntrame restaurantes sudamericana",
+            "output": [
+                "find me italian restaurants"
+            ]
+        },
+        {
+            "input": "¿me puedes encontrar el nu�?mero de tele�?fono para restaurante volvoreta ?",
+            "output": [
+                "can you find me the telephone number for rookie 's bar & grill ?"
+            ]
+        },
+        {
+            "input": "mostrarme restaurantes con la mayori�?a de las opiniones .",
+            "output": [
+                "show me restaurants with the most reviews ."
+            ]
+        },
+        {
+            "input": "¿cua�?l es el nu�?mero de tele�?fono para minarai ?",
+            "output": [
+                "what is the phone number for ginger china ?"
+            ]
+        },
+        {
+            "input": "dar el nu�?mero de tele�?fono de un restaurante con 6 o ma�?s opiniones",
+            "output": [
+                "give the phone number of a restaurant with NUMBER_0 or more reviews"
+            ]
+        },
+        {
+            "input": "encue�?ntrame mayura .",
+            "output": [
+                "find me in-n-out burger ."
+            ]
+        },
+        {
+            "input": "mue�?strame todos los restaurantes de 5 estrellas .",
+            "output": [
+                "show me all NUMBER_0 star restaurants ."
+            ]
+        },
+        {
+            "input": "bu�?squeda de una tienda de 6 estrellas con calificacio�?n de tailandesa situado cerca .",
+            "output": [
+                "search for a NUMBER_0 star rated coffee shop located nearby ."
+            ]
+        },
+        {
+            "input": "mue�?strame las cri�?ticas escritas por marypto .",
+            "output": [
+                "show me reviews written by bruce ."
+            ]
+        },
+        {
+            "input": "encontrar todos los restaurantes con calificacio�?n superior a 8",
+            "output": [
+                "find all restaurants rated higher than NUMBER_0"
+            ]
+        },
+        {
+            "input": "buscar un restaurante marisco .",
+            "output": [
+                "search for a mexican restaurant ."
+            ]
+        }
+    ]
+}

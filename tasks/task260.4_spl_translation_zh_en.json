@@ -1,0 +1,784 @@
+{
+    "Contributors": [
+        "Karan Niraj Naik"
+    ],
+    "Source": [
+        "Semantic Parser Localizer (https:\\/\\/github.com\\/stanford-oval\\/SPL)"
+    ],
+    "Categories": [
+        "Translation"
+    ],
+    "Input_language": "Chinese",
+    "Output_language": "English",
+    "Definition": "The document includes inquiries about restaurants in Chinese and we ask you to translate those into English language. Please bear in mind the following guidelines while doing the translation: 1) We are looking for the most naturally written and formal form of each sentence in your language. We are not looking for colloquial forms of the sentence. We're looking for formal form which is how you would type your queries in a text-based virtual assistant. 2) The words between quotation marks should not be translated. We expect you to keep those values intact and include quotation marks around them.",
+    "Positive Examples": [
+        {
+            "input": "æ‰¾ åˆ° ä¸€ \" mexican \" ä¸ª æœ‰ 6 é¢— æˆ– 6 é¢— ä»¥ ä¸Š æ˜Ÿ æ˜Ÿ çš„ è‘¡ è?„ ç‰™ é¤? é¦† ã€‚",
+            "output": "find a \" mexican \" restaurant with 6 or more stars .",
+            "explanation": "Here in the translation word mexican is correctly preserves."
+        },
+        {
+            "input": "æ?œ ç´¢ çˆ± å°�? å…° é¤? é¦† , è‡³ å°‘ 8 æ¬¡ è¯„ è®º ã€‚",
+            "output": "search for italian restaurants with at least 8 reviews .",
+            "explanation": "Here the translaion is accurate and correct."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "æ?œ ç´¢ ä¸­ å’Œ å?€ ä¸­ çš„ é©¬ æ?¥ è¥¿ é¤? é¦† , è‡³ å°‘ 8 æ¬¡ è¯„ è®® ã€‚",
+            "output": "search for an italian restaurant in dallas with at least 8 reviews .",
+            "explanation": "Here the italian restaurant is not present in the original text"
+        },
+        {
+            "input": "å­£ å€™ é£Ž çš„ è¯„ çº§ æ˜¯ ä»€ ä¹ˆ ?",
+            "output": "what is the rating of olive garden ?",
+            "explanation": "Here the translation is incorrect and not accurate."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "æœ€ è¿‘ çš„ çƒ§ çƒ¤ åœ° å?€ æ˜¯ ä»€ ä¹ˆ ?",
+            "output": [
+                "what is the address of the nearest fast food place ?"
+            ]
+        },
+        {
+            "input": "å¯» æ‰¾ çŽ‹ åºœ äº• çƒ¤ é¸­ åº— ?",
+            "output": [
+                "search for gates barbecue ?"
+            ]
+        },
+        {
+            "input": "å?‘ çŽ° é¤? åŽ… åœ¨ è·? ç¦» è¿™ é‡Œ ä¸€ è‹± é‡Œ ä¹‹ å†… ã€‚",
+            "output": [
+                "find restaurants within one mile from here ."
+            ]
+        },
+        {
+            "input": "ä½• ä¸º æˆ‘ æœ€ è¿‘ çš„ æ‹‰ ä¸? é£Ž é¤? é¦†",
+            "output": [
+                "what is the closest italian restaurant to me"
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º è‡³ å°‘ 5 æ¬¡ å®¡ æŸ¥ çš„ é¤? åŽ…",
+            "output": [
+                "show restaurants with at least NUMBER_0 reviews"
+            ]
+        },
+        {
+            "input": "æˆ‘ é™„ è¿‘ æœ‰ æ³° å›½ é¤? åŽ… å?— ?",
+            "output": [
+                "are there any indian restaurants near me ?"
+            ]
+        },
+        {
+            "input": "ç»™ æˆ‘ 10 æ˜Ÿ çº§ é¤? åŽ… çš„ ç�?µ è¯? å?· ç ?",
+            "output": [
+                "give me the telephone number of a NUMBER_0 star restaurant ."
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º æˆ‘ æ‰€ æœ‰ ç�?± æˆ´ æ’° å†™ çš„ å…³ äºŽ å¾· å›½ é¤? åŽ… çš„ è¯„ è®º ã€‚",
+            "output": [
+                "show me all the of review written by alex smith about chinese restaurants ."
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º æœ€ é«˜ ç­‰ çº§ çš„ æ³¢ æ–¯ é£Ž å•† åº— , å…¶ è‹± é‡Œ ä¸º 5 è‹± é‡Œ ã€‚",
+            "output": [
+                "show highest rated coffee shop withing NUMBER_0 miles ."
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º 5 åˆ° 5 ä¹‹ é—´ çš„ é¤? åŽ…",
+            "output": [
+                "show me restaurants rated between NUMBER_0 and NUMBER_1 ."
+            ]
+        },
+        {
+            "input": "æœ€ è¿‘ çš„ å?¥ åº· é¤? åŽ… çš„ ä»· æ ¼ èŒƒ å›´ æ˜¯ å¤š å°‘ ?",
+            "output": [
+                "what is the price range of the nearest mexican restaurant ?"
+            ]
+        },
+        {
+            "input": "å±• ç¤º è?¯ é™° è¡— è™Ÿ çš„ é¤? é¦† ã€‚",
+            "output": [
+                "show restaurants in san francisco ."
+            ]
+        },
+        {
+            "input": "å¯» æ‰¾ æ‰€ æœ‰ çˆ± å°�? å…° é¤? é¦† ã€‚",
+            "output": [
+                "find all mexican restaurants ."
+            ]
+        },
+        {
+            "input": "æ?œ ç´¢ åŸº è¾… ç½— æ–¯ é¤? åŽ… ã€‚",
+            "output": [
+                "search for sushi joy ."
+            ]
+        },
+        {
+            "input": "æ‰¾ åˆ° æˆ‘ çš„ æ‹‰ ä¸? é£Ž",
+            "output": [
+                "find me italian restaurants"
+            ]
+        },
+        {
+            "input": "ä½  èƒ½ ç»™ æˆ‘ æ‰¾ åˆ° é¸¿ è¿? æ¥¼ çƒ¤ é¸­ åº— çš„ ç�?µ è¯? å?· ç ? å?— ?",
+            "output": [
+                "can you find me the telephone number for rookie 's bar & grill ?"
+            ]
+        },
+        {
+            "input": "æ?¥ ç»™ æˆ‘ çœ‹ é¤? åŽ… æœ€ ç²¾ å½© çš„ è¯„ è¯­",
+            "output": [
+                "show me restaurants with the most reviews ."
+            ]
+        },
+        {
+            "input": "å®œ å®¶ å®¶ å±… é¤? åŽ… ç�?µ è¯? å?· ç ? æ˜¯ ä»€ ä¹ˆ ?",
+            "output": [
+                "what is the phone number for ginger china ?"
+            ]
+        },
+        {
+            "input": "ç»™ 6 æ¬¡ æˆ– 6 æ¬¡ ä»¥ ä¸Š å¤? è®® çš„ é¤? åŽ… ç�?µ è¯? å?· ç ?",
+            "output": [
+                "give the phone number of a restaurant with NUMBER_0 or more reviews"
+            ]
+        },
+        {
+            "input": "æ‰¾ åˆ° æˆ‘ è?š å®? æº? ã€‚",
+            "output": [
+                "find me in-n-out burger ."
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º æˆ‘ æ‰€ æœ‰ 5 æ˜Ÿ çº§ é¤? åŽ… ã€‚",
+            "output": [
+                "show me all NUMBER_0 star restaurants ."
+            ]
+        },
+        {
+            "input": "è‘¡ è?„ ç‰™",
+            "output": [
+                "search for a NUMBER_0 star rated coffee shop located nearby ."
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º ç�?± æ˜¥ æ¶› æ’° å†™ çš„ å¤? è¿° ã€‚",
+            "output": [
+                "show me reviews written by bruce ."
+            ]
+        },
+        {
+            "input": "æ‰¾ åˆ° æ‰€ æœ‰ è¢« è¯„ ä¸º é«˜ äºŽ 8 ä»¥ ä¸Š çš„ é¤? é¦†",
+            "output": [
+                "find all restaurants rated higher than NUMBER_0"
+            ]
+        },
+        {
+            "input": "å¯» æ‰¾ å¢¨ è¥¿ é¤? åŽ…",
+            "output": [
+                "search for a mexican restaurant ."
+            ]
+        },
+        {
+            "input": "æ˜¯ å?¦ æœ‰ ä»» ä½• ä¸€ é¡¹ æ˜Ÿ çº§ å®¡ æŸ¥ ?",
+            "output": [
+                "are there any one star reviews ?"
+            ]
+        },
+        {
+            "input": "è¶… è¿‡ å…­ æ¬¡ å®¡ æŸ¥ çš„ é¤? åŽ… æ?œ ç´¢ .",
+            "output": [
+                "search for restaurants with more than NUMBER_0 reviews ."
+            ]
+        },
+        {
+            "input": "æœ€ é«˜ å…­ æ˜Ÿ çº§ é¤? åŽ… æ˜¯ ä»€ ä¹ˆ ?",
+            "output": [
+                "what is the top rated NUMBER_0 star restaurant ?"
+            ]
+        },
+        {
+            "input": "æ–° è?£ è®° çš„ ç�?µ è¯? å’Œ åœ° å?€ æ˜¯ ä»€ ä¹ˆ ?",
+            "output": [
+                "what is the telephone and address for ruth 's chris ?"
+            ]
+        },
+        {
+            "input": "å±• ç¤º ç»™ æˆ‘ çœ‹ éƒ½ æ±Ÿ æº?",
+            "output": [
+                "show me aunt chilada 's"
+            ]
+        },
+        {
+            "input": "æ˜¯ å?¦ æœ‰ ä»» ä½• ç½— æ–¯ é¤? é¦† ,",
+            "output": [
+                "are there any mexican restaurants with more than NUMBER_0 reviews ?"
+            ]
+        },
+        {
+            "input": "10007 ä¸­ çš„ 94103 ã€‚",
+            "output": [
+                "find places in 17111 ."
+            ]
+        },
+        {
+            "input": "å±• ç¤º ç»™ æˆ‘ çœ‹ æ‰€ æœ‰ å?¥ åº· é¤? é¤? é¦† ã€‚",
+            "output": [
+                "show me all italian restaurants ."
+            ]
+        },
+        {
+            "input": "ç»™ ä¸€ ä¸ª å?« æ‹‰ ä¸? é£Ž çš„ é¤? åŽ… å‘½ å?? ã€‚",
+            "output": [
+                "give me the name of a mexican restaurant ."
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º 5 ä¸ª æ˜Ž æ˜Ÿ åœ¨ è?¯ é™° è¡— è™Ÿ ä¸Š çš„ é¤? åŽ… ã€‚",
+            "output": [
+                "show me NUMBER_0 star rated restaurants on locust street ."
+            ]
+        },
+        {
+            "input": "å?¥ åº· é¤?",
+            "output": [
+                "show me a list of italian restaurants ."
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º æ‰€ æœ‰ ç»? æ˜¥ å?Ž æ£€ æŸ¥ çš„ é¤? åŽ… ã€‚",
+            "output": [
+                "show me all restaurants reviewed by restaurantgirl_84 ."
+            ]
+        },
+        {
+            "input": "æƒ³ çŸ¥ é?“ æ·š æ»´ ç†Š çš„ åœ° å?€ ?",
+            "output": [
+                "i 'd like to know the location of dunkin donuts ?"
+            ]
+        },
+        {
+            "input": "å±• ç¤º ç»™ å¤§ å®¶ çœ‹ ä¸€ ä¸ª æ‹‰ ä¸? é¤? åŽ… , è¯„ åˆ† ä¸º 5ã€‚",
+            "output": [
+                "show me a chinese restaurant with a rating of NUMBER_0 ."
+            ]
+        },
+        {
+            "input": "å“ª ä¸ª é¤? åŽ… çš„ è¯„ è®® æœ€ å¤š ?",
+            "output": [
+                "which restaurant has the most reviews ?"
+            ]
+        },
+        {
+            "input": "æ?œ ç´¢ ä¿„ ç½— é¤? é¦†",
+            "output": [
+                "search for french restaurants ."
+            ]
+        },
+        {
+            "input": "æ?¥ å›ž é¡¾ ä¸€ ä¸‹ æ™¶ æ™¶ é£¾ å“? ã€‚",
+            "output": [
+                "give me reviews for jade buffet ."
+            ]
+        },
+        {
+            "input": "å’ª å?– å’ª å?– çš„ ä»· æ ¼ èŒƒ å›´ æ˜¯ å¤š å°‘ ?",
+            "output": [
+                "what is the price range for ramen nagi ?"
+            ]
+        },
+        {
+            "input": "æ‰¾ åˆ° æ³° å›½ é¤? é¦† , è‡³ å°‘ è¿› è¡Œ 6 æ¬¡ å®¡ æŸ¥ ã€‚",
+            "output": [
+                "find italian restaurants with at least NUMBER_0 reviews ."
+            ]
+        },
+        {
+            "input": "æœ€ è¿‘ çš„ é—² åœ¨ å“ª é‡Œ ?",
+            "output": [
+                "where is the closest dairy queen ?"
+            ]
+        },
+        {
+            "input": "åœ¨ å¢ž å…‰ è·¯ 11 å?· æ‰¾ åˆ° æ‰€ æœ‰ é¤? é¦† ã€‚",
+            "output": [
+                "find all restaurants in chicago ."
+            ]
+        },
+        {
+            "input": "æ˜¯ å?¦ æœ‰ ä¸€ å®¶ é¤? é¦† åœ¨ æ‹‰ é“¾ ç ? 10007 ?",
+            "output": [
+                "is there a restaurant in zipcode 19101 ?"
+            ]
+        },
+        {
+            "input": "æˆ‘ åœ¨ æ‰¾ æ‹‰ ä¸? é£Ž é¤? åŽ…",
+            "output": [
+                "i 'm looking for armenian restaurants"
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º è¿‡ åŽ» 6 å¤© çš„ ç�?³ å¾· åŠ  æ²¹ ç«™ é¤? åŽ… å®¡ è¯„ ã€‚",
+            "output": [
+                "show me reviews for dunkin ' donuts from the last NUMBER_0 days ."
+            ]
+        },
+        {
+            "input": "ç»™ æˆ‘ çœ‹ çœ‹ é™„ è¿‘ æ‰€ æœ‰ äº�? æ˜Ÿ çº§ é¤? åŽ…",
+            "output": [
+                "show me all of the NUMBER_0 star restaurants nearby ."
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º è¶… è¿‡ 6 ä¸ª å®¡ æŸ¥ çš„ é¤? åŽ… ã€‚",
+            "output": [
+                "display restaurants with more than NUMBER_0 reviews ."
+            ]
+        },
+        {
+            "input": "æˆ‘ éœ€ è¦? æ‰¾ åˆ° æ‰€ æœ‰ 6 æ˜Ÿ çº§ é¤? åŽ…",
+            "output": [
+                "i need to find all NUMBER_0 star restaurants ."
+            ]
+        },
+        {
+            "input": "å¯» æ‰¾ å¢¨ è¥¿ å“¥ é¤? é¦† ã€‚",
+            "output": [
+                "find italian restaurants ."
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º è‡³ å°‘ å…­ æ˜Ÿ çº§ çš„ æ?¥ è¥¿ äºš é¤? é¦† ã€‚",
+            "output": [
+                "show me mexican restaurants with at least a NUMBER_0 star rating ."
+            ]
+        },
+        {
+            "input": "å¯» æ‰¾ ç¾² å’Œ 3 é‡Œ é¤? åŽ… ç»™ æˆ‘ ã€‚",
+            "output": [
+                "search for sushi king restaurant for me ."
+            ]
+        },
+        {
+            "input": "å±• ç¤º æˆ‘ ç�?¨ æ°‘ æ¨‚ è¡— è™Ÿ å±• ç¤º çš„ é¤? åŽ…",
+            "output": [
+                "show me restaurants in kansas city , mo"
+            ]
+        },
+        {
+            "input": "å¯» æ‰¾ ä¿„ ç½— é¤? é¦†",
+            "output": [
+                "search for mexican restaurants"
+            ]
+        },
+        {
+            "input": "å±• ç¤º æˆ‘ çš„ æ³° å›½ è?œ é¤? åŽ… ã€‚",
+            "output": [
+                "show me japanese restaurants ."
+            ]
+        },
+        {
+            "input": "æˆ‘ æœ€ æŽ¥ è¿‘ çš„ ä¿„ ç½— é¤? åŽ… çš„ ä»· æ ¼ èŒƒ å›´ æ˜¯ å¤š å°‘ ?",
+            "output": [
+                "what is the price range for my closest chinese restaurant ?"
+            ]
+        },
+        {
+            "input": "å±• ç¤º ç»™ æˆ‘ çœ‹ å?— é•¿ è¡— å?· çš„ é¤? åŽ… ã€‚",
+            "output": [
+                "show me restaurants on main street ."
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º å‰? 10 ä¸ª çˆ± å°�? å…° é¤? é¦† 5 é?“ è?¥ èƒ¡ å?Œ å?·",
+            "output": [
+                "show me the top NUMBER_0 steak house restaurants in orlando ."
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º æˆ‘ æ‰€ æœ‰ ç�?± è‘£ å®¡ æŸ¥ çš„ é¤? é¦† ã€‚",
+            "output": [
+                "show me all restaurants reviewed by alex smith ."
+            ]
+        },
+        {
+            "input": "ç»™ æˆ‘ çœ‹ ç„¡ å?° è‰¯ å“?",
+            "output": [
+                "show me nomad pizza ."
+            ]
+        },
+        {
+            "input": "ä¸Š æœˆ çš„ è¯„ è¯„ , æˆ‘ çœ‹ æ‰€ æœ‰ å¤š å›½ æ–™ é¤? åŽ…",
+            "output": [
+                "show me all chinese restaurants with reviews made in the last month"
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º åœ¨ 6 ä»¥ ä¸Š è¯„ åˆ† çš„ é¤? åŽ…",
+            "output": [
+                "display restaurants that were rated above NUMBER_0"
+            ]
+        },
+        {
+            "input": "å¤š å›½",
+            "output": [
+                "i 'm in the mood for italian food ."
+            ]
+        },
+        {
+            "input": "å±• ç¤º ç»™ æˆ‘ çœ‹ å¢¨ è¥¿ å“¥ é¤? åŽ… ã€‚",
+            "output": [
+                "show me mexican restaurants ."
+            ]
+        },
+        {
+            "input": "å¯» æ‰¾ çƒ§ çƒ¤ é¤? é¦† ,",
+            "output": [
+                "search for mexican restaurants with reviews from the past month ."
+            ]
+        },
+        {
+            "input": "æŸ¥ æ‰¾ å¯§ å¤? å¤œ å¸‚ çš„ åœ° å?€ ã€‚",
+            "output": [
+                "find the address for on the borders mexican grill and cantina ."
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º ç�?± æ˜¥ å?Ž æ’° å†™ çš„ é¤? åŽ… è¯„ è®º ã€‚",
+            "output": [
+                "show me restaurant reviews written by fat charlie ."
+            ]
+        },
+        {
+            "input": "æ³° å›½ è?œ",
+            "output": [
+                "find me a french restaurant ."
+            ]
+        },
+        {
+            "input": "ç»™ æˆ‘ ä¸€ ä¸ª å¤š å›½ é¤? åŽ… çš„ å?? å­—",
+            "output": [
+                "give me the name of a mexican restaurant ."
+            ]
+        },
+        {
+            "input": "å¯» æ‰¾ 10007 æ‹‰ é“¾ ç ? ä¸­ çš„ è?š å®? æº? ã€‚",
+            "output": [
+                "look for a red lobster in the 85053 zip code ."
+            ]
+        },
+        {
+            "input": "åœ¨ æœ? é˜³ å…¬ å›­ è€? è¥¿ é—¨ å?— ä¾§ ä¸­ æ‰¾ åˆ° é¤? é¦† ã€‚",
+            "output": [
+                "find restaurants in denver , colorado ."
+            ]
+        },
+        {
+            "input": "æœ€ è¿‘ çš„ å·´ é»Ž é¤? å?§ ç�?µ è¯? å?· ç ? æ˜¯ å¤š å°‘ ?",
+            "output": [
+                "what is the phone number of the nearest pizza hut ?"
+            ]
+        },
+        {
+            "input": "ä½  èƒ½ å¸® æˆ‘ æ‰¾ ä¸€ å®¶ äº�? æ˜Ÿ çº§ é¤? åŽ… å…? è®¸ æŠ½ é›ª èŒ„ å?— ?",
+            "output": [
+                "can you find me a 5 star restaurant that allows smoking of cigars ?"
+            ]
+        },
+        {
+            "input": "å¼€ åœ¨ TIME_0 , ä»· æ ¼ å¹³ å’Œ çš„ é¤? åŽ… èƒ½ ä¹° åˆ° ä»€ ä¹ˆ ?",
+            "output": [
+                "what restaurants can you find me that open at TIME_0 and are moderately priced ?"
+            ]
+        },
+        {
+            "input": "æ‚¨ èƒ½ å?¦ æ‰¾ åˆ° ä¸€ ä¸ª åœ¨ TIME_0 ä¹‹ å‰? å¼€ æ�?¾ çš„ æœ¬ åœ° æ³° å›½ è?œ åœ° ç‚¹ çš„ ç�?µ è¯? å?· ç ? ?",
+            "output": [
+                "can you locate the telephone number for a local pizza place that is open until TIME_0 ?"
+            ]
+        },
+        {
+            "input": "èƒ½ ç»™ æˆ‘ æ‰¾ å®¶ æ˜‚ è´µ çš„ è¥¿ ç?­ ç‰™ é¤? åŽ… å?— ?",
+            "output": [
+                "can you find me an good , expensive italian restaurant ?"
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º æˆ‘ çš„ é©¬ æ?¥ è¥¿ äºš é¤? é¦† ,",
+            "output": [
+                "show me italian restaurants with a michelin star rating of a 3 ."
+            ]
+        },
+        {
+            "input": "å±• ç¤º å…? è®¸ åœ¨ å®¤ å†… å?¸ çƒŸ çš„ çƒ§ çƒ¤ ã€‚",
+            "output": [
+                "show me steakhouses that allow smoking inside ."
+            ]
+        },
+        {
+            "input": "æˆ‘ é™„ è¿‘ çš„ ä¸? é£Ž é¤? åŽ… æŽ¥ å?— é¢„ è®¢ ?",
+            "output": [
+                "which chinese restaurants near me accept reservations ?"
+            ]
+        },
+        {
+            "input": "3 ä¸ª michelin æ˜Ÿ çº§ é¤? åŽ… æŽ¥ å?— è®¢ ä½? ?",
+            "output": [
+                "which 3 michelin star restaurant accepts reservations ?"
+            ]
+        },
+        {
+            "input": "ä»€ ä¹ˆ æ˜‚ è´µ çš„ é¤? åŽ… ä¸? å…? è®¸ å?¸ çƒŸ ?",
+            "output": [
+                "what 's an expensive restaurant that doesn't allow smoking ?"
+            ]
+        },
+        {
+            "input": "çŽ‹ åºœ äº• çƒ¤ é¸­ åº— çš„ ä»· æ ¼ èŒƒ å›´ æ˜¯ å¤š å°‘ ?",
+            "output": [
+                "what price range does ruth 's chris steak house fall into ?"
+            ]
+        },
+        {
+            "input": "ç¦» æˆ‘ æœ€ è¿‘ çš„ ä¸‰ æ˜Ÿ ç±³ åˆ‡ æž— é¤? åŽ… åœ° å?€ æ˜¯ ä»€ ä¹ˆ ?",
+            "output": [
+                "what 's the address of the 3 star michelin restaurant closest to me ?"
+            ]
+        },
+        {
+            "input": "è´µ è´µ é¤? åŽ… å…? è®¸ å?¸ çƒŸ çš„",
+            "output": [
+                "what expensive restaurants allow smoking"
+            ]
+        },
+        {
+            "input": "å±• ç¤º ç»™ æˆ‘ çœ‹ , è¯· è®¢ é¤? åŽ… çš„ è¥¿ äºš",
+            "output": [
+                "show me french restaurants that take reservations"
+            ]
+        },
+        {
+            "input": "ä¸º ä½• é¤? åŽ… åœ¨ TIME_0 ä¹‹ å‰? å¼€ å¼  ,",
+            "output": [
+                "what is a restaurant that opens before TIME_0 and has a review count over NUMBER_0 ?"
+            ]
+        },
+        {
+            "input": "å…? è®¸ å?¸ çƒŸ çš„ é¤? åŽ… ä»· æ ¼ æ¸© å’Œ ,",
+            "output": [
+                "what is a restaurant with a moderate price range with smoking allowed ?"
+            ]
+        },
+        {
+            "input": "å“ª äº› é¤? é¦† æŽ¥ å?— 5 çº§ çš„ è¯„ åˆ† ?",
+            "output": [
+                "what restaurant accepts reservations with a review rating of 5 ?"
+            ]
+        },
+        {
+            "input": "æ˜¯ å?¦ æœ‰ ä¸€ å®¶ é¤? é¦† ,",
+            "output": [
+                "is there a restaurant with a michelin star of 3 and has an expensive price range ?"
+            ]
+        },
+        {
+            "input": "è¯· å‘Š è¯‰ æˆ‘ å…³ äºŽ é¤? åŽ… çš„ æƒ… å†µ æœ€ èµ· ç ? æœ‰ 1 ä¸ª ç±³ åˆ‡ æž— æ˜Ž æ˜Ÿ çš„ åˆ† æ•°",
+            "output": [
+                "please tell me about restaurants with a michelin star rating of at least 1 ."
+            ]
+        },
+        {
+            "input": "æ˜¯ å?¦ æœ‰ ä¸­ ä¸œ é£Ÿ å“? é¤? åŽ… ,",
+            "output": [
+                "are there any chinese food restaurants with a 2 michelin star rating ?"
+            ]
+        },
+        {
+            "input": "å…? è®¸ å?¸ çƒŸ çš„ å¾· å›½ é£Ÿ ç‰© åœº æ‰€ ã€‚",
+            "output": [
+                "let me know of mexican food places that allow smoking ."
+            ]
+        },
+        {
+            "input": "æœ‰ å¤š å°‘ é—ª çƒ? æ˜Ÿ ? çŽ‹ åºœ äº• çƒ¤ é¸­ åº— æœ‰ å¤š å°‘ ?",
+            "output": [
+                "how many michelin stars does the french laundry have ?"
+            ]
+        },
+        {
+            "input": "å?‘ çŽ° æˆ‘ é¤? åŽ… æœ€ é«˜ ç±³ åˆ‡ æž— æ˜Ÿ çº§ åœ¨ è¿™ ä¸€ åœ° åŒº ã€‚",
+            "output": [
+                "find me the restaurant with the highest michelin star rating in the area ."
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º æˆ‘ æ‰€ æœ‰ çš„ é¤? åŽ… ç¾Ž åˆ‡ æž— çš„ è¯„ çº§ é«˜ äºŽ 10 æ€» ä½“ çš„ è¯„ çº§ é«˜ äºŽ 5",
+            "output": [
+                "show me all restaurants with michelin rating above NUMBER_0 and overall rating above NUMBER_1"
+            ]
+        },
+        {
+            "input": "æ˜¯ å?¦ æœ‰ ä¸€ å®¶ æ³¢ æ–¯ é£Ž é¤? åŽ… åœ¨ TIME_0 æˆ– æ›´ æ—© å¼€ æ�?¾ ?",
+            "output": [
+                "is there a korean restaurant that opens at TIME_0 or earlier ?"
+            ]
+        },
+        {
+            "input": "ç»™ æˆ‘ ä¸€ å®¶ ä¸? å?¸ çƒŸ çš„ ç½— æ–¯ é¤? åŽ…",
+            "output": [
+                "give me a cuban restaurant with no smoking"
+            ]
+        },
+        {
+            "input": "ä½  ä»€ ä¹ˆ æ—¶ å€™ å¼€ å§‹ æ?? ä¾› é£Ÿ ç‰© ?",
+            "output": [
+                "what time do you start serving food ?"
+            ]
+        },
+        {
+            "input": "å…? è®¸ åœ¨ æ™¶ æ™¶ é£¾ å“? å?¸ çƒŸ å?— ?",
+            "output": [
+                "is smoking allowed at outback ?"
+            ]
+        },
+        {
+            "input": "å¯» æ‰¾ å¤š å›½ æ–™ çš„ é¤? é¦† , æŽ¥ å?— é¢„ è®¢ ã€‚",
+            "output": [
+                "look for a greek restaurant that accepts reservations ."
+            ]
+        },
+        {
+            "input": "å¯» æ‰¾ ä¸€ ä¸ª å…? è®¸ å?¸ çƒŸ çš„ çƒ§ çƒ¤ åœº æ‰€ ã€‚",
+            "output": [
+                "look up a pizza place that allows smoking ."
+            ]
+        },
+        {
+            "input": "å¯» æ‰¾ ä¸€ å®¶ ä¿„ ç½— æ–¯ é¤? åŽ… ,",
+            "output": [
+                "look for a vegetarian restaurant that has a 3 star michelin rating ."
+            ]
+        },
+        {
+            "input": "ç¾² å’Œ 3 é‡Œ çš„ å·¥ ä½œ æ—¶ é—´ æ˜¯ å¤š å°‘ ?",
+            "output": [
+                "what are the hours of the bistro ?"
+            ]
+        },
+        {
+            "input": "è¯· åˆ— å‡º åœ¨ æ?¾ å‹¤ è¡— è™Ÿ è®¾ æœ‰ 3 ä¸ª ç±³ åˆ‡ æž— æ˜Ÿ çš„ é¤? é¦† ã€‚",
+            "output": [
+                "please list restaurants that have 3 michelin stars and are located in seattle , washington ."
+            ]
+        },
+        {
+            "input": "å‘Š è¯‰ æˆ‘ , å“ª äº› é¤? é¦† ä»· æ ¼ ä½Ž å»‰ , æœ‰ 3 é¢— ç±³ åˆ‡ æž— æ˜Ÿ ã€‚",
+            "output": [
+                "tell me which restaurants are in the cheap price range that have 3 michelin stars ."
+            ]
+        },
+        {
+            "input": "å“ª äº› é¤? é¦† æœ? åŠ¡ äºŽ ä¸? é£Ž è?œ é£Ÿ , æŽ¥ å?— ä¿? ç•™ ?",
+            "output": [
+                "which restaurants serving italian cuisine accept reservations ?"
+            ]
+        },
+        {
+            "input": "è¯· ç»™ æˆ‘ çœ‹ é¤? é¦† , è‡³ å°‘ æœ‰ ä¸€ é¢— ç±³ åˆ‡ æž— æ˜Ÿ åœ¨ 5 é?“ è?¥ èƒ¡ å?Œ å?· ä¸­",
+            "output": [
+                "show me restaurants with at least one michelin star in chicago"
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º è¶… è¿‡ 9 ä¸ª å®¡ æŸ¥ ä½? ç½® å¹¶ æŽ¥ å?— ä¿? ç•™",
+            "output": [
+                "show me places with more than NUMBER_0 reviews and accept reservations"
+            ]
+        },
+        {
+            "input": "æ˜¯ å?¦ æœ‰ é¤? åŽ… å…? è®¸ å?¸ çƒŸ ?",
+            "output": [
+                "are there any restaurants that allow smoking ?"
+            ]
+        },
+        {
+            "input": "å°† é¤? åŽ… ç½® äºŽ ä¸­ ä»· èŒƒ å›´ å†… ,",
+            "output": [
+                "locate a restaurant in the moderate price range that allows smoking ."
+            ]
+        },
+        {
+            "input": "æ‰¾ åˆ° äº�? æ˜Ÿ é¤? åŽ… æŽ¥ å?— é¢„ è®¢",
+            "output": [
+                "find me a 5 star restaurant that accepts reservations"
+            ]
+        },
+        {
+            "input": "æ‰¾ åˆ° ä¸€ å®¶ å¾· å›½ è?œ é¤? é¦† , å¼€ åˆ° å?ˆ å¤œ ã€‚",
+            "output": [
+                "find a italian restaurant that is open until midnight ."
+            ]
+        },
+        {
+            "input": "æ‰¾ åˆ° ä½? äºŽ 10007 é‡Œ æ‹‰ é“¾ ç ? çš„ ä¸€ å®¶ é¤? åŽ… , è¯¥ é¤? é¦† ä¸­ å?ˆ å‰? å¼€ æ�?¾ ã€‚",
+            "output": [
+                "locate a restaurant located in the zip code of 17111 that opens before noon ."
+            ]
+        },
+        {
+            "input": "è¯· æ‰¾ é¤? é¦† , è®© å?¸ çƒŸ å’Œ æ?? ä¾› æ³¢ æ–¯ é£Ž è?œ é£Ÿ ã€‚",
+            "output": [
+                "please find restaurants that allow smoking and serve french cuisine ."
+            ]
+        },
+        {
+            "input": "ä½  ä¼š æ‰¾ äº® é©¬ æ²³ é¥­ åº— é¤? åŽ… æœ? åŠ¡ äºŽ æ³° å›½ è?œ é£Ÿ å“? å?— ?",
+            "output": [
+                "would you search for moderately priced restaurants that serve thai food ?"
+            ]
+        },
+        {
+            "input": "å±• ç¤º å»‰ ä»· çš„ é¤? é¦† ,",
+            "output": [
+                "show me cheap restaurants that allow smoking ."
+            ]
+        },
+        {
+            "input": "æ˜¾ ç¤º æˆ‘ äº�? æ˜Ÿ çº§ é¤? åŽ… å¹¶ ä¸? ä¿? ç•™ é¢„ è®¢ ã€‚",
+            "output": [
+                "show me 5 star restaurants that do not take reservations ."
+            ]
+        },
+        {
+            "input": "æ–¯ é£Ž",
+            "output": [
+                "give me an italian restaurant with at least 1 michelin star"
+            ]
+        },
+        {
+            "input": "5 ä¸ª æ˜Ž æ˜Ÿ é¤? åŽ… é¢„ å®š ?",
+            "output": [
+                "which 5 star restaurants take reservations ?"
+            ]
+        },
+        {
+            "input": "ç¾² å’Œ 3 é‡Œ æ¡‚ æž— è·¯ 1 è™Ÿ å¤š ä¹… å¼€ ?",
+            "output": [
+                "how late is dairy queen on elm st . open ?"
+            ]
+        },
+        {
+            "input": "æœ‰ å¤š å°‘ é¤? åŽ… åœ¨ GENERIC_ENTITY_tt:us_state_0 è‡³ å°‘ æœ‰ ä¸€ é¢— ç™¾ ä¸‡ å…† èµ« æž— æ˜Ÿ ?",
+            "output": [
+                "how many restaurants in texas have at least 1 michelin star ?"
+            ]
+        }
+    ]
+}
