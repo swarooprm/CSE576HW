@@ -1,0 +1,712 @@
+{
+    "Contributors": [
+        "Karan Niraj Naik"
+    ],
+    "Source": [
+        "Semantic Parser Localizer (https:\\/\\/github.com\\/stanford-oval\\/SPL)"
+    ],
+    "Categories": [
+        "Translation"
+    ],
+    "Input_language": "Japanese",
+    "Output_language": "English",
+    "Definition": "The provided file includes inquiries about restaurants in Japanese, and we ask you to translate those to English language. Please bear in mind the following guidelines while doing the translation: 1) We are looking for the most naturally written and formal form of each sentence in your language. We are *NOT* looking for colloquial forms of the sentence. We are looking for formal form which is how you would type your queries in a text-based virtual assistant. 2) The words between quotation marks *SHOULD NOT* be translated. We expect you to keep those values intact and include the quotation marks around them as well. 3) The fully capitalized words like DATE_0, or DURATION_0 *SHOULD NOT* be translated. Please keep them as they are in the translations. 4) Please do not localize measurement units like miles to kilometers during your translation. miles should be translated to its equivalent in your language. 6) Note the input is all lowercased except for fully capitalized special placeholders (e.g. NUMBER, DATE, TIME). Please do the same in your translations.#TheTranslations #InquiriesThemUnitsSame #TheSentence #TheInput #ItsEquivalent #TheFullyCapitalizedWords #Kilometers #FullyCapitalizedSpecialPlaceholders #YourTranslations #Mind #ColloquialForms #TheTranslation #YourQueries #Restaurants #E.G.Number #TheProvidedFile #MeasurementUnits #QuotationMarks #DoInquiriesThemUnitsSame #EnglishLanguage #AText-BasedVirtualAssistant #TheWords #FileWeWeWeWeWhichYouWeYouThey #YourTranslation #YourLanguage",
+    "Positive Examples": [
+        {
+            "input": "è¿‘ã??ã?«0ã?¤æ˜Ÿè©•ä¾¡ã?®\" italian \"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã?¯ã?‚ã‚‹ï¼Ÿ",
+            "output": "are there any \" italian \" restaurants nearby with 0 star reviews ?",
+            "explanation": "The translation correctly preserves \" italian \" entity and is accurate"
+        },
+        {
+            "input": "æœ€å¯„ã‚Šã?®\" chinese \"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã?®é›»è©±ç•ªå?·ã?¨å ´æ‰€ã?¯ï¼Ÿ",
+            "output": "what is the telephone number and location of the nearest \" chinese \" restaurant ?",
+            "explanation": "The translation correctly preserves \" chinese \" entity. It's also fluent, correct, and lowercased."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "\" noodle nirvana \"ã?®é›»è©±ç•ªå?·ã?¯ï¼Ÿ",
+            "output": "what is the phone number for \" ãƒŒãƒ¼ãƒ‰ãƒ«ãƒ‹ãƒ«ãƒ´ã‚¡ãƒ¼ãƒŠ \" ?",
+            "explanation": "The restaurant name \" noodle nirvana \" is translated to \" ãƒŒãƒ¼ãƒ‰ãƒ«ãƒ‹ãƒ«ãƒ´ã‚¡ãƒ¼ãƒŠ \" instead of being kept intact"
+        },
+        {
+            "input": "\" san francisco \"ã?«ã?‚ã‚‹\" gold mirror \"ã?®è©•ä¾¡ã?¯ï¼Ÿ",
+            "output": "can you tell me the rating of \" san francisco \" in \" gold mirror \" ?",
+            "explanation": "The position of entities is switched in the output"
+        }
+    ],
+    "Instances": [
+        {
+            "input": "\" china wok \" ã‚’æ¤œç´¢ã€‚",
+            "output": [
+                "search for \" china wok \" ."
+            ]
+        },
+        {
+            "input": "\" sushi \" ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¡¨ç¤ºã€‚",
+            "output": [
+                "show me \" sushi \" restaurants ."
+            ]
+        },
+        {
+            "input": "æ˜Ÿã?Œ 1 ã?¤ã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¡¨ç¤ºã€‚",
+            "output": [
+                "show me 1 star restaurants ."
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œ 4 ç‚¹ã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’ã?™ã?¹ã?¦æ¤œç´¢ã€‚",
+            "output": [
+                "find all restaurants with a rating of 4 ."
+            ]
+        },
+        {
+            "input": "\" luby 's cafeteria \" ã‚’æ¤œç´¢ã€‚",
+            "output": [
+                "search for \" luby 's cafeteria \" ."
+            ]
+        },
+        {
+            "input": "3 ã?¤æ˜Ÿãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’ã?™ã?¹ã?¦æ¤œç´¢ã€‚",
+            "output": [
+                "search for all 3 star restaurants ."
+            ]
+        },
+        {
+            "input": "\" italian \" ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ¤œç´¢ã€‚",
+            "output": [
+                "search for \" italian \" restaurants ."
+            ]
+        },
+        {
+            "input": "8 ä»¶ã?®ãƒ¬ãƒ“ãƒ¥ãƒ¼ã?Œã?‚ã‚‹ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¡¨ç¤ºã€‚",
+            "output": [
+                "show me restaurants with a 8 reviews ."
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œ2ä»¥ä¸Šã?®ã?™ã?¹ã?¦ã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show all restaurants with a rating of 2 or higher ."
+            ]
+        },
+        {
+            "input": "\"itlaian\"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æŽ¢ã?—ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "search for \" itlaian \" cuisine restaurants ."
+            ]
+        },
+        {
+            "input": "ãƒ¬ãƒ“ãƒ¥ãƒ¼æ•°ã?Œ4ä»¶ä»¥ä¸Šã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show restaurants with at least 4 reviews ."
+            ]
+        },
+        {
+            "input": "ç·?å?ˆè©•ä¾¡ã?Œ2ç‚¹ä»¥ä¸Šã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¡¨ç¤ºã?—ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "display any restaurants with overall rating of 2 or above ."
+            ]
+        },
+        {
+            "input": "ã?„ã??ã?¤ã?‹ã?®\"indian\"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "i want to see some \" indian \" restaurants ."
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œ9æ˜Ÿã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show me 9 star restaurants ."
+            ]
+        },
+        {
+            "input": "æœ€ã‚‚è¿‘ã??ã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "what is the closest restaurant to me ?"
+            ]
+        },
+        {
+            "input": "\"burger king\"ã‚’æŽ¢ã?—ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "search for \" burger king \" ."
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œ8æ˜Ÿä»¥ä¸Šã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show me restaurants that have a rating of at least 8 stars ."
+            ]
+        },
+        {
+            "input": "\"lenny 's\"ã?¨ã?„ã?†ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?¤ã?‘ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "find me a restaurant called \" lenny 's \""
+            ]
+        },
+        {
+            "input": "ã?™ã?¹ã?¦ã?®\"german\"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show me all \" german \" restaurants ."
+            ]
+        },
+        {
+            "input": "\"brenda 's french soul food\"ã‚’è¦‹ã?¤ã?‘ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "i would like to find \" brenda 's french soul food \" ."
+            ]
+        },
+        {
+            "input": "ã?™ã?¹ã?¦ã?®\"italian\"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "i want to see all \" italian \" restaurants ."
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œ8æ˜Ÿä»¥ä¸Šã?®ã?™ã?¹ã?¦ã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show me all restaurants that are rated 8 star ."
+            ]
+        },
+        {
+            "input": "\"new american\"æ–™ç?†ã‚’æ??ä¾›ã?™ã‚‹ã?™ã?¹ã?¦ã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?¤ã?‘ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "find me all restaurants that serve \" new american \" cuisine ."
+            ]
+        },
+        {
+            "input": "\"mai lee\"ã‚’æŽ¢ã?—ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "look for \" mai lee \" ."
+            ]
+        },
+        {
+            "input": "\"vietnamese\"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?¤ã?‘ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "find the \" vietnamese \" restaurants ."
+            ]
+        },
+        {
+            "input": "\"jane\"ã?®ã?™ã?¹ã?¦ã?®ãƒ¬ãƒ“ãƒ¥ãƒ¼ã‚’è¦‹ã?¤ã?‘ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "find all reviews from \" jane \" ."
+            ]
+        },
+        {
+            "input": "ãƒ¬ãƒ“ãƒ¥ãƒ¼æ•°ã?Œ5ä»¶ä»¥ä¸Šã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show restaurants with over 5 reviews ."
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œ1ç‚¹ã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?¤ã?‘ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "find the restaurants with a rating of 1 ."
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œ1ç‚¹ä»¥ä¸Šã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’ä¸€è¦§è¡¨ç¤ºã?—ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "please give me a list of restaurants that are rated 1 and up ."
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œæœ€ã‚‚é«˜ã?„\"thai\"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?¤ã?‘ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "can you find the highest rated \" thai \" restaurant , please ."
+            ]
+        },
+        {
+            "input": "æœ€é«˜ã?®\"mexican\"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "i want to see the top \" mexican \" restaurants ."
+            ]
+        },
+        {
+            "input": "\"mcdonald 's\"ã‚’æŽ¢ã?—ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "search for \" mcdonald 's \""
+            ]
+        },
+        {
+            "input": "\"mark\"ã?®ã?™ã?¹ã?¦ã?®ãƒ¬ãƒ“ãƒ¥ãƒ¼ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show all \" mark \" 's reviews"
+            ]
+        },
+        {
+            "input": "\"las vegas\"ã?«ã?‚ã‚‹ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æŽ¢ã?—ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "look up restaurants in \" las vegas \""
+            ]
+        },
+        {
+            "input": "\"cracker barrel\"ã‚’è¦‹ã?¤ã?‘ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "find \" cracker barrel \""
+            ]
+        },
+        {
+            "input": "\"mexican\"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show me \" mexican \" restaurants ."
+            ]
+        },
+        {
+            "input": "ãƒ¬ãƒ“ãƒ¥ãƒ¼æ•°ã?Œ2ä»¶ä»¥ä¸Šã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?¤ã?‘ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "find restaurants with at least 2 reviews ."
+            ]
+        },
+        {
+            "input": "\"fuel pizza\"ã‚’è¦‹ã?¤ã?‘ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "find \" fuel pizza \" ."
+            ]
+        },
+        {
+            "input": "æœ€ã‚‚è¿‘ã?„ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "what is the closest restaurant ?"
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œ1æ˜Ÿä»¥ä¸Šã?®ã?™ã?¹ã?¦ã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show me all restaurants with ratings of at least 1 stars ."
+            ]
+        },
+        {
+            "input": "\"atomic ramen\"ã‚’è¦‹ã?¤ã?‘ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "find \" atomic ramen \""
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œ8ç‚¹ä»¥ä¸Šã?®ã?™ã?¹ã?¦ã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "tell all the restaurants rated 8 or higher"
+            ]
+        },
+        {
+            "input": "ãƒ¬ãƒ“ãƒ¥ãƒ¼æ•°ã?Œæœ€ã‚‚å¤šã?„ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show me the restaurant with the most reviews"
+            ]
+        },
+        {
+            "input": "\"arthur smith\"ã?Œãƒ¬ãƒ“ãƒ¥ãƒ¼ã?—ã?Ÿãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?¤ã?‘ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "find restaurants reviewed by \" arthur smith \""
+            ]
+        },
+        {
+            "input": "\"italian\"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show me \" italian \" restaurants ."
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œ0æ˜Ÿä»¥ä¸Šã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?¤ã?‘ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "find restaurants rated 0 stars or higher ."
+            ]
+        },
+        {
+            "input": "ãƒ¬ãƒ“ãƒ¥ãƒ¼æ•°ã?Œ5ä»¶ä»¥ä¸Šã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’ä¸€è¦§è¡¨ç¤ºã?—ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "list the restaurants with over 5 reviews ."
+            ]
+        },
+        {
+            "input": "\"chipotle\"ã‚’æŽ¢ã?—ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "search for \" chipotle \""
+            ]
+        },
+        {
+            "input": "\"ethiopian\"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show me \" ethiopian \" restaurants ."
+            ]
+        },
+        {
+            "input": "ãƒ¬ãƒ“ãƒ¥ãƒ¼æ•°ã?Œ8ä»¶ä»¥ä¸Šã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show me restaurants with more than 8 reviews ."
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œ10ç‚¹ä»¥ä¸Šã?®ã?™ã?¹ã?¦ã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?¤ã?‘ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "find all the restaurants rated higher than 10 ."
+            ]
+        },
+        {
+            "input": "\"outback steakhouse\"ã‚’æŽ¢ã?—ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "search for \" outback steakhouse \" ?"
+            ]
+        },
+        {
+            "input": "\"italian\"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?¤ã?‘ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "find a \" italian \" restaurant ."
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œ4æ˜Ÿä»¥ä¸Šã?®ã?™ã?¹ã?¦ã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’ä¸€è¦§è¡¨ç¤ºã?—ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "list all the restaurants with higher than 4 stars ."
+            ]
+        },
+        {
+            "input": "\"mei wei\"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã?®ä½?æ‰€ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "what is the address of the \" mei wei \" restaurant ?"
+            ]
+        },
+        {
+            "input": "\"mei wei\"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã?®è©•ä¾¡ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "what is the rating of \" mei wei \" restaurant ?"
+            ]
+        },
+        {
+            "input": "æœ€ã‚‚è¿‘ã?„\"coffee\"ã‚·ãƒ§ãƒƒãƒ—ã?®ä½?æ‰€ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "what is the address of the nearest \" coffee \" shop ?"
+            ]
+        },
+        {
+            "input": "\"west suburbs\"ã?«ã?‚ã‚‹ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show me restaurants in the \" west suburbs \" please ."
+            ]
+        },
+        {
+            "input": "\"detroit\"ã?«ã?‚ã‚‹ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’ã?„ã??ã?¤ã?‹æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "find me some places to eat in \" detroit \" ."
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œ10æ˜Ÿä»¥ä¸Šã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æŽ¢ã?—ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "look up restaurants that have 10 star ratings for me please ."
+            ]
+        },
+        {
+            "input": "\"john grace\"ã?Œãƒ¬ãƒ“ãƒ¥ãƒ¼ã?—ã?Ÿã?™ã?¹ã?¦ã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show me all the restaurants that \" john grace \" has reviewed ."
+            ]
+        },
+        {
+            "input": "\"bill story\"ã?®ãƒ¬ãƒ“ãƒ¥ãƒ¼ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show me reviews written by \" bill story \" ."
+            ]
+        },
+        {
+            "input": "\"old town doughnuts\"ã?«ã?¯ä½•ä»¶ã?®ãƒ¬ãƒ“ãƒ¥ãƒ¼æ•°ã?ŒæŠ•ç¨¿ã?•ã‚Œã?¦ã?„ã?¾ã?™ã?‹ã€‚",
+            "output": [
+                "how many reviews have been posted for \" old town doughnuts \" ?"
+            ]
+        },
+        {
+            "input": "å¹³å?‡è©•ä¾¡ã?Œ0ç‚¹ä»¥ä¸Šã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã?¯ã?„ã??ã?¤ã?‚ã‚Šã?¾ã?™ã?‹ã€‚",
+            "output": [
+                "how many restaurants have an average rating above 0 ?"
+            ]
+        },
+        {
+            "input": "\"parker road\"ã?«ã?‚ã‚‹\"mcdonald 's\"ã?®ä½?æ‰€ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "what 's the address of the \" mcdonald 's \" on \" parker road \" ?"
+            ]
+        },
+        {
+            "input": "\"mexican\"æ–™ç?†ã?Œé£Ÿã?¹ã?Ÿã?„ã?§ã?™ã€‚",
+            "output": [
+                "i want \" mexican \" food"
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œ7ç‚¹ã‚ˆã‚Šã‚‚\"spicy\"æ–™ç?†ã?Œé£Ÿã?¹ã?Ÿã?„ã?§ã?™ã€‚",
+            "output": [
+                "something \" spicy \" over 7 star rating ."
+            ]
+        },
+        {
+            "input": "ãƒ¬ãƒ“ãƒ¥ãƒ¼æ•°ã?Œ2ä»¶ä»¥ä¸Šã?®é£Ÿã?¹ç‰©ã?Œé£Ÿã?¹ã?Ÿã?„ã?§ã?™ã€‚",
+            "output": [
+                "i 'd like any food with more than 2 reviews ."
+            ]
+        },
+        {
+            "input": "æœ€ã‚‚è¿‘ã?„\"chinese\"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "where can i find the nearest \" chinese \" joint ."
+            ]
+        },
+        {
+            "input": "\"john oyster\"ã?®ã?™ã?¹ã?¦ã?®ãƒ¬ãƒ“ãƒ¥ãƒ¼ã‚’æŽ¢ã?—ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "search all reviews by \" john oyster \" ."
+            ]
+        },
+        {
+            "input": "\"mexican\"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã?«è¡Œã??ã?Ÿã?„ã?§ã?™ã€‚",
+            "output": [
+                "i would like a \" mexican \" restaurant ."
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œ9æ˜Ÿä»¥ä¸Šã?®ã?™ã?¹ã?¦ã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "i would like all restaurants with 9 stars and above ."
+            ]
+        },
+        {
+            "input": "\"los dos amigos\"ã?®å ´æ‰€ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "show me \" los dos amigos \""
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œ2ç‚¹ä»¥ä¸Šã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "i want restaurants rated 2 or higher ."
+            ]
+        },
+        {
+            "input": "éƒµä¾¿ç•ªå?·ã?Œ\"21269\"ã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?¤ã?‘ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "find restaurants in zip code \" 21269 \" ."
+            ]
+        },
+        {
+            "input": "ãƒ¬ãƒ“ãƒ¥ãƒ¼æ•°ã?Œ2ä»¶ä»¥ä¸Šã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ•™ã?ˆã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "i want restaurants with more than 2 reviews ."
+            ]
+        },
+        {
+            "input": "è©•ä¾¡ã?Œ6ç‚¹ä»¥ä¸Šã?®ã?™ã?¹ã?¦ã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¡¨ç¤ºã?—ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "display all the restaurants that have at least a rating of 6 ."
+            ]
+        },
+        {
+            "input": "0äººä»¥ä¸Šã?®åˆ©ç�?¨è€…ã?‹ã‚‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã?•ã‚Œã?Ÿãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æŽ¢ã?—ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "do a search for restaurants that have been reviewed by at least 0 people ."
+            ]
+        },
+        {
+            "input": "\"thai foon\"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æŽ¢ã?—ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "could you preform a search for the restaurant , \" thai foon \" ?"
+            ]
+        },
+        {
+            "input": "\"dairy queen\"ã‚’æŽ¢ã?—ã?¦ã??ã? ã?•ã?„ã€‚",
+            "output": [
+                "search for \" dairy queen \" ."
+            ]
+        },
+        {
+            "input": "ã?™ã?¹ã?¦ã?®10ã?¤æ˜Ÿãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ¤œç´¢ã€‚",
+            "output": [
+                "search for all 10 star restaurants ."
+            ]
+        },
+        {
+            "input": "\" greek \"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?›ã?¦ã€‚",
+            "output": [
+                "show me \" greek \" restaurants ."
+            ]
+        },
+        {
+            "input": "8ä»¶ä»¥ä¸Šã?®æŠ•ç¨¿ãƒ¬ãƒ‹ãƒ¥ãƒ¼ã?Œã?‚ã‚‹ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?›ã?¦ã€‚",
+            "output": [
+                "show me restaurants with more than 8 posted reviews ."
+            ]
+        },
+        {
+            "input": "å‘¨è¾ºã?®\" mcdonalds \"ã‚’æŽ¢ã?—ã?¦ã€‚",
+            "output": [
+                "can you find me a \" mcdonalds \" in my area ?"
+            ]
+        },
+        {
+            "input": "å‘¨è¾ºã?§æœ€é«˜ã?®\" fast food \"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã?¯ï¼Ÿ",
+            "output": [
+                "where are the best \" fast food \" joints in my area ."
+            ]
+        },
+        {
+            "input": "è¿‘ã??ã?®\" mcdonads \"ã?®ä½?æ‰€ã?¯ï¼Ÿ",
+            "output": [
+                "what is the address of the \" mcdonads \" in this area ."
+            ]
+        },
+        {
+            "input": "\" asheville nc \"ã?®å?Šå¾„3ãƒžã‚¤ãƒ«ä»¥å†…ã?®æœ€é«˜è©•ä¾¡ã?®\" burger \"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã?¯ï¼Ÿ",
+            "output": [
+                "what are the highest ranked \" burger \" joints in the 3 mile area around \" asheville nc \" ."
+            ]
+        },
+        {
+            "input": "\" federal highway \"ã?«ã?‚ã‚‹ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’å…¨éƒ¨è¦‹ã?›ã?¦ã€‚",
+            "output": [
+                "show me all the restaurants that are located on \" federal highway \" ?"
+            ]
+        },
+        {
+            "input": "ãƒ¬ãƒ“ãƒ¥ãƒ¼ã?®æ•°ã?Œä¸€ç•ªå¤šã?„ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã?¯ï¼Ÿ",
+            "output": [
+                "which restaurant has the highest amounts of reviews ?"
+            ]
+        },
+        {
+            "input": "\" jim \"ã?®ãƒ¬ãƒ“ãƒ¥ãƒ¼ã?ŒæŠ•ç¨¿ã?•ã‚Œã?Ÿæ—¥ä»˜ã?¯ï¼Ÿ",
+            "output": [
+                "what date was \" jim \" 's review posted ?"
+            ]
+        },
+        {
+            "input": "\" main street \"ã?«ã?‚ã‚‹ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã?¯ï¼Ÿ",
+            "output": [
+                "which restaurants are on \" main street \" ?"
+            ]
+        },
+        {
+            "input": "\" mexican \"æ–™ç?†ã‚’æŽ¢ã?—ã?¦ã€‚",
+            "output": [
+                "find me \" mexican \" food"
+            ]
+        },
+        {
+            "input": "\" kansas city , mo \"ã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?›ã?¦ã€‚",
+            "output": [
+                "show me restaurants in \" kansas city , mo \""
+            ]
+        },
+        {
+            "input": "å‘¨è¾ºã?®\" mexican \"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?›ã?¦ã€‚",
+            "output": [
+                "show me \" mexican \" restaurants in the area ."
+            ]
+        },
+        {
+            "input": "\" 93312 \"zipã‚³ãƒ¼ãƒ‰å†…ã?§æœ€å¯„ã‚Šã?®\" mexican \"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã?®é›»è©±ç•ªå?·ã‚’æ•™ã?ˆã?¦ã€‚",
+            "output": [
+                "provide me the telephone number for the nearest \" mexican \" restaurant in \" 93312 \" zip ."
+            ]
+        },
+        {
+            "input": "1ä»¶ä»¥ä¸Šã?®ãƒ¬ãƒ“ãƒ¥ãƒ¼ã?Œã?‚ã‚‹ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æŽ¢ã?—ã?¦ã€‚",
+            "output": [
+                "find restaurants with more than 1 reviews ."
+            ]
+        },
+        {
+            "input": "æœ€å¯„ã‚Šã?®\" mcdonalds \"ã?¯ï¼Ÿ",
+            "output": [
+                "where is the closest \" mcdonalds \""
+            ]
+        },
+        {
+            "input": "5ä»¶ä»¥ä¸Šã?®é«˜è©•ä¾¡ãƒ¬ãƒ“ãƒ¥ãƒ¼ã?Œã?‚ã‚‹\" mexican \"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã?¯ï¼Ÿ",
+            "output": [
+                "where is a \" mexican \" restaurant with more than 5 good reviews ?"
+            ]
+        },
+        {
+            "input": "\" mr gucci loafers \"ã?«ã‚ˆã‚‹è©•ä¾¡ã‚’ã?™ã?¹ã?¦è¦‹ã?›ã?¦ã€‚",
+            "output": [
+                "show all ratings made by \" mr gucci loafers \""
+            ]
+        },
+        {
+            "input": "å¸‚å†…ã?®\" steakhouse \"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ¤œç´¢ã?—ã?¦ã€‚",
+            "output": [
+                "search for \" steakhouse \" restaurants in my city"
+            ]
+        },
+        {
+            "input": "\" amy \"ã?«ã‚ˆã‚‹ãƒ¬ãƒ“ãƒ¥ãƒ¼ã‚’è¦‹ã?›ã?¦ã€‚",
+            "output": [
+                "show me reviews written by \" amy \" ."
+            ]
+        },
+        {
+            "input": "æœ€å¯„ã‚Šã?®\" wawa \"ã?¯ã?©ã?“ï¼Ÿ",
+            "output": [
+                "where can i find the closest \" wawa \" ?"
+            ]
+        },
+        {
+            "input": "\" big woodys \"ã‚’æ¤œç´¢ã?—ã?¦ã€‚",
+            "output": [
+                "search for \" big woodys \""
+            ]
+        },
+        {
+            "input": "\" egyptian \"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’æ¤œç´¢ã?—ã?¦ã€‚",
+            "output": [
+                "search for an \" egyptian \" restaurant ."
+            ]
+        },
+        {
+            "input": "æœ€ä½Ž9ã?¤æ˜Ÿä»¥ä¸Šã?®ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?›ã?¦ã€‚",
+            "output": [
+                "show me restaurants with a minimum 9 star rating ."
+            ]
+        },
+        {
+            "input": "\" starbucks \"ã?®ãƒ¬ãƒ“ãƒ¥ãƒ¼ã?®æ•°ã?¯ï¼Ÿ",
+            "output": [
+                "how many reviews are there at \" starbucks \" ?"
+            ]
+        },
+        {
+            "input": "\" thai \"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?›ã?¦ã€‚",
+            "output": [
+                "show me \" thai \" restaurants ."
+            ]
+        },
+        {
+            "input": "æœ€å¯„ã‚Šã?®\" applebee 's \"ã?¯ã?©ã?“ï¼Ÿ",
+            "output": [
+                "how far is the nearest \" applebee 's \" ?"
+            ]
+        },
+        {
+            "input": "ã?“ã?“ã?‹ã‚‰è¿‘ã?„\" mexican \"æ–™ç?†ã?¯ã?©ã?“ï¼Ÿ",
+            "output": [
+                "located \" mexican \" food close to here"
+            ]
+        },
+        {
+            "input": "\" white castle \"ã‚’è¦‹ã?›ã?¦ã€‚",
+            "output": [
+                "show me \" white castle \""
+            ]
+        },
+        {
+            "input": "æœ€ä½Ž5ã?¤æ˜Ÿã?®\" japanese \"ãƒ¬ã‚¹ãƒˆãƒ©ãƒ³ã‚’è¦‹ã?›ã?¦ã€‚",
+            "output": [
+                "search for \" japanese \" restaurants with at least 5 stars ."
+            ]
+        },
+        {
+            "input": "\" wendy 's \"ã?®è©•ä¾¡ã‚’æ•™ã?ˆã?¦ã€‚",
+            "output": [
+                "tell me the rating of \" wendy 's \" ."
+            ]
+        }
+    ]
+}
