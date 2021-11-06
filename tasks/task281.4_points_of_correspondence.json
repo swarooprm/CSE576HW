@@ -1,0 +1,1503 @@
+{
+    "Contributors": [
+        "Karan Niraj Naik"
+    ],
+    "Source": [
+        "Understanding Points of Correspondence between Sentences for Abstractive Summarization",
+        "https://arxiv.org/abs/2006.05621"
+    ],
+    "Categories": [
+        "Entity Detection"
+    ],
+    "Definition": "As the output, write the span of the text corresponding to the phrase in each sentence.",
+    "Positive Examples": [
+        {
+            "input": "sentence 1: ( CNN ) South America 's Atacama Desert , one of the driest places on Earth , resembles some of the faraway planets monitored by giant telescopes there . sentence 2: Andres Figueroa is a Chilean photographer . sentence 3: Photographer Andres Figueroa spent a week in one of the driest places on Earth .",
+            "output": "sentence 1: monitored by giant telescopes there 2: Andres Figueroa 3: Photographer Andres Figueroa",
+            "explanation": "All the sentences talks about photographer Andres Figueroa."
+        },
+        {
+            "input": "sentence 1: The injured ended up being treated outside overflowing hospitals , where crowds of people gathered looking for relatives . sentence 2: At least 17 people were reported killed on Mount Everest , where the quake caused multiple avalanches . sentence 3: People treated outside hospitals ; avalanches reported on Everest .",
+            "output": "sentence 1: people 2: people 3: People",
+            "explanation": "All sentences talks about the people."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "sentence 1: When Moynihan opened the driver 's - side door , the video shows , West sprang out and fired a shot with a pistol at the officer 's face . sentence 2: `` His condition is best described as serious but improving , '' Boston police said in a statement . sentence 3: Video shows that the man later shot dead by police in Boston opened fire first .",
+            "output": "sentence 1: Moynihan 2: His 3: Boston police",
+            "explanation": "First two sentence talks about Moynihan while the third sentence mentions about Boston police."
+        },
+        {
+            "input": "sentence 1: Soltan 's sister , Hanaa , is anxious about what the future holds for her family . sentence 2: `` Your face , with its beautiful smile often grinning , now looks permanently in pain . sentence 3: Letter from Soltan 's sister : `` Your face , with its beautiful smile ... now looks permanently in pain ''",
+            "output": "sentence 1: Hanaa 2: Your 3: Your face",
+            "explanation": "First sentence mentions about Hanaa while the last two sentences talks about Soltan."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "sentence 1: ( CNN ) Richard Glatzer , who directed a powerful film about a professor battling Alzheimer 's as he faced his own harrowing health struggles , has died . sentence 2: Glatzer co-directed `` Still Alice '' with his husband , Wash Westmoreland . sentence 3: Richard Glatzer , who co-directed `` Still Alice , '' has died .",
+            "output": [
+                "sentence 1: Richard Glatzer 2: Glatzer 3: Richard Glatzer"
+            ]
+        },
+        {
+            "input": "sentence 1: This is exactly how the latest media hype , this time over Hillary Clinton 's use of emails at the State Department , has played out . sentence 2: But the Times ' main source for this allegation says Clinton violated no laws . sentence 3: Hillary Clinton 's email practices did n't break the law , he says .",
+            "output": [
+                "sentence 1: Hillary Clinton 2: Clinton 3: Hillary Clinton 's"
+            ]
+        },
+        {
+            "input": "sentence 1: The report -- released one year after the disappearance of the Boeing 777 and its 239 passengers and crew -- provides a detailed picture of delays and protocol violations before the launch of the search and rescue . sentence 2: A year later after the plane 's disappearance , not a single trace of Flight MH370 has been found despite extensive search efforts . sentence 3: Flight carrying 239 people and crew has not been found , one year later .",
+            "output": [
+                "sentence 1: the Boeing 777 and its 239 passengers and crew 2: Flight MH370 3: Flight carrying 239 people and crew"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) Solar Impulse 2 has landed safely in Oman on the first leg of its quest to be the first plane to fly around the world fueled only by the sun 's rays . sentence 2: The solar-powered plane took off from Abu Dhabi in the United Arab Emirates early on Monday with pilot Andre Borschberg at the controls for the 400-kilometer ( 250 mile ) flight . sentence 3: Solar Impulse completes first leg of its round-the-world flight , from Abu Dhabi to Oman .",
+            "output": [
+                "sentence 1: Solar Impulse 2 2: The solar-powered plane 3: Solar Impulse"
+            ]
+        },
+        {
+            "input": "sentence 1: `` I wanted to show a slice of life ( through ) the beauty and richness of the culture , '' he said . sentence 2: By revealing just a slice , he hopes to arouse curiosity in viewers and inspire them to learn more `` to connect the dots . '' sentence 3: He set out to show the `` beauty and richness of the culture '' and arouse curiosity in viewers .",
+            "output": [
+                "sentence 1: the 2: he 3: He"
+            ]
+        },
+        {
+            "input": "sentence 1: Back then even the man in charge of the dig , archaeologist Richard Buckley , did n't expect to find anything -- he told colleagues he'd `` eat his hat '' if they turned up the long-lost King 's remains . sentence 2: This weekend , Richard III 's skeleton will leave the laboratory at the University of Leicester , where it has been kept since it was found , and be taken back to Bosworth , scene of his death in 1485 , for a commemoration ceremony , before being returned to Leicester ahead of its reburial next week . sentence 3: Long-lost King 's skeleton is to be reinterred in the city 's cathedral later this week .",
+            "output": [
+                "sentence 1: the long-lost King 's remains 2: Richard III 's skeleton 3: Long-lost King 's skeleton"
+            ]
+        },
+        {
+            "input": "sentence 1: Extremists resented him for openly and regularly criticizing religion in his blog . sentence 2: They threatened to kill him if he came home from the United States to visit . sentence 3: Islamist extremists resented him , threatened to kill him .",
+            "output": [
+                "sentence 1: Extremists 2: They 3: Islamist extremists"
+            ]
+        },
+        {
+            "input": "sentence 1: Noah , 31 , who is South African and biracial , debuted on `` The Daily Show With Jon Stewart '' in December . sentence 2: Stewart approves of his replacement . sentence 3: Stewart approves of the South African comedian as his replacement .",
+            "output": [
+                "sentence 1: Noah , 31 , who is South African and biracial 2: his replacement 3: the South African comedian"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) Embattled Ferguson Police Chief Thomas Jackson resigned Wednesday , a week after a scathing Justice Department report slammed his department . sentence 2: The resignation will go into effect March 19 , Jackson said , to `` provide for an orderly transition of command . '' sentence 3: Police Chief Thomas Jackson 's resignation is effective March 19 .",
+            "output": [
+                "sentence 1: Embattled Ferguson Police Chief Thomas Jackson 2: Jackson 3: Police Chief Thomas Jackson 's"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) In 1796 , in his final annual address to Congress , President George Washington called for the creation of : . '' sentence 2: But despite leaving $ 22,222 for its establishment ( a lot of money back then ) in his last will and testament , Washington 's National University never came to pass . sentence 3: In 1796 , Washington called for a national university and even left money behind to fund it .",
+            "output": [
+                "sentence 1: President George Washington 2: Washington 3: Washington"
+            ]
+        },
+        {
+            "input": "sentence 1: While a lot of attention in recent years has been focused on his sons , Princes William and Harry , Charles is next in line to the British throne . sentence 2: But as part of his interest in sustainability , he has championed organic farming and gardening for many years , including on his large country estates . sentence 3: Charles , an advocate of organic farming and traditional architecture , is heir to British throne .",
+            "output": [
+                "sentence 1: Charles 2: he 3: Charles , an advocate of organic farming and traditional architecture"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) The search for a comic book artist missing in the Cayman Islands since Thursday is now being called a recovery mission . sentence 2: `` I'm so sorry to hear about Norman Lee 's disappearance . sentence 3: Comic book artist Norman Lee went missing in the Cayman Islands on Thursday .",
+            "output": [
+                "sentence 1: a comic book artist missing in the Cayman Islands since Thursday 2: Norman Lee 3: Comic book artist Norman Lee"
+            ]
+        },
+        {
+            "input": "sentence 1: New York ( CNN ) A missing eighth-grade student who was found dead near his Pennsylvania home on Sunday died from a self-inflicted gunshot wound , according to the county medical examiner . sentence 2: Cayman Naib , 13 , vanished Wednesday after leaving his home in Newtown Township without his wallet or his phone , according to his parents . sentence 3: Cayman Naib , 13 , was found dead Sunday after being missing for five days .",
+            "output": [
+                "sentence 1: A missing eighth-grade student 2: Cayman Naib , 13 3: Cayman Naib , 13"
+            ]
+        },
+        {
+            "input": "sentence 1: Arsenal had taken a 25th minute lead through Nacho Monreal , the Spanish defender converting after fine move which involved Mesut Ozil and Alex Oxlade-Chamberlain . sentence 2: But the advantage was short lived with Di Maria finding Wayne Rooney to score with a diving header . sentence 3: Holders Arsenal took the lead through Nacho Monreal before Wayne Rooney equalized .",
+            "output": [
+                "sentence 1: a 25th minute lead 2: the advantage 3: the lead"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) The 1-0 scoreline that took Barcelona through to the Champions League quarterfinals made their clash with Manchester City all seem rather academic . sentence 2: It means that for the second time in three years , no English team have made the last eight , where Barca have joined Madrid sides Real and Atletico , Bayern Munich , Monaco , Paris Saint-Germain , Porto and Juventus . sentence 3: Barca and Juve join Real Madrid , Atletico Madrid , Monaco , PSG , Porto and Bayern Munich in Champions League quarterfinals .",
+            "output": [
+                "sentence 1: Barcelona 2: Barca 3: Barca"
+            ]
+        },
+        {
+            "input": "sentence 1: South Korea is working on a response to the demands , leaving factory owners worried about the threat of a factory shutdown . sentence 2: North Korea is demanding an increase of roughly 5.5 % , to an equivalent $ 164.10 a month . sentence 3: North Korea demanded a pay increase ; South Korea 's working on a response .",
+            "output": [
+                "sentence 1: Korea 2: Korea 3: Korea"
+            ]
+        },
+        {
+            "input": "sentence 1: The man has admitted stabbing three women aged 59 , 76 and 84 , as well as two men aged 62 and 82 , Deputy Police Chief Keizo Okumoto told CNN . sentence 2: He said the accused refused to comment further as he was awaiting his lawyer . sentence 3: A police official says the man has admitted to the stabbings but refused to comment further .",
+            "output": [
+                "sentence 1: The man 2: the accused 3: the man"
+            ]
+        },
+        {
+            "input": "sentence 1: In Wisconsin , Casper was killed after chasing a bank robbery suspect in Fond du Lac , authorities said . sentence 2: Trevor was so very proud of his career as a Wisconsin State Trooper . sentence 3: Wisconsin state trooper killed during an attempted bank robbery .",
+            "output": [
+                "sentence 1: Casper 2: Trevor 3: Wisconsin state trooper"
+            ]
+        },
+        {
+            "input": "sentence 1: Presidential spokesman Dmitry Peskov sought to quell the rumors of ill health on Thursday , joking that they were down to `` spring fever , '' Russia 's state-run Tass news agency reported . sentence 2: The speculation about Putin began after a planned meeting in the Kazakh capital , Astana , between the Russian leader and the presidents of Kazakhstan and Belarus was postponed at short notice . sentence 3: Putin spokesman dismisses rumors of ill health sparked by Putin 's cancellation of planned talks .",
+            "output": [
+                "sentence 1: the rumors of ill health 2: The speculation about Putin 3: rumors of ill health"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) The irrepressible Mario Balotelli has a message for his critics : `` shut up ! '' sentence 2: `` Did you ever talk to me , personally ? sentence 3: Mario Balotelli asks `` Do you know me ? Did you ever talk to me personally ? ''",
+            "output": [
+                "sentence 1: The irrepressible Mario Balotelli 2: me 3: Mario Balotelli"
+            ]
+        },
+        {
+            "input": "sentence 1: That 's about all police in Glades County , Florida , had to work with early Monday , hours after a van with 18 people inside ran a stop sign , crossed a four-lane highway and plunged into a shallow water-filled ditch . sentence 2: Investigators do n't know why it happened , Florida Highway Patrol spokesman Lt . Greg Bueno told CNN affiliate WPBF . sentence 3: Investigators do n't know why the van ran a stop sign and plunged into a shallow canal .",
+            "output": [
+                "sentence 1: police in Glades County , Florida 2: Investigators 3: Investigators"
+            ]
+        },
+        {
+            "input": "sentence 1: Part blimp , part plane , part helicopter , it was originally created by British design company Hybrid Air Vehicles ( HAV ) for military surveillance by the U.S . Army . sentence 2: But budget cuts doomed the project and HAV bought the airship back across the pond , where it seemed set to remain on solid ground until the company received a # 3.4 million ( $ 5.1 million ) grant from the UK government . sentence 3: Originally designed for U.S. military , it is now backed by the UK government .",
+            "output": [
+                "sentence 1: Part blimp , part plane , part helicopter , it 2: the airship 3: military"
+            ]
+        },
+        {
+            "input": "sentence 1: Moscow ( CNN ) Russian President Vladimir Putin appeared in a series of photos released by the Kremlin on Friday after a week in which canceled engagements led to speculation over his health . sentence 2: The three images showed Putin meeting with the head of the Supreme Court in Moscow on Friday , the Kremlin said . sentence 3: Kremlin releases images of a meeting it says President Vladimir Putin held Friday .",
+            "output": [
+                "sentence 1: the Kremlin 2: the Kremlin 3: Kremlin"
+            ]
+        },
+        {
+            "input": "sentence 1: This time it 's over a `` Saturday Night Live '' commercial parody that aired over the weekend . sentence 2: The sketch mocked ISIS and on some level those who would fall for its sales pitch , like , perhaps , the three young British girls who reportedly headed to join them . sentence 3: Dean Obeidallah : Twitter blew up over `` Saturday Night Live '' skit about girl joining ISIS .",
+            "output": [
+                "sentence 1: a `` Saturday Night Live '' commercial parody 2: The sketch 3: Saturday Night Live '' skit"
+            ]
+        },
+        {
+            "input": "sentence 1: Leonard Nimoy , `` Star Trek 's '' beloved Mr . Spock , had died . sentence 2: His co-stars , fellow celebrities and fans reacted with heartfelt tributes from around the world and all the way to space , where astronaut Terry W . Wirts flashed a Vulcan salute aboard the International Space Station . sentence 3: Co-stars , science leaders and fans pay tribute to `` Star Trek 's '' Leonard Nimoy .",
+            "output": [
+                "sentence 1: Leonard Nimoy , `` Star Trek 's '' beloved Mr . Spock 2: His 3: Star Trek 's '' Leonard Nimoy"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) After a handful events in two months , Hillary Clinton has filled her March with a mix of women 's events , nonprofit speeches and at least one paid appearance . sentence 2: Most of Clinton 's events are focused on one thing : women . sentence 3: Clinton currently has seven events in March , with one paid speech and many focused on women .",
+            "output": [
+                "sentence 1: Hillary Clinton 2: Clinton 3: Clinton"
+            ]
+        },
+        {
+            "input": "sentence 1: Running has helped her raise money for the animal sanctuary and also allowed her to promote a positive image of veganism , though Oakes , who has n't eaten animal products since her teenage years , is keen not to sound too preachy . sentence 2: `` I just want to be an example to say that if these people are considering this lifestyle , it can be done on a plant-based diet . '' sentence 3: Oakes is passionate about veganism and promoting positive image of plant-based diet .",
+            "output": [
+                "sentence 1: veganism 2: a plant-based diet 3: veganism"
+            ]
+        },
+        {
+            "input": "sentence 1: CNN correspondent Shasta Darlington , who lives in Sao Paulo , explains who the demonstrators are , why they 're mad and what could be in store for the President and the country . sentence 2: What do the protesters want ? sentence 3: CNN 's Shasta Darlington , who lives in Sao Paulo , explains who protesters are and what they want .",
+            "output": [
+                "sentence 1: the demonstrators 2: the protesters 3: protesters"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) The news that the U.S . military will charge Army Sgt . Bowe Bergdahl with desertion for abandoning his post in Afghanistan revives a deeply disturbing and morally wrenching incident in America 's troubled war in Afghanistan . sentence 2: What has been the cost of Bergdahl 's odyssey ? sentence 3: Frida Ghitis : Desertion charges against Bowe Bergdahl revive questions : Was swap deal for him correct ? What has his odyssey cost ?",
+            "output": [
+                "sentence 1: Army Sgt . Bowe Bergdahl 2: Bergdahl 3: Bowe Bergdahl"
+            ]
+        },
+        {
+            "input": "sentence 1: That was the question left still unanswered at the end of Sunday night 's season finale of `` The Walking Dead , '' and a finale record 15.8 million viewers tuned in to find out the answer . sentence 2: That led up to one of many moments where we gasped during the 90-minute finale . sentence 3: `` The Walking Dead '' ended its fifth season with many shocking moments .",
+            "output": [
+                "sentence 1: Sunday night 's season finale of `` The Walking Dead 2: the 90-minute finale 3: The Walking Dead '' ended"
+            ]
+        },
+        {
+            "input": "sentence 1: Introducing La Belle , the 80-meter gold and crystal-encrusted superyacht described as a floating `` boudoir for women , '' by its female designer . sentence 2: `` But there will be a fantastic spa with a beauty center , large mirrors , and huge wardrobes , '' she said of the concept yacht , which she claims is the first designed specifically for women . sentence 3: La Belle touts itself as the ` first superyacht designed for women '",
+            "output": [
+                "sentence 1: La Belle , the 80-meter gold and crystal-encrusted superyacht 2: the concept yacht 3: La Belle"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) The tragic news that Germanwings Flight 9525 was deliberately crashed into the French Alps by a pilot deemed `` 100 % fit to fly '' challenges the common understanding of the phrase . sentence 2: The pilot and co-pilot on Germanwings Flight 9525 had passed the test the airline used to evaluate applicants , he said . sentence 3: On Thursday the Marseille prosecutor said Flight 9525 's co-pilot deliberately crashed .",
+            "output": [
+                "sentence 1: Germanwings Flight 9525 2: Germanwings Flight 9525 3: Flight 9525"
+            ]
+        },
+        {
+            "input": "sentence 1: There are new Ebola cases every day , including 132 in the last week of February ( which is up from 99 reported the previous week ) . sentence 2: Still , authorities in Africa and their partners around the world have had significant successes generally in combating the deadly disease . sentence 3: Authorities have had success in curbing Ebola , but dozens of new cases still arise each week .",
+            "output": [
+                "sentence 1: Ebola 2: the deadly disease 3: Ebola"
+            ]
+        },
+        {
+            "input": "sentence 1: The South Asian nation leads all others in new polio cases in recent years , and has nine of this year 's 10 reported cases . sentence 2: In 2014 , Pakistan had 327 cases . sentence 3: Pakistan has more new polio cases than any other country .",
+            "output": [
+                "sentence 1: The South Asian nation 2: Pakistan 3: Pakistan"
+            ]
+        },
+        {
+            "input": "sentence 1: Leicester , England ( CNN ) Richard III , the King found beneath a car parking lot , has been reburied in a solemn but celebratory service , 530 years after his death in battle . sentence 2: The remains of the medieval monarch were sensationally rediscovered beneath a blanket of tarmac in the center of Leicester in August 2012 . sentence 3: Remains of Richard III were sensationally rediscovered 530 years after death .",
+            "output": [
+                "sentence 1: the King found beneath a car parking lot 2: The remains of the medieval monarch 3: Remains of Richard III"
+            ]
+        },
+        {
+            "input": "sentence 1: In 2014 , while the winner of Wimbledon received $ 2,600,000 and the Augusta Masters champion picked up $ 1,620,000 , when Pearson won gold in the Olympics three years ago she received zero prize money . sentence 2: Billions might have tuned in to watch London 's 2012 Olympic Games which saw over 10,000 athletes compete across 302 events in a battle for golden glory , but the International Olympic Committee 's current policy is to ( IOC ) hand out gold , silver and bronze medals as well as a bouquet of flowers to athletes , but no financial remuneration . sentence 3: Pearson won gold at the London 2012 Olympics .",
+            "output": [
+                "sentence 1: the Olympics three years ago 2: London 's 2012 Olympic Games 3: the London 2012 Olympics"
+            ]
+        },
+        {
+            "input": "sentence 1: She sat her first Math GSCE exam , a British high school qualification , at Ounsdale High School in Wolverhampton at just six , where she received a C-grade . sentence 2: Then last year she scored a B-grade when she sat the Math A-level exam . sentence 3: Took A-level exams , a British secondary school qualification , last year .",
+            "output": [
+                "sentence 1: her first Math GSCE exam 2: the Math A-level exam 3: A-level exams"
+            ]
+        },
+        {
+            "input": "sentence 1: It shows a teenage boy in the schoolyard of a West London secondary school . sentence 2: Who Mohammed Emwazi used to be . sentence 3: Video shows a young Mohammed Emwazi in a West London schoolyard .",
+            "output": [
+                "sentence 1: a teenage boy 2: Mohammed Emwazi 3: a young Mohammed Emwazi"
+            ]
+        },
+        {
+            "input": "sentence 1: Hong Kong ( CNN ) Disgraced former People 's Liberation Army ( PLA ) general Xu Caihou has died of bladder cancer , Chinese state media has reported . sentence 2: Formerly a vice-chairman of China 's Central Military Commission , the body which runs the two-million strong PLA , Xu was also expelled from the Chinese Communist Party and had his rank of general revoked , according to a statement from the state-run Xinhua news agency . sentence 3: Xu , a former vice chairman of the Central Military Commission , dies of bladder cancer .",
+            "output": [
+                "sentence 1: Disgraced former People 's Liberation Army ( PLA ) general Xu Caihou 2: Formerly a vice-chairman of China 's Central Military Commission , the body which runs the two-million strong PLA , Xu 3: Xu , a former vice chairman of the Central Military Commission"
+            ]
+        },
+        {
+            "input": "sentence 1: ( The Hollywood Reporter ) Sam Simon , the nine-time Emmy Award-winning comedy writer and producer who helped develop `` The Simpsons , '' made millions after leaving the show in 1993 and then donated his riches to charity , has died , his foundation announced on Facebook . sentence 2: Tired of the grind , Simon exited the show in 1993 after four seasons but worked out a deal tied to home video sales that he said paid him `` tens of millions '' every year . sentence 3: Sam Simon helped create `` The Simpsons , '' oversaw first four seasons .",
+            "output": [
+                "sentence 1: Sam Simon , the nine-time Emmy Award-winning comedy writer and producer who helped develop `` The Simpsons 2: Simon 3: Sam Simon"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) ISIS militants kidnapped 20 foreigners working at a Libyan hospital , then released them -- under the condition , if they want to live , that they stay put so they can treat members of the Islamist extremist group , a hospital official said . sentence 2: About 30 gunmen tied to the group calling itself the Islamic State stormed Ibn Sina Hospital in Sirte on Monday while a bus was waiting to take the workers to Tripoli , Libya 's capital . sentence 3: About 30 gunmen stormed the Sirte hospital , took 20 foreigners captive .",
+            "output": [
+                "sentence 1: ISIS militants 2: About 30 gunmen tied to the group calling itself the Islamic State 3: About 30 gunmen"
+            ]
+        },
+        {
+            "input": "sentence 1: ( The Hollywood Reporter ) Albert Maysles , who collaborated along with his late brother David in a documentary film career that included the troubling 1970 concert documentary `` Gim me Shelter , '' has died . sentence 2: `` Gim me Shelter '' -- which chronicled the 1969 Rolling Stones tour that culminated in the Altamont Free Concert , in which a fan brandishing a gun was stabbed to death by a Hells Angels security man -- stood in a stark and more enduring counterpoint to the myth of the documentary `` Woodstock , '' a depiction of the glorified 1969 free concert whose own dark side was left out in its pre-conceived , celebratory style . sentence 3: Best-known films include `` Gim me Shelter , '' about Rolling Stones Altamont concert .",
+            "output": [
+                "sentence 1: the troubling 1970 concert documentary `` Gim me Shelter 2: Gim me Shelter 3: Gim me Shelter"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) It was always going to take an extraordinary performance from a very talented swimmer to beat Michael Phelps at his favorite event in an Olympic final . sentence 2: When the South African chased down Phelps in the final 50 meters of the race to snatch a dramatic fingertip victory by 0.05 seconds he created one of the defining moments of the 2012 London Olympics . sentence 3: South African swimmer stunned Michael Phelps at 2012 London Olympics .",
+            "output": [
+                "sentence 1: Michael Phelps 2: Phelps 3: Michael Phelps"
+            ]
+        },
+        {
+            "input": "sentence 1: This pocket of 2,000 men and women constitutes the nation 's biggest concentration of homeless people living and sleeping on public sidewalks , in scattered camps under tarps . sentence 2: `` Skid Row is a 54-block area that has the largest homeless number of individuals in the country , '' said Jerry Jones , executive director of the National Coalition for the Homeless . sentence 3: Skid Row in L.A. is a 54-block area home to the nation 's largest concentration of homeless people .",
+            "output": [
+                "sentence 1: the nation 's biggest concentration of homeless people living and sleeping on public sidewalks 2: the largest homeless number of individuals in the country 3: the nation 's largest concentration of homeless people"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) Tunisia 's tourism industry has been thrown into disarray by a terror attack on Wednesday that left at least 17 foreign visitors dead and prompted urgent warnings over security . sentence 2: Prime Minister Habib Essid said Polish , Italian , German and Spanish tourists are among those killed , with another 20 tourists plus two Tunisians wounded in the attack . sentence 3: Gunmen killed 17 tourists and two others on Wednesday at a museum in Tunisia 's capital .",
+            "output": [
+                "sentence 1: terror attack 2: the attack 3: killed"
+            ]
+        },
+        {
+            "input": "sentence 1: Boston ( CNN ) Dzhokhar Tsarnaev 's own words may determine whether he lives or dies , even if he never speaks a word at his trial . sentence 2: While in the boat , he wrote that he could n't stand to see the U.S . government `` go unpunished '' for killing Muslims . sentence 3: Jurors see Dzhokhar Tsarnaev 's writings on boat where he hid .",
+            "output": [
+                "sentence 1: Dzhokhar Tsarnaev 2: the 3: Dzhokhar Tsarnaev 's"
+            ]
+        },
+        {
+            "input": "sentence 1: `` This is a country of corruption , '' Nemtsov said . sentence 2: `` For Putin 's Russia , this is a system . sentence 3: Nemtsov criticized Putin 's Russia in the interview saying the power system was corrupt .",
+            "output": [
+                "sentence 1: a country of corruption 2: Putin 's Russia 3: Putin 's Russia"
+            ]
+        },
+        {
+            "input": "sentence 1: Photographer Trupal Pandya traveled about 30 hours by air , water and land to reach this native community and take their portraits . sentence 2: The Huaorani , which means `` the people '' or `` human beings , '' are believed to have inhabited the rainforest for thousands of years . sentence 3: Photographer Trupal Pandya took portraits of the Huaorani people in Ecuador 's rainforest .",
+            "output": [
+                "sentence 1: this native community 2: The Huaorani , which means `` the people '' or `` human beings 3: the Huaorani people in Ecuador 's rainforest"
+            ]
+        },
+        {
+            "input": "sentence 1: `` I'm excited to finally share my story and what I've learned from my personal experiences both inside and outside of the Playboy Mansion , '' she told Us . sentence 2: `` I think my stories will surprise people , and I'm looking forward to lifting the veil of mystique and clearing up the misconceptions so often associated with my life . '' sentence 3: `` I think my stories will surprise people , '' Madison told Us Weekly .",
+            "output": [
+                "sentence 1: she 2: I 3: Madison"
+            ]
+        },
+        {
+            "input": "sentence 1: They , too , escaped Boko Haram . sentence 2: For the girls , to remain in school , they must draw upon all their reserves of courage . sentence 3: Nigerian girls escaped after Boko Haram abducted them from school .",
+            "output": [
+                "sentence 1: They 2: the girls 3: Nigerian girls"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) For the second time , a Georgia woman 's execution has been postponed -- this time because of concerns about the drugs to be used . sentence 2: At that time , the drugs appeared cloudy . sentence 3: The execution is postponed because the drugs `` appeared cloudy , '' Georgia says .",
+            "output": [
+                "sentence 1: the drugs 2: the drugs 3: the drugs"
+            ]
+        },
+        {
+            "input": "sentence 1: London ( CNN ) Israeli Prime Minister Benjamin Netanyahu and his supporters are trying to create `` an atmosphere of hysteria '' and `` fear-mongering , '' the Iranian foreign minister said Thursday . sentence 2: Zarif told Amanpour that Netanyahu 's speech had `` no effect on the negotiating table . '' sentence 3: Iranian foreign minister says speech had `` no effect on the negotiating table ''",
+            "output": [
+                "sentence 1: the Iranian foreign minister 2: Zarif 3: Iranian foreign minister"
+            ]
+        },
+        {
+            "input": "sentence 1: Los Angeles ( CNN ) Even as major airports across the country clamp down on employee screening , a lone wolf could still potentially slip through security , a top airport official said . sentence 2: `` I agree that in any airport throughout the United States and here also , there is never a 100 % guarantee that somebody who wanted to do something illegal or wrong could n't make that happen , '' Gannon said . sentence 3: Still , there 's never a 100 % guarantee of safety , airport official says .",
+            "output": [
+                "sentence 1: airports 2: airport 3: airport"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) Germanwings co-pilot Andreas Lubitz was hiding an illness from his employers and had been declared `` unfit to work '' by a doctor , according to German authorities investigating what could have prompted the seemingly competent and stable pilot to steer his jetliner into a French mountain . sentence 2: But the fact that investigators found `` ripped , recent medical leave notes , including for the day of the offense , leads to the preliminary conclusion that the deceased kept his illness secret from his employer and his professional environment , '' prosecutors said . sentence 3: Ripped medical-leave notes found at his home indicate co-pilot hid an illness , officials say .",
+            "output": [
+                "sentence 1: Germanwings co-pilot Andreas Lubitz 2: the deceased 3: co-pilot"
+            ]
+        },
+        {
+            "input": "sentence 1: The second student expelled , Pettit does not have much of a digital footprint . sentence 2: What appears to be his now deleted Twitter page mainly focuses on his musings about college football . sentence 3: Levi Pettit , the second student expelled , mainly focused on college football on social media .",
+            "output": [
+                "sentence 1: The second student expelled , Pettit 2: his 3: Levi Pettit , the second student expelled"
+            ]
+        },
+        {
+            "input": "sentence 1: The film , directed by Clint Eastwood , has become the highest-grossing war movie ever . sentence 2: Why'American Sniper ' is a smash hit . sentence 3: `` American Sniper '' is the highest-grossing war movie .",
+            "output": [
+                "sentence 1: The film , directed by Clint Eastwood 2: Why'American Sniper 3: American Sniper"
+            ]
+        },
+        {
+            "input": "sentence 1: Dzhokhar Tsarnaev was arrested about 8:45 p.m . that same day , hiding in a boat called the `` Slip Away '' that was stowed in a backyard in Watertown . sentence 2: Jurors saw photos of the boat last week . sentence 3: Jurors see the boat where Dzhokhar Tsarnaev hid before his arrest .",
+            "output": [
+                "sentence 1: a boat called the `` Slip Away 2: the boat 3: the boat"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) A Spanish dolphin trainer who was accused on social media of abusing the animals has been found dead , a source with the Spanish National Police told CNN on Saturday . sentence 2: Jose Luis Barbero was expected to become vice president of the Georgia Aquarium in Atlanta , CNN affiliate WSB reported . sentence 3: Dolphin trainer Jose Luis Barbero was found dead in his vehicle , Spanish police say .",
+            "output": [
+                "sentence 1: A Spanish dolphin trainer who was accused on social media of abusing the animals 2: Jose Luis Barbero 3: Dolphin trainer Jose Luis Barbero"
+            ]
+        },
+        {
+            "input": "sentence 1: Fall River , Massachusetts ( CNN ) Shayanna Jenkins , the fiancee of former New England Patriots star Aaron Hernandez , revealed for the first time Monday she suspects marijuana was in a box she was instructed to remove from the couple 's home the day after the slaying of Odin Lloyd in 2013 . sentence 2: Hernandez has been charged with murder and has pleaded not guilty to orchestrating the death of Lloyd , the boyfriend of Shayanna Jenkins ' sister and semipro football player who was found dead June 17 , 2013 . sentence 3: Aaron Hernandez is charged with first-degree murder in the slaying of Odin Lloyd .",
+            "output": [
+                "sentence 1: former New England Patriots star Aaron Hernandez 2: Hernandez 3: Aaron Hernandez"
+            ]
+        },
+        {
+            "input": "sentence 1: On Wednesday the Rock and Roll Hall of Fame announced an array of A-list presenters and performers for its 30th Annual Induction Ceremony , which takes place at Cleveland 's historic Public Hall on Saturday , April 18 . sentence 2: The Rock and Roll Hall of Fame Induction Ceremony will be broadcast on HBO Saturday , May 30 . sentence 3: The ceremony will take place in April and will be broadcast on HBO in May .",
+            "output": [
+                "sentence 1: its 30th Annual Induction Ceremony 2: The Rock and Roll Hall of Fame Induction Ceremony 3: The ceremony"
+            ]
+        },
+        {
+            "input": "sentence 1: I am heartbroken by the portrayal that I am in some way racist . sentence 2: `` I feel like the rug has been pulled out from under me , '' Gilbow said . sentence 3: `` I am heartbroken by the portrayal that I am in some way racist , '' says Beauton Gilbow .",
+            "output": [
+                "sentence 1: I 2: Gilbow 3: Beauton Gilbow"
+            ]
+        },
+        {
+            "input": "sentence 1: It was first posted by photographer Jason Ward on Monday and credited to Martin Le-May . sentence 2: The amateur photographer from Essex , near London , told the broadcaster he had been walking with his wife in Hornchurch Country Park , Essex , when they heard `` a distressed squawking '' noise and spotted the woodpecker . sentence 3: The image was snapped by amateur photographer Martin Le-May near London .",
+            "output": [
+                "sentence 1: Martin Le-May 2: The amateur photographer from Essex , near London 3: amateur photographer Martin Le-May"
+            ]
+        },
+        {
+            "input": "sentence 1: Jolie , 39 , carries a mutation of the BRCA1 gene , which sharply increases her risk of developing breast cancer and ovarian cancer . sentence 2: Jolie stresses that not all women with the same BRCA1 gene mutation should feel they must automatically leap to surgery , but she urges them to explore their options and take control . sentence 3: She urges other women at high risk of developing cancer to explore their options and take control .",
+            "output": [
+                "sentence 1: Jolie , 39 2: Jolie 3: She"
+            ]
+        },
+        {
+            "input": "sentence 1: The `` maternity tourism '' sites included apartment complexes in Los Angeles , Orange and San Bernardino counties where authorities believe the businesses housed the foreign nationals about to give birth , federal officials said . sentence 2: Those targeted residences are believed to have catered largely to women from China , who paid $ 15,000 to $ 50,000 for lodging , transportation and food , according to a statement by U.S . Immigration and Customs Enforcement . sentence 3: The `` maternity tourism '' sites are apartment complexes catering largely to pregnant women from China .",
+            "output": [
+                "sentence 1: The `` maternity tourism '' sites 2: Those targeted residences 3: The `` maternity tourism '' sites"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) A year later , it still sounds impossible : A sophisticated $ 270 million airliner carrying 239 people disappears , leaving very few clues about where it went . sentence 2: Despite this technology , the world lost track of the flight with the airline industry codename MH370 . sentence 3: A year after MH370 vanished , airline tracking is still largely the same .",
+            "output": [
+                "sentence 1: A sophisticated $ 270 million airliner carrying 239 people 2: the flight with the airline industry codename MH370 3: MH370"
+            ]
+        },
+        {
+            "input": "sentence 1: She works as a physical therapist , police added . sentence 2: She is employed at a Kaiser Hospital , CNN affiliate KGO reported , citing her Facebook page . sentence 3: Denise Huskins , 30 , works as a physical therapist at a Kaiser Hospital , CNN affiliate KGO reports .",
+            "output": [
+                "sentence 1: She 2: She 3: Denise Huskins , 30"
+            ]
+        },
+        {
+            "input": "sentence 1: ( The Hollywood Reporter ) The skies over Gotham City might become bright once again in 2016 , with Adam West and Burt Ward promising a return to their career-high roles of Batman and Robin as part of an upcoming animated project next year . sentence 2: The animated movie is described by Ward as `` one of possibly two , but for sure one , that Adam and I are going to be doing the voices for , '' although he did n't say anything else about the project . sentence 3: Adam West and Burt Ward say they will reprise their Batman and Robin roles in an animated movie .",
+            "output": [
+                "sentence 1: Adam West 2: Adam 3: Adam West"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) It 's called the Grand Renaissance Dam -- and the clue is in the name . sentence 2: `` It was seen as a strategically important initiative that the government and the Ethiopian people are financing it 100 % , '' says Zemedeneh Negatu , managing partner at Ernst & Young Ethiopia . sentence 3: The country says the $ 5bn Grand Renaissance Dam is funded entirely by the government and its people .",
+            "output": [
+                "sentence 1: the Grand Renaissance Dam 2: It 3: the $ 5bn Grand Renaissance Dam"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) The aircraft carrier USS Ranger , which saw action in the Vietnam War and Operation Desert Storm and had appearances in the movies `` Top Gun '' and `` Star Trek IV , '' is on its final journey , a five-month cruise at the end of a tow cable from Bremerton , Washington , to a scrapyard in Texas . sentence 2: The 56,300-ton warship , which was launched in 1956 , was decommissioned in 1993 but kept in storage for possible reactivation until March 2004 when it was stricken from the Naval Vessel Register and made available for donation to a group that could preserve it and turn it into a museum . sentence 3: Ranger , which was launched in 1956 , appeared in movies such as `` Top Gun '' and `` Star Trek IV ''",
+            "output": [
+                "sentence 1: The aircraft carrier USS Ranger 2: The 56,300-ton warship 3: Ranger"
+            ]
+        },
+        {
+            "input": "sentence 1: Lily 's mother , Lynn Jennifer Groesbeck , died in the crash that had landed their car on its roof in the Spanish Fork River . sentence 2: Lily was still strapped into her seat , where she may have been for 14 hours , if the wreck occurred at about 10:30 Friday night , as police believe . sentence 3: Baby Lily was trapped in the car in the cold river for as long as 14 hours .",
+            "output": [
+                "sentence 1: Lily 2: Lily 3: Baby Lily"
+            ]
+        },
+        {
+            "input": "sentence 1: Port Authority of New York and New Jersey Executive Director Patrick Foye told reporters that the runway in question had been plowed shortly before the incident . sentence 2: Pilots on previous planes reported `` good braking action , '' he said . sentence 3: Port Authority chief : Runway was just plowed , other pilots reported `` good braking action ''",
+            "output": [
+                "sentence 1: Port Authority of New York and New Jersey Executive Director Patrick Foye 2: he 3: Port Authority chief"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) The aircraft carrier USS Ranger , which saw action in the Vietnam War and Operation Desert Storm and had appearances in the movies `` Top Gun '' and `` Star Trek IV , '' is on its final journey , a five-month cruise at the end of a tow cable from Bremerton , Washington , to a scrapyard in Texas . sentence 2: The Ranger 's final journey is expected to take four to five months , the Navy said . sentence 3: Aircraft carrier USS Ranger 's final journey likely will take four to five months , Navy says .",
+            "output": [
+                "sentence 1: The aircraft carrier USS Ranger 2: The Ranger 3: Aircraft carrier USS Ranger 's"
+            ]
+        },
+        {
+            "input": "sentence 1: Hilton signed court papers last week that state he `` repeatedly entered the bathroom to smoke marijuana and tobacco '' during Flight 269 from London to Los Angeles , court papers said . sentence 2: `` He also become belligerent toward some of the flight attendants , '' according to court papers signed by Hilton and his attorney . sentence 3: Hilton signs court documents stating he smoked pot on flight , `` became belligerent ''",
+            "output": [
+                "sentence 1: Hilton 2: Hilton 3: Hilton"
+            ]
+        },
+        {
+            "input": "sentence 1: Still , both cases presented troubled pregnant women who needed help from medical authorities and their government . sentence 2: What they do is make women hide , avoid medical attention and put their lives at even greater risk . sentence 3: She says absurd , unjust case makes pregnant women hide , avoid medical attention and put their lives at even greater risk .",
+            "output": [
+                "sentence 1: troubled pregnant women 2: women 3: pregnant women"
+            ]
+        },
+        {
+            "input": "sentence 1: Their mother , identified by police as Jessica Lacey McCarty , did n't comply to officers ' request that she drop her knife . sentence 2: So officers fired several `` less lethal '' bean bag rounds at her , after which she was taken into custody , according to police . sentence 3: Police fired `` less lethal '' bean bag rounds at woman with knife after she did n't comply .",
+            "output": [
+                "sentence 1: officers 2: officers 3: Police"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) The FBI is asking detectives across the country to dust off their cold case murder files and see whether millionaire heir Robert Durst could be connected to any other unsolved crimes . sentence 2: Now the FBI is putting out a call to local authorities to examine cold cases in locations near where Durst lived over the past five decades , a U.S . law enforcement official said . sentence 3: FBI asks local authorities to examine cold cases in areas where Robert Durst has lived .",
+            "output": [
+                "sentence 1: The FBI 2: the FBI 3: FBI"
+            ]
+        },
+        {
+            "input": "sentence 1: In doing so , the 36 year old says he 's fulfilling the wishes of the two eldest of his five children . sentence 2: I want you to fight Mayweather . ' sentence 3: Pacquaio says his two oldest children are desperate for him to fight Mayweather .",
+            "output": [
+                "sentence 1: the 36 year old 2: you 3: Pacquaio"
+            ]
+        },
+        {
+            "input": "sentence 1: Knight , who suffers from diabetes and blood clots , was taken to the hospital , the attorney said . sentence 2: Knight 's condition was not immediately available . sentence 3: Knight is taken to hospital , but his condition is not available , attorney says .",
+            "output": [
+                "sentence 1: Knight , who suffers from diabetes and blood clots 2: Knight 3: Knight"
+            ]
+        },
+        {
+            "input": "sentence 1: A church van full of parishioners . sentence 2: Eight people died . sentence 3: Eight people are dead , 10 are injured after a church van crash in Florida early Monday .",
+            "output": [
+                "sentence 1: A church van full of parishioners 2: Eight people 3: Eight people"
+            ]
+        },
+        {
+            "input": "sentence 1: Australia 's complaint comes after Indonesia dismissed a last-minute proposal to save the pair 's lives through a prisoner swap . sentence 2: Nasir told CNN that there are no Indonesian laws that would allow or provide for an exchange . sentence 3: Australia had offered to swap prisoners for Bali 9 death row duo , but Indonesia says there is no laws that allow for prisoner exchange .",
+            "output": [
+                "sentence 1: a prisoner swap 2: an exchange 3: prisoner exchange"
+            ]
+        },
+        {
+            "input": "sentence 1: The San Francisco Chronicle reported that her father , Michael Huskins , said in a telephone interview that he received a voice mail from his daughter Wednesday morning saying she had been dropped off at his apartment . sentence 2: He called police to ask that the authorities pick her up and make sure she was safe , he told the newspaper . sentence 3: Father of missing woman tells newspaper she called him from his apartment .",
+            "output": [
+                "sentence 1: her father , Michael Huskins 2: He 3: Father of missing woman"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) Australian Foreign Minister Julie Bishop says the government is seeking to confirm reports that an Australian teenager has carried out a suicide attack on behalf of ISIS in Iraq . sentence 2: A former classmate of Bilardi 's from Melbourne 's Craigieburn Secondary College described the teen on Facebook as a `` shy kid who did n't like to be disturbed '' . sentence 3: Australia is seeking to confirm reports a Melbourne teen killed himself in an ISIS suicide attack .",
+            "output": [
+                "sentence 1: an Australian teenager 2: the teen 3: a Melbourne teen"
+            ]
+        },
+        {
+            "input": "sentence 1: Deposed President Abdu Rabu Mansour Hadi was at the Aden palace compound when the first missile struck the grounds , but he then fled safely , a Hadi aide said , also on condition of anonymity . sentence 2: Another Houthi-commanded air force jet fired a missile in downtown Aden about a half-hour later , again injuring no one , Aden Gov . AbdulAziz Hobtour said . sentence 3: A jet fires missiles on and near palace grounds in Aden .",
+            "output": [
+                "sentence 1: the first missile 2: a missile 3: missiles"
+            ]
+        },
+        {
+            "input": "sentence 1: The club has been docked points twice this season for failing to pay its players and faces a bankruptcy hearing on March 19 . sentence 2: In 1997 , led by current Real Madrid coach Carlo Ancelotti and with the caliber of players like Gianfranco Zola , Faustino Asprilla and Hernan Crespo , Parma finished runners-up in Serie A . `` Look at the team we had , '' said Angelo Manfredini , president of the Parma supporters club , referring to those halycon days , as he rattled off other players including Melli , Fabio Cannavaro and longtime Italy captain and goalkeeper Gianluigi Buffon , who now plays for Juventus . sentence 3: Legendary club of Cannavaro and Buffon faces bankruptcy court March 19 .",
+            "output": [
+                "sentence 1: The club 2: Parma 3: Legendary club of Cannavaro and Buffon"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) Victor Arden Barnard , an American pastor wanted for 59 counts of sexual assaults in Minnesota , was arrested by Brazilian authorities on Friday , the office of the governor for the State of Rio Grande do Norte said Saturday . sentence 2: The 53-year-old suspect was wanted by the Pine County , Minnesota , Sheriff 's Office for allegedly sexually abusing two young girls who were members of his church , the U.S Marshals Service said . sentence 3: Victor Barnard is accused of 59 counts of sexual assault on two young girls .",
+            "output": [
+                "sentence 1: Victor Arden Barnard , an American pastor wanted for 59 counts of sexual assaults in Minnesota 2: The 53-year-old suspect 3: Victor Barnard"
+            ]
+        },
+        {
+            "input": "sentence 1: After the hearing , Durst 's attorney , Dick DeGuerin , spoke with CNN 's Jean Casarez . sentence 2: `` I just do n't think that they had sufficient evidence to have him arrested , '' DeGuerin said Monday . sentence 3: Durst 's attorney : `` I just do n't think that they had sufficient evidence to have him arrested ''",
+            "output": [
+                "sentence 1: Durst 's attorney , Dick DeGuerin 2: DeGuerin 3: Durst 's attorney"
+            ]
+        },
+        {
+            "input": "sentence 1: U.S . officials have requested his extradition , Zeron said . sentence 2: The U.S . State Department was offering a reward of $ 5 million for information leading to the arrest of Trevino Morales . sentence 3: United States has an extradition request for Omar Trevino Morales .",
+            "output": [
+                "sentence 1: U.S . officials 2: The U.S . State Department 3: United States"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) As a November dawn breaks over an Irish bar in downtown New York , the early risers inside are hunkered down to watch Lewis Hamilton begin his chase for a second Formula One world title . sentence 2: But when the 30-year-old Briton lines up for Sunday 's season-opening Australian Grand Prix , he will do so as the most famous face on the grid . sentence 3: Lewis Hamilton lines up for Australian Grand Prix as most recognized driver in Formula One .",
+            "output": [
+                "sentence 1: Lewis Hamilton 2: the 30-year-old Briton 3: Lewis Hamilton"
+            ]
+        },
+        {
+            "input": "sentence 1: That much is known about the final few minutes for the 144 passengers on Germanwings Flight 9525 . sentence 2: It all began on what seemed like most any other Tuesday as citizens of 18 countries packed into the Germanwings plane in Barcelona , Spain . sentence 3: Germanwings Flight 9525 had a slight delay before taking off from Barcelona , Spain .",
+            "output": [
+                "sentence 1: Germanwings Flight 9525 2: the Germanwings plane 3: Germanwings Flight 9525"
+            ]
+        },
+        {
+            "input": "sentence 1: So Officer Robert Wilson III climbed out of his squad car in snow-bound north Philadelphia to get him a gift . sentence 2: Wilson was standing at the counter across from employees at the GameStop store when two brothers , Carlton Hipps and Ramone Williams , walked in carrying guns , police said . sentence 3: Officer Robert Wilson III was at the counter when two men allegedly stuck up a GameStop store .",
+            "output": [
+                "sentence 1: Officer Robert Wilson III 2: Wilson 3: Officer Robert Wilson III"
+            ]
+        },
+        {
+            "input": "sentence 1: Walker , 40 , was killed in a car crash in November 2013 in Southern California while taking a few days off from filming the seventh `` Fast and Furious '' movie . sentence 2: `` Furious 7 '' debuts in theaters on April 3 . sentence 3: The seventh `` Fast and Furious '' film debuts April 3 .",
+            "output": [
+                "sentence 1: the seventh `` Fast and Furious '' movie 2: Furious 7 3: The seventh `` Fast and Furious '' film"
+            ]
+        },
+        {
+            "input": "sentence 1: One high-profile politician who 's planning his first trip to Iowa in over a decade has a lot of Hawkeye State Democrats buzzing , according to CNN 's Jeff Zeleny . '' sentence 2: ( Former Vice President Al Gore ) says he 's not running . sentence 3: Al Gore 's trip back to Iowa has some Democrats buzzing .",
+            "output": [
+                "sentence 1: One high-profile politician who 's planning his first trip to Iowa in over a decade 2: Former Vice President Al Gore 3: Al Gore 's"
+            ]
+        },
+        {
+            "input": "sentence 1: The strikes ' target is Houthi rebels , a Shiite Muslim minority group that has taken over the capital and , on Wednesday , captured key parts of the Yemeni port city of Aden . sentence 2: The Houthis are allied with majority Shiite Iran . sentence 3: The strikes target the Houthis , who are Shiite Muslims backed by Iran .",
+            "output": [
+                "sentence 1: Houthi rebels , a Shiite Muslim minority group 2: The Houthis 3: the Houthis"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) A British military health care worker in Sierra Leone has tested positive for Ebola , a UK health agency said . sentence 2: Medical experts are assessing what to do next , including whether or not the evacuate the infected individual to the United Kingdom for treatment , according to a Public Health England spokesperson . sentence 3: It is being decided if the military worker infected in Sierra Leone will return to England .",
+            "output": [
+                "sentence 1: A British military health care worker in Sierra Leone 2: the infected individual 3: the military worker infected in Sierra Leone"
+            ]
+        },
+        {
+            "input": "sentence 1: Relatives also had harsh words for police , who they said failed to keep them informed after a close friend of the girls headed to Syria in December . sentence 2: Over the weekend , the girls ' families asked for an apology from London 's Metropolitan Police over the force 's handling of the case . sentence 3: Family members criticize how police handled the case , say they were not kept informed .",
+            "output": [
+                "sentence 1: Relatives 2: the girls ' families 3: Family members"
+            ]
+        },
+        {
+            "input": "sentence 1: Borland , a third-round pick from Wisconsin , had signed a nearly $ 3 million contract for four seasons with the San Francisco 49ers and banked a $ 600,000 bonus . sentence 2: `` For me , it 's wanting to be proactive , '' Borland said . sentence 3: San Francisco 49ers linebacker quits , citing players with concussion disorder , says he wants to `` be proactive ''",
+            "output": [
+                "sentence 1: Borland , a third-round pick from Wisconsin 2: Borland 3: San Francisco 49ers linebacker"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) A key Al-Shabaab operative , who was connected to the Westgate mall attack in Kenya , was killed recently by a U.S . drone strike , the Pentagon announced Wednesday . sentence 2: Adan Garar , a member of Al-Shabaab 's intelligence and security wing , was killed Thursday in southwestern Somalia as he traveled in a vehicle , according to Pentagon news release . sentence 3: Adan Garar , connected to the 2013 Westgate mall attack in Kenya , was riding in a vehicle that was struck from the air .",
+            "output": [
+                "sentence 1: A key Al-Shabaab operative 2: Adan Garar , a member of Al-Shabaab 's intelligence and security wing 3: Adan Garar"
+            ]
+        },
+        {
+            "input": "sentence 1: Dandach was initially indicted in July on charges of making the false statements , and he pleaded not guilty , authorities said . sentence 2: He is charged with one count of attempting to provide material support and resources to a terror group ; two counts of making of a false statement on a passport application to facilitate international terrorism ; and one count of obstruction of justice , authorities said . sentence 3: He was initially indicted on charges of making false statements on a passport application .",
+            "output": [
+                "sentence 1: Dandach 2: He 3: He"
+            ]
+        },
+        {
+            "input": "sentence 1: So began an odyssey with Ferguson police , municipal court and city hall that left her with $ 1,200 in fines that to this day she still does n't fully understand . sentence 2: Back at her home , Loistine Hoskin recalled the height of absurdity in her fight against the city , which occurred shortly after her husband , Calvin , died in 2008 of complications from paralysis he suffered in a car accident three years earlier . sentence 3: Loistine Hoskin gave up fighting the city , paying $ 1,200 in fines over a broken-down car .",
+            "output": [
+                "sentence 1: her 2: Loistine Hoskin 3: Loistine Hoskin"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) A Pennsylvania State University fraternity has been suspended after allegedly posting on a private Facebook page compromising photos of women , including some who appeared to be asleep or passed out . sentence 2: The images allegedly included nude and partially nude women -- some seemed to pose , others appeared incapacitated . sentence 3: The page allegedly includes photos of nude or partially nude women .",
+            "output": [
+                "sentence 1: compromising photos of women 2: The images 3: photos of nude or partially nude women"
+            ]
+        },
+        {
+            "input": "sentence 1: `` Peaceful dialogue is the only way forward , '' said Jamal Benomar , the U.N . 's special adviser on Yemen . sentence 2: But he gave a dire assessment of the current situation , saying the country is in a `` rapid downward spiral '' and at `` the edge of civil war . '' sentence 3: U.N. envoy says Yemen is in a `` rapid downward spiral , '' urges dialogue .",
+            "output": [
+                "sentence 1: Jamal Benomar , the U.N . 's special adviser on Yemen 2: he 3: U.N. envoy"
+            ]
+        },
+        {
+            "input": "sentence 1: Meyler had spent the last nine years of her life in Liberia setting up the More Than Me Academy , a tuition-free school for at-risk Liberian girls . sentence 2: Now it is about learning to live with Ebola , said Meyler , whose school has dozens of students who are Ebola orphans and survivors . sentence 3: Dozens of Ebola orphans now attend More Than Me Academy .",
+            "output": [
+                "sentence 1: the More Than Me Academy , a tuition-free school for at-risk Liberian girls 2: whose school 3: More Than Me Academy"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) Americans like to complain about the endless political gridlock in our capital . sentence 2: Those of us who did vote elected more fire breathers than bridge builders to Congress . sentence 3: Americans like to complain about the political gridlock in Congress where nothing much gets done .",
+            "output": [
+                "sentence 1: Americans 2: us 3: Americans"
+            ]
+        },
+        {
+            "input": "sentence 1: Two men from different worlds -- a BuzzFeed editor from New York and a man in southern China known as `` Brother Orange '' -- have united dramatically after social media helped them bond over a stolen iPhone . sentence 2: `` Matt crossed the ocean to meet you , how touching ! '' sentence 3: BuzzFeed editor Matt Stopera has arrived in China to meet `` Brother Orange ''",
+            "output": [
+                "sentence 1: a BuzzFeed editor from New York 2: Matt 3: BuzzFeed editor Matt Stopera"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) Former Vice President Walter Mondale was released from the Mayo Clinic on Saturday after being admitted with influenza , hospital spokeswoman Kelley Luckstein said . sentence 2: We treated him for flu and cold symptoms and he was released today , '' she said . sentence 3: The former vice president , 87 , was treated for cold and flu symptoms .",
+            "output": [
+                "sentence 1: Former Vice President Walter Mondale 2: him 3: The former vice president , 87"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) The family of Ibragim Todashev , an associate of Tamerlan Tsarnaev who was killed during an FBI interrogation , plans to sue the agency . sentence 2: Todashev 's parents filed a `` notice of claim '' Monday , saying they plan to seek $ 30 million in a wrongful death lawsuit . sentence 3: His family has filed a notice that it plans to the sue the FBI for $ 30 million .",
+            "output": [
+                "sentence 1: The family of Ibragim Todashev , an associate of Tamerlan Tsarnaev 2: Todashev 's parents 3: His family"
+            ]
+        },
+        {
+            "input": "sentence 1: The renewed push into Tikrit comes days after a series of U.S.-led airstrikes aimed at ISIS targets around the city . sentence 2: The latest push began after Iraqi Prime Minister Haider al-Abadi on March 1 ordered Iraqi forces to retake Tikrit and Salahuddin province . sentence 3: A push to retake Tikrit stalled as ISIS repositioned its forces around the city .",
+            "output": [
+                "sentence 1: Tikrit 2: Tikrit 3: Tikrit"
+            ]
+        },
+        {
+            "input": "sentence 1: The 10-time-winner escaped a humiliating exit from the tournament after going down 4-3 at home to German side Schalke allowing it to sneak through 5-4 on aggregate . sentence 2: Had it not been for Cristiano Ronaldo , who scored twice to ensure his place as the record goalscorer in European football competitions , then it could have been far more embarrassing . sentence 3: Cristiano Ronaldo scores twice in 4-3 defeat by Schalke .",
+            "output": [
+                "sentence 1: The 10-time-winner 2: Cristiano Ronaldo , who scored twice to ensure his place as the record goalscorer in European football competitions 3: Cristiano Ronaldo"
+            ]
+        },
+        {
+            "input": "sentence 1: Cartoonists Bahadir Baruter and Ozer Aydogan draw for the weekly satirical magazine Penguen . sentence 2: Penguen announced it will appeal the decision . sentence 3: Weekly satirical magazine Penguen says it will appeal the decision .",
+            "output": [
+                "sentence 1: the weekly satirical magazine Penguen 2: Penguen 3: Weekly satirical magazine Penguen"
+            ]
+        },
+        {
+            "input": "sentence 1: Increasingly , people want to give their money to brands -- political as well as commercial -- that have a set of values they can also buy into . sentence 2: A recent global study found that 63 % of consumers would buy a brand they perceive as authentic over its competitors , and more than 60 % would recommend an organization they perceive to be authentic . sentence 3: Pease : Consumers are increasingly valuing brands perceived as authentic . Does the Clinton brand qualify ?",
+            "output": [
+                "sentence 1: people 2: consumers 3: Consumers"
+            ]
+        },
+        {
+            "input": "sentence 1: The jawbone has been dated to 2.8 million years ago -- which predates the previously known fossils of the Homo lineage by approximately 400,000 years , according to Arizona State University . sentence 2: The age of the fossil means it could help fill in an important gap in our knowledge . sentence 3: It has been dated to 2.8 million years ago , which means it helps fill in a crucial gap in our knowledge .",
+            "output": [
+                "sentence 1: The jawbone 2: the fossil 3: It"
+            ]
+        },
+        {
+            "input": "sentence 1: Chasing an adjusted target of 298 in just 43 overs after a rain interrupted the match at Eden Park , Grant Elliott hit a six right at the death to confirm victory and send the Auckland crowd into raptures . sentence 2: South Africa , who themselves have never reached the final , have been accused of choking in past installments of the one-day competition . sentence 3: South Africa had posted a total of 281 in a rain affected match .",
+            "output": [
+                "sentence 1: interrupted the match at Eden Park 2: of the one-day competition 3: a rain affected match"
+            ]
+        },
+        {
+            "input": "sentence 1: But today , youth football is not looking like the best option . sentence 2: Parents . . . if you weigh the risk and decide this is something you want to partake in . sentence 3: She says youth football is not looking like the best option for kids ; parents should know the risks .",
+            "output": [
+                "sentence 1: youth football 2: this 3: youth football"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) Incumbent Goodluck Jonathan phoned former military leader Muhammadu Buhari on Tuesday to concede defeat in Nigeria 's presidential elections , Buhari 's party says . sentence 2: In his statement Tuesday , Jonathan said ; `` I promised the country free and fair elections . sentence 3: Incumbent President Goodluck Jonathan acknowledges defeat , says he delivered on promise of fair elections .",
+            "output": [
+                "sentence 1: Incumbent Goodluck Jonathan 2: Jonathan 3: Incumbent President Goodluck Jonathan"
+            ]
+        },
+        {
+            "input": "sentence 1: Washington ( CNN ) A Florida `` dream ticket , '' two nuggets about leadership questions in Congress and coming tests for Sen . Ted Cruz and Ohio Gov . John Kasich filled our final March trip around the `` Inside Politics '' table . sentence 2: A national GOP source plugged into to the Kasich operation says the governor has n't made a firm decision , and is talking about waiting until the summer to make a final call . sentence 3: Ohio Gov. John Kasich may wait until the summer to make a final call about 2016 .",
+            "output": [
+                "sentence 1: Ohio Gov . John Kasich 2: the governor 3: Ohio Gov. John Kasich"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) Dwayne `` The Rock '' Johnson had a way better weekend than you . sentence 2: The actor hosted `` Saturday Night Live '' and rocked out in some memorable sketches , including a live-action `` Bambi '' remake with some of the `` SNL '' cast portraying actors from the `` Fast and Furious '' franchise . sentence 3: Dwayne Johnson hosted `` SNL '' and appeared at Wrestlemania .",
+            "output": [
+                "sentence 1: Dwayne `` The Rock '' Johnson 2: The actor 3: Dwayne Johnson"
+            ]
+        },
+        {
+            "input": "sentence 1: Myanmar 's Ministry of Information said in a statement that the ship capsized Friday night as it sailed , in bad weather conditions , around the city of Sittwe . sentence 2: That 's when a large wave crashed into the ferry , causing it capsize near Myaybone and Myaukkyine islands . sentence 3: The ferry capsized after being hit by a large wave in bad weather conditions .",
+            "output": [
+                "sentence 1: the ship 2: the ferry 3: The ferry"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) Icelandic photographer Sigga Ella wanted to show that people with Down syndrome are more than a chromosomal abnormality . sentence 2: Ella 's series , `` First and foremost I am , '' consists of 21 portraits of people ranging from 9 months to 60 years old . sentence 3: Sigga Ella 's portraits show people with Down syndrome from 9 months to 60 years old .",
+            "output": [
+                "sentence 1: Icelandic photographer Sigga Ella 2: Ella 3: Sigga Ella 's"
+            ]
+        },
+        {
+            "input": "sentence 1: During the transfer , a senior Indonesian police officer was pictured in photos with the Australian pair on a flight . sentence 2: Myuran Sukumaran and Andrew Chan were being taken from Kerobokan prison in Bali to Nusakambangan island in Central Java , where they will be held in a maximum security facility before facing a 12-man firing squad . sentence 3: A police commissioner appears in photos with the men , taken during a flight from Jakarta to Central Java .",
+            "output": [
+                "sentence 1: the Australian pair 2: Myuran Sukumaran and Andrew Chan 3: the men"
+            ]
+        },
+        {
+            "input": "sentence 1: `` Our deputies and law enforcement partners face untold dangers every day in the pursuit of justice in cities nationwide , '' said U.S . Marshals Service Director Stacia A . Hylton said in a news release . sentence 2: `` The fugitive who killed Deputy Wells was extremely dangerous , wanted for double homicide and intentionally evaded justice . sentence 3: The fugitive who killed the marshal was `` extremely dangerous , '' U.S. Marshals Service director says .",
+            "output": [
+                "sentence 1: Our deputies and law enforcement partners 2: The fugitive 3: The fugitive"
+            ]
+        },
+        {
+            "input": "sentence 1: But his mother is convinced he 's coming back . sentence 2: `` I think psychologically it is understandable , they choose to believe that their loved ones are still missing , so they can still have hope for them to return , '' says May Lam , a psychiatrist at The University of Hong Kong . sentence 3: Chinese mother of son on missing plane still believes he will come home .",
+            "output": [
+                "sentence 1: his mother 2: they 3: Chinese mother of son on missing plane"
+            ]
+        },
+        {
+            "input": "sentence 1: The trail , which begins in the village of El Chorro in southern Malaga province , has been around since the early 1900s , originally built to provide access to two waterfalls for hydroelectric workers . sentence 2: Over the years , the boardwalk deteriorated and , following a string of fatal accidents in 1999 and 2000 , the government demolished the access points to the walkway . sentence 3: Originally built in the 1900s , the trail 's boardwalks deteriorated over time , forcing the local government to close it .",
+            "output": [
+                "sentence 1: The trail 2: the boardwalk 3: the trail 's boardwalks"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) After postponing its first execution of a woman in 70 years because of `` cloudy '' lethal injection drugs , Georgia has indefinitely postponed at least one other execution until it can analyze the cocktail it uses for the procedures , the state said Tuesday . sentence 2: Repeating the `` abundance of caution '' wording , the department issued a news release Tuesday , saying , `` The scheduled executions of Kelly Renee Gissendaner and Brian Keith Terrell have been postponed while an analysis is conducted of the drugs planned for use in last night 's scheduled execution of inmate Gissendaner . '' sentence 3: Brian Keith Terrell execution halted while Georgia analyzes drugs used for executions .",
+            "output": [
+                "sentence 1: postponed 2: postponed 3: halted"
+            ]
+        },
+        {
+            "input": "sentence 1: Leave your questions in the comments below or ask them directly on Meerkat or Twitter at 2 p.m . ET Wednesday . sentence 2: What : Live chat with Meerkat 's Rubin . sentence 3: Join Meerkat founder Ben Rubin for a live chat at 2 p.m. ET Wednesday .",
+            "output": [
+                "sentence 1: Meerkat 2: Meerkat 3: Meerkat"
+            ]
+        },
+        {
+            "input": "sentence 1: Such a mentality has no place in a secular country -- even if we have a history of recognizing some Abrahamic religions ' holidays . sentence 2: Myself , I intend to continue to observe The Day of the Dude every year by takin ' er easy for all you sinners . sentence 3: Randazza : Why not observe MY religion : Day of the Dude ? Official observance of religious holidays has no place in secular society .",
+            "output": [
+                "sentence 1: we 2: Myself , I 3: Randazza"
+            ]
+        },
+        {
+            "input": "sentence 1: Days earlier , the outfit -- Jund al Khilafa , a splinter group of Al Qaeda in the Islamic Maghreb -- had pledged allegiance to ISIS . sentence 2: Militant group Boko Haram has waged a campaign of terror in mostly northern Nigeria for over a decade . sentence 3: Extremist groups operating in Africa include ISIS , al Qaeda in the Islamic Maghreb , Al Shabaab and Boko Haram .",
+            "output": [
+                "sentence 1: splinter group 2: Militant group 3: Extremist groups"
+            ]
+        },
+        {
+            "input": "sentence 1: `` And by the way I'm pressing charges . '' sentence 2: The actor , who is also an advocate for women 's rights , added : `` The amount of gender violence that I experience is absolutely extraordinary , and a significant part of my day today will be spent filing police reports at home about gender violence that 's directed at me on social media . '' sentence 3: Judd , an actor and women 's rights advocate , has vowed to press charges .",
+            "output": [
+                "sentence 1: I'm 2: The actor , who is also an advocate for women 's rights 3: Judd , an actor and women 's rights advocate"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) The United States and Great Britain have pulled their last forces out of strife-torn Yemen , raising fears that the failed state will become even more of a breeding ground for terror groups plaguing the Middle East and the West . sentence 2: `` I do n't think there is an active role for the U.S . other than intelligence and trying to see where the dust is going to settle , '' said U.S . Sen . Angus King , a Maine Independent who serves on the Senate Armed Services and Intelligence committees . sentence 3: With U.S. and UK forces gone , fears rise that terror could blossom in Yemen .",
+            "output": [
+                "sentence 1: The United States 2: the U.S 3: U.S."
+            ]
+        },
+        {
+            "input": "sentence 1: Traditionally at this time of year , a clutch of nervous owners in charge of struggling clubs in England 's top flight grapple with the prospect of relegation , and the enormous hole it threatens to blow in their finances . sentence 2: `` I would n't want to put a figure on it but you 're talking tens of millions heading up towards potentially hundreds of millions . '' sentence 3: Relegation from English top flight could cost clubs hundreds of millions of dollars .",
+            "output": [
+                "sentence 1: blow in their finances 2: hundreds of millions 3: hundreds of millions of dollars"
+            ]
+        },
+        {
+            "input": "sentence 1: It is particularly significant as the Greater Los Angeles Veterans Medical Center is the nation 's largest VA health care system , caring for hundreds of thousands of U.S . veterans . sentence 2: The VA documents show more than 12,700 appointments , which the VA calls consults , had been waiting more than 90 days to be addressed , as of mid-January . sentence 3: Document shows veterans at VA 's largest hospital facing months-long waits for appointments .",
+            "output": [
+                "sentence 1: VA 2: the VA 3: VA 's"
+            ]
+        },
+        {
+            "input": "sentence 1: For a chance to be mentioned on the next CNN Student News , comment on the bottom of this page with your school name , mascot , city and state . sentence 2: You must be a teacher or a student age 13 or older to request a mention on the CNN Student News Roll Call ! sentence 3: At the bottom of the page , comment for a chance to be mentioned on CNN Student News . You must be a teacher or a student age 13 or older to request a mention on the CNN Student News Roll Call .",
+            "output": [
+                "sentence 1: CNN Student News 2: CNN Student News 3: CNN Student News"
+            ]
+        },
+        {
+            "input": "sentence 1: On Monday , Sunderland 's American owner Ellis Short elected to twist and fired the club 's Uruguayan manager Gus Poyet , confirmed by a statement on its official website . sentence 2: `` Particularly television money , because it now accounts for over 50 % of most , if not all , Premier League clubs ' turnover . sentence 3: English Premier League club Sunderland sack Uruguayan manager Gus Poyet .",
+            "output": [
+                "sentence 1: Sunderland 2: Premier League clubs 3: English Premier League club Sunderland"
+            ]
+        },
+        {
+            "input": "sentence 1: An Ebola outbreak has devastated parts of West Africa , with Sierra Leone , Guinea and Liberia being the hardest hit nations . sentence 2: The vast majority of the more than 24,000 confirmed , reportable and suspected cases , as well as the nearly 10,000 reported deaths , have been in those three countries , the World Health Organization reports . sentence 3: There have been some 24,000 reported cases and 10,000 deaths in the latest Ebola outbreak .",
+            "output": [
+                "sentence 1: An Ebola outbreak 2: the more than 24,000 confirmed , reportable and suspected cases , as well as the nearly 10,000 reported deaths 3: the latest Ebola outbreak"
+            ]
+        },
+        {
+            "input": "sentence 1: In just the last year , the number of Patriot groups declined by 20 % , from 1,096 groups to 874 , '' the report said . sentence 2: The SPLC now reports 72 chapters , down from 163 a year ago . sentence 3: In particular , the number of KKK chapters dropped from 163 to 72 in a year , it says .",
+            "output": [
+                "sentence 1: said 2: reports 3: says"
+            ]
+        },
+        {
+            "input": "sentence 1: He encounters the same men -- one of them wearing a red traffic vest -- who repeat that they are police . sentence 2: Woodard says TransValue has been `` very cooperative '' in the investigation , as have the company 's two guards . sentence 3: Two guards say they were both bound by men claiming to be police .",
+            "output": [
+                "sentence 1: He 2: the company 's two guards 3: Two guards"
+            ]
+        },
+        {
+            "input": "sentence 1: But sadly , they are all-too-real examples included in a provocative new book `` Where You Go Is Not Who You 'll Be : An Antidote to the College Admissions Mania '' by award-winning New York Times op-ed columnist and bestselling author Frank Bruni . sentence 2: But how much does where you go really determine how successful you will ultimately be ? sentence 3: A new book says that where you go to college does not determine who you will be .",
+            "output": [
+                "sentence 1: You 2: you 3: you"
+            ]
+        },
+        {
+            "input": "sentence 1: The father of four said he himself had been pulled over for DWB , or `` driving while black , '' a common complaint among African-Americans in Ferguson . sentence 2: Even white residents have complained of run-ins with police . sentence 3: Several residents have complained of being stopped for DWB , driving while black .",
+            "output": [
+                "sentence 1: African-Americans in Ferguson 2: white residents 3: Several residents"
+            ]
+        },
+        {
+            "input": "sentence 1: Kuala Lumpur ( CNN ) The initial hours after the disappearance of flight MH370 were characterized by confusion and chaos , as air traffic controllers struggled to comprehend the situation and radar operators failed to take notice , according to data contained in an interim report . sentence 2: And it was another five hours before the first search flights took off to try to find it . sentence 3: Took 10 hours for the first search flights to take off , according to report .",
+            "output": [
+                "sentence 1: hours 2: hours 3: hours"
+            ]
+        },
+        {
+            "input": "sentence 1: London ( CNN ) A British mother is standing by her decision to let her son , 11 , wear a `` Fifty Shades of Grey '' costume to his school 's World Book Day celebration . sentence 2: I thought Christian Grey was the most talked about book character for the past few years . sentence 3: A UK boy , 11 , dressed as `` Fifty Shades '' character Christian Grey for World Book Day .",
+            "output": [
+                "sentence 1: a `` Fifty Shades of Grey '' costume 2: Christian Grey 3: Fifty Shades '' character Christian Grey"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) This weekend marked the official opening of `` Fish in the Dark , '' the Broadway debut of Larry David of `` Seinfeld '' and `` Curb Your Enthusiasm '' fame . sentence 2: Having actors of color play characters written for white actors , who are cast in 79 % of all Broadway roles ( by contrast , Asian Americans and Hispanics are cast in just 3 % each and African Americans in 14 % ) , is an act of disruptive defiance . sentence 3: Larry David 's play opens on Broadway , faces some criticism over a Hispanic character .",
+            "output": [
+                "sentence 1: Broadway 2: Broadway 3: Broadway"
+            ]
+        },
+        {
+            "input": "sentence 1: The Academy of Motion Picture Arts and Sciences , the group that presents the Oscars , purchased the spacecraft at auction Saturday for $ 344,000 . sentence 2: Almost all the props , sets , models and costumes from `` 2001 : A Space Odyssey '' were destroyed by director Stanley Kubrick so they could not be used in other productions , the Premiere Props auction house said . sentence 3: A shuttle from `` 2001 : A Space Odyssey '' was purchased by the motion picture academy .",
+            "output": [
+                "sentence 1: the spacecraft 2: 2001 : A Space Odyssey 3: A shuttle"
+            ]
+        },
+        {
+            "input": "sentence 1: Earlier , a stream of people took part in a somber memorial service at the Sakharov Center in Moscow . sentence 2: I just wanted to go to pay tribute to a political personality , Boris Nemtsov . '' sentence 3: Boris Nemtsov is buried in a Moscow cemetery following a somber memorial service .",
+            "output": [
+                "sentence 1: a somber memorial service 2: tribute 3: a somber memorial service"
+            ]
+        },
+        {
+            "input": "sentence 1: Jurors have yet to hear from the former NFL star 's fiancÃ©e , Shayanna Jenkins , New England Patriots head coach Bill Belichick or owner Robert Kraft . sentence 2: Another cell phone representative also testified . sentence 3: Jurors also heard details about cell phone records and cell towers .",
+            "output": [
+                "sentence 1: hear 2: testified 3: heard"
+            ]
+        },
+        {
+            "input": "sentence 1: The opening day 's racing was somewhat overshadowed by an ongoing dispute between Sauber and the Swiss team 's 2014 reserve driver Giedo van der Garde . sentence 2: Following the initial court ruling , team principal Monisha Kaltenborn said that changing drivers hours before a Grand Prix could be dangerous . sentence 3: Giedo van der Garde does n't race for Sauber despite court ruling .",
+            "output": [
+                "sentence 1: Giedo van der Garde 2: drivers 3: Giedo van der Garde"
+            ]
+        },
+        {
+            "input": "sentence 1: The letters appear to read `` AL_LLH , researchers say , which they interpret as meaning `` for/to ( the approval of ) Allah . '' sentence 2: In a paper published in the journal Scanning , the researchers say it is the only ring with an Arabic inscription ever found at a Scandinavian archaeological site . sentence 3: The ring carries an Arabic inscription thought to be `` for/to ( the approval of ) Allah , they say .",
+            "output": [
+                "sentence 1: they 2: the researchers 3: they"
+            ]
+        },
+        {
+            "input": "sentence 1: Lausanne , Switzerland ( CNN ) Nuclear talks intensified Sunday between world powers and Iran , but key sticking points remained unresolved as the countries tried to reach a deal to curb Tehran 's nuclear program ahead of a Tuesday deadline . sentence 2: The speed of which U.N . sanctions could be lifted remains in dispute . sentence 3: Another sticking point : When would U.N. sanctions be lifted ?",
+            "output": [
+                "sentence 1: sticking points 2: dispute 3: sticking point"
+            ]
+        },
+        {
+            "input": "sentence 1: CNN global affairs correspondent Elise Labott has been covering the Israel election in depth and took to Facebook to answer your questions about the election . sentence 2: Why were the election polls so wrong ? sentence 3: She answers questions about why polls were wrong , why Americans should care .",
+            "output": [
+                "sentence 1: election 2: election polls 3: polls"
+            ]
+        },
+        {
+            "input": "sentence 1: They exist in the immigrant communities in the United States , in which abuse and crimes are underreported because of the stigma that still exists . sentence 2: She was putting together the 2015 Saris to Suits calendar and wanted to feature South Asian women who had found success in America . sentence 3: The Saris for Suits campaign aims to create awareness about violence against women in immigrant communities .",
+            "output": [
+                "sentence 1: They 2: South Asian women 3: women in immigrant communities"
+            ]
+        },
+        {
+            "input": "sentence 1: In the next game , top seed Kentucky will battle Wisconsin . sentence 2: This will be the seventh Final Four for coach Tom Izzo , who led Michigan State to the national title in 2000 . sentence 3: The Final Four matchups : Duke vs. Michigan State and Kentucky vs. Wisconsin .",
+            "output": [
+                "sentence 1: the next game 2: Final Four 3: The Final Four matchups"
+            ]
+        },
+        {
+            "input": "sentence 1: So will President Obama . sentence 2: On practically every other issue , the Koch brothers and I are still fierce opponents . sentence 3: He says President Obama , the Koch brothers , Newt Gingrich , Cory Booker and others agree on it .",
+            "output": [
+                "sentence 1: President Obama 2: I 3: President Obama"
+            ]
+        },
+        {
+            "input": "sentence 1: Winners receive their awards from genuine Nobel laureates , but speeches are curtailed by a screaming girl declaring her boredom . sentence 2: Ten years later he went on to receive the Nobel Prize in Physics for his `` groundbreaking experiments regarding the two-dimensional material graphene . '' sentence 3: Previous winners of the satirical awards have gone on to win an actual Nobel Prize .",
+            "output": [
+                "sentence 1: Winners 2: he went on to receive 3: winners"
+            ]
+        },
+        {
+            "input": "sentence 1: We have economic and security interests that are at stake in this election , especially as Nigeria has been one of our strongest allies in the region since military rule there ended . sentence 2: But it is not just about the leadership -- this election offers the chance for all Nigerians to choose their future , and decide which policies will shape the next four years . sentence 3: U.S. ties to this regional ally are crucial ; U.S. economic and security interests at stake as Nigeria 's voters choose their future .",
+            "output": [
+                "sentence 1: Nigeria 2: Nigerians 3: regional ally"
+            ]
+        },
+        {
+            "input": "sentence 1: The university points out four of her 30 students and two of her laboratory interns come from India ; while it was n't clear how many of them were men , the university said 29 of its 44 Indian students total are male . sentence 2: The idea that the professor would n't accept male Indians for internships -- as reported by Quora and denied by the University of Leipzig -- riled up some in India , a number of whom wrote on the Quora thread . sentence 3: Professor notes she has Indians in her class and interning at her laboratory .",
+            "output": [
+                "sentence 1: her 2: the professor 3: Professor"
+            ]
+        },
+        {
+            "input": "sentence 1: The loss of Latin teaching in schools is at the root of the problem . sentence 2: The truth is that Italian education is badly in need of a restyle . sentence 3: The approach to teaching Latin in Italian schools needs a makeover , she says .",
+            "output": [
+                "sentence 1: teaching 2: Italian education 3: Italian schools"
+            ]
+        },
+        {
+            "input": "sentence 1: Her husband Willy Moon called him `` creepy '' and likened him to Norman Bates , the killer in the horror film , `` Psycho . '' sentence 2: Mediaworks , the owner of the New Zealand television channel TV3 , which airs the show , has decided to sack the duo for their scathing remarks . sentence 3: The married couple called the singer `` disgusting '' and `` creepy '' on live television in New Zealand .",
+            "output": [
+                "sentence 1: Her husband Willy Moon 2: the duo 3: The married couple"
+            ]
+        },
+        {
+            "input": "sentence 1: It resulted in six patients receiving transplants . sentence 2: That changed when a computer programmer named David Jacobs received a kidney transplant . sentence 3: A new computer program helped her donation spur transplants for six kidney patients .",
+            "output": [
+                "sentence 1: transplants 2: transplant 3: transplants"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) T.J . Maxx has pulled a T-shirt from its shelves after a shopper tweeted an image of the shirt featuring the phrase `` Hang Loose '' and an illustration of a noose , leading to an uproar on social media . sentence 2: Tavik PR manager Kelly McElroy said the company regrets the design . sentence 3: The shirt , made by Tavik , says `` Hang Loose '' and features an image of a noose .",
+            "output": [
+                "sentence 1: an illustration of a noose 2: the design 3: an image of a noose"
+            ]
+        },
+        {
+            "input": "sentence 1: Moss : One of the interesting things about the relationship between Jesus and John the Baptist is that John does n't lay down his tools and follow Jesus after he baptizes him . sentence 2: In the original study of the Bulgarian relics ( of which I was a part ) the mitochondrial DNA revealed that the Bulgarian relics were of `` probable Semitic origin . '' sentence 3: Moss was part of the original study to determine if relics found in Bulgaria could be the bones of John the Baptist .",
+            "output": [
+                "sentence 1: Moss 2: In 3: Moss"
+            ]
+        },
+        {
+            "input": "sentence 1: Pictures showed passengers and crew going down evacuation slides and walking through heavy fog . sentence 2: That 's because part of the now-immobile Airbus A330 was covering a section of the runway . sentence 3: Pictures show passengers using slides to get off the Airbus A330 amid heavy fog .",
+            "output": [
+                "sentence 1: evacuation 2: now-immobile Airbus A330 3: the Airbus A330"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) Angelina Jolie 's essay in the New York Times revealing that she had her ovaries and Fallopian tubes removed to lower her risk of cancer provoked an outpouring of support as the news spread across social media . sentence 2: Many were inspired by her decision and her choice to open up about the surgery . sentence 3: Praise pours in for Angelina Jolie 's decision to go public with surgery decision .",
+            "output": [
+                "sentence 1: Angelina Jolie 2: her 3: Angelina Jolie 's"
+            ]
+        },
+        {
+            "input": "sentence 1: According to the White House , only if the President of the United States says it is . sentence 2: But administrations often choose to conclude deals with foreign states that do n't satisfy that requirement . sentence 3: White House , many Republicans disagree over deal terminology , requirements .",
+            "output": [
+                "sentence 1: the White House 2: administrations 3: White House"
+            ]
+        },
+        {
+            "input": "sentence 1: Lethal injection remains the primary method for carrying out executions in the state , Gov . Gary R . Herbert said in a statement . sentence 2: A firing squad would only be used in the event the necessary drugs can not be obtained . sentence 3: Firing squads will be allowed in Utah if drugs for lethal injection ca n't be obtained .",
+            "output": [
+                "sentence 1: Lethal injection 2: drugs 3: drugs for lethal injection"
+            ]
+        },
+        {
+            "input": "sentence 1: Kuala Lumpur , Malaysia ( CNN ) Jaquita Gonzales still tries to call her husband on his cellphone . sentence 2: Families of victims we spoke to hold on to the slimmest belief that MH370 , which disappeared barely an hour into its flight from Kuala Lumpur to Beijing on March 8 last year , did not crash and that the 239 passengers and crew on board are alive . sentence 3: Jaquita Gonzales ' husband was a member of the cabin crew on board MH370 .",
+            "output": [
+                "sentence 1: her husband 2: crew 3: a member of the cabin crew"
+            ]
+        },
+        {
+            "input": "sentence 1: The Council of Europe 's commissioner for human rights , Nils MuiÅ¾nieks , expressed his concern about the ruling against Penguen as well as the surge in criminal cases against people accused of insulting Erdogan . sentence 2: Harrison noted that special mandates from the United Nations , Organization for Security and Co-operation in Europe and Organization of American States have called for the abolishment of criminal defamation laws . sentence 3: Press advocates express concern about criminal defamation laws in Turkey .",
+            "output": [
+                "sentence 1: criminal cases against people accused of insulting Erdogan 2: criminal defamation laws 3: criminal defamation laws in Turkey"
+            ]
+        },
+        {
+            "input": "sentence 1: Are you a first-generation American ? sentence 2: Share your story with CNN iReport . sentence 3: Are you a first-generation American ? Share your story with CNN iReport .",
+            "output": [
+                "sentence 1: you 2: your 3: you"
+            ]
+        },
+        {
+            "input": "sentence 1: He 's doing a his-and-her duet all by himself . '' sentence 2: `` He will not be here tonight , '' Foxx said of Knight . sentence 3: `` He 's doing a his-and-her duet all by himself , '' Jamie Foxx said of Bruce Jenner .",
+            "output": [
+                "sentence 1: He 2: He 3: He 's"
+            ]
+        },
+        {
+            "input": "sentence 1: In 2013 , tensions between the world powers and Iran began to thaw a bit after the election of reformist Iranian President Hassan Rouhani , who pledged to end the crippling weight of international sanctions on Iran 's economy . sentence 2: But this interim agreement has been extended twice over a failure of the parties to meet previous deadlines for a final deal . sentence 3: Interim deal from 2013 between six world powers and Iran has been extended twice .",
+            "output": [
+                "sentence 1: the world powers and Iran 2: the parties 3: six world powers and Iran"
+            ]
+        },
+        {
+            "input": "sentence 1: But on Sunday the bones -- which have been studied by archaeologists and experts from all fields in the years since -- ended their tenure as scientific specimens and became , once more , the mortal remains of a king . sentence 2: Some 35,000 people lined the streets of Leicester and the surrounding towns and villages as the cortege wound its way through the countryside to the site of Richard 's final battle , Bosworth , where he died in 1485 , before returning to the city for a commemoration at Leicester Cathedral . sentence 3: On Sunday his remains were taken from the city 's university to the site of his final battle , Bosworth .",
+            "output": [
+                "sentence 1: a king 2: the cortege 3: his remains"
+            ]
+        },
+        {
+            "input": "sentence 1: ` Much bigger than expected , ' says our colleague in Port Vila . sentence 2: Pam , one of the strongest storms seen in the South Pacific in years , earlier made a direct hit on the capital , raising fears of mass destruction . sentence 3: Storm has made a direct hit on the capital of Vanuatu , Port Vila .",
+            "output": [
+                "sentence 1: Much bigger than expected 2: Pam , one of the strongest storms seen in the South Pacific in years 3: Storm"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) Iraqi forces appear to be slowly closing in on an important tactical victory against ISIS . sentence 2: But as they press forward in their attempt to retake the city of Tikrit from ISIS insurgents , there is an important question that the United States and its allies should be asking : Could this victory actually undermine the only sustainable strategy for ensuring Iraq 's stability ? sentence 3: Iraqi forces have been involved in an offensive to retake Tikrit .",
+            "output": [
+                "sentence 1: Iraqi forces 2: they 3: Iraqi forces"
+            ]
+        },
+        {
+            "input": "sentence 1: Cast member and aspiring medical student Freyaa Ali said there was a girl who had wanted to participate in the show , but was ultimately prevented from doing so by her relatives . sentence 2: `` I think that 's what makes me even more passionate about doing this -- we want to give them a voice and give them a reason , so they know they can have confidence to do stuff like this . '' sentence 3: `` We want to give them a voice and give them a reason , so they know they can have confidence '' says cast member Freyaa Ali about girls in boxing .",
+            "output": [
+                "sentence 1: Cast member and aspiring medical student Freyaa Ali 2: I 3: cast member Freyaa Ali"
+            ]
+        },
+        {
+            "input": "sentence 1: The 10-time-winner escaped a humiliating exit from the tournament after going down 4-3 at home to German side Schalke allowing it to sneak through 5-4 on aggregate . sentence 2: Leading 2-0 from the first leg in Gelsenkirchen , Real was firm favorite to progress . sentence 3: Real wins 5-4 on aggregate following 2-0 first leg success .",
+            "output": [
+                "sentence 1: The 10-time-winner 2: Real 3: Real"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) The Alabama Supreme Court on Tuesday ordered probate judges in the state to stop issuing licenses for same-sex marriages . sentence 2: Shaw added that the federal courts should have stayed an order striking down Alabama 's marriage law until the U.S . Supreme Court rules on it this fall . sentence 3: Alabama Supreme Court on Tuesday said state law can not be overridden by federal ruling .",
+            "output": [
+                "sentence 1: Alabama 2: the U.S . Supreme Court 3: Alabama"
+            ]
+        },
+        {
+            "input": "sentence 1: The fight for voting rights was just beginning . sentence 2: One thing `` not right '' on the 50th anniversary of the Selma marches is the sad fact that the Edmund Pettus Bridge has n't been renamed the John Lewis Bridge . sentence 3: Douglas Brinkley : Site where voting rights battle was fought should be named for John Lewis .",
+            "output": [
+                "sentence 1: The fight for voting rights 2: the Selma marches 3: voting rights battle"
+            ]
+        },
+        {
+            "input": "sentence 1: Deposed President Abdu Rabu Mansour Hadi was at the Aden palace compound when the first missile struck the grounds , but he then fled safely , a Hadi aide said , also on condition of anonymity . sentence 2: On Thursday , clashes erupted in Aden when a special forces commander loyal to the Houthis , Abdul Hafez Al Saqqaf , ordered hundreds of his troops to create checkpoints at all roads leading to Aden 's airport . sentence 3: Supporters of Yemeni President Abdu Rabu Mansour Hadi clash with special forces loyal to rebels .",
+            "output": [
+                "sentence 1: struck 2: erupted 3: clash"
+            ]
+        },
+        {
+            "input": "sentence 1: The agents allowed CNN to attend the raid . sentence 2: In fact , the abandoned school brought to mind a movie set , filled with props and decorations , but no actors . sentence 3: CNN attends federal raid , finds school abandoned , resembling movie set .",
+            "output": [
+                "sentence 1: the raid 2: the abandoned school 3: federal raid"
+            ]
+        },
+        {
+            "input": "sentence 1: On Tuesday , President Obama announced that the withdrawal of U.S . forces from Afghanistan would be slowed and the remaining 9,800 troops would stay there through the end of 2015 . sentence 2: Both the Democratic and Republican parties should adopt such a plan in their platforms as they gear up for the 2016 campaign . sentence 3: President Obama is planning withdrawal of all U.S. troops from Afghanistan by end of 2016 .",
+            "output": [
+                "sentence 1: the withdrawal of U.S . forces from Afghanistan 2: such a plan 3: withdrawal of all U.S. troops from Afghanistan by end of 2016"
+            ]
+        },
+        {
+            "input": "sentence 1: Nevertheless , the trial court summoned him and some other corporate leaders to testify in person on April 8 , she said . sentence 2: The case Singh has been asked to appear for relates to the licensing of a coal block to a private firm some 10 years ago , when he was also guardian of the nation 's coal ministry . sentence 3: Due to appear on April 8 ; case relates to the licensing of a coal block to a private firm 10 years ago .",
+            "output": [
+                "sentence 1: testify 2: appear 3: appear"
+            ]
+        },
+        {
+            "input": "sentence 1: That 's because searchers did find remnants from the AirAsia aircraft and the remains of some passengers in the Java Sea . sentence 2: There will be a smaller-scale operation , involving divers and three vessels , over the next week , according to Indonesia 's National Search and Rescue Agency . sentence 3: There will be a smaller-scale search for one more week in the Java Sea .",
+            "output": [
+                "sentence 1: searchers 2: a smaller-scale operation , involving divers and three vessels 3: a smaller-scale search"
+            ]
+        },
+        {
+            "input": "sentence 1: There are the requisite grey ladies in fur and chapeaux , as well as twenty-somethings in backpacks huddled in groups , downing their drinks before walking into Pace London 's booze-free exhibition space for the opening of A Strong , Sweet Smell of Incense : A Portrait of Robert Fraser . sentence 2: Curated by the artist Brian Clarke , A Strong , Sweet Smell of Incense -- a winking reference to the police report describing the bust -- aims to blend the rebel , the art connoisseur and the hedonist to present a rounded image of an unsung star of the 60s . sentence 3: The Pace London exhibition , curated by Brian Clarke , features artists represented , admired or known to Fraser .",
+            "output": [
+                "sentence 1: A Strong , Sweet Smell of Incense : A Portrait of Robert Fraser 2: A Strong , Sweet Smell of Incense 3: The Pace London exhibition"
+            ]
+        },
+        {
+            "input": "sentence 1: Ko , born in Korea but raised in New Zealand , had to settle for second place at Sentosa in Singapore on Sunday -- International Women 's Day -- after winning her previous two events . sentence 2: Park led the tournament from start to finish , and closed with two-under-par 70 -- a score matched by Ko -- as she claimed her 13th LPGA Tour title . sentence 3: Inbee Park wins LPGA Tour event in Singapore on Sunday .",
+            "output": [
+                "sentence 1: Sentosa 2: the tournament 3: LPGA Tour event"
+            ]
+        },
+        {
+            "input": "sentence 1: Lily 's mother , Lynn Jennifer Groesbeck , died in the crash that had landed their car on its roof in the Spanish Fork River . sentence 2: She was still strapped into her seat , where she may have been for 14 hours , if the wreck occurred when police believe it did . sentence 3: The baby girl may have been trapped in the car in the cold river for about 14 hours .",
+            "output": [
+                "sentence 1: Lily 2: She 3: The baby girl"
+            ]
+        },
+        {
+            "input": "sentence 1: The effects of this will be huge to the comics , ending 33 of the company 's titles . sentence 2: It 's more of a world drastically changed based on a superhero war , and it 's a huge story and it 's fun to be able to involve every Marvel character there is . sentence 3: Story will affect every Marvel comic , ending 33 titles .",
+            "output": [
+                "sentence 1: the comics 2: a huge story 3: Story"
+            ]
+        },
+        {
+            "input": "sentence 1: The suspects were in the parking lot when police responded , and they immediately attacked the officers , the DPS statement said . sentence 2: The Walmart employee , who was a loss prevention officer , had a broken arm , Graves said . sentence 3: Incident began when police got report that Walmart employee was attacked , statement says .",
+            "output": [
+                "sentence 1: said 2: said 3: says"
+            ]
+        },
+        {
+            "input": "sentence 1: As a person who believes in fair play and equal opportunity for all , I am also moved to wonder when a woman will get the chance to preside over a talk show after sunset ? sentence 2: Indeed , in pushing forth both Noah and Larry Wilmore , the writer , comic and erstwhile National Black Correspondent for `` The Daily Show , '' to preside over both halves of Comedy Central 's much-coveted 11 p.m.-to-midnight bloc , Stewart is acknowledging what the mainstream of the country truly is : i.e . not as pale-faced as it once thought it was . sentence 3: As a black man , Gene Seymour thrilled Trevor Noah tapped for `` Daily Show . '' But in service of fair play he asks : Why not a woman for the job ?",
+            "output": [
+                "sentence 1: a talk show 2: The Daily Show 3: Daily Show"
+            ]
+        },
+        {
+            "input": "sentence 1: He famously played the legendary Jack Nicklaus 22 times and lost to the 18-time major champion on every occasion , but made significant improvements to his game once he began working for NASA . sentence 2: It 's funny to say from a person who went to college for four years on a golf scholarship . sentence 3: The 70-year-old spent 15 years working for NASA before becoming a golf coach .",
+            "output": [
+                "sentence 1: He 2: a person who went to college for four years on a golf scholarship 3: The 70-year-old"
+            ]
+        },
+        {
+            "input": "sentence 1: Paul McCartney ( inducting former Beatle Ringo Starr ) . sentence 2: Stevie Wonder ( inducting'70s soul singer Bill Withers ) . sentence 3: Paul McCartney will introduce Ringo Starr ; Stevie Wonder will induct Bill Withers .",
+            "output": [
+                "sentence 1: inducting 2: inducting'70s 3: induct"
+            ]
+        },
+        {
+            "input": "sentence 1: Women are naturally moody . sentence 2: Moodiness -- being sensitive , caring deeply and occasionally being acutely dissatisfied -- is actually a natural source of power . sentence 3: She says anti-depressants dampen moodiness , but it 's healthy , useful for women to be moody . Changing natural state damages society .",
+            "output": [
+                "sentence 1: moody 2: Moodiness 3: moodiness"
+            ]
+        },
+        {
+            "input": "sentence 1: Many recruits come from educated , well-to-do backgrounds , like 25-year-old Abu Anwar of Britain . sentence 2: Some are lured by the possibility of dying as a martyr so they can enjoy a sumptuous afterlife . sentence 3: Analyst : Many recruits lack a sense of belonging ; some want a lavish afterlife by dying as a `` martyr ''",
+            "output": [
+                "sentence 1: Many recruits 2: Some 3: Many recruits"
+            ]
+        },
+        {
+            "input": "sentence 1: `` They have been cheated , brainwashed . sentence 2: `` We are providing consular assistance to their families and we have informed the Turkish police to try and ascertain their whereabouts , '' the British Foreign & Commonwealth Office said in a statement . sentence 3: `` They have been cheated , brainwashed , '' the Turkish lawmaker says .",
+            "output": [
+                "sentence 1: They 2: their 3: They"
+            ]
+        },
+        {
+            "input": "sentence 1: As an airline pilot , I'm taking this incident personally . sentence 2: For the moment , I 'll have to believe that my customers are intelligent enough to realize that the Germanwings co-pilot is an anomaly . sentence 3: Les Abend : Fliers should know that Germanwings crash is anomaly ; airlines have procedures for vetting pilots ' fitness .",
+            "output": [
+                "sentence 1: airline 2: Germanwings 3: Germanwings"
+            ]
+        },
+        {
+            "input": "sentence 1: With the help of the Internet and social media , they have been able to build their brand and find an audience without the help of chains or department stores . sentence 2: Brands selling directly to customers is nothing new in retail , and it 's still a big gamble for most . sentence 3: Social media make finding customers easier , but it 's still an uphill battle .",
+            "output": [
+                "sentence 1: an audience 2: customers 3: customers"
+            ]
+        },
+        {
+            "input": "sentence 1: Robert Jason Owens is accused of killing former contestant Cristie Schoen Codd , 38 , and her husband , Joseph Codd , 45 . sentence 2: Relatives reported the Codds missing Sunday after they could not reach either of them . sentence 3: Cristie and Joseph Codd were reported missing Sunday .",
+            "output": [
+                "sentence 1: former contestant Cristie Schoen Codd , 38 , and her husband , Joseph Codd , 45 2: the Codds 3: Cristie and Joseph Codd"
+            ]
+        },
+        {
+            "input": "sentence 1: This whitewash has been so evident throughout the entire election campaign that a foreigner arriving in Israel would have had a hard time understanding anything about what is really going on here . sentence 2: The elephant in the Israeli room is the unending occupation of Palestinian territories , and nobody is talking about it . sentence 3: Levy : Israel 's occupation of Palestinian territory has gone mostly undiscussed ahead of Tuesday 's election .",
+            "output": [
+                "sentence 1: Israel 2: Israeli 3: Israel 's"
+            ]
+        },
+        {
+            "input": "sentence 1: In February 2013 , the administration filed a friend of the court brief on behalf of couples challenging California 's ban on same sex marriage . sentence 2: Ultimately , the Supreme Court dismissed that case . sentence 3: Administration files a brief before Supreme Court hears cases .",
+            "output": [
+                "sentence 1: California 's ban on same sex marriage 2: case 3: cases"
+            ]
+        },
+        {
+            "input": "sentence 1: Jamie Croom , 31 , was wounded in a shootout with Deputy U.S . Marshal Josie Wells . sentence 2: Wells , 28 , was trying to arrest Croom , who is suspected in the deaths of a brother and sister in New Roads , Louisiana , CNN affiliate WAFB said . sentence 3: Deputy U.S. Marshal Josie Wells , 28 , died after trying to arrest Jamie Croom .",
+            "output": [
+                "sentence 1: Jamie Croom , 31 2: Croom 3: Jamie Croom"
+            ]
+        },
+        {
+            "input": "sentence 1: Moreover , a group of prominent U.S . officials , current and retired , will be banned from entering Venezuela because of what Maduro said was their involvement in `` bombing Iraq , Syria and Vietnam '' and other `` terrorist '' actions . sentence 2: The officials include George W . Bush , former U.S . Vice President Dick Cheney , former CIA Director George Tenet and several current members of Congress , including Ileana Ros-Lehtinen , Bob Menendez and Mario Diaz-Balart . sentence 3: Maduro also banned George W. Bush , Dick Cheney , others from entering Venezuela .",
+            "output": [
+                "sentence 1: a group of prominent U.S . officials , current and retired 2: The officials 3: George W. Bush , Dick Cheney , others"
+            ]
+        },
+        {
+            "input": "sentence 1: The 72-year-old retired major general 's experience as a military ruler has been viewed as a plus by some and a minus by others in present-day Nigeria , where the government has been locked in a deadly battle with the militant group Boko Haram . sentence 2: According to his campaign website , Buhari is from Daura in Nigeria 's northern Katsina state and is married with eight children . sentence 3: Muhammadu Buhari is a 72-year-old retired major general from Daura , northern Nigeria .",
+            "output": [
+                "sentence 1: The 72-year-old retired major general 2: Buhari 3: Muhammadu Buhari"
+            ]
+        },
+        {
+            "input": "sentence 1: The devastating event took place on our planet many millions of years ago , but researchers are only now beginning to discover what happened . sentence 2: In a remote part of Central Australia , the two pieces of asteroid left what geophysicists say is the largest impact zone ever found on Earth , spreading over an area 400 kilometers ( 250 miles ) wide . sentence 3: Two pieces of asteroid crashed into Australia many millions of years ago .",
+            "output": [
+                "sentence 1: The devastating event 2: the two pieces of asteroid 3: asteroid"
+            ]
+        },
+        {
+            "input": "sentence 1: If this comes as a surprise , that 's because images from popular culture push the idea that young college graduates are shrugging off bad employment prospects with their do-it-yourself attitude . sentence 2: Sure , Silicon Valley does n't owe America jobs . sentence 3: Young college graduates are struggling with lack of jobs , yet many still idolize Silicon Valley .",
+            "output": [
+                "sentence 1: employment prospects 2: jobs 3: jobs"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) In an audio message purportedly from an ISIS spokesman , the group announced that a pledge of allegiance from Nigerian-based Boko Haram has been accepted by ISIS leader Abu Bakr al-Baghdadi . sentence 2: The message says that the caliphate , or Islamic State , has expanded to western Africa and congratulated `` our jihadi brothers '' there . sentence 3: Abu Bakr al-Baghdadi 's spokesman congratulated `` our jihadi brothers '' in western Africa .",
+            "output": [
+                "sentence 1: Nigerian-based Boko Haram 2: our jihadi brothers 3: our jihadi brothers '' in western Africa"
+            ]
+        },
+        {
+            "input": "sentence 1: `` This rude , disrespectful , and awful behavior is unacceptable and they owe you an apology . '' sentence 2: The two moms are now Facebook friends . sentence 3: She looks for the mom who confronted their rude behavior , and they become Facebook friends .",
+            "output": [
+                "sentence 1: they 2: The two moms 3: She looks for the mom who confronted their rude behavior"
+            ]
+        },
+        {
+            "input": "sentence 1: Being on a scooter in Ho Chi Minh is the best way to feel a part of the city , says Mueller . sentence 2: `` Being side by side with the locals . '' sentence 3: Mueller says it 's the best way to see the city and beyond , riding side by side with locals .",
+            "output": [
+                "sentence 1: feel 2: Being side by side 3: riding side by side with locals"
+            ]
+        },
+        {
+            "input": "sentence 1: After a charming series featuring a robot , he struck a cadence in creating `` swarms '' with inanimate objects such as Post-it notes and plastic plates . sentence 2: The photo of the pink Solo cups was shot against mountainous terrain in Wyoming . sentence 3: Among the items used : Solo cups , Post-it notes , cheese balls and plastic plates .",
+            "output": [
+                "sentence 1: inanimate objects 2: the pink Solo cups 3: Solo cups"
+            ]
+        },
+        {
+            "input": "sentence 1: The latest example : Nine seconds of video of a number of boys singing an offensive song . sentence 2: Immediately , the University of Oklahoma expelled two of the boys for their speech . sentence 3: University of Oklahoma students were expelled after video surfaced of racist song .",
+            "output": [
+                "sentence 1: an offensive song 2: their speech 3: racist song"
+            ]
+        },
+        {
+            "input": "sentence 1: The boy 's body was torn apart by an explosion near the finish line of the Boston Marathon . sentence 2: Richard 's description of the explosion 's horrifying aftermath capped a day of dramatic testimony as survivors shared their stories in the second day of the high-profile trial . sentence 3: The second day of the Boston Marathon bombings trial is underway .",
+            "output": [
+                "sentence 1: explosion 2: explosion 3: bombings"
+            ]
+        },
+        {
+            "input": "sentence 1: The person developed symptoms Sunday evening and `` out of an abundance of caution '' was taken to the biocontainment unit at the University of Nebraska Medical Center in Omaha . sentence 2: These workers will have more freedom to move around than the ones in Georgia and Nebraska . sentence 3: After developing symptoms , a worker is moved to Nebraska 's biocontainment unit .",
+            "output": [
+                "sentence 1: The person 2: workers 3: a worker"
+            ]
+        },
+        {
+            "input": "sentence 1: Fifty officers were killed by firearms -- 15 in ambush attacks -- in 2014 , the Memorial Fund said . sentence 2: That 's compared with five ambushes among 32 shooting deaths in 2013 and six ambush deaths during 2012 , according to the FBI . sentence 3: Firearms killed 50 officers in 2014 , up from 32 in 2013 , the Officers Memorial Fund says .",
+            "output": [
+                "sentence 1: ambush attacks 2: shooting 3: killed"
+            ]
+        },
+        {
+            "input": "sentence 1: But , with a European Champions League last-16 decider at home to Manchester City on Wednesday and then the `` El Clasico '' crunch clash with bitter rival Real Madrid next Sunday , every win is vital at this stage of the campaign . sentence 2: The London side has now won four games in all competitions since suffering a shock 3-1 home defeat by Wenger 's former club Monaco in the first leg of their last-16 Champions League tie last month . sentence 3: Champions League opponent Manchester City suffers shock defeat .",
+            "output": [
+                "sentence 1: Manchester City 2: The London side 3: Champions League opponent Manchester City"
+            ]
+        },
+        {
+            "input": "sentence 1: Authorities have stepped up patrols in the neighborhood where Ahmed Al-Jumaili lived -- and died -- in their effort to find out who killed the 36-year-old early Thursday , as he and his brother stood in the parking lot of his apartment complex watching the snow . sentence 2: Cotner said police are conducting tests to find out whether more than one rifle was used in the shooting , but he said he could not reveal the make or model of the weapon . sentence 3: Dallas police say Ahmed Al-Jumaili was killed by shot from a rifle , but they are n't revealing what type .",
+            "output": [
+                "sentence 1: Authorities 2: police 3: Dallas police"
+            ]
+        },
+        {
+            "input": "sentence 1: Half a century ago , expat oil workers with an enthusiasm for golf had nowhere in Abu Dhabi to play . sentence 2: In the 1990s , the sand game 's fortunes took a dive as the site was earmarked for a nine-hole grass course . sentence 3: Expat oil workers in Abu Dhabi built sand golf course in 1961 .",
+            "output": [
+                "sentence 1: golf 2: the sand game 3: golf"
+            ]
+        },
+        {
+            "input": "sentence 1: The expedition was launched after aerial light detection scanning -- known as LIDAR -- uncovered what appeared to be man-made structures below the rainforest , National Geographic said . sentence 2: Writer Douglas Preston said the team emerged February 25 , after documenting the ruins of a `` vanished culture . '' sentence 3: A team documented the site after aerial light scanning showed man-made structures .",
+            "output": [
+                "sentence 1: man-made structures 2: the ruins 3: man-made structures"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) Pi Day is going to be extra special this year , as 2015 stretches the symbolic March 14 celebration out a little longer to 3.1415 . sentence 2: And if you mark pi at 9:26.53 in the morning or night , you 're just a little more in line with the celebrated irrational number that never ends . sentence 3: Pi Day is celebrated March 14 in honor of the famed irrational number .",
+            "output": [
+                "sentence 1: Pi 2: pi 3: Pi"
+            ]
+        },
+        {
+            "input": "sentence 1: `` It 's too much to watch , and people are just standing there in these images and watching , and they are not doing anything , and their facial expressions are really scary because they are not even scared of what is going on , '' says Nour , who 's also an LGBT rights activist . sentence 2: `` LGBT people in Syria need help , and they need to be supported . sentence 3: `` LGBT people in Syria need help , and they need to be supported , '' says Nour , a Syrian gay rights activist now living in Turkey .",
+            "output": [
+                "sentence 1: LGBT 2: LGBT 3: LGBT"
+            ]
+        },
+        {
+            "input": "sentence 1: In a space devoid of government , refugee camps and aid agencies are frequently seen as the only authorities , the new front line in the war on terror , a sometimes unwelcome association . sentence 2: Yet despite these risks , thousands of aid workers continue to work in a region where the U.N . High Commissioner for Refugees ( UNHCR ) estimates the number of refugees from conflict at more than 8 million . sentence 3: With a lack of government , more than 8 million refugees rely on aid agencies for food , shelter and medical care .",
+            "output": [
+                "sentence 1: refugee 2: refugees 3: refugees"
+            ]
+        },
+        {
+            "input": "sentence 1: Following Netanyahu 's interview , chief Palestinian negotiator Saeb Erekat , who is also a member of the executive committee of the Palestine Liberation Organization , said the Israeli Prime Minister 's stance is nothing new . sentence 2: Now the world must learn its lesson and understand that impunity wo n't bring peace , only justice will . '' sentence 3: `` Impunity wo n't bring peace , only justice will , '' chief Palestinian negotiator says .",
+            "output": [
+                "sentence 1: Israeli Prime Minister 's stance 2: impunity 3: Impunity"
+            ]
+        },
+        {
+            "input": "sentence 1: Alas , both -- along with a huge swathe of other vital services -- are under attack by the administration of Bruce Rauner , the new Republican governor of Illinois . sentence 2: He even , in a revealing moment , said that his own nephew ought to get booted from the program because the nephew 's parents make too much money ( a spokesperson clarified that Bassi actually has two nephews in the program , both of whom have benefited from the therapy ) . sentence 3: He says new Illinois governor is among those making short-sighted decisions .",
+            "output": [
+                "sentence 1: Bruce Rauner , the new Republican governor of Illinois 2: He 3: new Illinois governor"
+            ]
+        },
+        {
+            "input": "sentence 1: The Braceros program granted him a work visa and when he finished the program , he began his path to citizenship . sentence 2: In that era in Mexico , you had to pay for school past a certain grade and my father 's family could n't afford it . sentence 3: Juan Rocha 's father came to the U.S. from Mexico on a work visa program .",
+            "output": [
+                "sentence 1: him 2: my father 3: Juan Rocha 's father"
+            ]
+        },
+        {
+            "input": "sentence 1: The car landed on its roof in the Spanish Fork River . sentence 2: Lily was still strapped into her seat , where she may have been for 14 hours , if the wreck occurred at about 10:30 Friday night , as police believe . sentence 3: Baby Lily was trapped in the car in the cold river for as long as 14 hours .",
+            "output": [
+                "sentence 1: The car 2: the wreck 3: the car"
+            ]
+        },
+        {
+            "input": "sentence 1: He was killed in a chase and gunbattle with police that began with reports of an `` officer down '' at MIT . sentence 2: `` I'm serious , '' Meng testified that the man told him moments before admitting to being the Boston Marathon bomber . sentence 3: Dun Meng says one of carjackers admitted to being a bomber and to killing an MIT officer .",
+            "output": [
+                "sentence 1: He 2: the man 3: one of carjackers"
+            ]
+        },
+        {
+            "input": "sentence 1: See , this Halloween was different : I'd been diagnosed with a brain tumor just weeks before , and donning this costume was a lighthearted way to feel empowered ahead of the biggest fight of my life . sentence 2: It all started early one morning in September while I was wrapping up my work as a digital producer for CNN 's `` New Day . '' sentence 3: `` New Day '' Digital Producer Jessica Moskowitz was diagnosed with a brain tumor in September .",
+            "output": [
+                "sentence 1: I'd 2: It 3: New Day '' Digital Producer Jessica Moskowitz"
+            ]
+        },
+        {
+            "input": "sentence 1: But Glikson said the researchers stumbled across scars from the impacts during drilling for geothermal research . sentence 2: `` There are two huge deep domes in the crust , formed by the Earth 's crust rebounding after the huge impacts , and bringing up rock from the mantle below , '' Glikson said . sentence 3: Researchers stumble across traces of the impact zone deep in the earth 's crust .",
+            "output": [
+                "sentence 1: scars from the impacts 2: two huge deep domes in the crust , formed by the Earth 's crust rebounding after the huge impacts 3: traces of the impact zone deep in the earth 's crust"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) A teenage Australian jihadist suspected of having carried out an ISIS suicide attack developed a hatred for the West over the Afghanistan and Iraq wars , before settling on radical Islam as a vehicle for `` violent global revolution , '' according to his purported blog . sentence 2: Jake Bilardi , an 18-year-old student from Melbourne , appears to have documented his path to radicalization and his experiences in ISIS-held territory in a blog , titled `` From the eyes of a Mujahir : An Australian Mujahir in the land of the Khilafah . '' sentence 3: It traces his path to radicalization , seeking to destroy the democratic West before finding Islam .",
+            "output": [
+                "sentence 1: A teenage Australian jihadist suspected of having carried out an ISIS suicide attack 2: Jake Bilardi , an 18-year-old student from Melbourne 3: his"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) U.S . Secretary of State John Kerry said Saturday that `` we need to close . . . gaps '' with Iran in talks about its nuclear program , adding that those negotiating with Iranian officials `` are deeply committed to ensuring that Iran does not obtain a nuclear weapon . '' sentence 2: `` We have to get the right deal , '' the top U.S . diplomat said . sentence 3: U.S. Secretary of State John Kerry : `` We have to get the right deal ''",
+            "output": [
+                "sentence 1: U.S . Secretary of State John Kerry 2: the top U.S . diplomat 3: U.S. Secretary of State John Kerry"
+            ]
+        },
+        {
+            "input": "sentence 1: When asked questions along those lines Wednesday in Washington , it seemed that even top U.S . military officials did n't have easy answers . sentence 2: `` Anything anyone does to counter ISIS is in the main a good outcome , '' Gen . Martin Dempsey said . sentence 3: A top U.S. military leader says anything or anyone who fights ISIS is welcome .",
+            "output": [
+                "sentence 1: top U.S . military officials 2: Gen . Martin Dempsey 3: A top U.S. military leader"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) Nigerians go to the polls on March 28 in a tight contest , which is getting extra attention after the original date was rescheduled at the last minute . sentence 2: This election will be the first since Nigeria re-calculated it 's GDP and pulled ahead of South Africa to become the continent 's biggest economy . sentence 3: Nigeria 's postponed Presidential election is slated to be held on March 28 .",
+            "output": [
+                "sentence 1: a tight contest 2: This election 3: Nigeria 's postponed Presidential election"
+            ]
+        },
+        {
+            "input": "sentence 1: Now , Tony Terrell Robinson Jr . 's name is written on signs carried by demonstrators who say they 're demanding justice after a police shooting ended the unarmed teen 's life . sentence 2: . . . Terrell felt ( like ) a misfit most of his life , '' Carter said . sentence 3: Tony Robinson 's uncle says the teen often felt like a misfit .",
+            "output": [
+                "sentence 1: Tony Terrell Robinson Jr 2: Terrell 3: Tony Robinson 's"
+            ]
+        },
+        {
+            "input": "sentence 1: The number of law enforcement officers shot to death in the line of duty rose more than 50 % in 2014 , the law enforcement group said in a report released in December . sentence 2: Fifty officers were killed by firearms -- 15 in ambush attacks -- in 2014 , the Memorial Fund said . sentence 3: National Law Enforcement Officers Memorial Fund : Of the 50 , 15 were killed in ambushes .",
+            "output": [
+                "sentence 1: shot to death 2: killed 3: killed"
+            ]
+        },
+        {
+            "input": "sentence 1: Houthi supreme leader Abdul Malik al-Houthi spoke live Thursday night in Yemen on al-Masirah TV , saying , `` If any army try to invade our country , we will prove that Yemen will be a grave for those who invade us . '' sentence 2: He added , `` We call on the invaders to stop the attacks and if the airstrikes do not end then we will escalate in the needed manner . '' sentence 3: Houthi leader says rebels will escalate response if airstrikes continue , make Yemen a grave for Saudis .",
+            "output": [
+                "sentence 1: Houthi supreme leader Abdul Malik al-Houthi 2: He 3: Houthi leader"
+            ]
+        },
+        {
+            "input": "sentence 1: The village 's leader , Haji Jamid , said the Shiite fighters ' efforts were working . sentence 2: `` If it were n't for them , ISIS would have slaughtered us . '' sentence 3: Sunni village leader lauds Shiite military : `` ISIS would have slaughtered us '' if not for them .",
+            "output": [
+                "sentence 1: the Shiite fighters 2: them 3: Shiite military"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) A runway at New York 's LaGuardia Airport reopened Friday morning , a day after a Delta Air Lines plane skidded off it before halting near the icy waters of Flushing Bay . sentence 2: Runway 13 remained closed until the plane could be removed and brought into a hangar . sentence 3: LaGuardia Airport 's Runway 13 reopens after plane removed .",
+            "output": [
+                "sentence 1: A runway at New York 's LaGuardia Airport 2: Runway 13 3: LaGuardia Airport 's Runway 13"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) A sixth suspect in the shooting death of a top Russian opposition figure blew himself up after a standoff with police in the capital of the Chechen Republic , state-run television reported Sunday . sentence 2: Police surrounded the building and Shavano tried to escape , throwing a grenade at police officers before blowing himself up , the station said . sentence 3: With police surrounding hiding place , sixth suspect kills himself , Russian media say .",
+            "output": [
+                "sentence 1: A sixth suspect in the shooting death of a top Russian opposition figure 2: Shavano 3: sixth suspect"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) NASCAR announced Wednesday that it has lifted its suspension of driver Kurt Busch , making him eligible to return to the sport immediately -- albeit `` under indefinite probation . '' sentence 2: She accused the standout driver of grabbing her by the throat and slamming her head against a wall in his motor home at Delaware 's Dover International Speedway in September . sentence 3: Kurt Busch was accused of grabbing his ex-girlfriend by the throat , slamming her head .",
+            "output": [
+                "sentence 1: driver Kurt Busch 2: the standout driver 3: Kurt Busch"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) The police may have found the missing dress . sentence 2: The L.A . Sheriff 's Department got a tip Friday and looked in an abandoned bathroom on the second floor of the same London Hotel , the department said in a press release . sentence 3: Los Angeles authorities got a tip and found a dress that looked like hers in a hotel bathroom .",
+            "output": [
+                "sentence 1: The police 2: The L.A . Sheriff 's Department 3: Los Angeles authorities"
+            ]
+        },
+        {
+            "input": "sentence 1: Washington ( CNN ) It does n't matter how many times Israeli Prime Minister Benjamin Netanyahu now says he still wants a two-state solution with the Palestinians . sentence 2: Regarding comments Netanyahu made Tuesday about Arab Israeli voters going to the polls `` in droves '' -- comments described by some as racist -- Obama told The Huffington Post that that kind of `` rhetoric '' was `` contrary to what is best of Israel 's traditions . sentence 3: Interview covers Netanyahu stance on two-state solution , Arab voters .",
+            "output": [
+                "sentence 1: Israeli Prime Minister Benjamin Netanyahu 2: Netanyahu 3: Netanyahu"
+            ]
+        },
+        {
+            "input": "sentence 1: The affidavit says his father , Victor Solis , quickly left his home in Lancaster after receiving a call from him . sentence 2: He told FBI agents he drove his son to El Paso , dropped him off at a bus station and does n't know where he is . sentence 3: Victor Solis said he took his son to a bus station in El Paso , Texas .",
+            "output": [
+                "sentence 1: his father , Victor Solis 2: He 3: Victor Solis"
+            ]
+        },
+        {
+            "input": "sentence 1: From 2009 to 2010 , he applied for 10 high school head coaching positions and numerous assistant coaching positions . sentence 2: He only received one interview . sentence 3: Turk applied for 10 head coaching positions , only to have one interview .",
+            "output": [
+                "sentence 1: he 2: He 3: Turk"
+            ]
+        },
+        {
+            "input": "sentence 1: AAA , the wrestling promotion company for which Aguayo worked , said it was informed of his death around 1 a.m . Saturday . sentence 2: `` Mexican lucha libre is in mourning over the death of one of its star talents , '' the AAA said in a statement . sentence 3: `` Mexican lucha libre is in mourning , '' wrestling promotion company says .",
+            "output": [
+                "sentence 1: AAA , the wrestling promotion company for which Aguayo worked 2: the AAA 3: wrestling promotion company"
+            ]
+        },
+        {
+            "input": "sentence 1: ( CNN ) Slain Russian opposition figure Boris Nemtsov knew criticizing the Kremlin was dangerous , but thought his fame would protect him . sentence 2: The 55-year-old was walking home from dinner with his girlfriend Anna Duritskaya when he was gunned down in Moscow on Friday . sentence 3: Kremlin critic and opposition figure Boris Nemtsov was fatally shot in Moscow on Friday .",
+            "output": [
+                "sentence 1: Slain Russian opposition figure Boris Nemtsov 2: The 55-year-old 3: Kremlin critic and opposition figure Boris Nemtsov"
+            ]
+        },
+        {
+            "input": "sentence 1: Captions on the photos show that many of them were taken inside military hospitals , and accuse Syrian President Bashar al-Assad 's regime in the torture and killings . sentence 2: That 's partly why Mouaz Moustafa , senior political adviser to the Coalition for a Democratic Syria , said he placed the photos in this location . sentence 3: Adviser to the Coalition for a Democratic Syria says they show actions of President Bashar al-Assad 's regime .",
+            "output": [
+                "sentence 1: the photos 2: the photos 3: they show"
+            ]
+        },
+        {
+            "input": "sentence 1: Although Jobs ' life and career have been well chronicled , the new book contains some fresh tidbits : . sentence 2: -- In 2009 , when Jobs was dying of cancer , Cook offered his boss a piece of his liver but Jobs refused , saying , `` No , I 'll never let you do that . '' sentence 3: Among new book 's tidbits : When Jobs was dying , Tim Cook offered piece of his liver .",
+            "output": [
+                "sentence 1: Jobs 2: Jobs 3: Jobs"
+            ]
+        },
+        {
+            "input": "sentence 1: The school contacted Liam 's mother and told her the costume was inappropriate . sentence 2: A teacher from the school had dressed as the fictional serial killer Dexter , Scholes said : `` I do n't see why sex is more offensive than murder . '' sentence 3: Liam Scholes ' school said that the costume was inappropriate and insisted it be modified .",
+            "output": [
+                "sentence 1: The school 2: the school 3: Liam Scholes ' school"
+            ]
+        },
+        {
+            "input": "sentence 1: And she stresses that the issues of gender inequality and sexual violence against women are not confined to India . sentence 2: This happens to us , to every country , '' Udwin said . sentence 3: Udwin says the root of the problem of sexual violence in India and elsewhere is gender inequality .",
+            "output": [
+                "sentence 1: the issues of gender inequality and sexual violence against women 2: This 3: gender inequality"
+            ]
+        },
+        {
+            "input": "sentence 1: London ( CNN ) An investigation is underway after a canine competitor died the day after taking part in Crufts , one of the world 's most prestigious dog shows . sentence 2: Three-year-old Irish setter Thendara Satisfaction -- known to his owners as Jagger -- took second prize in his class at the event in Birmingham , central England , on Thursday . sentence 3: Three-year-old Irish setter Jagger died suddenly after competing at Crufts dog show .",
+            "output": [
+                "sentence 1: a canine competitor 2: Three-year-old Irish setter Thendara Satisfaction -- known to his owners as Jagger 3: Three-year-old Irish setter Jagger"
+            ]
+        }
+    ]
+}
