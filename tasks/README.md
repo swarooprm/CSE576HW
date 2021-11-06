@@ -230,6 +230,148 @@ Name | Summary | Category
 `task143.3_odd-man-out_classification_generate_category` | Given a set of words, select the category that represents the words. | Classification
 `task143.4_odd-man-out_classification_generate_category` | Given a set of words, select the category that represents the words. | Classification
 `task143_odd-man-out_classification_generate_category` | Given a set of words, select the category that represents the words. | Classification
+`task144_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.1_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.2_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.3_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.4_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.5_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.6_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.7_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.8_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.9_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task145_afs_argument_similarity_death_penalty` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task145.1_afs_argument_similarity_death_penalty` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task145.2_afs_argument_similarity_death_penalty` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task145.3_afs_argument_similarity_death_penalty` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task145.4_afs_argument_similarity_death_penalty` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task145.5_afs_argument_similarity_death_penalty` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task146_afs_argument_similarity_gun_control` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task146.1_afs_argument_similarity_gun_control` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task146.2_afs_argument_similarity_gun_control` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task146.3_afs_argument_similarity_gun_control` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task146.4_afs_argument_similarity_gun_control` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task146.5_afs_argument_similarity_gun_control` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task147_afs_argument_similarity_gay_marriage` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task147.1_afs_argument_similarity_gay_marriage` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task147.2_afs_argument_similarity_gay_marriage` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task147.3_afs_argument_similarity_gay_marriage` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task147.4_afs_argument_similarity_gay_marriage` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task147.5_afs_argument_similarity_gay_marriage` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task148_afs_argument_quality_gay_marriage` | Given an argument, determine if it's valid. | Binary Classification
+`task148.1_afs_argument_quality_gay_marriage` | Given an argument, determine if it's valid. | Binary Classification
+`task148.2_afs_argument_quality_gay_marriage` | Given an argument, determine if it's valid. | Binary Classification
+`task148.3_afs_argument_quality_gay_marriage` | Given an argument, determine if it's valid. | Binary Classification
+`task148.4_afs_argument_quality_gay_marriage` | Given an argument, determine if it's valid. | Binary Classification
+`task148.5_afs_argument_quality_gay_marriage` | Given an argument, determine if it's valid. | Binary Classification
+`task149_afs_argument_quality_death_penalty` | Given an argument, determine if it's valid. | Binary Classification
+`task149.1_afs_argument_quality_death_penalty` | Given an argument, determine if it's valid. | Binary Classification
+`task149.2_afs_argument_quality_death_penalty` | Given an argument, determine if it's valid. | Binary Classification
+`task149.3_afs_argument_quality_death_penalty` | Given an argument, determine if it's valid. | Binary Classification
+`task149.4_afs_argument_quality_death_penalty` | Given an argument, determine if it's valid. | Binary Classification
+`task149.5_afs_argument_quality_death_penalty` | Given an argument, determine if it's valid. | Binary Classification
+`task150_afs_argument_quality_gun_control` | Given an argument, determine if it's valid. | Binary Classification
+`task150.1_afs_argument_quality_gun_control` | Given an argument, determine if it's valid. | Binary Classification
+`task150.2_afs_argument_quality_gun_control` | Given an argument, determine if it's valid. | Binary Classification
+`task150.3_afs_argument_quality_gun_control` | Given an argument, determine if it's valid. | Binary Classification
+`task150.4_afs_argument_quality_gun_control` | Given an argument, determine if it's valid. | Binary Classification
+`task150.5_afs_argument_quality_gun_control` | Given an argument, determine if it's valid. | Binary Classification
+`task151_tomqa_find_location_easy_clean` | Given an easy story, answer the question regarding the location of an object. | Answer Generation
+`task151.1_tomqa_find_location_easy_clean` | Given an easy story, answer the question regarding the location of an object. | Answer Generation
+`task151.2_tomqa_find_location_easy_clean` | Given an easy story, answer the question regarding the location of an object. | Answer Generation
+`task151.3_tomqa_find_location_easy_clean` | Given an easy story, answer the question regarding the location of an object. | Answer Generation
+`task151.4_tomqa_find_location_easy_clean` | Given an easy story, answer the question regarding the location of an object. | Answer Generation
+`task151.5_tomqa_find_location_easy_clean` | Given an easy story, answer the question regarding the location of an object. | Answer Generation
+`task152_tomqa_find_location_easy_noise` | Given an easy story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task152.1_tomqa_find_location_easy_noise` | Given an easy story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task152.2_tomqa_find_location_easy_noise` | Given an easy story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task152.3_tomqa_find_location_easy_noise` | Given an easy story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task152.4_tomqa_find_location_easy_noise` | Given an easy story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task152.5_tomqa_find_location_easy_noise` | Given an easy story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task153_tomqa_find_location_hard_clean` | Given a hard story, answer the question regarding the location of an object. | Answer Generation
+`task153.1_tomqa_find_location_hard_clean` | Given a hard story, answer the question regarding the location of an object. | Answer Generation
+`task153.2_tomqa_find_location_hard_clean` | Given a hard story, answer the question regarding the location of an object. | Answer Generation
+`task153.3_tomqa_find_location_hard_clean` | Given a hard story, answer the question regarding the location of an object. | Answer Generation
+`task153.4_tomqa_find_location_hard_clean` | Given a hard story, answer the question regarding the location of an object. | Answer Generation
+`task153.5_tomqa_find_location_hard_clean` | Given a hard story, answer the question regarding the location of an object. | Answer Generation
+`task154_tomqa_find_location_hard_noise` | Given a hard story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task154.1_tomqa_find_location_hard_noise` | Given a hard story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task154.2_tomqa_find_location_hard_noise` | Given a hard story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task154.3_tomqa_find_location_hard_noise` | Given a hard story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task154.4_tomqa_find_location_hard_noise` | Given a hard story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task154.5_tomqa_find_location_hard_noise` | Given a hard story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task155_count_nouns_verbs` | Count the number of nouns/verbs in the given sentence. | Answer Generation
+`task155.1_count_nouns_verbs` | Count the number of nouns/verbs in the given sentence. | Answer Generation
+`task155.2_count_nouns_verbs` | Count the number of nouns/verbs in the given sentence. | Answer Generation
+`task155.3_count_nouns_verbs` | Count the number of nouns/verbs in the given sentence. | Answer Generation
+`task155.4_count_nouns_verbs` | Count the number of nouns/verbs in the given sentence. | Answer Generation
+`task155.5_count_nouns_verbs` | Count the number of nouns/verbs in the given sentence. | Answer Generation
+`task156_codah_classification_adversarial` | Given a prompt, select the completion that is the most plausible. | Classification
+`task156.1_codah_classification_adversarial` | Given a prompt, select the completion that is the most plausible. | Classification
+`task156.2_codah_classification_adversarial` | Given a prompt, select the completion that is the most plausible. | Classification
+`task156.3_codah_classification_adversarial` | Given a prompt, select the completion that is the most plausible. | Classification
+`task156.4_codah_classification_adversarial` | Given a prompt, select the completion that is the most plausible. | Classification
+`task156.5_codah_classification_adversarial` | Given a prompt, select the completion that is the most plausible. | Classification
+`task157_count_vowels_and_consonants` | Count the number of vowels/consonants in the given sentence. | Counting
+`task157.1_count_vowels_and_consonants` | Count the number of vowels/consonants in the given sentence. | Counting
+`task157.2_count_vowels_and_consonants` | Count the number of vowels/consonants in the given sentence. | Counting
+`task157.3_count_vowels_and_consonants` | Count the number of vowels/consonants in the given sentence. | Counting
+`task157.4_count_vowels_and_consonants` | Count the number of vowels/consonants in the given sentence. | Counting
+`task157.5_count_vowels_and_consonants` | Count the number of vowels/consonants in the given sentence. | Counting
+`task158_count_frequency_of_words` | Count the number of occurrences of a word in the given sentence. | Counting
+`task158.1_count_frequency_of_words` | Count the number of occurrences of a word in the given sentence. | Counting
+`task158.2_count_frequency_of_words` | Count the number of occurrences of a word in the given sentence. | Counting
+`task158.3_count_frequency_of_words` | Count the number of occurrences of a word in the given sentence. | Counting
+`task158.4_count_frequency_of_words` | Count the number of occurrences of a word in the given sentence. | Counting
+`task158.5_count_frequency_of_words` | Count the number of occurrences of a word in the given sentence. | Counting
+`task159_check_frequency_of_words_in_sentence_pair` | Check the frequency of a word in the two sentences. | Counting, Classification
+`task159.1_check_frequency_of_words_in_sentence_pair` | Check the frequency of a word in the two sentences. | Counting, Classification
+`task159.2_check_frequency_of_words_in_sentence_pair` | Check the frequency of a word in the two sentences. | Counting, Classification
+`task159.3_check_frequency_of_words_in_sentence_pair` | Check the frequency of a word in the two sentences. | Counting, Classification
+`task159.4_check_frequency_of_words_in_sentence_pair` | Check the frequency of a word in the two sentences. | Counting, Classification
+`task159.5_check_frequency_of_words_in_sentence_pair` | Check the frequency of a word in the two sentences. | Counting, Classification
+`task160_replace_letter_in_a_sentence` | Replace a letter in the sentence with another given letter. | Text Modification
+`task160.1_replace_letter_in_a_sentence` | Replace a letter in the sentence with another given letter. | Text Modification
+`task160.2_replace_letter_in_a_sentence` | Replace a letter in the sentence with another given letter. | Text Modification
+`task160.3_replace_letter_in_a_sentence` | Replace a letter in the sentence with another given letter. | Text Modification
+`task160.4_replace_letter_in_a_sentence` | Replace a letter in the sentence with another given letter. | Text Modification
+`task160.5_replace_letter_in_a_sentence` | Replace a letter in the sentence with another given letter. | Text Modification
+`task161_count_words_containing_letter` | Count the number of words in the sentence that contain the given letter. | Counting
+`task161.1_count_words_containing_letter` | Count the number of words in the sentence that contain the given letter. | Counting
+`task161.2_count_words_containing_letter` | Count the number of words in the sentence that contain the given letter. | Counting
+`task161.3_count_words_containing_letter` | Count the number of words in the sentence that contain the given letter. | Counting
+`task161.4_count_words_containing_letter` | Count the number of words in the sentence that contain the given letter. | Counting
+`task161.5_count_words_containing_letter` | Count the number of words in the sentence that contain the given letter. | Counting
+`task162_count_words_starting_with_letter` | Count the number of words in the sentence that start with the given letter. | Counting
+`task162.1_count_words_starting_with_letter` | Count the number of words in the sentence that start with the given letter. | Counting
+`task162.2_count_words_starting_with_letter` | Count the number of words in the sentence that start with the given letter. | Counting
+`task162.3_count_words_starting_with_letter` | Count the number of words in the sentence that start with the given letter. | Counting
+`task162.4_count_words_starting_with_letter` | Count the number of words in the sentence that start with the given letter. | Counting
+`task162.5_count_words_starting_with_letter` | Count the number of words in the sentence that start with the given letter. | Counting
+`task163_count_words_ending_with_letter` | Count the number of words in the sentence that end with the given letter. | Counting
+`task163.1_count_words_ending_with_letter` | Count the number of words in the sentence that end with the given letter. | Counting
+`task163.2_count_words_ending_with_letter` | Count the number of words in the sentence that end with the given letter. | Counting
+`task163.3_count_words_ending_with_letter` | Count the number of words in the sentence that end with the given letter. | Counting
+`task163.4_count_words_ending_with_letter` | Count the number of words in the sentence that end with the given letter. | Counting
+`task163.5_count_words_ending_with_letter` | Count the number of words in the sentence that end with the given letter. | Counting
+`task164_mcscript_question_answering_text` | Given a passage and question, select the best answer from the given choices. | Answer Generation
+`task164.1_mcscript_question_answering_text` | Given a passage and question, select the best answer from the given choices. | Answer Generation
+`task164.2_mcscript_question_answering_text` | Given a passage and question, select the best answer from the given choices. | Answer Generation
+`task164.3_mcscript_question_answering_text` | Given a passage and question, select the best answer from the given choices. | Answer Generation
+`task164.4_mcscript_question_answering_text` | Given a passage and question, select the best answer from the given choices. | Answer Generation
+`task164.5_mcscript_question_answering_text` | Given a passage and question, select the best answer from the given choices. | Answer Generation
+`task165_mcscript_question_answering_commonsense` | Given a passage and question, generate the best answer. | Answer Generation
+`task165.1_mcscript_question_answering_commonsense` | Given a passage and question, generate the best answer. | Answer Generation
+`task165.2_mcscript_question_answering_commonsense` | Given a passage and question, generate the best answer. | Answer Generation
+`task165.3_mcscript_question_answering_commonsense` | Given a passage and question, generate the best answer. | Answer Generation
+`task165.4_mcscript_question_answering_commonsense` | Given a passage and question, generate the best answer. | Answer Generation
+`task165.5_mcscript_question_answering_commonsense` | Given a passage and question, generate the best answer. | Answer Generation
+`task166_clariq_sentence_generation` | Provide clarification on the given query which is written in natural language. | Sentence Generation
+`task166.1_clariq_sentence_generation` | Provide clarification on the given query which is written in natural language. | Sentence Generation
+`task166.2_clariq_sentence_generation` | Provide clarification on the given query which is written in natural language. | Sentence Generation
+`task166.3_clariq_sentence_generation` | Provide clarification on the given query which is written in natural language. | Sentence Generation
+`task166.4_clariq_sentence_generation` | Provide clarification on the given query which is written in natural language. | Sentence Generation
+`task166.5_clariq_sentence_generation` | Provide clarification on the given query which is written in natural language. | Sentence Generation
 `task258_spl_translation_fa_en` | Translate Farsi questions to English while preserving named entities in the original language. | Translation
 `task258.1_spl_translation_fa_en` | Translate Farsi questions to English while preserving named entities in the original language. | Translation
 `task258.2_spl_translation_fa_en` | Translate Farsi questions to English while preserving named entities in the original language. | Translation

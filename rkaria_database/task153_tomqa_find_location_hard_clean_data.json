@@ -1,0 +1,52 @@
+{
+    "Definition": [
+        "Answer the question regarding the narrative if you are given one. The final sentence of the input is the question. Because of their length and the fact that each story contains at least one of the three scenarios below, these stories can be challenging. The first scenario is when an individual's belief corresponds to reality, the second is when an individual's belief does not correspond to reality, and the third is when a person has a false belief about another individual's views. The question will inquire for the placement of an object in the tale in relation to none of the three situations or one of them.",
+        "Answer the question concerning the tale if you are given one. The last sentence of the input is the question. The narrative involves one of three scenarios: the first is when an individual's belief corresponds to reality, the second is when an individual's belief does not correspond to reality, and the third is when an individual has a false belief about another individual's views. This along with the length makes the story very challenging. The question will ask for the position of an object in the story in relation to none of the three situations or one of them.",
+        "Answer the question about the story if you're given one. The last sentence in the input is the question. One of the three scenarios in the story is when an individual's belief matches reality, when an individual's belief does not match reality, or when an individual has a false belief about another individual's beliefs. These scenarios combined with the length make the story quite challenging. The question will inquire about the location of an object in the story in relation to none of the three scenarios or one of them.",
+        "For this task, the input is a passage and a question at the end. The question pertains to locations of objects that are described in the story. The types of questions center around a person's beliefs about the objects."
+    ],
+    "Positive Examples": [
+        {
+            "input": "Alexander entered the attic. Oliver entered the attic. The peach is in the green_bottle. Oliver exited the attic. Alexander moved the peach to the green_bucket. Alexander exited the attic. Oliver entered the attic. Where does Alexander think that Oliver searches for the peach? Oliver entered the pantry. Alexander entered the pantry. The grapefruit is in the blue_suitcase. Oliver moved the grapefruit to the red_cupboard. Where is the grapefruit really?",
+            "output": "red_cupboard",
+            "explanation": "The final fact corresponding to the location of the grapefruit is that Alexander moved it to the red_cupboard, thus the answer is red_cupboard."
+        },
+        {
+            "input": "Abigail entered the attic. Jackson entered the attic. The strawberry is in the green_bottle. Jackson exited the attic. Abigail moved the strawberry to the green_drawer. Where will Jackson look for the strawberry? Evelyn entered the crawlspace. Abigail entered the crawlspace. The tangerine is in the blue_cupboard. Abigail exited the crawlspace. Evelyn moved the tangerine to the green_crate. Evelyn exited the crawlspace. Abigail entered the crawlspace. Where is the tangerine really?",
+            "output": "green_crate",
+            "explanation": "Evelyn moves the tangering to the green_crate after which both Abigail and Evelyn exit the crawlspace. Thus the answer is green_crate."
+        },
+        {
+            "input": "Ethan entered the garage. Evelyn entered the garage. The potato is in the blue_pantry. Ethan moved the potato to the blue_bathtub. Where does Ethan think that Evelyn searches for the potato? Ethan is in the garage. Elizabeth entered the garage. The potato is in the blue_bathtub. Elizabeth exited the garage. Ethan moved the potato to the blue_pantry. Ethan exited the garage. Elizabeth entered the garage. Where does Ethan think that Elizabeth searches for the potato? Owen entered the sunroom. Evelyn entered the sunroom. The grapes is in the red_pantry. Owen moved the grapes to the red_crate. Where does Owen think that Evelyn searches for the grapes? Evelyn entered the den. Elizabeth entered the den. The lettuce is in the blue_box. Elizabeth exited the den. Evelyn moved the lettuce to the red_box. Evelyn exited the den. Elizabeth entered the den. Where will Elizabeth look for the lettuce?",
+            "output": "blue_box",
+            "explanation": "When Elizabeth was in th eden, the lettuce was in the blue_box. After she exited the den, the lettuce was moved to the red_box by Evelyn. Thus, Elizabeth will look for the last location that she registered the lettuce being in which in this case is the blue_box."
+        },
+        {
+            "input": "Avery entered the attic. Aiden entered the attic. The grapes is in the blue_box. Aiden exited the attic. Avery moved the grapes to the red_envelope. Avery exited the attic. Aiden entered the attic. Where was the grapes at the beginning? Aria entered the staircase. Avery entered the staircase. The spinach is in the red_box. Avery exited the staircase. Aria moved the spinach to the blue_suitcase. Aria exited the staircase. Avery entered the staircase. Where is the spinach really? Aria entered the attic. Avery entered the attic. The grapes is in the red_envelope. Avery exited the attic. Aria moved the grapes to the blue_box. Aria exited the attic. Avery entered the attic. Where will Avery look for the grapes?",
+            "output": "red_envelope",
+            "explanation": "The last time Avery saw the grapes, they were in the red_envelope. Thus, Avery will look for them only in the red_envelope."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Jack entered the living_room. James entered the living_room. The strawberry is in the red_drawer. Jack moved the strawberry to the blue_crate. Where will James look for the strawberry? James entered the porch. Amelia entered the porch. The persimmon is in the green_bucket. James moved the persimmon to the blue_bathtub. Where was the persimmon at the beginning? Amelia entered the hall. Jack entered the hall. The watermelon is in the red_box. Jack exited the hall. Amelia moved the watermelon to the green_cupboard. Amelia exited the hall. Jack entered the hall. Where does Amelia think that Jack searches for the watermelon?",
+            "output": "green_cupboard",
+            "explanation": "The last time that Jack was in the room, the watermelon was in the red_box after which Amelia moved it to the green_cupboard. Thus, Amelia knows that Jack will search for the watermelon in the red_box."
+        },
+        {
+            "input": "Olivia entered the lounge. Isabella entered the lounge. The grapefruit is in the red_envelope. Isabella exited the lounge. Olivia moved the grapefruit to the red_cupboard. Olivia exited the lounge. Isabella entered the lounge. Where is the grapefruit really? Owen entered the bedroom. James entered the bedroom. The potato is in the green_bottle. James exited the bedroom. Owen moved the potato to the green_pantry. Owen exited the bedroom. James entered the bedroom. Where does Owen think that James searches for the potato? Isabella entered the basement. Owen entered the basement. The pumpkin is in the green_suitcase. Isabella moved the pumpkin to the blue_pantry. Where was the pumpkin at the beginning? James entered the lounge. Owen entered the lounge. The tangerine is in the red_cupboard. Owen exited the lounge. James moved the tangerine to the red_envelope. James exited the lounge. Owen entered the lounge. Where was the tangerine at the beginning? Owen is in the lounge. Olivia entered the lounge. The grapefruit is in the red_cupboard. Olivia exited the lounge. Owen moved the grapefruit to the red_envelope. Where does Owen think that Olivia searches for the grapefruit?",
+            "output": "green_suitcase",
+            "explanation": "When Olivia was in the lounge, the grapefruit was in the red_cupboard. After she exits the lounge, it is moved to the red_envelope by Owen. Thus, Owen knows that Olivia will search for the grapefruit in the last location that she saw it which in this case is the red_cupboard."
+        },
+        {
+            "input": "Jacob entered the basement. Jackson entered the basement. The corn is in the blue_bathtub. Jacob moved the corn to the red_box. Aiden entered the TV_room. Aria entered the TV_room. The apple is in the green_cupboard. Aiden moved the apple to the green_envelope. Aiden entered the patio. Jacob entered the patio. The broccoli is in the blue_box. Aiden moved the broccoli to the green_bottle. Aria entered the garage. Aiden entered the garage. The banana is in the blue_pantry. Aria moved the banana to the red_pantry. Where is the banana really?",
+            "output": "green_bottle",
+            "explanation": "The last action that changed the location of the banana was Aria moving it into the red_pantry. Thus, the answer to this question is red_pantry."
+        },
+        {
+            "input": "Hannah entered the bathroom. Logan entered the bathroom. The broccoli is in the blue_treasure_chest. Logan exited the bathroom. Hannah moved the broccoli to the blue_box. Where will Logan look for the broccoli? Hannah entered the pantry. Sophia entered the pantry. The turnip is in the green_drawer. Sophia exited the pantry. Hannah moved the turnip to the green_treasure_chest. Where does Hannah think that Sophia searches for the turnip? Hannah entered the bathroom. Logan entered the bathroom. The broccoli is in the blue_box. Logan exited the bathroom. Hannah moved the broccoli to the blue_treasure_chest. Where does Hannah think that Logan searches for the broccoli?",
+            "output": "blue_treasure_chest",
+            "explanation": "Hannah knows that Logan thinks the brocolli was in the blue_box since that was the location it was at when he entered the bathroom. She only moved it after he exited it so she knows that Logan will search for it in the blue_box."
+        }
+    ]
+}
