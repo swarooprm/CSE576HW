@@ -64,7 +64,7 @@ Name | Summary | Category
 `task368.4_synthetic_even_or_odd_calculation` | Given a list of integers divide even numbers by 4 and multiply odd numbers by 4 then add 2 | Answer Generation, Arithemetic
 `task368.5_synthetic_even_or_odd_calculation` | Given a list of integers divide even numbers by 4 and multiply odd numbers by 4 then add 2 | Answer Generation, Arithemetic
 `task368.6_synthetic_even_or_odd_calculation` | Given a list of integers divide even numbers by 4 and multiply odd numbers by 4 then add 2 | Answer Generation, Arithemetic
-`task368.6_synthetic_even_or_odd_calculation` | Given a list of integers divide even numbers by 4 and multiply odd numbers by 4 then add 2 | Answer Generation, Arithemetic
+`task368.7_synthetic_even_or_odd_calculation` | Given a list of integers divide even numbers by 4 and multiply odd numbers by 4 then add 2 | Answer Generation, Arithemetic
 `task369_synthetic_remove_odds` | Given a list of integers remove any integer if it is odd | Answer Generation, Arithemetic
 `task369.1_synthetic_remove_odds` | Given a list of integers remove any integer if it is odd | Answer Generation, Arithemetic
 `task369.2_synthetic_remove_odds` | Given a list of integers remove any integer if it is odd | Answer Generation, Arithemetic
