@@ -230,6 +230,148 @@ Name | Summary | Category
 `task143.3_odd-man-out_classification_generate_category` | Given a set of words, select the category that represents the words. | Classification
 `task143.4_odd-man-out_classification_generate_category` | Given a set of words, select the category that represents the words. | Classification
 `task143_odd-man-out_classification_generate_category` | Given a set of words, select the category that represents the words. | Classification
+`task144_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.1_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.2_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.3_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.4_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.5_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.6_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.7_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.8_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task144.9_subjqa_question_answering` | Given a review and a question, answer the question with the span of the review. | Answer Generation
+`task145_afs_argument_similarity_death_penalty` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task145.1_afs_argument_similarity_death_penalty` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task145.2_afs_argument_similarity_death_penalty` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task145.3_afs_argument_similarity_death_penalty` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task145.4_afs_argument_similarity_death_penalty` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task145.5_afs_argument_similarity_death_penalty` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task146_afs_argument_similarity_gun_control` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task146.1_afs_argument_similarity_gun_control` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task146.2_afs_argument_similarity_gun_control` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task146.3_afs_argument_similarity_gun_control` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task146.4_afs_argument_similarity_gun_control` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task146.5_afs_argument_similarity_gun_control` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task147_afs_argument_similarity_gay_marriage` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task147.1_afs_argument_similarity_gay_marriage` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task147.2_afs_argument_similarity_gay_marriage` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task147.3_afs_argument_similarity_gay_marriage` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task147.4_afs_argument_similarity_gay_marriage` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task147.5_afs_argument_similarity_gay_marriage` | Given two arguments, determine if they are similar or not. | Binary Classification
+`task148_afs_argument_quality_gay_marriage` | Given an argument, determine if it's valid. | Binary Classification
+`task148.1_afs_argument_quality_gay_marriage` | Given an argument, determine if it's valid. | Binary Classification
+`task148.2_afs_argument_quality_gay_marriage` | Given an argument, determine if it's valid. | Binary Classification
+`task148.3_afs_argument_quality_gay_marriage` | Given an argument, determine if it's valid. | Binary Classification
+`task148.4_afs_argument_quality_gay_marriage` | Given an argument, determine if it's valid. | Binary Classification
+`task148.5_afs_argument_quality_gay_marriage` | Given an argument, determine if it's valid. | Binary Classification
+`task149_afs_argument_quality_death_penalty` | Given an argument, determine if it's valid. | Binary Classification
+`task149.1_afs_argument_quality_death_penalty` | Given an argument, determine if it's valid. | Binary Classification
+`task149.2_afs_argument_quality_death_penalty` | Given an argument, determine if it's valid. | Binary Classification
+`task149.3_afs_argument_quality_death_penalty` | Given an argument, determine if it's valid. | Binary Classification
+`task149.4_afs_argument_quality_death_penalty` | Given an argument, determine if it's valid. | Binary Classification
+`task149.5_afs_argument_quality_death_penalty` | Given an argument, determine if it's valid. | Binary Classification
+`task150_afs_argument_quality_gun_control` | Given an argument, determine if it's valid. | Binary Classification
+`task150.1_afs_argument_quality_gun_control` | Given an argument, determine if it's valid. | Binary Classification
+`task150.2_afs_argument_quality_gun_control` | Given an argument, determine if it's valid. | Binary Classification
+`task150.3_afs_argument_quality_gun_control` | Given an argument, determine if it's valid. | Binary Classification
+`task150.4_afs_argument_quality_gun_control` | Given an argument, determine if it's valid. | Binary Classification
+`task150.5_afs_argument_quality_gun_control` | Given an argument, determine if it's valid. | Binary Classification
+`task151_tomqa_find_location_easy_clean` | Given an easy story, answer the question regarding the location of an object. | Answer Generation
+`task151.1_tomqa_find_location_easy_clean` | Given an easy story, answer the question regarding the location of an object. | Answer Generation
+`task151.2_tomqa_find_location_easy_clean` | Given an easy story, answer the question regarding the location of an object. | Answer Generation
+`task151.3_tomqa_find_location_easy_clean` | Given an easy story, answer the question regarding the location of an object. | Answer Generation
+`task151.4_tomqa_find_location_easy_clean` | Given an easy story, answer the question regarding the location of an object. | Answer Generation
+`task151.5_tomqa_find_location_easy_clean` | Given an easy story, answer the question regarding the location of an object. | Answer Generation
+`task152_tomqa_find_location_easy_noise` | Given an easy story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task152.1_tomqa_find_location_easy_noise` | Given an easy story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task152.2_tomqa_find_location_easy_noise` | Given an easy story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task152.3_tomqa_find_location_easy_noise` | Given an easy story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task152.4_tomqa_find_location_easy_noise` | Given an easy story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task152.5_tomqa_find_location_easy_noise` | Given an easy story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task153_tomqa_find_location_hard_clean` | Given a hard story, answer the question regarding the location of an object. | Answer Generation
+`task153.1_tomqa_find_location_hard_clean` | Given a hard story, answer the question regarding the location of an object. | Answer Generation
+`task153.2_tomqa_find_location_hard_clean` | Given a hard story, answer the question regarding the location of an object. | Answer Generation
+`task153.3_tomqa_find_location_hard_clean` | Given a hard story, answer the question regarding the location of an object. | Answer Generation
+`task153.4_tomqa_find_location_hard_clean` | Given a hard story, answer the question regarding the location of an object. | Answer Generation
+`task153.5_tomqa_find_location_hard_clean` | Given a hard story, answer the question regarding the location of an object. | Answer Generation
+`task154_tomqa_find_location_hard_noise` | Given a hard story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task154.1_tomqa_find_location_hard_noise` | Given a hard story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task154.2_tomqa_find_location_hard_noise` | Given a hard story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task154.3_tomqa_find_location_hard_noise` | Given a hard story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task154.4_tomqa_find_location_hard_noise` | Given a hard story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task154.5_tomqa_find_location_hard_noise` | Given a hard story with distractor sentences, answer the question regarding the location of an object. | Answer Generation
+`task155_count_nouns_verbs` | Count the number of nouns/verbs in the given sentence. | Answer Generation
+`task155.1_count_nouns_verbs` | Count the number of nouns/verbs in the given sentence. | Answer Generation
+`task155.2_count_nouns_verbs` | Count the number of nouns/verbs in the given sentence. | Answer Generation
+`task155.3_count_nouns_verbs` | Count the number of nouns/verbs in the given sentence. | Answer Generation
+`task155.4_count_nouns_verbs` | Count the number of nouns/verbs in the given sentence. | Answer Generation
+`task155.5_count_nouns_verbs` | Count the number of nouns/verbs in the given sentence. | Answer Generation
+`task156_codah_classification_adversarial` | Given a prompt, select the completion that is the most plausible. | Classification
+`task156.1_codah_classification_adversarial` | Given a prompt, select the completion that is the most plausible. | Classification
+`task156.2_codah_classification_adversarial` | Given a prompt, select the completion that is the most plausible. | Classification
+`task156.3_codah_classification_adversarial` | Given a prompt, select the completion that is the most plausible. | Classification
+`task156.4_codah_classification_adversarial` | Given a prompt, select the completion that is the most plausible. | Classification
+`task156.5_codah_classification_adversarial` | Given a prompt, select the completion that is the most plausible. | Classification
+`task157_count_vowels_and_consonants` | Count the number of vowels/consonants in the given sentence. | Counting
+`task157.1_count_vowels_and_consonants` | Count the number of vowels/consonants in the given sentence. | Counting
+`task157.2_count_vowels_and_consonants` | Count the number of vowels/consonants in the given sentence. | Counting
+`task157.3_count_vowels_and_consonants` | Count the number of vowels/consonants in the given sentence. | Counting
+`task157.4_count_vowels_and_consonants` | Count the number of vowels/consonants in the given sentence. | Counting
+`task157.5_count_vowels_and_consonants` | Count the number of vowels/consonants in the given sentence. | Counting
+`task158_count_frequency_of_words` | Count the number of occurrences of a word in the given sentence. | Counting
+`task158.1_count_frequency_of_words` | Count the number of occurrences of a word in the given sentence. | Counting
+`task158.2_count_frequency_of_words` | Count the number of occurrences of a word in the given sentence. | Counting
+`task158.3_count_frequency_of_words` | Count the number of occurrences of a word in the given sentence. | Counting
+`task158.4_count_frequency_of_words` | Count the number of occurrences of a word in the given sentence. | Counting
+`task158.5_count_frequency_of_words` | Count the number of occurrences of a word in the given sentence. | Counting
+`task159_check_frequency_of_words_in_sentence_pair` | Check the frequency of a word in the two sentences. | Counting, Classification
+`task159.1_check_frequency_of_words_in_sentence_pair` | Check the frequency of a word in the two sentences. | Counting, Classification
+`task159.2_check_frequency_of_words_in_sentence_pair` | Check the frequency of a word in the two sentences. | Counting, Classification
+`task159.3_check_frequency_of_words_in_sentence_pair` | Check the frequency of a word in the two sentences. | Counting, Classification
+`task159.4_check_frequency_of_words_in_sentence_pair` | Check the frequency of a word in the two sentences. | Counting, Classification
+`task159.5_check_frequency_of_words_in_sentence_pair` | Check the frequency of a word in the two sentences. | Counting, Classification
+`task160_replace_letter_in_a_sentence` | Replace a letter in the sentence with another given letter. | Text Modification
+`task160.1_replace_letter_in_a_sentence` | Replace a letter in the sentence with another given letter. | Text Modification
+`task160.2_replace_letter_in_a_sentence` | Replace a letter in the sentence with another given letter. | Text Modification
+`task160.3_replace_letter_in_a_sentence` | Replace a letter in the sentence with another given letter. | Text Modification
+`task160.4_replace_letter_in_a_sentence` | Replace a letter in the sentence with another given letter. | Text Modification
+`task160.5_replace_letter_in_a_sentence` | Replace a letter in the sentence with another given letter. | Text Modification
+`task161_count_words_containing_letter` | Count the number of words in the sentence that contain the given letter. | Counting
+`task161.1_count_words_containing_letter` | Count the number of words in the sentence that contain the given letter. | Counting
+`task161.2_count_words_containing_letter` | Count the number of words in the sentence that contain the given letter. | Counting
+`task161.3_count_words_containing_letter` | Count the number of words in the sentence that contain the given letter. | Counting
+`task161.4_count_words_containing_letter` | Count the number of words in the sentence that contain the given letter. | Counting
+`task161.5_count_words_containing_letter` | Count the number of words in the sentence that contain the given letter. | Counting
+`task162_count_words_starting_with_letter` | Count the number of words in the sentence that start with the given letter. | Counting
+`task162.1_count_words_starting_with_letter` | Count the number of words in the sentence that start with the given letter. | Counting
+`task162.2_count_words_starting_with_letter` | Count the number of words in the sentence that start with the given letter. | Counting
+`task162.3_count_words_starting_with_letter` | Count the number of words in the sentence that start with the given letter. | Counting
+`task162.4_count_words_starting_with_letter` | Count the number of words in the sentence that start with the given letter. | Counting
+`task162.5_count_words_starting_with_letter` | Count the number of words in the sentence that start with the given letter. | Counting
+`task163_count_words_ending_with_letter` | Count the number of words in the sentence that end with the given letter. | Counting
+`task163.1_count_words_ending_with_letter` | Count the number of words in the sentence that end with the given letter. | Counting
+`task163.2_count_words_ending_with_letter` | Count the number of words in the sentence that end with the given letter. | Counting
+`task163.3_count_words_ending_with_letter` | Count the number of words in the sentence that end with the given letter. | Counting
+`task163.4_count_words_ending_with_letter` | Count the number of words in the sentence that end with the given letter. | Counting
+`task163.5_count_words_ending_with_letter` | Count the number of words in the sentence that end with the given letter. | Counting
+`task164_mcscript_question_answering_text` | Given a passage and question, select the best answer from the given choices. | Answer Generation
+`task164.1_mcscript_question_answering_text` | Given a passage and question, select the best answer from the given choices. | Answer Generation
+`task164.2_mcscript_question_answering_text` | Given a passage and question, select the best answer from the given choices. | Answer Generation
+`task164.3_mcscript_question_answering_text` | Given a passage and question, select the best answer from the given choices. | Answer Generation
+`task164.4_mcscript_question_answering_text` | Given a passage and question, select the best answer from the given choices. | Answer Generation
+`task164.5_mcscript_question_answering_text` | Given a passage and question, select the best answer from the given choices. | Answer Generation
+`task165_mcscript_question_answering_commonsense` | Given a passage and question, generate the best answer. | Answer Generation
+`task165.1_mcscript_question_answering_commonsense` | Given a passage and question, generate the best answer. | Answer Generation
+`task165.2_mcscript_question_answering_commonsense` | Given a passage and question, generate the best answer. | Answer Generation
+`task165.3_mcscript_question_answering_commonsense` | Given a passage and question, generate the best answer. | Answer Generation
+`task165.4_mcscript_question_answering_commonsense` | Given a passage and question, generate the best answer. | Answer Generation
+`task165.5_mcscript_question_answering_commonsense` | Given a passage and question, generate the best answer. | Answer Generation
+`task166_clariq_sentence_generation` | Provide clarification on the given query which is written in natural language. | Sentence Generation
+`task166.1_clariq_sentence_generation` | Provide clarification on the given query which is written in natural language. | Sentence Generation
+`task166.2_clariq_sentence_generation` | Provide clarification on the given query which is written in natural language. | Sentence Generation
+`task166.3_clariq_sentence_generation` | Provide clarification on the given query which is written in natural language. | Sentence Generation
+`task166.4_clariq_sentence_generation` | Provide clarification on the given query which is written in natural language. | Sentence Generation
+`task166.5_clariq_sentence_generation` | Provide clarification on the given query which is written in natural language. | Sentence Generation
 `task258_spl_translation_fa_en` | Translate Farsi questions to English while preserving named entities in the original language. | Translation
 `task258.1_spl_translation_fa_en` | Translate Farsi questions to English while preserving named entities in the original language. | Translation
 `task258.2_spl_translation_fa_en` | Translate Farsi questions to English while preserving named entities in the original language. | Translation
@@ -483,6 +625,190 @@ Name | Summary | Category
 `task332.3_tellmewhy_answer_generation` | Given a short story and a question, answer the question based on the events of the story. | Answer Generation
 `task332.4_tellmewhy_answer_generation` | Given a short story and a question, answer the question based on the events of the story. | Answer Generation
 `task332.5_tellmewhy_answer_generation` | Given a short story and a question, answer the question based on the events of the story. | Answer Generation
+`task362_spolin_yesand_prompt_response_sub_classification` | Given a prompt and two responses, identify which response is "yes, ands" type | Classification
+`task362.1_spolin_yesand_prompt_response_sub_classification` | Given a prompt and two responses, identify which response is "yes, ands" type | Classification
+`task362.2_spolin_yesand_prompt_response_sub_classification` | Given a prompt and two responses, identify which response is "yes, ands" type | Classification
+`task362.3_spolin_yesand_prompt_response_sub_classification` | Given a prompt and two responses, identify which response is "yes, ands" type | Classification
+`task362.4_spolin_yesand_prompt_response_sub_classification` | Given a prompt and two responses, identify which response is "yes, ands" type | Classification
+`task362.5_spolin_yesand_prompt_response_sub_classification` | Given a prompt and two responses, identify which response is "yes, ands" type | Classification
+`task362.6_spolin_yesand_prompt_response_sub_classification` | Given a prompt and two responses, identify which response is "yes, ands" type | Classification
+`task362.7_spolin_yesand_prompt_response_sub_classification` | Given a prompt and two responses, identify which response is "yes, ands" type | Classification
+`task363_sst2_polarity_classification` | Given a sentence from a movie review, classify the sentence to positive or negative sentiment | Classification
+`task363.1_sst2_polarity_classification` | Given a sentence from a movie review, classify the sentence to positive or negative sentiment | Classification
+`task363.2_sst2_polarity_classification` | Given a sentence from a movie review, classify the sentence to positive or negative sentiment | Classification
+`task363.3_sst2_polarity_classification` | Given a sentence from a movie review, classify the sentence to positive or negative sentiment | Classification
+`task363.4_sst2_polarity_classification` | Given a sentence from a movie review, classify the sentence to positive or negative sentiment | Classification
+`task363.5_sst2_polarity_classification` | Given a sentence from a movie review, classify the sentence to positive or negative sentiment | Classification
+`task363.6_sst2_polarity_classification` | Given a sentence from a movie review, classify the sentence to positive or negative sentiment | Classification
+`task363.7_sst2_polarity_classification` | Given a sentence from a movie review, classify the sentence to positive or negative sentiment | Classification
+`task364_regard_social_impact_classification` | Given a sentence about a person, decide what is the impact of that sentence on the society's perception of that person | Classification
+`task364.1_regard_social_impact_classification` | Given a sentence about a person, decide what is the impact of that sentence on the society's perception of that person | Classification
+`task364.2_regard_social_impact_classification` | Given a sentence about a person, decide what is the impact of that sentence on the society's perception of that person | Classification
+`task364.3_regard_social_impact_classification` | Given a sentence about a person, decide what is the impact of that sentence on the society's perception of that person | Classification
+`task364.4_regard_social_impact_classification` | Given a sentence about a person, decide what is the impact of that sentence on the society's perception of that person | Classification
+`task364.5_regard_social_impact_classification` | Given a sentence about a person, decide what is the impact of that sentence on the society's perception of that person | Classification
+`task364.6_regard_social_impact_classification` | Given a sentence about a person, decide what is the impact of that sentence on the society's perception of that person | Classification
+`task364.7_regard_social_impact_classification` | Given a sentence about a person, decide what is the impact of that sentence on the society's perception of that person | Classification
+`task365_synthetic_remove_vowels` | Given a string remove any vowels in that string | Answer Generation
+`task365.1_synthetic_remove_vowels` | Given a string remove any vowels in that string | Answer Generation
+`task365.2_synthetic_remove_vowels` | Given a string remove any vowels in that string | Answer Generation
+`task365.3_synthetic_remove_vowels` | Given a string remove any vowels in that string | Answer Generation
+`task365.4_synthetic_remove_vowels` | Given a string remove any vowels in that string | Answer Generation
+`task365.5_synthetic_remove_vowels` | Given a string remove any vowels in that string | Answer Generation
+`task365.6_synthetic_remove_vowels` | Given a string remove any vowels in that string | Answer Generation
+`task365.7_synthetic_remove_vowels` | Given a string remove any vowels in that string | Answer Generation
+`task365.8_synthetic_remove_vowels` | Given a string remove any vowels in that string | Answer Generation
+`task366_synthetic_return_primes_a` | Given a list of integers return a number if it is prime | Answer Generation, Arithemetic
+`task366.1_synthetic_return_primes` | Given a list of integers return a number if it is prime | Answer Generation, Arithemetic
+`task366.2_synthetic_return_primes` | Given a list of integers return a number if it is prime | Answer Generation, Arithemetic
+`task366.3_synthetic_return_primes` | Given a list of integers return a number if it is prime | Answer Generation, Arithemetic
+`task366.4_synthetic_return_primes` | Given a list of integers return a number if it is prime | Answer Generation, Arithemetic
+`task366.5_synthetic_return_primes` | Given a list of integers return a number if it is prime | Answer Generation, Arithemetic
+`task366.6_synthetic_return_primes` | Given a list of integers return a number if it is prime | Answer Generation, Arithemetic
+`task366.7_synthetic_return_primes` | Given a list of integers return a number if it is prime | Answer Generation, Arithemetic
+`task366.8_synthetic_return_primes` | Given a list of integers return a number if it is prime | Answer Generation, Arithemetic
+`task367_synthetic_remove_floats_a` | Given a list of numbers remove any number if it is not an integer | Answer Generation, Arithemetic
+`task367.1_synthetic_remove_floats` | Given a list of numbers remove any number if it is not an integer | Answer Generation, Arithemetic
+`task367.2_synthetic_remove_floats` | Given a list of numbers remove any number if it is not an integer | Answer Generation, Arithemetic
+`task367.3_synthetic_remove_floats` | Given a list of numbers remove any number if it is not an integer | Answer Generation, Arithemetic
+`task367.4_synthetic_remove_floats` | Given a list of numbers remove any number if it is not an integer | Answer Generation, Arithemetic
+`task367.5_synthetic_remove_floats` | Given a list of numbers remove any number if it is not an integer | Answer Generation, Arithemetic
+`task367.6_synthetic_remove_floats` | Given a list of numbers remove any number if it is not an integer | Answer Generation, Arithemetic
+`task367.7_synthetic_remove_floats` | Given a list of numbers remove any number if it is not an integer | Answer Generation, Arithemetic
+`task368_synthetic_even_or_odd_calculation` | Given a list of integers divide even numbers by 4 and multiply odd numbers by 4 then add 2 | Answer Generation, Arithemetic
+`task368.1_synthetic_even_or_odd_calculation` | Given a list of integers divide even numbers by 4 and multiply odd numbers by 4 then add 2 | Answer Generation, Arithemetic
+`task368.2_synthetic_even_or_odd_calculation` | Given a list of integers divide even numbers by 4 and multiply odd numbers by 4 then add 2 | Answer Generation, Arithemetic
+`task368.3_synthetic_even_or_odd_calculation` | Given a list of integers divide even numbers by 4 and multiply odd numbers by 4 then add 2 | Answer Generation, Arithemetic
+`task368.4_synthetic_even_or_odd_calculation` | Given a list of integers divide even numbers by 4 and multiply odd numbers by 4 then add 2 | Answer Generation, Arithemetic
+`task368.5_synthetic_even_or_odd_calculation` | Given a list of integers divide even numbers by 4 and multiply odd numbers by 4 then add 2 | Answer Generation, Arithemetic
+`task368.6_synthetic_even_or_odd_calculation` | Given a list of integers divide even numbers by 4 and multiply odd numbers by 4 then add 2 | Answer Generation, Arithemetic
+`task368.7_synthetic_even_or_odd_calculation` | Given a list of integers divide even numbers by 4 and multiply odd numbers by 4 then add 2 | Answer Generation, Arithemetic
+`task369_synthetic_remove_odds` | Given a list of integers remove any integer if it is odd | Answer Generation, Arithemetic
+`task369.1_synthetic_remove_odds` | Given a list of integers remove any integer if it is odd | Answer Generation, Arithemetic
+`task369.2_synthetic_remove_odds` | Given a list of integers remove any integer if it is odd | Answer Generation, Arithemetic
+`task369.3_synthetic_remove_odds` | Given a list of integers remove any integer if it is odd | Answer Generation, Arithemetic
+`task369.4_synthetic_remove_odds` | Given a list of integers remove any integer if it is odd | Answer Generation, Arithemetic
+`task369.5_synthetic_remove_odds` | Given a list of integers remove any integer if it is odd | Answer Generation, Arithemetic
+`task369.6_synthetic_remove_odds` | Given a list of integers remove any integer if it is odd | Answer Generation, Arithemetic
+`task369.7_synthetic_remove_odds` | Given a list of integers remove any integer if it is odd | Answer Generation, Arithemetic
+`task370_synthetic_remove_divisible_by_3` | Given a list of integers remove any integer if it is divisible by 3 | Answer Generation, Arithemetic
+`task370.1_synthetic_remove_divisible_by_3` | Given a list of integers remove any integer if it is divisible by 3 | Answer Generation, Arithemetic
+`task370.2_synthetic_remove_divisible_by_3` | Given a list of integers remove any integer if it is divisible by 3 | Answer Generation, Arithemetic
+`task370.3_synthetic_remove_divisible_by_3` | Given a list of integers remove any integer if it is divisible by 3 | Answer Generation, Arithemetic
+`task370.4_synthetic_remove_divisible_by_3` | Given a list of integers remove any integer if it is divisible by 3 | Answer Generation, Arithemetic
+`task370.5_synthetic_remove_divisible_by_3` | Given a list of integers remove any integer if it is divisible by 3 | Answer Generation, Arithemetic
+`task370.6_synthetic_remove_divisible_by_3` | Given a list of integers remove any integer if it is divisible by 3 | Answer Generation, Arithemetic
+`task370.7_synthetic_remove_divisible_by_3` | Given a list of integers remove any integer if it is divisible by 3 | Answer Generation, Arithemetic
+`task371_synthetic_product_of_list` | Given a list of lists of integers, find the product of every inner list | Answer Generation, Arithemetic
+`task371.1_synthetic_product_of_list` | Given a list of lists of integers, find the product of every inner list | Answer Generation, Arithemetic
+`task371.2_synthetic_product_of_list` | Given a list of lists of integers, find the product of every inner list | Answer Generation, Arithemetic
+`task371.3_synthetic_product_of_list` | Given a list of lists of integers, find the product of every inner list | Answer Generation, Arithemetic
+`task371.4_synthetic_product_of_list` | Given a list of lists of integers, find the product of every inner list | Answer Generation, Arithemetic
+`task371.5_synthetic_product_of_list` | Given a list of lists of integers, find the product of every inner list | Answer Generation, Arithemetic
+`task371.6_synthetic_product_of_list` | Given a list of lists of integers, find the product of every inner list | Answer Generation, Arithemetic
+`task371.7_synthetic_product_of_list` | Given a list of lists of integers, find the product of every inner list | Answer Generation, Arithemetic
+`task372_synthetic_palindrome_numbers` | Given a list of integers return an integer if the first and last digit are the same | Answer Generation, Arithemetic
+`task372.1_synthetic_palindrome_numbers` | Given a list of integers return an integer if the first and last digit are the same | Answer Generation, Arithemetic
+`task372.2_synthetic_palindrome_numbers` | Given a list of integers return an integer if the first and last digit are the same | Answer Generation, Arithemetic
+`task372.3_synthetic_palindrome_numbers` | Given a list of integers return an integer if the first and last digit are the same | Answer Generation, Arithemetic
+`task372.4_synthetic_palindrome_numbers` | Given a list of integers return an integer if the first and last digit are the same | Answer Generation, Arithemetic
+`task372.5_synthetic_palindrome_numbers` | Given a list of integers return an integer if the first and last digit are the same | Answer Generation, Arithemetic
+`task372.6_synthetic_palindrome_numbers` | Given a list of integers return an integer if the first and last digit are the same | Answer Generation, Arithemetic
+`task372.7_synthetic_palindrome_numbers` | Given a list of integers return an integer if the first and last digit are the same | Answer Generation, Arithemetic
+`task373_synthetic_round_tens_place` | Given a list of integers round them to the tens place | Answer Generation, Arithemetic
+`task373.1_synthetic_round_tens_place` | Given a list of integers round them to the tens place | Answer Generation, Arithemetic
+`task373.2_synthetic_round_tens_place` | Given a list of integers round them to the tens place | Answer Generation, Arithemetic
+`task373.3_synthetic_round_tens_place` | Given a list of integers round them to the tens place | Answer Generation, Arithemetic
+`task373.4_synthetic_round_tens_place` | Given a list of integers round them to the tens place | Answer Generation, Arithemetic
+`task373.5_synthetic_round_tens_place` | Given a list of integers round them to the tens place | Answer Generation, Arithemetic
+`task373.6_synthetic_round_tens_place` | Given a list of integers round them to the tens place | Answer Generation, Arithemetic
+`task373.7_synthetic_round_tens_place` | Given a list of integers round them to the tens place | Answer Generation, Arithemetic
+`task374_synthetic_pos_or_neg_calculation` | Given a list of integers multiply the negative integers by -3 multiply the even integers by 2 | Answer Generation, Arithemetic
+`task374.1_synthetic_pos_or_neg_calculation` | Given a list of integers multiply the negative integers by -3 multiply the even integers by 2 | Answer Generation, Arithemetic
+`task374.2_synthetic_pos_or_neg_calculation` | Given a list of integers multiply the negative integers by -3 multiply the even integers by 2 | Answer Generation, Arithemetic
+`task374.3_synthetic_pos_or_neg_calculation` | Given a list of integers multiply the negative integers by -3 multiply the even integers by 2 | Answer Generation, Arithemetic
+`task374.4_synthetic_pos_or_neg_calculation` | Given a list of integers multiply the negative integers by -3 multiply the even integers by 2 | Answer Generation, Arithemetic
+`task374.5_synthetic_pos_or_neg_calculation` | Given a list of integers multiply the negative integers by -3 multiply the even integers by 2 | Answer Generation, Arithemetic
+`task374.6_synthetic_pos_or_neg_calculation` | Given a list of integers multiply the negative integers by -3 multiply the even integers by 2 | Answer Generation, Arithemetic
+`task374.7_synthetic_pos_or_neg_calculation` | Given a list of integers multiply the negative integers by -3 multiply the even integers by 2 | Answer Generation, Arithemetic
+`task375_classify_type_of_sentence_in_debate` | Given a debate topic and a sentence from the debate, classify the type of the sentence | Classification
+`task375.1_classify_type_of_sentence_in_debate` | Given a debate topic and a sentence from the debate, classify the type of the sentence | Classification
+`task375.2_classify_type_of_sentence_in_debate` | Given a debate topic and a sentence from the debate, classify the type of the sentence | Classification
+`task375.3_classify_type_of_sentence_in_debate` | Given a debate topic and a sentence from the debate, classify the type of the sentence | Classification
+`task375.4_classify_type_of_sentence_in_debate` | Given a debate topic and a sentence from the debate, classify the type of the sentence | Classification
+`task375.5_classify_type_of_sentence_in_debate` | Given a debate topic and a sentence from the debate, classify the type of the sentence | Classification
+`task375.6_classify_type_of_sentence_in_debate` | Given a debate topic and a sentence from the debate, classify the type of the sentence | Classification
+`task376_reverse_order_of_words` | Reverse the order of words in the given sentence | Answer Generation
+`task376.1_reverse_order_of_words` | Reverse the order of words in the given sentence | Answer Generation
+`task376.2_reverse_order_of_words` | Reverse the order of words in the given sentence | Answer Generation
+`task376.3_reverse_order_of_words` | Reverse the order of words in the given sentence | Answer Generation
+`task376.4_reverse_order_of_words` | Reverse the order of words in the given sentence | Answer Generation
+`task376.5_reverse_order_of_words` | Reverse the order of words in the given sentence | Answer Generation
+`task376.6_reverse_order_of_words` | Reverse the order of words in the given sentence | Answer Generation
+`task377_remove_words_of_given_length` | Remove all words of a given length in the sentence | Answer Generation
+`task377.1_remove_words_of_given_length` | Remove all words of a given length in the sentence | Answer Generation
+`task377.2_remove_words_of_given_length` | Remove all words of a given length in the sentence | Answer Generation
+`task377.3_remove_words_of_given_length` | Remove all words of a given length in the sentence | Answer Generation
+`task377.4_remove_words_of_given_length` | Remove all words of a given length in the sentence | Answer Generation
+`task377.5_remove_words_of_given_length` | Remove all words of a given length in the sentence | Answer Generation
+`task377.6_remove_words_of_given_length` | Remove all words of a given length in the sentence | Answer Generation
+`task377.7_remove_words_of_given_length` | Remove all words of a given length in the sentence | Answer Generation
+`task378_reverse_words_of_given_length` | Reverse all words of a given length in the sentence | Answer Generation
+`task378.1_reverse_words_of_given_length` | Reverse all words of a given length in the sentence | Answer Generation
+`task378.2_reverse_words_of_given_length` | Reverse all words of a given length in the sentence | Answer Generation
+`task378.3_reverse_words_of_given_length` | Reverse all words of a given length in the sentence | Answer Generation
+`task378.4_reverse_words_of_given_length` | Reverse all words of a given length in the sentence | Answer Generation
+`task378.5_reverse_words_of_given_length` | Reverse all words of a given length in the sentence | Answer Generation
+`task378.6_reverse_words_of_given_length` | Reverse all words of a given length in the sentence | Answer Generation
+`task378.7_reverse_words_of_given_length` | Reverse all words of a given length in the sentence | Answer Generation
+`task379_agnews_topic_classification` | Given a news article, classify the article's topic to four classes | Classification
+`task379.1_agnews_topic_classification` | Given a news article, classify the article's topic to four classes | Classification
+`task379.2_agnews_topic_classification` | Given a news article, classify the article's topic to four classes | Classification
+`task379.3_agnews_topic_classification` | Given a news article, classify the article's topic to four classes | Classification
+`task379.4_agnews_topic_classification` | Given a news article, classify the article's topic to four classes | Classification
+`task379.5_agnews_topic_classification` | Given a news article, classify the article's topic to four classes | Classification
+`task379.6_agnews_topic_classification` | Given a news article, classify the article's topic to four classes | Classification
+`task379.7_agnews_topic_classification` | Given a news article, classify the article's topic to four classes | Classification
+`task380_boolq_yes_no_question` | Given a passage and a yes/no question, answer the question based on the passage | Answer Generation
+`task380.1_boolq_yes_no_question` | Given a passage and a yes/no question, answer the question based on the passage | Answer Generation
+`task380.2_boolq_yes_no_question` | Given a passage and a yes/no question, answer the question based on the passage | Answer Generation
+`task380.3_boolq_yes_no_question` | Given a passage and a yes/no question, answer the question based on the passage | Answer Generation
+`task380.4_boolq_yes_no_question` | Given a passage and a yes/no question, answer the question based on the passage | Answer Generation
+`task380.5_boolq_yes_no_question` | Given a passage and a yes/no question, answer the question based on the passage | Answer Generation
+`task380.6_boolq_yes_no_question` | Given a passage and a yes/no question, answer the question based on the passage | Answer Generation
+`task380.7_boolq_yes_no_question` | Given a passage and a yes/no question, answer the question based on the passage | Answer Generation
+`task381_boolq_question_generation` | Given a passage, generate a yes/no question that can be answered based on the passage | Question Generation
+`task381.1_boolq_question_generation` | Given a passage, generate a yes/no question that can be answered based on the passage | Question Generation
+`task381.2_boolq_question_generation` | Given a passage, generate a yes/no question that can be answered based on the passage | Question Generation
+`task381.3_boolq_question_generation` | Given a passage, generate a yes/no question that can be answered based on the passage | Question Generation
+`task381.4_boolq_question_generation` | Given a passage, generate a yes/no question that can be answered based on the passage | Question Generation
+`task381.5_boolq_question_generation` | Given a passage, generate a yes/no question that can be answered based on the passage | Question Generation
+`task381.6_boolq_question_generation` | Given a passage, generate a yes/no question that can be answered based on the passage | Question Generation
+`task381.7_boolq_question_generation` | Given a passage, generate a yes/no question that can be answered based on the passage | Question Generation
+`task382_hybridqa_answer_generation` | Given a question about part-of-speech tag of a word in the question, answer the question | Answer Generation
+`task382.1_hybridqa_answer_generation` | Given a question about part-of-speech tag of a word in the question, answer the question | Answer Generation
+`task382.2_hybridqa_answer_generation` | Given a question about part-of-speech tag of a word in the question, answer the question | Answer Generation
+`task382.3_hybridqa_answer_generation` | Given a question about part-of-speech tag of a word in the question, answer the question | Answer Generation
+`task382.4_hybridqa_answer_generation` | Given a question about part-of-speech tag of a word in the question, answer the question | Answer Generation
+`task382.5_hybridqa_answer_generation` | Given a question about part-of-speech tag of a word in the question, answer the question | Answer Generation
+`task382.6_hybridqa_answer_generation` | Given a question about part-of-speech tag of a word in the question, answer the question | Answer Generation
+`task382.7_hybridqa_answer_generation` | Given a question about part-of-speech tag of a word in the question, answer the question | Answer Generation
+`task383_matres_classification` | Given a context and a verb, answer if the given verb can be anchored in time or not | Classification
+`task383.1_matres_classification` | Given a context and a verb, answer if the given verb can be anchored in time or not | Classification
+`task383.2_matres_classification` | Given a context and a verb, answer if the given verb can be anchored in time or not | Classification
+`task383.3_matres_classification` | Given a context and a verb, answer if the given verb can be anchored in time or not | Classification
+`task383.4_matres_classification` | Given a context and a verb, answer if the given verb can be anchored in time or not | Classification
+`task383.5_matres_classification` | Given a context and a verb, answer if the given verb can be anchored in time or not | Classification
+`task383.6_matres_classification` | Given a context and a verb, answer if the given verb can be anchored in time or not | Classification
+`task383.7_matres_classification` | Given a context and a verb, answer if the given verb can be anchored in time or not | Classification
+`task386_semeval_2018_task3_irony_detection` | Given a tweet judge whether it contains irony or not | Classification
+`task386.1_semeval_2018_task3_irony_detection` | Given a tweet judge whether it contains irony or not | Classification
+`task386.2_semeval_2018_task3_irony_detection` | Given a tweet judge whether it contains irony or not | Classification
+`task386.3_semeval_2018_task3_irony_detection` | Given a tweet judge whether it contains irony or not | Classification
+`task386.4_semeval_2018_task3_irony_detection` | Given a tweet judge whether it contains irony or not | Classification
+`task386.5_semeval_2018_task3_irony_detection` | Given a tweet judge whether it contains irony or not | Classification
+`task386.6_semeval_2018_task3_irony_detection` | Given a tweet judge whether it contains irony or not | Classification
+`task386.7_semeval_2018_task3_irony_detection` | Given a tweet judge whether it contains irony or not | Classification
 `task387.1_semeval_2018_task3_irony_classification` | Classification of the irony | Classification
 `task387.2_semeval_2018_task3_irony_classification` | Classification of the irony | Classification
 `task387_semeval_2018_task3_irony_classification` | Classification of the irony | Classification
