@@ -1,0 +1,1724 @@
+{
+    "Contributors": [
+        "Abhijeet Nawale"
+    ],
+    "Source": [
+        "jeopardy (https://www.reddit.com/r/datasets/comments/1uyd0t/200000_jeopardy_questions_in_a_json_file/)"
+    ],
+    "Categories": [
+        "Answer Generation"
+    ],
+    "Definition": "You are given a Category and a Question of easy difficulty. Give an answer that answers the given question and falls into the specified category.",
+    "Positive Examples": [
+        {
+            "input": "Category: HISTORY\n Question: 'For the last 8 years of his life, Galileo was under house arrest for espousing this man's theory'",
+            "output": "Copernicus",
+            "explanation": "Galileo was under house arrest for espousing Copernicus's theory. Hence the output is correct."
+        },
+        {
+            "input": "Category: ESPN's TOP 10 ALL-TIME ATHLETES\n Question: 'No. 2: 1912 Olympian; football star at Carlisle Indian School; 6 MLB seasons with the Reds, Giants & Braves'",
+            "output": "Jim Thorpe",
+            "explanation": "Jim Thorpe was a 1912 Olympian and football star at Carlisle Indian School. He won 6 MLB seasons with the Reds, Giants & Braves. Hence, the ouput is correct."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Category: EVERYBODY TALKS ABOUT IT...\n Question: 'The city of Yuma in this state has a record average of 4,055 hours of sunshine each year'",
+            "output": "Texas",
+            "explanation": "The city of Yuma in Arizona state. Hence, the given output is incorrect and the correct output is Arizona."
+        },
+        {
+            "input": "Category: THE COMPANY LINE\n Question: 'In 1963, live on \"The Art Linkletter Show\", this company served its billionth burger'",
+            "output": "Burger King",
+            "explanation": "McDonald's served its billionth burger on \"The Art Linkletter Show\". Hence the output is incorrect and the correct output is McDonald's."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "Category: CARTOONS\n Question: 'The monster seen here (Godzilla) originally appeared in movies from this country'",
+            "output": [
+                "Japan"
+            ]
+        },
+        {
+            "input": "Category: RHYMES WITH SMART\n Question: 'Blood pumper'",
+            "output": [
+                "heart"
+            ]
+        },
+        {
+            "input": "Category: DOUBLE A\n Question: 'Quirks of this Eurocar include the ignition lock in the center console'",
+            "output": [
+                "Saab"
+            ]
+        },
+        {
+            "input": "Category: HOMOPHONIC PAIRS\n Question: 'In a restaurant, it's a quartet's table request'",
+            "output": [
+                "for four"
+            ]
+        },
+        {
+            "input": "Category: SOMETHIN' TO \"C\"\n Question: 'Oscar & Felix were an \"odd\" one'",
+            "output": [
+                "Couple"
+            ]
+        },
+        {
+            "input": "Category: THREE\n Question: 'It beats 2 pair, but not a straight'",
+            "output": [
+                "Three of a kind"
+            ]
+        },
+        {
+            "input": "Category: ANGELS\n Question: 'In 1996 John Travolta spread his wings as this archangel'",
+            "output": [
+                "Michael"
+            ]
+        },
+        {
+            "input": "Category: THOSE WACKY GERMANS\n Question: 'The food many Germans like best is wurst, which are these hot-dog-shaped meat treats'",
+            "output": [
+                "Sausages"
+            ]
+        },
+        {
+            "input": "Category: AIN'T THAT AMERICA\n Question: 'This state was named for a man who was a European king from 1643 to 1715'",
+            "output": [
+                "Louisiana"
+            ]
+        },
+        {
+            "input": "Category: DRAMA QUEENS\n Question: 'In Euripides' play about this famed beauty, it's her double who goes to Troy'",
+            "output": [
+                "Helen"
+            ]
+        },
+        {
+            "input": "Category: U.S.A.\n Question: 'On average this city packs more than 23,000 people into 1 sq. mile'",
+            "output": [
+                "New York City"
+            ]
+        },
+        {
+            "input": "Category: ALASKA\n Question: '4 different species of bears live in Alaska:  Kodiak, grizzly, black & this'",
+            "output": [
+                "Polar bears"
+            ]
+        },
+        {
+            "input": "Category: RADIO DISNEY\n Question: '\"Party In The U.S.A.\" is by this singer who also plays a young lady named Hannah'",
+            "output": [
+                "Miley Cyrus"
+            ]
+        },
+        {
+            "input": "Category: A STATE OF COLLEGE-NESS\n Question: 'Baylor,<br />Stephen F. Austin,<br />Rice'",
+            "output": [
+                "Texas"
+            ]
+        },
+        {
+            "input": "Category: THE EVOLUTION OF \"M\"USIC\n Question: 'This '60s \"Nights in White Satin\" band has another color in its name'",
+            "output": [
+                "Moody Blues"
+            ]
+        },
+        {
+            "input": "Category: TWO\n Question: 'In pharmaceuticals:<br />William Bristol &...'",
+            "output": [
+                "John Myers"
+            ]
+        },
+        {
+            "input": "Category: BEGINNING & END\n Question: 'Like a door, a Broadway show does these 2 things'",
+            "output": [
+                "open & close"
+            ]
+        },
+        {
+            "input": "Category: VERMONTERS\n Question: 'This founding prophet of Mormonism was born in Sharon, Vermont in 1805'",
+            "output": [
+                "Joseph Smith"
+            ]
+        },
+        {
+            "input": "Category: LET'S GET M*A*S*Hed\n Question: 'Johnny Mandel wrote this \"painless\" tune that was the show's theme song'",
+            "output": [
+                "\"Suicide is Painless\""
+            ]
+        },
+        {
+            "input": "Category: AUTHORS' RHYME TIME\n Question: 'Stoker's sheeplings'",
+            "output": [
+                "Bram\\'s lambs"
+            ]
+        },
+        {
+            "input": "Category: MONEY SLANG\n Question: 'No \"Wonder\" you're on a \"roll\" -- you're not a \"loaf\"er & you're earning a lot of this'",
+            "output": [
+                "Bread/dough"
+            ]
+        },
+        {
+            "input": "Category: U.S. GEOGRAPHY\n Question: 'Of Hawaii's 8 main islands, this one receives the lion's share of the tourist dollars'",
+            "output": [
+                "Oahu"
+            ]
+        },
+        {
+            "input": "Category: FOREWORDS\n Question: 'Part 2 \"is Lilliput in reverse, but...also offers some of\" his \"fiercest assaults upon the behavior of\" his countrymen'",
+            "output": [
+                "Jonathan Swift"
+            ]
+        },
+        {
+            "input": "Category: LET'S HIT IT\n Question: 'Hit this paper mache container, Spanish for \"jug\", if you want candy and small gifts'",
+            "output": [
+                "pinata"
+            ]
+        },
+        {
+            "input": "Category: SO YOU WANT TO BE A 19th CENTURY HEROINE\n Question: 'If you have this adjective before your name, like Nell or Eva, don't bother planning for your old age'",
+            "output": [
+                "Little"
+            ]
+        },
+        {
+            "input": "Category: COLLEGE MASCOTS\n Question: '<a href=\"http://www.j-archive.com/media/1997-11-10_DJ_20.jpg\" target=\"_blank\">[video clue]</a>'",
+            "output": [
+                "Oregon State University"
+            ]
+        },
+        {
+            "input": "Category: FLAGS OF THE WORLD\n Question: 'Seen here is the flag of this nation (the home of Bollywood)'",
+            "output": [
+                "India"
+            ]
+        },
+        {
+            "input": "Category: BACKWORDS\n Question: 'Ed leaves pools of water on the carpet when he comes in from sailing this boat'",
+            "output": [
+                "Sloop (pools)"
+            ]
+        },
+        {
+            "input": "Category: AMERICAN EXPLORERS\n Question: 'Stephen Long & Zebulon Pike have peaks named for them in this state, an area they said was uninhabitable'",
+            "output": [
+                "Colorado"
+            ]
+        },
+        {
+            "input": "Category: PARTS OF PEACH\n Question: 'If this part of a peach is downy or fuzzy, the fruit's called a peach; if it's smooth, a nectarine'",
+            "output": [
+                "the skin"
+            ]
+        },
+        {
+            "input": "Category: 4-LETTER WORDS\n Question: 'From the Greek word for \"deep sleep\", it's a deep, prolonged unconsciousness'",
+            "output": [
+                "Coma"
+            ]
+        },
+        {
+            "input": "Category: CANDY & GUM SLOGANS\n Question: '\"The Milk Chocolate Melts in Your Mouth -- not in Your Hand\"'",
+            "output": [
+                "M&M\\'s"
+            ]
+        },
+        {
+            "input": "Category: ALLITERATION STATION\n Question: '\"If\" he \"picked a peck of pickled peppers, where's the peck of pickled peppers\" he \"picked\"?'",
+            "output": [
+                "Peter Piper"
+            ]
+        },
+        {
+            "input": "Category: \"NEVER\" AT THE MOVIES\n Question: 'Advice that's the title of a 1941 W.C. Fields film'",
+            "output": [
+                "Never Give a Sucker an Even Break"
+            ]
+        },
+        {
+            "input": "Category: QUEEN VICTORIA\n Question: 'In 1876 Victoria was delighted to receive the title \"Empress of\" this Asian land'",
+            "output": [
+                "India"
+            ]
+        },
+        {
+            "input": "Category: PEN NAMES\n Question: '2 of his pen names were rather transparent: Antosha Chekhonte & Anton Ch.'",
+            "output": [
+                "Anton Chekhov"
+            ]
+        },
+        {
+            "input": "Category: ADJECTIVES\n Question: 'Adjective in the name of the site seen <a href=\"http://www.j-archive.com/media/2000-05-23_DJ_21.jpg\" target=\"_blank\">here</a>:'",
+            "output": [
+                "grand (Canyon)"
+            ]
+        },
+        {
+            "input": "Category: BIRDS!  BIRDS!  BIRDS!\n Question: 'Seen here, the great horned type of this bird is found from Alaska to South America'",
+            "output": [
+                "Owl"
+            ]
+        },
+        {
+            "input": "Category: THE \"BUTLER\" DID IT\n Question: 'Film character who said, \"You should be kissed, and often, and by someone who knows how\"'",
+            "output": [
+                "Rhett Butler"
+            ]
+        },
+        {
+            "input": "Category: RVs\n Question: '(<a href=\"http://www.j-archive.com/media/2010-12-07_J_26.jpg\" target=\"_blank\">Jimmy of the Clue Crew reports from the RV/MH Hall of Fame in Elkhart, IN.</a>)  The GMC Motorhome from the '60s & 70s was among the first models to have this innovation that helps with traction by putting the weight over the <a href=\"http://www.j-archive.com/media/2010-12-07_J_26a.jpg\" target=\"_blank\">wheels</a> that do the work'",
+            "output": [
+                "front-wheel drive"
+            ]
+        },
+        {
+            "input": "Category: COLLEGES & UNIVERSITIES\n Question: 'It has the largest enrollment of any university in Utah'",
+            "output": [
+                "Brigham Young"
+            ]
+        },
+        {
+            "input": "Category: WHY?\n Question: 'They're \"unlucky\" because in the Middle Ages they were thought to be the mascots of witches'",
+            "output": [
+                "Black cats"
+            ]
+        },
+        {
+            "input": "Category: ABBREVIATED STATES\n Question: 'This state that acts as a conjunction between Nevada & Washington has an abbreviation that is a conjunction'",
+            "output": [
+                "Oregon"
+            ]
+        },
+        {
+            "input": "Category: AMERICAN HISTORY\n Question: 'It became a U.S. territory in 1900 & a state 59 years later'",
+            "output": [
+                "Hawaii"
+            ]
+        },
+        {
+            "input": "Category: 11-LETTER WORDS\n Question: 'Something that evokes happiness & sadness at the same time, or a kind of chocolate'",
+            "output": [
+                "Bittersweet"
+            ]
+        },
+        {
+            "input": "Category: THE SILVER SCREEN\n Question: '1960 film that says \"Matricide is probably the most unbearable crime of all\", especially for \"the son who commits it\"'",
+            "output": [
+                "Psycho"
+            ]
+        },
+        {
+            "input": "Category: WAR STORIES\n Question: '\"Body Count\",<br />\"Coming Home\"'",
+            "output": [
+                "Vietnam War"
+            ]
+        },
+        {
+            "input": "Category: AT THE BUILDING SITE\n Question: 'The current affairs this person deals with are labelled H & C'",
+            "output": [
+                "the plumber"
+            ]
+        },
+        {
+            "input": "Category: AFRICAN GEOGRAPHY\n Question: 'Arabs call this Libyan capital Tarabulus'",
+            "output": [
+                "Tripoli"
+            ]
+        },
+        {
+            "input": "Category: FOREIGN\n Question: 'In Portuguese, domingo is this day of the week'",
+            "output": [
+                "Sunday"
+            ]
+        },
+        {
+            "input": "Category: YOU'RE UNDER A \"REST\"\n Question: 'Eastern European capital city of more than 2.2 million'",
+            "output": [
+                "Bucharest"
+            ]
+        },
+        {
+            "input": "Category: MUSICALS\n Question: 'This title character's last name is McLonergan, not Rainbow'",
+            "output": [
+                "Finian"
+            ]
+        },
+        {
+            "input": "Category: NORM!\n Question: 'The dad of this First Gulf War general was a N.J. State Police bigwig & worked the Lindbergh kidnapping case'",
+            "output": [
+                "(Norman) Schwarzkopf"
+            ]
+        },
+        {
+            "input": "Category: THEATRE CROSSWORD CLUES \"M\"\n Question: 'Lerner & Loewe's \"Lusty Month\"<br />(3)'",
+            "output": [
+                "May"
+            ]
+        },
+        {
+            "input": "Category: THE BUTLER DID IT\n Question: 'He must have a great benefit plan; Alfred began his service to this crime fighter way back in 1943'",
+            "output": [
+                "Batman"
+            ]
+        },
+        {
+            "input": "Category: THE OBLIGATORY POETRY CATEGORY\n Question: 'The one word quothed by Edgar Allan Poe's raven'",
+            "output": [
+                "\"Nevermore!\""
+            ]
+        },
+        {
+            "input": "Category: SAINTS BE PRAISED\n Question: 'The emblem of St. Lawrence, it's also a nickname for a football field'",
+            "output": [
+                "Gridiron"
+            ]
+        },
+        {
+            "input": "Category: NOVELS\n Question: 'The 1719 1st edition told of him \"having been cast on shore by shipwreck, wherein all... men perished but himself\"'",
+            "output": [
+                "Robinson Crusoe"
+            ]
+        },
+        {
+            "input": "Category: HEADS OF STATE\n Question: 'In July 1994 this Jordanian king signed a peace agreement with Israel's prime minister Yitzhak Rabin'",
+            "output": [
+                "King Hussein"
+            ]
+        },
+        {
+            "input": "Category: BON APPE-\"T\"\n Question: 'This \"steak\" is a hot dog'",
+            "output": [
+                "Tube steak"
+            ]
+        },
+        {
+            "input": "Category: NURSERY RHYMES\n Question: 'Peter, Peter was an eater of this; he kept his wife in its shell'",
+            "output": [
+                "pumpkin"
+            ]
+        },
+        {
+            "input": "Category: ON HIS BASEBALL HALL OF FAME PLAQUE\n Question: 'This Yankee was the \"greatest drawing card in history of baseball\"'",
+            "output": [
+                "Babe Ruth"
+            ]
+        },
+        {
+            "input": "Category: I'D RATHER BE SKIING\n Question: 'If you're a beginner, you might hippity-hop over to this smaller, gentler slope'",
+            "output": [
+                "a bunny hill"
+            ]
+        },
+        {
+            "input": "Category: FLAG 'EM DOWN\n Question: 'The Alamo is located in this city & is depicted on its flag'",
+            "output": [
+                "San Antonio"
+            ]
+        },
+        {
+            "input": "Category: A DICKENSIAN NIGHTMARE\n Question: 'The prospect of an endless lawsuit winding through generations leaves a \"bleak\" vision'",
+            "output": [
+                "Bleak House"
+            ]
+        },
+        {
+            "input": "Category: NUMBERS\n Question: 'Numbers appears at this number position in the order of the books of the Bible'",
+            "output": [
+                "Fourth"
+            ]
+        },
+        {
+            "input": "Category: \"D\" IN HISTORY\n Question: 'In 1578 a Mongolian ruler first gave the leader of Tibet's Yellow Hat sect of Buddhism this title'",
+            "output": [
+                "Dalai Lama"
+            ]
+        },
+        {
+            "input": "Category: LOST IN SPACE\n Question: 'While making repairs on the Intl. Space Station, Scott Parazynski lost a needle-nose pair of these'",
+            "output": [
+                "pliers"
+            ]
+        },
+        {
+            "input": "Category: \"HIGH\" SCHOOL\n Question: 'Chuck Taylor, from whom Converse named a line of these shoes, was a basketball star of the 1910s'",
+            "output": [
+                "high-tops"
+            ]
+        },
+        {
+            "input": "Category: ARE WE THERE YET?\n Question: 'Take a trolley to tour the National Cathedral, Georgetown & the Smithsonian in this city'",
+            "output": [
+                "Washington, D.C."
+            ]
+        },
+        {
+            "input": "Category: OFF TO A GOOD START\n Question: 'It's the go-ahead in a kid's game & for a car at an intersection'",
+            "output": [
+                "a green light"
+            ]
+        },
+        {
+            "input": "Category: BUSINESS & INDUSTRY\n Question: 'It has over 9,700 tax preparation offices worldwide'",
+            "output": [
+                "H&R Block"
+            ]
+        },
+        {
+            "input": "Category: ALL ASHORE FOR BIRD LORE\n Question: 'Lions don't like to attack ostriches because the big birds do this & can even kill the king of beasts this way'",
+            "output": [
+                "kick"
+            ]
+        },
+        {
+            "input": "Category: MUSIC VIDEOS\n Question: 'At the beginning of her 2005 \"Boyfriend\" video, she is being chased by the police'",
+            "output": [
+                "Ashlee Simpson"
+            ]
+        },
+        {
+            "input": "Category: CINEMATIC DICTIONARY\n Question: 'SFX is the standard abbreviation for these, from the rustling of trees to cannon fire'",
+            "output": [
+                "Sound effects"
+            ]
+        },
+        {
+            "input": "Category: U.S. STATES\n Question: 'Do the wild fais-do-do in this state while motoring on Interstate 10 to Baton Rouge or Ponchatoula'",
+            "output": [
+                "Louisiana"
+            ]
+        },
+        {
+            "input": "Category: THE CIVIL WAR\n Question: 'His first act after being sworn in as president of the Confederacy was to send a peace commission to Washington, D.C.'",
+            "output": [
+                "Jefferson Davis"
+            ]
+        },
+        {
+            "input": "Category: PEOPLE\n Question: 'This wrestler nicknamed his daughter born in August 2001 Pebbles'",
+            "output": [
+                "The Rock"
+            ]
+        },
+        {
+            "input": "Category: \"PRO\"NOUNS\n Question: 'Gosh darn it!  It's abusive, vulgar or irreverent language'",
+            "output": [
+                "Profanity"
+            ]
+        },
+        {
+            "input": "Category: PIRATE MOVIES\n Question: 'In this 1935 film that made him a star, Errol Flynn was Dr. Peter Blood, a physician who turns to piracy'",
+            "output": [
+                "\"Captain Blood\""
+            ]
+        },
+        {
+            "input": "Category: LESSER-KNOWN MUSICALS\n Question: '\"Comin' Uptown\" moved this classic tale to Harlem; it starred Gregory Hines as a slumlord named Scrooge'",
+            "output": [
+                "A Christmas Carol"
+            ]
+        },
+        {
+            "input": "Category: SO \"LONG\"\n Question: 'A unit of distance equal to 220 yards'",
+            "output": [
+                "a furlong"
+            ]
+        },
+        {
+            "input": "Category: PEOPLE IN HISTORY\n Question: 'After a 15-year stay in England, this proprietor of Pennsylvania returned to his colony in 1699'",
+            "output": [
+                "William Penn"
+            ]
+        },
+        {
+            "input": "Category: THAT'S BUSINESS\n Question: 'He started a book business from his home in 1873; his son William joined forces with G. Clifford Noble in 1917'",
+            "output": [
+                "(Charles M.) Barnes"
+            ]
+        },
+        {
+            "input": "Category: MANIAS\n Question: 'In a 1987 hit Whitney Houston showed signs of choreomania  when she wanted to do this with somebody'",
+            "output": [
+                "Dance"
+            ]
+        },
+        {
+            "input": "Category: COMMON BONDS\n Question: 'Foehn,<br />Zephyr,<br />Simoom'",
+            "output": [
+                "winds"
+            ]
+        },
+        {
+            "input": "Category: GENERAL SCIENCE\n Question: 'The time it takes for 50% of the atoms to decay in a radioactive substance is called this'",
+            "output": [
+                "Half-life"
+            ]
+        },
+        {
+            "input": "Category: THIS CATEGORY STINKS!\n Question: 'Proverbially, this pungent bulb \"makes a man wink, drink & stink\"'",
+            "output": [
+                "garlic"
+            ]
+        },
+        {
+            "input": "Category: 3 LITTLE LETTERS\n Question: 'Like banks, many grocery stores now have these for dispensing cash & taking deposits'",
+            "output": [
+                "ATMs"
+            ]
+        },
+        {
+            "input": "Category: A SHAKESPEARE PLAY, FOR OPENERS\n Question: 'This play opens on the battlements of the castle at Elsinore as Barnardo asks, \"who's there?\"'",
+            "output": [
+                "Hamlet"
+            ]
+        },
+        {
+            "input": "Category: \"TOO\" MUCH\n Question: 'Fighting ferociously, you go at it this \"& nail\"'",
+            "output": [
+                "tooth"
+            ]
+        },
+        {
+            "input": "Category: THEATRE HODGEPODGE\n Question: 'This William Inge play inspired a Marilyn Maxwell TV series & a Marilyn Monroe film'",
+            "output": [
+                "Bus Stop"
+            ]
+        },
+        {
+            "input": "Category: THE \"X\" FILES\n Question: 'High-energy radiation used to take a picture of your insides'",
+            "output": [
+                "X-rays"
+            ]
+        },
+        {
+            "input": "Category: \"I\" LADS\n Question: 'Czar at 17, he was famous for extraordinary sadism & cruelty, even as a boy'",
+            "output": [
+                "Ivan the Terrible"
+            ]
+        },
+        {
+            "input": "Category: BOOK NAMES\n Question: 'Charles Dickens:<br />\"Little ____\"'",
+            "output": [
+                "Dorrit"
+            ]
+        },
+        {
+            "input": "Category: AIN'T THAT AMERICA\n Question: 'This state's largest lake may be 20 times as salty as any ocean'",
+            "output": [
+                "Utah (Great Salt Lake)"
+            ]
+        },
+        {
+            "input": "Category: CLOTHING WORDS\n Question: 'A score of 22-22, for instance'",
+            "output": [
+                "tie"
+            ]
+        },
+        {
+            "input": "Category: BEN\n Question: 'Ben Franklin went to London in 1757 to represent this colony's assembly'",
+            "output": [
+                "Pennsylvania"
+            ]
+        },
+        {
+            "input": "Category: MEDICAL MILESTONES\n Question: 'In 1751, with Benjamin Franklin's help, the 1st hospital in the U.S. was founded in this city'",
+            "output": [
+                "Philadelphia"
+            ]
+        },
+        {
+            "input": "Category: THE KILLERS\n Question: 'In Genesis 4 he becomes the first killer; God isn't happy'",
+            "output": [
+                "Cain"
+            ]
+        },
+        {
+            "input": "Category: THE 1930s\n Question: 'In 1936, in defiance of the Treaty of Versailles, this country began remilitarizing the Rhineland'",
+            "output": [
+                "Germany"
+            ]
+        },
+        {
+            "input": "Category: RECORD LOSSES IN 2005\n Question: 'A computer with 98,000 names & SSNs was reported stolen from this oldest campus of the Univ. of Calif.'",
+            "output": [
+                "Berkeley"
+            ]
+        },
+        {
+            "input": "Category: AMERICAN HISTORY\n Question: 'When West Virginia became a state in 1863, Wheeling was its capital; this city became the permanent capital in 1885'",
+            "output": [
+                "Charleston"
+            ]
+        },
+        {
+            "input": "Category: THE EYES HAVE IT\n Question: 'A blow with a whip'",
+            "output": [
+                "Lash"
+            ]
+        },
+        {
+            "input": "Category: FIRST NAME'S THE SAME\n Question: 'Cash,<br />Depp'",
+            "output": [
+                "Johnny"
+            ]
+        },
+        {
+            "input": "Category: IN EXILE\n Question: 'Porfirio Diaz seized power in this country in 1876, ruled for 35 years, fled in 1911 & died in exile'",
+            "output": [
+                "Mexico"
+            ]
+        },
+        {
+            "input": "Category: ACTRESSES\n Question: 'Ralph Macchio's love interest in \"The Karate Kid\", she took a darker turn in \"Leaving Las Vegas\"'",
+            "output": [
+                "Elisabeth Shue"
+            ]
+        },
+        {
+            "input": "Category: HOW DO YOU...\n Question: 'Hold the ends of the coiled toy first sold in 1945, then raise & lower each hand in a rhythmic motion'",
+            "output": [
+                "work a Slinky (a Slinky accepted)"
+            ]
+        },
+        {
+            "input": "Category: PIZZA TOPPINGS\n Question: 'This type of hard sausage is America's favorite pizza topping'",
+            "output": [
+                "pepperoni"
+            ]
+        },
+        {
+            "input": "Category: \"X\", \"Y\", \"Z\"\n Question: 'It's a kind of striped mussel as well as a striped equine'",
+            "output": [
+                "a zebra"
+            ]
+        },
+        {
+            "input": "Category: \"GENERAL\" JOB INFORMATION\n Question: 'Alberto Gonzales & Robert F. Kennedy both held this cabinet position'",
+            "output": [
+                "Attorney General"
+            ]
+        },
+        {
+            "input": "Category: ON THE RADIO\n Question: 'Robin Quivers is the radio consort of this self-proclaimed  \"King of All Media\"'",
+            "output": [
+                "Howard Stern"
+            ]
+        },
+        {
+            "input": "Category: IT'S A DOGGY DOG WORLD\n Question: 'Seen here, it's named for a peninsula shared by Quebec & Newfoundland'",
+            "output": [
+                "Labrador Retriever"
+            ]
+        },
+        {
+            "input": "Category: ANIMAL COLLECTIVE\n Question: 'Synonym for dignity that's the term for a group of lions'",
+            "output": [
+                "a pride"
+            ]
+        },
+        {
+            "input": "Category: AND I QUOTE\n Question: 'Type of quotations in the title of \"Bartlett's\"'",
+            "output": [
+                "Familiar"
+            ]
+        },
+        {
+            "input": "Category: WHAT'CHA GOT COOKIN'?\n Question: 'Don't be intimidated by the skewers; I'll use them on the marinated lamb to make this'",
+            "output": [
+                "shish kabob"
+            ]
+        },
+        {
+            "input": "Category: BRIGHT IDEAS\n Question: 'Edwin Budding adapted a rotary shearer used to remove excess fibers from carpets into this outdoor tool'",
+            "output": [
+                "the lawnmower"
+            ]
+        },
+        {
+            "input": "Category: ACTRESSES' FIRST FILMS\n Question: '\"To Have and Have Not\"'",
+            "output": [
+                "(Lauren) Bacall"
+            ]
+        },
+        {
+            "input": "Category: 20th CENTURY QUOTES\n Question: 'A Communist, 1938:<br />\"Political power grows out of the barrel of a gun\"'",
+            "output": [
+                "Mao Tse-tung"
+            ]
+        },
+        {
+            "input": "Category: GEOGRAPHY \"E\"\n Question: 'It's the largest kingdom in the United Kingdom'",
+            "output": [
+                "England"
+            ]
+        },
+        {
+            "input": "Category: EPITAPHS & TRIBUTES\n Question: 'Signer of the Dec. of Indep., framer of the Constitution of Mass., second President of the United States'",
+            "output": [
+                "John Adams"
+            ]
+        },
+        {
+            "input": "Category: THE \"I\"s HAVE IT\n Question: 'This term for a fluid can also mean \"to sign\" as a contract'",
+            "output": [
+                "Ink"
+            ]
+        },
+        {
+            "input": "Category: THE BIG 10\n Question: 'The first 10 of these are known as the Bill of Rights'",
+            "output": [
+                "the Amendments"
+            ]
+        },
+        {
+            "input": "Category: POLITICAL MOVIES\n Question: '2 reporters unearth a political scandal that goes all the way to the top in this 1976 film based on a book'",
+            "output": [
+                "All the President\\'s Men"
+            ]
+        },
+        {
+            "input": "Category: BIG MERGERS\n Question: 'In January 1999 we found out Viacom had its eye on this TV network'",
+            "output": [
+                "CBS"
+            ]
+        },
+        {
+            "input": "Category: LIBRARIES\n Question: 'Architect Gordon Bunshaft designed this presidential library in Austin, Texas'",
+            "output": [
+                "the LBJ library"
+            ]
+        },
+        {
+            "input": "Category: NURSERY RHYMES\n Question: 'Simple Simon met him \"going to the fair\"'",
+            "output": [
+                "A pieman"
+            ]
+        },
+        {
+            "input": "Category: AIRPORT CODES\n Question: 'ATL'",
+            "output": [
+                "Atlanta"
+            ]
+        },
+        {
+            "input": "Category: THE 1990s\n Question: 'On Jan. 31, 1999 this team repeated as Super Bowl champs with John Elway throwing for 336 yards'",
+            "output": [
+                "the Denver Broncos"
+            ]
+        },
+        {
+            "input": "Category: \"BLACK\" OR \"WHITE\"\n Question: 'Name shared by a Sauk chief famous for his war & a U.S. military helicopter'",
+            "output": [
+                "Black Hawk"
+            ]
+        },
+        {
+            "input": "Category: I'M GOING \"INN\"\n Question: 'It's the third word in the first book of the Bible'",
+            "output": [
+                "beginning"
+            ]
+        },
+        {
+            "input": "Category: MIXED DRINKS\n Question: 'The juice of one of these citrus fruits makes a Whiskey Sour sour'",
+            "output": [
+                "a lemon"
+            ]
+        },
+        {
+            "input": "Category: ANATOMY\n Question: 'The only mobile bone of the face'",
+            "output": [
+                "Mandible"
+            ]
+        },
+        {
+            "input": "Category: STAMPS\n Question: 'Woo hoo! In 2009 this animated family was chosen to grace stamps, though postage did go up to 44 cents (D'oh!)'",
+            "output": [
+                "the Simpsons"
+            ]
+        },
+        {
+            "input": "Category: & THANKS FOR ALL THE FISH\n Question: 'Varieties of this fish include brown, rainbow & cutthroat'",
+            "output": [
+                "trout"
+            ]
+        },
+        {
+            "input": "Category: NATIONAL MONUMENTS\n Question: 'Scotts Bluff National Monument lies in western Nebraska on this pioneer trail'",
+            "output": [
+                "Oregon Trail"
+            ]
+        },
+        {
+            "input": "Category: EMOTICONS\n Question: ';-)<br />Ocular act that sends a signal'",
+            "output": [
+                "winking"
+            ]
+        },
+        {
+            "input": "Category: ENGLAND, SCOTLAND OR WALES\n Question: 'The largest in area of the 3'",
+            "output": [
+                "England"
+            ]
+        },
+        {
+            "input": "Category: WEEDS\n Question: 'This common weed seen here has a beverage in its name'",
+            "output": [
+                "Milkweed"
+            ]
+        },
+        {
+            "input": "Category: AUSTRALIA\n Question: 'After America won its independence, the British decided to ship these people to Australia'",
+            "output": [
+                "Convicts/Prisoners"
+            ]
+        },
+        {
+            "input": "Category: TELEVISION\n Question: 'In 1998 Brian Dennehy made his first appearance as Red Finch, David Spade's firefighter father, on this hit series'",
+            "output": [
+                "Just Shoot Me"
+            ]
+        },
+        {
+            "input": "Category: WARNER BROS.\n Question: 'You can tour the Warner Bros. lot online, or in person in this San Fernando Valley city'",
+            "output": [
+                "Burbank"
+            ]
+        },
+        {
+            "input": "Category: POETS\n Question: 'On Feb. 12, 1959, the 150th anniversary of Lincoln's birth, he addressed a joint session of Congress'",
+            "output": [
+                "Carl Sandburg"
+            ]
+        },
+        {
+            "input": "Category: WORLD BOOK DESCRIBES THE \"G\" MAN\n Question: '\"In 1997, the House (of Reps.) voted to reprimand him... It marked the first time the House had reprimanded a Speaker\"'",
+            "output": [
+                "Gingrich"
+            ]
+        },
+        {
+            "input": "Category: IT'S OURS!\n Question: 'Saint-Pierre & Miquelon'",
+            "output": [
+                "France"
+            ]
+        },
+        {
+            "input": "Category: MAGAZINES\n Question: 'Departments in this weekly include \"Faces in the Crowd\", \"Catching Up With...\" & \"SI View\"'",
+            "output": [
+                "Sports Illustrated"
+            ]
+        },
+        {
+            "input": "Category: TELEPHONE HISTORY\n Question: 'As of July 1, 1968 you could dial this 3-digit number in New York City & get the police'",
+            "output": [
+                "911"
+            ]
+        },
+        {
+            "input": "Category: LITERARY GENRES\n Question: '\"Pamela\" is an epistolary one & may be the first English one'",
+            "output": [
+                "a novel"
+            ]
+        },
+        {
+            "input": "Category: TEACHER'S PET\n Question: '(<a href=\"http://www.j-archive.com/media/2006-02-13_J_01.wmv\">Jon of the Clue Crew teaches his dog Rocko to sit.</a>)  Rocko, sit!  When I teach human kids, I wish I could use the commands that are taught in this class, from the Latin for \"listen\"--Okay!'",
+            "output": [
+                "obedience class"
+            ]
+        },
+        {
+            "input": "Category: SPORTS EQUIPMENT\n Question: 'A curved wicker basket called a cesta is used to catch & throw the ball in this sport'",
+            "output": [
+                "jai alai"
+            ]
+        },
+        {
+            "input": "Category: OLD FOLKS IN THEIR 30s\n Question: 'goop.com is a lifestyles website from this Oscar-winning actress; the g & p represent her initials'",
+            "output": [
+                "Gwyneth Paltrow"
+            ]
+        },
+        {
+            "input": "Category: PEANUTS\n Question: 'Of a 25th, 30th or 40th anniversary, what \"Peanuts\" is celebrating in 1990'",
+            "output": [
+                "40th Anniversary"
+            ]
+        },
+        {
+            "input": "Category: FARAWAY PLACES\n Question: 'This land that's north of England has odd place names lile Loch Lochy & Loch Oich'",
+            "output": [
+                "Scotland"
+            ]
+        },
+        {
+            "input": "Category: SPOTT THA MISPELED WURD\n Question: 'Meet me in the library for a liaison at your liesure'",
+            "output": [
+                "leisure"
+            ]
+        },
+        {
+            "input": "Category: BIRDS\n Question: 'This bird seen here is the provincial bird of Prince Edward Island'",
+            "output": [
+                "Blue jay"
+            ]
+        },
+        {
+            "input": "Category: MAGAZINE FEATURES\n Question: 'Leading Off,<br />Faces in the Crowd,<br />Scorecard'",
+            "output": [
+                "Sports Illustrated"
+            ]
+        },
+        {
+            "input": "Category: ON THE COVER OF SGT. PEPPER\n Question: 'He's an African explorer, \"I presume\"'",
+            "output": [
+                "Dr. Livingstone"
+            ]
+        },
+        {
+            "input": "Category: THE BIBLE\n Question: 'This wise king of Israel had \"Forty thousand stalls of horses for his chariots, and twelve thousand horsemen\"'",
+            "output": [
+                "Solomon"
+            ]
+        },
+        {
+            "input": "Category: SIMPLE SCIENCE\n Question: 'Number of sides on a honeycomb cell or on a snowflake'",
+            "output": [
+                "6"
+            ]
+        },
+        {
+            "input": "Category: POP MUSIC\n Question: 'He recorded \"Gone At Last\" with Phoebe Snow, not Art Garfunkel'",
+            "output": [
+                "Paul Simon"
+            ]
+        },
+        {
+            "input": "Category: ROYAL FEMALE NICKNAMES\n Question: 'She was \"The Untamed Heifer\" & \"The Virgin Queen\"'",
+            "output": [
+                "Elizabeth I"
+            ]
+        },
+        {
+            "input": "Category: FAMOUS NAMES\n Question: 'Creator of \"The Cisco Kid\", William Sidney Porter was better known by this name'",
+            "output": [
+                "O. Henry"
+            ]
+        },
+        {
+            "input": "Category: THE CIVIL WAR\n Question: 'On April 12, 1861 Confederate general Beauregard attacked this fort in Charleston Harbor'",
+            "output": [
+                "Fort Sumter"
+            ]
+        },
+        {
+            "input": "Category: NONFICTION PEOPLE\n Question: 'Stephen Ambrose looked at this president's \"Ruin and Recovery, 1973-1990\"'",
+            "output": [
+                "Richard Nixon"
+            ]
+        },
+        {
+            "input": "Category: CENTRAL PARK\n Question: 'What's now officially called the Central Park Wildlife Center is probably better-known by this name'",
+            "output": [
+                "the zoo"
+            ]
+        },
+        {
+            "input": "Category: TIMELESS TV\n Question: 'September 2010 brought the 45th edition of this comedian's telethon'",
+            "output": [
+                "Jerry Lewis"
+            ]
+        },
+        {
+            "input": "Category: INSTRUMENTS OF CHANGE\n Question: 'Reed all about it:<br />ARC INLET'",
+            "output": [
+                "clarinet"
+            ]
+        },
+        {
+            "input": "Category: PARLEZ VOUS?\n Question: 'If your mate from Marseilles says he's getting to LAX via \"Sud-Ouest\", pick him up at this carrier'",
+            "output": [
+                "Southwest"
+            ]
+        },
+        {
+            "input": "Category: THAT'S NO LADY...\n Question: 'In the '70s he played America's favorite bigot, Archie Bunker'",
+            "output": [
+                "Carroll O\\'Connor"
+            ]
+        },
+        {
+            "input": "Category: ROCK MUSIC\n Question: '(<a href=\"http://www.j-archive.com/media/1998-02-25_J_04.jpg\" target=\"_blank\">Hi.  I am Chris Hardwick.</a>)  In April 1987 MTV premiered the video show \"Headbanger's Ball\" for devotees of this type of music'",
+            "output": [
+                "heavy metal"
+            ]
+        },
+        {
+            "input": "Category: CROSSWORD CLUES \"M\"\n Question: 'Diamond deposit; it ain't yours!<br />(4)'",
+            "output": [
+                "mine"
+            ]
+        },
+        {
+            "input": "Category: THE CIRCUS\n Question: 'It's the familiar term for a circus' largest tent, where the main show appears'",
+            "output": [
+                "the big top"
+            ]
+        },
+        {
+            "input": "Category: NOTABLE NONHUMANS\n Question: 'This Nazi dictator sometimes dined alone with Blondi, his Alsatian'",
+            "output": [
+                "Adolf Hitler"
+            ]
+        },
+        {
+            "input": "Category: EAT IT!\n Question: 'This Hormel product was once simply known as \"spiced ham\"'",
+            "output": [
+                "Spam"
+            ]
+        },
+        {
+            "input": "Category: WORLD FACTS\n Question: 'This isthmus connects North & South America'",
+            "output": [
+                "Isthmus of Panama"
+            ]
+        },
+        {
+            "input": "Category: WHOSE IS IT?\n Question: '2 by 2 the animals were put on this \"ark\"'",
+            "output": [
+                "Noah\\'s Ark"
+            ]
+        },
+        {
+            "input": "Category: WORLD GEOGRAPHY\n Question: 'This country is named after the town of Oporto'",
+            "output": [
+                "Portugal"
+            ]
+        },
+        {
+            "input": "Category: TRIALS OF THE CENTURY\n Question: 'After their convictions, this pair became the first civilians put to death for espionage in the U.S.'",
+            "output": [
+                "Julius & Ethel Rosenberg"
+            ]
+        },
+        {
+            "input": "Category: JEWELRY\n Question: 'The scarab, lotus flower & Isis knot were all designs used in this country's jewelry'",
+            "output": [
+                "Egypt"
+            ]
+        },
+        {
+            "input": "Category: ANDY WARHOL\n Question: 'Because he had the same thing for lunch every day for 20 years, Andy Warhol painted these, beginning in 1962'",
+            "output": [
+                "Campbell\\'s Soup cans"
+            ]
+        },
+        {
+            "input": "Category: IT HAPPENED IN NOVEMBER\n Question: 'Abraham Lincoln delivered this November 19, 1863; it lasted all of 2 minutes'",
+            "output": [
+                "the Gettysburg Address"
+            ]
+        },
+        {
+            "input": "Category: HISTORIC NICKNAMES\n Question: 'Because of his Hanoverian heritage, American colonists called this monarch \"German Georgie\" or \"Geordie\"'",
+            "output": [
+                "George III"
+            ]
+        },
+        {
+            "input": "Category: THE MELBOURNE OLYMPICS, 1956\n Question: 'As an 8-year-old in 1956, she sang with a group welcoming Queen Elizabeth II; later she sang to open the 2000 games'",
+            "output": [
+                "Olivia Newton-John"
+            ]
+        },
+        {
+            "input": "Category: WHAT ARE YOU DOING?\n Question: 'Making one of these with a few people; a frame holds it taut; we'll back it with muslin & fill it with batting'",
+            "output": [
+                "making a quilt"
+            ]
+        },
+        {
+            "input": "Category: ART & ARTISTS\n Question: 'He painted \"Irises\" & \"Pink Roses\" as well as \"Sunflowers\"'",
+            "output": [
+                "Vincent Van Gogh"
+            ]
+        },
+        {
+            "input": "Category: TELL 'EM WHAT THEY'VE WON, JOHNNY\n Question: 'The first of these were awarded in 1901 & they are given out yearly for Physics, Chemistry, Peace & 3 other disciplines'",
+            "output": [
+                "the Nobel Prizes"
+            ]
+        },
+        {
+            "input": "Category: THE BIBLE\n Question: 'I Corinthians 7:9 states, \"It is better to marry than to\" do this'",
+            "output": [
+                "Burn"
+            ]
+        },
+        {
+            "input": "Category: INLETS\n Question: 'This largest Alaskan city lies at the head of cook inlet on the Kenai peninsula'",
+            "output": [
+                "Anchorage"
+            ]
+        },
+        {
+            "input": "Category: CANADIAN GEOGRAPHY, EH?\n Question: 'A narrow passage separates Canada's Ellesmere Island from this large Danish island'",
+            "output": [
+                "Greenland"
+            ]
+        },
+        {
+            "input": "Category: COVER ME!\n Question: 'In 1965 Otis Redding took \"Respect\" to No. 35; 2 years later, her cover was No. 1'",
+            "output": [
+                "Aretha Franklin"
+            ]
+        },
+        {
+            "input": "Category: CELEBRITY RHYME TIME\n Question: 'Willis's Snapples and Cran-apples'",
+            "output": [
+                "Bruce\\'s juices"
+            ]
+        },
+        {
+            "input": "Category: THE TITANIC\n Question: 'Milvina Dean, who had this distinction among the 2,200 people on board, lived to see the 95th anniv. in 2007'",
+            "output": [
+                "the youngest person"
+            ]
+        },
+        {
+            "input": "Category: THE ENGLISH TOP 100\n Question: 'It's No. 1, & no, you don't get a hint'",
+            "output": [
+                "the"
+            ]
+        },
+        {
+            "input": "Category: BATTLE TO NAME THE WAR\n Question: 'The Battle of Stalingrad'",
+            "output": [
+                "World War II"
+            ]
+        },
+        {
+            "input": "Category: MONEY SLANG\n Question: 'We'll give you $200, not $1,000, for this five letter word meaning stately or majestic'",
+            "output": [
+                "grand"
+            ]
+        },
+        {
+            "input": "Category: AUTHORS\n Question: 'He wrote a non-baby book called \"Decent And Indecent: Our Personal And Political Behavior\"'",
+            "output": [
+                "Dr. Benjamin Spock"
+            ]
+        },
+        {
+            "input": "Category: STATE OF THE UNION\n Question: 'The Jack Daniel's distillery is in Lynchburg in this state'",
+            "output": [
+                "Tennessee"
+            ]
+        },
+        {
+            "input": "Category: WINE\n Question: 'Malaga is a sweet dessert wine that originated in this country'",
+            "output": [
+                "Spain"
+            ]
+        },
+        {
+            "input": "Category: POETS & POETRY\n Question: 'Of the 31 pilgrims in this Chaucer work, only 23 tell their stories'",
+            "output": [
+                "The Canterbury Tales"
+            ]
+        },
+        {
+            "input": "Category: HORNS\n Question: 'South America's southernmost point, its rocky terrain rises to a height of 1,391 feet'",
+            "output": [
+                "Cape Horn"
+            ]
+        },
+        {
+            "input": "Category: MR. OR MS. WILLIAMS\n Question: 'Elected to the Hall of Fame in 1966, his lifetime batting average was .344'",
+            "output": [
+                "Ted Williams"
+            ]
+        },
+        {
+            "input": "Category: '65\n Question: 'Strike up the band; this Christian organization turned 100 in June'",
+            "output": [
+                "The Salvation Army"
+            ]
+        },
+        {
+            "input": "Category: BRITISH FASHION\n Question: 'Designer Vivienne Westwood ran a shop with Malcolm McLaren, who launched this Johnny Rotten band'",
+            "output": [
+                "The Sex Pistols"
+            ]
+        },
+        {
+            "input": "Category: WORLD GEOGRAPHY\n Question: 'Large aboriginal populations live in this country's states of Queensland & New South Wales'",
+            "output": [
+                "Australia"
+            ]
+        },
+        {
+            "input": "Category: TAKE A GUESS\n Question: 'Gwilym is the Welsh form of this name that's been popular in England for centuries'",
+            "output": [
+                "William"
+            ]
+        },
+        {
+            "input": "Category: MY PLACE?\n Question: 'A Norman could say, \"I'm the king of the motte-and-bailey style of\" this'",
+            "output": [
+                "castle"
+            ]
+        },
+        {
+            "input": "Category: 3-LETTER ABBREV.\n Question: 'Everyone has one:<br />POV'",
+            "output": [
+                "a point of view"
+            ]
+        },
+        {
+            "input": "Category: ROCK MUSIC\n Question: 'His \"Doggystyle\" CD was the first debut album ever to enter the Billboard charts at No. 1'",
+            "output": [
+                "Snoop Doggy Dogg"
+            ]
+        },
+        {
+            "input": "Category: JUAN\n Question: 'While trying to colonize what's now this state, Juan Ponce de Leon received a mortal wound from the natives'",
+            "output": [
+                "Florida"
+            ]
+        },
+        {
+            "input": "Category: VALUABLE PLACES\n Question: 'The Yellow Brick Road leads to it'",
+            "output": [
+                "The Emerald City"
+            ]
+        },
+        {
+            "input": "Category: HEY, GOOD-LOOKIN'\n Question: 'In a 1979 film, Dudley Moore gives her a rating of 11 on a scale of 1-10'",
+            "output": [
+                "Bo Derek"
+            ]
+        },
+        {
+            "input": "Category: ART\n Question: 'You can't make a genuine tempera painting without breaking these'",
+            "output": [
+                "eggs"
+            ]
+        },
+        {
+            "input": "Category: LITERARY HOUSES\n Question: 'Harry Angstrom's house burns to the ground in this author's 1971 novel \"Rabbit Redux\"'",
+            "output": [
+                "(John) Updike"
+            ]
+        },
+        {
+            "input": "Category: SEEING \"RED\"\n Question: 'Excessive bureaucratic procedure resulting in inaction or delay'",
+            "output": [
+                "Red tape"
+            ]
+        },
+        {
+            "input": "Category: WHAT A WEEK\n Question: 'In 1958 the theme of the first national week for these places was \"Wake up & read!\"'",
+            "output": [
+                "libraries"
+            ]
+        },
+        {
+            "input": "Category: WRITERS CUBED\n Question: 'In 1845 he published \"The Raven and Other Poems\"; the other poems include \"The Conqueror Worm\"'",
+            "output": [
+                "Edgar Allan Poe"
+            ]
+        },
+        {
+            "input": "Category: WE ARE AMUSED\n Question: '6-letter term for the job associated with the item seen here<br />(medieval mask)'",
+            "output": [
+                "Jester"
+            ]
+        },
+        {
+            "input": "Category: \"J\" WHIZ\n Question: 'It's a trip taken by a public official at public expense, ostensibly for official business'",
+            "output": [
+                "junket"
+            ]
+        },
+        {
+            "input": "Category: LICENSE PLATE MOTTOS\n Question: '\"Aloha State\"'",
+            "output": [
+                "Hawaii"
+            ]
+        },
+        {
+            "input": "Category: IT'S GREEK MYTHOLOGY TO ME\n Question: 'Menelaus not only wanted this wife back, but the treasure Paris stole along with her'",
+            "output": [
+                "Helen"
+            ]
+        },
+        {
+            "input": "Category: THOSE DARN ETRUSCANS\n Question: 'The Tebenna, an Etruscan mantle, evolved into this garment perhaps worn most strikingly by John Belushi'",
+            "output": [
+                "a toga"
+            ]
+        },
+        {
+            "input": "Category: BRITISH ROYAL HOUSES\n Question: 'Henry VIII'",
+            "output": [
+                "Tudor"
+            ]
+        },
+        {
+            "input": "Category: LET'S BOUNCE\n Question: 'This verb for bouncing a basketball sounds like you're slobbering'",
+            "output": [
+                "dribbling"
+            ]
+        },
+        {
+            "input": "Category: MEASURING DEVICES\n Question: 'The energy from this is measured by a pyrheliometer'",
+            "output": [
+                "the Sun"
+            ]
+        },
+        {
+            "input": "Category: RHYME TIME\n Question: 'An intelligent beginning'",
+            "output": [
+                "a smart start"
+            ]
+        },
+        {
+            "input": "Category: FIRST NOVELS\n Question: 'His first novel, \"The Town And The City\", might be good to read while you're \"On The Road\"'",
+            "output": [
+                "Jack Kerouac"
+            ]
+        },
+        {
+            "input": "Category: POLAR EXPLORATION\n Question: 'Robert Peary was surprised to hear these natives accompanying him complain of cold noses'",
+            "output": [
+                "Eskimos"
+            ]
+        },
+        {
+            "input": "Category: TEENS IN HISTORY\n Question: 'In 1468 this teen was recognized as heiress to the throne of Castile'",
+            "output": [
+                "Queen Isabella"
+            ]
+        },
+        {
+            "input": "Category: PRESIDENTIAL ASTROLOGY\n Question: 'It's Jimmy Carter's sign, so don't tip his scales'",
+            "output": [
+                "Libra"
+            ]
+        },
+        {
+            "input": "Category: WEATHER\n Question: 'Air is described as supersaturated when the relative humidity is higher than this percent'",
+            "output": [
+                "100%"
+            ]
+        },
+        {
+            "input": "Category: ALL ABOARD THE SOUL TRAIN\n Question: 'Oh yessssssss...he created the show & was the original producer & host'",
+            "output": [
+                "Don Cornelius"
+            ]
+        },
+        {
+            "input": "Category: INTERNATIONAL SPORTSMEN\n Question: 'Nike's stock fell when this basketball player announced his retirement in January 1999'",
+            "output": [
+                "Michael Jordan"
+            ]
+        },
+        {
+            "input": "Category: FORE!\n Question: 'Except during WWII, this golf tournament has been played at the Augusta National Golf Club every year since 1934'",
+            "output": [
+                "The Masters"
+            ]
+        },
+        {
+            "input": "Category: 1994 FILMS\n Question: 'As mad bomber Howard Payne in this film, Dennis Hopper planted a bomb on an L.A. area transit bus'",
+            "output": [
+                "Speed"
+            ]
+        },
+        {
+            "input": "Category: TV ACTORS & ROLES\n Question: 'Barbra Streisand knows he played Lt. Col. Bill \"Raider\" Kelly on \"Pensacola: Wings of Gold\"'",
+            "output": [
+                "James Brolin"
+            ]
+        },
+        {
+            "input": "Category: \"TEEN\" SCENE\n Question: 'Numerically speaking, read up on \"Fun Stuff\", \"Fashion\", \"Health\" & \"Stars\" at this magazine.com'",
+            "output": [
+                "seventeen.com"
+            ]
+        },
+        {
+            "input": "Category: GETTING POSSESSIVE\n Question: 'At 14,140 feet, this Rocky Mountain peak discovered in 1806 is one of Colorado's highest'",
+            "output": [
+                "Pike\\'s Peak"
+            ]
+        },
+        {
+            "input": "Category: RHYMES WITH STONEHENGE\n Question: 'Statues of Ms. Baez, Ms. Collins & Ms. Didion are part of this monument'",
+            "output": [
+                "Joanhenge"
+            ]
+        },
+        {
+            "input": "Category: KOREA\n Question: 'In 1976 this company produced the Pony, the first Korean car'",
+            "output": [
+                "Hyundai"
+            ]
+        },
+        {
+            "input": "Category: CLASSIC AD LINES\n Question: '\"We Bring Good Things To Life\"'",
+            "output": [
+                "General Electric"
+            ]
+        },
+        {
+            "input": "Category: COMMON BONDS\n Question: 'Inner tubes,<br />doughnuts,<br />the ozone layer'",
+            "output": [
+                "things with holes"
+            ]
+        },
+        {
+            "input": "Category: ADVERTISING SLOGANS\n Question: '\"Wouldn't you really rather have\" one of these cars'",
+            "output": [
+                "Buick"
+            ]
+        },
+        {
+            "input": "Category: BE FRUITFUL & MULTIPLY\n Question: '4 x 12'",
+            "output": [
+                "48"
+            ]
+        },
+        {
+            "input": "Category: MORTAL MATTERS\n Question: 'Willie, the animal Wiarton, Canada used for this celebration, died Jan. 31, 1999, 2 days before his next appearance'",
+            "output": [
+                "Groundhog Day"
+            ]
+        },
+        {
+            "input": "Category: INITIAL T.V.\n Question: 'This show which had a 9-year-run on ABC was produced with help from J. Edgar Hoover'",
+            "output": [
+                "The F.B.I."
+            ]
+        },
+        {
+            "input": "Category: ROCK WITH YOU\n Question: 'This Jackson 5 (& later Mariah Carey) hit begins, \"You & I must make a pact, we must bring salvation back...\"'",
+            "output": [
+                "\"I\\'ll Be There\""
+            ]
+        },
+        {
+            "input": "Category: CLASSICAL MUSIC\n Question: 'This German composer's 5th Symphony in C Minor has a famous opening'",
+            "output": [
+                "Ludwig van Beethoven"
+            ]
+        },
+        {
+            "input": "Category: THE MAINE ATTRACTION\n Question: 'Summer is the time for Whatever Week, a celebration of the Kennebec River in this state capital'",
+            "output": [
+                "Augusta"
+            ]
+        },
+        {
+            "input": "Category: TELEVISION\n Question: '\"Freddy's Nightmares\", a horror anthology that debuted in 1988, was based on this movie series'",
+            "output": [
+                "Nightmare on Elm Street"
+            ]
+        },
+        {
+            "input": "Category: LANGUAGES\n Question: 'Romanian developed from this language of the ancient Romans'",
+            "output": [
+                "Latin"
+            ]
+        },
+        {
+            "input": "Category: THE MIDDLE AGES\n Question: 'Eleanor of Aquitaine accompanied her 1st husband, King Louis VII, on the 2nd one of these in 1147'",
+            "output": [
+                "Crusades"
+            ]
+        },
+        {
+            "input": "Category: SI's SIGNS OF THE APOCALYPSE\n Question: 'This tire co. paid Rip Hamilton \"to braid his hair in the tread pattern of one of its tires\", not blimps'",
+            "output": [
+                "Goodyear"
+            ]
+        },
+        {
+            "input": "Category: HISTORY\n Question: 'Historians refer to the Golden Age as the time during which Pericles ruled this city'",
+            "output": [
+                "Athens"
+            ]
+        },
+        {
+            "input": "Category: STATE SUPERLATIVES\n Question: 'A valley at 282 feet below sea level in this state is the lowest point in the Western Hemisphere'",
+            "output": [
+                "California"
+            ]
+        },
+        {
+            "input": "Category: CELEBS\n Question: 'On Sept. 14, 2005 she gave birth to Sean Preston Federline'",
+            "output": [
+                "Britney Spears"
+            ]
+        },
+        {
+            "input": "Category: ANNUAL EVENTS\n Question: 'Monroe, near Snohomish in this state, is the site of the annual Evergreen State Fair'",
+            "output": [
+                "Washington"
+            ]
+        },
+        {
+            "input": "Category: MOVIES & TV\n Question: 'On March 19, 2009 he said, \"I'm excited and honored to introduce my first guest... Barack Obama\"'",
+            "output": [
+                "Jay Leno"
+            ]
+        },
+        {
+            "input": "Category: THRILLER\n Question: 'This author's techno-thriller \"Rainbow Six\" focuses on John Clark, also a hero in \"Clear & Present Danger\"'",
+            "output": [
+                "Tom Clancy"
+            ]
+        },
+        {
+            "input": "Category: REMEMBER THE TIME\n Question: 'In 1958 this country launched its second 5-year plan, called \"The Great Leap Forward\"'",
+            "output": [
+                "China"
+            ]
+        },
+        {
+            "input": "Category: EUROPE\n Question: 'From 1963 to 1978 he was Archbishop of Krakow'",
+            "output": [
+                "Karol Wojtyla (Pope John Paul II)"
+            ]
+        },
+        {
+            "input": "Category: MYTHOLOGICAL PAIRS\n Question: 'Both a she-wolf & a woodpecker fed & cared for them until they were found by Faustulus'",
+            "output": [
+                "Romulus & Remus"
+            ]
+        },
+        {
+            "input": "Category: CALL OUT THE VOICE SQUAD\n Question: 'He was the voice of Mickey Mouse in \"Steamboat Willie\"'",
+            "output": [
+                "Walt Disney"
+            ]
+        },
+        {
+            "input": "Category: 3-LETTER WORDS\n Question: 'In the title of an Aesop fable, this insect shared billing with a grasshopper'",
+            "output": [
+                "the ant"
+            ]
+        },
+        {
+            "input": "Category: iPOD, YOUTUBE OR WII\n Question: 'It was introduced as a way to \"put 1,000 songs in your pocket\"'",
+            "output": [
+                "iPod"
+            ]
+        },
+        {
+            "input": "Category: BIG, REALLY BIG!\n Question: 'Built on 200 acres, this Washington, D.C. train station was once the world's largest'",
+            "output": [
+                "Union Station"
+            ]
+        },
+        {
+            "input": "Category: TRAVEL & TOURISM\n Question: 'The home of silk merchant Jim Thompson, who disappeared in 1967, is a tourist attraction in this Thai city'",
+            "output": [
+                "Bangkok"
+            ]
+        },
+        {
+            "input": "Category: \"MUM\"s THE WORD\n Question: '....I said it's to utter something quietly & unclearly!'",
+            "output": [
+                "Mumble"
+            ]
+        },
+        {
+            "input": "Category: SCIENCE & NATURE\n Question: 'In the East Indies certain species of this reptile are called flying dragons because they can glide from tree to tree'",
+            "output": [
+                "Lizards"
+            ]
+        },
+        {
+            "input": "Category: SCIENCE & NATURE\n Question: 'The iris is a flower & the ibis is one of these'",
+            "output": [
+                "Bird"
+            ]
+        },
+        {
+            "input": "Category: AT THE KENNEDY CENTER\n Question: 'In 1995 Luigi Bonino starred in a ballet about this \"Little Tramp\" of silent films'",
+            "output": [
+                "Charlie Chaplin"
+            ]
+        },
+        {
+            "input": "Category: UNIVERSITY SPORTS TEAMS\n Question: 'While Harvard has the Crimson, this university has the Crimson Tide'",
+            "output": [
+                "Alabama"
+            ]
+        },
+        {
+            "input": "Category: WEATHER WORLD\n Question: 'Libya's arid climate is made worse by the ghibli, a crop-destroying wind from this desert'",
+            "output": [
+                "Sahara"
+            ]
+        },
+        {
+            "input": "Category: AMERICAN AUTHORS\n Question: 'While he was in Spain in 1959, he wrote \"The Dangerous Summer\", a story about rival bullfighters'",
+            "output": [
+                "Hemingway"
+            ]
+        },
+        {
+            "input": "Category: SHAKESPEAREAN LAST SCENES\n Question: 'Though this comedy has Verona in its title, it ends in a forest on the frontiers of Mantua'",
+            "output": [
+                "The Two Gentlemen of Verona"
+            ]
+        },
+        {
+            "input": "Category: IT'S A DATE!\n Question: 'You'll find this date on a calendar only once every 4 years'",
+            "output": [
+                "February 29 (for a leap year)"
+            ]
+        },
+        {
+            "input": "Category: MYTHOLOGY\n Question: 'Cadmus planted these parts of a dragon to raise some troops'",
+            "output": [
+                "teeth"
+            ]
+        },
+        {
+            "input": "Category: ARCHITECTS\n Question: 'William Pereira erected his Transamerica \"Pyramid\" in this city'",
+            "output": [
+                "San Francisco"
+            ]
+        },
+        {
+            "input": "Category: WHAT'S IN A NAME?\n Question: 'Yeah, baby!  Meaning \"magnificent\", this Texas-sounding name comes with certain \"Powers\"'",
+            "output": [
+                "Austin"
+            ]
+        },
+        {
+            "input": "Category: THE REDCOATS ARE COMING!\n Question: 'On Sept. 5, 1781, 24 of this country's ships engaged British ships in Cheaspeake Bay & turned them back'",
+            "output": [
+                "France"
+            ]
+        },
+        {
+            "input": "Category: LEVITICUS\n Question: 'God bans mean pranks in 19:14, \"Thou shalt not... put a stumbling block before\" these people'",
+            "output": [
+                "The blind"
+            ]
+        },
+        {
+            "input": "Category: NAME THE AUTOMAKER\n Question: 'Legend & Integra'",
+            "output": [
+                "Acura"
+            ]
+        }
+    ]
+}
