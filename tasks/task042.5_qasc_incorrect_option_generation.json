@@ -1,0 +1,1568 @@
+{
+    "Contributors": [
+        "Swaroop Mishra",
+        "Daniel Khashabi",
+        "Jacob Anderson"
+    ],
+    "Source": "qasc",
+    "Categories": [
+        "Incorrect Answer Generation"
+    ],
+    "Definition": "Writing an false answer to the conferred question bases on the related fact. You are also provided with the correct response to the given question. Make sure that your fallacious answers is relevant and comparable to the related fact.  Apart attempting to make the incorrect answering analogue to the correct answer so that distinguishing correct answers from the erroneous respond is not very easily.\nThings to avoidance: Make persuaded you don't involuntarily provide another correct replying! Apart make sure they sound reasonable (e.g., presumably be on a tuition pop questionnaire).\nFocusing & Caveat: una good untrue replying can be build utilize phrase associated with the question, but not the rightness responses. During example, for the question \"Whar aided plant survive?\", utilize words iike \"weed\", \"vase\", \"honeybee\" (related with \"plant\"), or \"first supporting\", \"parachute\", \"accidents\" (linked with \"outlive\") etc. in your faulty answers makes the question strenuous, so these consequence in good incorect responded.",
+    "Positive Examples": [
+        {
+            "input": "Fact: pesticides can harm animals. \nQuestion: What can harm animals? \n Correct Answer: pesticides.",
+            "output": "pet shampoo.",
+            "explanation": "This is clearly an incorrect answer to the question. And since, it is relevant with the given fact, it is a good incorrect answer. Other good incorrect answers are \"fresh water\" and \"clouds\"."
+        },
+        {
+            "input": "Fact: rain can help form soil. \nQuestion: Rain can help form? \n Correct Answer: soil.",
+            "output": "water.",
+            "explanation": "This is clearly an incorrect answer to the question. And since, it is relevant with the given fact, it is a good incorrect answer. Other good incorrect answers are \"clouds\" and \"sky\"."
+        },
+        {
+            "input": "Fact: rain helps plants to survive. \nQuestion: rain helps plants to? \n Correct Answer: survive.",
+            "output": "die.",
+            "explanation": "This is clearly an incorrect answer to the question. And since, it is relevant with the given fact, it is a good incorrect answer. Other good incorrect answers are \"swim\" and \"reproduce\"."
+        },
+        {
+            "input": "Fact: a radio converts electrical energy into sound. \nQuestion: a radio converts electrical energy into? \n Correct Answer: sound.",
+            "output": "light.",
+            "explanation": "This is clearly an incorrect answer to the question. And since, it is relevant with the given fact, it is a good incorrect answer. Other good incorrect answers are \"taste\" and \"smell\"."
+        },
+        {
+            "input": "Fact: chopping down trees causes animals to move to another habitat. \nQuestion: what might cause animals to move to another habitat? \n Correct Answer: chopping down trees.",
+            "output": "improving its habitat.",
+            "explanation": "This is clearly an incorrect answer to the question. And since, it is relevant with the given fact, it is a good incorrect answer. Other good incorrect answer is \"removal of predators\"."
+        },
+        {
+            "input": "Fact: a protractor  can be used to measure the angles of a prism. \nQuestion: What would you use to measure the angles of a prism? \n Correct Answer: a protractor.",
+            "output": "a ruler.",
+            "explanation": "This is clearly an incorrect answer to the question. And since, it is relevant with the given fact, it is a good incorrect answer. Other good incorrect answers are \"a compass\" and \"a weighing scale\"."
+        },
+        {
+            "input": "Fact: lightning can cause harm to animals. \nQuestion: What might cause harm to animals? \n Correct Answer: lightning.",
+            "output": "good food.",
+            "explanation": "This is clearly an incorrect answer to the question. And since, it is relevant with the given fact, it is a good incorrect answer. Other good incorrect answers are \"a safe environment\" and \"less predators\"."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Fact: pesticides can harm animals. \nQuestion: What can harm animals? \nCorrect Answer: pesticides.",
+            "output": "John.",
+            "explanation": "This is a bad incorrect answer as it does not belong to the science domain and it has little correlation with the given fact."
+        },
+        {
+            "input": "Fact: rain can help form soil. \nQuestion: Rain can help form? \nCorrect Answer: soil.",
+            "output": "land.",
+            "explanation": "This is a bad incorrect answer since the word \"land\" can be used interchangeably with the word \"soil\". Note that, your answer has to be an incorrect answer."
+        },
+        {
+            "input": "Fact: rain helps plants to survive. \nQuestion: rain helps plants to? \nCorrect Answer: survive.",
+            "output": "rain.",
+            "explanation": "This is a nonsensical answer to the given question. Make sure that your incorrect answer is a logical candidate for the provided question."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "Fact: Plants require water to develop\nQuestion: What do plants need to develop?\nCorrect Answer: water",
+            "output": [
+                "trees"
+            ]
+        },
+        {
+            "input": "Fact: Starfish have a unique water vascular system with tube feet.\nQuestion: What kind of animals has a water vascular system with tubed feet?\nCorrect Answer: starfish",
+            "output": [
+                "animals"
+            ]
+        },
+        {
+            "input": "Fact: Invertebrates are a major food source for other organisms, including humans.\nQuestion: What is a major food source for other organisms, including humans?\nCorrect Answer: invertebrates",
+            "output": [
+                "gastropod shells"
+            ]
+        },
+        {
+            "input": "Fact: Cactus store water where photosynthesis occurs\nQuestion: Where photosynthesis occurs in a cactus, what is stored?\nCorrect Answer: water",
+            "output": [
+                "glucose"
+            ]
+        },
+        {
+            "input": "Fact: An object at absolute zero cannot be measured by a balance\nQuestion: What object cannot be measured by a balance?\nCorrect Answer: One at absolute zero",
+            "output": [
+                "layers of fat"
+            ]
+        },
+        {
+            "input": "Fact: Earthworms are important deposit feeders that help form and add organic material to soil\nQuestion: Earthworms help form and add what to soil\nCorrect Answer: organic material",
+            "output": [
+                "Sediment"
+            ]
+        },
+        {
+            "input": "Fact: the Earth being tilted on its rotating axis causes summer\nQuestion: What does the Earth being tilted on its rotating axis cause?\nCorrect Answer: summer",
+            "output": [
+                "wind"
+            ]
+        },
+        {
+            "input": "Fact: fog is condensed water vapor\nQuestion: Fog is formed from what condensing?\nCorrect Answer: water",
+            "output": [
+                "magma"
+            ]
+        },
+        {
+            "input": "Fact: Eating unwashed strawberries can have a negative impact on humans.\nQuestion: What can have a negative effect on humans?\nCorrect Answer: Eating unwashed strawberries.",
+            "output": [
+                "Proper exercise and nutrition."
+            ]
+        },
+        {
+            "input": "Fact: earthworms can regrow segments that break off\nQuestion: what can regrow segments that break off?\nCorrect Answer: earthworms",
+            "output": [
+                "earthworms"
+            ]
+        },
+        {
+            "input": "Fact: Playing is just one of many ways that pugs learn how to behave.\nQuestion: What is just one of many ways that pugs learn how to behave.\nCorrect Answer: playing",
+            "output": [
+                "humans"
+            ]
+        },
+        {
+            "input": "Fact: Loose soil has increased air exchange, which is essential for plants.\nQuestion: What can enhance a plant's growth?\nCorrect Answer: loose soil",
+            "output": [
+                "sunlight"
+            ]
+        },
+        {
+            "input": "Fact: being distracted in cars is dangerous\nQuestion: What can be dangerous in a car?\nCorrect Answer: distractions",
+            "output": [
+                "Dehydration"
+            ]
+        },
+        {
+            "input": "Fact: Force on the vessel walls is highest in arteries and lowest in veins.\nQuestion: Where is force on the vessel walls highest?\nCorrect Answer: arteries",
+            "output": [
+                "arteries"
+            ]
+        },
+        {
+            "input": "Fact: Fertilization occurs when the male and female gametes fuse to form a diploid zygote.\nQuestion: When gametes fuse, the resultant zygote is:\nCorrect Answer: diploid",
+            "output": [
+                "fertile"
+            ]
+        },
+        {
+            "input": "Fact: an organism requires something that comes from food for growth\nQuestion: An organism needs what to grow?\nCorrect Answer: Food",
+            "output": [
+                "bamboo"
+            ]
+        },
+        {
+            "input": "Fact: hair can help keep warm\nQuestion: what can keep you warm?\nCorrect Answer: hair",
+            "output": [
+                "toenails"
+            ]
+        },
+        {
+            "input": "Fact: Some ovum require warmth to survive.\nQuestion: What do some ovum require to survive?\nCorrect Answer: warmth",
+            "output": [
+                "sperm"
+            ]
+        },
+        {
+            "input": "Fact: Viruses are viewed by illuminating electrons. \nQuestion: What of the following can only be viewed by illuminating electrons? \nCorrect Answer: viruses",
+            "output": [
+                "insects"
+            ]
+        },
+        {
+            "input": "Fact: earth's tilt causes seasons\nQuestion: what causes seasons?\nCorrect Answer: earth's revolving",
+            "output": [
+                "moon"
+            ]
+        },
+        {
+            "input": "Fact: Producers make food from CO and H 2.\nQuestion: What makes food from CO and H 2? \nCorrect Answer: producers",
+            "output": [
+                "producers"
+            ]
+        },
+        {
+            "input": "Fact: Cells are the basic units of the structure and function of an organism.\nQuestion: What are cells the basic units of the structure and function of?\nCorrect Answer: Organisms",
+            "output": [
+                "humans"
+            ]
+        },
+        {
+            "input": "Fact: faulting of rock in Earth's crust is very deadly\nQuestion: what are the results of the faulting of rock in Earth's crust?\nCorrect Answer: very deadly",
+            "output": [
+                "graptolites"
+            ]
+        },
+        {
+            "input": "Fact: if humans disturb creatures then they migrate\nQuestion: what will creatures do if humans disturb them?\nCorrect Answer: migrate",
+            "output": [
+                "kill them"
+            ]
+        },
+        {
+            "input": "Fact: reptiles have a complete digestive system and a closed circulatory system\nQuestion: What have a complete digestive system and a closed circulatory system?\nCorrect Answer: reptiles",
+            "output": [
+                "viruses"
+            ]
+        },
+        {
+            "input": "Fact: All adult echinoderms live in water.\nQuestion: Where do all adult echinoderms live?\nCorrect Answer: water",
+            "output": [
+                "soil"
+            ]
+        },
+        {
+            "input": "Fact: Wings and spiracles share a location.\nQuestion: What shares a location with spiracles?\nCorrect Answer: wings",
+            "output": [
+                "wings"
+            ]
+        },
+        {
+            "input": "Fact: Pesticides can prevent harm to living things\nQuestion: Living things can be protected by\nCorrect Answer: pesticides",
+            "output": [
+                "foolish behavior"
+            ]
+        },
+        {
+            "input": "Fact: Scraping oneself may lead to contaminated wounds.\nQuestion: What could occur should a person scrape themselves?\nCorrect Answer: Contaminated wounds",
+            "output": [
+                "Loss of gravity"
+            ]
+        },
+        {
+            "input": "Fact: If the amount of available food and water decreases in an environment, the animals cease to be a part of the balance of nature.\nQuestion: When available food and water decreases, what cease to be a part of the balance of nature?\nCorrect Answer: animals",
+            "output": [
+                "Lobsters"
+            ]
+        },
+        {
+            "input": "Fact: being exposed to wind can cause disturbance of a land surface\nQuestion: what can being exposed to wind cause?\nCorrect Answer: disturbance of land surface",
+            "output": [
+                "a lot of human deaths"
+            ]
+        },
+        {
+            "input": "Fact: heat always flows to cooler objects as thermal conduction occurs.\nQuestion: When thermal conduction occurs, what always flows to what?\nCorrect Answer: heat to cooler objects",
+            "output": [
+                "ice to burning objects"
+            ]
+        },
+        {
+            "input": "Fact: Orange trees continue to grow throughout their lives.\nQuestion: What continues to grow throughout their lives?\nCorrect Answer: Orange Trees",
+            "output": [
+                "Chemical energy"
+            ]
+        },
+        {
+            "input": "Fact: animals have pressure receptors\nQuestion: What has pressure receptors?\nCorrect Answer: animals",
+            "output": [
+                "the Sun"
+            ]
+        },
+        {
+            "input": "Fact: oxygen and heat are transported to other parts of the body\nQuestion: What is transported to other parts of the body?\nCorrect Answer: oxygen and heat",
+            "output": [
+                "Organic compounds"
+            ]
+        },
+        {
+            "input": "Fact: A thing that is internal and vital make up the excretory system.\nQuestion: A thing that is what makes up the excretory system.\nCorrect Answer: vital",
+            "output": [
+                "matter"
+            ]
+        },
+        {
+            "input": "Fact: Insects use their antennae to find food.\nQuestion: What do insects sense with their antennae?\nCorrect Answer: food",
+            "output": [
+                "RNA"
+            ]
+        },
+        {
+            "input": "Fact: heat and pressure turn fossils into natural gas\nQuestion: What two things turn fossils to natural gas?\nCorrect Answer: heat and pressure",
+            "output": [
+                "heat and cold"
+            ]
+        },
+        {
+            "input": "Fact: lie detectors require electrical energy to function\nQuestion: what requires electrical energy to function?\nCorrect Answer: lie detectors",
+            "output": [
+                "vehicles"
+            ]
+        },
+        {
+            "input": "Fact: amphibians can be found in moist soil near rivers and streams in tropical regions \nQuestion: What can be found in moist soil near rivers and streams in tropical regions?\nCorrect Answer: amphibians",
+            "output": [
+                "Most plants"
+            ]
+        },
+        {
+            "input": "Fact: many organisms found in shallow coastal waters are used for medical research\nQuestion: what are many organisms found in shallow coastal waters used for?\nCorrect Answer: medical research",
+            "output": [
+                "heat produced"
+            ]
+        },
+        {
+            "input": "Fact: Bees are attracted to the petals of a flower\nQuestion: What is attracted to the petals of the flower?\nCorrect Answer: Bees",
+            "output": [
+                "seeds"
+            ]
+        },
+        {
+            "input": "Fact: Using a car kills animals every day.\nQuestion: What kills animals every day?\nCorrect Answer: using a car",
+            "output": [
+                "hyperthyroidism"
+            ]
+        },
+        {
+            "input": "Fact: Adult sponges produce gametes\nQuestion: What do adult sponges produce?\nCorrect Answer: gametes",
+            "output": [
+                "human cells"
+            ]
+        },
+        {
+            "input": "Fact: Dolphins use saturated fatty acids to store energy.\nQuestion: What do dolphins use to store energy?\nCorrect Answer: saturated fatty acids",
+            "output": [
+                "saturated fatty acids"
+            ]
+        },
+        {
+            "input": "Fact: dropping an object into liquid causes vibrations in the liquid\nQuestion: What does dropping an object into liquid cause?\nCorrect Answer: vibrations",
+            "output": [
+                "Heat energy"
+            ]
+        },
+        {
+            "input": "Fact: Chemical weathering causes iron to rust.\nQuestion: What causes iron to rust?\nCorrect Answer: Chemical weathering",
+            "output": [
+                "Chemical energy"
+            ]
+        },
+        {
+            "input": "Fact: Nectar helps attract bees to plants.\nQuestion: What helps attract bees to plants?\nCorrect Answer: Nectar",
+            "output": [
+                "courtship"
+            ]
+        },
+        {
+            "input": "Fact: animals cannot see infrared light\nQuestion: what light can animals not see?\nCorrect Answer: infrared",
+            "output": [
+                "Sand dollars"
+            ]
+        },
+        {
+            "input": "Fact: When metal is warmed, the transfer of heat expands the metal\nQuestion: When metal is warmed, the transfer of heat does what to metal?\nCorrect Answer: expands",
+            "output": [
+                "expands"
+            ]
+        },
+        {
+            "input": "Fact: chloroplasts are where producers convert from carbon dioxide, water, and solar energy into carbohydrates for themselves\nQuestion: Where do producers convert carbon dioxide, water, and solar energy into carbohydrates?\nCorrect Answer: the chloroplasts",
+            "output": [
+                "Organic compounds"
+            ]
+        },
+        {
+            "input": "Fact: Plants make food from inorganic molecules.\nQuestion: What is able to make food using inorganic molecules?\nCorrect Answer: a plant",
+            "output": [
+                "trees"
+            ]
+        },
+        {
+            "input": "Fact: rocks interacting with wind over long periods of time can form sediment\nQuestion: What can happen when a rock interacts with wind over a long period of time?\nCorrect Answer: Sediment is formed",
+            "output": [
+                "It gets heated up"
+            ]
+        },
+        {
+            "input": "Fact: Being exposed to wind can cause erosion of dirt.\nQuestion: Being exposed to what can cause erosion of dirt?\nCorrect Answer: wind",
+            "output": [
+                "cement"
+            ]
+        },
+        {
+            "input": "Fact: sand formations are formed by wind\nQuestion: what makes sand formations?\nCorrect Answer: wind",
+            "output": [
+                "potash"
+            ]
+        },
+        {
+            "input": "Fact: high temperatures can cause a type of oxidation reaction\nQuestion: what can high temperatures cause?\nCorrect Answer: oxidation reaction",
+            "output": [
+                "Dehydration"
+            ]
+        },
+        {
+            "input": "Fact: many nucleotides bind together to form a chain of something that is thermodynamically unstable to proteins.\nQuestion: many nucleotides bind together to form a chain of something that is what to proteins?\nCorrect Answer: thermodynamically unstable",
+            "output": [
+                "thermodynamically unstable"
+            ]
+        },
+        {
+            "input": "Fact: perspiration reduces body heat\nQuestion: what reduces body heat?\nCorrect Answer: perspiration",
+            "output": [
+                "Electrical energy"
+            ]
+        },
+        {
+            "input": "Fact: mechanical weathering produces Sediment\nQuestion: Mechanical weathering produces\nCorrect Answer: Sediment",
+            "output": [
+                "Sand dollars"
+            ]
+        },
+        {
+            "input": "Fact: adult sea urchins have radial symmetry\nQuestion: what adults have radial symmetry?\nCorrect Answer: sea urchins",
+            "output": [
+                "sea urchins"
+            ]
+        },
+        {
+            "input": "Fact: reptiles have a closed circulatory system\nQuestion: what kind of circulatory system do reptiles have?\nCorrect Answer: closed",
+            "output": [
+                "open"
+            ]
+        },
+        {
+            "input": "Fact: adult worms go through a major transformation to create young\nQuestion: Why do adult worms go through a major transformation?\nCorrect Answer: Create young",
+            "output": [
+                "Make friends"
+            ]
+        },
+        {
+            "input": "Fact: a rubber band snapping causes the particles to make sound \nQuestion: A rubber band snapping can cause the particles to do what?\nCorrect Answer: make sound",
+            "output": [
+                "separate"
+            ]
+        },
+        {
+            "input": "Fact: something available in the laboratory causes particles in itself to vibrate when snapping.\nQuestion: something available in the where causes particles in itself to vibrate when snapping?\nCorrect Answer: laboratory",
+            "output": [
+                "kinetic energy"
+            ]
+        },
+        {
+            "input": "Fact: male dogs use pheromones in urine markings to define boundaries\nQuestion: What do the pheromones in male dog urine used for?\nCorrect Answer: define boundaries",
+            "output": [
+                "Animal survival"
+            ]
+        },
+        {
+            "input": "Fact: people can survive only a few days without drinking\nQuestion: people can survive only a few days without what\nCorrect Answer: drinking",
+            "output": [
+                "dehydration"
+            ]
+        },
+        {
+            "input": "Fact: a mold spore has a negative impact on the sinuses\nQuestion: What has a negative impact on the sinuses?\nCorrect Answer: mold spores",
+            "output": [
+                "A virus"
+            ]
+        },
+        {
+            "input": "Fact: High temperatures can cause toxic fumes.\nQuestion: What can create toxic fumes?\nCorrect Answer: High temperatures.",
+            "output": [
+                "cigarettes"
+            ]
+        },
+        {
+            "input": "Fact: refrigerators keep food fresh\nQuestion: what keeps food fresh?\nCorrect Answer: refrigerators",
+            "output": [
+                "Enzymes"
+            ]
+        },
+        {
+            "input": "Fact: DNA contains genetic instructions for proteins, which is a product of evolution\nQuestion: DNA contains genetic instructions for proteins, which is a product of what?\nCorrect Answer: evolution",
+            "output": [
+                "Most plants"
+            ]
+        },
+        {
+            "input": "Fact: Bacteria can cause food to spoil\nQuestion: What causes food to spoil?\nCorrect Answer: Bacteria",
+            "output": [
+                "influenza"
+            ]
+        },
+        {
+            "input": "Fact: within roundworms, a range of reproductive systems occur\nQuestion: In what does a range of reproductive systems occur?\nCorrect Answer: roundworms",
+            "output": [
+                "seeds"
+            ]
+        },
+        {
+            "input": "Fact: heat falls from the equator to the poles.\nQuestion: What falls from the equator to the poles?\nCorrect Answer: heat",
+            "output": [
+                "heat"
+            ]
+        },
+        {
+            "input": "Fact: Better ability to detect odors has a positive impact on an animal's survival\nQuestion: What better ability has a positive impact on an animal's survival?\nCorrect Answer: detect odors",
+            "output": [
+                "traits"
+            ]
+        },
+        {
+            "input": "Fact: ants communicate with their antennae \nQuestion: What do ants use to communicate?\nCorrect Answer: Antennae.",
+            "output": [
+                "nerves"
+            ]
+        },
+        {
+            "input": "Fact: Cell division causes organisms to grow.\nQuestion: What causes organisms to grow?\nCorrect Answer: cell division",
+            "output": [
+                "genetic diversity"
+            ]
+        },
+        {
+            "input": "Fact: Excision can be used to fix dna mutations\nQuestion: What is one method of fixing DNA mutations?\nCorrect Answer: Excision",
+            "output": [
+                "Exfoliation"
+            ]
+        },
+        {
+            "input": "Fact: Protein transportation between the ER and the Golgi require energy.\nQuestion: Protein transportation between the ER and the Golgi require what?\nCorrect Answer: energy",
+            "output": [
+                "energy"
+            ]
+        },
+        {
+            "input": "Fact: when a cabbage touches a cucumber, thermal conduction occurs\nQuestion: What happens when a cucumber touches a cabbage?\nCorrect Answer: thermal conduction",
+            "output": [
+                "permineralization"
+            ]
+        },
+        {
+            "input": "Fact: inorganic substances are essential for body processes\nQuestion: What are essential for body processes?\nCorrect Answer: Inorganic substances",
+            "output": [
+                "light energy"
+            ]
+        },
+        {
+            "input": "Fact: Agents to control pests can cause pollution.\nQuestion: What can be caused by an agent used to control pests?\nCorrect Answer: pollution",
+            "output": [
+                "influenza"
+            ]
+        },
+        {
+            "input": "Fact: substances found in soil are chemical elements that are essential for body processes\nQuestion: Substances found where are chemical elements that are essential for body processes?\nCorrect Answer: soil",
+            "output": [
+                "bottles"
+            ]
+        },
+        {
+            "input": "Fact: Metabolic waste products can leave the body through a sphincter\nQuestion: Metabolic waste products can leave the body through\nCorrect Answer: a sphincter",
+            "output": [
+                "burning coal"
+            ]
+        },
+        {
+            "input": "Fact: males have more stamina\nQuestion: What gender of species has more stamina?\nCorrect Answer: Males",
+            "output": [
+                "snail"
+            ]
+        },
+        {
+            "input": "Fact: Having no natural predators increases potential to produce more offspring than the environment can support.\nQuestion: having what increases the potential to produce more offspring than the environment can support?\nCorrect Answer: no natural predators",
+            "output": [
+                "no natural habitat"
+            ]
+        },
+        {
+            "input": "Fact: Adult starfish have radial symmetry.\nQuestion: Adults of what kind of animal have radial symmetry?\nCorrect Answer: starfish",
+            "output": [
+                "graptolites"
+            ]
+        },
+        {
+            "input": "Fact: not enough precipitation will negatively affect the harvest\nQuestion: What affects the harvest?\nCorrect Answer: precipitation",
+            "output": [
+                "climate"
+            ]
+        },
+        {
+            "input": "Fact: rain can cause sinkholes\nQuestion: What can rain cause?\nCorrect Answer: Sinkholes",
+            "output": [
+                "volcanoes"
+            ]
+        },
+        {
+            "input": "Fact: diversity of life generally increases from the poles to the equator\nQuestion: what generally increases from the poles to the equator?\nCorrect Answer: diversity of life",
+            "output": [
+                "sun's heat"
+            ]
+        },
+        {
+            "input": "Fact: a zygote is formed by an ovum\nQuestion: What forms a zygote?\nCorrect Answer: ovum",
+            "output": [
+                "amoeba"
+            ]
+        },
+        {
+            "input": "Fact: Detritus is formed when rocks are broken down.\nQuestion: What is formed when rocks break down?\nCorrect Answer: detritus",
+            "output": [
+                "plants"
+            ]
+        },
+        {
+            "input": "Fact: a measuring cup is used for measuring the displacement of objects\nQuestion: what is a measuring cup used for measuring?\nCorrect Answer: displacement of objects",
+            "output": [
+                "displacement of objects"
+            ]
+        },
+        {
+            "input": "Fact: most canyons are formed by flooding over long periods of time\nQuestion: what are most canyons formed by over long periods of time?\nCorrect Answer: flooding",
+            "output": [
+                "hurricanes"
+            ]
+        },
+        {
+            "input": "Fact: A porcupine will extend its spines when threatened\nQuestion: What does a porcupine do with its spines when it's threatened?\nCorrect Answer: Extend them",
+            "output": [
+                "killing insects"
+            ]
+        },
+        {
+            "input": "Fact: vein deposits of gold are formed by magma\nQuestion: What does magma form?\nCorrect Answer: vein deposits of gold",
+            "output": [
+                "It gets heated up"
+            ]
+        },
+        {
+            "input": "Fact: warm shallow waters provide food and shelter to many ocean organisms\nQuestion: what and shallow waters provide food and shelter to many ocean organisms\nCorrect Answer: warm",
+            "output": [
+                "dark"
+            ]
+        },
+        {
+            "input": "Fact: Amphibians have permeable skin that can easily absorb toxins from bacterias, plants or animals.\nQuestion: Why can amphibians easily absorb toxins?\nCorrect Answer: permeable skin",
+            "output": [
+                "salamanders"
+            ]
+        },
+        {
+            "input": "Fact: melanistic fur absorbs all visible light\nQuestion: Which animal would absorb the most visible light?\nCorrect Answer: A melanistic panther",
+            "output": [
+                "sea urchins"
+            ]
+        },
+        {
+            "input": "Fact: A plant requires carbon dioxide for growth\nQuestion: What does a plant require for its growth?\nCorrect Answer: Carbon dioxide",
+            "output": [
+                "deoxyribonucleic acid"
+            ]
+        },
+        {
+            "input": "Fact: Bats conserve body heat with their fur\nQuestion: What conserves body heat with their fur?\nCorrect Answer: bats",
+            "output": [
+                "hawks"
+            ]
+        },
+        {
+            "input": "Fact: A laser can make a ray.\nQuestion: What can a laser produce?\nCorrect Answer: a ray",
+            "output": [
+                "energy"
+            ]
+        },
+        {
+            "input": "Fact: reefs are threatened\nQuestion: what is the status of reefs?\nCorrect Answer: threatened",
+            "output": [
+                "threatened"
+            ]
+        },
+        {
+            "input": "Fact: heating water can cause burns\nQuestion: What can cause burns?\nCorrect Answer: Heating water",
+            "output": [
+                "Heating water"
+            ]
+        },
+        {
+            "input": "Fact: Lakes can be formed by mechanical weathering\nQuestion: What can be formed by mechanical weathering?\nCorrect Answer: Lakes",
+            "output": [
+                "NaCl"
+            ]
+        },
+        {
+            "input": "Fact: a windmill can provide energy to a computer\nQuestion: What can a windmill provide energy for?\nCorrect Answer: A computer",
+            "output": [
+                "space"
+            ]
+        },
+        {
+            "input": "Fact: wood can be burned for cooking\nQuestion: what can wood be burned for?\nCorrect Answer: cooking",
+            "output": [
+                "cleaning"
+            ]
+        },
+        {
+            "input": "Fact: Earthworms are terrific for plants and are important deposit feeders\nQuestion: Earthworms are terrific for plants and are important what?\nCorrect Answer: deposit feeders",
+            "output": [
+                "deposit feeders"
+            ]
+        },
+        {
+            "input": "Fact: Most reptiles rely on vision for long-distance orientation\nQuestion: What rely on vision for long-distance orientation?\nCorrect Answer: most reptiles",
+            "output": [
+                "alpacas"
+            ]
+        },
+        {
+            "input": "Fact: Corn is important to Iowa\nQuestion: What is the most important product in Iowa?\nCorrect Answer: Corn",
+            "output": [
+                "Nebraska"
+            ]
+        },
+        {
+            "input": "Fact: when an electrical circuit has a path it can work properly\nQuestion: what does an electric circuit need to work properly\nCorrect Answer: a path",
+            "output": [
+                "complete"
+            ]
+        },
+        {
+            "input": "Fact: Amphibians have sense organs to help hunt prey\nQuestion: Amphibians have what to help hunt prey\nCorrect Answer: sense organs",
+            "output": [
+                "feathers"
+            ]
+        },
+        {
+            "input": "Fact: Raw juices can cause food poisoning.\nQuestion: What can cause food poisoning?\nCorrect Answer: Raw juices",
+            "output": [
+                "toxins"
+            ]
+        },
+        {
+            "input": "Fact: Bees are absolutely essential for the fertilization step in the sexual reproduction of plants\nQuestion: What step are bees essential in during the sexual reproduction of plants?\nCorrect Answer: fertilization",
+            "output": [
+                "pre-flowering"
+            ]
+        },
+        {
+            "input": "Fact: insulated cups keep liquids full of warmth\nQuestion: How do you keep a cup hot?\nCorrect Answer: insulation",
+            "output": [
+                "less water"
+            ]
+        },
+        {
+            "input": "Fact: insects are invertebrates\nQuestion: what are invertebrates?\nCorrect Answer: insects",
+            "output": [
+                "fungi"
+            ]
+        },
+        {
+            "input": "Fact: Biodiversity increases the productivity and stability of the entire global system.\nQuestion: What increases the productivity and stability of the entire global system?\nCorrect Answer: biodiversity",
+            "output": [
+                "important habitats"
+            ]
+        },
+        {
+            "input": "Fact: Chemical bonds form when molecules react with one another.\nQuestion: What forms when molecules react with one another?\nCorrect Answer: chemical bonds",
+            "output": [
+                "Chemical energy"
+            ]
+        },
+        {
+            "input": "Fact: Air travel is used for moving people across bodies of water.\nQuestion: What is used for moving people across bodies of water?\nCorrect Answer: Air travel",
+            "output": [
+                "Air travel"
+            ]
+        },
+        {
+            "input": "Fact: Snow leopards coats can be used for keeping warm\nQuestion: Snow leopards coats can be used for what?\nCorrect Answer: keeping warm",
+            "output": [
+                "keeping warm"
+            ]
+        },
+        {
+            "input": "Fact: bee population size infleunces the bees' survival chance\nQuestion: What influences the survival chances of bees?\nCorrect Answer: population size",
+            "output": [
+                "population name"
+            ]
+        },
+        {
+            "input": "Fact: genes contain blueprints\nQuestion: what do genes contain?\nCorrect Answer: blueprints",
+            "output": [
+                "Chemical energy"
+            ]
+        },
+        {
+            "input": "Fact: A black hole is formed when a high mass celestial body collapses.\nQuestion: What is formed when a high mass celestial body collapses?\nCorrect Answer: a black hole",
+            "output": [
+                "rays or beams"
+            ]
+        },
+        {
+            "input": "Fact: organisms cluster around hydrothermal vents in the Pacific\nQuestion: where do organisms cluster around hydrothermal vents?\nCorrect Answer: Pacific",
+            "output": [
+                "humans"
+            ]
+        },
+        {
+            "input": "Fact: Fungi can cause disease\nQuestion: What can fungi do?\nCorrect Answer: Spread disease",
+            "output": [
+                "protect them"
+            ]
+        },
+        {
+            "input": "Fact: Operating an automobile creates gases by burning fuel\nQuestion: What does an automobile create when it burns fuel?\nCorrect Answer: Gases",
+            "output": [
+                "Acids"
+            ]
+        },
+        {
+            "input": "Fact: Producers provide food for themselves and for predators.\nQuestion: Predators require something else to make food, which means they are not:\nCorrect Answer: producers",
+            "output": [
+                "humans"
+            ]
+        },
+        {
+            "input": "Fact: Faulting of rock in Earth 's crust can shatter glass windows for miles\nQuestion: How can Earth's crust shatter glass windows for miles?\nCorrect Answer: rock faulting",
+            "output": [
+                "it can't"
+            ]
+        },
+        {
+            "input": "Fact: Animals slowly consume saturated fatty acids while hibernating\nQuestion: An animal hibernating is slowly consuming \nCorrect Answer: saturated fatty acids",
+            "output": [
+                "organic matter"
+            ]
+        },
+        {
+            "input": "Fact: Wind turbines convert wind energy by using mechanical energy.\nQuestion: What type of energy does a wind turbine use to convert wind energy?\nCorrect Answer: mechanical",
+            "output": [
+                "energy"
+            ]
+        },
+        {
+            "input": "Fact: the gravitational pull of the Moon on Earth 's oceans causes water to rise and fall\nQuestion: the gravitational pull of the Moon on Earth 's oceans causes water to what?\nCorrect Answer: rise and fall",
+            "output": [
+                "vaporization"
+            ]
+        },
+        {
+            "input": "Fact: a decrease in differentiation tends to occur when individuals move in and out of a population\nQuestion: What tends to occur when individuals move in and out of a population?\nCorrect Answer: a decrease in differentiation",
+            "output": [
+                "By wind and rain"
+            ]
+        },
+        {
+            "input": "Fact: Population size influences the chances of a species living.\nQuestion: What does population size influence on a species?\nCorrect Answer: their chance of living",
+            "output": [
+                "Quality of life"
+            ]
+        },
+        {
+            "input": "Fact: Amino acids are used to repair cells by the human body\nQuestion: What does the human body use to repair cells?\nCorrect Answer: Amino Acids",
+            "output": [
+                "layers of fat"
+            ]
+        },
+        {
+            "input": "Fact: Some insects have special excrectory structures.\nQuestion: What can have special excretory systems?\nCorrect Answer: insects",
+            "output": [
+                "feces"
+            ]
+        },
+        {
+            "input": "Fact: Rain develops from the rising water vapor\nQuestion: Rising water vapor that condenses can lead to \nCorrect Answer: rain",
+            "output": [
+                "global warming"
+            ]
+        },
+        {
+            "input": "Fact: Pesticides can hurt plant populations.\nQuestion: What can hurt plant populations?\nCorrect Answer: Pesticides",
+            "output": [
+                "mines"
+            ]
+        },
+        {
+            "input": "Fact: Sweat cools the body when it turns into a gas.\nQuestion: Sweat cools the body when it\nCorrect Answer: turns into a gas",
+            "output": [
+                "Movement of an air mass"
+            ]
+        },
+        {
+            "input": "Fact: zinc can have a positive impact on surgery\nQuestion: what can zinc have a positive impact on?\nCorrect Answer: surgery",
+            "output": [
+                "humans"
+            ]
+        },
+        {
+            "input": "Fact: seeing very small objects by making them appear bigger use electrons rather than light\nQuestion: How can you see objects and make them appear bigger?\nCorrect Answer: electrons rather than light",
+            "output": [
+                "tectonic plates being pushed together"
+            ]
+        },
+        {
+            "input": "Fact: competition may lead to violence\nQuestion: what might competition lead to?\nCorrect Answer: violence",
+            "output": [
+                "negative"
+            ]
+        },
+        {
+            "input": "Fact: Something that grows in Mexico can be used for storing water.\nQuestion: What can be used for storing water?\nCorrect Answer: Something that grows in Mexico",
+            "output": [
+                "marshes and swamps"
+            ]
+        },
+        {
+            "input": "Fact: High pressure systems cause calm weather conditions\nQuestion: High pressure systems cause what weather conditions?\nCorrect Answer: calm",
+            "output": [
+                "Injury"
+            ]
+        },
+        {
+            "input": "Fact: Evaporation can be used for segregation a solute from a solvent in a solution.\nQuestion: What can be used for segregating a solute from a solvent in a solution?\nCorrect Answer: evaporation",
+            "output": [
+                "an electron lens"
+            ]
+        },
+        {
+            "input": "Fact: evaporation lowers moisture\nQuestion: what does evaporation lower?\nCorrect Answer: moisture",
+            "output": [
+                "less water"
+            ]
+        },
+        {
+            "input": "Fact: Insulated material is the key to newborn survival.\nQuestion: What is the key to newborn survival?\nCorrect Answer: insulated material",
+            "output": [
+                "deoxyribonucleic acid"
+            ]
+        },
+        {
+            "input": "Fact: Insects have a more complex nervous system.\nQuestion: What crawls and is known to have a complex nervous system? \nCorrect Answer: Insects.",
+            "output": [
+                "fur seals"
+            ]
+        },
+        {
+            "input": "Fact: A person is tired and lacking in energy without cellular respiration.\nQuestion: A person is what without cellular respiration?\nCorrect Answer: tired and lacking energy",
+            "output": [
+                "major threat to health"
+            ]
+        },
+        {
+            "input": "Fact: Translation reads the genetic code in mRNA and give rise to emergent properties\nQuestion: What reads the genetic code in mRNA and give rise to emergent properties?\nCorrect Answer: translation",
+            "output": [
+                "A computer"
+            ]
+        },
+        {
+            "input": "Fact: Oxygen typifies life\nQuestion: What typifies life?\nCorrect Answer: Oxygen",
+            "output": [
+                "Beauty"
+            ]
+        },
+        {
+            "input": "Fact: Poisoning is one type of harm to living things.\nQuestion: What can be harmed by poison?\nCorrect Answer: living things",
+            "output": [
+                "circulatory systems"
+            ]
+        },
+        {
+            "input": "Fact: violence causes fight-or-flight response\nQuestion: What does violence cause?\nCorrect Answer: Fight-or-flight response",
+            "output": [
+                "Fight-or-flight response"
+            ]
+        },
+        {
+            "input": "Fact: areas with bays and tributaries are bigger and deeper than ponds.\nQuestion: areas with bays and tributaries are bigger and deeper than what?\nCorrect Answer: ponds",
+            "output": [
+                "bays"
+            ]
+        },
+        {
+            "input": "Fact: sharpening a knife causes it to change shape\nQuestion: What does sharpening a knife do?\nCorrect Answer: change its shape",
+            "output": [
+                "change its material"
+            ]
+        },
+        {
+            "input": "Fact: When water reaches zero degrees Celsius, it expands\nQuestion: What happens when water reaches zero degrees Celsius? \nCorrect Answer: It expands",
+            "output": [
+                "vaporization"
+            ]
+        },
+        {
+            "input": "Fact: lack of moisture in the air causes low amounts of precipitation\nQuestion: A lack of moisture in the air causes low amounts of what?\nCorrect Answer: precipitation",
+            "output": [
+                "harmful substances"
+            ]
+        },
+        {
+            "input": "Fact: complex social behaviors can be seen in insects whose interactions last more than a one year\nQuestion: complex social behaviors can be seen in insects living how\nCorrect Answer: more than one year together",
+            "output": [
+                "in flowers"
+            ]
+        },
+        {
+            "input": "Fact: influenza does not grow through cell division\nQuestion: What does not grow through cell division?\nCorrect Answer: influenza",
+            "output": [
+                "cells"
+            ]
+        },
+        {
+            "input": "Fact: plants lose water to the atmosphere\nQuestion: Where do plants lose water to?\nCorrect Answer: atmosphere",
+            "output": [
+                "soils"
+            ]
+        },
+        {
+            "input": "Fact: cats adapt to cold temperatures\nQuestion: what adapts to cold temperatures?\nCorrect Answer: cats",
+            "output": [
+                "bears"
+            ]
+        },
+        {
+            "input": "Fact: Plants require cell hydration for survival.\nQuestion: Plants require what for survival?\nCorrect Answer: cell hydration",
+            "output": [
+                "warm nights"
+            ]
+        },
+        {
+            "input": "Fact: cats can communicate with sounds, chemicals or visual cues\nQuestion: what can communicate with sounds, chemicals, or visual cues?\nCorrect Answer: cats",
+            "output": [
+                "sound waves"
+            ]
+        },
+        {
+            "input": "Fact: Earthworms have bodies that are segmented\nQuestion: What has bodies that are segmented?\nCorrect Answer: Earthworms",
+            "output": [
+                "fur seals"
+            ]
+        },
+        {
+            "input": "Fact: microscope is used to see bacteria by biologists by making them appear bigger\nQuestion: What are used to see bacteria by biologists by making them appear bigger?\nCorrect Answer: microscopes",
+            "output": [
+                "an image"
+            ]
+        },
+        {
+            "input": "Fact: mammals use fur to stay warm\nQuestion: what do mammals use fur for?\nCorrect Answer: stay warm",
+            "output": [
+                "Movement"
+            ]
+        },
+        {
+            "input": "Fact: Something found in San Francisco is formed by water vapor condensing in the air\nQuestion: What is formed by water vapor condensing in the air?\nCorrect Answer: Something found in San Francisco",
+            "output": [
+                "cloudy and rainy weather"
+            ]
+        },
+        {
+            "input": "Fact: Resistors can prevent a light bulb from turning on\nQuestion: What could prevent a light bult from turning on?\nCorrect Answer: A resistor",
+            "output": [
+                "sensory neurons"
+            ]
+        },
+        {
+            "input": "Fact: if copper is exposed to a source of heat then it may become hot\nQuestion: What becomes hot when exposed to a source of heat?\nCorrect Answer: copper",
+            "output": [
+                "rubber"
+            ]
+        },
+        {
+            "input": "Fact: Estuaries are larger than streams. \nQuestion: Estuaries are always larger than which of the following?\nCorrect Answer: streams.",
+            "output": [
+                "oceans"
+            ]
+        },
+        {
+            "input": "Fact: Global warming is when heat worldwide increases.\nQuestion: What is it called when worldwide heat increases?\nCorrect Answer: global warming",
+            "output": [
+                "global warming"
+            ]
+        },
+        {
+            "input": "Fact: water-damaged carpets have a negative impact on the respiratory system\nQuestion: what has a negative impact on the respiratory system?\nCorrect Answer: water-damaged carpets",
+            "output": [
+                "harmful substances"
+            ]
+        },
+        {
+            "input": "Fact: lights are on when there is flow of current in an electrical circuit\nQuestion: what are on when there is flow of current in an electrical circuit\nCorrect Answer: lights",
+            "output": [
+                "energy"
+            ]
+        },
+        {
+            "input": "Fact: Ecosystem complexity generally increases from the poles to the equator.\nQuestion: Where is ecosystem complexitiy generally least?\nCorrect Answer: at the poles",
+            "output": [
+                "humans disturb it"
+            ]
+        },
+        {
+            "input": "Fact: most animals without a backbone have a complex nervous system\nQuestion: what have more complex nervous systems\nCorrect Answer: animals without a backbone",
+            "output": [
+                "animals without a backbone"
+            ]
+        },
+        {
+            "input": "Fact: a cactus stem is used for conservation\nQuestion: a cactus stem is used for what?\nCorrect Answer: conservation",
+            "output": [
+                "Plants growth"
+            ]
+        },
+        {
+            "input": "Fact: Bacteria increases the amount of organic matter in soil.\nQuestion: What would increase the amount of organic matter in soil?\nCorrect Answer: bacteria",
+            "output": [
+                "coal"
+            ]
+        },
+        {
+            "input": "Fact: If your skin hurts, your touch receptors will sense differences.\nQuestion: What senses differences when you hurt your skin?\nCorrect Answer: touch receptors",
+            "output": [
+                "touch receptors"
+            ]
+        },
+        {
+            "input": "Fact: butterflies pollinate plants\nQuestion: What do butterflies do to plants?\nCorrect Answer: pollinate",
+            "output": [
+                "Reproduction"
+            ]
+        },
+        {
+            "input": "Fact: roundworms may be free-living or live off a host\nQuestion: aside from free-living, where else can roundworms exist?\nCorrect Answer: live off a host",
+            "output": [
+                "mouth of rivers"
+            ]
+        },
+        {
+            "input": "Fact: Antibodies responds to molecules that the immune system recognizes as foreign to the body by latching on to them\nQuestion: Antibodies responds to molecules that the immune system recognizes as what to the body\nCorrect Answer: foreign",
+            "output": [
+                "parasites"
+            ]
+        },
+        {
+            "input": "Fact: Puberty leads to sexual changes that travel throughout the body in the blood\nQuestion: Puberty leads to sexual changes that travel throughout the body in what?\nCorrect Answer: blood",
+            "output": [
+                "blood"
+            ]
+        },
+        {
+            "input": "Fact: Carbon dioxide concentrations in the air have increased over the last 10 years dramatically\nQuestion: Concentrations of what in the air have increased over the last 10 years dramatically\nCorrect Answer: carbon dioxide",
+            "output": [
+                "chlorofluorocarbons"
+            ]
+        },
+        {
+            "input": "Fact: glass keeps plants warm\nQuestion: what keeps plants warm?\nCorrect Answer: glass",
+            "output": [
+                "glass"
+            ]
+        },
+        {
+            "input": "Fact: length is measured in inches\nQuestion: what is distance measured in?\nCorrect Answer: inches",
+            "output": [
+                "velocity"
+            ]
+        },
+        {
+            "input": "Fact: Some Plants that are adapted to very dry environments are Succulents, bromeliads and cacti\nQuestion: What type of environment is a bromeliad adapted to?\nCorrect Answer: Very dry",
+            "output": [
+                "Exfoliation"
+            ]
+        },
+        {
+            "input": "Fact: molecules of deoxyribonucleic acid are encoded with instructions that tell cells what to do\nQuestion: What molecules are are encoded with instructions that tell cells what to do?\nCorrect Answer: deoxyribonucleic acid",
+            "output": [
+                "Earth revolving around the sun"
+            ]
+        },
+        {
+            "input": "Fact: Brachiopods live in shallow coastal waters\nQuestion: Where do braciopods live?\nCorrect Answer: Shallow waters",
+            "output": [
+                "allow growth"
+            ]
+        },
+        {
+            "input": "Fact: evergreens are vascular plants that produce seeds in cones\nQuestion: What are vascular plants that produce seeds in cones?\nCorrect Answer: evergreens",
+            "output": [
+                "evergreens"
+            ]
+        },
+        {
+            "input": "Fact: Hydrogen bonds cause H2O molecules to expand when frozen\nQuestion: What bonds cause H2O to expand when freezing?\nCorrect Answer: Hydrogen",
+            "output": [
+                "Covalent"
+            ]
+        },
+        {
+            "input": "Fact: Lack of humidity in the air causes low amounts of rainfall.\nQuestion: Lack of what in the air causes low amounts of rainfall?\nCorrect Answer: humidity",
+            "output": [
+                "humidity"
+            ]
+        },
+        {
+            "input": "Fact: Chromosomes contain the basic units of heriditary information.\nQuestion: What are the units of basic information on chromosomes?\nCorrect Answer: heriditary",
+            "output": [
+                "colors"
+            ]
+        },
+        {
+            "input": "Fact: earthworms help plants grow\nQuestion: What do earthworms do?\nCorrect Answer: Help plants grow",
+            "output": [
+                "Start fires"
+            ]
+        },
+        {
+            "input": "Fact: porcupine can use its quills as a defense mechanism\nQuestion: porcupine can use its quills as a what\nCorrect Answer: defense mechanism",
+            "output": [
+                "encoded information"
+            ]
+        },
+        {
+            "input": "Fact: scraping oneself on a contaminated object may cause an area swollen with pus\nQuestion: scraping oneself on a contaminated object may cause what?\nCorrect Answer: an area swollen with pus",
+            "output": [
+                "an area wet with medicine"
+            ]
+        },
+        {
+            "input": "Fact: Plucking a string on a guitar creates sound\nQuestion: How does a guitar create sound?\nCorrect Answer: Plucking a string",
+            "output": [
+                "electrically"
+            ]
+        },
+        {
+            "input": "Fact: Many plants respond to the days growing shorted by scattering seeds.\nQuestion: Many plants respond to the days growing shorted by doing what?\nCorrect Answer: scattering seeds",
+            "output": [
+                "colder and wetter"
+            ]
+        },
+        {
+            "input": "Fact: vision requires the pupil\nQuestion: What requires the pupil?\nCorrect Answer: vision",
+            "output": [
+                "olfaction"
+            ]
+        },
+        {
+            "input": "Fact: A chemical reaction in an egg causes protein to become rough and rubbery\nQuestion: What in an egg causes protein to become rough and rubbery?\nCorrect Answer: chemical reaction",
+            "output": [
+                "layers of fat"
+            ]
+        },
+        {
+            "input": "Fact: when the seasons change from summer to fall, the amount illumined by the sun will decrease\nQuestion: what decreases when the season changes from summer to fall?\nCorrect Answer: amount illumined by the sun",
+            "output": [
+                "amount illumined by the sun"
+            ]
+        },
+        {
+            "input": "Fact: most oysters have shells\nQuestion: what usually has a shell?\nCorrect Answer: oysters",
+            "output": [
+                "an object"
+            ]
+        },
+        {
+            "input": "Fact: mechanical energy can cause severe damage\nQuestion: What can cause severe damage?\nCorrect Answer: Mechanical energy",
+            "output": [
+                "progress"
+            ]
+        },
+        {
+            "input": "Fact: slime molds are fungus-like single celled organisms\nQuestion: slime mold are fungus-like what?\nCorrect Answer: single celled organisms",
+            "output": [
+                "retaining heat"
+            ]
+        },
+        {
+            "input": "Fact: Animals require hydrogen and oxygen for survival.\nQuestion: which are required for animal survival?\nCorrect Answer: hydrogen and oxygen",
+            "output": [
+                "hydrogen and oxygen"
+            ]
+        },
+        {
+            "input": "Fact: Shelter is used in protection by animals against hurricanes.\nQuestion: What protects animals in the event of a hurricane?\nCorrect Answer: shelter",
+            "output": [
+                "loose soil"
+            ]
+        },
+        {
+            "input": "Fact: lions hunt for their social group\nQuestion: Who do lions hunt for?\nCorrect Answer: their group",
+            "output": [
+                "their group"
+            ]
+        },
+        {
+            "input": "Fact: Leeches are related to worms.\nQuestion: What is under the same family as worms?\nCorrect Answer: leeches",
+            "output": [
+                "animals"
+            ]
+        },
+        {
+            "input": "Fact: cell division is how humans grow and repair themselves\nQuestion: what uses cell division to grow and repair themselves?\nCorrect Answer: humans",
+            "output": [
+                "animals"
+            ]
+        },
+        {
+            "input": "Fact: Diseases can move through the air\nQuestion: How can diseases be trasferred?\nCorrect Answer: In the air",
+            "output": [
+                "Getting a vaccine"
+            ]
+        },
+        {
+            "input": "Fact: population size influences the chances of humans surviving\nQuestion: what's survival is influenced by population size?\nCorrect Answer: humans",
+            "output": [
+                "chickens"
+            ]
+        },
+        {
+            "input": "Fact: electrons in motion sometimes is used for heating buildings\nQuestion: what is used for heating buildings?\nCorrect Answer: electrons in motion",
+            "output": [
+                "electrons in motion"
+            ]
+        },
+        {
+            "input": "Fact: An echidna reproduces by laying eggs\nQuestion: How does an echidna reproduce?\nCorrect Answer: Laying eggs",
+            "output": [
+                "during the day"
+            ]
+        },
+        {
+            "input": "Fact: Eating plants has a positive impact on the health of animals\nQuestion: What do animals eat for a positive impact on their health?\nCorrect Answer: plants",
+            "output": [
+                "nutrients"
+            ]
+        },
+        {
+            "input": "Fact: Digestion happens in the small intestine\nQuestion: Where does digestion happen?\nCorrect Answer: Small intestine",
+            "output": [
+                "agriculture"
+            ]
+        },
+        {
+            "input": "Fact: mammals are vertebrates\nQuestion: What are mammals?\nCorrect Answer: vertebrates",
+            "output": [
+                "dinosaurs"
+            ]
+        },
+        {
+            "input": "Fact: The release of spores during reproduction develop into new haploid individuals without being fertilized\nQuestion: What during reproduction develop into new haploid individuals without being fertilized\nCorrect Answer: release of spores",
+            "output": [
+                "Earth orbiting the Sun"
+            ]
+        },
+        {
+            "input": "Fact: Sponges are a source of food for many marine animals.\nQuestion: Marine animals find these to be a great source of food:\nCorrect Answer: sponges",
+            "output": [
+                "grain"
+            ]
+        },
+        {
+            "input": "Fact: excretion removes excess H2O from the body\nQuestion: what excess does excretion remove from the body?\nCorrect Answer: H2O",
+            "output": [
+                "fat"
+            ]
+        },
+        {
+            "input": "Fact: Proteins,nucleic acids and chlorophyll are found naturally in the air and soil, and living organisms \nQuestion: What is  found naturally in the air and soil, and in living organisms?\nCorrect Answer: protein,nucleic acid,chlorophy",
+            "output": [
+                "solid, liquid, gas"
+            ]
+        },
+        {
+            "input": "Fact: White vinegar is formed by one substance being dissolved in another substance.\nQuestion: What is formed by one substance being dissolved in another substance?\nCorrect Answer: white vinegar",
+            "output": [
+                "patch reefs"
+            ]
+        },
+        {
+            "input": "Fact: otters can be used to make clothing for keeping warm\nQuestion: what can be used to make clothing for keeping warm?\nCorrect Answer: otters",
+            "output": [
+                "cellulose"
+            ]
+        },
+        {
+            "input": "Fact: evaporation of water cools the body\nQuestion: What cools the body?\nCorrect Answer: Evaporation of water",
+            "output": [
+                "evaporation"
+            ]
+        },
+        {
+            "input": "Fact: A measuring cup measures the amount of space a substance takes up.\nQuestion: What measures the amount of space a substance takes up?\nCorrect Answer: A measuring cup",
+            "output": [
+                "hydrogen and oxygen"
+            ]
+        },
+        {
+            "input": "Fact: playing is a way that whales learn how to behave\nQuestion: what learns how to behave through playing?\nCorrect Answer: whales",
+            "output": [
+                "protist"
+            ]
+        },
+        {
+            "input": "Fact: Harming a certain kind of organism causes that animal's population to decrease.\nQuestion: Harming a certain kind of animal will cause the population of that animal to do what?\nCorrect Answer: decrease",
+            "output": [
+                "decrease"
+            ]
+        },
+        {
+            "input": "Fact: Fossils of animals and plants are formed with sediment\nQuestion: What type of material is a fossil formed?\nCorrect Answer: In sediment",
+            "output": [
+                "shells"
+            ]
+        },
+        {
+            "input": "Fact: a metal may become hot if exposed to heat\nQuestion: what conductor may become hot if exposed to heat?\nCorrect Answer: metal",
+            "output": [
+                "copper"
+            ]
+        },
+        {
+            "input": "Fact: some viruses can cause lymphoma\nQuestion: what can some viruses cause?\nCorrect Answer: lymphoma",
+            "output": [
+                "extinction"
+            ]
+        },
+        {
+            "input": "Fact: the pancreas helps absorb sugar from the blood\nQuestion: what helps absorb sugar from the blood?\nCorrect Answer: pancreas",
+            "output": [
+                "exercise"
+            ]
+        },
+        {
+            "input": "Fact: a bulb converts electrical energy into radiant energy when turned on\nQuestion: a bulb converts what into radiant energy when turned on\nCorrect Answer: electrical energy",
+            "output": [
+                "sun's heat"
+            ]
+        },
+        {
+            "input": "Fact: When something that moves in elliptical orbits rotates, it causes cycles of day and night on it\nQuestion: When what rotates are cycles of day and night created?\nCorrect Answer: Something that moves in an elliptical orbit",
+            "output": [
+                "helps a species to thrive"
+            ]
+        },
+        {
+            "input": "Fact: Antigens are molecules that the immune system recognizes as needing to be rejected from the body\nQuestion: Antigens are molecules that the immune system recognizes as needing to be what?\nCorrect Answer: rejected from the body",
+            "output": [
+                "welcomed into the body"
+            ]
+        },
+        {
+            "input": "Fact: random changes in genes are essential for evolution\nQuestion: what is essential for evolution?\nCorrect Answer: random changes in genes",
+            "output": [
+                "hurricanes"
+            ]
+        },
+        {
+            "input": "Fact: All plants have a characteristic life cycle that includes sexual and asexual reproduction.\nQuestion: Plants have a life cycle which includes both sexual reproduction and what?\nCorrect Answer: asexual reproduction",
+            "output": [
+                "converting electricity to heat"
+            ]
+        },
+        {
+            "input": "Fact: a mutation in cells usually occur in genes that control the cell cycle\nQuestion: What usually occur in genes that control the cell cycle?\nCorrect Answer: a mutation in cells",
+            "output": [
+                "Leptospirosis"
+            ]
+        },
+        {
+            "input": "Fact: In evolution only functionally advantageous systems are selected.\nQuestion: What is usually chosen in evolution?\nCorrect Answer: advantageous systems",
+            "output": [
+                "common traits"
+            ]
+        },
+        {
+            "input": "Fact: waste has a negative impact\nQuestion: what has a negative impact?\nCorrect Answer: waste",
+            "output": [
+                "waste"
+            ]
+        },
+        {
+            "input": "Fact: Many cancers can cause the immune system to not work properly.\nQuestion: Many _ can cause the immune system to not work properly.\nCorrect Answer: cancers",
+            "output": [
+                "fever"
+            ]
+        },
+        {
+            "input": "Fact: obligate heterotrophs get organic compounds from dead organisms.\nQuestion: obligate heterotrophs get organic compounds from what organisms\nCorrect Answer: dead",
+            "output": [
+                "soil"
+            ]
+        },
+        {
+            "input": "Fact: Absorbing energy causes objects to have the the energy of moving molecules.\nQuestion: What comes with objects absorbing energy?\nCorrect Answer: The energy of moving molecules",
+            "output": [
+                "The energy of moving molecules"
+            ]
+        },
+        {
+            "input": "Fact: heating salt water causes the water to change into a gas while the salt remains\nQuestion: Heating salt water causes the water to do what while the salt remains?\nCorrect Answer: change into a gas",
+            "output": [
+                "change into a solid"
+            ]
+        },
+        {
+            "input": "Fact: a flower produces grain\nQuestion: What produces grain?\nCorrect Answer: flowers",
+            "output": [
+                "flowers"
+            ]
+        },
+        {
+            "input": "Fact: Insects have more social behaviors because all family members are close relatives\nQuestion: Insects have more social behaviors because all what?\nCorrect Answer: family members are relatives",
+            "output": [
+                "have a positive impact on the environment"
+            ]
+        },
+        {
+            "input": "Fact: petals attract hummingbirds to the flower\nQuestion: what do petals attract to the flower?\nCorrect Answer: hummingbirds",
+            "output": [
+                "pollen"
+            ]
+        },
+        {
+            "input": "Fact: Forces that oppose motion cause the speed of an object to decrease.\nQuestion: If a force that opposes motion is applied to an object, what will happen to its speed?\nCorrect Answer: It will decrease",
+            "output": [
+                "Plant growth is reduced"
+            ]
+        },
+        {
+            "input": "Fact: Herpes are not cells\nQuestion: what are not cells?\nCorrect Answer: Herpes",
+            "output": [
+                "organ tissue"
+            ]
+        },
+        {
+            "input": "Fact: Information in an organism's chromosomes cause genetic traits to be passed down to that organisms litters.\nQuestion: Information in organism's chromosomes cause what to be passed down to their litters?\nCorrect Answer: genetic traits",
+            "output": [
+                "favorite foods"
+            ]
+        },
+        {
+            "input": "Fact: The gravitational pull of a natural satellite on Earth's oceans causes the tides\nQuestion: The pull of what on the Earth's oceans cause the tides?\nCorrect Answer: A natural satellite",
+            "output": [
+                "A yellow star"
+            ]
+        },
+        {
+            "input": "Fact: Plant reproduction often requires something that causes allergies\nQuestion: What is required for plant reproduction?\nCorrect Answer: Something that causes allergies",
+            "output": [
+                "By wind and rain"
+            ]
+        },
+        {
+            "input": "Fact: Planting trees can remove pollutants in a number of ways.\nQuestion: What can planting trees reduce?\nCorrect Answer: Pollutants",
+            "output": [
+                "Pollutants"
+            ]
+        },
+        {
+            "input": "Fact: Winds and animals have a positive impact on plants\nQuestion: What things have positive impact on plants?\nCorrect Answer: wind and animals",
+            "output": [
+                "pollution"
+            ]
+        },
+        {
+            "input": "Fact: echinoids use pheremones to communicate\nQuestion: what do echinoids use to communicate?\nCorrect Answer: pheremones",
+            "output": [
+                "light"
+            ]
+        }
+    ]
+}
