@@ -5,6 +5,8 @@ This directory contains the tasks that are part of this benchmark.
 
 Name | Summary | Category
 ---- | ----------- | --------
+`task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
+`task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
 `task212.1_logic2text_classification` | Given a command, classify the command in one of seven logic types. | Classification
 `task212.2_logic2text_classification` | Given a command, classify the command in one of seven logic types. | Classification
 `task212.3_logic2text_classification` | Given a command, classify the command in one of seven logic types. | Classification
