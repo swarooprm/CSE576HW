@@ -1,0 +1,1814 @@
+{
+    "Contributors": [
+        "Abhijeet Nawale"
+    ],
+    "Source": [
+        "Story Cloze (Dataset - https://cs.rochester.edu/nlp/rocstories/) (Paper - https://aclanthology.org/2020.latechclfl-1.19.pdf)"
+    ],
+    "Categories": [
+        "Classification"
+    ],
+    "Definition": "You are given two options, \"(A)\" and \"(B)\" as well as a four-sentence text. The aim here is to identify the choice that renders the story illogical and unintelligible.",
+    "Positive Examples": [
+        {
+            "input": "Sentence 1: Timmy felt that he was too shy. Sentence 2: He couldn't talk to people he hadn't met before without difficulty. Sentence 3: He joined a community service club to socialize. Sentence 4: He met some great, nice people that became good friends of his.\nChoices: (A) Timmy went on a vision quest in the desert. (B) Timmy has become less shy now.",
+            "output": "A",
+            "explanation": "Timmy went on a vision quest in the desert makes no sense and thus the given output is correct."
+        },
+        {
+            "input": "Sentence 1: It had been snowing all night. Sentence 2: The kids woke up early and asked their mom if school was cancelled. Sentence 3: Mom said that school was closed today and that it was a snow day. Sentence 4: The kids rushed to get their coats and winter gear on.\nChoices: (A) They ran outside to play. (B) They went back to their rooms to play video games.",
+            "output": "B",
+            "explanation": "After wearing coats and winter gear the kids would go outside and play. Wearing coats and winter gear and then playing video games makes no sense. Hence, the given output is correct."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Sentence 1: Linda went on vacation and visited a beach. Sentence 2: She collected a bunch of sea shells. Sentence 3: Linda brought the shells home and made them into necklaces. Sentence 4: She posted pictures and her friends loved them.\nChoices: (A) She immediately removed the photos from her Facebook page. (B) They all began asking to her make necklaces for them.",
+            "output": "B",
+            "explanation": "As linda's friends liked her photos, removing them from her Facebook page makes no sense. Hence Option A is the correct output."
+        },
+        {
+            "input": "Sentence 1: Jimmy wanted a pet cat. Sentence 2: He went to the animal shelter to acquire a pet cat. Sentence 3: When Jimmy saw a black dog he was instantly smitten. Sentence 4: The black dog jumped up and licked Jimmy's face.\nChoices: (A) Jimmy hated cats. (B) Jimmy adopted the dog.",
+            "output": "no",
+            "explanation": "Output can only be \"A\" and \"B\". The correct output here is \"A\"."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "Sentence 1: Jeanne enjoyed watching crime drama on television. Sentence 2: Her favorite show was cancelled. Sentence 3: She wrote a letter to the head of the network. Sentence 4: She encouraged her friends to write letters as well.\nChoices: (A) The network cast her in the show. (B) The letters made no difference.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: An ambulance rushed to Ollie's house after he called 911. Sentence 2: The medics arrived and placed him on the stretcher. Sentence 3: They wheeled him to the ambulance. Sentence 4: He was placed inside and rushed to the hospital.\nChoices: (A) The ambulance driver decided to stop for lunch on the way. (B) Ollie survived a heart attack.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Anthony was nervous for the big rugby match. Sentence 2: His team was playing their rivals in the league. Sentence 3: As the game began, the rival team quickly took the lead. Sentence 4: Anthony and his team worked extra hard to fight back.\nChoices: (A) His team managed to secure a narrow victory. (B) His team gave up because they saw no way to win.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sandy went to the beach with her aunt Theresa. Sentence 2: She was so excited to play in the water she forgot the sunblock. Sentence 3: Sandy had so much fun playing in the sand and water. Sentence 4: However, when the day ended she was sore and red.\nChoices: (A) She felt amazing. (B) She realized she should have remembered sunblock.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Johnny rode his bike to the hobby store. Sentence 2: He parked his bike out front. Sentence 3: When he came out his bike was gone. Sentence 4: Johnny looked all over.\nChoices: (A) Johnny didn't care about the bike. (B) Johnny found out his friend took the bike.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Amy watched all the shows she wanted on Hulu. Sentence 2: She wasn't using it anymore so she cancelled her subscription. Sentence 3: A week after cancelling one of her favorite shows was added to Hulu. Sentence 4: She decided to restart her membership.\nChoices: (A) Now she is also watching new shows and loves Hulu! (B) But then she decided not to watch her favorite show.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Shelly wanted a pet. Sentence 2: But her mom was allergic to cats. Sentence 3: And their apartment was too small for a dog! Sentence 4: Then Shelly thought of a solution.\nChoices: (A) She got a parrot and named it Bear. (B) She bought a cat and let it roam the house.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Tina had a little glass doll she kept in her pocket. Sentence 2: One day Tina was playing hide and seek. Sentence 3: As she was running, Tina tripped and fell. Sentence 4: When she looked in her pocket she saw that her doll was broken.\nChoices: (A) Tina was glad she got her exercise for the day. (B) Tina cried.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Genny put the final touches on her float. Sentence 2: Paper roses and flowing tassels made it look cheery and bright. Sentence 3: She proudly pulled into her spot in the parade. Sentence 4: It suddenly started to rain.\nChoices: (A) Her float was ruined. (B) She drank the root beer float.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Megan ate the last piece of cake from the fridge at her work. Sentence 2: The next day her coworker asked her if she ate their cake. Sentence 3: Megan lied saying that she wasn't the one. Sentence 4: However, another coworker saw her eat it.\nChoices: (A) Megan's coworker was angry that she lied about eating her cake. (B) Megan's coworker was proud of her.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sally had a test. Sentence 2: She was determined to make an A. Sentence 3: Sally studied for a week straight. Sentence 4: When she got to test day, she went blank.\nChoices: (A) Sally was terribly disappointed with her grade on the test. (B) Sally decided to buy some new boots at the mall.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: We went to a petting zoo together. Sentence 2: My friend bought food to feed the animals. Sentence 3: She tried to feed a carrot to a cow, but it bit her. Sentence 4: She didn't even know cows would bite humans.\nChoices: (A) My friend really enjoyed getting bitten by the cow. (B) My friend had a less than fabulous time there.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Haley went to Target one morning. Sentence 2: She saw a new mom with a baby. Sentence 3: The baby's car seat was balanced on the shopping cart. Sentence 4: Haley watched the car seat wobble.\nChoices: (A) Haley reached out to save the baby. (B) Haley is a cat person.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: After I arrived at the hospital, I got a bracelet. Sentence 2: It had my personal information on it. Sentence 3: My forehead was itching and I reached out for it. Sentence 4: The bottom of the bracelet scratched my face.\nChoices: (A) I called for the nurse. (B) I felt warm and happy.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: My girlfriend and I took a train to New York City. Sentence 2: We were going to have dinner and enjoy a night in the city. Sentence 3: I took her out for a nice meal and after we went shopping. Sentence 4: We both had a great time!\nChoices: (A) I broke up with my girlfriend the same night. (B) We love spending time together.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sarah and Dan were looking for a new apartment. Sentence 2: Their friend heard about this process. Sentence 3: He wanted to live with them in the new city. Sentence 4: He got a job in the same city.\nChoices: (A) Sarah and Dan's friend wasn't close to them. (B) Sarah and Dan had a loyal friend.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Dave loved to dive. Sentence 2: Dave walked onto the board. Sentence 3: He prepared to do a front-flip. Sentence 4: Dave made a mistake and slammed face down into the water!\nChoices: (A) The front of his body hurt from the impact. (B) He decided to dive that way every time from now on.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Susie needed to upgrade her old smartphone. Sentence 2: She went to Sprint to look at the different models. Sentence 3: A worker there was really helpful and told her a lot about each phone. Sentence 4: Susie soaked in the information that she was told.\nChoices: (A) Susie told the worker she needed a new smartphone. (B) Susie ended up buying the latest model of smartphone.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: The first time I went on a boat was with a family vacation. Sentence 2: We were all excited because it was my first time. Sentence 3: Unfortunately I fell over the side railing and almost drowned. Sentence 4: My cousin jumped in to save me and dragged me out.\nChoices: (A) I've been afraid of the water ever since. (B) I was very angry with my cousin afterwards.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Abe failed at his current project of creating allure. Sentence 2: He was really bummed but decided to take action. Sentence 3: Abe spent Years in studying cosmetics and marketing. Sentence 4: He then gave creating allure another go.\nChoices: (A) He was successful this time and made a lot of money. (B) Abe hated working in the cosmetics field.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: I purchased a T-Shirt on Ebay. Sentence 2: Since my screen's brightness was low, I didn't see the shirt's color. Sentence 3: The package came during the end up the week. Sentence 4: I decided to open the box quickly.\nChoices: (A) The t-shirt was a terrible color and I hated it. (B) The t-shirt was a terrible color and I loved it.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jan took her parents to the rodeo when they visited. Sentence 2: She was thrilled to find room to sit in the front row. Sentence 3: Jan's mom opened her mouth in awe as the horses galloped by. Sentence 4: Just then, the horses' feet threw up a spray of dirt and dung.\nChoices: (A) Jan's mom quickly ducked, so the dirt and dung missed her face. (B) Jan was excited to see dirt and dung fly into her mom's mouth.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Neil had just arrived in Morocco. Sentence 2: He loved the exotic feel of it. Sentence 3: The language was beautiful. Sentence 4: And the people were so friendly, too!\nChoices: (A) Neil later hated the country. (B) Neil wished he could stay.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Gina walked home as the sun was setting. Sentence 2: It was 8 PM and it was still blazing hot outside. Sentence 3: Gina had no where to go but home. Sentence 4: In the house the fans in the windows did nothing the kill the heat.\nChoices: (A) Gina decided to go jogging. (B) Gina wished she could afford an air conditioner.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Yesterday I made a massive mistake. Sentence 2: I decided to defrost a hot pepper in the microwave. Sentence 3: To my dismay the pepper caught on fire. Sentence 4: I was horrified.\nChoices: (A) The hardest part was eating it while it burned. (B) I put another one in the microwave to defrost.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Brenda was at summer camp. Sentence 2: She was lying in bed and trying to go to sleep. Sentence 3: Suddenly, she heard a spooky noise. Sentence 4: The noise terrified her and kept up all night.\nChoices: (A) In the morning, Brenda discovered mice had eaten her snacks. (B) Branda awoke feeling refreshed.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: I went back to my hometown last weekend for a big football game. Sentence 2: I met up with a bunch of my friends. Sentence 3: We started drinking at 1pm for a 7pm game. Sentence 4: By kickoff I was pretty drunk.\nChoices: (A) I was really excited about my dress. (B) I don't even remember the game.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: I got some bad news this morning. Sentence 2: My lifelong friend Stacy was moving to Europe. Sentence 3: As I hung the phone up, I started to cry. Sentence 4: I spent all morning going through old picture albums.\nChoices: (A) I will miss Stacy a lot. (B) I hope Stacy invests in gold or another precious metal.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: I was working at the front desk. Sentence 2: I got a call from a strange number. Sentence 3: It was a student wondering about his application for college. Sentence 4: He had called the wrong number.\nChoices: (A) I gave him the right number and hung up. (B) I shook the student's hand and thanked him.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Ray wanted to get into a good college. Sentence 2: He had to write an essay. Sentence 3: He tried very hard. Sentence 4: He put in a lot of effort.\nChoices: (A) Ray hoped they would not admit him. (B) Ray hoped he would be admitted.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Today is Hope's Birthday. Sentence 2: She jumps out of bed excited. Sentence 3: She rushed to the bathroom to take a shower. Sentence 4: After her shower, she gets ready.\nChoices: (A) Hope is expected to celebrate her birthday alone. (B) Hope is having breakfast with her family.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Karen's friend called her to see if she wanted to hang out. Sentence 2: Karen agreed and they met at a coffee shop. Sentence 3: They talked for a couple hours before going to a spa. Sentence 4: Afterwards, they had dinner together and watched a movie.\nChoices: (A) It was the best time Karen had had in months. (B) They separated, and never spoke again.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Bob was listening to his favorite album on his new stereo system. Sentence 2: The sound quality of his new system was great. Sentence 3: You could hear the sound clearly from every room in his house. Sentence 4: All of a sudden, his cat scratched one of his speakers.\nChoices: (A) Bob's stereo system was ruined. (B) Bob was proud of his cat.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Rico was working really hard on his essay for English. Sentence 2: After working on it all night, he decided to take a short nap. Sentence 3: He slept in and was late for for school. Sentence 4: When he got to school he noticed that his essay was gone.\nChoices: (A) Rico decided to take another nap. (B) Rico's teacher let him turn in the essay the next day.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: When Greg was 5 years old, he received his first dog. Sentence 2: It was his favorite kind of dog, and he named it Sammy. Sentence 3: Sammy was a purebred poodle. Sentence 4: After a few years, Greg came very close to Sammy.\nChoices: (A) Sammy ran away from home and Greg. (B) Greg was happy that Sammy was his dog.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jenny had a big crush on Leroy. Sentence 2: They were at the school dance. Sentence 3: She mustered up her courage to ask him for a dance. Sentence 4: He told her no and laughed with his friends.\nChoices: (A) She laughed in Leroy's' face. (B) She ran away and cried to her mom.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Leon decides to get out of the house one day. Sentence 2: He gets his skateboard to go for a ride. Sentence 3: Leon tries riding down the biggest hill in his town. Sentence 4: Unfortunately, he falls and bumps his knees.\nChoices: (A) He was happy about how well he skateboarded that day. (B) He limped home with his legs bleeding.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: I was tired of working at Walmart. Sentence 2: The hours were bad. Sentence 3: The store music was awful. Sentence 4: I handed my two weeks in to the manager.\nChoices: (A) I put in an application at Walmart. (B) I then found another job and was happy.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sora was failing her math class. Sentence 2: She asked her teacher if she could do anything to help herself. Sentence 3: The teacher offered her an extra credit report. Sentence 4: Sora put a lot of effort into her report.\nChoices: (A) She got a good grade on the report and raised her math grade. (B) She felt very unmotivated.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Tara wanted to buy a new shirt for her upcoming school formal. Sentence 2: She went to the mall with her mom. Sentence 3: They browsed shirts from a variety of stores. Sentence 4: Tara picked out a floral patterned shirt that she liked best.\nChoices: (A) Tara looked forward to wearing it. (B) Tara's mother wore the shirt the day of the prom.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Tim stepped out to check the mailbox. Sentence 2: He didn't close the door all the way. Sentence 3: His dog shot out at a full run. Sentence 4: Tim tried to catch him but it was too late.\nChoices: (A) Tim had to get the car to find his dog. (B) Tim was relieved his dog ran out.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Albert was looking for the perfect gaming mouse for his PC. Sentence 2: He searched a variety of sites and read lots of reviews. Sentence 3: He found the perfect site with the best prices on what he wanted. Sentence 4: He bought an MMO mouse with a very high DPI.\nChoices: (A) He stopped playing games. (B) He was satisfied with it.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jerry was running for class president. Sentence 2: He ran a dirty campaign against his opponent. Sentence 3: He made up lies and spread rumors. Sentence 4: He won by a landslide.\nChoices: (A) But he felt guilty. (B) Jerry loved pizza.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Terry had to catch a bus to make it to work on time. Sentence 2: However, she met a series of misfortunes on morning. Sentence 3: She lost her shoes and her keys. Sentence 4: As she walked to the bus stop, she saw the bus starting to pull away.\nChoices: (A) Mary missed the bus and had to walk to her destination. (B) Mary got on a plane to go to her destination.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Tori stole a candy cane from her Christmas tree. Sentence 2: Her mother had told her not to. Sentence 3: She thought she had gotten away with it. Sentence 4: However, her mother noticed and punished her.\nChoices: (A) Tori was happy her mother knew. (B) Tori was grounded.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: George was in a bit of a pickle. Sentence 2: He had a deadline that was rapidly approaching. Sentence 3: He only had a few more pages to go in his book. Sentence 4: He sat down at the computer and was struck with inspiration.\nChoices: (A) George deleted his hard drive. (B) George finished his manuscript and celebrated.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Tom was jealous of his brother. Sentence 2: His brother was older and stronger. Sentence 3: His brother went wherever he wanted. Sentence 4: One day his brother was grounded for staying out too late.\nChoices: (A) This made Tom really happy. (B) My brother wore a red shirt.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Shy Anna was not very popular in high school. Sentence 2: People thought she was too boring. Sentence 3: Little did they know, by night she was a guitarist in a local band. Sentence 4: Soon her band was garnering national attention.\nChoices: (A) That was why no one liked her. (B) Soon people discovered who she was and loved her.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Doug and Patty set up a lemonade stand in front of their house. Sentence 2: They were surprised how many customers they had. Sentence 3: They sold out before noon. Sentence 4: They made more, selling all that as well.\nChoices: (A) Doug and Patty were delighted at their success. (B) Doug and Patty did not sell much lemonade.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Today was my 21st birthday. Sentence 2: Since I'm able to drink, my friend took me to a bar. Sentence 3: She order her favorite drink, specifically for me. Sentence 4: After taking a sip of the drink, I was disgusted.\nChoices: (A) I found the drink to be bitter-tasting. (B) I asked for a second round of the same drink.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: It was Valentine's Day and I was excited to see flowers at my door. Sentence 2: I rushed inside to open the box. Sentence 3: The bouquet was small and mostly dead, not what my husband ordered. Sentence 4: I was very upset and started to cry.\nChoices: (A) My husband went out and bought a better bouquet. (B) I was upset that the flowers weren't more dead.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Rob was in charge of all the people at work. Sentence 2: Rob though everybody liked him. Sentence 3: One day Rob heard his employees saying mean things about him. Sentence 4: Rob's feelings were hurt.\nChoices: (A) Rob fired the employees. (B) Rob was glad his employees thought so highly of him.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Mike really loves pets. Sentence 2: Unfortunately his apartment building doesn't allow pets. Sentence 3: He tried to persuade building management but they didn't agree. Sentence 4: Mike decided to volunteer at his local humane society.\nChoices: (A) Mike enjoyed the chance to help pets find a home. (B) Mike didn't like the dogs or cats.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Neil loved visiting London! Sentence 2: He thought it was charming and friendly. Sentence 3: But he wanted a better view. Sentence 4: So he bought a ticket on the huge London Eye ferris wheel.\nChoices: (A) Neil had a wonderful view of the city. (B) Neil decided not to come to London anymore.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Tory loved Thanksgiving. Sentence 2: She decided to make the turkey for her family's holiday feast. Sentence 3: It was a lot of work, but finally the turkey was finished. Sentence 4: When she took it to dinner, everyone loved it.\nChoices: (A) Tory was glad that she had decided to cook for her family. (B) Tory let the dog into the house.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: I was teaching my son to throw a football. Sentence 2: He couldn't grasp the ball in one hand. Sentence 3: He used both hands to throw it to me like a basketball. Sentence 4: Then he lobbed it to me underhanded.\nChoices: (A) I hope he gets better at it. (B) I hope he gets worse at it.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jane wanted to be a veterinarian. Sentence 2: She took many subjects in school towards that goal. Sentence 3: One course required that she spend forty hours caring for an animal. Sentence 4: Jane liked lots of animals and couldn't decide which to choose.\nChoices: (A) Jane quit her classes and took up accounting. (B) Jane decided to care for a dog.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Alice had a lot of leftover bread. Sentence 2: She didn't want to waste it. Sentence 3: She decided to mash it all up and make a big batch of bread pudding. Sentence 4: It came out looking delicious!\nChoices: (A) Alice waited for it to cool and then ate a serving. (B) Alice put the pudding right into the garbage disposal.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Amy liked to take a walk on her break at work. Sentence 2: This day she decided to walk to the frozen yogurt place. Sentence 3: When she arrived they were closed. Sentence 4: This was odd for the middle of the day.\nChoices: (A) Amy threw a brick through the window of the shop. (B) Amy decided she didn't need the yogurt anyway.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Trina was trying to lose weight. Sentence 2: Because of this, she would have a salad every day for lunch. Sentence 3: However, she was really starting to get sick of them. Sentence 4: So one day, she went and got fast food.\nChoices: (A) Trina was happy that she maintained her diet. (B) Trina regretted what she did.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Kari's sweater ripped. Sentence 2: She needed to buy a new one. Sentence 3: She decided to go to the mall. Sentence 4: She bought a sweater from Armani.\nChoices: (A) Kari wore her new sweater to school the next day. (B) Kari refused to wear the new sweater.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jill's health class was visiting an acupuncture clinic. Sentence 2: Their teacher told them that although it was alternative, it worked. Sentence 3: During the visit, Jill got a horrible migraine. Sentence 4: The acupuncturist offered to treat her.\nChoices: (A) Jill's headache went away. (B) Jill asked him for a pizza.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Last Christmas was so special, because my new niece was born. Sentence 2: The whole family was brought together to see her. Sentence 3: I bought tiny, new baby clothes for her. Sentence 4: Her birth brought the family closer than it's ever been.\nChoices: (A) My niece touched my heart. (B) Our family decided to put my niece up for adoption.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jill was driving her car. Sentence 2: She accidentally passed the building she was looking for. Sentence 3: She turned around. Sentence 4: She then saw her grandma and offered her a ride.\nChoices: (A) She told her grandma to find her own ride. (B) Her grandma climbed in and they drove home.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: I was more nervous for the first day of college than of Kindergarten. Sentence 2: I cried the night before and was shaking that morning. Sentence 3: My first class was Spanish and the professor was very enthusiastic. Sentence 4: I left with a smile on my face and feeling confident.\nChoices: (A) I broke down in tears and skipped the rest of my classes. (B) That positive attitude remained with me all day.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Kathy desired to be a Physical Therapist since she was in high school. Sentence 2: In college, she took many classes and applied for graduate school. Sentence 3: After a period of waiting, she finally received her acceptance email! Sentence 4: She made her way through schooling and graduated with her degree.\nChoices: (A) Kathy decided to become a sushi chef. (B) Kathy obtained a job in the physical therapy field.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Kori liked to dress up for comic conventions. Sentence 2: She decided to dress up as her favorite character for an upcoming one. Sentence 3: She worked very hard for months on her costume. Sentence 4: She entered the cosplay contest at the convention.\nChoices: (A) She decided to go to the ballet. (B) She was very happy when she won first place.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Taj loved to eat McDonalds. Sentence 2: He wrote McDonald's an email appreciating them for their service. Sentence 3: A McDonald's representative was able to reply the next day. Sentence 4: Taj got $50 worth of McDonalds coupons in the mail!\nChoices: (A) He was sad about getting the coupons. (B) He invited some friends to have lunch with him at McDonalds.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jimmy loved alligators. Sentence 2: When he was little, his grandfather took him to an alligator farm. Sentence 3: The workers let Jimmy sit on an alligator. Sentence 4: The reptile didn't like this and tried to bite Jimmy.\nChoices: (A) Jimmy ate a sandwich for lunch. (B) Jimmy still loves alligators but now respects their wild nature.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: My first vehicle was a John Deer Tractor. Sentence 2: I learned to drive it when I was ten Year's old. Sentence 3: My favorite thing to do on the farm was drive through the fields. Sentence 4: It made me feel powerful driving large machines.\nChoices: (A) I enjoyed riding the tractor for this reason. (B) I always hated having to drive that huge tractor around.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Gina was in her room. Sentence 2: It was in the basement. Sentence 3: She had one small window which let in the light. Sentence 4: It looked out on the neighbor's yard\nChoices: (A) Gina's neighbors complained that she was spying on them. (B) She was jealous that her neighbors had a pool.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Tom and Sally wanted to have kids. Sentence 2: They tried several times without any success. Sentence 3: It turned out that Sally had medical issues she needed addressed. Sentence 4: Once she got that taken care of they tried again.\nChoices: (A) Tom and Sally finally got to have kids. (B) Tom and Sally didn't want to have kids anymore.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Some kids were in trouble for throwing rocks. Sentence 2: The men at the park chased the kids. Sentence 3: But the kids were faster, and got away. Sentence 4: The adults searched the woods for 20 minutes.\nChoices: (A) They ended up giving up. (B) They were eating pizza.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: James was having a girl over for dinner. Sentence 2: He was excited but nervous about cooking a meal. Sentence 3: After looking up recipes, he went to the store and got ingredients. Sentence 4: He went home and cooked a very nice meal for two.\nChoices: (A) James was proud of himself. (B) James was ashamed.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jen wanted all of her family to be together for Christmas. Sentence 2: She planned a fun party and invited everyone. Sentence 3: All of her friends showed up, but not her family. Sentence 4: Jen was very sad.\nChoices: (A) Jen then spent time with her family. (B) Jen decided to make the best of what she had.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sam was an exceptional ice skater. Sentence 2: One day, Sam decided to try hockey. Sentence 3: He and his friend practiced together every chance they could. Sentence 4: They went to tryouts and did their best.\nChoices: (A) Sam hit a homerun. (B) Sam and his friend scored a goal.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jon woke up and went to his living room. Sentence 2: His dog was still sleeping. Sentence 3: Jon decided to wake up his dog. Sentence 4: His dog refused to wake up.\nChoices: (A) Jon was very worried. (B) Jon shrugged and never petted his dog again.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: I convinced my friend to vote for my favorite candidate. Sentence 2: I managed to make them enthusiastic about the process. Sentence 3: On election day they never showed up to vote. Sentence 4: I forgot to tell them what day it was.\nChoices: (A) I was sad. (B) I felt very satisfied.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Abby skated on her rollerblades down the driveway. Sentence 2: Her father was pulling in and didn't see her. Sentence 3: He accidentally hit her as she skated down. Sentence 4: Abby's arm was broken.\nChoices: (A) Her dad took Abby to the emergency room right away. (B) Abby's dad went on to park the car in the garage.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Norm was having a very bad day yesterday. Sentence 2: He was sitting at home when he heard a knock at the door. Sentence 3: There was a package waiting on his doorstep. Sentence 4: Norm opened the package to find a gift from his mother.\nChoices: (A) The gift made Norm's day a lot better. (B) Norm thought the gift was terrible.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Randy wanted to get a dog so bad. Sentence 2: Randy's mom was allergic to dogs. Sentence 3: Randy asked if he could move in with his dad. Sentence 4: His dad said yes.\nChoices: (A) Randy was able to get a dog with his dad. (B) Randy bought a lizard with his dad.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Amy was 14 Year's old. Sentence 2: She was starting to feel like an adult. Sentence 3: She explained this to her friend Lynn, as Lynn sat on a swing. Sentence 4: Lynn didn't care.\nChoices: (A) Lynn wanted Amy to tell her all about being an adult. (B) Lynn continued to swing.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Every year the smiths go on a camping trip. Sentence 2: This year they decided to go to Colorado to camp. Sentence 3: The family took the trailer and the goods to go. Sentence 4: The kids were excited.\nChoices: (A) It was a great trip and they had a good time. (B) They decided to cancel the vacation.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Del hurried home from work. Sentence 2: He was very worried and anxious. Sentence 3: His wife had said she had important news for him. Sentence 4: But when he got home, he saw his wife was smiling.\nChoices: (A) He was overjoyed when his wife told him that she was pregnant. (B) Del's wife told him that she had breast cancer.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Kate had math homework that she needed to do. Sentence 2: She sat at the table and tried to focus. Sentence 3: She avoided distraction by turning off her phone. Sentence 4: Kate worked for two hours.\nChoices: (A) Kate was glad that she could remain concentrated. (B) Kate wished she had someone to text on her phone while working.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Lenny wanted to learn to practice hypnosis. Sentence 2: He did a lot of research about how to do it well. Sentence 3: He found out that hypnosis doesn't work like he thought. Sentence 4: He found that hypnosis is more of a parlor trick than a power.\nChoices: (A) Lenny found a different interest. (B) Lenny became a powerful hypnotist.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: The nurse admitted me into the intensive care unit. Sentence 2: When I woke up, there were no lights around. Sentence 3: The time was 3:20 in the afternoon. Sentence 4: I tried to look outside of the room window.\nChoices: (A) I felt very free and relaxed. (B) But I had too many lines attached to me.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Ted tried out for the baseball team at school. Sentence 2: He did not make the team though. Sentence 3: His coach told him he needed to be able to it the ball better. Sentence 4: Teddy spent the next year practicing his baseball swing.\nChoices: (A) He tried out for the team again and this time, he made it. (B) The following year, he easily made the swim team.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Janie was outside one day when she heard a high-pitched noise nearby. Sentence 2: She looked all around for the source of the noise. Sentence 3: Finally, she found a litter of kittens under a bush! Sentence 4: She decided to take care of the kittens.\nChoices: (A) Janie loved cats. (B) Janie hated cats.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sam wanted to lose some weight. Sentence 2: He decided to run everyday after dinner. Sentence 3: He eventually built up his endurance. Sentence 4: Sam felt great after exercising consistently.\nChoices: (A) He added weights to his training routine. (B) He immediately quit exercising.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Pam left her son with a new babysitter. Sentence 2: She told her that her son was allergic to peanut butter. Sentence 3: But the babysitter gave him peanut butter oatmeal. Sentence 4: The babysitter had to call the hospital.\nChoices: (A) Pam was impressed with the babysitter. (B) Pam was furious with the babysitter.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Ivan was heading to the beach for a day of picnicking. Sentence 2: Then he remembered he'd forgotten to put ice in the cooler! Sentence 3: He stopped off at a small general store. Sentence 4: There, he bought a few big bags of ice and put them in the coolers.\nChoices: (A) The ice kept his drinks cold the whole day. (B) He poured all of the ice down the drain, and went to sleep.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Lara started seeing a therapist. Sentence 2: She mentioned this to her mom on the phone. Sentence 3: Her mom called the therapist, demanding information. Sentence 4: She wanted to know all the bad things her daughter was saying.\nChoices: (A) The therapist curtly said she couldn't share that information. (B) The therapist told the mother everything her son had said.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: My friend is easily offended. Sentence 2: I say things that are offensive. Sentence 3: The other day we were hanging out. Sentence 4: I said something offensive and he got upset.\nChoices: (A) I apologized and my friend forgave me. (B) My friend gave me a big smile and a hug.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Last night I had the best pizza. Sentence 2: I went to bertucci's and had a pepperoni pizza. Sentence 3: The sauce was delectable and the meat was divine. Sentence 4: I ate the entire thing.\nChoices: (A) I won't eat pizza for a long time. (B) I want to go back and get more pizza.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jake lives in Flint Michigan. Sentence 2: One day he went to run himself a bath. Sentence 3: He was very upset to see that the water wasn't clean. Sentence 4: Jake called his mayor to complain.\nChoices: (A) The mayor had just emerged from a seedy back-alley motel. (B) The mayor told him he had better things to do.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Tray wanted candy. Sentence 2: He could not reach the bowl. Sentence 3: That did not stop him. Sentence 4: He got a stool.\nChoices: (A) He reached for the bowl and enjoyed the candy. (B) He placed the stool on the deck.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Kaylee owned a ferret who always ran free around the house. Sentence 2: One day she could not find her ferret. Sentence 3: She put flyers all over the neighborhood. Sentence 4: There was a knock at the door three days later.\nChoices: (A) Someone found her ferret. (B) The mailman delivered a parcel.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Mom thought the living room furniture looked old and shabby. Sentence 2: It was time for some new seating. Sentence 3: She bought the perfect set. Sentence 4: The new furniture looked and felt great.\nChoices: (A) My mom missed the old furniture. (B) The living room had a brand new appeal.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Mr Washington stalked Tracy's best friend McKevin. Sentence 2: Mr Washington did it to find out more about Tracy. Sentence 3: McKevin told Tracy about Mr Washington's stalking. Sentence 4: Tracy and McKevin set a trap for Mr Washington.\nChoices: (A) Tracy would not leave Mr Washington alone. (B) Mr Washington fell into the trap.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: I decided after being a fan for along time to begin a fan club. Sentence 2: I asked all of my friends to join and sent emails out. Sentence 3: It wasn't long before I had people interested! Sentence 4: We scheduled a day to meet and discuss the beginnings.\nChoices: (A) I brought lots of snacks and drinks for the meeting. (B) Everyone was sad that I brought snacks and drinks.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Lou needed some money for a video game. Sentence 2: He put fliers in his neighbor's mailboxes offering to mow their lawns. Sentence 3: He had six jobs lined up in just a few hours. Sentence 4: He did so well he kept his business going.\nChoices: (A) Lou now has the entire neighborhood as his customers. (B) Lou went to school to learn about IT support.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Yesterday I felt very sick. Sentence 2: I had to take the day off. Sentence 3: Thankfully I was able to relax. Sentence 4: I took some soup and rested.\nChoices: (A) I took a long nap and am feeling better. (B) I went to the gym and exercised.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jack woke up before his alarm at 4:30 am. Sentence 2: He was shivering under the blankets. Sentence 3: He looked over and saw he had left the window cracked open overnight. Sentence 4: A strong, chill wind was blowing in through the open window.\nChoices: (A) Jack didn't bother to close the window. (B) Jack closed the window.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: My brother had a lot of candy after Halloween. Sentence 2: However, he didn't like candy. Sentence 3: So, he decided to give his candy away. Sentence 4: He gave his candy to his neighbors, who had a lot of children.\nChoices: (A) My brother then demanded the candy back. (B) The family and children were grateful to my brother.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Ky was doing her hair. Sentence 2: Her pigtails were always lopsided! Sentence 3: She just couldn't get them straight. Sentence 4: Finally she gave up and went to school with lopsided pigtails.\nChoices: (A) Ky grabbed hair paint and colored her hair. (B) Everyone at school loved Ky's hair.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Denise had been trying to save her money for a long time. Sentence 2: She had been selling lemonade. Sentence 3: She would take her money and put it in a pink piggy bank. Sentence 4: The day came when it was so full she couldn't fit any more in it.\nChoices: (A) Denise didn't know what to do when she ran out of money. (B) She bought a second piggy bank so she could keep saving money.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jake was going on a road trip to see his family. Sentence 2: He Got in the car and drove. Sentence 3: The car's tires exploded due to too much air. Sentence 4: Jake hitchhiked for 30 miles.\nChoices: (A) Jake wore a navy blue suit. (B) When Jake got to his family he was happy his trip was over.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sal the radio DJ queued up his music for the night and sat down. Sentence 2: His assistant said they were having computer issues that day. Sentence 3: Sal tried to fix it himself but he could not play any songs. Sentence 4: Instead he just spoke to his listeners for two hours.\nChoices: (A) They loved it. (B) Sal was unemployed.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Scott paddled his canoe across the big lake. Sentence 2: The canoe was suddenly tipped over by a large wave. Sentence 3: Scott struggled to turn his canoe right side up again. Sentence 4: With great effort, Scott was able to right his canoe and climb aboard.\nChoices: (A) Scott decided to swim across the lake. (B) Scott continued to paddle his canoe across the big lake.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sam hated surprise parties. Sentence 2: He found out about one by his wife. Sentence 3: She had put in a lot of effort. Sentence 4: All of his friends showed up.\nChoices: (A) Sam stayed at the bar rather than go home and be surprised. (B) That night Sam told his wife that he wanted a divorce.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: It was the third time Jenna lost her keys this week. Sentence 2: She had a bowl to put them in but always forgot. Sentence 3: She looked everywhere. Sentence 4: Eventually she gave up and used the spare set.\nChoices: (A) Jenna was glad that she wasn't forgetful. (B) Jenna lost her spare keys two days later.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Faye was completely broke and the bills were piling up. Sentence 2: She had a recurring medical problem and the treatment was not cheap. Sentence 3: In desperation, she considered stealing from a friend of hers. Sentence 4: Before going through with it, she applied for government aid.\nChoices: (A) Faye's friend offered a loan as she waited for the aid to arrive. (B) Faye wished she hadn't stolen the check from her friend.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Artie had a baseball he had acquired as a child. Sentence 2: His father had given it to him as a gift. Sentence 3: Artie decided to give it to his son as a heirloom. Sentence 4: His son lost the ball one day at the park.\nChoices: (A) Artie was glad this happened. (B) Artie was quite upset.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: My dad was babysitting me while my mom was out of town. Sentence 2: I decided to go play with kids at the playground. Sentence 3: The kids immediately threw dirt in my hair and my eyes. Sentence 4: I ran home and my dad washed me and my hair.\nChoices: (A) I decided to never play with those kids again. (B) My mother then dried me off.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: June was excited to share gardening with her son. Sentence 2: She showed the boy how to pluck weeds, root and all. Sentence 3: June and her son worked on separate rows, weeding steadily. Sentence 4: When they finished, the boy showed June his pile of weeds.\nChoices: (A) June told him that he had done a great job. (B) June ignored him and walked away.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Laurie came home from the store one day and saw the door open. Sentence 2: She was suspicious and called the police. Sentence 3: When they arrived, they found a woman inside, stealing jewelry. Sentence 4: She was arrested and they found many other stolen items with her.\nChoices: (A) Laurie was glad the police came quickly. (B) Laurie invited the woman to dinner.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jane had never gone camping before. Sentence 2: One day, Jane's friends invited her to go camping with them. Sentence 3: Jane and her friends went deep into the woods to find a camp ground. Sentence 4: When they finally arrived, it was too dark to see anything.\nChoices: (A) They used flashlights to build a fire, which was nice. (B) It was not a very fun swimming day after all.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Kim was going to the mall with her aunt to see Santa. Sentence 2: They arrived at the mall and could see the line from the parking lot. Sentence 3: They waited in line for two hours. Sentence 4: When it was Kim's turn she was afraid of Santa.\nChoices: (A) Kim insisted her mother come with her. (B) Kim gave Santa a big hug.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: There is this amazing gym near my house. Sentence 2: It has all the workout equipment I could ever ask for. Sentence 3: The best part is that the membership is only ten dollars per month. Sentence 4: That's one of the cheapest I've ever seen.\nChoices: (A) I hate it there because it's so expensive. (B) I'm happy to be a member there and work out often!",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Kate went on her very first date with Rich. Sentence 2: They went to a steakhouse, but Kate was a vegetarian. Sentence 3: Rich spent the whole night talking about himself. Sentence 4: At the end of the date, he asked Kate to pay for her dinner.\nChoices: (A) Kate had a great time on the date. (B) Kate decided to not date rich again.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Terry was a popular, good looking classmate of mine. Sentence 2: He was loved by all the girls. Sentence 3: One day, I heard that he was shot and killed. Sentence 4: He was the first person I knew who had been murdered.\nChoices: (A) I couldn't eat all day from shock. (B) I was the only person who was sad.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Anna was craving candy. Sentence 2: She had none in her house! Sentence 3: She was desperate for junk food. Sentence 4: She went next door and asked her neighbor.\nChoices: (A) Anna does not have neighbors. (B) Her neighbor gave her a candy bar.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Amy was moving out of town. Sentence 2: The best part was quitting her horrible job. Sentence 3: She walked into her boss's office with her head high. Sentence 4: She firmly told him she was quitting.\nChoices: (A) She cried after losing her job. (B) She laughed on her way out the door.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Tonya owned a small toad. Sentence 2: Tanya would always bring her toad with her to a swamp. Sentence 3: She would sit with her toad by the side of a pond. Sentence 4: One day a fish came and ate her toad!\nChoices: (A) Tonya was heart broken. (B) Tonya laughed hysterically at the fish.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: The man was walking his puppy without a leash. Sentence 2: The puppy usually followed him. Sentence 3: One day the man was crossing an intersection with a lot of cars. Sentence 4: The puppy ran ahead.\nChoices: (A) The poor puppy was hit by a car. (B) The man turned and went home alone.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Year's ago I wondered what was my life's purpose. Sentence 2: I volunteered my for services for many social organizations. Sentence 3: I learned I like helping people bring about change. Sentence 4: I discovered I wanted to help resolve many of the world's problems.\nChoices: (A) I became a shark on Wall Street. (B) I devoted my life to helping others.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: My kids had head lice a while back. Sentence 2: All four of them got it. Sentence 3: We had to clean the entire house. Sentence 4: We treated their hair twice to make sure it was gone.\nChoices: (A) I punished my kids by grounding them for a long time. (B) The source of the lice was never determined.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jennifer was bored one Saturday. Sentence 2: She decided to alleviate her boredom with a hike. Sentence 3: She drove to a national park to go hiking. Sentence 4: Jennifer hiked for hours.\nChoices: (A) Jennifer thought hiking was stupid. (B) Jennifer was tired when she finished.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Lee lost his first baby tooth. Sentence 2: He was so happy! Sentence 3: He placed it under his pillow. Sentence 4: In the morning he checked.\nChoices: (A) Lee  decided law enforcement would be the career for him. (B) The tooth fairy left him several dollars.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jon wanted to become a professional plumber. Sentence 2: So, he applied to a trade school. Sentence 3: He waited months for his decision. Sentence 4: Fortunately, he was accepted.\nChoices: (A) Being accepted made Joe very sad. (B) Being accepted made Joe very happy.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: A little chipmunk made it's home in Ed's backyard. Sentence 2: For weeks he tried to feed it a peanut out of his hand. Sentence 3: It got a little closer every day. Sentence 4: Finally, the chipmunk took it.\nChoices: (A) Eventually Ed got the chipmunk to eat out of his hand. (B) The chipmunk was so terrified it bit Ed's hand.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: I was at work yesterday when my boss came over. Sentence 2: He said that we were behind schedule. Sentence 3: He asked if I could help out a bit. Sentence 4: I would get paid overtime.\nChoices: (A) I was happy to get paid overtime. (B) My boss fired me.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Janel was driving to the office when she heard a loud bang. Sentence 2: Suddenly the car began to vibrate very heavily. Sentence 3: Janel put on her hazard lights and pulled over. Sentence 4: Upon inspection, she found she had a flat tire.\nChoices: (A) Jane changed her tire and drove to the office. (B) Jane changed all four tires,",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Liz was watching her 4 and 6 year old nieces. Sentence 2: She put them in her room to take a nap. Sentence 3: They were very quiet so she thought they were asleep. Sentence 4: When she checked on them an hour later they were not asleep.\nChoices: (A) Liz was glad they were sleeping so well. (B) Liz told them to go back to bed.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Cora was nervous. Sentence 2: She was at her first haircut appointment ever. Sentence 3: She wondered how she would look with short hair. Sentence 4: Then she saw herself in the mirror and gasped.\nChoices: (A) It was terrible. (B) Cora's face was swollen.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Last christmas my family decided to decorate. Sentence 2: It was the first time we ever did. Sentence 3: We bought a lot of different items. Sentence 4: Everyone helped put things up.\nChoices: (A) It was nice to all decorate together. (B) I had to do everything myself.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: I came home from the doctor this morning. Sentence 2: I saw my friend Joe waiting in the lobby. Sentence 3: He is 98, needs a walker, and was trying to vote. Sentence 4: My friend Bert graciously offered to take him.\nChoices: (A) Joe had to walk to the voting place. (B) Joe was very grateful for the help.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: There was a mysterious sound from Bob's basement. Sentence 2: He took went to the steps and flicked the light. Sentence 3: The bulb flickered on and then off quickly. Sentence 4: Bob gave up on the light and went down to investigate.\nChoices: (A) Bob enjoyed his time in the pool. (B) It was very dark and spooky.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Abby loved candy. Sentence 2: She was given her allowance for the week. Sentence 3: She decided to spend it all at the candy store. Sentence 4: She started to notice a numb ache in her tooth.\nChoices: (A) Suddenly Abby understood why her dentist warned against sugar. (B) Abby went to the pantry and got her dog a Milk Bone.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Kelly was excited to try the new Starbucks flavor. Sentence 2: The flavor was red velvet cake. Sentence 3: When she ordered it she took a sip. Sentence 4: It was delicious.\nChoices: (A) It became her new favorite. (B) She confronted the barista and demanded a new coffee be made.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: My boyfriend took me to Amsterdam for New Years. Sentence 2: It was extremely romantic. Sentence 3: We watched the fireworks from our hotel room. Sentence 4: Afterwards, we took a steaming hot bath together.\nChoices: (A) The bath relaxed us and we went to sleep. (B) We decided to never come to Amsterdam again.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Javier thought that motorcycles seemed very cool. Sentence 2: His parents warned him that motorcycles were very dangerous. Sentence 3: Still, he bought a motorcycle and began taking lessons. Sentence 4: Now he drives his motorcycle to work every day.\nChoices: (A) He loves his bike. (B) He sold his bike for a car.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Shay was meeting with a woman who wanted to hire a nanny. Sentence 2: They met in a Starbucks and ordered some drinks. Sentence 3: With their drinks, they sat down and got to know each other. Sentence 4: Finally, the woman offered Shay the position.\nChoices: (A) Shay refused the woman's offer. (B) Shay was thrilled.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sloan has a lot of girlfriends. Sentence 2: One day, he decides that he wants to settle down. Sentence 3: He gets serious about dating and chooses one girlfriend. Sentence 4: He decides she's the one and proposes.\nChoices: (A) She then proposed to Sloan. (B) She told him she did not want to marry him.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Brad was excited for his first amateur mixed martial arts fight. Sentence 2: He invited all of his friends and family to watch him compete. Sentence 3: The night of the fight Brad was confident as he marched into the ring. Sentence 4: The first round didn't goal well though, and Brad's face was busted up\nChoices: (A) Brad lost his match and his family thought less of him. (B) Brad put on a hot dog uniform and became a baseball mascot.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Zach was sick of his small apartment. Sentence 2: He decided to get a larger apartment. Sentence 3: Then he realized he needed help moving. Sentence 4: Luckily, Zach's girlfriend was able to help him move.\nChoices: (A) Zach moved into a larger apartment. (B) Zach decided not to move.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Greg was a nurse. Sentence 2: Some people called him a murse. Sentence 3: He hated that term because it was stupid and insulting. Sentence 4: He punched each of them in the face.\nChoices: (A) Greg was promoted by his manager. (B) Greg was then fired from his job for being too violent.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: It was Kathy's first day on the job. Sentence 2: This was her very first job and she was excited. Sentence 3: She made sure to look her best and have her best foot forward. Sentence 4: When Kathy arrived she was greeted with open arms.\nChoices: (A) She loved her job and ended up staying for 3 years. (B) She was repulsed, and ran all the way home.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: The shoe store salesman was rude to me the other day. Sentence 2: I told him his attitude was out of line. Sentence 3: He quickly lead me out the store. Sentence 4: I wrote a letter regarding my experience to the local paper.\nChoices: (A) The shoe store gained several customers. (B) The shoe store lost many customers.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Ness wanted a bird as a pet. Sentence 2: She went to the pet store. Sentence 3: The owner suggested she get two parakeets to keep her company. Sentence 4: Ness bought the two pretty birds and took them home.\nChoices: (A) She taught the birds to speak. (B) She fed them to her cat.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Larry hated going to the mall. Sentence 2: He was stuck there last Saturday. Sentence 3: It was particularly packed due to sales. Sentence 4: He started having a panic attack in the middle of a crowd.\nChoices: (A) Lary had never been so calm in all his life. (B) A man helped him recover.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Ed pass a car as he drove to the bank. Sentence 2: He tried slowing down after passing but failed. Sentence 3: His brakes did no work. Sentence 4: Ed looked around for something to slow him down.\nChoices: (A) Ed coasted to the side of the road until he stopped. (B) Ed ate his peanuts.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Mona was in a car accident that broke both of her legs. Sentence 2: She was in the hospital and rehab for a month. Sentence 3: As soon as she got out, she wanted to go to the movies. Sentence 4: She went to the nearest movie theater and bought the ticket.\nChoices: (A) Mona drove back home immediately. (B) Mona went inside to see the movie.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Matt's children's room was now too small for all three children. Sentence 2: Matt couldn't afford to move to another house. Sentence 3: Matt talked with his wife about their options. Sentence 4: They both agreed it best to switch the children into the master suite.\nChoices: (A) Matt would move the children into the master suite. (B) Matt would keep the children where they are.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Joe turned on his computer and noticed a problem. Sentence 2: There were programs he did not install and he could not delete them. Sentence 3: Joe went to the store and purchased and antivirus program. Sentence 4: Joe ran the program on his computer for hours.\nChoices: (A) He was very happy that the program took that amount of time. (B) Joe's computer began working well once the program was complete.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sandy recently lost her job. Sentence 2: As a consequence, Sandy could not pay her mortgage. Sentence 3: After several months, Sandy's got some bad news. Sentence 4: Sandy was told her house was being foreclosed on.\nChoices: (A) Sandy lost her home. (B) Sandy bought three new homes.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Neil wanted to see ancient temples and ruins. Sentence 2: He decided Asia was a great place to start. Sentence 3: He flew to Cambodia and went sightseeing. Sentence 4: He saw so many old temples in the jungles there.\nChoices: (A) Neil was bored of the trip and went home. (B) Neil was happy he made the trip.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Micky wanted a job. Sentence 2: He began to look in the classifieds in the local paper. Sentence 3: He went on several interviews. Sentence 4: Micky was finally called by one of the companies he applied at.\nChoices: (A) Micky was offered the job the next day. (B) Micky made reservations at a motel.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: I was driving down a very unfamiliar, congested highway. Sentence 2: The GPS directed me to a longer route on a different road. Sentence 3: I gladly took the other road, but it soon became a nightmare. Sentence 4: The road twisted and turned, and I had no choice but follow the GPS.\nChoices: (A) I turned the GPS off and found a better way. (B) It was stressful but I finally made it to my destination.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jill was in class nervous. Sentence 2: She had a question for the teacher. Sentence 3: She was afraid to ask. Sentence 4: She finally got the courage to ask the question.\nChoices: (A) Jill asked her question. (B) Jill was suspended for not asking her question.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sue had a sore throat. Sentence 2: She didn't know what to do. Sentence 3: She took cough drops and that didn't work. Sentence 4: She made hot tea, and that didn't stop the soreness.\nChoices: (A) Sue made an appointment with the doctor as a last resort. (B) Sue was relieved that her sore throat cures worked.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jeff started a new job where he would start at four in the morning. Sentence 2: The night before he was so nervous that he set three alarms. Sentence 3: He was worried he wouldn't wake up that early. Sentence 4: That thought stayed with him all night and he barely slept.\nChoices: (A) Jeff was very rested in the morning. (B) Jeff was tired in the morning.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Kenny was an electrical engineer. Sentence 2: He loved working with circuits and wiring panels. Sentence 3: One day he accidentally electrocuted himself badly. Sentence 4: He was injured and scared.\nChoices: (A) Kenny looked forward to conquering his fears. (B) Kenny thought maybe he should seek another profession.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Thomas lost his job three weeks ago. Sentence 2: He had no idea how he was going to pay his rent. Sentence 3: His friend told him about a website that paid five dollars per blog. Sentence 4: Thomas didn't think he could raise five hundred dollars there.\nChoices: (A) But he tried anyway. (B) Thomas punched his friend in the face.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Pam loved to use coupons. Sentence 2: She asked all her friends to give her old newspapers. Sentence 3: Pam would go through each newspaper and cut out the best coupons. Sentence 4: She made an effort to include her daughter to teach her to be frugal.\nChoices: (A) Pam's daughter became good at bargain hunting. (B) Pam's favorite store was Saks Fifth Avenue.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: It was a rivalry hockey game. Sentence 2: The blues were playing the blackhawks. Sentence 3: The blackhawks scored 5 in the first period. Sentence 4: The Blues Trailed by 3 in the third period.\nChoices: (A) The Blues won the baseball game. (B) By the end of the match, the Blackhawks won.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: My buddy wanted to become the safety officer at school. Sentence 2: He had to go through a bunch of training just to take the test. Sentence 3: He loved the training and passed the test. Sentence 4: He got the job.\nChoices: (A) He did very well in the job and they really liked him there. (B) He was the best swimming coach they had ever had.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Ana was crafting a blouse. Sentence 2: She wanted to adorn it with beads. Sentence 3: She went to the craft store. Sentence 4: She bought fancy beads and brought them home.\nChoices: (A) She threw the beads away when she got home. (B) She made a beautiful blouse.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jenny's Mom took her to the orchard. Sentence 2: It was the first time she'd seen apples on trees! Sentence 3: Her Mom hoisted her on her shoulder so Jenny could reach. Sentence 4: Jenny grabbed a bright red apple from a tree.\nChoices: (A) Jenny started to cry. (B) Jenny took a bite.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Olaf was hiking in the woods when he found another hiker, lost! Sentence 2: The woman had been hiking for hours trying to find her way back. Sentence 3: Olaf took her back to the base station and fed her. Sentence 4: Then he helped her make a phone call to her friends.\nChoices: (A) The woman thanked him for rescuing her. (B) The woman thought Olaf was useless.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: The light didn't come on when Jerry flipped the switch in his room. Sentence 2: He had to go to the store to buy lightbulbs the next day. Sentence 3: He carefully removed the old bulb. Sentence 4: The new one was then screwed into place.\nChoices: (A) Jerry discovered it was the switch that was broken. (B) Jerry stayed in the dark because he forgot to buy any light bulbs.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: I went grocery shopping the other day. Sentence 2: I had a long list of items. Sentence 3: I picked up every item on the list but one. Sentence 4: There were no carrots in the whole store.\nChoices: (A) I bought carrots at a different store. (B) I was happy to have found everything I needed.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Ken's football team was losing the game. Sentence 2: The game was almost over and they needed seven points to win. Sentence 3: Then Ken threw a touchdown and scored! Sentence 4: The fans and the team cheered him loudly.\nChoices: (A) Ken's team was very happy to win the game. (B) Ken decided to quit playing football.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: David's father had painstakingly assembled a collection of rare coins. Sentence 2: One day, he found some of his prized coins missing. Sentence 3: He questioned Davis about their absence. Sentence 4: David had taken them for lunch money!\nChoices: (A) David's father then thanked him. (B) David was grounded by his father.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: I was stuck in traffic and very hungry. Sentence 2: I knew I wouldn't make it home in time, and needed food. Sentence 3: I decided to get fast food, but didn't know where from. Sentence 4: I finally decided on subway, and parked my car.\nChoices: (A) I threw away my sandwich. (B) I ate my sandwich in four bites.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sara and her cousins went to play paintball. Sentence 2: Sara donned the vest and gun. Sentence 3: Then she stalked her cousins. Sentence 4: She wasn't sure how well she'd do.\nChoices: (A) Sara decided to go grab some water. (B) Sara then shot her cousins in the back.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Bob dropped off his car to get an oil change. Sentence 2: When he got his car back it started to sound funny. Sentence 3: Smoke began to come out of his car. Sentence 4: The mechanic forgot to put oil in his car.\nChoices: (A) Bob was livid! (B) The mechanic was given a promotion.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Timmy was going to die of bone cancer. Sentence 2: There is no known cure. Sentence 3: His final wish is to meet his Idol. Sentence 4: His favorite singer, Billy Idol.\nChoices: (A) Timmy was upset that Billy Idol would visit him. (B) Timmy got to meet Billy Idol.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: John was working on a science project display for school. Sentence 2: When he finished his project, he placed it by his bedroom window. Sentence 3: After putting the project down, John left the room and watched tv. Sentence 4: While watching TV, John's dog destroyed his project.\nChoices: (A) John then failed the project because of his dog. (B) John's assignment was the best looking in his class.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Bay wanted to play football. Sentence 2: He practiced every day after school. Sentence 3: Then he tried his best on tryout day. Sentence 4: He was so excited when the team posted the results.\nChoices: (A) Bay made it on the hockey team. (B) Bay made it on the football team.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Amy was swimming in the ocean on her vacation. Sentence 2: Suddenly she felt a horrible sting. Sentence 3: Looking down, she saw a jellyfish swimming away. Sentence 4: Amy crawled onto the beach in agony.\nChoices: (A) Amy felt much better. (B) Amy went to the doctor for treatment.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Joe went fishing. Sentence 2: He sat by the river a long time. Sentence 3: Suddenly his pole went down. Sentence 4: Joe jumped to his feet.\nChoices: (A) He grabbed the pole and pulled out a huge flounder. (B) He shot at the deer, but missed.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: The principal came out of his office and left the main office. Sentence 2: Gina was surprised since she had been waiting 20 minutes. Sentence 3: She thought for sure it was finally her turn. Sentence 4: But he didn't acknowledge she was there at all.\nChoices: (A) Gina felt frustrated. (B) Gina was glad to get the attention she desired.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jenny felt something wiggling around in her mouth. Sentence 2: It was her first loose tooth. Sentence 3: She didn't tell anyone because she knew they'd try to pull it out. Sentence 4: After about a week, she proudly showed her mom the tooth in her hand.\nChoices: (A) Jenny was sad because her tooth was pulled. (B) Jenny's mom congratulated her.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Donna quit her job today. Sentence 2: She realized that her husband makes enough for both of them. Sentence 3: She asked her husband if he was okay with her decision. Sentence 4: He was and supported her with whatever she decides to do.\nChoices: (A) They had a great marriage. (B) Donna couldn't believe how selfish her husband was.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Janet was excited to get some pancakes. Sentence 2: Her favorite fast food joint served them all day. Sentence 3: She went there after work. Sentence 4: When she got there they told her they were out.\nChoices: (A) Janet had a huge look of disappointment on her face. (B) Janet was happy about that.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Bob bought a new fridge. Sentence 2: He moved all the stuff from the old fridge into the new one. Sentence 3: Unfortunately, Bob forgot to turn the fridge on. Sentence 4: All the food was spoiled overnight.\nChoices: (A) Bob was overjoyed when he opened the fridge. (B) Bob was very upset when he woke up.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Susie and Mitch were attending a play at their University. Sentence 2: It was a performance of Romeo and Juliet. Sentence 3: Mitch fell asleep halfway through the performance. Sentence 4: Susie had to slap him in order to wake him up.\nChoices: (A) He rolled over, and went back to sleep. (B) Mitch fought his sleep to watch the rest of the play with Susie.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Kelly had to raise money for her cheerleading uniform. Sentence 2: She decided to hold a bake sale. Sentence 3: She made tons of cakes and brownies. Sentence 4: Then she set up shop outside her house.\nChoices: (A) She sold a lot and bought delicious treats with the money. (B) She sold reasonably well and bought her uniform.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: My mom would be the only one who would wave to the Easter Bunny. Sentence 2: There would often be someone on the street corner dressed up. Sentence 3: My mom would take the moment wave and honk her horn. Sentence 4: No one else paid that much attention.\nChoices: (A) My mother left the casserole in the oven too long and it burned. (B) My mother was exceptionally friendly.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: At the time it seemed like a good idea. Sentence 2: The bus driver parked and went into a bathroom at a gas station. Sentence 3: Andre jumped in the driver's seat and drove off. Sentence 4: He drove to three stops and picked up passengers.\nChoices: (A) Andre could not drive. (B) But then the cops stopped him.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: I was sick of being unemployed. Sentence 2: I decided it was time to get a job. Sentence 3: I scoured listings on the internet and sent out resumes. Sentence 4: Finally, a company asked me to come in for an interview.\nChoices: (A) Now I am happy and I have a great new job. (B) I decided I didn't want to work anymore.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Susie drives a long way to work everyday. Sentence 2: She noticed a dark spot where she parks in the driveway. Sentence 3: Since she was concerned, she took her car to a mechanic. Sentence 4: The mechanic told her that she had an oil leak.\nChoices: (A) Susie was excited by the great news. (B) Susie started thinking about getting new car.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Charlie and some neighborhood kids built a snowman. Sentence 2: They decided to jazz it up by adding food coloring to color it. Sentence 3: They used up all the food coloring in all of their houses. Sentence 4: All of their parents were upset because they stained their clothes.\nChoices: (A) But they had a great time! (B) Charlie stole a car.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Vera was driving home from work one day. Sentence 2: She was tired and not paying attention. Sentence 3: She blew through a stop sign and struck an oncoming car. Sentence 4: Vera's car was totaled and the other driver was hurt.\nChoices: (A) Vera drove home safely. (B) Vera was much more careful when driving.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Victor had always thought that he needed a rice cooker to make rice. Sentence 2: One day his friend tells him that rice can be made in any pan. Sentence 3: At first he doesn't believe this, but one day he tries making it. Sentence 4: Victor's rice comes out perfectly cooked!\nChoices: (A) Victor was not surprised. (B) Victor was amazed.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Amelia wanted to learn how to sew. Sentence 2: Amelia's best friend knew how to sew, and so Amelia asked her how. Sentence 3: Her best friend was happy to teach her. Sentence 4: After a bit of practice, Amelia made a dress.\nChoices: (A) Amelia was very pleased. (B) Amelia was upset her friend taught her to sew.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Doreen loved orange flavored ice cream. Sentence 2: One day when she was playing Doreen fell. Sentence 3: She broke her leg and was crying a lot. Sentence 4: Doreen's mom wanted to make her feel better.\nChoices: (A) Doreen's mom laughed and made fun of her. (B) Doreen's mom gave her orange flavored ice cream.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Kyle was working as a lifeguard at the local pool. Sentence 2: One day, a little boy started thrashing around in the deep side. Sentence 3: Kyle realized the boy was drowning. Sentence 4: He jumped into the pool and grabbed the boy.\nChoices: (A) Kyle saved the boy and the boy was thankful. (B) Kyle swam out of the pool alone and went home.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Cindy felt like eating French toast for breakfast. Sentence 2: She couldn't wait to cook it. Sentence 3: After she finished, she happily started eating. Sentence 4: But she began to feel sick and tired.\nChoices: (A) Cindy started to do jumping jacks. (B) Cindy went to her bedroom and laid down.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Marco feels very tired this afternoon at work. Sentence 2: He decides he needs to make a pot of coffee. Sentence 3: He brews a very strong pot of coffee and has a first cup. Sentence 4: Finally he feels a little bit less tired.\nChoices: (A) Marco goes to sleep. (B) He has a very productive day.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Kay loved Ice Cream. Sentence 2: She visited Cold Stone and discovered they had cinnamon ice cream. Sentence 3: She ate cinnamon ice cream every week for 3 months. Sentence 4: One day she returned and was told the ice cream was no longer sold.\nChoices: (A) Kay was relieved because she had moved on to peppermint. (B) Kay was crushed!",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Tommy had always dreamed of having a dog. Sentence 2: He begged his parents to get one. Sentence 3: Finally on Tommy's birthday, his parents gave him a dog! Sentence 4: Tommy named his dog Spot.\nChoices: (A) Tommy and Spot became best friends. (B) Tommy was very sad that his parents did not buy him a cat.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Last week Sally came home and found a package in front of her door. Sentence 2: She was curious about what might be in the package. Sentence 3: She quickly opened the package and couldn't believe her eyes. Sentence 4: Inside the package was a gift from her best friend.\nChoices: (A) Sally threw the package away. (B) It was a frilly dress with glitter and sparkly fabric!",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: A kid walked past an old house in his neighborhood. Sentence 2: He looked in the windows to see if anyone was home. Sentence 3: There was not any signs of an inhabitant. Sentence 4: The kid broke in and explored the house.\nChoices: (A) The kid stole some things from the house. (B) The house owners came home and welcomed the kid.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Tony wanted to make french fries. Sentence 2: He bought a big bag of potatoes. Sentence 3: Then, he cut the potatoes into strips. Sentence 4: He fried the potatoes into french fries.\nChoices: (A) After all of his work, he had very tasty french fries to eat. (B) Tony then ate the small casserole.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Eric was walking around a pond at a local park. Sentence 2: He saw a turtle on a rock a few feet from the shore. Sentence 3: He stepped into the water to try to catch the turtle. Sentence 4: Suddenly, he sank knee deep into the mud and got stuck.\nChoices: (A) Someone walking on the shore ran over to rescue Eric. (B) Eric rescued the turtle from the deep mud.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Mike went with his friends to party in Tijuana. Sentence 2: They all drank too much and slept way too little. Sentence 3: Returning from the trip, Mike couldn't find his license. Sentence 4: As they approached the border, he was extremely nervous.\nChoices: (A) One of Mike's friends realized he had the license in wallet. (B) Mike was sure he would pass through without incident.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: I was trying to learn how to juggle. Sentence 2: I went to a club every day to learn this art. Sentence 3: It was very difficult. Sentence 4: I eventually was able to get one rep in.\nChoices: (A) I practice all the time now. (B) I hope I drop the batons.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sarah was watching television. Sentence 2: A commercial came on for the new Xbox. Sentence 3: Sarah immediately drove to her local electronics store. Sentence 4: She bought a new Xbox with a headset and extra controller.\nChoices: (A) Sarah decided videogame were stupid. (B) Sarah brought it home and used it.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jason decides he wants to get out of his house and see other people. Sentence 2: He goes to the local pool hall to play a few games. Sentence 3: At the pool hall he meets other guys. Sentence 4: He goes home after spending a few hours there.\nChoices: (A) He hates that he met so many people. (B) He goes to bed.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Tom was running in the park. Sentence 2: His shoe laces became undone and he tripped and fell. Sentence 3: Tom noticed people laughing at him when he got up. Sentence 4: He went to a shoe store and bought shoes with a velcro strap.\nChoices: (A) Tom never had to worry about laces again. (B) Tom's shoelaces started coming untied more often.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sally went to the store to buy a beach chair. Sentence 2: Upon exit, she places her wallet on the car's trunk. Sentence 3: After placing the chair on the back seat, she drives away. Sentence 4: At the beach entrance, she reaches for her wallet to pay to the fee.\nChoices: (A) Sally's went home and went to sleep instead. (B) Sally was sad she had lost her wallet.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Lady loved tacos. Sentence 2: Especially from taco trucks. Sentence 3: One day she ordered a taco from a truck. Sentence 4: With excitement, she took a bite.\nChoices: (A) She spat it out because she had been served a spoiled fish taco. (B) She relished the taste of her banana sundae.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: The Smith's house was in sad shape. Sentence 2: They had been saving for a renovation and today was the day. Sentence 3: All the old and dreary looking parts of the house were redone. Sentence 4: The builders did an amazing job.\nChoices: (A) They had a happy dinner in the kitchen, (B) The Smiths were mad at the builders.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Lindy always wanted a great love in her life. Sentence 2: Every day she went to the university where she studied with a rose. Sentence 3: Her plan was to give the rose to a man who would be her great love. Sentence 4: Lindy didn't know how to talk to a man she thought looking at the rose.\nChoices: (A) Lindy decided to talk to men just like they were people. (B) Lindy decided she didn't like men.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Ted had a laptop that he used to work. Sentence 2: One day while working, the laptop crashed. Sentence 3: Ted tried everything he could, but the laptop wouldn't turn on. Sentence 4: Ted finally borrowed a friend's computer to go online and buy another.\nChoices: (A) Ted waited for the new computer to arrive. (B) Ted didn't really need a computer.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: It was Paula's first day of Kindergarten. Sentence 2: She was excited to be one of the big kids. Sentence 3: When it came time to leave her mother at the door, she cried. Sentence 4: Eventually Paula left her mother and took a seat in class.\nChoices: (A) Paula eventually became accustomed to being away from her mother. (B) Paula's mother took a seat next to Paula.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Dave painted in his bed. Sentence 2: The splashed some blue on the canvas. Sentence 3: The canvas then needed some red! Sentence 4: He then threw in some yellow paint!\nChoices: (A) His attempt to fix the painting failed! (B) The painting turned bright pink!",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Millie's best friend Nicky was about to become a great-grandma. Sentence 2: Nicky asked Millie to crochet a blanket for the new baby. Sentence 3: Millie made a beautiful blue and gray blanket with a little hat too. Sentence 4: Nicky gave it to her granddaughter today at the baby shower.\nChoices: (A) The cult sacrificed the child in the name of Ba'al. (B) Nicky's granddaughter smiled and drooled on it happily.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: I went to the store to buy some paper. Sentence 2: The clerk looked at me weird when I brought it up. Sentence 3: He run it up anyways. Sentence 4: As I left the store, I realized why he looked at me weird.\nChoices: (A) The paper I bought was for little kids. (B) The paper I bought was a reasonable purchase.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: A strange structure appeared on the outside of Connie's house one day. Sentence 2: After some inspection, Connie realized it was a wasp nest. Sentence 3: She called an exterminator to come get them. Sentence 4: The exterminator came and got rid of the wasps quickly.\nChoices: (A) Connie was happy that the nest was gone. (B) Connie decided to buy a pet cat.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Marle was a doctor. Sentence 2: She performed surgery on Mister Pink. Sentence 3: She took out Mister Pink's appendix and stitched him up. Sentence 4: But Mister Pink was there for a vasectomy.\nChoices: (A) Mister Pink thanked Marie for her help. (B) Mister Pink suede Marie for malpractice.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Seven men went to the river. Sentence 2: Joe was the youngest, full of pride. Sentence 3: He jumped in the water, even though he knew that he couldn't swim well. Sentence 4: The tide was too strong for him.\nChoices: (A) The oldest man had to save Joe. (B) Joe loved the trip to the river.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Peppa's grandpa visited her and her brother george at their house. Sentence 2: Peppa's grandpa had a green thumb and he planted few seeds in garden. Sentence 3: He left and came back after a week to find beautiful flowers had grown. Sentence 4: Peppa's grandpa took some flowers to grandma as a surprise\nChoices: (A) She love the flowers. (B) She angrily told him to get out.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: I just became a certified personal trainer! Sentence 2: I have been working at this for Years. Sentence 3: My wife took me out to dinner to celebrate. Sentence 4: I told her at dinner all the plans I have to bring on clients.\nChoices: (A) I left the table before she could speak. (B) We spoke and ate for two hours.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Gina washed her dad's car. Sentence 2: He wasn't satisfied with the job she did. Sentence 3: She washed all the missed spots and double checked the car. Sentence 4: She had him inspect the car again.\nChoices: (A) Her dad smiled because Gina had done a meticulous job this time. (B) Her dad took the car to the mud races.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sigmund  could not help but read too deep into everything. Sentence 2: His friend told him about one of his dreams concerning a bird. Sentence 3: Sigmund told his friend that he must feel trapped and desire escape. Sentence 4: His friend found this unpleasant, and distanced himself from Sigmund.\nChoices: (A) Sigmund learned to keep some thoughts to himself. (B) Sigmund and his friend moved in together as roommates.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Every Monday Ruth went to lunch with Iris. Sentence 2: They always sat in the same booth and had the same waitress. Sentence 3: Today they had a different waitress. Sentence 4: She didn't know what the ladies wanted.\nChoices: (A) Ruth and Iris told her what they wanted. (B) Ruth and Iris didn't need to tell her anything.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sarah was notorious for overpacking. Sentence 2: This year she decided to only take one piece of luggage. Sentence 3: She picked the biggest one she had. Sentence 4: She selected items carefully.\nChoices: (A) Sarah was able to under pack for a change. (B) Sarah tried to fit all her pets into the kennel.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Rose wanted to go to the award ceremony. Sentence 2: She didn't have anything appropriate to wear to such an occasion. Sentence 3: She called a friend and asked if she could borrow her nicest dress. Sentence 4: The friend invited her over and Rose looked through her wardrobe.\nChoices: (A) She picked a beautiful dress. (B) Rose was very upset with her friend.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jacob's class went on a field trip to a pumpkin patch. Sentence 2: Chaos ensued as the children ran to grab pumpkins. Sentence 3: Unlike the others, a still and observant Jacob scanned the field. Sentence 4: Suddenly, he spotted a large, green gourd peeking out near the fence!\nChoices: (A) Jacob did not want to take a pumpkin home. (B) Jacob chose this special pumpkin for himself.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Fred went on vacation. Sentence 2: He got on the bus and headed to Miami! Sentence 3: He got some sun on the beach! Sentence 4: He ate lots of fish!\nChoices: (A) Fred felt agitated. (B) Fred felt relaxed.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: One day Alice decided to climb the tallest tree in her yard. Sentence 2: She got to the top, but was too scared to climb back down! Sentence 3: Alice's dad had to get the ladder to climb up to get her. Sentence 4: They made it safely to the ground, but Alice learned a big lesson.\nChoices: (A) Alice decided to climb tall trees more often. (B) Alice decided to not climb the big trees anymore.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Gina was at her grandpa's funeral. Sentence 2: She didn't want to see the body. Sentence 3: But her mother insisted they all view it. Sentence 4: Gina tried, but was unable to talk her way out of it.\nChoices: (A) Gina went up to her grandpa and saw he was finally at peace. (B) Gina became excited to see her grandpa.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: In 2002 the Boston Lyric Opera performed Carmen. Sentence 2: This time they did it for free on the Boston Common. Sentence 3: I attended the performance on a hot summer day. Sentence 4: I was near the stage and enjoyed listening to the opera.\nChoices: (A) The whole experience confirmed my distaste for opera singing. (B) I hope they stage more operas on the common in the future.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Mark and Molly had reservations for a popular restaurant. Sentence 2: When they arrived the hostess seated them at their table. Sentence 3: They ordered from the menu and waited on their food. Sentence 4: When dessert arrived Mark asked Molly to marry him.\nChoices: (A) Molly laughed in Mark's face and left. (B) Molly said yes.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: I wrote a prompt and posted it online. Sentence 2: Readers of my prompt wanted more. Sentence 3: I wrote a short story that expanded on the prompt. Sentence 4: My prompt readers grew and they wanted even more.\nChoices: (A) I decided to start a blog. (B) I decided I wasn't a good writer.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: We bought a new house. Sentence 2: It was perfect, and everything I ever wanted. Sentence 3: There was a white fence and a large wrap around porch. Sentence 4: Our kids will have so many great memories in this house.\nChoices: (A) We were so happy. (B) We are so angry.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Michael was a dog lover. Sentence 2: One day he went to his friends house. Sentence 3: His friend owned a dog was a bit sick. Sentence 4: Michael took him to the vet.\nChoices: (A) He gave the dog some medicine and then it was fine. (B) He was happy when the dog ignored him.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Kimberly and her family went on a vacation to Duck, North Carolina. Sentence 2: They rented a beach house so that they could all stay in one spot. Sentence 3: They relaxed on the beach almost every single day. Sentence 4: The highlight of the trip was seeing a lighthouse.\nChoices: (A) The whole family enjoyed the experience. (B) The family wished they had visited Colorado.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Lindsey was feeling especially antsy at school. Sentence 2: She did not want to go to Lacrosse practice after school. Sentence 3: She tried to fake a sickness, but nobody believed her. Sentence 4: Lindsey ended up skipping practice without an excuse.\nChoices: (A) She hoped she wouldn't get in trouble. (B) She enjoyed practice a lot.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Mable loved animals. Sentence 2: One day Mabel went for a walk. Sentence 3: Mable saw a baby coon. Sentence 4: She took it home with her.\nChoices: (A) Mable didn't want to have a pet coon. (B) Mable was excited to have a new pet.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Amelia took her little sister to the park. Sentence 2: She told her sister to play, and took out her iphone. Sentence 3: When she looked up, she realized her sister was gone! Sentence 4: She raced through the park, screaming her sister's name.\nChoices: (A) Her sister laughed hysterically. (B) She found her sister nearby.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Chuck stepped the cabin cruiser and onto the dock. Sentence 2: The boat was new as was his knot tying skills. Sentence 3: He quickly tied off the boat. Sentence 4: The line was long for the restaurant but he eventually got a table.\nChoices: (A) Chuck couldn't get a table so he left. (B) Chuck then ordered food and was happy with the service.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jane woke up and decided to exercise. Sentence 2: Jane woke up Jill. Sentence 3: Jill suggested to Jane that they should run. Sentence 4: Both of the girls went outside for a run.\nChoices: (A) Two miles half later, they returned, exhausted and happy. (B) When they got outside they decided to get ice cream instead.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Susan was five Year's old when she got her first puppy. Sentence 2: She named the puppy Sammy. Sentence 3: Sammy was a black Poodle. Sentence 4: Susan mom bought her another puppy so Sammy would have a playmate.\nChoices: (A) Sammy got along really well with the new puppy. (B) Susan got rid of her other dog when she got a new puppy.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Juanita realizes that she needs warmer clothing to get through winter. Sentence 2: She looks for a jacket but at first everything she finds is expensive. Sentence 3: Finally she finds a jacket she can afford. Sentence 4: She buys the jacket and feels much better.\nChoices: (A) She hates the new jacket. (B) She is happy.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Ina was making lunch for her family. Sentence 2: She cooked lots of food. Sentence 3: Then she asked them all to the table. Sentence 4: They sat and ate together.\nChoices: (A) Ina's family was full and satisfied. (B) Ina and her family sat down for breakfast.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Brady came across a yard sale by one of his neighbor's house. Sentence 2: They were giving away some personal belongings that are old. Sentence 3: He found this set of clothes that he was interested in. Sentence 4: The neighbor told him that it was $30 dollars for all three shirts.\nChoices: (A) Brady decided to go for a run. (B) Brady decided not to buy the shirts.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Maureen has just moved into a new apartment and still has no mirror. Sentence 2: She drives to the store to look for a good mirror she can use. Sentence 3: Finally Maureen finds a beautiful, full length mirror. Sentence 4: Her friend helps her get the heavy mirror into her apartment.\nChoices: (A) She asks her friends to help her take the mirror to the dump. (B) She places the mirror in her bathroom.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Barbara was excited to get her ears pierced. Sentence 2: Barbara's mother took her to the jewelry store at the mall. Sentence 3: Barbara picked out her earrings. Sentence 4: The worker pierced her ears with a piercing gun.\nChoices: (A) Barbara loved the earrings and loved wearing them. (B) Afterward, Barbara decided not to wear the earrings.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sharon liked volunteering at the animal shelter. Sentence 2: She spent many hours working with rescued dogs and cats. Sentence 3: Although she wasn't paid, she felt rewarded by her work. Sentence 4: The owner of the shelter was very grateful for Sharon's help.\nChoices: (A) Sharon eventually landed a paying job. (B) Sharon vowed to never return to the animal shelter.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: A car was driving across this abandoned road. Sentence 2: A deer ended up moving out of the vines. Sentence 3: Since the driver was scared by the deer, he didn't hesitate to stop. Sentence 4: The deer died from injury.\nChoices: (A) The driver laughed the whole way home. (B) The driver drove off shaken, but unhurt.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: I was clothes shopping the other day. Sentence 2: Everything I found was made in China. Sentence 3: Some stuff was made in Vietnam. Sentence 4: I couldn't find anything from America.\nChoices: (A) I bought all of the clothes that were made in America. (B) I decided not to buy any clothes.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jake loved to travel. Sentence 2: He was planning a hiking trip to Montana. Sentence 3: He bought lots of camping gear to prepare for the trip. Sentence 4: Jake learned he couldn't go on the trip due to a business meeting.\nChoices: (A) He was so excited. (B) He was very upset.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Rob loved to play soccer and was on his middle school team. Sentence 2: They had just started their season and were playing their first game. Sentence 3: Rob accidentally tripped over another player during the game. Sentence 4: The other player was mad, but Rob apologized and kept his composure.\nChoices: (A) Rob ended up playing the best game of his life! (B) Rob kicked the other player as hard as he could!",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sara really wanted a new dress for prom. Sentence 2: However she could not afford one. Sentence 3: She decided to make her own. Sentence 4: She gathered the materials and set to work.\nChoices: (A) Sara successfully made some pants. (B) Sara had no skills and the dress was a mess.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Darla was afraid of spiders. Sentence 2: One day, as she was cleaning her room, she saw one on the wall. Sentence 3: She screamed and jumped away. Sentence 4: She yelled for her father to come in and help.\nChoices: (A) Her father came and removed the spider. (B) Darla decided to make the spider a pet.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Mary was excited, today was her twentieth birthday. Sentence 2: When she woke up, she found a big wrapped box in the kitchen. Sentence 3: She opened the box and found a brain new pair of ice skates. Sentence 4: Under the ice skates were two tickets to the ring tonight with Kim.\nChoices: (A) Mary was very happy. (B) Mary was really upset with Kim.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: There was a home of poor dogs wandering the streets of Alaska. Sentence 2: They had trouble finding people to feed them. Sentence 3: Eventually they ran into a rich, old man who took them in. Sentence 4: He fed them and gave them a great home.\nChoices: (A) The old man threw rock at the dogs until they left his property. (B) The dogs were great comfort and company for the old man.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Josh was invited to go sailing. Sentence 2: He met his friends at the marina. Sentence 3: Instead of a huge yacht, they showed him a tiny boat. Sentence 4: The four of them crowded into the boat with little room.\nChoices: (A) Josh enjoyed riding on the huge yacht. (B) Josh was upset to be in a little boat.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Six year old Joe came home with ripped pants. Sentence 2: He also gave his parents a note saying he had misbehaved. Sentence 3: Joe's father yelled at him. Sentence 4: Joe's mother gave him a hug and asked for an explanation.\nChoices: (A) Joe said nothing special happened that day. (B) Joe admitted it was all his fault.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Bod and Sally have been married for over 50 years. Sentence 2: There anniversary is coming up soon. Sentence 3: Their daughter decided to throw them a party. Sentence 4: The celebration theme was Memory Lane.\nChoices: (A) Bod and Sally decided abandon their daughter. (B) Bod and Sally had a great time at their party.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Candace is excited that she has moved into her own apartment. Sentence 2: She decides to throw a party to celebrate. Sentence 3: Candace makes food and invites her friends and sister. Sentence 4: Everyone loves Candace's new apartment.\nChoices: (A) Candice was sad that people didn't like her apartment. (B) Candice was happy that people liked her apartment.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Tom was hiking one day. Sentence 2: He always traveled on the path. Sentence 3: Soon, the path split into two. Sentence 4: He didn't know where to go.\nChoices: (A) He took the right path and discovered a small waterfall. (B) He turned and went back home instead.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jimmy wandered around the city looking for a place for a soda. Sentence 2: Before he knew it, he was in an unfamiliar area. Sentence 3: He was scared of strangers and didn't want to ask anyone. Sentence 4: Soon a policeman came by and asked if he was lost.\nChoices: (A) He told him that he was lost. (B) Jimmy accused the officer of harassing him.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: At the amusement park Amy and Beth wanted to ride the Pirate Ship. Sentence 2: They were brave in line, but were scared as the boarded the ride. Sentence 3: Amy and Beth as next to each other and held hands. Sentence 4: When the ride began Beth screamed and bit Amy's arm.\nChoices: (A) After the ride, Amy had to go to first aid center. (B) Beth and Amy decided to go on the ride a second time.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Mary was unhappy. Sentence 2: She saw the weather forecast for her prom, and it said rainy. Sentence 3: The dance was outdoors and rainy would ruin it! Sentence 4: But then on prom night, the weather cleared.\nChoices: (A) Mary had a wonderful time at prom. (B) Mary stayed home due to the weather.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Danny was craving a peanut butter and jelly sandwich. Sentence 2: He got out his bread and put on the peanut butter. Sentence 3: Quickly after he remembered he didn't have jelly. Sentence 4: Instead of going to store, he just ate it as is.\nChoices: (A) Danny loved peanut butter anyway. (B) Danny hated peanut butter.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: James was very low on money and needed food. Sentence 2: So he decided to count his pennies and see what he came up with. Sentence 3: He came up with three dollars and eight cents. Sentence 4: But then he remembered he had a visa gift card from his birthday!\nChoices: (A) James did not have any money. (B) James was then able to buy himself food.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: My sister had an emergency. Sentence 2: She needed a babysitter right away. Sentence 3: I told her I would watch my nephew. Sentence 4: We had a lot of fun reading books all afternoon.\nChoices: (A) My sister was very grateful and took us both out for ice cream. (B) My nephew was sleeping the whole time.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: My class went to a butterfly village for their field trip. Sentence 2: They had the opportunity to go throughout the place. Sentence 3: Several butterflies were attached on to us. Sentence 4: Everyone also had the opportunity to seek knowledge.\nChoices: (A) The butterfly village was very uninformative. (B) The butterfly village was very educational.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Tim's girlfriend loves romantic gestures. Sentence 2: Time is very bad at them. Sentence 3: Last week he took her out to dinner and bought her flowers. Sentence 4: It was nice and sweet.\nChoices: (A) Tim's girlfriend was upset because of his gesture. (B) Tim seemed to get better at romantic gestures.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jane was hiding the kids for her children to hunt. Sentence 2: She put them all over the back yard. Sentence 3: She hid an egg under a pile of leaves. Sentence 4: Jane was excited for the children to hunt.\nChoices: (A) The children laughed as they hunted the eggs. (B) The children apologized to Jane.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sam had been living on the street for Years. Sentence 2: He survived by begging for money. Sentence 3: One day a stranger gave Sam a lottery ticket instead of cash. Sentence 4: Sam won a million dollars!\nChoices: (A) Sam bought himself a nice house and was very grateful. (B) Sam was very grateful for getting the job.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Kate was on a field trip to the park. Sentence 2: She loved the monkey bars the most. Sentence 3: There was a line to use them when she got there. Sentence 4: When it was her turn, she hopped up gleefully.\nChoices: (A) She had fun climbing. (B) She was very disappointed.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: I was feeling really crappy one day. Sentence 2: I felt sick like I was about to faint. Sentence 3: I went to the hospital, and stayed overnight. Sentence 4: I was so antsy, because they had no answers for me.\nChoices: (A) I felt relieved and satisfied. (B) I decided to get a second opinion from a different hospital.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Chuck joints creaked as he stood up from the computer. Sentence 2: It was a short walk to the side table where he had left his phone. Sentence 3: He was going to make one quick phone call before returning to work. Sentence 4: The dogs met him at the door with earnest faces.\nChoices: (A) Chuck knew he needed a walk so he talk his dogs out. (B) Chuck kicked his dog away from him.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: I called the DMV yesterday to get a reinstated driver's license. Sentence 2: They told me I would need to come in and fill out a form. Sentence 3: After I left the house, I headed down to the dmv. Sentence 4: I filled the form our promptly.\nChoices: (A) The DMV decided to reinstate my driver's license. (B) The DMV said I did not need to fill out the form.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Ora had to get a false tooth and she was sad. Sentence 2: She thought it would be ugly and she would be mocked. Sentence 3: Then she saw the tooth the dentist had put in. Sentence 4: It looked exactly like her other teeth!\nChoices: (A) Ora was happy with her new smile. (B) Ora decided to never smile again.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Tom's favorite team was playing in the playoff games. Sentence 2: He ran home to turn on the television just in time. Sentence 3: He watched the game and cheered when his team made a touchdown. Sentence 4: His team won the game.\nChoices: (A) Tom was happy. (B) Tom was sad.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Steven Avery committed murder. Sentence 2: Burned human remains were found on his property. Sentence 3: Steven was the last person to see the female murder victim alive. Sentence 4: He was arrested, charged, tried, and convicted of murder.\nChoices: (A) Steven Avery spent the rest of his life in prison. (B) The next week, Steven went to the movies with friends.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Gina had gotten her allowance. Sentence 2: She went to the store and bought a tube of cookie dough. Sentence 3: She had been waiting a whole week to try it. Sentence 4: She walked home anxious to make cookies.\nChoices: (A) Gina baked cookies as soon as she got home. (B) Gina threw away the cookie dough when she got home.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Sue got a white bunny for Easter. Sentence 2: She named him Fred. Sentence 3: About two weeks after she got him, Sue got a big surprise. Sentence 4: There were five baby bunnies in the hutch with Fred.\nChoices: (A) Fred must be a female rabbit. (B) Fred was a male rabbit.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Aaron sipped a fruity drink on the beach. Sentence 2: He had been waiting for this vacation for months. Sentence 3: Out of nowhere, a volleyball slammed into his lap. Sentence 4: His drink was knocked out of his hand.\nChoices: (A) Aaron was furious because his tuxedo was ruined. (B) He laughed it off and ordered another drink.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: I like to go to comic conventions. Sentence 2: One year, I went with all of my friends. Sentence 3: We all had matching costumes. Sentence 4: We even won the costume contest!\nChoices: (A) We shared the prize equally among all of us. (B) I had such a horrible time I never went out with them again.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: My grandpa took my brothers and I fishing in the summer. Sentence 2: We went to a small pond close to his house. Sentence 3: He set up our fishing poles and we began to fish. Sentence 4: It was so boring when nobody caught any fish.\nChoices: (A) We enjoyed our time playing ping pong with grandpa. (B) We were disappointed to go home empty handed that day.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jane needed a new desk. Sentence 2: Her previous desk was old and falling apart. Sentence 3: She went to a store and tried to find a likeable style. Sentence 4: Jane did not like any of the desks at the store.\nChoices: (A) Jane just went home. (B) Jane bought one of the desks.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Brian was a highschool student who felt sure of his intelligence. Sentence 2: He had a big test coming up but felt sure that he would pass. Sentence 3: Brian did not study for the test. Sentence 4: When Brian took the test, he realized he was unprepared.\nChoices: (A) Brian's teacher praised Brian's performance on the test. (B) Brian felt lucky that he got a C on the test.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Jan wanted to cook breakfast but she didn't know how. Sentence 2: Sue helped her. Sentence 3: They made toast, eggs, hashbrowns, and bacon. Sentence 4: It looked delicious.\nChoices: (A) Jan refused to eat. (B) Jan had fun cooking.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: James was participating in a talent show at school. Sentence 2: James was going to sing but was very nervous and nauseous. Sentence 3: He finally stepped up on stage and prepared to sing. Sentence 4: However, as soon as he began to sing, he threw up all over himself!\nChoices: (A) James was so embarrassed that he ran off the stage. (B) James felt great about his performance.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Tim was in class writing story. Sentence 2: All of a sudden, he ran out of paper. Sentence 3: There was none in his backpack. Sentence 4: He started crying.\nChoices: (A) Everyone began laughing, and walked out of the class. (B) The teacher dried his tears, and gave him more paper.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Sentence 1: Mia opened a cafe when she was thirty. Sentence 2: After five Years, the cafe got really successful. Sentence 3: One day a celebrity visited her cafe. Sentence 4: The celebrity was so impressed that they tweeted about it.\nChoices: (A) Her cafe became even more popular. (B) Her cafe went out of business.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Sentence 1: Mom took me grocery shopping with her today. Sentence 2: We went through all the aisles. Sentence 3: I got help Mom put items in the cart. Sentence 4: She even let me get a special treat.\nChoices: (A) I was happy with mom. (B) Mom was making me upset all day.",
+            "output": [
+                "B"
+            ]
+        }
+    ]
+}
