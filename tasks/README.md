@@ -503,17 +503,7 @@ Name | Summary | Category
 `task520.1_aquamuse_answer_given_in_passage` | Given a passage and a question determine if the question can be answered by the passage | Classification
 `task521_trivia_question_classification.json` | Given a text from a trivia quiz, decide the category the question belongs to | Classification
 `task521.1_trivia_question_classification.json` | Given a text from a trivia quiz, decide the category the question belongs to | Classification
-`task889_ancora-ca-ner_named_entity_recognition` | Named Entity Recognition for each token in BSC-TeMU/ancora-ca-ner catalan sentences | Named Entity Recognition
-`task890_ancora-ca-ner_text_auto_completion` | Text Auto Completion of partial Catalan sentences | Long Text Generation
-`task891_ancora-ca-ner_missing_word_prediction` | Generating a missing word on Catalan Sentences | Short Text Generation
-`task892_librispeech_asr_next_word_prediction` | Predicting next word on librispeech data | Word Generation
-`task893_librispeech_asr_text_auto_completion` | Text Auto Completion of partial English sentences | Long Text Generation
-`task894_librispeech_asr_missing_word_prediction` | Generating a missing word on English Sentences | Short Text Generation
-`task895_ruletaker_fact_checking_based_on_given_context` | Fact checking based on given context | Fact checking based on context
-`task896_ruletaker_incorrect_fact_generation_based_on_given_paragraph` | Generate incorrect fact based on given paragraph | Incorrect Fact Generation
 `task873_newsroom_summary_generation` | Generating summary (based on newsroom 1.6m) | Summary Generation
 `task874_newsroom_title_generation` | Generating title (based on newsroom 1.6m) | Title Generation 
 `task875_newsroom_classification` | Classification of summay (based on newsroom 1.6m) | Classification
 `task876_LC_quad_question_classification` | Generating question from verbalised statement(based on LC-QuAD 2.0) | Question Generation
-`task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation
-`task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
