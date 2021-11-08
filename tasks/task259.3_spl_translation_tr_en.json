@@ -1,0 +1,849 @@
+{
+    "Contributors": [
+        "Karan Niraj Naik"
+    ],
+    "Source": [
+        "Semantic Parser Localizer (https:\\/\\/github.com\\/stanford-oval\\/SPL)"
+    ],
+    "Categories": [
+        "Translation"
+    ],
+    "Input_language": "Turkish",
+    "Output_language": "English",
+    "Definition": "The provided file includes inquiries about restaurants in Turkish, and we ask you to translate those to English language. Please bear in mind the following guidelines while doing the translation: 1) We're looking for the most naturally written and formal form of each sentence in your language. We're *NOT* looking for colloquial forms of the sentence. We're looking for formal form which is how you'd type your queries in a text-based virtual assistant. 2) The words between quotation marks *SHOULD NOT* be translated. We expect you to keep those values intact and include the quotation marks around them as well. 3) The fully capitalized words like DATE_0, or DURATION_0 *SHOULD NOT* be translated. Please keep them as they're in the translations. 4) Please don't localize measurement units like miles to kilometers during your translation. miles should be translated to its equivalent in your language. 6) Note the input is all lowercased except for fully capitalized special placeholders (e.g. NUMBER, DATE, TIME). Please do the same in your translations.",
+    "Positive Examples": [
+        {
+            "input": "5 veya daha fazla yıldıza sahip bir \"mexican\" restoran bul.",
+            "output": "find a \" mexican \" restaurant with 5 or more stars .",
+            "explanation": "The translation correctly preserves \" mexican \" entity and is accurate"
+        },
+        {
+            "input": "en yakın \"chinese\" restoranının telefon numarası ve konumu ne?",
+            "output": "what is the telephone number and location of the nearest \" chinese \" restaurant ?",
+            "explanation": "The translation correctly preserves \" chinese \" entity. It's also fluent, correct, and lowercased."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "en yakın \"wendy 's\" nerede?",
+            "output": "where is the closest wendy 's ?",
+            "explanation": "Translation contain the entity \" wendy 's \" but quotation marks are dropped"
+        },
+        {
+            "input": "bana en yakın  \"mcdonald 's\" restoranını göster.",
+            "output": "show me the closest \" McDonald's \"",
+            "explanation": "The output is not lowercased"
+        },
+        {
+            "input": "\"jennifer\" tarafından yazılan tüm değerlendirme açıklamalarını göster.",
+            "output": "display all authored by \" jennifer \" .",
+            "explanation": "Translation of 'değerlendirme açıklamalarını' is omitted from the output"
+        }
+    ],
+    "Instances": [
+        {
+            "input": "bana \" mexican \" yemekleri bulun",
+            "output": [
+                "find me \" mexican \" food"
+            ]
+        },
+        {
+            "input": "bana \" kansas city , mo \" şehrindeki restoranları gösterin",
+            "output": [
+                "show me restaurants in \" kansas city , mo \""
+            ]
+        },
+        {
+            "input": "bana bu bölgedeki \" mexican \" restoranları gösterin.",
+            "output": [
+                "show me \" mexican \" restaurants in the area ."
+            ]
+        },
+        {
+            "input": "bana \" 93312 \" posta kodu için en yakın \" mexican \" restoranının telefon numarasını verin.",
+            "output": [
+                "provide me the telephone number for the nearest \" mexican \" restaurant in \" 93312 \" zip ."
+            ]
+        },
+        {
+            "input": "0 üzerinde yoruma sahip restoranları bulun.",
+            "output": [
+                "find restaurants with more than 0 reviews ."
+            ]
+        },
+        {
+            "input": "en yakın \" mcdonalds \" nerede?",
+            "output": [
+                "where is the closest \" mcdonalds \""
+            ]
+        },
+        {
+            "input": "1 üzerinde iyi yoruma sahip \" mexican \" restoranı nerede?",
+            "output": [
+                "where is a \" mexican \" restaurant with more than 1 good reviews ?"
+            ]
+        },
+        {
+            "input": "\" mr gucci loafers \" tarafından yapılan tüm derecelendirmeleri gösterin",
+            "output": [
+                "show all ratings made by \" mr gucci loafers \""
+            ]
+        },
+        {
+            "input": "şehrimdeki \" steakhouse \" restoranlarını arayın",
+            "output": [
+                "search for \" steakhouse \" restaurants in my city"
+            ]
+        },
+        {
+            "input": "bana \" amy \" tarafından yazılmış yorumları gösterin.",
+            "output": [
+                "show me reviews written by \" amy \" ."
+            ]
+        },
+        {
+            "input": "en yakın \" wawa \" restoranını nerede bulabilirim?",
+            "output": [
+                "where can i find the closest \" wawa \" ?"
+            ]
+        },
+        {
+            "input": "\" big woodys \" restoranını arayın",
+            "output": [
+                "search for \" big woodys \""
+            ]
+        },
+        {
+            "input": "bir \" egyptian \" restoranını arayın.",
+            "output": [
+                "search for an \" egyptian \" restaurant ."
+            ]
+        },
+        {
+            "input": "bana en az 9 yıldızlı restoranları gösterin.",
+            "output": [
+                "show me restaurants with a minimum 9 star rating ."
+            ]
+        },
+        {
+            "input": "\" starbucks \" için ne kadar yorum var?",
+            "output": [
+                "how many reviews are there at \" starbucks \" ?"
+            ]
+        },
+        {
+            "input": "bana \" thai \" restoranlarını gösterin.",
+            "output": [
+                "show me \" thai \" restaurants ."
+            ]
+        },
+        {
+            "input": "en yakın \" applebee 's \" ne kadar uzakta?",
+            "output": [
+                "how far is the nearest \" applebee 's \" ?"
+            ]
+        },
+        {
+            "input": "buraya yakınlarda bulunan \"mexican \" yemekleri",
+            "output": [
+                "located \" mexican \" food close to here"
+            ]
+        },
+        {
+            "input": "bana \" white castle \" restoranını gösterin",
+            "output": [
+                "show me \" white castle \""
+            ]
+        },
+        {
+            "input": "en az 5 yıldızlı \" japanese \" restoranlarını arayın.",
+            "output": [
+                "search for \" japanese \" restaurants with at least 5 stars ."
+            ]
+        },
+        {
+            "input": "bana \" wendy 's \" restoranının derecelendirmesini söyleyin.",
+            "output": [
+                "tell me the rating of \" wendy 's \" ."
+            ]
+        },
+        {
+            "input": "\" japanese \" restoranlarını listeleyin.",
+            "output": [
+                "list \" japanese \" restaurants ."
+            ]
+        },
+        {
+            "input": "\" city center \" için en yüksek derecelendirmeye sahip \" pizza \" restoranı hangisi?",
+            "output": [
+                "what 's the highest rated \" pizza \" place in the \" city center \" ?"
+            ]
+        },
+        {
+            "input": "en az 3 yoruma sahip bir \" vegan \"restoran arayın.",
+            "output": [
+                "search for a \" vegan \" restaurant with at least 3 reviews ."
+            ]
+        },
+        {
+            "input": "bana \" mexican \" restoranlarını gösterin.",
+            "output": [
+                "show me \" mexican \" restaurants ."
+            ]
+        },
+        {
+            "input": "bana yakınlardaki bir 10 yıldızlı restoran sunun.",
+            "output": [
+                "give me a 10 star restaurant nearby ."
+            ]
+        },
+        {
+            "input": "en çok sayıda yoruma sahip restoranları bulun.",
+            "output": [
+                "find restaurants with the most reviews ."
+            ]
+        },
+        {
+            "input": "\" billy 's barbecue \" restoranını arayın.",
+            "output": [
+                "search for \" billy 's barbecue \" ."
+            ]
+        },
+        {
+            "input": "9 üzerinde yoruma sahip restoranları görmek istiyorum.",
+            "output": [
+                "i want to see restaurants with more than 9 reviews ."
+            ]
+        },
+        {
+            "input": "\" spaghetti \" satılan restoranları bulun.",
+            "output": [
+                "find restaurants that sell \" spaghetti \" ."
+            ]
+        },
+        {
+            "input": "\" main street \" üzerinde bulunan \" italian \" restoranın adı ne?",
+            "output": [
+                "what 's the name of the \" italian \" restaurant on \" main street \" ?"
+            ]
+        },
+        {
+            "input": "bana en yüksek derecelendirmeye sahip restoranı göster.",
+            "output": [
+                "show me the highest rated restaurant ."
+            ]
+        },
+        {
+            "input": "en yakın \" mcdonald 's \" nerede?",
+            "output": [
+                "where is the nearest \" mcdonald 's \" ?"
+            ]
+        },
+        {
+            "input": "bana 10 yıldızlı \" mexican \" restoranlarını gösterin",
+            "output": [
+                "show me 10 star \" mexican \" restaurants"
+            ]
+        },
+        {
+            "input": "1 üzerinde derecelendirmeye sahip tüm restoranları bulun",
+            "output": [
+                "find all restaurants rated higher than 1"
+            ]
+        },
+        {
+            "input": "bana 3 altında yoruma sahip restoranların bir listesini gösterin.",
+            "output": [
+                "show me a list of restaurants with less than 3 reviews ."
+            ]
+        },
+        {
+            "input": "bana yakınlardaki \" mexican \" restoranlarını gösterin.",
+            "output": [
+                "show me nearby \" mexican \" restaurants ."
+            ]
+        },
+        {
+            "input": "\" reno , nevada \" şehrindeki restoranları arayın.",
+            "output": [
+                "search for restaurants in \" reno , nevada \" ."
+            ]
+        },
+        {
+            "input": "bana \" thai \" restoranlarını gösterin",
+            "output": [
+                "show me \" thai \" restaurants"
+            ]
+        },
+        {
+            "input": "hangi \"chinese \" restoranı en fazla yoruma sahip?",
+            "output": [
+                "which \" chinese \" restaurant has the most reviews ?"
+            ]
+        },
+        {
+            "input": "\" ramen nagi \" restoranının derecelendirmesi nedir?",
+            "output": [
+                "what is \" ramen nagi \" 's rating ?"
+            ]
+        },
+        {
+            "input": "\" olive garden \" restoranını arayın.",
+            "output": [
+                "look for \" olive garden \" ."
+            ]
+        },
+        {
+            "input": "hangi restoranlar 7 ya da daha fazla yorum almış?",
+            "output": [
+                "what restaurants have received 7 or more reviews ?"
+            ]
+        },
+        {
+            "input": "\" george \" adlı kişinin yorumlarını bulun.",
+            "output": [
+                "find reviews from \" george \" ."
+            ]
+        },
+        {
+            "input": "bana \" american \" restoranlarını gösterin",
+            "output": [
+                "show me \" american \" restaurants"
+            ]
+        },
+        {
+            "input": "bana \" american \" restoranlarını söyleyin.",
+            "output": [
+                "tell me the \" american \" restaurants ."
+            ]
+        },
+        {
+            "input": "bana en az 3 yıldıza sahip \" mexican \" restoranlarının tümünü sunun.",
+            "output": [
+                "give me all of the \" mexican \" restaurants with at least 3 stars ."
+            ]
+        },
+        {
+            "input": "\" rocky 's pizza \" restoranını arayın.",
+            "output": [
+                "search for \" rocky 's pizza \" ."
+            ]
+        },
+        {
+            "input": "yakınlarımda bir \" red lobster \" restoranı var mı?",
+            "output": [
+                "is there a \" red lobster \" near me ?"
+            ]
+        },
+        {
+            "input": "tüm \" indian \" restoranlarını bulun",
+            "output": [
+                "find all of the \" indian \" restaurants"
+            ]
+        },
+        {
+            "input": "\" oak street steakhouse \" restoranının derecelendirmesi nedir?",
+            "output": [
+                "what is the rating of the \" oak street steakhouse \" ?"
+            ]
+        },
+        {
+            "input": "bana \" 28078 \" posta koduna sahip restoranları gösterin.",
+            "output": [
+                "show me restaurants in zip code \" 28078 \" ."
+            ]
+        },
+        {
+            "input": "hangi \" mexican \" restoranı en fazla yorum sahip?",
+            "output": [
+                "what \" mexican \" restaurant has the most reviews ?"
+            ]
+        },
+        {
+            "input": "\" panda express \" restoranının sahip olduğu derecelendirme nedir?",
+            "output": [
+                "what kind of rating does \" panda express \" have"
+            ]
+        },
+        {
+            "input": "bana yakınlardaki \" italian \" restoranlarını gösterin.",
+            "output": [
+                "show me \" italian \" restaurants nearby ."
+            ]
+        },
+        {
+            "input": "lütfen bana bu yıl \" cracker barrel \" restoranı için yazılmış olan yorumları gösterin.",
+            "output": [
+                "please show me reviews that were written for \" cracker barrel \" this year ."
+            ]
+        },
+        {
+            "input": "6 yıldızlı restoranları bulun.",
+            "output": [
+                "find restaurants with 6 stars ."
+            ]
+        },
+        {
+            "input": "\" sampan \" adlı restoranın telefon numarası nedir?",
+            "output": [
+                "what is the phone number for \" sampan \" ?"
+            ]
+        },
+        {
+            "input": "\" the gunnisack \" restoranının için yorumları görebilir miyim?",
+            "output": [
+                "can i see reviews for the \" gunnisack \" ?"
+            ]
+        },
+        {
+            "input": "lütfen bana \" dave 's seafood shack \" restoranının konumunu söyler misiniz?",
+            "output": [
+                "please tell me the location of \" dave 's seafood shack \" ."
+            ]
+        },
+        {
+            "input": "en yakın \" fast food \" restoranının adresi nedir?",
+            "output": [
+                "what is the address of the nearest \" fast food \" place ?"
+            ]
+        },
+        {
+            "input": "\" gates barbecue \" için arama yapar mısınız?",
+            "output": [
+                "search for \" gates barbecue \" ?"
+            ]
+        },
+        {
+            "input": "buradan en fazla bir mil uzaktaki restoranları bulun.",
+            "output": [
+                "find restaurants within one mile from here ."
+            ]
+        },
+        {
+            "input": "bana en yakın \" italian \" restoranı hangisi?",
+            "output": [
+                "what is the closest \" italian \" restaurant to me"
+            ]
+        },
+        {
+            "input": "en az 2 yoruma sahip restoranları gösterin",
+            "output": [
+                "show restaurants with at least 2 reviews"
+            ]
+        },
+        {
+            "input": "yakınımda herhangi bir \" indian \" restoranı var mı?",
+            "output": [
+                "are there any \" indian \" restaurants near me ?"
+            ]
+        },
+        {
+            "input": "bana 4 yıldızlı bir restoranın telefon numarasını ver.",
+            "output": [
+                "give me the telephone number of a 4 star restaurant ."
+            ]
+        },
+        {
+            "input": "bana \" alex smith \" tarafından \" chinese \" restoranlar hakkında yazılmış tüm değerlendirmeleri göster.",
+            "output": [
+                "show me all the of review written by \" alex smith \" about \" chinese \" restaurants ."
+            ]
+        },
+        {
+            "input": "9 mil mesafe içindeki en yüksek puanlı \" coffee \" dükkanını göster.",
+            "output": [
+                "show highest rated \" coffee \" shop withing 9 miles ."
+            ]
+        },
+        {
+            "input": "bana 4 ile 8 arasında puana sahip restoranları göster.",
+            "output": [
+                "show me restaurants rated between 4 and 8 ."
+            ]
+        },
+        {
+            "input": "en yakındaki \" mexican \" restoranın fiyat aralığı nedir?",
+            "output": [
+                "what is the price range of the nearest \" mexican \" restaurant ?"
+            ]
+        },
+        {
+            "input": "\" san francisco \" konumundaki restoranları göster.",
+            "output": [
+                "show restaurants in \" san francisco \" ."
+            ]
+        },
+        {
+            "input": "tüm \" mexican \" restoranları bul.",
+            "output": [
+                "find all \" mexican \" restaurants ."
+            ]
+        },
+        {
+            "input": "\" sushi joy \" restoranlarını ara.",
+            "output": [
+                "search for \" sushi joy \" ."
+            ]
+        },
+        {
+            "input": "bana \" italian \" restoranları bul",
+            "output": [
+                "find me \" italian \" restaurants"
+            ]
+        },
+        {
+            "input": "bana \" rookie 's bar & grill \" restoranının telefon numarasını bulabilir misin?",
+            "output": [
+                "can you find me the telephone number for \" rookie 's bar & grill \" ?"
+            ]
+        },
+        {
+            "input": "bana en çok sayıda değerlendirmeye sahip restoranları göster.",
+            "output": [
+                "show me restaurants with the most reviews ."
+            ]
+        },
+        {
+            "input": "\" ginger china \" restoranının telefon numarası nedir?",
+            "output": [
+                "what is the phone number for \" ginger china \" ?"
+            ]
+        },
+        {
+            "input": "9 adet veya daha fazla sayıda değerlendirmeye sahip bir restoranın telefon numarasını ver.",
+            "output": [
+                "give the phone number of a restaurant with 9 or more reviews"
+            ]
+        },
+        {
+            "input": "bana \" in-n-out burger \" restoranını bul.",
+            "output": [
+                "find me \" in-n-out burger \" ."
+            ]
+        },
+        {
+            "input": "bana tüm 2 yıldızlı restoranları göster.",
+            "output": [
+                "show me all 2 star restaurants ."
+            ]
+        },
+        {
+            "input": "yakında 7 yıldız puanlı bir \" coffee \" dükkanı ara.",
+            "output": [
+                "search for a 7 star rated \" coffee \" shop located nearby ."
+            ]
+        },
+        {
+            "input": "bana \" bruce \" tarafından yazılmış değerlendirmeleri göster.",
+            "output": [
+                "show me reviews written by \" bruce \" ."
+            ]
+        },
+        {
+            "input": "9 puandan daha fazla puana sahip tüm restoranları bul",
+            "output": [
+                "find all restaurants rated higher than 9"
+            ]
+        },
+        {
+            "input": "bir \" mexican \" restoranı ara.",
+            "output": [
+                "search for a \" mexican \" restaurant ."
+            ]
+        },
+        {
+            "input": "bir yıldız puanlı değerlendirme var mı?",
+            "output": [
+                "are there any one star reviews ?"
+            ]
+        },
+        {
+            "input": "4 adetten daha fazla sayıda değerlendirmeye sahip restoranları ara.",
+            "output": [
+                "search for restaurants with more than 4 reviews ."
+            ]
+        },
+        {
+            "input": "en yüksek puana sahip 1 yıldızlı restoran hangisidir?",
+            "output": [
+                "what is the top rated 1 star restaurant ?"
+            ]
+        },
+        {
+            "input": "\" ruth 's chris \" restoranının telefon numarası ve adresi nedir?",
+            "output": [
+                "what is the telephone and address for \" ruth 's chris \" ?"
+            ]
+        },
+        {
+            "input": "bana \" aunt chilada 's \" restoranını göster",
+            "output": [
+                "show me \" aunt chilada 's \""
+            ]
+        },
+        {
+            "input": "8 adetten daha fazla sayıda değerlendirmeye sahip \" mexican \" restoranları var mı?",
+            "output": [
+                "are there any \" mexican \" restaurants with more than 8 reviews ?"
+            ]
+        },
+        {
+            "input": "\" 17111 \" adresindeki mekanları bul.",
+            "output": [
+                "find places in \" 17111 \" ."
+            ]
+        },
+        {
+            "input": "bana tüm \" italian \" restoranlarını göster.",
+            "output": [
+                "show me all \" italian \" restaurants ."
+            ]
+        },
+        {
+            "input": "bana bir \" mexican \" restoranın adını ver.",
+            "output": [
+                "give me the name of a \" mexican \" restaurant ."
+            ]
+        },
+        {
+            "input": "bana \" locust street \" adresinde bulunan 4 yıldız puanlı restoranları göster.",
+            "output": [
+                "show me 4 star rated restaurants on \" locust street \" ."
+            ]
+        },
+        {
+            "input": "bana \" italian \" restoranlarının bir listesini göster.",
+            "output": [
+                "show me a list of \" italian \" restaurants ."
+            ]
+        },
+        {
+            "input": "bana \" restaurantgirl_84 \" tarafından değerlendirilmiş tüm restoranları göster.",
+            "output": [
+                "show me all restaurants reviewed by \" restaurantgirl_84 \" ."
+            ]
+        },
+        {
+            "input": "\" dunkin donuts \" dükkanının yerini öğrenmek istiyorum",
+            "output": [
+                "i 'd like to know the location of \" dunkin donuts \" ?"
+            ]
+        },
+        {
+            "input": "bana 5 adet değerlendirmeye sahip bir \" chinese \" restoranı göster.",
+            "output": [
+                "show me a \" chinese \" restaurant with a rating of 5 ."
+            ]
+        },
+        {
+            "input": "değerlendirme sayısı en çok olan restoran hangisidir?",
+            "output": [
+                "which restaurant has the most reviews ?"
+            ]
+        },
+        {
+            "input": "\" french \" restoranlarını ara.",
+            "output": [
+                "search for \" french \" restaurants ."
+            ]
+        },
+        {
+            "input": "bana \" jade buffet \" restoranının değerlendirmelerini göster.",
+            "output": [
+                "give me reviews for \" jade buffet \" ."
+            ]
+        },
+        {
+            "input": "\" ramen nagi \" restoranının fiyat aralığı nedir?",
+            "output": [
+                "what is the price range for \" ramen nagi \" ?"
+            ]
+        },
+        {
+            "input": "en az 6 adet değerlendirmeye sahip \" italian \" restoranlarını bul.",
+            "output": [
+                "find \" italian \" restaurants with at least 6 reviews ."
+            ]
+        },
+        {
+            "input": "en yakındaki \" dairy queen \" nerededir?",
+            "output": [
+                "where is the closest \" dairy queen \" ?"
+            ]
+        },
+        {
+            "input": "\" chicago \" konumundaki tüm restoranları bul.",
+            "output": [
+                "find all restaurants in \" chicago \" ."
+            ]
+        },
+        {
+            "input": "\" 19101 \" posta kodlu adreste bir restoran var mıdır?",
+            "output": [
+                "is there a restaurant in zipcode \" 19101 \" ?"
+            ]
+        },
+        {
+            "input": "\" armenian \" restoranlarını arıyorum",
+            "output": [
+                "i 'm looking for \" armenian \" restaurants"
+            ]
+        },
+        {
+            "input": "bana son 10 gündeki \"dunkin ' donuts\" yorumlarını göster.",
+            "output": [
+                "show me reviews for \" dunkin ' donuts \" from the last 10 days ."
+            ]
+        },
+        {
+            "input": "bana civardaki tüm 0 yıldızlı restoranları göster.",
+            "output": [
+                "show me all of the 0 star restaurants nearby ."
+            ]
+        },
+        {
+            "input": "2 adetten daha fazla değerlendirmeye sahip restoranları görüntüle.",
+            "output": [
+                "display restaurants with more than 2 reviews ."
+            ]
+        },
+        {
+            "input": "tüm 2 yıldızlı restoranları bulmalıyım.",
+            "output": [
+                "i need to find all 2 star restaurants ."
+            ]
+        },
+        {
+            "input": "\" italian \" restoranlarını bul.",
+            "output": [
+                "find \" italian \" restaurants ."
+            ]
+        },
+        {
+            "input": "bana en az 0 yıldız puanlı \" mexican \" restoranlarını göster.",
+            "output": [
+                "show me \" mexican \" restaurants with at least a 0 star rating ."
+            ]
+        },
+        {
+            "input": "benim için \" sushi king \" restoranını ara.",
+            "output": [
+                "search for \" sushi king \" restaurant for me ."
+            ]
+        },
+        {
+            "input": "bana \" kansas city , mo \" konumdaki restoranları göster",
+            "output": [
+                "show me restaurants in \" kansas city , mo \""
+            ]
+        },
+        {
+            "input": "\" mexican \" restoranlarını ara",
+            "output": [
+                "search for \" mexican \" restaurants"
+            ]
+        },
+        {
+            "input": "\" japanese \" restoranlarını göster.",
+            "output": [
+                "show me \" japanese \" restaurants ."
+            ]
+        },
+        {
+            "input": "bana en yakın \" chinese \" restoranının fiyat aralığı nedir?",
+            "output": [
+                "what is the price range for my closest \" chinese \" restaurant ?"
+            ]
+        },
+        {
+            "input": "bana \" main street \" konumdaki restoranları göster.",
+            "output": [
+                "show me restaurants on \" main street \" ."
+            ]
+        },
+        {
+            "input": "bana \" orlando \" konumundaki en iyi 4 \" steak house \" restoranını göster.",
+            "output": [
+                "show me the top 4 \" steak house \" restaurants in \" orlando \" ."
+            ]
+        },
+        {
+            "input": "bana \" alex smith \" tarafından değerlendirilmiş tüm restoranları göster.",
+            "output": [
+                "show me all restaurants reviewed by \" alex smith \" ."
+            ]
+        },
+        {
+            "input": "bana \" nomad pizza \" restoranlarını göster.",
+            "output": [
+                "show me \" nomad pizza \" ."
+            ]
+        },
+        {
+            "input": "bana geçtiğimiz ay içinde değerlendirilmiş tüm \" chinese \" restoranlarını göster.",
+            "output": [
+                "show me all \" chinese \" restaurants with reviews made in the last month"
+            ]
+        },
+        {
+            "input": "9 puandan daha fazla puana almış restoranları görüntüle",
+            "output": [
+                "display restaurants that were rated above 9"
+            ]
+        },
+        {
+            "input": "canım \" italian \" yemeği istiyor.",
+            "output": [
+                "i 'm in the mood for \" italian \" food ."
+            ]
+        },
+        {
+            "input": "bana \" mexican \" restoranlarını göster.",
+            "output": [
+                "show me \" mexican \" restaurants ."
+            ]
+        },
+        {
+            "input": "geçtiğimiz ay değerlendirilmiş \" mexican \" restoranlarını ara.",
+            "output": [
+                "search for \" mexican \" restaurants with reviews from the past month ."
+            ]
+        },
+        {
+            "input": "\" on the borders mexican grill and cantina \" restoranının adresini bul.",
+            "output": [
+                "find the address for \" on the borders mexican grill and cantina \" ."
+            ]
+        },
+        {
+            "input": "bana \" fat charlie \" tarafından yapılmış restoran değerlendirmelerini göster.",
+            "output": [
+                "show me restaurant reviews written by \" fat charlie \" ."
+            ]
+        },
+        {
+            "input": "\" outback steakhouse \" restoranını ara",
+            "output": [
+                "search for \" outback steakhouse \" ?"
+            ]
+        },
+        {
+            "input": "bana bir \" french \" restoranı bul.",
+            "output": [
+                "find me a \" french \" restaurant ."
+            ]
+        },
+        {
+            "input": "bana bir \" mexican \" restoranı adı ver.",
+            "output": [
+                "give me the name of a \" mexican \" restaurant ."
+            ]
+        },
+        {
+            "input": "\" 85053 \" posta kodlu adreste bir \" red lobster \" restoranı ara.",
+            "output": [
+                "look for a \" red lobster \" in the \" 85053 \" zip code ."
+            ]
+        }
+    ]
+}
