@@ -5,7 +5,6 @@ This directory contains the tasks that are part of this benchmark.
 
 Name | Summary | Category
 ---- | ----------- | --------
-
 `task212.1_logic2text_classification` | Given a command, classify the command in one of seven logic types. | Classification
 `task212.2_logic2text_classification` | Given a command, classify the command in one of seven logic types. | Classification
 `task212.3_logic2text_classification` | Given a command, classify the command in one of seven logic types. | Classification
