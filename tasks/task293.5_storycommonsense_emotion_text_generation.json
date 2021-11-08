@@ -1,0 +1,3878 @@
+{
+    "Contributors": [
+        "Abhijeet Nawale"
+    ],
+    "Source": [
+        "StoryCommonsense (Dataset - https://uwnlp.github.io/storycommonsense/)."
+    ],
+    "Categories": [
+        "Text Generation"
+    ],
+    "Definition": "Here, you are given a sentence, its context and a character. Your job is to find all the emotions the character expresses with the help of the sentence and the context. If no emotion that is expressed by the chararcter output 'None'.",
+    "Positive Examples": [
+        {
+            "input": "Context: The family got together today. My mom prepared the Turkey and smoked ham in the oven. It was mostly cooked once everyone got around the table. \n Sentence: The oven door wouldn't open all of a sudden. \n Character: Mom",
+            "output": " \"embarrassed\"",
+	    "explanation": "As Mom is embarrassed as the oven door isn't opening. Hence, the output is correct." 
+        },
+        {
+            "input": "Context: The family got together today. My mom prepared the Turkey and smoked ham in the oven. It was mostly cooked once everyone got around the table. \n Sentence: The oven door wouldn't open all of a sudden. \n Character: Family",
+            "output": "\"concerned\"",
+	    "explanation": "As the oven door wasn't opening the family was concerned about it. As the output mentions the emotion correctly. The output is correct."
+        }
+	],
+    "Negative Examples": [
+        {
+            "input": "Context: The family got together today. My mom prepared the Turkey and smoked ham in the oven. It was mostly cooked once everyone got around the table. The oven door wouldn't open all of a sudden. \n Sentence: When dad broke it open, the food was burned. \n Character: Dad",
+            "output": "\"happy\"",
+	    "explanation": "When dad broke the oven door the food was burned. Dad cannot be happy about the food being burnt and thus the output is incorrect. The correct output is devastated."
+        },
+        {
+            "input": "Context: The family got together today. My mom prepared the Turkey and smoked ham in the oven. It was mostly cooked once everyone got around the table. The oven door wouldn't open all of a sudden. \n Sentence: When dad broke it open, the food was burned. \n Character: Mom",
+            "output": "\"yes\"",
+	    "explanation": "Output can only be emotions and not yes. Hence the ouput is incorrect. The correct output is \"upset\"."
+        }	
+	],
+    "Instances": [
+        {
+            "input": "Context: The family got together today. My mom prepared the Turkey and smoked ham in the oven. It was mostly cooked once everyone got around the table. The oven door wouldn't open all of a sudden. \n Sentence: When dad broke it open, the food was burned. \n Character: Family",
+            "output": [
+                "upset",
+                "sad",
+                "hungry"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: I had a girlfriend who was very petite and skinny. \n Character: I (myself)",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: I had a girlfriend who was very petite and skinny. \n Character: A girlfriend",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: I had a girlfriend who was very petite and skinny. \n Character: People",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: I had a girlfriend who was very petite and skinny. \n Sentence: I did not think she was athletic at all. \n Character: I (myself)",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: I had a girlfriend who was very petite and skinny. \n Sentence: I did not think she was athletic at all. \n Character: A girlfriend",
+            "output": [
+                "offended"
+            ]
+        },
+        {
+            "input": "Context: I had a girlfriend who was very petite and skinny. \n Sentence: I did not think she was athletic at all. \n Character: People",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: I had a girlfriend who was very petite and skinny. I did not think she was athletic at all. \n Sentence: One day we went to the swimming pool together. \n Character: I (myself)",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: I had a girlfriend who was very petite and skinny. I did not think she was athletic at all. \n Sentence: One day we went to the swimming pool together. \n Character: A girlfriend",
+            "output": [
+                "excited",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: I had a girlfriend who was very petite and skinny. I did not think she was athletic at all. \n Sentence: One day we went to the swimming pool together. \n Character: People",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: I had a girlfriend who was very petite and skinny. I did not think she was athletic at all. One day we went to the swimming pool together. \n Sentence: She could swim twice as fast as me. \n Character: I (myself)",
+            "output": [
+                "humbled",
+                "surprised"
+            ]
+        },
+        {
+            "input": "Context: I had a girlfriend who was very petite and skinny. I did not think she was athletic at all. One day we went to the swimming pool together. \n Sentence: She could swim twice as fast as me. \n Character: A girlfriend",
+            "output": [
+                "triumphant",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: I had a girlfriend who was very petite and skinny. I did not think she was athletic at all. One day we went to the swimming pool together. \n Sentence: She could swim twice as fast as me. \n Character: People",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: I had a girlfriend who was very petite and skinny. I did not think she was athletic at all. One day we went to the swimming pool together. She could swim twice as fast as me. \n Sentence: This was a good lesson in not judging people by their appearance. \n Character: I (myself)",
+            "output": [
+                "enlightened",
+                "humble",
+                "surprised"
+            ]
+        },
+        {
+            "input": "Context: I had a girlfriend who was very petite and skinny. I did not think she was athletic at all. One day we went to the swimming pool together. She could swim twice as fast as me. \n Sentence: This was a good lesson in not judging people by their appearance. \n Character: A girlfriend",
+            "output": [
+                "accomplished",
+                "proud",
+                "satisfied"
+            ]
+        },
+        {
+            "input": "Context: I had a girlfriend who was very petite and skinny. I did not think she was athletic at all. One day we went to the swimming pool together. She could swim twice as fast as me. \n Sentence: This was a good lesson in not judging people by their appearance. \n Character: People",
+            "output": [
+                "impressed",
+                "surprised",
+                "ashamed"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Josh started smoking when he was teen. \n Character: Josh",
+            "output": [
+                "unhealthy",
+                "slick"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Josh started smoking when he was teen. \n Character: Wife",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Josh started smoking when he was teen. \n Sentence: Josh is now thirty years old. \n Character: Josh",
+            "output": [
+                "old",
+                "worried about health",
+                "guilty of habit",
+                "pleasure of smoking"
+            ]
+        },
+        {
+            "input": "Context: Josh started smoking when he was teen. \n Sentence: Josh is now thirty years old. \n Character: Wife",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Josh started smoking when he was teen. Josh is now thirty years old. \n Sentence: Josh now had a pregnant wife. \n Character: Josh",
+            "output": [
+                "hopeful",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: Josh started smoking when he was teen. Josh is now thirty years old. \n Sentence: Josh now had a pregnant wife. \n Character: Wife",
+            "output": [
+                "excited",
+                "child bearing"
+            ]
+        },
+        {
+            "input": "Context: Josh started smoking when he was teen. Josh is now thirty years old. Josh now had a pregnant wife. \n Sentence: So Josh decided to quit his habit of smoking. \n Character: Josh",
+            "output": [
+                "determined",
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: Josh started smoking when he was teen. Josh is now thirty years old. Josh now had a pregnant wife. \n Sentence: So Josh decided to quit his habit of smoking. \n Character: Wife",
+            "output": [
+                "happy",
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: Josh started smoking when he was teen. Josh is now thirty years old. Josh now had a pregnant wife. So Josh decided to quit his habit of smoking. \n Sentence: It was hard but Josh did it. \n Character: Josh",
+            "output": [
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: Josh started smoking when he was teen. Josh is now thirty years old. Josh now had a pregnant wife. So Josh decided to quit his habit of smoking. \n Sentence: It was hard but Josh did it. \n Character: Wife",
+            "output": [
+                "proud",
+                "pleased"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Dalene taught theory to the cosmetology students at Olympian Academy. \n Character: Students",
+            "output": [
+                "interested",
+                "educated"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Dalene taught theory to the cosmetology students at Olympian Academy. \n Character: Olympian academy",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Dalene taught theory to the cosmetology students at Olympian Academy. \n Character: Dalene",
+            "output": [
+                "proud",
+                "knowledgeable"
+            ]
+        },
+        {
+            "input": "Context: Dalene taught theory to the cosmetology students at Olympian Academy. \n Sentence: It wasn't an easy subject to teach but she loved it. \n Character: Students",
+            "output": [
+                "challenged",
+                "difficulty in understanding",
+                "frustrated"
+            ]
+        },
+        {
+            "input": "Context: Dalene taught theory to the cosmetology students at Olympian Academy. \n Sentence: It wasn't an easy subject to teach but she loved it. \n Character: Olympian academy",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Dalene taught theory to the cosmetology students at Olympian Academy. \n Sentence: It wasn't an easy subject to teach but she loved it. \n Character: Dalene",
+            "output": [
+                "helpful",
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: Dalene taught theory to the cosmetology students at Olympian Academy. It wasn't an easy subject to teach but she loved it. \n Sentence: It was something she was good at and it really showed. \n Character: Students",
+            "output": [
+                "helpful",
+                "that their teacher really cares about their education",
+                "grateful to have such a good teacher",
+                "well-educated on theory"
+            ]
+        },
+        {
+            "input": "Context: Dalene taught theory to the cosmetology students at Olympian Academy. It wasn't an easy subject to teach but she loved it. \n Sentence: It was something she was good at and it really showed. \n Character: Olympian academy",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Dalene taught theory to the cosmetology students at Olympian Academy. It wasn't an easy subject to teach but she loved it. \n Sentence: It was something she was good at and it really showed. \n Character: Dalene",
+            "output": [
+                "helpful",
+                "enlightening"
+            ]
+        },
+        {
+            "input": "Context: Dalene taught theory to the cosmetology students at Olympian Academy. It wasn't an easy subject to teach but she loved it. It was something she was good at and it really showed. \n Sentence: Most of the other schools had 60%-70% of their students pass the exam. \n Character: Students",
+            "output": [
+                "anxious to do well",
+                "pleased"
+            ]
+        },
+        {
+            "input": "Context: Dalene taught theory to the cosmetology students at Olympian Academy. It wasn't an easy subject to teach but she loved it. It was something she was good at and it really showed. \n Sentence: Most of the other schools had 60%-70% of their students pass the exam. \n Character: Olympian academy",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Dalene taught theory to the cosmetology students at Olympian Academy. It wasn't an easy subject to teach but she loved it. It was something she was good at and it really showed. \n Sentence: Most of the other schools had 60%-70% of their students pass the exam. \n Character: Dalene",
+            "output": [
+                "competitive and wants her students to do better.",
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: Dalene taught theory to the cosmetology students at Olympian Academy. It wasn't an easy subject to teach but she loved it. It was something she was good at and it really showed. Most of the other schools had 60%-70% of their students pass the exam. \n Sentence: Olympian Academy had a 98% pass rate because of Dalene. \n Character: Students",
+            "output": [
+                "motivated",
+                "successful",
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: Dalene taught theory to the cosmetology students at Olympian Academy. It wasn't an easy subject to teach but she loved it. It was something she was good at and it really showed. Most of the other schools had 60%-70% of their students pass the exam. \n Sentence: Olympian Academy had a 98% pass rate because of Dalene. \n Character: Olympian academy",
+            "output": [
+                "prestigious"
+            ]
+        },
+        {
+            "input": "Context: Dalene taught theory to the cosmetology students at Olympian Academy. It wasn't an easy subject to teach but she loved it. It was something she was good at and it really showed. Most of the other schools had 60%-70% of their students pass the exam. \n Sentence: Olympian Academy had a 98% pass rate because of Dalene. \n Character: Dalene",
+            "output": [
+                "very happy and proud",
+                "satisfied with her career"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jenn just downloaded Pokemon Go on her phone. \n Character: Jenn",
+            "output": [
+                "happy",
+                "glad",
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Jenn just downloaded Pokemon Go on her phone. \n Sentence: She was excited to get started. \n Character: Jenn",
+            "output": [
+                "happy",
+                "joy"
+            ]
+        },
+        {
+            "input": "Context: Jenn just downloaded Pokemon Go on her phone. She was excited to get started. \n Sentence: She went for a walk, collecting pokemon as she went. \n Character: Jenn",
+            "output": [
+                "energized.",
+                "like she is part of something big.",
+                "joy"
+            ]
+        },
+        {
+            "input": "Context: Jenn just downloaded Pokemon Go on her phone. She was excited to get started. She went for a walk, collecting pokemon as she went. \n Sentence: Jenn caught a rare pokemon and was happy. \n Character: Jenn",
+            "output": [
+                "excited",
+                "joy",
+                "like a winner"
+            ]
+        },
+        {
+            "input": "Context: Jenn just downloaded Pokemon Go on her phone. She was excited to get started. She went for a walk, collecting pokemon as she went. Jenn caught a rare pokemon and was happy. \n Sentence: Once she ran out of Pokeballs, Jenn went home and relaxed. \n Character: Jenn",
+            "output": [
+                "peaceful",
+                "at ease"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Tom was an avid motorcyclist. \n Character: Motorcyclist",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Tom was an avid motorcyclist. \n Character: Tom",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Tom was an avid motorcyclist. \n Sentence: Tom noticed his chains needing frequent replacement. \n Character: Motorcyclist",
+            "output": [
+                "responsible",
+                "annoyed about it"
+            ]
+        },
+        {
+            "input": "Context: Tom was an avid motorcyclist. \n Sentence: Tom noticed his chains needing frequent replacement. \n Character: Tom",
+            "output": [
+                "worried"
+            ]
+        },
+        {
+            "input": "Context: Tom was an avid motorcyclist. Tom noticed his chains needing frequent replacement. \n Sentence: Tom read online about chain maintenance. \n Character: Motorcyclist",
+            "output": [
+                "educated about motorcycle"
+            ]
+        },
+        {
+            "input": "Context: Tom was an avid motorcyclist. Tom noticed his chains needing frequent replacement. \n Sentence: Tom read online about chain maintenance. \n Character: Tom",
+            "output": [
+                "well informed",
+                "educated",
+                "empowered",
+                "better educated",
+                "prepared"
+            ]
+        },
+        {
+            "input": "Context: Tom was an avid motorcyclist. Tom noticed his chains needing frequent replacement. Tom read online about chain maintenance. \n Sentence: Tom learned about putting engine oil on the chain. \n Character: Motorcyclist",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Tom was an avid motorcyclist. Tom noticed his chains needing frequent replacement. Tom read online about chain maintenance. \n Sentence: Tom learned about putting engine oil on the chain. \n Character: Tom",
+            "output": [
+                "excited",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: Tom was an avid motorcyclist. Tom noticed his chains needing frequent replacement. Tom read online about chain maintenance. Tom learned about putting engine oil on the chain. \n Sentence: Tom lubed his chain and his bike performed better. \n Character: Motorcyclist",
+            "output": [
+                "satisfied",
+                "satisfied and happy"
+            ]
+        },
+        {
+            "input": "Context: Tom was an avid motorcyclist. Tom noticed his chains needing frequent replacement. Tom read online about chain maintenance. Tom learned about putting engine oil on the chain. \n Sentence: Tom lubed his chain and his bike performed better. \n Character: Tom",
+            "output": [
+                "satisfied",
+                "prepared"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Tim loved to listen to songs. \n Character: Tim",
+            "output": [
+                "content",
+                "happy",
+                "relaxed"
+            ]
+        },
+        {
+            "input": "Context: Tim loved to listen to songs. \n Sentence: His favorite music was folk. \n Character: Tim",
+            "output": [
+                "enjoyment",
+                "familiarity",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: Tim loved to listen to songs. His favorite music was folk. \n Sentence: Tim wanted to learn to play folk music. \n Character: Tim",
+            "output": [
+                "motivated",
+                "driven",
+                "excited"
+            ]
+        },
+        {
+            "input": "Context: Tim loved to listen to songs. His favorite music was folk. Tim wanted to learn to play folk music. \n Sentence: Tim went to many concerts and shows. \n Character: Tim",
+            "output": [
+                "inspired",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: Tim loved to listen to songs. His favorite music was folk. Tim wanted to learn to play folk music. Tim went to many concerts and shows. \n Sentence: Tim tried his hand at folk music and was pretty good at it. \n Character: Tim",
+            "output": [
+                "accomplished",
+                "proud",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Susie decided she wanted to go to the golf course. \n Character: Her father",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Susie decided she wanted to go to the golf course. \n Character: Susie",
+            "output": [
+                "excited",
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Susie decided she wanted to go to the golf course. \n Sentence: She had never been before. \n Character: Her father",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Susie decided she wanted to go to the golf course. \n Sentence: She had never been before. \n Character: Susie",
+            "output": [
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Susie decided she wanted to go to the golf course. She had never been before. \n Sentence: So her father agreed to take her. \n Character: Her father",
+            "output": [
+                "excited",
+                "helpful",
+                "capable",
+                "lucky to spend time with her.",
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: Susie decided she wanted to go to the golf course. She had never been before. \n Sentence: So her father agreed to take her. \n Character: Susie",
+            "output": [
+                "love for her father",
+                "curious about new things",
+                "excited to be going",
+                "joy"
+            ]
+        },
+        {
+            "input": "Context: Susie decided she wanted to go to the golf course. She had never been before. So her father agreed to take her. \n Sentence: When she got her, she hit her first ball. \n Character: Her father",
+            "output": [
+                "proud",
+                "proud that she hit a ball",
+                "happy that she's enjoying herself"
+            ]
+        },
+        {
+            "input": "Context: Susie decided she wanted to go to the golf course. She had never been before. So her father agreed to take her. \n Sentence: When she got her, she hit her first ball. \n Character: Susie",
+            "output": [
+                "excited",
+                "happy",
+                "surprised"
+            ]
+        },
+        {
+            "input": "Context: Susie decided she wanted to go to the golf course. She had never been before. So her father agreed to take her. When she got her, she hit her first ball. \n Sentence: To her delight, she got a hole in one. \n Character: Her father",
+            "output": [
+                "surprised",
+                "proud",
+                "joy"
+            ]
+        },
+        {
+            "input": "Context: Susie decided she wanted to go to the golf course. She had never been before. So her father agreed to take her. When she got her, she hit her first ball. \n Sentence: To her delight, she got a hole in one. \n Character: Susie",
+            "output": [
+                "happy",
+                "proud.",
+                "delighted.",
+                "pleased",
+                "optimistic"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jamal and Darnell were friends who both grew up in the ghetto. \n Character: University",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jamal and Darnell were friends who both grew up in the ghetto. \n Character: Darnell",
+            "output": [
+                "happy and excited"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jamal and Darnell were friends who both grew up in the ghetto. \n Character: Jamal",
+            "output": [
+                "comraderie"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jamal and Darnell were friends who both grew up in the ghetto. \n Character: School",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jamal and Darnell were friends who both grew up in the ghetto. \n Character: Ghetto",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. \n Sentence: Jamal started dealing drugs, while Darnell worked hard in school. \n Character: University",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. \n Sentence: Jamal started dealing drugs, while Darnell worked hard in school. \n Character: Darnell",
+            "output": [
+                "stressful",
+                "good about himself"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. \n Sentence: Jamal started dealing drugs, while Darnell worked hard in school. \n Character: Jamal",
+            "output": [
+                "rebellious",
+                "satisfied",
+                "powerful"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. \n Sentence: Jamal started dealing drugs, while Darnell worked hard in school. \n Character: School",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. \n Sentence: Jamal started dealing drugs, while Darnell worked hard in school. \n Character: Ghetto",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. Jamal started dealing drugs, while Darnell worked hard in school. \n Sentence: Darnell got a scholarship to a big university and moved away. \n Character: University",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. Jamal started dealing drugs, while Darnell worked hard in school. \n Sentence: Darnell got a scholarship to a big university and moved away. \n Character: Darnell",
+            "output": [
+                "concerned for jamal",
+                "learned",
+                "relieved",
+                "smart"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. Jamal started dealing drugs, while Darnell worked hard in school. \n Sentence: Darnell got a scholarship to a big university and moved away. \n Character: Jamal",
+            "output": [
+                "left out"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. Jamal started dealing drugs, while Darnell worked hard in school. \n Sentence: Darnell got a scholarship to a big university and moved away. \n Character: School",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. Jamal started dealing drugs, while Darnell worked hard in school. \n Sentence: Darnell got a scholarship to a big university and moved away. \n Character: Ghetto",
+            "output": [
+                "none or no clue."
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. Jamal started dealing drugs, while Darnell worked hard in school. Darnell got a scholarship to a big university and moved away. \n Sentence: Years later, Jamal got killed in a drug deal gone wrong. \n Character: University",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. Jamal started dealing drugs, while Darnell worked hard in school. Darnell got a scholarship to a big university and moved away. \n Sentence: Years later, Jamal got killed in a drug deal gone wrong. \n Character: Darnell",
+            "output": [
+                "depressed",
+                "sad",
+                "lonely"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. Jamal started dealing drugs, while Darnell worked hard in school. Darnell got a scholarship to a big university and moved away. \n Sentence: Years later, Jamal got killed in a drug deal gone wrong. \n Character: Jamal",
+            "output": [
+                "deadly"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. Jamal started dealing drugs, while Darnell worked hard in school. Darnell got a scholarship to a big university and moved away. \n Sentence: Years later, Jamal got killed in a drug deal gone wrong. \n Character: School",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. Jamal started dealing drugs, while Darnell worked hard in school. Darnell got a scholarship to a big university and moved away. \n Sentence: Years later, Jamal got killed in a drug deal gone wrong. \n Character: Ghetto",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. Jamal started dealing drugs, while Darnell worked hard in school. Darnell got a scholarship to a big university and moved away. Years later, Jamal got killed in a drug deal gone wrong. \n Sentence: In Jamal's memory, Darnell founded a support group in the ghetto. \n Character: University",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. Jamal started dealing drugs, while Darnell worked hard in school. Darnell got a scholarship to a big university and moved away. Years later, Jamal got killed in a drug deal gone wrong. \n Sentence: In Jamal's memory, Darnell founded a support group in the ghetto. \n Character: Darnell",
+            "output": [
+                "good about himself"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. Jamal started dealing drugs, while Darnell worked hard in school. Darnell got a scholarship to a big university and moved away. Years later, Jamal got killed in a drug deal gone wrong. \n Sentence: In Jamal's memory, Darnell founded a support group in the ghetto. \n Character: Jamal",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. Jamal started dealing drugs, while Darnell worked hard in school. Darnell got a scholarship to a big university and moved away. Years later, Jamal got killed in a drug deal gone wrong. \n Sentence: In Jamal's memory, Darnell founded a support group in the ghetto. \n Character: School",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jamal and Darnell were friends who both grew up in the ghetto. Jamal started dealing drugs, while Darnell worked hard in school. Darnell got a scholarship to a big university and moved away. Years later, Jamal got killed in a drug deal gone wrong. \n Sentence: In Jamal's memory, Darnell founded a support group in the ghetto. \n Character: Ghetto",
+            "output": [
+                "nothing or it has no sense of thinking."
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jason has always wanted to learn calligraphy. \n Character: Jason",
+            "output": [
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: Jason has always wanted to learn calligraphy. \n Sentence: He collects old letters written in this style and he loves them. \n Character: Jason",
+            "output": [
+                "excited",
+                "adventurous",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: Jason has always wanted to learn calligraphy. He collects old letters written in this style and he loves them. \n Sentence: He found online that you can take calligraphy lessons. \n Character: Jason",
+            "output": [
+                "interested",
+                "earnest",
+                "pleasantly surprised",
+                "satisfied"
+            ]
+        },
+        {
+            "input": "Context: Jason has always wanted to learn calligraphy. He collects old letters written in this style and he loves them. He found online that you can take calligraphy lessons. \n Sentence: Jason signed up and practiced on his calligraphy for a year. \n Character: Jason",
+            "output": [
+                "enthusiastic"
+            ]
+        },
+        {
+            "input": "Context: Jason has always wanted to learn calligraphy. He collects old letters written in this style and he loves them. He found online that you can take calligraphy lessons. Jason signed up and practiced on his calligraphy for a year. \n Sentence: Now Jason is a pro and can write his own fancy letters. \n Character: Jason",
+            "output": [
+                "he can tackle any task that has to do with caligraphy",
+                "accomplished",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jill buys a new bathroom scale. \n Character: Maid",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jill buys a new bathroom scale. \n Character: Jill",
+            "output": [
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: Jill buys a new bathroom scale. \n Sentence: When it goes missing she thinks that the maid stole it. \n Character: Maid",
+            "output": [
+                "offended",
+                "indignant",
+                "disgust",
+                "worried"
+            ]
+        },
+        {
+            "input": "Context: Jill buys a new bathroom scale. \n Sentence: When it goes missing she thinks that the maid stole it. \n Character: Jill",
+            "output": [
+                "upset",
+                "suspicious"
+            ]
+        },
+        {
+            "input": "Context: Jill buys a new bathroom scale. When it goes missing she thinks that the maid stole it. \n Sentence: She calls the maid on her off day and accuses her of stealing it. \n Character: Maid",
+            "output": [
+                "offended",
+                "angry",
+                "supprised"
+            ]
+        },
+        {
+            "input": "Context: Jill buys a new bathroom scale. When it goes missing she thinks that the maid stole it. \n Sentence: She calls the maid on her off day and accuses her of stealing it. \n Character: Jill",
+            "output": [
+                "angry",
+                "punitive"
+            ]
+        },
+        {
+            "input": "Context: Jill buys a new bathroom scale. When it goes missing she thinks that the maid stole it. She calls the maid on her off day and accuses her of stealing it. \n Sentence: The maid tells her she moved it to clean and forgot to replace it. \n Character: Maid",
+            "output": [
+                "responsible",
+                "distressed"
+            ]
+        },
+        {
+            "input": "Context: Jill buys a new bathroom scale. When it goes missing she thinks that the maid stole it. She calls the maid on her off day and accuses her of stealing it. \n Sentence: The maid tells her she moved it to clean and forgot to replace it. \n Character: Jill",
+            "output": [
+                "horrible"
+            ]
+        },
+        {
+            "input": "Context: Jill buys a new bathroom scale. When it goes missing she thinks that the maid stole it. She calls the maid on her off day and accuses her of stealing it. The maid tells her she moved it to clean and forgot to replace it. \n Sentence: The maid angrily quits over the phone. \n Character: Maid",
+            "output": [
+                "offended",
+                "hurt",
+                "angry"
+            ]
+        },
+        {
+            "input": "Context: Jill buys a new bathroom scale. When it goes missing she thinks that the maid stole it. She calls the maid on her off day and accuses her of stealing it. The maid tells her she moved it to clean and forgot to replace it. \n Sentence: The maid angrily quits over the phone. \n Character: Jill",
+            "output": [
+                "guilty",
+                "abashed",
+                "angry"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: I don't know how to stop wasting time. \n Character: I (myself)",
+            "output": [
+                "bad",
+                "anxious"
+            ]
+        },
+        {
+            "input": "Context: I don't know how to stop wasting time. \n Sentence: Everyday I try to write down what I want to accomplish. \n Character: I (myself)",
+            "output": [
+                "none",
+                "intelligent"
+            ]
+        },
+        {
+            "input": "Context: I don't know how to stop wasting time. Everyday I try to write down what I want to accomplish. \n Sentence: Then, I always get side tracked. \n Character: I (myself)",
+            "output": [
+                "frustrated",
+                "angry",
+                "disappointed",
+                "busy"
+            ]
+        },
+        {
+            "input": "Context: I don't know how to stop wasting time. Everyday I try to write down what I want to accomplish. Then, I always get side tracked. \n Sentence: Next thing you know it is almost time to go to bed. \n Character: I (myself)",
+            "output": [
+                "distracted",
+                "frustrated",
+                "disappointed",
+                "like a failure"
+            ]
+        },
+        {
+            "input": "Context: I don't know how to stop wasting time. Everyday I try to write down what I want to accomplish. Then, I always get side tracked. Next thing you know it is almost time to go to bed. \n Sentence: I then realize I didn't accomplish anything. \n Character: I (myself)",
+            "output": [
+                "frustrated",
+                "disappointed in myself"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Joe could not remember his address. \n Character: Joe",
+            "output": [
+                "guilty",
+                "anxious about it"
+            ]
+        },
+        {
+            "input": "Context: Joe could not remember his address. \n Sentence: He felt like a fool. \n Character: Joe",
+            "output": [
+                "confused",
+                "frustrated"
+            ]
+        },
+        {
+            "input": "Context: Joe could not remember his address. He felt like a fool. \n Sentence: He decided to do something about it. \n Character: Joe",
+            "output": [
+                "motivated",
+                "anxious"
+            ]
+        },
+        {
+            "input": "Context: Joe could not remember his address. He felt like a fool. He decided to do something about it. \n Sentence: He made up a funny rhyme about his address. \n Character: Joe",
+            "output": [
+                "destressed",
+                "prepared",
+                "mneumonic",
+                "clever"
+            ]
+        },
+        {
+            "input": "Context: Joe could not remember his address. He felt like a fool. He decided to do something about it. He made up a funny rhyme about his address. \n Sentence: After that he always remembered it. \n Character: Joe",
+            "output": [
+                "happy",
+                "satisfied",
+                "happy about it"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jane wanted better cardio. \n Character: Jane",
+            "output": [
+                "needy"
+            ]
+        },
+        {
+            "input": "Context: Jane wanted better cardio. \n Sentence: She decided to motivate herself into a marathon. \n Character: Jane",
+            "output": [
+                "motivated",
+                "goal orientated"
+            ]
+        },
+        {
+            "input": "Context: Jane wanted better cardio. She decided to motivate herself into a marathon. \n Sentence: Jane ran and practiced often. \n Character: Jane",
+            "output": [
+                "weary and tired"
+            ]
+        },
+        {
+            "input": "Context: Jane wanted better cardio. She decided to motivate herself into a marathon. Jane ran and practiced often. \n Sentence: By the time of the half marathon she was ready to go. \n Character: Jane",
+            "output": [
+                "ready"
+            ]
+        },
+        {
+            "input": "Context: Jane wanted better cardio. She decided to motivate herself into a marathon. Jane ran and practiced often. By the time of the half marathon she was ready to go. \n Sentence: Jane did better than she expected. \n Character: Jane",
+            "output": [
+                "relieved",
+                "healthy"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Molly has a daycare in her home and has 8 small children every day. \n Character: Molly",
+            "output": [
+                "protective",
+                "responsible"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Molly has a daycare in her home and has 8 small children every day. \n Character: Children",
+            "output": [
+                "looked after"
+            ]
+        },
+        {
+            "input": "Context: Molly has a daycare in her home and has 8 small children every day. \n Sentence: She feeds the kids three times a day and puts them at her large table. \n Character: Molly",
+            "output": [
+                "capable"
+            ]
+        },
+        {
+            "input": "Context: Molly has a daycare in her home and has 8 small children every day. \n Sentence: She feeds the kids three times a day and puts them at her large table. \n Character: Children",
+            "output": [
+                "grateful"
+            ]
+        },
+        {
+            "input": "Context: Molly has a daycare in her home and has 8 small children every day. She feeds the kids three times a day and puts them at her large table. \n Sentence: The kids get her chairs dirty with food and milk on them. \n Character: Molly",
+            "output": [
+                "overworked",
+                "exasperated."
+            ]
+        },
+        {
+            "input": "Context: Molly has a daycare in her home and has 8 small children every day. She feeds the kids three times a day and puts them at her large table. \n Sentence: The kids get her chairs dirty with food and milk on them. \n Character: Children",
+            "output": [
+                "guilty",
+                "energetic"
+            ]
+        },
+        {
+            "input": "Context: Molly has a daycare in her home and has 8 small children every day. She feeds the kids three times a day and puts them at her large table. The kids get her chairs dirty with food and milk on them. \n Sentence: She bought a plastic kid's picnic table that seats eight. \n Character: Molly",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Molly has a daycare in her home and has 8 small children every day. She feeds the kids three times a day and puts them at her large table. The kids get her chairs dirty with food and milk on them. \n Sentence: She bought a plastic kid's picnic table that seats eight. \n Character: Children",
+            "output": [
+                "excited and happy"
+            ]
+        },
+        {
+            "input": "Context: Molly has a daycare in her home and has 8 small children every day. She feeds the kids three times a day and puts them at her large table. The kids get her chairs dirty with food and milk on them. She bought a plastic kid's picnic table that seats eight. \n Sentence: Now when the table gets dirty, she can easily clean it off. \n Character: Molly",
+            "output": [
+                "relief",
+                "relieved."
+            ]
+        },
+        {
+            "input": "Context: Molly has a daycare in her home and has 8 small children every day. She feeds the kids three times a day and puts them at her large table. The kids get her chairs dirty with food and milk on them. She bought a plastic kid's picnic table that seats eight. \n Sentence: Now when the table gets dirty, she can easily clean it off. \n Character: Children",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jake invited his friend to a party. \n Character: Friend",
+            "output": [
+                "grateful",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jake invited his friend to a party. \n Character: Jake",
+            "output": [
+                "popular",
+                "warn hearted",
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Jake invited his friend to a party. \n Sentence: The friend got too drunk. \n Character: Friend",
+            "output": [
+                "leepy",
+                "wooz"
+            ]
+        },
+        {
+            "input": "Context: Jake invited his friend to a party. \n Sentence: The friend got too drunk. \n Character: Jake",
+            "output": [
+                "worried about his friend",
+                "annoyed",
+                "responsible"
+            ]
+        },
+        {
+            "input": "Context: Jake invited his friend to a party. The friend got too drunk. \n Sentence: He made a scene in front of everyone. \n Character: Friend",
+            "output": [
+                "disappointing",
+                "sad",
+                "angry",
+                "ashamed"
+            ]
+        },
+        {
+            "input": "Context: Jake invited his friend to a party. The friend got too drunk. \n Sentence: He made a scene in front of everyone. \n Character: Jake",
+            "output": [
+                "sad",
+                "disappointed",
+                "ashamed"
+            ]
+        },
+        {
+            "input": "Context: Jake invited his friend to a party. The friend got too drunk. He made a scene in front of everyone. \n Sentence: Jake was embarrassed. \n Character: Friend",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jake invited his friend to a party. The friend got too drunk. He made a scene in front of everyone. \n Sentence: Jake was embarrassed. \n Character: Jake",
+            "output": [
+                "upset",
+                "regret",
+                "remorse"
+            ]
+        },
+        {
+            "input": "Context: Jake invited his friend to a party. The friend got too drunk. He made a scene in front of everyone. Jake was embarrassed. \n Sentence: He had to take his friend home early. \n Character: Friend",
+            "output": [
+                "inebriated",
+                "hungover"
+            ]
+        },
+        {
+            "input": "Context: Jake invited his friend to a party. The friend got too drunk. He made a scene in front of everyone. Jake was embarrassed. \n Sentence: He had to take his friend home early. \n Character: Jake",
+            "output": [
+                "pset",
+                "annoyed",
+                "annoye"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Laura's cat had run away from home. \n Character: Laura",
+            "output": [
+                "concerned",
+                "sad"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Laura's cat had run away from home. \n Character: Firefighter",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Laura's cat had run away from home. \n Character: Cat",
+            "output": [
+                "lonely"
+            ]
+        },
+        {
+            "input": "Context: Laura's cat had run away from home. \n Sentence: Laura chased her cat to a tree. \n Character: Laura",
+            "output": [
+                "determined",
+                "alert",
+                "urge"
+            ]
+        },
+        {
+            "input": "Context: Laura's cat had run away from home. \n Sentence: Laura chased her cat to a tree. \n Character: Firefighter",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Laura's cat had run away from home. \n Sentence: Laura chased her cat to a tree. \n Character: Cat",
+            "output": [
+                "safe.",
+                "trapped.",
+                "rescued."
+            ]
+        },
+        {
+            "input": "Context: Laura's cat had run away from home. Laura chased her cat to a tree. \n Sentence: Laura's cat meowed because it was unable to get down. \n Character: Laura",
+            "output": [
+                "regretful",
+                "helpless",
+                "scared for her cat",
+                "angry that her cat went up a tree"
+            ]
+        },
+        {
+            "input": "Context: Laura's cat had run away from home. Laura chased her cat to a tree. \n Sentence: Laura's cat meowed because it was unable to get down. \n Character: Firefighter",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Laura's cat had run away from home. Laura chased her cat to a tree. \n Sentence: Laura's cat meowed because it was unable to get down. \n Character: Cat",
+            "output": [
+                "scared",
+                "very horrible"
+            ]
+        },
+        {
+            "input": "Context: Laura's cat had run away from home. Laura chased her cat to a tree. Laura's cat meowed because it was unable to get down. \n Sentence: Laura called the fire department. \n Character: Laura",
+            "output": [
+                "hopeful",
+                "anxious"
+            ]
+        },
+        {
+            "input": "Context: Laura's cat had run away from home. Laura chased her cat to a tree. Laura's cat meowed because it was unable to get down. \n Sentence: Laura called the fire department. \n Character: Firefighter",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Laura's cat had run away from home. Laura chased her cat to a tree. Laura's cat meowed because it was unable to get down. \n Sentence: Laura called the fire department. \n Character: Cat",
+            "output": [
+                "scared"
+            ]
+        },
+        {
+            "input": "Context: Laura's cat had run away from home. Laura chased her cat to a tree. Laura's cat meowed because it was unable to get down. Laura called the fire department. \n Sentence: A friendly firefighter was able to bring her cat out of the tree. \n Character: Laura",
+            "output": [
+                "relieved",
+                "thankful"
+            ]
+        },
+        {
+            "input": "Context: Laura's cat had run away from home. Laura chased her cat to a tree. Laura's cat meowed because it was unable to get down. Laura called the fire department. \n Sentence: A friendly firefighter was able to bring her cat out of the tree. \n Character: Firefighter",
+            "output": [
+                "glad",
+                "satisfied"
+            ]
+        },
+        {
+            "input": "Context: Laura's cat had run away from home. Laura chased her cat to a tree. Laura's cat meowed because it was unable to get down. Laura called the fire department. \n Sentence: A friendly firefighter was able to bring her cat out of the tree. \n Character: Cat",
+            "output": [
+                "grateful",
+                "relieved"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: When fixing a house I found the end of a wire in the walls. \n Character: I (myself)",
+            "output": [
+                "intrigued",
+                "surprised"
+            ]
+        },
+        {
+            "input": "Context: When fixing a house I found the end of a wire in the walls. \n Sentence: I followed it room by room until it ended. \n Character: I (myself)",
+            "output": [
+                "accomplished",
+                "pride",
+                "satisfied"
+            ]
+        },
+        {
+            "input": "Context: When fixing a house I found the end of a wire in the walls. I followed it room by room until it ended. \n Sentence: The end of the wire was connected to the fuse box. \n Character: I (myself)",
+            "output": [
+                "careful",
+                "interested",
+                "cautious"
+            ]
+        },
+        {
+            "input": "Context: When fixing a house I found the end of a wire in the walls. I followed it room by room until it ended. The end of the wire was connected to the fuse box. \n Sentence: The label on the fuse switch was for electrical things. \n Character: I (myself)",
+            "output": [
+                "frustrated",
+                "confused",
+                "surprised"
+            ]
+        },
+        {
+            "input": "Context: When fixing a house I found the end of a wire in the walls. I followed it room by room until it ended. The end of the wire was connected to the fuse box. The label on the fuse switch was for electrical things. \n Sentence: Since it was worthless, I yanked out the wire and fuse label. \n Character: I (myself)",
+            "output": [
+                "frustrated"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: One day the Jones family went to a local parade. \n Character: The jones family",
+            "output": [
+                "connected with each other",
+                "happy and excited"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: One day the Jones family went to a local parade. \n Character: People",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: One day the Jones family went to a local parade. \n Sentence: They had lots of bands. \n Character: The jones family",
+            "output": [
+                "excited",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: One day the Jones family went to a local parade. \n Sentence: They had lots of bands. \n Character: People",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: One day the Jones family went to a local parade. They had lots of bands. \n Sentence: They also had magnificent floats. \n Character: The jones family",
+            "output": [
+                "awe",
+                "elated"
+            ]
+        },
+        {
+            "input": "Context: One day the Jones family went to a local parade. They had lots of bands. \n Sentence: They also had magnificent floats. \n Character: People",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: One day the Jones family went to a local parade. They had lots of bands. They also had magnificent floats. \n Sentence: People handed out free hot dogs. \n Character: The jones family",
+            "output": [
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: One day the Jones family went to a local parade. They had lots of bands. They also had magnificent floats. \n Sentence: People handed out free hot dogs. \n Character: People",
+            "output": [
+                "pleased with themselves",
+                "happy about it"
+            ]
+        },
+        {
+            "input": "Context: One day the Jones family went to a local parade. They had lots of bands. They also had magnificent floats. People handed out free hot dogs. \n Sentence: Everyone had fun. \n Character: The jones family",
+            "output": [
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: One day the Jones family went to a local parade. They had lots of bands. They also had magnificent floats. People handed out free hot dogs. \n Sentence: Everyone had fun. \n Character: People",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Margery took a look at her ring. \n Character: Margery",
+            "output": [
+                "pleased",
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Margery took a look at her ring. \n Character: Husband",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Margery took a look at her ring. \n Sentence: She no longer loved her husband. \n Character: Margery",
+            "output": [
+                "sad"
+            ]
+        },
+        {
+            "input": "Context: Margery took a look at her ring. \n Sentence: She no longer loved her husband. \n Character: Husband",
+            "output": [
+                "lonely"
+            ]
+        },
+        {
+            "input": "Context: Margery took a look at her ring. She no longer loved her husband. \n Sentence: She took off the ring and threw it into the water. \n Character: Margery",
+            "output": [
+                "disgusted",
+                "ready for change"
+            ]
+        },
+        {
+            "input": "Context: Margery took a look at her ring. She no longer loved her husband. \n Sentence: She took off the ring and threw it into the water. \n Character: Husband",
+            "output": [
+                "distraught"
+            ]
+        },
+        {
+            "input": "Context: Margery took a look at her ring. She no longer loved her husband. She took off the ring and threw it into the water. \n Sentence: Then she had second thoughts. \n Character: Margery",
+            "output": [
+                "nervous",
+                "hesitant"
+            ]
+        },
+        {
+            "input": "Context: Margery took a look at her ring. She no longer loved her husband. She took off the ring and threw it into the water. \n Sentence: Then she had second thoughts. \n Character: Husband",
+            "output": [
+                "sad"
+            ]
+        },
+        {
+            "input": "Context: Margery took a look at her ring. She no longer loved her husband. She took off the ring and threw it into the water. Then she had second thoughts. \n Sentence: She jumped into the river to retrieve it. \n Character: Margery",
+            "output": [
+                "misgivings.",
+                "disappointed",
+                "conflicted.",
+                "undecided."
+            ]
+        },
+        {
+            "input": "Context: Margery took a look at her ring. She no longer loved her husband. She took off the ring and threw it into the water. Then she had second thoughts. \n Sentence: She jumped into the river to retrieve it. \n Character: Husband",
+            "output": [
+                "sad"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: A tow truck was called to a lake. \n Character: Ed",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: A tow truck was called to a lake. \n Character: Jim",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: A tow truck was called to a lake. \n Sentence: The tow truck drive, Jim, got there and looked for the car. \n Character: Ed",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: A tow truck was called to a lake. \n Sentence: The tow truck drive, Jim, got there and looked for the car. \n Character: Jim",
+            "output": [
+                "worried",
+                "determined",
+                "confused"
+            ]
+        },
+        {
+            "input": "Context: A tow truck was called to a lake. The tow truck drive, Jim, got there and looked for the car. \n Sentence: He was approached by another man, Ed. \n Character: Ed",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: A tow truck was called to a lake. The tow truck drive, Jim, got there and looked for the car. \n Sentence: He was approached by another man, Ed. \n Character: Jim",
+            "output": [
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: A tow truck was called to a lake. The tow truck drive, Jim, got there and looked for the car. He was approached by another man, Ed. \n Sentence: Ed told him that the car was in the bottom of the lake. \n Character: Ed",
+            "output": [
+                "hopeful",
+                "anxious"
+            ]
+        },
+        {
+            "input": "Context: A tow truck was called to a lake. The tow truck drive, Jim, got there and looked for the car. He was approached by another man, Ed. \n Sentence: Ed told him that the car was in the bottom of the lake. \n Character: Jim",
+            "output": [
+                "confused.",
+                "uncertain of how to behave",
+                "mad.",
+                "annoyed.",
+                "surprised"
+            ]
+        },
+        {
+            "input": "Context: A tow truck was called to a lake. The tow truck drive, Jim, got there and looked for the car. He was approached by another man, Ed. Ed told him that the car was in the bottom of the lake. \n Sentence: Jim told him that he could not help him. \n Character: Ed",
+            "output": [
+                "disappointed",
+                "clueless",
+                "unhappy",
+                "upset",
+                "worried"
+            ]
+        },
+        {
+            "input": "Context: A tow truck was called to a lake. The tow truck drive, Jim, got there and looked for the car. He was approached by another man, Ed. Ed told him that the car was in the bottom of the lake. \n Sentence: Jim told him that he could not help him. \n Character: Jim",
+            "output": [
+                "relieved to get away from work",
+                "helpless"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jill looked out the window at her ugly backyard. \n Character: Jill",
+            "output": [
+                "ashamed about the yard",
+                "pathetic"
+            ]
+        },
+        {
+            "input": "Context: Jill looked out the window at her ugly backyard. \n Sentence: She wanted to go out and enjoy it but couldn't. \n Character: Jill",
+            "output": [
+                "upset",
+                "sad",
+                "disappointed"
+            ]
+        },
+        {
+            "input": "Context: Jill looked out the window at her ugly backyard. She wanted to go out and enjoy it but couldn't. \n Sentence: Jill decided to fix up the yard so she could enjoy it. \n Character: Jill",
+            "output": [
+                "excited",
+                "determined",
+                "productive"
+            ]
+        },
+        {
+            "input": "Context: Jill looked out the window at her ugly backyard. She wanted to go out and enjoy it but couldn't. Jill decided to fix up the yard so she could enjoy it. \n Sentence: Jill planted flowers and bought herself outdoor furniture. \n Character: Jill",
+            "output": [
+                "gratified",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: Jill looked out the window at her ugly backyard. She wanted to go out and enjoy it but couldn't. Jill decided to fix up the yard so she could enjoy it. Jill planted flowers and bought herself outdoor furniture. \n Sentence: Jill now sits outside enjoying her beautiful back yard. \n Character: Jill",
+            "output": [
+                "satisfied"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: I wanted to buy a boat. \n Character: I (myself)",
+            "output": [
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: I wanted to buy a boat. \n Character: Wife",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: I wanted to buy a boat. \n Sentence: My wife said no. \n Character: I (myself)",
+            "output": [
+                "upset",
+                "stubborn",
+                "disappointed"
+            ]
+        },
+        {
+            "input": "Context: I wanted to buy a boat. \n Sentence: My wife said no. \n Character: Wife",
+            "output": [
+                "determined"
+            ]
+        },
+        {
+            "input": "Context: I wanted to buy a boat. My wife said no. \n Sentence: I decided to get one anyways. \n Character: I (myself)",
+            "output": [
+                "defiant",
+                "nervous",
+                "contempt"
+            ]
+        },
+        {
+            "input": "Context: I wanted to buy a boat. My wife said no. \n Sentence: I decided to get one anyways. \n Character: Wife",
+            "output": [
+                "angry",
+                "disappointed"
+            ]
+        },
+        {
+            "input": "Context: I wanted to buy a boat. My wife said no. I decided to get one anyways. \n Sentence: I came home with the boat. \n Character: I (myself)",
+            "output": [
+                "defiant",
+                "happy",
+                "satisfied"
+            ]
+        },
+        {
+            "input": "Context: I wanted to buy a boat. My wife said no. I decided to get one anyways. \n Sentence: I came home with the boat. \n Character: Wife",
+            "output": [
+                "that she needs to talk me out of this.",
+                "like she has no control over me",
+                "disappointed",
+                "sad",
+                "angry",
+                "she needs to stop me"
+            ]
+        },
+        {
+            "input": "Context: I wanted to buy a boat. My wife said no. I decided to get one anyways. I came home with the boat. \n Sentence: My wife got angry and made me sleep on the couch. \n Character: I (myself)",
+            "output": [
+                "frustrated",
+                "regretful"
+            ]
+        },
+        {
+            "input": "Context: I wanted to buy a boat. My wife said no. I decided to get one anyways. I came home with the boat. \n Sentence: My wife got angry and made me sleep on the couch. \n Character: Wife",
+            "output": [
+                "upset",
+                "left out",
+                "annoyed"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Nigel skipped breakfast because he didn't have time. \n Character: Nigel",
+            "output": [
+                "tired",
+                "hungry"
+            ]
+        },
+        {
+            "input": "Context: Nigel skipped breakfast because he didn't have time. \n Sentence: Nigel skipped lunch because he was too busy during the day. \n Character: Nigel",
+            "output": [
+                "justified",
+                "overwhelmed"
+            ]
+        },
+        {
+            "input": "Context: Nigel skipped breakfast because he didn't have time. Nigel skipped lunch because he was too busy during the day. \n Sentence: After work, Nigel rushed home and made himself a snack. \n Character: Nigel",
+            "output": [
+                "eager",
+                "satisfied"
+            ]
+        },
+        {
+            "input": "Context: Nigel skipped breakfast because he didn't have time. Nigel skipped lunch because he was too busy during the day. After work, Nigel rushed home and made himself a snack. \n Sentence: The snack killed his appetite and he forgot to eat dinner. \n Character: Nigel",
+            "output": [
+                "upset",
+                "regret"
+            ]
+        },
+        {
+            "input": "Context: Nigel skipped breakfast because he didn't have time. Nigel skipped lunch because he was too busy during the day. After work, Nigel rushed home and made himself a snack. The snack killed his appetite and he forgot to eat dinner. \n Sentence: Later, in bed, Nigel felt pangs of hunger as he fell asleep. \n Character: Nigel",
+            "output": [
+                "hungry",
+                "distressed"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Sue was going to an outdoor concert. \n Character: Sue",
+            "output": [
+                "excited",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: Sue was going to an outdoor concert. \n Sentence: She bought a new outfit in preparation. \n Character: Sue",
+            "output": [
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: Sue was going to an outdoor concert. She bought a new outfit in preparation. \n Sentence: However, the concert was rained out. \n Character: Sue",
+            "output": [
+                "disappointed"
+            ]
+        },
+        {
+            "input": "Context: Sue was going to an outdoor concert. She bought a new outfit in preparation. However, the concert was rained out. \n Sentence: Sue ended up staying home. \n Character: Sue",
+            "output": [
+                "bored",
+                "sad",
+                "disappointed"
+            ]
+        },
+        {
+            "input": "Context: Sue was going to an outdoor concert. She bought a new outfit in preparation. However, the concert was rained out. Sue ended up staying home. \n Sentence: All the money she spent was wasted. \n Character: Sue",
+            "output": [
+                "upset",
+                "disappointed",
+                "regretful"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: It was a beautiful Chicago summer day! \n Character: Krista",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: It was a beautiful Chicago summer day! \n Character: Nate",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: It was a beautiful Chicago summer day! \n Character: The shop",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: It was a beautiful Chicago summer day! \n Sentence: Krista and Nate rode their scooters to the cheese shop. \n Character: Krista",
+            "output": [
+                "competitive",
+                "delighted"
+            ]
+        },
+        {
+            "input": "Context: It was a beautiful Chicago summer day! \n Sentence: Krista and Nate rode their scooters to the cheese shop. \n Character: Nate",
+            "output": [
+                "determined",
+                "hungry"
+            ]
+        },
+        {
+            "input": "Context: It was a beautiful Chicago summer day! \n Sentence: Krista and Nate rode their scooters to the cheese shop. \n Character: The shop",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: It was a beautiful Chicago summer day! Krista and Nate rode their scooters to the cheese shop. \n Sentence: At the shop, they purchased wine and meat and cheese. \n Character: Krista",
+            "output": [
+                "excite",
+                "joy",
+                "appy"
+            ]
+        },
+        {
+            "input": "Context: It was a beautiful Chicago summer day! Krista and Nate rode their scooters to the cheese shop. \n Sentence: At the shop, they purchased wine and meat and cheese. \n Character: Nate",
+            "output": [
+                "festive",
+                "happy",
+                "hungry"
+            ]
+        },
+        {
+            "input": "Context: It was a beautiful Chicago summer day! Krista and Nate rode their scooters to the cheese shop. \n Sentence: At the shop, they purchased wine and meat and cheese. \n Character: The shop",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: It was a beautiful Chicago summer day! Krista and Nate rode their scooters to the cheese shop. At the shop, they purchased wine and meat and cheese. \n Sentence: They took their scooters and their food to the beach. \n Character: Krista",
+            "output": [
+                "happy",
+                "happy and entertaining"
+            ]
+        },
+        {
+            "input": "Context: It was a beautiful Chicago summer day! Krista and Nate rode their scooters to the cheese shop. At the shop, they purchased wine and meat and cheese. \n Sentence: They took their scooters and their food to the beach. \n Character: Nate",
+            "output": [
+                "happy",
+                "satisfied"
+            ]
+        },
+        {
+            "input": "Context: It was a beautiful Chicago summer day! Krista and Nate rode their scooters to the cheese shop. At the shop, they purchased wine and meat and cheese. \n Sentence: They took their scooters and their food to the beach. \n Character: The shop",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: It was a beautiful Chicago summer day! Krista and Nate rode their scooters to the cheese shop. At the shop, they purchased wine and meat and cheese. They took their scooters and their food to the beach. \n Sentence: At the beach, they had a picnic! \n Character: Krista",
+            "output": [
+                "delighted",
+                "thankful"
+            ]
+        },
+        {
+            "input": "Context: It was a beautiful Chicago summer day! Krista and Nate rode their scooters to the cheese shop. At the shop, they purchased wine and meat and cheese. They took their scooters and their food to the beach. \n Sentence: At the beach, they had a picnic! \n Character: Nate",
+            "output": [
+                "content",
+                "relaxed"
+            ]
+        },
+        {
+            "input": "Context: It was a beautiful Chicago summer day! Krista and Nate rode their scooters to the cheese shop. At the shop, they purchased wine and meat and cheese. They took their scooters and their food to the beach. \n Sentence: At the beach, they had a picnic! \n Character: The shop",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: I decided to go on a trip to Key West last winter. \n Character: I (myself)",
+            "output": [
+                "excited",
+                "ambitious"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: I decided to go on a trip to Key West last winter. \n Character: Key west",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: I decided to go on a trip to Key West last winter. \n Sentence: I made reservations for the trip and a week later flew to Miami. \n Character: I (myself)",
+            "output": [
+                "excited",
+                "interested",
+                "optimistic",
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: I decided to go on a trip to Key West last winter. \n Sentence: I made reservations for the trip and a week later flew to Miami. \n Character: Key west",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: I decided to go on a trip to Key West last winter. I made reservations for the trip and a week later flew to Miami. \n Sentence: The weather was beautiful in the keys and I went snorkeling. \n Character: I (myself)",
+            "output": [
+                "adventurous",
+                "relaxed",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: I decided to go on a trip to Key West last winter. I made reservations for the trip and a week later flew to Miami. \n Sentence: The weather was beautiful in the keys and I went snorkeling. \n Character: Key west",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: I decided to go on a trip to Key West last winter. I made reservations for the trip and a week later flew to Miami. The weather was beautiful in the keys and I went snorkeling. \n Sentence: I also spent some time tanning out by the hotel pool. \n Character: I (myself)",
+            "output": [
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: I decided to go on a trip to Key West last winter. I made reservations for the trip and a week later flew to Miami. The weather was beautiful in the keys and I went snorkeling. \n Sentence: I also spent some time tanning out by the hotel pool. \n Character: Key west",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: I decided to go on a trip to Key West last winter. I made reservations for the trip and a week later flew to Miami. The weather was beautiful in the keys and I went snorkeling. I also spent some time tanning out by the hotel pool. \n Sentence: I was sad to leave Key West but I had to go back home. \n Character: I (myself)",
+            "output": [
+                "unhappy",
+                "down",
+                "regret",
+                "dull",
+                "reminescent"
+            ]
+        },
+        {
+            "input": "Context: I decided to go on a trip to Key West last winter. I made reservations for the trip and a week later flew to Miami. The weather was beautiful in the keys and I went snorkeling. I also spent some time tanning out by the hotel pool. \n Sentence: I was sad to leave Key West but I had to go back home. \n Character: Key west",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Teddy breezed through high school with almost all As. \n Character: Teddy",
+            "output": [
+                "content",
+                "successful",
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: Teddy breezed through high school with almost all As. \n Sentence: He thought college would be easy. \n Character: Teddy",
+            "output": [
+                "confident",
+                "tired"
+            ]
+        },
+        {
+            "input": "Context: Teddy breezed through high school with almost all As. He thought college would be easy. \n Sentence: After this first biology test, he realized he was wrong. \n Character: Teddy",
+            "output": [
+                "discouraged",
+                "embarrassed",
+                "upset about his performance",
+                "humbled"
+            ]
+        },
+        {
+            "input": "Context: Teddy breezed through high school with almost all As. He thought college would be easy. After this first biology test, he realized he was wrong. \n Sentence: He had to study for hours every day just to get Cs. \n Character: Teddy",
+            "output": [
+                "motivated",
+                "diligent"
+            ]
+        },
+        {
+            "input": "Context: Teddy breezed through high school with almost all As. He thought college would be easy. After this first biology test, he realized he was wrong. He had to study for hours every day just to get Cs. \n Sentence: He realized he wasn't as smart as he thought he was. \n Character: Teddy",
+            "output": [
+                "humbled",
+                "disappointed"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Martha was sick of paying costly utility bills. \n Character: Martha",
+            "output": [
+                "annoyed",
+                "frustrated"
+            ]
+        },
+        {
+            "input": "Context: Martha was sick of paying costly utility bills. \n Sentence: She wanted to get solar panels. \n Character: Martha",
+            "output": [
+                "eager",
+                "determined"
+            ]
+        },
+        {
+            "input": "Context: Martha was sick of paying costly utility bills. She wanted to get solar panels. \n Sentence: She had them installed on her house. \n Character: Martha",
+            "output": [
+                "good",
+                "determined",
+                "happy",
+                "excited",
+                "busy"
+            ]
+        },
+        {
+            "input": "Context: Martha was sick of paying costly utility bills. She wanted to get solar panels. She had them installed on her house. \n Sentence: Her electricity bill became nonexistent. \n Character: Martha",
+            "output": [
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: Martha was sick of paying costly utility bills. She wanted to get solar panels. She had them installed on her house. Her electricity bill became nonexistent. \n Sentence: Martha was extremely happy with her purchase. \n Character: Martha",
+            "output": [
+                "overjoyed",
+                "wise",
+                "satisfied",
+                "pleased"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Kylie wanted to start a craft club at her school. \n Character: Kylie",
+            "output": [
+                "inspired",
+                "determined"
+            ]
+        },
+        {
+            "input": "Context: Kylie wanted to start a craft club at her school. \n Sentence: She put up flyers announcing her intent and asking for members. \n Character: Kylie",
+            "output": [
+                "enthusiastic",
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Kylie wanted to start a craft club at her school. She put up flyers announcing her intent and asking for members. \n Sentence: Soon, she got several emails expressing interest. \n Character: Kylie",
+            "output": [
+                "excited",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: Kylie wanted to start a craft club at her school. She put up flyers announcing her intent and asking for members. Soon, she got several emails expressing interest. \n Sentence: They all got together and got the club started. \n Character: Kylie",
+            "output": [
+                "excited",
+                "hopeful",
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Kylie wanted to start a craft club at her school. She put up flyers announcing her intent and asking for members. Soon, she got several emails expressing interest. They all got together and got the club started. \n Sentence: Now they meet regularly and are great friends. \n Character: Kylie",
+            "output": [
+                "sociable",
+                "happy",
+                "glad"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Edward had always wanted to be a hunter. \n Character: Hunters",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Edward had always wanted to be a hunter. \n Character: Edward",
+            "output": [
+                "hopeful"
+            ]
+        },
+        {
+            "input": "Context: Edward had always wanted to be a hunter. \n Sentence: He was very good with the bow and arrow. \n Character: Hunters",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Edward had always wanted to be a hunter. \n Sentence: He was very good with the bow and arrow. \n Character: Edward",
+            "output": [
+                "accomplished",
+                "comfortable",
+                "experienced"
+            ]
+        },
+        {
+            "input": "Context: Edward had always wanted to be a hunter. He was very good with the bow and arrow. \n Sentence: One day he decided that he was going to hunt. \n Character: Hunters",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Edward had always wanted to be a hunter. He was very good with the bow and arrow. \n Sentence: One day he decided that he was going to hunt. \n Character: Edward",
+            "output": [
+                "determined",
+                "excitement",
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Edward had always wanted to be a hunter. He was very good with the bow and arrow. One day he decided that he was going to hunt. \n Sentence: He was able to get a lot of animals and impress many hunters. \n Character: Hunters",
+            "output": [
+                "envious"
+            ]
+        },
+        {
+            "input": "Context: Edward had always wanted to be a hunter. He was very good with the bow and arrow. One day he decided that he was going to hunt. \n Sentence: He was able to get a lot of animals and impress many hunters. \n Character: Edward",
+            "output": [
+                "happy",
+                "proud",
+                "skilled",
+                "proud of himself"
+            ]
+        },
+        {
+            "input": "Context: Edward had always wanted to be a hunter. He was very good with the bow and arrow. One day he decided that he was going to hunt. He was able to get a lot of animals and impress many hunters. \n Sentence: Now he is able to hunt as a job. \n Character: Hunters",
+            "output": [
+                "impressed"
+            ]
+        },
+        {
+            "input": "Context: Edward had always wanted to be a hunter. He was very good with the bow and arrow. One day he decided that he was going to hunt. He was able to get a lot of animals and impress many hunters. \n Sentence: Now he is able to hunt as a job. \n Character: Edward",
+            "output": [
+                "accomplished",
+                "happy",
+                "talented"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Joe needed new cups. \n Character: Kids",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Joe needed new cups. \n Character: Joe",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Joe needed new cups. \n Sentence: His kids had broken so many. \n Character: Kids",
+            "output": [
+                "mischevious"
+            ]
+        },
+        {
+            "input": "Context: Joe needed new cups. \n Sentence: His kids had broken so many. \n Character: Joe",
+            "output": [
+                "frustrated",
+                "needy"
+            ]
+        },
+        {
+            "input": "Context: Joe needed new cups. His kids had broken so many. \n Sentence: So Joe went to the store to buy new ones. \n Character: Kids",
+            "output": [
+                "scared",
+                "sorry"
+            ]
+        },
+        {
+            "input": "Context: Joe needed new cups. His kids had broken so many. \n Sentence: So Joe went to the store to buy new ones. \n Character: Joe",
+            "output": [
+                "solution minded",
+                "annoyed",
+                "frustrasted"
+            ]
+        },
+        {
+            "input": "Context: Joe needed new cups. His kids had broken so many. So Joe went to the store to buy new ones. \n Sentence: He found nice glass ones but decided to get plastic ones. \n Character: Kids",
+            "output": [
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: Joe needed new cups. His kids had broken so many. So Joe went to the store to buy new ones. \n Sentence: He found nice glass ones but decided to get plastic ones. \n Character: Joe",
+            "output": [
+                "cautious",
+                "educated",
+                "sure",
+                "smart"
+            ]
+        },
+        {
+            "input": "Context: Joe needed new cups. His kids had broken so many. So Joe went to the store to buy new ones. He found nice glass ones but decided to get plastic ones. \n Sentence: He took them home and put them in his cabinet. \n Character: Kids",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Joe needed new cups. His kids had broken so many. So Joe went to the store to buy new ones. He found nice glass ones but decided to get plastic ones. \n Sentence: He took them home and put them in his cabinet. \n Character: Joe",
+            "output": [
+                "accomplished",
+                "responsible",
+                "satisfied"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Sam brought several ingredients from the store. \n Character: Family",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Sam brought several ingredients from the store. \n Character: Sam",
+            "output": [
+                "interested",
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: Sam brought several ingredients from the store. \n Sentence: She prepared some seasoning for her chicken. \n Character: Family",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Sam brought several ingredients from the store. \n Sentence: She prepared some seasoning for her chicken. \n Character: Sam",
+            "output": [
+                "creative",
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: Sam brought several ingredients from the store. She prepared some seasoning for her chicken. \n Sentence: Once the food came out of the oven, the family got together. \n Character: Family",
+            "output": [
+                "excited",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: Sam brought several ingredients from the store. She prepared some seasoning for her chicken. \n Sentence: Once the food came out of the oven, the family got together. \n Character: Sam",
+            "output": [
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Sam brought several ingredients from the store. She prepared some seasoning for her chicken. Once the food came out of the oven, the family got together. \n Sentence: They were disgusted from the food  since the chicken was over-seasoned \n Character: Family",
+            "output": [
+                "sad",
+                "disturbed"
+            ]
+        },
+        {
+            "input": "Context: Sam brought several ingredients from the store. She prepared some seasoning for her chicken. Once the food came out of the oven, the family got together. \n Sentence: They were disgusted from the food  since the chicken was over-seasoned \n Character: Sam",
+            "output": [
+                "discouraged",
+                "embarrassed",
+                "sad"
+            ]
+        },
+        {
+            "input": "Context: Sam brought several ingredients from the store. She prepared some seasoning for her chicken. Once the food came out of the oven, the family got together. They were disgusted from the food  since the chicken was over-seasoned \n Sentence: However, they thanked Sam for her hard work. \n Character: Family",
+            "output": [
+                "nourished",
+                "thankful"
+            ]
+        },
+        {
+            "input": "Context: Sam brought several ingredients from the store. She prepared some seasoning for her chicken. Once the food came out of the oven, the family got together. They were disgusted from the food  since the chicken was over-seasoned \n Sentence: However, they thanked Sam for her hard work. \n Character: Sam",
+            "output": [
+                "helpful",
+                "appreciated"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Bob was always beaten by his brother at chess. \n Character: Bob",
+            "output": [
+                "like a failure"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Bob was always beaten by his brother at chess. \n Character: Chess champion",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Bob was always beaten by his brother at chess. \n Character: Brother",
+            "output": [
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: Bob was always beaten by his brother at chess. \n Sentence: He decided to enlist the help of a local chess champion. \n Character: Bob",
+            "output": [
+                "motivated",
+                "proud",
+                "optimistic",
+                "entitled"
+            ]
+        },
+        {
+            "input": "Context: Bob was always beaten by his brother at chess. \n Sentence: He decided to enlist the help of a local chess champion. \n Character: Chess champion",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Bob was always beaten by his brother at chess. \n Sentence: He decided to enlist the help of a local chess champion. \n Character: Brother",
+            "output": [
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: Bob was always beaten by his brother at chess. He decided to enlist the help of a local chess champion. \n Sentence: Bob studied very hard. \n Character: Bob",
+            "output": [
+                "proud",
+                "excited to win"
+            ]
+        },
+        {
+            "input": "Context: Bob was always beaten by his brother at chess. He decided to enlist the help of a local chess champion. \n Sentence: Bob studied very hard. \n Character: Chess champion",
+            "output": [
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: Bob was always beaten by his brother at chess. He decided to enlist the help of a local chess champion. \n Sentence: Bob studied very hard. \n Character: Brother",
+            "output": [
+                "eager",
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: Bob was always beaten by his brother at chess. He decided to enlist the help of a local chess champion. Bob studied very hard. \n Sentence: He challenged his brother to a match. \n Character: Bob",
+            "output": [
+                "determined",
+                "ambitious",
+                "proud of his hard work",
+                "prepared",
+                "confident"
+            ]
+        },
+        {
+            "input": "Context: Bob was always beaten by his brother at chess. He decided to enlist the help of a local chess champion. Bob studied very hard. \n Sentence: He challenged his brother to a match. \n Character: Chess champion",
+            "output": [
+                "proud",
+                "eager to win"
+            ]
+        },
+        {
+            "input": "Context: Bob was always beaten by his brother at chess. He decided to enlist the help of a local chess champion. Bob studied very hard. \n Sentence: He challenged his brother to a match. \n Character: Brother",
+            "output": [
+                "excited",
+                "eager to win"
+            ]
+        },
+        {
+            "input": "Context: Bob was always beaten by his brother at chess. He decided to enlist the help of a local chess champion. Bob studied very hard. He challenged his brother to a match. \n Sentence: He finally came out victorious. \n Character: Bob",
+            "output": [
+                "proud",
+                "talented"
+            ]
+        },
+        {
+            "input": "Context: Bob was always beaten by his brother at chess. He decided to enlist the help of a local chess champion. Bob studied very hard. He challenged his brother to a match. \n Sentence: He finally came out victorious. \n Character: Chess champion",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Bob was always beaten by his brother at chess. He decided to enlist the help of a local chess champion. Bob studied very hard. He challenged his brother to a match. \n Sentence: He finally came out victorious. \n Character: Brother",
+            "output": [
+                "humbled"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: It was time to drive home from vacation. \n Character: The mechanic",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: It was time to drive home from vacation. \n Sentence: We packed up our stuff and got on the highway. \n Character: The mechanic",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: It was time to drive home from vacation. We packed up our stuff and got on the highway. \n Sentence: Before long, the car made a horrible noise and stopped driving! \n Character: The mechanic",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: It was time to drive home from vacation. We packed up our stuff and got on the highway. Before long, the car made a horrible noise and stopped driving! \n Sentence: The mechanic gave us the bad news. \n Character: The mechanic",
+            "output": [
+                "reasonable"
+            ]
+        },
+        {
+            "input": "Context: It was time to drive home from vacation. We packed up our stuff and got on the highway. Before long, the car made a horrible noise and stopped driving! The mechanic gave us the bad news. \n Sentence: We ended up coming home in a rental car. \n Character: The mechanic",
+            "output": [
+                "helpless"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: It was a hot day. \n Character: Kevin",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: It was a hot day. \n Character: Ron",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: It was a hot day. \n Sentence: So Ron and Kevin needed to cool off. \n Character: Kevin",
+            "output": [
+                "cold",
+                "overwhelmed"
+            ]
+        },
+        {
+            "input": "Context: It was a hot day. \n Sentence: So Ron and Kevin needed to cool off. \n Character: Ron",
+            "output": [
+                "uncomfortable"
+            ]
+        },
+        {
+            "input": "Context: It was a hot day. So Ron and Kevin needed to cool off. \n Sentence: All they had was a water bottle. \n Character: Kevin",
+            "output": [
+                "thirsty",
+                "hopeful"
+            ]
+        },
+        {
+            "input": "Context: It was a hot day. So Ron and Kevin needed to cool off. \n Sentence: All they had was a water bottle. \n Character: Ron",
+            "output": [
+                "thirsty",
+                "unsatisfied"
+            ]
+        },
+        {
+            "input": "Context: It was a hot day. So Ron and Kevin needed to cool off. All they had was a water bottle. \n Sentence: And they decided to spray the water at each other. \n Character: Kevin",
+            "output": [
+                "happy",
+                "amused"
+            ]
+        },
+        {
+            "input": "Context: It was a hot day. So Ron and Kevin needed to cool off. All they had was a water bottle. \n Sentence: And they decided to spray the water at each other. \n Character: Ron",
+            "output": [
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: It was a hot day. So Ron and Kevin needed to cool off. All they had was a water bottle. And they decided to spray the water at each other. \n Sentence: They had so much fun that they forgot about the heat. \n Character: Kevin",
+            "output": [
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: It was a hot day. So Ron and Kevin needed to cool off. All they had was a water bottle. And they decided to spray the water at each other. \n Sentence: They had so much fun that they forgot about the heat. \n Character: Ron",
+            "output": [
+                "happy",
+                "joyful"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Ben was a cake maker. \n Character: Host",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Ben was a cake maker. \n Character: Ben",
+            "output": [
+                "good about themselves",
+                "grateful",
+                "productive"
+            ]
+        },
+        {
+            "input": "Context: Ben was a cake maker. \n Sentence: Ben thought he was the best cake maker in the entire world. \n Character: Host",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Ben was a cake maker. \n Sentence: Ben thought he was the best cake maker in the entire world. \n Character: Ben",
+            "output": [
+                "he's exceptional",
+                "on top",
+                "positive",
+                "good about themselves",
+                "better than anyone"
+            ]
+        },
+        {
+            "input": "Context: Ben was a cake maker. Ben thought he was the best cake maker in the entire world. \n Sentence: Ben went on a reality show about baking. \n Character: Host",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Ben was a cake maker. Ben thought he was the best cake maker in the entire world. \n Sentence: Ben went on a reality show about baking. \n Character: Ben",
+            "output": [
+                "ptimistic",
+                "hopefu",
+                "proud of his abilities",
+                "happy about being on tv",
+                "sure he will succeed"
+            ]
+        },
+        {
+            "input": "Context: Ben was a cake maker. Ben thought he was the best cake maker in the entire world. Ben went on a reality show about baking. \n Sentence: The host was very mean to Ben and said his cake was terrible. \n Character: Host",
+            "output": [
+                "pset",
+                "entitle",
+                "nobb",
+                "truthful"
+            ]
+        },
+        {
+            "input": "Context: Ben was a cake maker. Ben thought he was the best cake maker in the entire world. Ben went on a reality show about baking. \n Sentence: The host was very mean to Ben and said his cake was terrible. \n Character: Ben",
+            "output": [
+                "dissapointed",
+                "angry",
+                "humiliated",
+                "ashamed"
+            ]
+        },
+        {
+            "input": "Context: Ben was a cake maker. Ben thought he was the best cake maker in the entire world. Ben went on a reality show about baking. The host was very mean to Ben and said his cake was terrible. \n Sentence: But Ben won the competition anyway. \n Character: Host",
+            "output": [
+                "envy",
+                "mad",
+                "shocked",
+                "jealous",
+                "confused"
+            ]
+        },
+        {
+            "input": "Context: Ben was a cake maker. Ben thought he was the best cake maker in the entire world. Ben went on a reality show about baking. The host was very mean to Ben and said his cake was terrible. \n Sentence: But Ben won the competition anyway. \n Character: Ben",
+            "output": [
+                "happy",
+                "excited",
+                "like he is successful",
+                "like a winner",
+                "overjoyed with himself"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Mark had a 9am flight to Chicago. \n Character: Mark",
+            "output": [
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Mark had a 9am flight to Chicago. \n Sentence: He woke up late and hit traffic, it was 8:50 when he got to the gate. \n Character: Mark",
+            "output": [
+                "needs better habits.",
+                "lucky.",
+                "given second chance."
+            ]
+        },
+        {
+            "input": "Context: Mark had a 9am flight to Chicago. He woke up late and hit traffic, it was 8:50 when he got to the gate. \n Sentence: He had to wait in a very long line and he was sure to miss his flight. \n Character: Mark",
+            "output": [
+                "upset",
+                "annoyed",
+                "angry",
+                "anxious"
+            ]
+        },
+        {
+            "input": "Context: Mark had a 9am flight to Chicago. He woke up late and hit traffic, it was 8:50 when he got to the gate. He had to wait in a very long line and he was sure to miss his flight. \n Sentence: Just then, they announced that the plane to Chicago was delayed. \n Character: Mark",
+            "output": [
+                "frustrated",
+                "anxious"
+            ]
+        },
+        {
+            "input": "Context: Mark had a 9am flight to Chicago. He woke up late and hit traffic, it was 8:50 when he got to the gate. He had to wait in a very long line and he was sure to miss his flight. Just then, they announced that the plane to Chicago was delayed. \n Sentence: Mark got lucky and felt relief because he had time to make his flight! \n Character: Mark",
+            "output": [
+                "ecstatic"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Dave had been feeling constipated for days. \n Character: Dave",
+            "output": [
+                "uncomfortable",
+                "agitated that he is still constipated",
+                "annoyed that he is sick"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Dave had been feeling constipated for days. \n Character: Pharmacist",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Dave had been feeling constipated for days. \n Sentence: He was having trouble concentrating at work and home. \n Character: Dave",
+            "output": [
+                "uncomfortable",
+                "moody",
+                "upset",
+                "worried",
+                "concerned"
+            ]
+        },
+        {
+            "input": "Context: Dave had been feeling constipated for days. \n Sentence: He was having trouble concentrating at work and home. \n Character: Pharmacist",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Dave had been feeling constipated for days. He was having trouble concentrating at work and home. \n Sentence: He eventually went to the drug store for help. \n Character: Dave",
+            "output": [
+                "hopeful that he can find something at the drug store",
+                "annoyed about his constipation",
+                "optimistic"
+            ]
+        },
+        {
+            "input": "Context: Dave had been feeling constipated for days. He was having trouble concentrating at work and home. \n Sentence: He eventually went to the drug store for help. \n Character: Pharmacist",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Dave had been feeling constipated for days. He was having trouble concentrating at work and home. He eventually went to the drug store for help. \n Sentence: The pharmacist told him to try some different medications. \n Character: Dave",
+            "output": [
+                "streesed",
+                "optimistic",
+                "worried"
+            ]
+        },
+        {
+            "input": "Context: Dave had been feeling constipated for days. He was having trouble concentrating at work and home. He eventually went to the drug store for help. \n Sentence: The pharmacist told him to try some different medications. \n Character: Pharmacist",
+            "output": [
+                "competent"
+            ]
+        },
+        {
+            "input": "Context: Dave had been feeling constipated for days. He was having trouble concentrating at work and home. He eventually went to the drug store for help. The pharmacist told him to try some different medications. \n Sentence: Dave found magnesium really helped relieve his constipation. \n Character: Dave",
+            "output": [
+                "hopeful"
+            ]
+        },
+        {
+            "input": "Context: Dave had been feeling constipated for days. He was having trouble concentrating at work and home. He eventually went to the drug store for help. The pharmacist told him to try some different medications. \n Sentence: Dave found magnesium really helped relieve his constipation. \n Character: Pharmacist",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jill always sent her graphic designer instructions at the last minute. \n Character: Jill",
+            "output": [
+                "overworked",
+                "nervous"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jill always sent her graphic designer instructions at the last minute. \n Character: Client",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jill always sent her graphic designer instructions at the last minute. \n Character: Graphic designer",
+            "output": [
+                "rushe",
+                "ressured",
+                "exasperated",
+                "frustrated",
+                "annoyed"
+            ]
+        },
+        {
+            "input": "Context: Jill always sent her graphic designer instructions at the last minute. \n Sentence: One day, she sent him a job that she needed by the end of the day. \n Character: Jill",
+            "output": [
+                "rushed",
+                "hurried",
+                "anxious"
+            ]
+        },
+        {
+            "input": "Context: Jill always sent her graphic designer instructions at the last minute. \n Sentence: One day, she sent him a job that she needed by the end of the day. \n Character: Client",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jill always sent her graphic designer instructions at the last minute. \n Sentence: One day, she sent him a job that she needed by the end of the day. \n Character: Graphic designer",
+            "output": [
+                "angered",
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Jill always sent her graphic designer instructions at the last minute. One day, she sent him a job that she needed by the end of the day. \n Sentence: However, her graphic designer was out sick. \n Character: Jill",
+            "output": [
+                "discouraged",
+                "worried"
+            ]
+        },
+        {
+            "input": "Context: Jill always sent her graphic designer instructions at the last minute. One day, she sent him a job that she needed by the end of the day. \n Sentence: However, her graphic designer was out sick. \n Character: Client",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jill always sent her graphic designer instructions at the last minute. One day, she sent him a job that she needed by the end of the day. \n Sentence: However, her graphic designer was out sick. \n Character: Graphic designer",
+            "output": [
+                "sick"
+            ]
+        },
+        {
+            "input": "Context: Jill always sent her graphic designer instructions at the last minute. One day, she sent him a job that she needed by the end of the day. However, her graphic designer was out sick. \n Sentence: The job didn't get done and Jill looked bad in front of the client. \n Character: Jill",
+            "output": [
+                "embarrassed",
+                "sad",
+                "bad",
+                "ashamed"
+            ]
+        },
+        {
+            "input": "Context: Jill always sent her graphic designer instructions at the last minute. One day, she sent him a job that she needed by the end of the day. However, her graphic designer was out sick. \n Sentence: The job didn't get done and Jill looked bad in front of the client. \n Character: Client",
+            "output": [
+                "disappointed"
+            ]
+        },
+        {
+            "input": "Context: Jill always sent her graphic designer instructions at the last minute. One day, she sent him a job that she needed by the end of the day. However, her graphic designer was out sick. \n Sentence: The job didn't get done and Jill looked bad in front of the client. \n Character: Graphic designer",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jill always sent her graphic designer instructions at the last minute. One day, she sent him a job that she needed by the end of the day. However, her graphic designer was out sick. The job didn't get done and Jill looked bad in front of the client. \n Sentence: Jill never waited until the last minute again. \n Character: Jill",
+            "output": [
+                "nervous"
+            ]
+        },
+        {
+            "input": "Context: Jill always sent her graphic designer instructions at the last minute. One day, she sent him a job that she needed by the end of the day. However, her graphic designer was out sick. The job didn't get done and Jill looked bad in front of the client. \n Sentence: Jill never waited until the last minute again. \n Character: Client",
+            "output": [
+                "more secured as jill vowed to be on time",
+                "justified"
+            ]
+        },
+        {
+            "input": "Context: Jill always sent her graphic designer instructions at the last minute. One day, she sent him a job that she needed by the end of the day. However, her graphic designer was out sick. The job didn't get done and Jill looked bad in front of the client. \n Sentence: Jill never waited until the last minute again. \n Character: Graphic designer",
+            "output": [
+                "relieved",
+                "thankful"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Bob is a huge Star Wars fan. \n Character: Bob",
+            "output": [
+                "happy",
+                "enthusiastic"
+            ]
+        },
+        {
+            "input": "Context: Bob is a huge Star Wars fan. \n Sentence: He pre-ordered tickets to see The Force Awakens. \n Character: Bob",
+            "output": [
+                "excited",
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Bob is a huge Star Wars fan. He pre-ordered tickets to see The Force Awakens. \n Sentence: Nobody can understand why he would pre-order tickets. \n Character: Bob",
+            "output": [
+                "excited",
+                "his action is right"
+            ]
+        },
+        {
+            "input": "Context: Bob is a huge Star Wars fan. He pre-ordered tickets to see The Force Awakens. Nobody can understand why he would pre-order tickets. \n Sentence: To him, though, it makes perfect sense. \n Character: Bob",
+            "output": [
+                "excited",
+                "he is doing the right thing."
+            ]
+        },
+        {
+            "input": "Context: Bob is a huge Star Wars fan. He pre-ordered tickets to see The Force Awakens. Nobody can understand why he would pre-order tickets. To him, though, it makes perfect sense. \n Sentence: Now, he's guaranteed to be able to see it. \n Character: Bob",
+            "output": [
+                "vindicated",
+                "justified",
+                "elated"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Kerry had trouble in her history class. \n Character: Kerry",
+            "output": [
+                "cautious",
+                "frustrated"
+            ]
+        },
+        {
+            "input": "Context: Kerry had trouble in her history class. \n Sentence: The dates and terms were hard for her to remember. \n Character: Kerry",
+            "output": [
+                "scared",
+                "frustrated",
+                "dumb",
+                "disapointed"
+            ]
+        },
+        {
+            "input": "Context: Kerry had trouble in her history class. The dates and terms were hard for her to remember. \n Sentence: Kerry made customized flash cards. \n Character: Kerry",
+            "output": [
+                "satisfaction.",
+                "proud.",
+                "dedicated",
+                "hard working."
+            ]
+        },
+        {
+            "input": "Context: Kerry had trouble in her history class. The dates and terms were hard for her to remember. Kerry made customized flash cards. \n Sentence: She studied the the flash cards. \n Character: Kerry",
+            "output": [
+                "nervous",
+                "prepared for the test."
+            ]
+        },
+        {
+            "input": "Context: Kerry had trouble in her history class. The dates and terms were hard for her to remember. Kerry made customized flash cards. She studied the the flash cards. \n Sentence: Kerry managed to do decent on her exam. \n Character: Kerry",
+            "output": [
+                "proud of herself",
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Evan and Alex were excited for field day at school. \n Character: School",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Evan and Alex were excited for field day at school. \n Character: Alex",
+            "output": [
+                "excited",
+                "happy",
+                "enjoyed"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Evan and Alex were excited for field day at school. \n Character: Red team",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Evan and Alex were excited for field day at school. \n Character: Teams",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Evan and Alex were excited for field day at school. \n Character: Evan",
+            "output": [
+                "enjoyed",
+                "happy",
+                "excited"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Evan and Alex were excited for field day at school. \n Character: Blue team",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. \n Sentence: They were going to be on different teams. \n Character: School",
+            "output": [
+                "excited"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. \n Sentence: They were going to be on different teams. \n Character: Alex",
+            "output": [
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. \n Sentence: They were going to be on different teams. \n Character: Red team",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. \n Sentence: They were going to be on different teams. \n Character: Teams",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. \n Sentence: They were going to be on different teams. \n Character: Evan",
+            "output": [
+                "ready",
+                "insecure"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. \n Sentence: They were going to be on different teams. \n Character: Blue team",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. \n Sentence: Evan was on the red team and Alex was on the blue team. \n Character: School",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. \n Sentence: Evan was on the red team and Alex was on the blue team. \n Character: Alex",
+            "output": [
+                "excited",
+                "competitive"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. \n Sentence: Evan was on the red team and Alex was on the blue team. \n Character: Red team",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. \n Sentence: Evan was on the red team and Alex was on the blue team. \n Character: Teams",
+            "output": [
+                "competitive"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. \n Sentence: Evan was on the red team and Alex was on the blue team. \n Character: Evan",
+            "output": [
+                "competitive",
+                "conflicted"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. \n Sentence: Evan was on the red team and Alex was on the blue team. \n Character: Blue team",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. Evan was on the red team and Alex was on the blue team. \n Sentence: They had many different sporting events at field day. \n Character: School",
+            "output": [
+                "excited"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. Evan was on the red team and Alex was on the blue team. \n Sentence: They had many different sporting events at field day. \n Character: Alex",
+            "output": [
+                "challenged",
+                "competitive",
+                "excited"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. Evan was on the red team and Alex was on the blue team. \n Sentence: They had many different sporting events at field day. \n Character: Red team",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. Evan was on the red team and Alex was on the blue team. \n Sentence: They had many different sporting events at field day. \n Character: Teams",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. Evan was on the red team and Alex was on the blue team. \n Sentence: They had many different sporting events at field day. \n Character: Evan",
+            "output": [
+                "competitive",
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. Evan was on the red team and Alex was on the blue team. \n Sentence: They had many different sporting events at field day. \n Character: Blue team",
+            "output": [
+                "friendly competition",
+                "school commadarie"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. Evan was on the red team and Alex was on the blue team. They had many different sporting events at field day. \n Sentence: Both boys slept well that night! \n Character: School",
+            "output": [
+                "excited"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. Evan was on the red team and Alex was on the blue team. They had many different sporting events at field day. \n Sentence: Both boys slept well that night! \n Character: Alex",
+            "output": [
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. Evan was on the red team and Alex was on the blue team. They had many different sporting events at field day. \n Sentence: Both boys slept well that night! \n Character: Red team",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. Evan was on the red team and Alex was on the blue team. They had many different sporting events at field day. \n Sentence: Both boys slept well that night! \n Character: Teams",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. Evan was on the red team and Alex was on the blue team. They had many different sporting events at field day. \n Sentence: Both boys slept well that night! \n Character: Evan",
+            "output": [
+                "exhausted",
+                "tired",
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Evan and Alex were excited for field day at school. They were going to be on different teams. Evan was on the red team and Alex was on the blue team. They had many different sporting events at field day. \n Sentence: Both boys slept well that night! \n Character: Blue team",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Brad found a gold ring on the ground. \n Character: Shop owner",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Brad found a gold ring on the ground. \n Character: Brad",
+            "output": [
+                "excited",
+                "fortunate",
+                "lucky"
+            ]
+        },
+        {
+            "input": "Context: Brad found a gold ring on the ground. \n Sentence: He took it to a pawn shop. \n Character: Shop owner",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Brad found a gold ring on the ground. \n Sentence: He took it to a pawn shop. \n Character: Brad",
+            "output": [
+                "happy",
+                "expectant",
+                "richer"
+            ]
+        },
+        {
+            "input": "Context: Brad found a gold ring on the ground. He took it to a pawn shop. \n Sentence: He was so eager to get money for it! \n Character: Shop owner",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Brad found a gold ring on the ground. He took it to a pawn shop. \n Sentence: He was so eager to get money for it! \n Character: Brad",
+            "output": [
+                "happy",
+                "optimistic",
+                "enthusiastic"
+            ]
+        },
+        {
+            "input": "Context: Brad found a gold ring on the ground. He took it to a pawn shop. He was so eager to get money for it! \n Sentence: But the shop owner frowned and said the ring wasn't real gold. \n Character: Shop owner",
+            "output": [
+                "that he told the fact",
+                "serious"
+            ]
+        },
+        {
+            "input": "Context: Brad found a gold ring on the ground. He took it to a pawn shop. He was so eager to get money for it! \n Sentence: But the shop owner frowned and said the ring wasn't real gold. \n Character: Brad",
+            "output": [
+                "disbelieving",
+                "let down",
+                "mad",
+                "dissapointed"
+            ]
+        },
+        {
+            "input": "Context: Brad found a gold ring on the ground. He took it to a pawn shop. He was so eager to get money for it! But the shop owner frowned and said the ring wasn't real gold. \n Sentence: Brad was so disappointed! \n Character: Shop owner",
+            "output": [
+                "disapproval",
+                "sorry for brad"
+            ]
+        },
+        {
+            "input": "Context: Brad found a gold ring on the ground. He took it to a pawn shop. He was so eager to get money for it! But the shop owner frowned and said the ring wasn't real gold. \n Sentence: Brad was so disappointed! \n Character: Brad",
+            "output": [
+                "upset"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Savannah was shopping at the mall on a hot day. \n Character: Savannah",
+            "output": [
+                "excited",
+                "refreshed"
+            ]
+        },
+        {
+            "input": "Context: Savannah was shopping at the mall on a hot day. \n Sentence: She realized she had left her purse in the car and went to get it. \n Character: Savannah",
+            "output": [
+                "annoyed",
+                "surprised"
+            ]
+        },
+        {
+            "input": "Context: Savannah was shopping at the mall on a hot day. She realized she had left her purse in the car and went to get it. \n Sentence: Inside the bag, she saw that her makeup had melted in the heat. \n Character: Savannah",
+            "output": [
+                "embarrassed",
+                "annoyed",
+                "foolish"
+            ]
+        },
+        {
+            "input": "Context: Savannah was shopping at the mall on a hot day. She realized she had left her purse in the car and went to get it. Inside the bag, she saw that her makeup had melted in the heat. \n Sentence: Everything was gooey and stuck together. \n Character: Savannah",
+            "output": [
+                "annoyed",
+                "angry"
+            ]
+        },
+        {
+            "input": "Context: Savannah was shopping at the mall on a hot day. She realized she had left her purse in the car and went to get it. Inside the bag, she saw that her makeup had melted in the heat. Everything was gooey and stuck together. \n Sentence: All of her things were ruined and had to be replaced. \n Character: Savannah",
+            "output": [
+                "frustrated",
+                "disappointed"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Rick was visiting his grandma. \n Character: His dad",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Rick was visiting his grandma. \n Character: Rick",
+            "output": [
+                "happy",
+                "belonging",
+                "delighted"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Rick was visiting his grandma. \n Character: Grandma",
+            "output": [
+                "greatful",
+                "appreciated",
+                "joy"
+            ]
+        },
+        {
+            "input": "Context: Rick was visiting his grandma. \n Sentence: He and his dad went into the yard to play. \n Character: His dad",
+            "output": [
+                "love",
+                "enjoyment",
+                "playful",
+                "cheerful"
+            ]
+        },
+        {
+            "input": "Context: Rick was visiting his grandma. \n Sentence: He and his dad went into the yard to play. \n Character: Rick",
+            "output": [
+                "excited",
+                "playful",
+                "cheerful"
+            ]
+        },
+        {
+            "input": "Context: Rick was visiting his grandma. \n Sentence: He and his dad went into the yard to play. \n Character: Grandma",
+            "output": [
+                "happy",
+                "proud",
+                "lonely"
+            ]
+        },
+        {
+            "input": "Context: Rick was visiting his grandma. He and his dad went into the yard to play. \n Sentence: The grass in the yard was tall and needed to be cut. \n Character: His dad",
+            "output": [
+                "like mowing",
+                "angry"
+            ]
+        },
+        {
+            "input": "Context: Rick was visiting his grandma. He and his dad went into the yard to play. \n Sentence: The grass in the yard was tall and needed to be cut. \n Character: Rick",
+            "output": [
+                "frustrated"
+            ]
+        },
+        {
+            "input": "Context: Rick was visiting his grandma. He and his dad went into the yard to play. \n Sentence: The grass in the yard was tall and needed to be cut. \n Character: Grandma",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Rick was visiting his grandma. He and his dad went into the yard to play. The grass in the yard was tall and needed to be cut. \n Sentence: Later that night Rick was itchy from playing in the grass. \n Character: His dad",
+            "output": [
+                "concerned",
+                "concern"
+            ]
+        },
+        {
+            "input": "Context: Rick was visiting his grandma. He and his dad went into the yard to play. The grass in the yard was tall and needed to be cut. \n Sentence: Later that night Rick was itchy from playing in the grass. \n Character: Rick",
+            "output": [
+                "tingling",
+                "discomfort",
+                "annoyance",
+                "embarrassed from getting bit by bug.",
+                "bad for not mowing the grandma's grass"
+            ]
+        },
+        {
+            "input": "Context: Rick was visiting his grandma. He and his dad went into the yard to play. The grass in the yard was tall and needed to be cut. \n Sentence: Later that night Rick was itchy from playing in the grass. \n Character: Grandma",
+            "output": [
+                "bad for rick",
+                "alarmed"
+            ]
+        },
+        {
+            "input": "Context: Rick was visiting his grandma. He and his dad went into the yard to play. The grass in the yard was tall and needed to be cut. Later that night Rick was itchy from playing in the grass. \n Sentence: Rick scratched and scratched until daddy gave him a bath. \n Character: His dad",
+            "output": [
+                "content",
+                "accomplished",
+                "loving",
+                "pleased"
+            ]
+        },
+        {
+            "input": "Context: Rick was visiting his grandma. He and his dad went into the yard to play. The grass in the yard was tall and needed to be cut. Later that night Rick was itchy from playing in the grass. \n Sentence: Rick scratched and scratched until daddy gave him a bath. \n Character: Rick",
+            "output": [
+                "warm"
+            ]
+        },
+        {
+            "input": "Context: Rick was visiting his grandma. He and his dad went into the yard to play. The grass in the yard was tall and needed to be cut. Later that night Rick was itchy from playing in the grass. \n Sentence: Rick scratched and scratched until daddy gave him a bath. \n Character: Grandma",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Mel was nine and wanted grow tall. \n Character: Mel",
+            "output": [
+                "anxious"
+            ]
+        },
+        {
+            "input": "Context: Mel was nine and wanted grow tall. \n Sentence: He decided to take vitamins and eat healthy. \n Character: Mel",
+            "output": [
+                "hopeful",
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: Mel was nine and wanted grow tall. He decided to take vitamins and eat healthy. \n Sentence: He did special stretching exercises, too. \n Character: Mel",
+            "output": [
+                "accomplished",
+                "justified"
+            ]
+        },
+        {
+            "input": "Context: Mel was nine and wanted grow tall. He decided to take vitamins and eat healthy. He did special stretching exercises, too. \n Sentence: On his tenth birthday he was measured again. \n Character: Mel",
+            "output": [
+                "excited",
+                "hopeful",
+                "curious",
+                "eager to know how tall he is"
+            ]
+        },
+        {
+            "input": "Context: Mel was nine and wanted grow tall. He decided to take vitamins and eat healthy. He did special stretching exercises, too. On his tenth birthday he was measured again. \n Sentence: He was ecstatic to see he had grown half a foot! \n Character: Mel",
+            "output": [
+                "excited",
+                "accomplished",
+                "tall"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: We replaced our old printer a month ago. \n Character: Son",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: We replaced our old printer a month ago. \n Sentence: It was printing only one page at a time. \n Character: Son",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: We replaced our old printer a month ago. It was printing only one page at a time. \n Sentence: We kept the old printer only because it was too heavy to move. \n Character: Son",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: We replaced our old printer a month ago. It was printing only one page at a time. We kept the old printer only because it was too heavy to move. \n Sentence: Today our son came over and threw the printer away. \n Character: Son",
+            "output": [
+                "uncertain"
+            ]
+        },
+        {
+            "input": "Context: We replaced our old printer a month ago. It was printing only one page at a time. We kept the old printer only because it was too heavy to move. Today our son came over and threw the printer away. \n Sentence: We were glad to get rid of it. \n Character: Son",
+            "output": [
+                "helpful",
+                "appreciated"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: When Jane went to Tokyo, she got lost the first day there. \n Character: Jane",
+            "output": [
+                "scared",
+                "confused",
+                "nervous",
+                "disoriented"
+            ]
+        },
+        {
+            "input": "Context: When Jane went to Tokyo, she got lost the first day there. \n Sentence: The address system was so complicated, she couldn't find anything. \n Character: Jane",
+            "output": [
+                "confuse",
+                "confused"
+            ]
+        },
+        {
+            "input": "Context: When Jane went to Tokyo, she got lost the first day there. The address system was so complicated, she couldn't find anything. \n Sentence: She asked a local to help her find her bearings. \n Character: Jane",
+            "output": [
+                "confuse",
+                "concerned"
+            ]
+        },
+        {
+            "input": "Context: When Jane went to Tokyo, she got lost the first day there. The address system was so complicated, she couldn't find anything. She asked a local to help her find her bearings. \n Sentence: It turned out that the apartment she wanted was almost next door. \n Character: Jane",
+            "output": [
+                "excited",
+                "embarassed"
+            ]
+        },
+        {
+            "input": "Context: When Jane went to Tokyo, she got lost the first day there. The address system was so complicated, she couldn't find anything. She asked a local to help her find her bearings. It turned out that the apartment she wanted was almost next door. \n Sentence: She thanked the nice Japanese man and went to her destination. \n Character: Jane",
+            "output": [
+                "relieved",
+                "grateful.",
+                "relieved."
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Russell was ahead of the curve. \n Character: Older man",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Russell was ahead of the curve. \n Character: Parents",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Russell was ahead of the curve. \n Character: Russell",
+            "output": [
+                "ready",
+                "proud",
+                "prepared"
+            ]
+        },
+        {
+            "input": "Context: Russell was ahead of the curve. \n Sentence: He excelled in school and passed all exams with ease. \n Character: Older man",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Russell was ahead of the curve. \n Sentence: He excelled in school and passed all exams with ease. \n Character: Parents",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Russell was ahead of the curve. \n Sentence: He excelled in school and passed all exams with ease. \n Character: Russell",
+            "output": [
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: Russell was ahead of the curve. He excelled in school and passed all exams with ease. \n Sentence: One day, an older man came to Russell's house. \n Character: Older man",
+            "output": [
+                "friendly",
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Russell was ahead of the curve. He excelled in school and passed all exams with ease. \n Sentence: One day, an older man came to Russell's house. \n Character: Parents",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Russell was ahead of the curve. He excelled in school and passed all exams with ease. \n Sentence: One day, an older man came to Russell's house. \n Character: Russell",
+            "output": [
+                "curious",
+                "surprised"
+            ]
+        },
+        {
+            "input": "Context: Russell was ahead of the curve. He excelled in school and passed all exams with ease. One day, an older man came to Russell's house. \n Sentence: He spoke with his parents and then introduced himself to Russell. \n Character: Older man",
+            "output": [
+                "anxious",
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Russell was ahead of the curve. He excelled in school and passed all exams with ease. One day, an older man came to Russell's house. \n Sentence: He spoke with his parents and then introduced himself to Russell. \n Character: Parents",
+            "output": [
+                "wanted",
+                "surprised"
+            ]
+        },
+        {
+            "input": "Context: Russell was ahead of the curve. He excelled in school and passed all exams with ease. One day, an older man came to Russell's house. \n Sentence: He spoke with his parents and then introduced himself to Russell. \n Character: Russell",
+            "output": [
+                "wanted",
+                "surprised",
+                "anxious"
+            ]
+        },
+        {
+            "input": "Context: Russell was ahead of the curve. He excelled in school and passed all exams with ease. One day, an older man came to Russell's house. He spoke with his parents and then introduced himself to Russell. \n Sentence: Russell was offered to go to a school for gifted and talented youth. \n Character: Older man",
+            "output": [
+                "optimistic"
+            ]
+        },
+        {
+            "input": "Context: Russell was ahead of the curve. He excelled in school and passed all exams with ease. One day, an older man came to Russell's house. He spoke with his parents and then introduced himself to Russell. \n Sentence: Russell was offered to go to a school for gifted and talented youth. \n Character: Parents",
+            "output": [
+                "influential"
+            ]
+        },
+        {
+            "input": "Context: Russell was ahead of the curve. He excelled in school and passed all exams with ease. One day, an older man came to Russell's house. He spoke with his parents and then introduced himself to Russell. \n Sentence: Russell was offered to go to a school for gifted and talented youth. \n Character: Russell",
+            "output": [
+                "thrilled",
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jack bought a new book yesterday. \n Character: Jack",
+            "output": [
+                "content",
+                "enthusiastic"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Jack bought a new book yesterday. \n Character: Dog",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jack bought a new book yesterday. \n Sentence: He placed the book on the couch when he got home from the bookstore. \n Character: Jack",
+            "output": [
+                "excited"
+            ]
+        },
+        {
+            "input": "Context: Jack bought a new book yesterday. \n Sentence: He placed the book on the couch when he got home from the bookstore. \n Character: Dog",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jack bought a new book yesterday. He placed the book on the couch when he got home from the bookstore. \n Sentence: Jack didn't see his dog in the living room. \n Character: Jack",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jack bought a new book yesterday. He placed the book on the couch when he got home from the bookstore. \n Sentence: Jack didn't see his dog in the living room. \n Character: Dog",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jack bought a new book yesterday. He placed the book on the couch when he got home from the bookstore. Jack didn't see his dog in the living room. \n Sentence: When Jack went to lunch, his dog tore the book apart. \n Character: Jack",
+            "output": [
+                "upset",
+                "annoyed",
+                "angry"
+            ]
+        },
+        {
+            "input": "Context: Jack bought a new book yesterday. He placed the book on the couch when he got home from the bookstore. Jack didn't see his dog in the living room. \n Sentence: When Jack went to lunch, his dog tore the book apart. \n Character: Dog",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Jack bought a new book yesterday. He placed the book on the couch when he got home from the bookstore. Jack didn't see his dog in the living room. When Jack went to lunch, his dog tore the book apart. \n Sentence: Jack wished he had placed his book in a better spot. \n Character: Jack",
+            "output": [
+                "regretful"
+            ]
+        },
+        {
+            "input": "Context: Jack bought a new book yesterday. He placed the book on the couch when he got home from the bookstore. Jack didn't see his dog in the living room. When Jack went to lunch, his dog tore the book apart. \n Sentence: Jack wished he had placed his book in a better spot. \n Character: Dog",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: The doctor diagnosed Gemma with GAD. \n Character: Pet",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: The doctor diagnosed Gemma with GAD. \n Character: Gemma",
+            "output": [
+                "unhappy",
+                "sad",
+                "stressed out",
+                "scared",
+                "fearness"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: The doctor diagnosed Gemma with GAD. \n Character: Stray",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: The doctor diagnosed Gemma with GAD. \n Character: The doctor",
+            "output": [
+                "bored; he or she is doing their job task",
+                "concern",
+                "compassionate",
+                "compassion"
+            ]
+        },
+        {
+            "input": "Context: The doctor diagnosed Gemma with GAD. \n Sentence: Her panic attacks made her life difficult. \n Character: Pet",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: The doctor diagnosed Gemma with GAD. \n Sentence: Her panic attacks made her life difficult. \n Character: Gemma",
+            "output": [
+                "unhealthy anxiety",
+                "afriad",
+                "hopeless"
+            ]
+        },
+        {
+            "input": "Context: The doctor diagnosed Gemma with GAD. \n Sentence: Her panic attacks made her life difficult. \n Character: Stray",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: The doctor diagnosed Gemma with GAD. \n Sentence: Her panic attacks made her life difficult. \n Character: The doctor",
+            "output": [
+                "sympathetic towards gemma",
+                "sorry that gemma experiences discomfort"
+            ]
+        },
+        {
+            "input": "Context: The doctor diagnosed Gemma with GAD. Her panic attacks made her life difficult. \n Sentence: She went to the ASPCA to get a pet. \n Character: Pet",
+            "output": [
+                "loved",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: The doctor diagnosed Gemma with GAD. Her panic attacks made her life difficult. \n Sentence: She went to the ASPCA to get a pet. \n Character: Gemma",
+            "output": [
+                "excited",
+                "needful",
+                "relieved"
+            ]
+        },
+        {
+            "input": "Context: The doctor diagnosed Gemma with GAD. Her panic attacks made her life difficult. \n Sentence: She went to the ASPCA to get a pet. \n Character: Stray",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: The doctor diagnosed Gemma with GAD. Her panic attacks made her life difficult. \n Sentence: She went to the ASPCA to get a pet. \n Character: The doctor",
+            "output": [
+                "helpful"
+            ]
+        },
+        {
+            "input": "Context: The doctor diagnosed Gemma with GAD. Her panic attacks made her life difficult. She went to the ASPCA to get a pet. \n Sentence: After not finding any suitable pets, she walked home. \n Character: Pet",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: The doctor diagnosed Gemma with GAD. Her panic attacks made her life difficult. She went to the ASPCA to get a pet. \n Sentence: After not finding any suitable pets, she walked home. \n Character: Gemma",
+            "output": [
+                "disappointed in not being able to find a cat",
+                "disappointed",
+                "unhappy"
+            ]
+        },
+        {
+            "input": "Context: The doctor diagnosed Gemma with GAD. Her panic attacks made her life difficult. She went to the ASPCA to get a pet. \n Sentence: After not finding any suitable pets, she walked home. \n Character: Stray",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: The doctor diagnosed Gemma with GAD. Her panic attacks made her life difficult. She went to the ASPCA to get a pet. \n Sentence: After not finding any suitable pets, she walked home. \n Character: The doctor",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: The doctor diagnosed Gemma with GAD. Her panic attacks made her life difficult. She went to the ASPCA to get a pet. After not finding any suitable pets, she walked home. \n Sentence: On her way home, she found an adorable stray and adopted it. \n Character: Pet",
+            "output": [
+                "happy",
+                "thankful"
+            ]
+        },
+        {
+            "input": "Context: The doctor diagnosed Gemma with GAD. Her panic attacks made her life difficult. She went to the ASPCA to get a pet. After not finding any suitable pets, she walked home. \n Sentence: On her way home, she found an adorable stray and adopted it. \n Character: Gemma",
+            "output": [
+                "excited",
+                "overjoyed",
+                "happy",
+                "ecstatic"
+            ]
+        },
+        {
+            "input": "Context: The doctor diagnosed Gemma with GAD. Her panic attacks made her life difficult. She went to the ASPCA to get a pet. After not finding any suitable pets, she walked home. \n Sentence: On her way home, she found an adorable stray and adopted it. \n Character: Stray",
+            "output": [
+                "fortunate to be adopted",
+                "happy",
+                "secure",
+                "lucky"
+            ]
+        },
+        {
+            "input": "Context: The doctor diagnosed Gemma with GAD. Her panic attacks made her life difficult. She went to the ASPCA to get a pet. After not finding any suitable pets, she walked home. \n Sentence: On her way home, she found an adorable stray and adopted it. \n Character: The doctor",
+            "output": [
+                "relieved"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Janet went inside the fast-food store. \n Character: The cashier",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Janet went inside the fast-food store. \n Character: Janet",
+            "output": [
+                "indifferent",
+                "anticipation"
+            ]
+        },
+        {
+            "input": "Context: Janet went inside the fast-food store. \n Sentence: She ordered a cheeseburger combo with fries. \n Character: The cashier",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Janet went inside the fast-food store. \n Sentence: She ordered a cheeseburger combo with fries. \n Character: Janet",
+            "output": [
+                "happy",
+                "like a combo meal is appropriate for her appetite"
+            ]
+        },
+        {
+            "input": "Context: Janet went inside the fast-food store. She ordered a cheeseburger combo with fries. \n Sentence: The cashier handed her food after she paid. \n Character: The cashier",
+            "output": [
+                "content",
+                "helpful"
+            ]
+        },
+        {
+            "input": "Context: Janet went inside the fast-food store. She ordered a cheeseburger combo with fries. \n Sentence: The cashier handed her food after she paid. \n Character: Janet",
+            "output": [
+                "happy",
+                "hungry"
+            ]
+        },
+        {
+            "input": "Context: Janet went inside the fast-food store. She ordered a cheeseburger combo with fries. The cashier handed her food after she paid. \n Sentence: After tasting the food, she felt nauseous. \n Character: The cashier",
+            "output": [
+                "disgusted"
+            ]
+        },
+        {
+            "input": "Context: Janet went inside the fast-food store. She ordered a cheeseburger combo with fries. The cashier handed her food after she paid. \n Sentence: After tasting the food, she felt nauseous. \n Character: Janet",
+            "output": [
+                "disgusted",
+                "sick"
+            ]
+        },
+        {
+            "input": "Context: Janet went inside the fast-food store. She ordered a cheeseburger combo with fries. The cashier handed her food after she paid. After tasting the food, she felt nauseous. \n Sentence: The fries were extremely stale and the hamburger was hard to chew. \n Character: The cashier",
+            "output": [
+                "worried",
+                "bad"
+            ]
+        },
+        {
+            "input": "Context: Janet went inside the fast-food store. She ordered a cheeseburger combo with fries. The cashier handed her food after she paid. After tasting the food, she felt nauseous. \n Sentence: The fries were extremely stale and the hamburger was hard to chew. \n Character: Janet",
+            "output": [
+                "sad",
+                "disappointed",
+                "grossed out"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: My friends and I took archery classes. \n Character: I (myself)",
+            "output": [
+                "hopeful",
+                "pr"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: My friends and I took archery classes. \n Character: Friends",
+            "output": [
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: My friends and I took archery classes. \n Sentence: We practiced for three months. \n Character: I (myself)",
+            "output": [
+                "proud"
+            ]
+        },
+        {
+            "input": "Context: My friends and I took archery classes. \n Sentence: We practiced for three months. \n Character: Friends",
+            "output": [
+                "determined",
+                "insistent"
+            ]
+        },
+        {
+            "input": "Context: My friends and I took archery classes. We practiced for three months. \n Sentence: Then it was time for a competition. \n Character: I (myself)",
+            "output": [
+                "eager",
+                "like competition is an encouraging way to progress skills"
+            ]
+        },
+        {
+            "input": "Context: My friends and I took archery classes. We practiced for three months. \n Sentence: Then it was time for a competition. \n Character: Friends",
+            "output": [
+                "competitive"
+            ]
+        },
+        {
+            "input": "Context: My friends and I took archery classes. We practiced for three months. Then it was time for a competition. \n Sentence: My friends all took home trophies. \n Character: I (myself)",
+            "output": [
+                "proud",
+                "envious"
+            ]
+        },
+        {
+            "input": "Context: My friends and I took archery classes. We practiced for three months. Then it was time for a competition. \n Sentence: My friends all took home trophies. \n Character: Friends",
+            "output": [
+                "excited",
+                "proud",
+                "happy",
+                "proud of their achievement"
+            ]
+        },
+        {
+            "input": "Context: My friends and I took archery classes. We practiced for three months. Then it was time for a competition. My friends all took home trophies. \n Sentence: I got disqualified for accidentally hitting a judge. \n Character: I (myself)",
+            "output": [
+                "discouraged",
+                "frustrated",
+                "disappointed"
+            ]
+        },
+        {
+            "input": "Context: My friends and I took archery classes. We practiced for three months. Then it was time for a competition. My friends all took home trophies. \n Sentence: I got disqualified for accidentally hitting a judge. \n Character: Friends",
+            "output": [
+                "sorry for me"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Nia wanted to make a change in her appearance. \n Character: Nia",
+            "output": [
+                "excited",
+                "insecure"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Nia wanted to make a change in her appearance. \n Character: Friends",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Nia wanted to make a change in her appearance. \n Sentence: She asked for some advice on ideas from her friends. \n Character: Nia",
+            "output": [
+                "interested",
+                "inquisitive"
+            ]
+        },
+        {
+            "input": "Context: Nia wanted to make a change in her appearance. \n Sentence: She asked for some advice on ideas from her friends. \n Character: Friends",
+            "output": [
+                "helpful",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: Nia wanted to make a change in her appearance. She asked for some advice on ideas from her friends. \n Sentence: One of her friends suggested a new hair stylist in town. \n Character: Nia",
+            "output": [
+                "intrigued",
+                "thrilled about the idea"
+            ]
+        },
+        {
+            "input": "Context: Nia wanted to make a change in her appearance. She asked for some advice on ideas from her friends. \n Sentence: One of her friends suggested a new hair stylist in town. \n Character: Friends",
+            "output": [
+                "helpful",
+                "useful.",
+                "sympathetic.",
+                "kind."
+            ]
+        },
+        {
+            "input": "Context: Nia wanted to make a change in her appearance. She asked for some advice on ideas from her friends. One of her friends suggested a new hair stylist in town. \n Sentence: Nia went to the hair stylist and he cut her hair. \n Character: Nia",
+            "output": [
+                "anxious about it",
+                "curious"
+            ]
+        },
+        {
+            "input": "Context: Nia wanted to make a change in her appearance. She asked for some advice on ideas from her friends. One of her friends suggested a new hair stylist in town. \n Sentence: Nia went to the hair stylist and he cut her hair. \n Character: Friends",
+            "output": [
+                "happy to help",
+                "proud",
+                "responsible for her new look",
+                "excited her friend tried something new"
+            ]
+        },
+        {
+            "input": "Context: Nia wanted to make a change in her appearance. She asked for some advice on ideas from her friends. One of her friends suggested a new hair stylist in town. Nia went to the hair stylist and he cut her hair. \n Sentence: Nia is extremely happy with her new hair cut. \n Character: Nia",
+            "output": [
+                "excited"
+            ]
+        },
+        {
+            "input": "Context: Nia wanted to make a change in her appearance. She asked for some advice on ideas from her friends. One of her friends suggested a new hair stylist in town. Nia went to the hair stylist and he cut her hair. \n Sentence: Nia is extremely happy with her new hair cut. \n Character: Friends",
+            "output": [
+                "content",
+                "good",
+                "pleased"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Rocky finally got the pool he had always wanted in his backyard. \n Character: Neighbors",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Rocky finally got the pool he had always wanted in his backyard. \n Character: Police",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Rocky finally got the pool he had always wanted in his backyard. \n Character: Friends",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Rocky finally got the pool he had always wanted in his backyard. \n Character: Rocky",
+            "output": [
+                "excited",
+                "appreciative"
+            ]
+        },
+        {
+            "input": "Context: Rocky finally got the pool he had always wanted in his backyard. \n Sentence: Rocky invited many friends over for his first pool party. \n Character: Neighbors",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Rocky finally got the pool he had always wanted in his backyard. \n Sentence: Rocky invited many friends over for his first pool party. \n Character: Police",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Rocky finally got the pool he had always wanted in his backyard. \n Sentence: Rocky invited many friends over for his first pool party. \n Character: Friends",
+            "output": [
+                "eager",
+                "happy"
+            ]
+        },
+        {
+            "input": "Context: Rocky finally got the pool he had always wanted in his backyard. \n Sentence: Rocky invited many friends over for his first pool party. \n Character: Rocky",
+            "output": [
+                "happy",
+                "enthusiastic"
+            ]
+        },
+        {
+            "input": "Context: Rocky finally got the pool he had always wanted in his backyard. Rocky invited many friends over for his first pool party. \n Sentence: As the party progressed, it grew louder and more unruly. \n Character: Neighbors",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Rocky finally got the pool he had always wanted in his backyard. Rocky invited many friends over for his first pool party. \n Sentence: As the party progressed, it grew louder and more unruly. \n Character: Police",
+            "output": [
+                "None"
+            ]
+        },
+        {
+            "input": "Context: Rocky finally got the pool he had always wanted in his backyard. Rocky invited many friends over for his first pool party. \n Sentence: As the party progressed, it grew louder and more unruly. \n Character: Friends",
+            "output": [
+                "happy",
+                "obnoxious",
+                "free to do anything",
+                "like being loud",
+                "mischievious"
+            ]
+        },
+        {
+            "input": "Context: Rocky finally got the pool he had always wanted in his backyard. Rocky invited many friends over for his first pool party. \n Sentence: As the party progressed, it grew louder and more unruly. \n Character: Rocky",
+            "output": [
+                "worried",
+                "helpless",
+                "alarmed"
+            ]
+        },
+        {
+            "input": "Context: Rocky finally got the pool he had always wanted in his backyard. Rocky invited many friends over for his first pool party. As the party progressed, it grew louder and more unruly. \n Sentence: Several of Rocky's neighbors called the police to complain. \n Character: Neighbors",
+            "output": [
+                "annoyed",
+                "unhappy"
+            ]
+        },
+        {
+            "input": "Context: Rocky finally got the pool he had always wanted in his backyard. Rocky invited many friends over for his first pool party. As the party progressed, it grew louder and more unruly. \n Sentence: Several of Rocky's neighbors called the police to complain. \n Character: Police",
+            "output": [
+                "annoyed"
+            ]
+        },
+        {
+            "input": "Context: Rocky finally got the pool he had always wanted in his backyard. Rocky invited many friends over for his first pool party. As the party progressed, it grew louder and more unruly. \n Sentence: Several of Rocky's neighbors called the police to complain. \n Character: Friends",
+            "output": [
+                "like criminals.",
+                "disappointed",
+                "insulted.",
+                "sad",
+                "unwanted."
+            ]
+        },
+        {
+            "input": "Context: Rocky finally got the pool he had always wanted in his backyard. Rocky invited many friends over for his first pool party. As the party progressed, it grew louder and more unruly. \n Sentence: Several of Rocky's neighbors called the police to complain. \n Character: Rocky",
+            "output": [
+                "popular",
+                "bad",
+                "cool"
+            ]
+        },
+        {
+            "input": "Context: Rocky finally got the pool he had always wanted in his backyard. Rocky invited many friends over for his first pool party. As the party progressed, it grew louder and more unruly. Several of Rocky's neighbors called the police to complain. \n Sentence: Rocky's first pool party was soon shut down by the police. \n Character: Neighbors",
+            "output": [
+                "relieved"
+            ]
+        },
+        {
+            "input": "Context: Rocky finally got the pool he had always wanted in his backyard. Rocky invited many friends over for his first pool party. As the party progressed, it grew louder and more unruly. Several of Rocky's neighbors called the police to complain. \n Sentence: Rocky's first pool party was soon shut down by the police. \n Character: Police",
+            "output": [
+                "responsible"
+            ]
+        },
+        {
+            "input": "Context: Rocky finally got the pool he had always wanted in his backyard. Rocky invited many friends over for his first pool party. As the party progressed, it grew louder and more unruly. Several of Rocky's neighbors called the police to complain. \n Sentence: Rocky's first pool party was soon shut down by the police. \n Character: Friends",
+            "output": [
+                "upset"
+            ]
+        },
+        {
+            "input": "Context: Rocky finally got the pool he had always wanted in his backyard. Rocky invited many friends over for his first pool party. As the party progressed, it grew louder and more unruly. Several of Rocky's neighbors called the police to complain. \n Sentence: Rocky's first pool party was soon shut down by the police. \n Character: Rocky",
+            "output": [
+                "discouraged",
+                "humbled",
+                "disappointed"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Phil is cooking dinner. \n Character: Phil",
+            "output": [
+                "hungry"
+            ]
+        },
+        {
+            "input": "Context: Phil is cooking dinner. \n Sentence: He goes to use the restroom while leaving the food. \n Character: Phil",
+            "output": [
+                "relieved",
+                "none"
+            ]
+        },
+        {
+            "input": "Context: Phil is cooking dinner. He goes to use the restroom while leaving the food. \n Sentence: When he comes back the stove is on fire. \n Character: Phil",
+            "output": [
+                "shocked",
+                "astonished"
+            ]
+        },
+        {
+            "input": "Context: Phil is cooking dinner. He goes to use the restroom while leaving the food. When he comes back the stove is on fire. \n Sentence: He tries to put out the fire with a rag. \n Character: Phil",
+            "output": [
+                "petrified",
+                "scared"
+            ]
+        },
+        {
+            "input": "Context: Phil is cooking dinner. He goes to use the restroom while leaving the food. When he comes back the stove is on fire. He tries to put out the fire with a rag. \n Sentence: He puts the fire out with the rag but gets burned in the process. \n Character: Phil",
+            "output": [
+                "agony",
+                "annoyed",
+                "panicked"
+            ]
+        },
+        {
+            "input": "Context: None \n Sentence: Billy needed to make some money. \n Character: Billy",
+            "output": [
+                "motivated"
+            ]
+        },
+        {
+            "input": "Context: Billy needed to make some money. \n Sentence: He decided on Friday night he would work from home. \n Character: Billy",
+            "output": [
+                "determined",
+                "hardworking",
+                "optimistic"
+            ]
+        },
+        {
+            "input": "Context: Billy needed to make some money. He decided on Friday night he would work from home. \n Sentence: Turning his computer on he realized there was a lot of work up! \n Character: Billy",
+            "output": [
+                "busy",
+                "nervous",
+                "overwhelmed",
+                "enthusiastic"
+            ]
+        },
+        {
+            "input": "Context: Billy needed to make some money. He decided on Friday night he would work from home. Turning his computer on he realized there was a lot of work up! \n Sentence: It didn't take him long to get into the swing of things. \n Character: Billy",
+            "output": [
+                "enthusiastic",
+                "accomplished",
+                "encouraged"
+            ]
+        },
+        {
+            "input": "Context: Billy needed to make some money. He decided on Friday night he would work from home. Turning his computer on he realized there was a lot of work up! It didn't take him long to get into the swing of things. \n Sentence: Before he knew it, he was working his butt off and making money. \n Character: Billy",
+            "output": [
+                "happy",
+                "tired"
+            ]
+        }
+    ]
+}
