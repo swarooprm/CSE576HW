@@ -1,0 +1,52 @@
+{
+    "Definition": [
+        "Answer the question regarding the narrative if you are given one. The final sentence of the input is the question. The tale contains one of three scenarios: the first is when an individual's belief corresponds to reality, the second is when an individual's belief does not correspond to reality, and the third is when a person has a false belief about another individual's views. The question will inquire for the placement of an object in the tale in relation to none of the three situations or one of them.",
+        "Answer the question concerning the tale if you are given one. The last sentence of the input is the question. The narrative involves one of three scenarios: the first is when an individual's belief corresponds to reality, the second is when an individual's belief does not correspond to reality, and the third is when an individual has a false belief about another individual's views. The question will ask for the position of an object in the story in relation to none of the three situations or one of them.",
+        "Answer the question about the story if you're given one. The last sentence in the input is the question. One of the three scenarios in the story is when an individual's belief matches reality, when an individual's belief does not match reality, or when an individual has a false belief about another individual's beliefs. The question will inquire about the location of an object in the story in relation to none of the three scenarios or one of them.",
+        "For this task, the input is a passage and a question at the end. The question pertains to locations of objects that are described in the story. The types of questions center around a person's beliefs about the objects."
+    ],
+    "Positive Examples": [
+        {
+            "input": "Owen entered the workshop. Jack entered the workshop. The asparagus is in the blue_suitcase. Jack exited the workshop. Owen moved the asparagus to the red_suitcase. Owen exited the workshop. Jack entered the workshop. Where is the asparagus really?",
+            "output": "red_suitcase",
+            "explanation": "The only movement of the aspaagus from the blue_suitcase to the red_suitcase. Thus, this is the correct answer."
+        },
+        {
+            "input": "Jacob entered the den. Benjamin entered the den. The tomato is in the blue_bathtub. Benjamin exited the den. Jacob moved the tomato to the blue_suitcase. Where does Jacob think that Benjamin searches for the tomato?",
+            "output": "blue_bathtub",
+            "explanation": "Jacob and Benjamin both entered the den when the tomato was in the blue_bathtub. Once Benjamin exits the den Jacob moves it to another location. Thus, Jacob knows that Benjamin will try to search for the tomato in the blue_bathtub."
+        },
+        {
+            "input": "Benjamin entered the pantry. Charlotte entered the pantry. The lime is in the red_bucket. Benjamin moved the lime to the red_crate. Where was the lime at the beginning?",
+            "output": "red_bucket",
+            "explanation": "The first fact about the lime is it being in the red bucket."
+        },
+        {
+            "input": "Elizabeth entered the sunroom. Jacob entered the sunroom. The eggplant is in the red_cupboard. Jacob exited the sunroom. Elizabeth moved the eggplant to the red_bottle. Elizabeth exited the sunroom. Jacob entered the sunroom. Where was the eggplant at the beginning?",
+            "output": "red_cupboard",
+            "explanation": "The first reference to the location of the eggplant was that it is in the red_cupboard."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "James entered the dining_room. Hannah entered the dining_room. The asparagus is in the green_suitcase. James moved the asparagus to the red_bottle. Where does James think that Hannah searches for the asparagus?",
+            "output": "green_suitcase",
+            "explanation": "Since both James and Hannah were present in the dining room when James moved the asparagus, James knows that Hannah will search for the asparagus in the red_bottle which is where he moved it."
+        },
+        {
+            "input": "Hannah entered the garden. Alexander entered the garden. The strawberry is in the green_basket. Hannah moved the strawberry to the blue_treasure_chest. Where was the strawberry at the beginning?",
+            "output": "blue_treasure_chest",
+            "explanation": "The first reference to the strawberry was that it is in the green_basket."
+        },
+        {
+            "input": "Amelia entered the bathroom. William entered the bathroom. The pear is in the red_cupboard. Amelia moved the pear to the blue_container. Where does Amelia think that William searches for the pear?",
+            "output": "Amelia",
+            "explanation": "This is a bad example since both were in the same room when the pear was moved. Hence, Amelia knows that William will search for the pear in the blue_container which is where she moved it."
+        },
+        {
+            "input": "James entered the hall. Elizabeth entered the hall. The carrot is in the green_basket. Elizabeth exited the hall. James moved the carrot to the blue_envelope. James exited the hall. Elizabeth entered the hall. Where will Elizabeth look for the carrot?",
+            "output": "blue_envelope",
+            "explanation": "When Elizabeth left the room the carrot ws in the green_basket. Once she exited, James moved it to the blue_envelope and exited the hall. Thus, when Elizabeth looks for the carrot, she will look first in the location she knew it was in i.e. the green_basket."
+        }
+    ]
+}
