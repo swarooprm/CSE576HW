@@ -1,0 +1,52 @@
+{
+    "Definition": [
+        "Answer the question regarding the narrative if you are given one. The final sentence of the input is the question. The tale contains one of three scenarios: the first is when an individual's belief corresponds to reality, the second is when an individual's belief does not correspond to reality, and the third is when a person has a false belief about another individual's views. The question will inquire for the placement of an object in the tale in relation to none of the three situations or one of them. It's worth noting that each story contains distractor sentences that are unrelated to the question and are meant to perplex the reader.",
+        "Answer the question concerning the tale if you are given one. The last sentence of the input is the question. The narrative involves one of three scenarios: the first is when an individual's belief corresponds to reality, the second is when an individual's belief does not correspond to reality, and the third is when an individual has a false belief about another individual's views. The question will ask for the position of an object in the story in relation to none of the three situations or one of them. It's worth noting that each narrative contains distractor lines that have nothing to do with the question and are meant to perplex the reader.",
+        "Answer the question about the story if you're given one. The last sentence in the input is the question. One of the three scenarios in the story is when an individual's belief matches reality, when an individual's belief does not match reality, or when an individual has a false belief about another individual's beliefs. The question will inquire about the location of an object in the story in relation to none of the three scenarios or one of them. It's worth noting that each story contains distractor sentences that are unrelated to the question and are intended to perplex the reader.",
+        "For this task, the input is a passage and a question at the end. The question pertains to locations of objects that are described in the story. The types of questions center around a person's beliefs about the objects. This is tricky because there are certain distractor sentences that are intentionally added to confuse the reader."
+    ],
+    "Positive Examples": [
+        {
+            "input": "Lucas entered the kitchen. Isabella entered the kitchen. The potato is in the red_drawer. Phone rang. Isabella exited the kitchen. Lucas moved the potato to the red_cupboard. Where does Lucas think that Isabella searches for the potato?",
+            "output": "red_drawer",
+            "explanation": "Both Lucas and Isabella entered the kitchen at the same time when the potato was in the red_drawer. Once Isabella exits, Lucas moves the potato. Thus, Lucas knows that Isabella thinks that the potato is still in the red_drawer and thus that is where she will search."
+        },
+        {
+            "input": "Benjamin entered the garage. Alexander entered the garage. The cucumber is in the blue_envelope. Alexander exited the garage. Benjamin moved the cucumber to the red_drawer. Benjamin exited the garage. Phone rang. Alexander entered the garage. Where was the cucumber at the beginning?",
+            "output": "blue_envelope",
+            "explanation": "The question directly asks where the cucumber was initially and thus the answer is the first fact pertaining to its location."
+        },
+        {
+            "input": "Phone rang. Emily entered the closet. Ethan entered the closet. The green_pepper is in the green_treasure_chest. Emily moved the green_pepper to the red_treasure_chest. Phone rang. Where will Ethan look for the green_pepper?",
+            "output": "red_treasure_chest",
+            "explanation": "Since both Emily and Ethan were in the closet when the green pepper was moved by Emily, Ethan will know to look for the green_pepper to the location that Emily moved it which in this case is the red_treasure_chest."
+        },
+        {
+            "input": "Hannah entered the office. Sophia entered the office. The peach is in the red_drawer. Sophia exited the office. Hannah moved the peach to the green_suitcase. Where was the peach at the beginning?",
+            "output": "red_drawer",
+            "explanation": "The first known location of the peach is stated to be in the red_drawer."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Owen entered the living_room. Amelia entered the living_room. The pear is in the blue_bathtub. Amelia exited the living_room. Owen moved the pear to the red_box. Where will Amelia look for the pear?",
+            "output": "red_box",
+            "explanation": "This is a bad example since Amelia had already exited the room when Owen moved the pear. Thus, Amelia will only know to search in the location where she thinks the pear is which in this case is the blue_bathtub."
+        },
+        {
+            "input": "Owen entered the office. James entered the office. The pineapple is in the blue_crate. James exited the office. Owen moved the pineapple to the green_bottle. Owen exited the office. James entered the office. Where will James look for the pineapple?",
+            "output": "green_bottle",
+            "explanation": "James will look for the pineapple in the blue_crate since that is the last location that he knows the pineapple was in."
+        },
+        {
+            "input": "Liam entered the office. Elizabeth entered the office. The apple is in the green_pantry. Liam moved the apple to the green_basket. Where was the apple at the beginning?",
+            "output": "green_basket",
+            "explanation": "The apple was moved from the green_pantry to the green_basket. Thus, it was initially in the green_pantry."
+        },
+        {
+            "input": "Avery entered the hallway. Oliver entered the hallway. The orange is in the blue_suitcase. Avery moved the orange to the blue_crate. Where was the orange at the beginning?",
+            "output": "blue_crate",
+            "explanation": "The first fact relating to the location of the orange is the blue_suitcase which is the answer to this question."
+        }
+    ]
+}
