@@ -5,6 +5,8 @@ This directory contains the tasks that are part of this benchmark.
 
 Name | Summary | Category
 ---- | ----------- | --------
+`task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
+`task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
 `task189_snli_neutral_to_contradiction_text_modification` | Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
 `task189.1_snli_neutral_to_contradiction_text_modification` | Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
 `task189.2_snli_neutral_to_contradiction_text_modification` | Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
