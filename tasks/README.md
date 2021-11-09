@@ -71,12 +71,12 @@ Name | Summary | Category
 `task082.3_babi_t1_single_supporting_fact_question_generation.json` | Question Generation to BABI | Question Generation
 `task082.4_babi_t1_single_supporting_fact_question_generation.json` | Question Generation to BABI | Question Generation
 `task082.5_babi_t1_single_supporting_fact_question_generation.json` | Question Generation to BABI | Question Generation
-`task083.1_babi_t1_single_supporting_fact_question_generation.json` | Answer Generation to BABI | Answer Generation
-`task083.2_babi_t1_single_supporting_fact_question_generation.json` | Answer Generation to BABI | Answer Generation
-`task083.3_babi_t1_single_supporting_fact_question_generation.json` | Answer Generation to BABI | Answer Generation
-`task083.4_babi_t1_single_supporting_fact_question_generation.json` | Answer Generation to BABI | Answer Generation
-`task083.5_babi_t1_single_supporting_fact_question_generation.json` | Answer Generation to BABI | Answer Generation
-`task083_babi_t1_single_supporting_fact_question_generation.json` | Answer Generation to BABI | Answer Generation
+`task083.1_babi_t1_single_supporting_fact_answer_generation.json` | Answer Generation to BABI | Answer Generation
+`task083.2_babi_t1_single_supporting_fact_answer_generation.json` | Answer Generation to BABI | Answer Generation
+`task083.3_babi_t1_single_supporting_fact_answer_generation.json` | Answer Generation to BABI | Answer Generation
+`task083.4_babi_t1_single_supporting_fact_answer_generation.json` | Answer Generation to BABI | Answer Generation
+`task083.5_babi_t1_single_supporting_fact_answer_generation.json` | Answer Generation to BABI | Answer Generation
+`task083_babi_t1_single_supporting_fact_answer_generation.json` | Answer Generation to BABI | Answer Generation
 `task084_babi_t1_single_supporting_fact_identify_relevant_fact.json` | Supporting Fact Identification to BABI | Supporting Fact Identification
 `task084.1_babi_t1_single_supporting_fact_identify_relevant_fact.json` | Supporting Fact Identification to BABI | Supporting Fact Identification
 `task084.2_babi_t1_single_supporting_fact_identify_relevant_fact.json` | Supporting Fact Identification to BABI | Supporting Fact Identification
