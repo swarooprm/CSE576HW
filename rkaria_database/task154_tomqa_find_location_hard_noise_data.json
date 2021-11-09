@@ -1,0 +1,52 @@
+{
+    "Definition": [
+        "Answer the question regarding the narrative if you are given one. The final sentence of the input is the question. Because of their length and the fact that each story contains at least one of the three scenarios below, these stories can be challenging. The first scenario is when an individual's belief corresponds to reality, the second is when an individual's belief does not correspond to reality, and the third is when a person has a false belief about another individual's views. The question will inquire for the placement of an object in the tale in relation to none of the three situations or one of them. It's worth noting that each story contains distractor sentences that are unrelated to the question and are meant to perplex the reader.",
+        "Answer the question concerning the tale if you are given one. The last sentence of the input is the question. The narrative involves one of three scenarios: the first is when an individual's belief corresponds to reality, the second is when an individual's belief does not correspond to reality, and the third is when an individual has a false belief about another individual's views. This along with the length makes the story very challenging. The question will ask for the position of an object in the story in relation to none of the three situations or one of them. It's worth noting that each narrative contains distractor lines that have nothing to do with the question and are meant to perplex the reader.",
+        "Answer the question about the story if you're given one. The last sentence in the input is the question. One of the three scenarios in the story is when an individual's belief matches reality, when an individual's belief does not match reality, or when an individual has a false belief about another individual's beliefs. These scenarios combined with the length make the story quite challenging. The question will inquire about the location of an object in the story in relation to none of the three scenarios or one of them. It's worth noting that each story contains distractor sentences that are unrelated to the question and are intended to perplex the reader.",
+        "For this task, the input is a passage and a question at the end. The question pertains to locations of objects that are described in the story. The types of questions center around a person's beliefs about the objects. This is tricky because there are certain distractor sentences that are intentionally added to confuse the reader."
+    ],
+    "Positive Examples": [
+        {
+            "input": "Logan entered the back_yard. Jacob entered the back_yard. The peach is in the blue_treasure_chest. Logan moved the peach to the blue_pantry. Jacob entered the laundry. Emily entered the laundry. The asparagus is in the red_pantry. Jacob moved the asparagus to the red_suitcase. Jacob entered the dining_room. Aria entered the dining_room. The cabbage is in the red_treasure_chest. Jacob moved the cabbage to the red_bucket. Emily entered the back_yard. Aria entered the back_yard. The lettuce is in the blue_pantry. Phone rang. Emily moved the lettuce to the blue_treasure_chest. Where does Emily think that Aria searches for the lettuce?",
+            "output": "blue_treasure_chest",
+            "explanation": "Aria was also in the back_yard when Aria moved the lettuce to the blue_treasure_chest. Thus, she saw the move and knows that the last location of the lettuce is the blue_treasure_chest."
+        },
+        {
+            "input": "Charlotte entered the kitchen. Elizabeth entered the kitchen. The cabbage is in the red_crate. Elizabeth exited the kitchen. Charlotte moved the cabbage to the red_envelope. Ethan entered the patio. Elizabeth entered the patio. The orange is in the blue_treasure_chest. Elizabeth exited the patio. Ethan moved the orange to the green_envelope. Aria entered the front_yard. Charlotte entered the front_yard. The pineapple is in the green_cupboard. Charlotte exited the front_yard. Aria moved the pineapple to the red_box. Ethan is in the patio. Charlotte entered the patio. The lime is in the green_envelope. Charlotte exited the patio. Ethan moved the lime to the blue_treasure_chest. Where is the lime really?",
+            "output": "blue_treasure_chest",
+            "explanation": "The last reference to the location of the lime is the statement that Ethan moves it to the blue_treasure_chest. Thus, the lime is in the blue_treasure_chest."
+        },
+        {
+            "input": "James entered the living_room. Jayden entered the living_room. The strawberry is in the green_box. James moved the strawberry to the green_cupboard. Olivia entered the living_room. Lucas entered the living_room. The strawberry is in the green_cupboard. Olivia moved the strawberry to the green_box. Jayden entered the master_bedroom. Lucas entered the master_bedroom. The beans is in the red_box. Jayden moved the beans to the green_basket. James entered the master_bedroom. Lucas is in the master_bedroom. The beans is in the green_basket. James moved the beans to the red_box. Where is the beans really?",
+            "output": "red_box",
+            "explanation": "James moves the beans to the red_box after which there is further mention of the beans. Thus, the beans are in the red_box."
+        },
+        {
+            "input": "Liam entered the cellar. Aria entered the cellar. The strawberry is in the red_box. Aria exited the cellar. Liam moved the strawberry to the red_bucket. Jayden entered the cellar. Aria entered the cellar. The strawberry is in the red_bucket. Aria exited the cellar. Jayden moved the strawberry to the red_box. Liam entered the garden. Aria entered the garden. The lime is in the red_envelope. Aria exited the garden. Liam moved the lime to the red_crate. Jayden entered the patio. Mia entered the patio. The corn is in the green_pantry. Mia exited the patio. Jayden moved the corn to the blue_suitcase. Where is the corn really?",
+            "output": "blue_suitcase",
+            "explanation": "The corn was originally in the green_pantry but Jayden moved it to the blue_suitcase. Thus, the corn's actual location is the blue_suitcase."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Alexander entered the sunroom. Ethan entered the sunroom. The tangerine is in the blue_container. Ethan exited the sunroom. Alexander moved the tangerine to the green_drawer. Alexander exited the sunroom. Ethan entered the sunroom. Alexander entered the basement. Lucas entered the basement. The banana is in the green_suitcase. Lucas exited the basement. Alexander moved the banana to the blue_suitcase. Alexander exited the basement. Lucas entered the basement. Ethan entered the study. Lucas entered the study. The lettuce is in the red_suitcase. Lucas exited the study. Ethan moved the lettuce to the blue_pantry. Ethan exited the study. Lucas entered the study. Lucas is in the study. Logan entered the study. The orange is in the blue_pantry. Phone rang. Logan exited the study. Lucas moved the orange to the red_suitcase. Lucas exited the study. Logan entered the study. Phone rang. Where was the orange at the beginning?",
+            "output": "red_suitcase",
+            "explanation": "The orange was moved from the blue_pantry to the red_suitcase. Thus, at the start, the orange was in the red_suitcase."
+        },
+        {
+            "input": "Amelia entered the sunroom. Jayden entered the sunroom. The tomato is in the blue_crate. Jayden exited the sunroom. Amelia moved the tomato to the red_bucket. Amelia exited the sunroom. Jayden entered the sunroom. Amelia entered the dining_room. Jayden entered the dining_room. The onion is in the red_bottle. Jayden exited the dining_room. Amelia moved the onion to the red_box. Amelia exited the dining_room. Jayden entered the dining_room. James entered the garden. Sophia entered the garden. The turnip is in the green_bottle. Sophia exited the garden. James moved the turnip to the blue_box. James exited the garden. Sophia entered the garden. Jayden entered the TV_room. Sophia entered the TV_room. The watermelon is in the green_cupboard. Sophia exited the TV_room. Jayden moved the watermelon to the green_suitcase. Jayden exited the TV_room. Sophia entered the TV_room. Where will Sophia look for the watermelon?",
+            "output": "green_suitcase",
+            "explanation": "Sophia was in the room when the watermelon was in the green_cupboard. However, after she exited the room, it was moved elsewhere. Since Sophia does not know that it was moved, she will look for the watermelon in the green_cupboard."
+        },
+        {
+            "input": "Lucas entered the master_bedroom. Liam entered the master_bedroom. The apple is in the red_pantry. Lucas moved the apple to the red_crate. Amelia entered the office. Liam entered the office. The tangerine is in the green_bucket. Amelia moved the tangerine to the blue_crate. Amelia entered the cellar. Liam entered the cellar. The orange is in the red_bottle. Amelia moved the orange to the green_envelope. Liam entered the living_room. Lucas entered the living_room. The peach is in the green_cupboard. Phone rang. Liam moved the peach to the green_drawer. Where is the peach really?",
+            "output": "green_cupboard",
+            "explanation": "The peach was in the green_cupaboard initially but was moved to the green_drawer by Lucas. Thus, it is in the green_drawer."
+        },
+        {
+            "input": "Jackson entered the pantry. Owen entered the pantry. The strawberry is in the red_pantry. Phone rang. Jackson moved the strawberry to the green_pantry. Owen entered the laundry. Elizabeth entered the laundry. The onion is in the red_drawer. Owen moved the onion to the blue_suitcase. Owen entered the cellar. Jackson entered the cellar. The corn is in the green_bucket. Owen moved the corn to the green_drawer. Isabella entered the garden. Elizabeth entered the garden. The celery is in the blue_pantry. Isabella moved the celery to the red_bucket. Phone rang. Where is the celery really?",
+            "output": "blue_pantry",
+            "explanation": "The celery was initially in the blue_pantry but was moved to the red_bucket. Since there are no further references to its location, the celerys current location is the red_bucket."
+        }
+    ]
+}
