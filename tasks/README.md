@@ -5,6 +5,7 @@ This directory contains the tasks that are part of this benchmark.
 
 Name | Summary | Category
 ---- | ----------- | --------
+
 `task072_abductivenli_answer_generation.json` | Answer Generation to Abductive NLI | Answer Generation
 `task072.1_abductivenli_answer_generation.json` | Answer Generation to Abductive NLI | Answer Generation
 `task072.2_abductivenli_answer_generation.json` | Answer Generation to Abductive NLI | Answer Generation
@@ -143,6 +144,73 @@ Name | Summary | Category
 `task095.3_conala_max_absolute_value.json` | Answer Generation and Mathematics to Conala | Answer Generation, Mathematics
 `task095.4_conala_max_absolute_value.json` | Answer Generation and Mathematics to Conala | Answer Generation, Mathematics
 `task095.5_conala_max_absolute_value.json` | Answer Generation and Mathematics to Conala | Answer Generation, Mathematics
+`task882_lhoestq_questions_generation.json` | Generating guestions (based on lhoestq) | Question Generation  
+`task885_lhoestq_answer_quantity.json` | Generating answers to lhoestq questions based on quantity | Answer Generation
+`task887_lhoestq_answer_place.json` | Generating answers to lhoestq questions based on place | Answer Generation
+`task888_lhoestq_answer_frequency.json` | Generating answers to lhoestq questions based on frequency | Answer Generation
+`definitions.json` | Generated alternate defintions of the given tasks | Text Modification
+`task428_senteval_inversion.json` | Seeing if something is inverted or not | Classification
+`task429_senteval_tense.json` | Checking the tense of a particular sentence | Classification
+`task430_senteval_subject_count.json` | Confirming whether a subject is singular or plural | Classification
+`task431_senteval_object_count.json` | Confirming whether an object is singular or plural | Classification
+`task456_matres_intentional_classification.json` | Deciding whether there exists a verb implying intention or not | Classification
+`task457_matres_conditional_classification.json` | Deciding whether there exists a verb implying hypothetical condition or not | Classification
+`task458_matres_negation_classification.json` | Deciding whether there exists a negation in a given sentence or not | Classification
+`task459_matres_static_classification.json` | Checking if a given verb is static or not | Classification
+`task460_qasper_answer_generation.json` | Generating answers based on qasper dataset | Answer Generation
+`task461_qasper_question_generation.json` | Generating questions based on qasper dataset | Question Generation
+`task462_qasper_classification.json` | Classifying a given question into abstractive or extractive type | Classification
+`task463_parsinlu_entailment_classification.json` | Determine whether a given hypothesis is valid or not | Classification
+`task464_parsinlu_entailment_sentence_generation.json` | Generate a hypothesis based on label and premise | Sentence Generation
+`task465_parsinlu_qqp_classification.json` | Determine whether a given sentence is paraphrase or not | Classification
+`task466_parsinlu_qqp_text_modification.json` | Make a paraphrase of a given sentence | Text Modification
+`task467_parsinlu_rc_answer_generation.json` | Generate answers to a given question | Answer Generation
+`task468_parsinlu_rc_question_generation.json` | Generate a question that can be answered from given passage | Question Generation
+`task469_mrqa_answer_generation.json` | Generate an answer based on the question provided from the passaage | Answer Generation
+`task470_mrqa_question_generation.json` | Generate a question based on the given passage | Question Generation
+`task471_haspart_answer_generation.json` | Generate an entity that is part of a given entity | Answer Generation
+`task472_haspart_classification.json` | Determine if an entity is part of another given entity | Classification
+`task473_parsinlu_mc_classification.json` | Classify the answers based on given options | Classification
+`task474_parsinlu_mc_classification.json` | Classify the given question into different types | Classification
+`task428.1_senteval_inversion.json` | Seeing if something is inverted or not | Classification
+`task429.1_senteval_tense.json` | Checking the tense of a particular sentence | Classification
+`task430.1_senteval_subject_count.json` | Confirming whether a subject is singular or plural | Classification
+`task431.1_senteval_object_count.json` | Confirming whether an object is singular or plural | Classification
+`task456.1_matres_intentional_classification.json` | Deciding whether there exists a verb implying intention or not | Classification
+`task457.1_matres_conditional_classification.json` | Deciding whether there exists a verb implying hypothetical condition or not | Classification
+`task458.1_matres_negation_classification.json` | Deciding whether there exists a negation in a given sentence or not | Classification
+`task459.1_matres_static_classification.json` | Checking if a given verb is static or not | Classification
+`task460.1_qasper_answer_generation.json` | Generating answers based on qasper dataset | Answer Generation
+`task461.1_qasper_question_generation.json` | Generating questions based on qasper dataset | Question Generation
+`task462.1_qasper_classification.json` | Classifying a given question into abstractive or extractive type | Classification
+`task463.1_parsinlu_entailment_classification.json` | Determine whether a given hypothesis is valid or not | Classification
+`task464.1_parsinlu_entailment_sentence_generation.json` | Generate a hypothesis based on label and premise | Sentence Generation
+`task465.1_parsinlu_qqp_classification.json` | Determine whether a given sentence is paraphrase or not | Classification
+`task466.1_parsinlu_qqp_text_modification.json` | Make a paraphrase of a given sentence | Text Modification
+`task467.1_parsinlu_rc_answer_generation.json` | Generate answers to a given question | Answer Generation
+`task468.1_parsinlu_rc_question_generation.json` | Generate a question that can be answered from given passage | Question Generation
+`task469.1_mrqa_answer_generation.json` | Generate an answer based on the question provided from the passaage | Answer Generation
+`task470.1_mrqa_question_generation.json` | Generate a question based on the given passage | Question Generation
+`task471.1_haspart_answer_generation.json` | Generate an entity that is part of a given entity | Answer Generation
+`task472.1_haspart_classification.json` | Determine if an entity is part of another given entity | Classification
+`task473.1_parsinlu_mc_classification.json` | Classify the answers based on given options | Classification
+`task474.1_parsinlu_mc_classification.json` | Classify the given question into different types | Classification
+`task428.2_senteval_inversion.json` | Seeing if something is inverted or not | Classification
+`task429.2_senteval_tense.json` | Checking the tense of a particular sentence | Classification
+`task430.2_senteval_subject_count.json` | Confirming whether a subject is singular or plural | Classification
+`task431.2_senteval_object_count.json` | Confirming whether an object is singular or plural | Classification
+`task469.2_mrqa_answer_generation.json` | Generate an answer based on the question provided from the passaage | Answer Generation
+`task470.2_mrqa_question_generation.json` | Generate a question based on the given passage | Question Generation
+`task471.2_haspart_answer_generation.json` | Generate an entity that is part of a given entity | Answer Generation
+`task472.2_haspart_classification.json` | Determine if an entity is part of another given entity | Classification
+`task428.3_senteval_inversion.json` | Seeing if something is inverted or not | Classification
+`task429.3_senteval_tense.json` | Checking the tense of a particular sentence | Classification
+`task430.3_senteval_subject_count.json` | Confirming whether a subject is singular or plural | Classification
+`task431.3_senteval_object_count.json` | Confirming whether an object is singular or plural | Classification
+`task469.3_mrqa_answer_generation.json` | Generate an answer based on the question provided from the passaage | Answer Generation
+`task470.3_mrqa_question_generation.json` | Generate a question based on the given passage | Question Generation
+`task471.3_haspart_answer_generation.json` | Generate an entity that is part of a given entity | Answer Generation
+`task472.3_haspart_classification.json` | Determine if an entity is part of another given entity | Classification
 `task212.1_logic2text_classification` | Given a command, classify the command in one of seven logic types. | Classification
 `task212.2_logic2text_classification` | Given a command, classify the command in one of seven logic types. | Classification
 `task212.3_logic2text_classification` | Given a command, classify the command in one of seven logic types. | Classification
@@ -1470,6 +1538,90 @@ Name | Summary | Category
 `task427.1_hindienglish_corpora_hi-en_language_identification` | Identification of language | Classification
 `task427.2_hindienglish_corpora_hi-en_language_identification` | Identification of language | Classification
 `task427_hindienglish_corpora_hi-en_language_identification` | Identification of language | Classification
+`task475_yelp_polarity_classification` | Classify a given Yelp review to positive or negative sentiment | Classification
+`task475.1_yelp_polarity_classification` | Classify a given Yelp review to positive or negative sentiment | Classification
+`task475.2_yelp_polarity_classification` | Classify a given Yelp review to positive or negative sentiment | Classification
+`task475.3_yelp_polarity_classification` | Classify a given Yelp review to positive or negative sentiment | Classification
+`task475.4_yelp_polarity_classification` | Classify a given Yelp review to positive or negative sentiment | Classification
+`task475.5_yelp_polarity_classification` | Classify a given Yelp review to positive or negative sentiment | Classification
+`task475.6_yelp_polarity_classification` | Classify a given Yelp review to positive or negative sentiment | Classification
+`task476_cls_english_books_classification` | Classify a given book product review in English to positive or negative sentiment | Classification
+`task476.1_cls_english_books_classification` | Classify a given book product review in English to positive or negative sentiment | Classification
+`task476.2_cls_english_books_classification` | Classify a given book product review in English to positive or negative sentiment | Classification
+`task477_cls_english_dvd_classification` | Classify a given dvd product review in English to positive or negative sentiment | Classification
+`task477.1_cls_english_dvd_classification` | Classify a given dvd product review in English to positive or negative sentiment | Classification
+`task477.2_cls_english_dvd_classification` | Classify a given dvd product review in English to positive or negative sentiment | Classification
+`task478_cls_english_music_classification` | Classify a given music product review in English to positive or negative sentiment | Classification
+`task478.1_cls_english_music_classification` | Classify a given music product review in English to positive or negative sentiment | Classification
+`task478.2_cls_english_music_classification` | Classify a given music product review in English to positive or negative sentiment | Classification
+`task479_cls_german_books_classification` | Classify a given book product review in German to positive or negative sentiment | Classification
+`task479.1_cls_german_books_classification` | Classify a given book product review in German to positive or negative sentiment | Classification
+`task479.2_cls_german_books_classification` | Classify a given book product review in German to positive or negative sentiment | Classification
+`task480_cls_german_dvd_classification` | Classify a given dvd product review in German to positive or negative sentiment | Classification
+`task480.1_cls_german_dvd_classification` | Classify a given dvd product review in German to positive or negative sentiment | Classification
+`task480.2_cls_german_dvd_classification` | Classify a given dvd product review in German to positive or negative sentiment | Classification
+`task481_cls_german_music_classification` | Classify a given music product review in German to positive or negative sentiment | Classification
+`task481.1_cls_german_music_classification` | Classify a given music product review in German to positive or negative sentiment | Classification
+`task481.2_cls_german_music_classification` | Classify a given music product review in German to positive or negative sentiment | Classification
+`task482_cls_french_books_classification` | Classify a given book product review in French to positive or negative sentiment | Classification
+`task482.1_cls_french_books_classification` | Classify a given book product review in French to positive or negative sentiment | Classification
+`task482.2_cls_french_books_classification` | Classify a given book product review in French to positive or negative sentiment | Classification
+`task483_cls_french_dvd_classification` | Classify a given dvd product review in French to positive or negative sentiment | Classification
+`task483.1_cls_french_dvd_classification` | Classify a given dvd product review in French to positive or negative sentiment | Classification
+`task483.2_cls_french_dvd_classification` | Classify a given dvd product review in French to positive or negative sentiment | Classification
+`task484_cls_french_music_classification` | Classify a given music product review in French to positive or negative sentiment | Classification
+`task484.1_cls_french_music_classification` | Classify a given music product review in French to positive or negative sentiment | Classification
+`task484.2_cls_french_music_classification` | Classify a given music product review in French to positive or negative sentiment | Classification
+`task485_cls_japanese_books_classification` | Classify a given book product review in Japanese to positive or negative sentiment | Classification
+`task485.1_cls_japanese_books_classification` | Classify a given book product review in Japanese to positive or negative sentiment | Classification
+`task485.2_cls_japanese_books_classification` | Classify a given book product review in Japanese to positive or negative sentiment | Classification
+`task486_cls_japanese_dvd_classification` | Classify a given dvd product review in Japanese to positive or negative sentiment | Classification
+`task486.1_cls_japanese_dvd_classification` | Classify a given dvd product review in Japanese to positive or negative sentiment | Classification
+`task486.2_cls_japanese_dvd_classification` | Classify a given dvd product review in Japanese to positive or negative sentiment | Classification
+`task487_cls_japanese_music_classification` | Classify a given music product review in Japanese to positive or negative sentiment | Classification
+`task487.1_cls_japanese_music_classification` | Classify a given music product review in Japanese to positive or negative sentiment | Classification
+`task487.2_cls_japanese_music_classification` | Classify a given music product review in Japanese to positive or negative sentiment | Classification 
+`task512_twitter_emotion_classification` | Given a Twitter post, classify the post's emotion to six classes (sadness, joy, love, anger, fear, surprise) | Classification
+`task512.1_twitter_emotion_classification` | Given a Twitter post, classify the post's emotion to six classes (sadness, joy, love, anger, fear, surprise) | Classification
+`task512.2_twitter_emotion_classification` | Given a Twitter post, classify the post's emotion to six classes (sadness, joy, love, anger, fear, surprise) | Classification
+`task513_argument_stance_classification` | Given a topic and an argument, decide the stance of the argument towards the topic | Classification
+`task513.1_argument_stance_classification` | Given a topic and an argument, decide the stance of the argument towards the topic | Classification
+`task514_argument_consequence_classification` | Given a topic and an argument, decide whether the argument refers to a consequence of the topic | Classification
+`task514.1_argument_consequence_classification` | Given a topic and an argument, decide whether the argument refers to a consequence of the topic | Classification
+`task515_senteval_odd_word_out` | Given a sentence judge whether a single word has been replaced with another word. | Classification
+`task515.1_senteval_odd_word_out` | Given a sentence judge whether a single word has been replaced with another word. | Classification
+`task515.2_senteval_odd_word_out` | Given a sentence judge whether a single word has been replaced with another word. | Classification
+`task515.3_senteval_odd_word_out` | Given a sentence judge whether a single word has been replaced with another word. | Classification
+`task515.4_senteval_odd_word_out` | Given a sentence judge whether a single word has been replaced with another word. | Classification
+`task515.5_senteval_odd_word_out` | Given a sentence judge whether a single word has been replaced with another word. | Classification
+`task515.6_senteval_odd_word_out` | Given a sentence judge whether a single word has been replaced with another word. | Classification
+`task516_senteval_conjoints_inversion` | Given a sentence judge whether two clausal conjoints have been inverted. | Classification
+`task516.1_senteval_conjoints_inversion` | Given a sentence judge whether two clausal conjoints have been inverted. | Classification
+`task516.2_senteval_conjoints_inversion` | Given a sentence judge whether two clausal conjoints have been inverted. | Classification
+`task516.3_senteval_conjoints_inversion` | Given a sentence judge whether two clausal conjoints have been inverted. | Classification
+`task516.4_senteval_conjoints_inversion` | Given a sentence judge whether two clausal conjoints have been inverted. | Classification
+`task516.5_senteval_conjoints_inversion` | Given a sentence judge whether two clausal conjoints have been inverted. | Classification
+`task516.6_senteval_conjoints_inversion` | Given a sentence judge whether two clausal conjoints have been inverted. | Classification
+`task517_emo_classify_emotion_of_dialogue` | Classify the emotion of a given dialogue | Classification, Sentiment Analysis
+`task517.1_emo_classify_emotion_of_dialogue` | Classify the emotion of a given dialogue | Classification, Sentiment Analysis
+`task517.2_emo_classify_emotion_of_dialogue` | Classify the emotion of a given dialogue | Classification, Sentiment Analysis
+`task518_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task518.1_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task518.2_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task518.3_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task518.4_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task518.5_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task518.6_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task518.7_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task518.8_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task518.9_emo_different_dialogue_emotions` | Given different dialogue determine if they have the same emotion | Classification, Sentiment Analysis
+`task519_aquamuse_question_generation` | Given an answer generate a question that would be answered by the answer given | Question Generation
+`task519.1_aquamuse_question_generation` | Given an answer generate a question that would be answered by the answer given | Question Generation
+`task519.2_aquamuse_question_generation` | Given an answer generate a question that would be answered by the answer given | Question Generation
+`task520_aquamuse_answer_given_in_passage` | Given a passage and a question determine if the question can be answered by the passage | Classification
+`task520.1_aquamuse_answer_given_in_passage` | Given a passage and a question determine if the question can be answered by the passage | Classification
+`task521_trivia_question_classification.json` | Given a text from a trivia quiz, decide the category the question belongs to | Classification
+`task521.1_trivia_question_classification.json` | Given a text from a trivia quiz, decide the category the question belongs to | Classification
 `task547_spl_translation_entk_en` | Translating a sentence in English tokens to English | Language Translation
 `task547.1_spl_translation_entk_en` | Translating a sentence in English tokens to English | Language Translation
 `task547.2_spl_translation_entk_en` | Translating a sentence in English tokens to English | Language Translation
@@ -1612,8 +1764,6 @@ Name | Summary | Category
 `task874_newsroom_title_generation` | Generating title (based on newsroom 1.6m) | Title Generation 
 `task875_newsroom_classification` | Classification of summay (based on newsroom 1.6m) | Classification
 `task876_LC_quad_question_classification` | Generating question from verbalised statement(based on LC-QuAD 2.0) | Question Generation
-`task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation
-`task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
 `task57_circa_answer_generation` | Given a question generate an answer that is relevant to the question to Circa Dataset | Answer Generation
 `task58_circa_classification` | Check if the answer is yes or no based on the given answer and can question field given in Circa Dataset | Classification
 `task59_circa_text_generation` | Given a question, Predict the context of the given question in Circa Dataset | Text Generation
@@ -1701,8 +1851,6 @@ Name | Summary | Category
 `task070.2_abductivenli_incorrect_classification`	|  Choosing text that incorrectly completes a story based on given beginning and ending.	| Classification
 `task071.1_abductivenli_answer_generation`	|  Generating text that completes a story based on given beginning and middle.	| Answer Generation
 `task071.2_abductivenli_answer_generation`	|  Generating text that completes a story based on given beginning and middle.	| Answer Generation
-`task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
-`task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
 `task212.4_logic2text_classification` | Given a command, classify the command in one of seven logic types. | Classification
 `task213.8_rocstories_correct_ending_classification` | Given the title and the first four sentences of a five sentence story, choose the correct story ending. | Classification
 `task213.9_rocstories_correct_ending_classification` | Given the title and the first four sentences of a five sentence story, choose the correct story ending. | Classification
@@ -1764,3 +1912,88 @@ Name | Summary | Category
 `task232_iirc_link_number_classification` | Given a question and context passage, determine if further information on more than one term from the passage is needed to answer the question. | Classification
 `task233_iirc_link_exists_classification` | Given a question and context passage, determine if the passage has any terms that can be used to obtain further information needed to answer the question. | Classification
 `task234_iirc_passage_line_answer_generation` | Given a question and context passage, determine which sentence in the passage has terms that can be used to obtain further information needed to answer the question. | Answer Generation
+`task189_snli_neutral_to_contradiction_text_modification` | Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
+`task189.1_snli_neutral_to_contradiction_text_modification` | Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
+`task189.2_snli_neutral_to_contradiction_text_modification` | Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
+`task189.3_snli_neutral_to_contradiction_text_modification` | Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
+`task189.4_snli_neutral_to_contradiction_text_modification` | Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
+`task189.5_snli_neutral_to_contradiction_text_modification` | Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
+`task190_snli_classification` | Given two sentences choose whether they agree/disagree/neither with each other. | Classification
+`task190.1_snli_classification` | Given two sentences choose whether they agree/disagree/neither with each other. | Classification
+`task190.2_snli_classification` | Given two sentences choose whether they agree/disagree/neither with each other. | Classification
+`task190.3_snli_classification` | Given two sentences choose whether they agree/disagree/neither with each other. | Classification
+`task190.4_snli_classification` | Given two sentences choose whether they agree/disagree/neither with each other. | Classification
+`task191_hotpotqa_question_generation` | Given a set of context, supporting facts and an answer, generate the question asked based on them. | Question Generation
+`task191.1_hotpotqa_question_generation` | Given a set of context, supporting facts and an answer, generate the question asked based on them. | Question Generation
+`task191.2_hotpotqa_question_generation` | Given a set of context, supporting facts and an answer, generate the question asked based on them. | Question Generation
+`task191.3_hotpotqa_question_generation` | Given a set of context, supporting facts and an answer, generate the question asked based on them. | Question Generation
+`task191.4_hotpotqa_question_generation` | Given a set of context, supporting facts and an answer, generate the question asked based on them. | Question Generation
+`task192_hotpotqa_sentence_generation` | Given a context paragraph, question and corresponding answer, generate the supporting facts that helps in answering question. | Sentence Generation
+`task192.1_hotpotqa_sentence_generation` | Given a context paragraph, question and corresponding answer, generate the supporting facts that helps in answering question. | Sentence Generation
+`task192.2_hotpotqa_sentence_generation` | Given a context paragraph, question and corresponding answer, generate the supporting facts that helps in answering question. | Sentence Generation
+`task192.3_hotpotqa_sentence_generation` | Given a context paragraph, question and corresponding answer, generate the supporting facts that helps in answering question. | Sentence Generation
+`task192.4_hotpotqa_sentence_generation` | Given a context paragraph, question and corresponding answer, generate the supporting facts that helps in answering question. | Sentence Generation
+`task193_duorc_question_generation` | Generate a question based on a given plot. | Question Generation
+`task193.1_duorc_question_generation` | Generate a question based on a given plot. | Question Generation
+`task193.2_duorc_question_generation` | Generate a question based on a given plot. | Question Generation
+`task193.3_duorc_question_generation` | Generate a question based on a given plot. | Question Generation
+`task194_duorc_answer_generation` | Given a plot and a question, answer the question based on the plot. | Answer Generation
+`task194.1_duorc_answer_generation` | Given a plot and a question, answer the question based on the plot. | Answer Generation
+`task194.2_duorc_answer_generation` | Given a plot and a question, answer the question based on the plot. | Answer Generation
+`task194.3_duorc_answer_generation` | Given a plot and a question, answer the question based on the plot. | Answer Generation
+`task195_sentiment140_classification` | Given a tweet, classify its sentiment as either positive or negative. | Classification
+`task195.1_sentiment140_classification` | Given a tweet, classify its sentiment as either positive or negative. | Classification
+`task195.2_sentiment140_classification` | Given a tweet, classify its sentiment as either positive or negative. | Classification
+`task196_sentiment140_answer_generation` | Given a tweet and boolean question, generate yes or no. | Answer Generation
+`task196.1_sentiment140_answer_generation` | Given a tweet and boolean question, generate yes or no. | Answer Generation
+`task196.2_sentiment140_answer_generation` | Given a tweet and boolean question, generate yes or no. | Answer Generation
+`task197_mnli_domain_answer_generation` | Given two sentences, write a single word describing the common genre to which they belong. | Answer Generation
+`task197.1_mnli_domain_answer_generation` | Given two sentences, write a single word describing the common genre to which they belong. | Answer Generation
+`task197.2_mnli_domain_answer_generation` | Given two sentences, write a single word describing the common genre to which they belong. | Answer Generation
+`task197.3_mnli_domain_answer_generation` | Given two sentences, write a single word describing the common genre to which they belong. | Answer Generation
+`task198_mnli_domain_classification` | Given two sentences and 10 genre choices, determine the genre to which the sentences belong. | Classification
+`task198.1_mnli_domain_classification` | Given two sentences and 10 genre choices, determine the genre to which the sentences belong. | Classification
+`task198.2_mnli_domain_classification` | Given two sentences and 10 genre choices, determine the genre to which the sentences belong. | Classification
+`task199_mnli_classification` | Given 2 sentences, determine if they clearly agree or disagree with each other or if they cannot be answered. | Classification
+`task199.1_mnli_classification` | Given 2 sentences, determine if they clearly agree or disagree with each other or if they cannot be answered. | Classification
+`task199.2_mnli_classification` | Given 2 sentences, determine if they clearly agree or disagree with each other or if they cannot be answered. | Classification
+`task200_mnli_entailment_classification` | Given a context statement and 3 sentences as choices, select the sentence that clearly agrees with the context statement. | Classification
+`task200.1_mnli_entailment_classification` | Given a context statement and 3 sentences as choices, select the sentence that clearly agrees with the context statement. | Classification
+`task200.2_mnli_entailment_classification` | Given a context statement and 3 sentences as choices, select the sentence that clearly agrees with the context statement. | Classification
+`task201_mnli_neutral_classification` | Given a context statement and 3 sentences as choices, select the sentence that neither clearly agrees nor disagrees with the context statement. | Classification
+`task201.1_mnli_neutral_classification` | Given a context statement and 3 sentences as choices, select the sentence that neither clearly agrees nor disagrees with the context statement. | Classification
+`task201.2_mnli_neutral_classification` | Given a context statement and 3 sentences as choices, select the sentence that neither clearly agrees nor disagrees with the context statement. | Classification
+`task202_mnli_contradiction_classification` | Given a context statement and 3 sentences as choices, choose the sentence that clearly disagrees with the context statement. | Classification
+`task202.1_mnli_contradiction_classification` | Given a context statement and 3 sentences as choices, choose the sentence that clearly disagrees with the context statement. | Classification
+`task202.2_mnli_contradiction_classification` | Given a context statement and 3 sentences as choices, choose the sentence that clearly disagrees with the context statement. | Classification
+`task203_mnli_sentence_generation` | Given a context statement, genre, and label indicating agree/disagree/neither with respect to the context statement, generate a sentence that follows the genre and label specifications. | Answer Generation
+`task203.1_mnli_sentence_generation` | Given a context statement, genre, and label indicating agree/disagree/neither with respect to the context statement, generate a sentence that follows the genre and label specifications. | Answer Generation
+`task203.2_mnli_sentence_generation` | Given a context statement, genre, and label indicating agree/disagree/neither with respect to the context statement, generate a sentence that follows the genre and label specifications. | Answer Generation
+`task204_mnli_same_genre_classification` | Given two sentences and the genre they should belong to, determine if they belong to the same genre or not. | Classification
+`task204.1_mnli_same_genre_classification` | Given two sentences and the genre they should belong to, determine if they belong to the same genre or not. | Classification
+`task204.2_mnli_same_genre_classification` | Given two sentences and the genre they should belong to, determine if they belong to the same genre or not. | Classification
+`task205_remove_even_elements` | Given a list of integers, remove all elements that are even. | Answer Generation, Arithmetic
+`task205.1_remove_even_elements` | Given a list of integers, remove all elements that are even. | Answer Generation, Arithmetic
+`task205.2_remove_even_elements` | Given a list of integers, remove all elements that are even. | Answer Generation, Arithmetic
+`task206_collatz_conjecture` | Given a list of integers, compute the next number in the *3n+1* problem. | Answer Generation, Arithmetic
+`task206.1_collatz_conjecture` | Given a list of integers, compute the next number in the *3n+1* problem. | Answer Generation, Arithmetic
+`task206.2_collatz_conjecture` | Given a list of integers, compute the next number in the *3n+1* problem. | Answer Generation, Arithmetic
+`task207_max_element_lists` | Given a list of lists of integers compute the max value for each list. | Answer Generation, Arithmetic
+`task207.1_max_element_lists` | Given a list of lists of integers compute the max value for each list. | Answer Generation, Arithmetic
+`task207.2_max_element_lists` | Given a list of lists of integers compute the max value for each list. | Answer Generation, Arithmetic
+`task208_combinations_of_list` | Given a list of integers of length *n*, find all possible combinations without replacement of length *n-1*. | Answer Generation, Combinatorics
+`task208.1_combinations_of_list` | Given a list of integers of length *n*, find all possible combinations without replacement of length *n-1*. | Answer Generation, Combinatorics
+`task208.2_combinations_of_list` | Given a list of integers of length *n*, find all possible combinations without replacement of length *n-1*. | Answer Generation, Combinatorics
+`task209_stancedetection_classification` | Given a topic and an argument, detect whether topic is in favor or against in the argument. | Classification
+`task209.1_stancedetection_classification` | Given a topic and an argument, detect whether topic is in favor or against in the argument. | Classification
+`task209.2_stancedetection_classification` | Given a topic and an argument, detect whether topic is in favor or against in the argument. | Classification
+`task210_logic2text_structured_text_generation` | Given a natural language interpretation, generate a command using logical operations. | Structured Text Generation
+`task210.1_logic2text_structured_text_generation` | Given a natural language interpretation, generate a command using logical operations. | Structured Text Generation
+`task210.2_logic2text_structured_text_generation` | Given a natural language interpretation, generate a command using logical operations. | Structured Text Generation
+`task210.3_logic2text_structured_text_generation` | Given a natural language interpretation, generate a command using logical operations. | Structured Text Generation
+`task211_logic2text_classification` | Given a command and corresponding interpretation, classify whether it is the right interpretation or not. | Classification
+`task211.1_logic2text_classification` | Given a command and corresponding interpretation, classify whether it is the right interpretation or not. | Classification
+`task211.2_logic2text_classification` | Given a command and corresponding interpretation, classify whether it is the right interpretation or not. | Classification
+`task211.3_logic2text_classification` | Given a command and corresponding interpretation, classify whether it is the right interpretation or not. | Classification
+`task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
+`task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
