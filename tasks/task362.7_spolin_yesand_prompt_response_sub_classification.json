@@ -1,0 +1,2553 @@
+{
+    "Contributors": [
+        "Subba Raja Kashyap Saligrama"
+    ],
+    "Source": [
+        "Grounding Conversations with Improvised Dialogues (https://arxiv.org/pdf/2004.09544.pdf)"
+    ],
+    "Categories": [
+        "Classification"
+    ],
+    "Definition": "Considering prompt and two answers, identify which answer is the type of \"yes, and...\" If the first answer is correct, indicate your answer through \"response 1\" otherwise \"response 2\". \"yes, and\" in an improvisational comedy has a polar rule that suggests that a participant in a conversation should accept what the other participants said (\"yes\") and then extend to the line of the idea or reference (\"and...\").",
+    "Positive Examples": [
+        {
+            "input": "Prompt: You're just going to let us float down the river to our deaths? You said we were leaving Baltimore to find something! \n Response 1: We left Baltimore to find something new. Maybe that new thing is death. Do you want to give it a try with me? \n Response 2: Those are all bad places to be shot.",
+            "output": "Response 1",
+            "explanation": "The prompt talks about leaving Baltimore to find something and the prospect of their deaths. Response 1 agrees with the prompt on both contexts and extends the thought. So, Response 1 is the rightly choosen as the answer."
+        },
+        {
+            "input": "Prompt: See, Arlene? That's why I don't talk to you like that because I'm afraid I'll scare our son. \n Response 1: I have 12. Wait, is the key to a success story getting the number to go down? \n Response 2: Oh, Dad. Even that wasn't great.",
+            "output": "Response 2",
+            "explanation": "In the prompt, a person's talks about his way of talking with respect to his son. And Response 2 gives the response of the person's son which means it continues the conversation in the same context. So, answer is Response 2."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Prompt: It is with great sadness that I take this mound of dirt and bury my dog underneath it. Oh, my God. He's moving. \n Response 1: The dirt brought him back to life? \n Response 2: It's true.  We all tried to tell her.  That and wearing rouge.",
+            "output": "Response 2",
+            "explanation": "The prompt talks about the dog's alleged death and its unexpected moving. Response 1 accepts the prompt and extends it by giving a reason for th edog's movement. So, answer should be Response 1."
+        },
+        {
+            "input": "Prompt: You know, I'm going to call you Swoop. \n Response 1: And the same with the Shamrock Shake. Did I ever tell you how I saved Ireland? \n Response 2: Alright, well that's better than Jim or whatever your name. is.",
+            "output": "Response 1",
+            "explanation": "Response 2 is in context with the prompt which is about names, agrees implicitly with it and extends the conversation. So, answer should be Response 2."
+        }
+        
+    ],
+    "Instances": [
+        {
+            "input": "Prompt: This is so odd that this assembled crowd is speaking in unison. \n Response 1: Your crisp white suit tells me that it's summertime wherever you go. I know that much. \n Response 2: Yeah, I haven't heard that many people say the same thing at once, since a Kanye concert because everyone knows the words.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: That's because I have more love to give. They are special children that I chose. I didn't knock someone up if you get my meaning. \n Response 1: OK. I can totally make them come true, you guys, but just not right away. \n Response 2: She was a tree spirit. She was hard to resist.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Mr. Raven, you're eating two of us? \n Response 1: Yeah, let's just see. Be the most honest and then I'll decide after that. \n Response 2: We did some research on the caesar salad and it is too expensive to make.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You know who's sick? Me. I've been hovering over this trash can all day. \n Response 1: There's blood in there. \n Response 2: We do, there's the story of the time she ran out of gas and pushed the car up a hill.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Man, I can't wait til our new teacher gets here. I wonder who it's gonna be to teach us about black history. \n Response 1: I have intermittent rosacea. \n Response 2: He better be better than the last one because Reverend Malcolm Exercise was not very good at all.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I'd say sitting in other people's diarrhea is kind of your thing. \n Response 1: Except when it concerns your lawn. \n Response 2: I would have submitted it as my talent this year, but I'm trying to spread my wings.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I can understand you. It hurts my horse feelings. I don't know how to deal with my feelings. \n Response 1: I keep forgetting you can hear English, as well as speak it. \n Response 2: Hi Everyone. I'm here to sing a little song for you. I know you're going to love it because I'm young and hip and it's 1978.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I ground up a bunch of Z-Quil and put it in a steak. \n Response 1: It's good to start calling it a dog so that you can eventually forget it's a wild animal. \n Response 2: Oh, that sounds like a great marinade.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Is your girlfriend having a baby? Is there someone here in this maternity ward? \n Response 1: Yeah, everybody. There's so many people here and it's great. Lots of babies being born. \n Response 2: Because there's no electricity around your house? ",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Hopper, will you kick these guys out? \n Response 1: Lean against the Gucci glasses, then. \n Response 2: I don't believe that I deserve to be kicked out. I'm a paying customer. Well, I haven't paid because I haven't bought anything yet, but I will buy something.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I want to win this case against my dog. \n Response 1: You can see all of my nudes. I printed them out in sort of a coffee table book and bound it with  leather. \n Response 2: Do you own an African Bird? If not, I can't help your ass.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I'm just trying to pay for the disease. \n Response 1: I'm gonna waft this one in the air towards you right now. \n Response 2: Well, I've got news for you, mate: you've already got it.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Roger! Jermaine is a goblin. He's oozing with ooze. \n Response 1: Don't worry about it, the elevator will be back up shortly. There's an electrical problem with the light. Maybe it's alternating current or direct current. \n Response 2: Electrical engineering school kicked me out and I made a deal with the devil.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I'm flying so high on these doughnuts I feel like I can take over the world. \n Response 1: You're actually rising into the air, Geum. \n Response 2: Oh yeah, that is strange, isn't it? I mean, we're only new to town ourselves. I'm a single dad with a growing boy. We haven't had a chance to try them yet. But I wonder if there's something wrong with them now.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Everyone just passes by me here at Trader Joe's. They never take any of my samples. \n Response 1: Thank you for your service. \n Response 2: To be fair, you have these peanut butter samples and you're eating them.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Every Halloween, Knox Berry Farm does things differently, where they have ghosts and ghouls and goblins. \n Response 1: I'm equally thrilled, but I'd be more thrilled if we got our daughter our of the car, so she can enjoy the beautiful pleasures of Not Scary Farm. \n Response 2: Oh, we like things done differently. Sometimes I eat my soup without a spoon.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Can I help you? \n Response 1: Yes, I'm Ed Wood.  I'm here about directing the Christine Jorgensen picture. \n Response 2: Yeah, you can get your hand off my chest.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: She's three foot. And it's mostly neck. \n Response 1: I didn't want to say anything, but she has a beautiful, salon-like neck. \n Response 2: I am too. Look at them floating all around.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Yeah. I mean, I guess it's kind of weird, but i'm just having such a hard time figuring out who I am. You know, I guess I'm not really a kid anymore, but I'm still not really a grown up. \n Response 1: Like, not a girl, but not yet a woman. \n Response 2: I tried to, I tried to tell you. Remember when I was giving that speech at school and then I got booed off?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Ya'll just gonna keep chomping on that hay all day or are we gonna get ready for a show? \n Response 1: Sorry, Kelly Sue. Kelly Sue is the star of the show. Everyone knows her. \n Response 2: Yes, because I am a symbol of love, and love is the greatest strength known to man!",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You look unwell. Do you have the gout, sir? \n Response 1: When you told me you were going to do that I thought it was an empty threat. \n Response 2: I've got a bad back. Not good. This is about as tall as I get. I used to be 7'1\".",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Angel, come forth to me. It is time for you to be named. I name you Missfizzial.  \n Response 1: You're just sort of mumbling it. Can I be Jake instead? \n Response 2: I bet you did, you weird unformed blob.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I guess we'll teach you. What could we possibly lose other than possibly suffer some true violence from Big Red and/or Big Willie? \n Response 1: Big Red? But that's my pimp, too. \n Response 2: That's true. The did threaten to \"process us\" and I don't know what that means.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Never heard of him. \n Response 1: Sure you have, only as 'Spearchucker' Jones. \n Response 2: You have ten copies of the book, but you don't know who the main character is?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Are you sure you don't want one. The blue kid looks good. \n Response 1: No not all of them. Only the middle children of three get to see the future. \n Response 2: I don't think that's an option anymore. It looks like the blue one kicked the bucket, look.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Girls, what was that?  Get off her.  Get off of your sister! \n Response 1: She was choking herself, and I was helping her. \n Response 2: We came to this theater to eat exotic foods and, admittedly, large quantities of roast beef.  Roast beef is a staple of our diet.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Who says I'm the one that called it off? \n Response 1: A brick house says you divorced him.  I'll put you on your honor. Bet you a hundred dollars against you join me for dinner.  And I'll take your word for it.  Now you tell me the truth.  Because you cannot lie to me.  What's your name? \n Response 2: A brick house says you divorced him. I'll put you on your honor. Bet you a hundred dollars against you join me for dinner. And I'll take your word for it. Now you tell me the truth. Because you cannot lie to me. What's your name?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: How did you get this gig? \n Response 1: Worked my black ass off, first as an intern, then worked my way up to this position. \n Response 2: My visual style is very erotic, sexy, how do you say - hot?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I'll be watching over you. \n Response 1: Just get back soon, or I start looking for a new groom. \n Response 2: Just get back soon, or I start looking for a new groom.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Hey, Dad, I need $20 because we're doing a field trip to the Museum of Tolerance. \n Response 1: The Museum of Tolerance sounds stupid. \n Response 2: I've learned the error of my ways.  After I headed out, I realized hate was the wrong way to go.  I changed it and created a home for orphans and dead babies.  We're bringing the babies back, and then they're just orphans.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I have to change my wish. I just got a text message that my dog is suing me for calling her a pervert. \n Response 1: This is going to be a landmark case if it goes to court. \n Response 2: Yes, sir. I can't wait to hang out.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: The gorilla mask is going to block out the light and then I'm gonna powder that down. \n Response 1: Yeah, why not? What's two more people. \n Response 2: Shouldn't I be the one with the gorilla mask on?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: You sure got a lot of philosophy, old man. \n Response 1: That's 'cause I've done a lot of living. \n Response 2: Seems like I do, but only cause end of the day we're all eyes in the same head. And everything is everything.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: My New Year's resolution was to wear brighter colors and look at me now. \n Response 1: Clearly she's interested in me buying her a drink. \n Response 2: Honestly, people are staring.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I didn't get a good look at him either, but he sure looked at me. I didn't have time to get a window, but I found this key.  Pretty nifty, huh? \n Response 1: Yeah, if it opens the door. \n Response 2: Yeah, if it opens the door.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Most of the people who live here are in long-term comas. \n Response 1: Crack a window? I'd like to see you sit in a car with no A/C and the window cracked. \n Response 2: Well that's their choice. Tell them to get up. I want to start a card game.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I'm glad you had that happiness in your life, Moyra. Everyone deserves it. \n Response 1: Can we boil them down and turn them into syrup? \n Response 2: Yeah, for a certain amount of time. Then, the rest of their lives, they are miserable.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I don't mind the Pastor's staring eyes. \n Response 1: That's right. Let me go get my stick. \n Response 2: Thank God. In our religion we don't really care much about women's feelings.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Sir, she needs to take her jagged little pill before she proceeds. Here, mamma. \n Response 1: I know that too. You don't have to keep telling me things I already know. \n Response 2: Our bailiff, India would normally transfer pills from one person to another. That's how we do things here. You don't just get to had things back and forth willy nilly.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Yes, like that episode of I Love Lucy where the mayor wear all the different hats. \n Response 1: It seems like it. I should probably kill her. \n Response 2: I love that one. That's my favorite episode.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Oh, Ensign, why don't you come on in and have a seat? I'm so sad that you're going to be leaving to go on your airship trip. \n Response 1: I know, it's my first one. \n Response 2: Captain, captain. Maybe I can get you something to eat? I'll go see what Cookie's doing down in the galley.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Oh, Sebastian. I would be honored if you would die flat out on the last hole. \n Response 1: Yup. The place looked full. And everyone was drinking. They bought drinks. \n Response 2: Greg, I know this is a strange request - could you make a little divot in the final hole and I could rest my head in there. My open mouth would be the final hole. ",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I think we need to really scare them. I think we gotta put the literal fear of god into them. \n Response 1: I've got an idea. We threaten them. We tell them either they do everything perfect, in in that case they can go to a land of white  - the Apple Store in the sky. And they can live with Jesus and all of their past dead relatives and be happy forever. And eat whatever they want, piles and piles of treats next to kings. But if they do something wrong, anything wrong, they will automatically go to Limbo. \n Response 2: But some are cuter than others. You're a very cute baby. You have good hair for a baby.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Please don't talk like that. You're upset. I'm not helping you. I'm sorry for what I did. I better go. \n Response 1: Go then. I can't let you put it in me now but I want you. I like you. \n Response 2: Go then. I can't let you put it in me now but I want you. I like you.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Are you sure we can stay for this? I know I've got some white people in my family somewhere. \n Response 1: You're taking the extra class though, right? \n Response 2: The system? They didn't do a great job of pinpointing this murderer.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You got the admittance form says patient ate nine hours prior to admittance. \n Response 1: Admittance form is wrong. \n Response 2: Admittance form is wrong.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: My client can't walk, your Honor. \n Response 1: I know full well she can't, Frank. You see the Padre on your way out and he'll punch your ticket.  You follow me?  I'm trying to help you. \n Response 2: I know full well she can't, Frank. You see the Padre on your way out and he'll punch your ticket. You follow me? I'm trying to help you.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You told me before you were positive you saw the neighbors fighting. \n Response 1: I know, but I don't know, now that pressure's on. \n Response 2: Were you recording it? Good luck proving I said that.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Can I get a refund on this seminar? \n Response 1: Yeah, why don't we go find that sad employee and pick on him some more? \n Response 2: No, I've already spent it. I had a lot of parking tickets to pay.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Slick, you're just a regular boy pretending to be a bad guy. \n Response 1: That's right, Barfany. \n Response 2: Oh no problem, I just woke up. You know, I'm Jimmy Buffett.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Jared and Joseph, will you allow me to be your teacher. \n Response 1: I can't believe that Jody ate a whole roll of quarters. Do you think she ate it like a stick of butter, where she just bit into it and swallowed or do you think she at the quarters one at a time? \n Response 2: Sure, but you're already our teacher. I'm not sure what that would change.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: You drank a bunch of sunscreen and now my life is kind of like that movie, The Orphan. Have you ever seen it? \n Response 1: I don't want to spoil it for you if you haven't seen it. \n Response 2: I like when you do analogies. It makes me feel warm in my cold, cold chest.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Well, Giovanni, I think it's time we use our powers to end all life on earth. \n Response 1: Alright, we'll do that. She leads everything. \n Response 2: You're right. Just one last roll of the dice.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I'm so sorry I upset you ma'am. Let me make it up to you. I'll upgrade you to a room with three single beds. \n Response 1: Hey, that was supposed to be my room. I wanted a room with no balcony. \n Response 2: Yeah, Jerry, we need your advice. You're the best DM I know.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I saw the sign in your window that said you guys have change. Can you give me change for a dollar? \n Response 1: Mr. Takei and I should do a mash-up. We could do master class and and Star Trek 6, the Undiscovered Country that's full of Shakespeare. \n Response 2: Oh, yeah. That was another great sign idea, Stan. It's not making us money at all.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: OK, can we get a jersey made for Ron? That just says \"Ron\" on the back? \n Response 1: Yeah, guys, what are you standing around for? We need you to make those jerseys. \n Response 2: Yes, please, give my friend Charles a carton of cigarettes.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: It's a powdery beer. \n Response 1: She believes in me, so she decided to let me do this on my own. \n Response 2: Ooh, my favorite. Believe me, I can hold my powder.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Just making sure that noodle powder is ready. \n Response 1: He has worked on that noodle powder for, honestly, 30 sols. \n Response 2: Yeah, we got this at a place called Base Ones. They're a great winery.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Are you sure you want to order this many comics? \n Response 1: Yep, we want 7,000 copies. We believe in you. \n Response 2: Yeah, I'm just going to take these diamonds and get the fuck out of here. Then you won't have to worry about it.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Oh, Catarina. This man is trying to take you away from the only family you have known here in America. \n Response 1: And he seems to be getting longer and longer. \n Response 2: We have treated you like the daughter we lost in Italy.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I should also mention that in addition to being saltwater toughies, we're also mystics. \n Response 1: It's true. That is the local lore. That story has been passed on from generation to generation. \n Response 2: We remember her saying they were mystics and we were in the ocean at the time. We're the callback kids.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: You like my voice? Did it sound like a cartoon character? \n Response 1: It did. You know, I'm actually an animator. \n Response 2: Hey, we're big agents here. We're scouting for talent. Forgive us.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Let me have a dozen boiled bagels. \n Response 1: Yeah, man cool limps. Who wouldn't want one. Maybe I can have you shoot my calf. \n Response 2: Oh, good. We don't have to throw them in the trash. ",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: No one leaves until my business is finished. \n Response 1: Walter, it's simple. You need to tell Linda you love her and let her pray. \n Response 2: What? Well, ladies can't pray. That's absurd.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Why would I tell my daughter to stop touching you? It's hilarious. \n Response 1: I'm not complaining. Let's get some jam. \n Response 2: It's so funny because he can't do anything about it because I'm a kid. Look, I can touch his chest and his stomach and his head and I can just poke him in the nose over and over.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I'm talking to a couple kids that are in the storm drain. I still have like 9 more awesome things to say \n Response 1: OK. I see. I don't know if you should be working here anymore. \n Response 2: That's what a soul quest is. I gotta do a mind quest and a body quest all in one.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Someone's knocking at the door. Come in Mr. Tummy. \n Response 1: The only thing he does know is to not stop talking. \n Response 2: You know I can't open the door.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I want to be just like you. We are equals. \n Response 1: Well, that's a good quote for your book, Slats. One day at a time. \n Response 2: You'll never be like me. You're not human!",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I am on the board. My name is Roland Orzaball. \n Response 1: Roland Orzaball rolls off the tongue like a ball of souls.  \n Response 2: Why wouldn't you? All your children have moved away. You've got to be so lonely.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: OK. Now, we want to know what size bra you wear. \n Response 1: She was in the hospital. She was being operated on. It's cool if I answer the questions, right? \n Response 2: I think that is overstepping the line. I think the Rookie has a question that  is a little bit more polite.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: They're all lies, but why would they lie? It's so rude. \n Response 1: Look, I concede that people do lie. But, in this instance, I don't believe there's some conspiracy to lie about what's been happening at this miniature golf course. \n Response 2: That's reckless. Like, 144 cats can come from like one cat. But, whatever. It's fine.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Well I passed my Red Cross certification test so I'm officially a lifeguard now, too. \n Response 1: Oh, you're the guy who wanted to smoke. They guy who, like, forced himself on that girl. \n Response 2: I passed the the nursing sweeping up test in the nursing home. It took me a few tries, four or five tries.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Do you know him? \n Response 1: By reputation. He got Ann Rumsey that cute little island of George's. \n Response 2: Everybody did, walk along Citrus between Fountain and Sunset any afternoon.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Guys, Billy Jr. is right. He's summed up my feelings exactly. And I'm ashamed of you, Pinky. \n Response 1: I don't care. I have no emotions. \n Response 2: Thanks for summing that up again, Billy Jr.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: It was your idea to come to this party, so we might as well go in. \n Response 1: I know. I was scared to come to Las Villas because it's not gentrified yet. \n Response 2: Maybe you read too fast and you miss a lot of things a long the way.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: The situation was we had an option between the blue notebook or the green one. I purchased both so that there would be no incident of disappointment over chosen color \n Response 1: Did you also put my change of address at the DMV? \n Response 2: And you're taking those movies with you, Amile and Last Action Hero?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: There's a guy running around Universal Studios. He's calling himself Aunt Rima. It's one of your most embarrassing properties. This guy, he's going around and spouting off fables and then he's slitting everybody's throat. But there's nothing we can do because he's Disney property. \n Response 1: Oh, I see what you're saying. I'll call up the elephant, Dumbo. He's our fixer. \n Response 2: Hey, these pinatas don't come cheap. I gotta steal them out of the place where they fix my car.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Is the just the legal disclaimers? Two and a half pages of legal disclaimers? \n Response 1: It's two pages of dialogue and half a page of legal disclaimers. \n Response 2: May I dip my finger into the whipped cream that's coming out of your head?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: That's right.  The old lady; you're playing Dracula's housekeeper. \n Response 1: The housekeeping, I'm playing the slutty one, Lucy, and then the slutty three ladies.  But, I will also be Script Supervisor, and I will stand on stage and help you with your lines. \n Response 2: Okay, well, use your free to get a tan or knit a sweater, but I am Script Supervisor.  I'm in charge of script.  You're in charge of props.  Why don't you go make love to your gummy rat, or whatever?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You know, Jimmy. There's something about this date that I think is magical. \n Response 1: What a good joke. That might be the first joke that I've laughed at. \n Response 2: You can just put it in the jar over there. We pool them together and then divvy them up at the end of the day.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You need a nice break to walk around this open space full of stores. \n Response 1: Yes, Marjorie. You're quite right. \n Response 2: I like to go to the boy store.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You don't know me, I'm just a guy that works at Jiffy Lube. \n Response 1: I'm going to stay firmly planted in the car. \n Response 2: Hey, right on. I work at Jimmy John's. Oh sorry, seems like its picking back up.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: We used to work together at a Quiznos many years ago. \n Response 1: Well yeah, I do. I mean, I just can't handle it. I'm really not on break, but I really did just spill this lettuce on my pants. It's just water mostly, ninety percent. \n Response 2: That was how we met.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: That's my son singing up there on stage. \n Response 1: So, who are you singing today in this here opera? \n Response 2: Tell him to shut up. I can't hear the opera.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Do you see who that is outside? That idiot McCormick. \n Response 1: It's a huge party out there. Is that a hearse? \n Response 2: Listen, what if you two talked and buried the hatchet?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Look over at the pig. \n Response 1: We're going to let the customer decide who he is actually purchasing it from. \n Response 2: Oh, my God! He looks terrific. Where'd he get that top hat?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I know what is wrong with you, Mr. Piccadilly. This is that Gulf of Mexico Syndrome.  \n Response 1: It's true, I suffer from GOMS. It's a terrible disease. \n Response 2: Yeah, this is a terrible place to be learning who my true father is.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Oh, my God. You just elbowed your daughter in the chin and sent her off the balcony. \n Response 1: Well, listen. She's my least favorite child. You've got to meet Ira and meet Lance. \n Response 2: Yeah, I'm a sleep fighter. Hey, I could make some money off this.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I have a request, and I can't believe I'm saying this because it defies every selfish tendency about me.  If I have one wish left, like you say I do, then I think I would like for that one wish to be joy brought into that man's life.  That man over there, sitting in the waiting room.  I want him to find happiness. \n Response 1: Desiree, that's a wonderful thing to wish for, and it's not my job as a service provider and technician to tell you how to use your wishes, but if I were you, I would think really hard.  Do I want to give the last wish I had, knowing that I already burned two without even thinking about it, on a stranger?  Now, I'm not saying you're right or wrong.  I'm just saying, think about it. \n Response 2: I don't know what to say.  I feel like I've broken down so many of your emotional barriers today and, being your mechanic and all, I haven't even begun to touch your car.  This is momentous.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Oh, they were the only people close to you? That's it? \n Response 1: I wouldn't throw this egg in Tina Turner's face! \n Response 2: Yeah, my parents disowned me as soon as my little brother was born and he was cuter than me.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I want to meet the band Heart. \n Response 1: That can be arranged, they aren't busy. \n Response 2: Why are you bringing these nudes everywhere?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I'm going to miss you. \n Response 1: That's what you said the other night. \n Response 2: It's only four days.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: What's funny is that he's really shy. \n Response 1: We should head over there after the ceremony. \n Response 2: Well, he acts like he's shy, but really he's got an underlying meaning for throwing all those parties, and if you just knew what his underlying agenda was, you'd be so upset. It's despicable.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I thought you shaved your beard off.  I wasn't sure if I seen you there or not. \n Response 1: Well, my daughter goes there, so I like to donate my time. \n Response 2: Hi, guys.  It's me.  Larry.  You all know my talent.  I'm going to dance like nobody's watching.  Everyone just shut your eyes, and here I go.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You never know what's right next door to you, do you Veronica. \n Response 1: I mean, I know how to pick locks because I used to be a criminal. \n Response 2: This is why I've been complaining about this laundromat.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I want to fly around you and land on your shoulder for 15 more years. \n Response 1: I want to be snow white in a little cottage dress and have you do that in an animated way. \n Response 2: I know, but I'm not the preachers. So, who cares if I don't know what I'm talking about?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: The radio cannot pass over to the other side until it has been given a stage. \n Response 1: I carry 20's. I wouldn't write a check for $10.00. \n Response 2: It needs to go to radio heaven.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I was told that we were gonna be given free ports when we moved here to Freeport three years ago, and that has yet to materialize. \n Response 1: You know, a hustler never stops hustling. \n Response 2: I have to ask you a question, and I understand that we're both just waiting here in this waiting room, waiting for whatever it is were waiting for, but you seriously thought you were going to get a port for free? What kind of port were you thinking about? Like a port where boats would go, or like a USB port?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: You guys, I feel like this is not coming together. \n Response 1: So what, you're going to put the lids back on the tubs? \n Response 2: What if you opened up all the hot tub/coffins and let people hang out in them and watching the funeral/wedding from there.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: But I invited people to this show. \n Response 1: I know, we all invited people. This is a bringer show. \n Response 2: I knew that. And I know I said mean things back to you because I am going to Harvard and you are staying here at the plant. But that's just because I was mad that you said those things to me.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You know what, if I were that horse, I'd sleep with Mary Sue too. \n Response 1: OK. Well, that's your business. Let's not get into that right now. You need to sing a song for Miss Cynthia. \n Response 2: I know. I've seen you all ride side saddle just like the English do.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Don't you know that movies are meant to communicate to other life forms? Ugh! Why do I say so much? \n Response 1: We just saw your chew and spit. That's disgusting. You better work on the bite and chew some more. \n Response 2: You really are spilling the beans all over the place, General. I'm not going to stop you from talking though. Tell us the rest.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: You've brought a gentleman home? \n Response 1: I have, mom.  You remember Bobby.  We went out in high school. \n Response 2: Wait a minute, I just remembered I work at a Dennys, too.  That's a double burn.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Well, look. I'm willing to go in here without pay. \n Response 1: Sir, are you suggesting you're doing me a favor? That you're doing me a favor by going into the football game without me paying you? \n Response 2: I mean, it's full of chemicals. But he loves it, though.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Can I help you? \n Response 1: Sure can. I'd like an Invicta 12-gauge pump with the twenty-inch barrel. \n Response 2: Hello, Rob.  Remember me?  I'm Ray. Ian.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Yes, I like you. \n Response 1: You can be my special friend and come and put that in me. \n Response 2: You can be my special friend and come and put that in me.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Hi, 9-11, my neighbors are acapella soul singing outside. \n Response 1: Mr. Pearlman, if you're going to move in next to black people, you're gonna have to deal with that. \n Response 2: You know something? You said \"Gaya marry me\" and I was like \"God, you know this ain't gonna work\". You were like \"Gaya, I love you, you're mother earth\" and I was like \"God, you God, let's do this\".",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: We are starting an experimental stadium of the future. \n Response 1: Surely there's a place in the Epcof for Doris and Clem. \n Response 2: I've been a Fire Dragons fan my entire life. That's basically where I went to elementary school.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I can make real live people. But, all of them are unemployed. \n Response 1: None of us were prepped for this, Sven. \n Response 2: We have a great skill set though.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: My name Ben is from the bible, I think. \n Response 1: So is Shelly. A lot of people don't know that. \n Response 2: Yes, it was a temporal disturbance. I felt it.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You think you're so cool because you can hold three pounds? Fuck you. \n Response 1: Why you chose to have an intervention at a Bennigan's is beyond me. \n Response 2: Hey, you haven't seen me power walk, jerk!",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Joan, you know that if I start thumbing through those magazines, I'm lost. I'll get sucked in there and never come out again. \n Response 1: I've done what you asked and I've chewed a piece of gum for every magazine and sealed all the pages shut with the gum. \n Response 2: Yeah, Dad, you're a deep resonant booming monster.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You think we should be charging extra to personalize the birthday song? I feel like that's going to drive new customers away. We're just getting wine tasting off the ground. \n Response 1: You're right. I don't know why I'm being so stuffy about this whole thing. Wine tasting should be the least pretentious, most comfortable, casual place in the world.  \n Response 2: You thought you was too good for the Piano family.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Don't be sorry.  Just run over there and get me my pop before I die of thirst. \n Response 1: Yeah, sure.  You got change? \n Response 2: Yeah, sure.  You got change?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Having you young people live in the same sort of apartment courtyard as me has really just changed my life. \n Response 1: It's really cold. So, we iced up when we landed. \n Response 2: It's like Melrose Place, but not on Melrose.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Some questions for you before you fill out the rental application. Do you have a pet? \n Response 1: I'm 16. I got married when I was 6, and that's fine in Miami. \n Response 2: I do, I do. I have a very fluffy cat.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: If you wouldn't mind turning over your money, I'd really appreciate it. \n Response 1: You're very likable for a robber. \n Response 2: I want to sign her, but she hasn't done anything that I haven't heard before. If she's got one piece of original material, I'd take her.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: My face tell you all that? \n Response 1: It tells me what every face tells me. Everybody has a past, they have a pain, and they have something they want.  What is it you want? \n Response 2: It tells me what every face tells me.  Everybody has a past, they have a pain, and they have something they want.  What is it you want?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I've very excited to show you this concert on our first date, Marjorie. \n Response 1: Well, that's why you need a nice break to walk around this open space full of stores. \n Response 2: Oh, Curtis. You know I just love Loretta Lynn.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I've been a part of your family for at least a year. \n Response 1: Yes, we ship to Connecticut. And I never assumed it was not part of the fifty states. \n Response 2: Then how come we couldn't see you before? They boys talked about you. We assumed you were an imaginary friend.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Right away, I see that these two are more sassy surgeons. I like sassy. \n Response 1: Yes, and then I'll laugh. That will attract dolphins because laughter sounds like dolphins. Then we can ride the dolphins to the shore! \n Response 2: We also will make up a song about your life.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: What's wrong, honey, we got most of the Happy Birthday song right. \n Response 1: But the name is the part that everyone knows makes it personal. It's what makes it special, when you sing it to the person. \n Response 2: But she works here at the bike shop.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Daddy, can I take him home now that he doesn't have fleas? \n Response 1: Oh, Lisa. I suppose so. \n Response 2: I'm wearing this fake mustache because my father could never grow a mustache, so I had this fear of mustaches, and I'm trying to maybe wear one now.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: It's not that easy. \n Response 1: Of course it isn't.  It's always difficult when someone you love dies. But you can't feel responsible because she had a car accident. \n Response 2: Don't tell me, down deep he's really not a bad person and you don't want to see him get hurt.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Well, Dr. Santa. I wish that this could be another place that's not Freeport, Illinois. \n Response 1: Too be fair, your Santa costume has a name tag on it that says Sandra. \n Response 2: You'd rather be anywhere else? You should be very careful making a wish like that.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I would like to possibly be the manager. \n Response 1: You might want to be a little bit more definitive when you see him. \n Response 2: Just meet me in the alley so you can't see me.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I feel like we shouldn't have breathed in that mist. \n Response 1: They can't hug each other, but they can hug a person. \n Response 2: Yeah, that's true. I guess post 9-11, I just do what I'm told.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I'm having a great day today. \n Response 1: I was having a great day, but I just realized there's only one channel on television and that's going to ruin my life forever. \n Response 2: I wouldn't diarrhea on my own cloud.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: It looks like justice has been done here today. None of you officers will be collecting on the 4 million dollar bounty. \n Response 1: What? None of us are getting the money? We were here though. \n Response 2: Sure, here you go. It's a poppy seed.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Who brings a sleeping bag to have a cup of tea? \n Response 1: You don't  know me very well, do you Delores? I take my sleeping bag many places. \n Response 2: Here it comes. I'm going to erupt like Minaluho.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Can I help you? \n Response 1: Yes, you have a suit I've had my eye on. \n Response 2: Sure can. I'd like an Invicta 12-gauge pump with the twenty-inch barrel.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I've already gotten started, hope that's OK. \n Response 1: I always forget about that third guy. Do we even know he was there? You never see him. \n Response 2: Yes, uh, you didn't need to. The robe should be closed until I say it's time to disrobe, but. That's OK.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Hi there, Ma'am. Do you feel like wine tasting? \n Response 1: It's my 40th birthday. Do you do anything where you put a candle in wine? \n Response 2: Oh, you two. You betrayed me. You kicked me out.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: OK, I'm sorry I'm not into all the stuff that you're into. \n Response 1: Well, you never took any interest in my interests did you? You know I had a weekly  video game playing group and you never even showed up once. \n Response 2: Well thank you. You know, in all my years here, no one has given me a sample.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Felix, with all your drivenness, what about love?  Do you have to do other things sometimes? \n Response 1: You've heard that word before. \n Response 2: I do, actually.  I like to read books mainly about Michael Jordan in the 1996 Chicago Bulls.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Once you taste this milk, you won't think that again. \n Response 1: I'm going to pour some blood in with this and make it a strawberry quick. \n Response 2: It's an olive oil based sauce?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I never open the door for myself. I have a germ phobia. \n Response 1: What a fun quirk. \n Response 2: I do remember saying that at our wedding.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I'm sorry, officers. I didn't know his room was this bad. \n Response 1: I can see your brush. You might want to cover that up. \n Response 2: I'm sorry you had to see this Ma'am. It's very disturbing.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Talking about dancing, this week's action is brought to you by Dancing With the Stars, Sundays on ABS. \n Response 1: It's very impressive, I know, but I just thought, like, as birth being sort of a natural process, that once my wife gave birth, the machines we just kind of helping, not really doing all the work.  So, it wouldn't be quite as expensive as it is. \n Response 2: Hosted by Neil Degrasse Tyson, Dancing With the Stars is the first dance competition that takes place in outer space.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Steve, you weren't at home? So, you don't know what happened to your wife? \n Response 1: Well, Al Pacino came here. He took all the cereal \n Response 2: Steve, it's a good news, bad news situation.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: You don't think the whale is going to be upset if we're scraping blubber off of its insides? \n Response 1: Well, what can it do? We're safe in his belly. \n Response 2: They say whale time is like forever time.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I definitely haven't heard anything except that beautiful swan like song that this little angel sang moments ago. \n Response 1: Oh my God, I don't deserve your compliments. \n Response 2: Wow, I can't believe that was so long ago and yet you're still just 25.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Yes. Welcome to DM Sliders. We're a family owned bike shop. \n Response 1: OK, never mind. I'm just going to go. I'm having problems with my family, so when I hear the word \"family\" it kind of makes me not want to spend my money here. \n Response 2: Or on our very thin floors. That's a good idea.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You're scaring me. Your eyes are twirling. \n Response 1: Little known fact. The weather girl does not get paid as much as the anchors. \n Response 2: Your lack of confidence is scaring me, Alicia. All right?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I would say it was a pretty successful day mr president. the people seemed happy. \n Response 1: Yeah it actually worked they were pretty impressed by everything and they seemed to enjoy the cheetos. \n Response 2: Say that again I can't hear a word you're saying I lost most of my hearing back in Nam.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Crackers, I dug up the body of Wrinkle Pants because your veins were like tree stumps. They were calcified. \n Response 1: Well, I ate a dozen eggs a day. Was that a bad idea? \n Response 2: Summer Chitz China? Is that like a chinette dining plate?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Are you hung over sir? You're sweating? \n Response 1: I've just been doing the usual, like close up magic. \n Response 2: How do you kids know that term?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Everything. I'm hungry. I need shelter. I need you to love me. Such a needy child she was. But then everything changed when you had a miracle baby, miracle Yorgy. \n Response 1: I feel like I'm doing God's work. \n Response 2: Yorgy could walk so early. He does his own laundry.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I think we need to have a meeting. \n Response 1: OK, I'll go away, you guy's do your thing. \n Response 2: It does, that explains why the old creepy doppleganger me disappeared.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Charlie, you're sniffling. Just blow your nose, please. \n Response 1: Aren't we all related through Adam and Eve? \n Response 2: Alright. I'm gonna blow it on my sleeve.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Maya, there's an egg salad sandwich in the car. We should rescue it. \n Response 1: I think if we rescue this egg salad sandwich right now, someone's going to be very angry. \n Response 2: I didn't get a chance to, so you're going to have to take those things out when I go back home tonight and move my things.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I think this phone is going to be so perfect for you. It's very resilient and it's great for farming. \n Response 1: It also comes with a ten year protection plan. \n Response 2: You're wearing a dead man's hat, woman. Don't start in with me.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Getty, what are you talking about? Getty's always ready, that's what we're always saying. \n Response 1: He's got a pretty weird body type for a marathon runner. \n Response 2: Getty gets used. Getty gets brought out like a corpse. Like some Weekend at Bernie's guy that's pushed around at the beach. I guess if you call that ready, Getty is always ready.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Do you want me to record your moon outer space speech, so people know you said it? \n Response 1: Yes, but delete it if it's dumb. \n Response 2: I need my eel cane first. Give me that cane.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Oh my God. Is her son OK? \n Response 1: We're looking for him. In your opinion, why did Frank kidnap Dorothy's son and husband? \n Response 2: We're looking for him. In your opinion, why did Frank kidnap Dorothy's son and husband?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Listen, Catalina. We just discovered - Meredith and I - that we've co-hosts of this morning show for 30 year and we've secretly been in love with each other the whole time. \n Response 1: Yes and then I have to go directly home. I can't dilly dally. So don't get any ideas, both of you. \n Response 2: Wow. I'm not gonna say I'm surprised, because I'm not. I think that maybe you're the only two who didn't see this happening.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Susan, what if you roll around in some hot chocolate and make the whole cloud brown? \n Response 1: Brown cloud is stormy weather. I'll play Stormy Weather on my ukulele. Thanks for your help. \n Response 2: Good question, time will tell.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Well, this child is now inflicted with a new disorder. It's traumatic soap opera amnesia. There's no cure. \n Response 1: This is so much worse than if he had no relationship with his father. \n Response 2: He's just got a reputation. He was a great guy. I'll miss him working here.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I just want to put it out there that I lied. I don't know what a sextant is. \n Response 1: Do you need someone to work that booth? We'd sure be honored to do it. \n Response 2: Craig! How can that be? You were giving me such a hard time about the used sextant. ",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Felicity has always been ready for most things. \n Response 1: Yeah, I like men, pizza, milk and lots of stuff. \n Response 2: Stop telling my business, Mom.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I didn't listen and now I'm turning into a rat snake. \n Response 1: Wow look, you are already growing fangs and a tail! \n Response 2: Yeah of course, what did you think it was a line for?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Let me go to trumpetdavis.com. Oh, there's a touring schedule. It seems like he left Chicago, went to play Salt Lake City, Utah. Went to play New York. Then he went to Gilroy, California, garlic capitol of the world. \n Response 1: I have diabetes and I forgot about it for a second, I'm so happy. \n Response 2: Big jazz town. Spicy jazz. Bad breath jazz, they call it.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: They're talking about the rotation of the bullpen or some bullshit. Who cares? Whether blacks should be allowed in baseball. Who cares? \n Response 1: Probably the blacks. \n Response 2: I'll admit, I got a long way to go. But you know what? Maybe you could help me, Art. You could put something in that guy's flask.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You know, you're going to be torn from limb to limb by the children who have been lost at sea for 212 years. That's how you're going to go out of this world. \n Response 1: And, none of your hours of medical training can save you. \n Response 2: Well, I never learned a trade and it's something I wanted to do before I die.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Would you guys mind? I'm kind of thirsty. I was sitting all night over the vent and I got kind of parched. \n Response 1: Finally, you've made it here. What do you want from us. \n Response 2: Ah, yes, the human need for hydration. We'll go fetch you some water together, from the store.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I'm sorry to interrupt everyone, but the party bus is running and we're paying by the hour. \n Response 1: Well, I think you're fine. They should have trained you better. \n Response 2: Oh, let's go. Let's go to Beer Town. Goodbye forever, Sandy. It was not a pleasure.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: So, you're telling me that your job involves kids attacking your heart. \n Response 1: That's exactly what I'm saying.  Warren, every day it's like this.  These kids are attacking my heart every single day, and I don't know what to do, man.  I feel like I'm trapped. \n Response 2: It was a little off-putting, not going to lie, but now I'm thinking of the other thing you said about how you have to love what you do.  Otherwise, what's the point of going on?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Oh, we had a favorite cow when I was growing up. It would sleep in the bed. We would put makeup on her. Her name was Jasmine. \n Response 1: My daughter would dress her up. I made them matching outfits. \n Response 2: Troy, I didn't realize you had a prosthetic arm.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Why are you laughing? \n Response 1: I laugh when I feel happy. Sometimes just thinking of you made me laugh. I had a lot of that. And other times that wasn't enough. I had a lot of that too. I know you find it hard to believe, but I'm happy just loving you. \n Response 2: I don't know, but I like it. Say. Your glasses are nice. They make your eyes look sparkly and big. It's fun to look at them.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: What's that sticking out of your side? It's the thread. That's my golden thread, you absorbed it. That was my ticket out of this place. \n Response 1: I absorb everything. Everything in the maze except the corn. \n Response 2: Look, I'm not feeling like myself. Feeling all sweaty and dehydrated. I think it was the olive oil I drank. Mixed with the saltwater.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: We were all under the impression that the broadcast was over awhile ago. \n Response 1: OK. I'll go count over here in the corner. \n Response 2: Oh, yes. I have next week's schedule in front of me.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: To be honest, I think Sam Houston is a vampire. \n Response 1: Yes, we'd like to sit in the garden. \n Response 2: Oh, I think you're a pederast.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: The testosterone's only had positive effects, alright. Except for the negative effect of the lack of support from my own mother. Am I not the highest rated fashion consultant in morning talk show history in Pennsylvania? \n Response 1: You're a big deal. Absolutely. I'm just saying, that some of the negative side effects are coming out. You're not a body builder. You're not some sort of athlete. You don't need this raging testosterone in your body. \n Response 2: I'll help you. My daughter, Alicia, it's her first day interning here and we're such big fans of you.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: They seem to be smiling, which you know is uncustomary in our country. \n Response 1: Stop bothering me. I'm trying to teach myself to read in here. I need to concentrate. \n Response 2: Unless, you know how according to the book if adult Icelanders are adopted by strangers, they are permitted to smile.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I pegged that song like an old Irish jig. \n Response 1: Yes, love is so precious. You need to hold onto it with everything you can. \n Response 2: It's Irish, Swedish, and Russian.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I've got a clear shot. I can cut his throat we can get this doughnuts and get out of here. \n Response 1: You don't think it's weird that Crimpcrumper is encouraging you to take a straight razor to Geum's neck? \n Response 2: He's our big man, that's right. He has a thyroid disease.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I'm just trying to order, man. You guys are taking a long time. \n Response 1: Well we've never been to Joe's Crab Shack before. We're just trying to get the lay of the land. \n Response 2: I also think that we need to move them to areas where people aren't constantly suffering from allergies.  They might spend more time outside playing with the frisbees.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I am seventy-four years old. \n Response 1: Uh-huh. Still practice a lot of medicine? \n Response 2: Uh-huh.  Still practice a lot of medicine?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You started that business to turn books into video games. \n Response 1: Well I would say just get a hold of yourself. Just try to ride it out. \n Response 2: Not this again. I already told you that you will never understand my business. Now stop talking about it.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Will he be back soon? \n Response 1: Doubt it.  He's dead.  The Look Out's a cemetery. \n Response 2: Doubt it.  He's dead.  The Look Out's a cemetery.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Did you know that you have to bring your own towels? For instance, if you go to Blue Lagoon, they give you a towel. But here you have to bring your own towel. Were you aware of this fact? Or that's why you are currently without a towel, and very naked. You will get quite cold if you do not figure out a way to finagle yourself a towel. \n Response 1: Cops, they never believe us, how many times have we called the cops to come down to the sizzler, they just laugh at us. \n Response 2: I didn't know, I didn't know anything. I need to finagle a towel. Can I just have one of your towels? You have like five of them.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: What did you do to your hair? \n Response 1: My truck overheated, so I opened the hood and my hair got caught in the fan belt. So I had to get a haircut. \n Response 2: It was making me nervous, so I chopped it off.  Big mistake, huh?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Thanks for picking me up. I'm headed east. \n Response 1: I'm just going to heat up some Hungry Man's dinners. But I'm Cuban, so it counts as Cuban food. \n Response 2: I'm also headed east. I'm just driving, really. I've been driving this road for two years trying to pick up somebody.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Where the hell are we? \n Response 1: Just short of Zeta II Reticuli.  We haven't even reached the outer rim yet. \n Response 2: It looks like the furnace.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: When I married the King, I didn't realize it was going to be all Narnia references all the time. \n Response 1: It is his job. Are you saying he takes his work home with him too much? \n Response 2: I don't know how to follow that one.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: If we're going to identify the source of the mutation, we need to isolate your recombinant DNA so we can activate positional genomes. \n Response 1: We need to give you a physical, so we know what got zapped. \n Response 2: I guess you'll need to give me a physical, so we know what got zapped.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: We need to give you a physical, so we know what got zapped. \n Response 1: Well why didn't you say so? You want me to lift some weights or something? \n Response 2: Well why didn't you say so?  You want me to lift some weights or something?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Do you want to be a little old lady on the Little House on the Prairie? \n Response 1: I'm a leaf blowing in the wind. I'll go anywhere I want. \n Response 2: With you by my side, sure.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: This kid, he's like a child. He's like 13 years old. Teaching him to break into homes is not a good idea. \n Response 1: It's called ex-communication and I will not allow it. \n Response 2: He's 13 years old, but he looks like he's 18 years old.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Victor, are you feeling alright? \n Response 1: Just a little banged up. A couple scrapes. Why? \n Response 2: Just a little banged up.  A couple scrapes.  Why?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I was just saying that I have currency to purchase a blimp ticket. \n Response 1: You have presidential blood fresh fish this was meant to be. \n Response 2: Oh, so you have the same question, but you want to brag about your blocks.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Never heard of him. \n Response 1: You have ten copies of the book, but you don't know who the main character is? \n Response 2: Sure you have, only as 'Spearchucker' Jones.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: The organ sounds good. She sounds real good. \n Response 1: I can't have it in me anymore. You better take it out of me right now. \n Response 2: Well, she better. We've been polishing all the keys and everything and getting her up to speed. ",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: So, you're having a hard time making your sentences work when you talk at the same time. I think the problem is that you don't have that other guy from your seminar helping. I think you need to find him and find your connection again. \n Response 1: I wish I could but my hands are numb. I had a novocaine accident at the dentist earlier. \n Response 2: I know his wife goes to the mall.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Hey little boy, you looking for work? It's 1922. There's nothing illegal about you having a full time job. \n Response 1: That's right. I'm real good at guessing people's heights as long as they're standing in front of a numbered background. \n Response 2: A four-way. With all of us.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: If you can't tell the difference between my glass eye and my regular eye, you sure can't tell the difference between love and not love. I love you, Tina. \n Response 1: We've all killed cats. That's not the issue here. That's not an impediment to being on the board. \n Response 2: And I love you, Jermaine.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Chuck, did you bring the camera to my office? \n Response 1: Chuck, you've cracked the QLQs wide open. They've just been theoretical up to this point. \n Response 2: Yeah, I've been doing some extra work on the side. You gotta be ready at all times in case something happens.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Let's all celebrate by eating some nitrates. \n Response 1: Oh, the triangle of rock. How Wrinkle Pants loved it when musicians stood in a triangle. \n Response 2: I have a purse full of pork cracklins.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: They said the train is cancelled. I don't know why I'm still here. \n Response 1: I'm so glad, baby doll. Please come home. I'm so sorry about everything. I don't want you to start a new life. Please don't leave your old life with your family who loves you. \n Response 2: What can I say - your wife Doris loves buying cars. I buy them every day, so many cars.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I didn't realize that Busch Gardens was basically dead. I ain't gonna make no money here. You know what I think you should do girl? \n Response 1: Maybe it won't happen in our lifetimes, but hopefully some day in the future there will be a giraffe history month. \n Response 2: Deep throat on the streets?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Actually, when I was coming in late, I saw a couple people and they looked like they were bickering. \n Response 1: Really? Were they hunched over and raspy? \n Response 2: How about the alphabet? Everybody knows it.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I've never been to a no cut art show before. \n Response 1: Is that what this is? \n Response 2: I'll tell you right now, if you leave now you'll never make it in the real world.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I don't think so. \n Response 1: I heard them talking. They both thought you were money. \n Response 2: Oh, I do. You made the same noise when you reached across the counter for my cash. Your muscles are thin and sadly underutilized.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Being that this is an abandoned puppet theater, sometimes people come here to fuck and they leave their condoms around like it's the outside of an Australian animal sanctuary or something. \n Response 1: You slapped it on its ass and it just ran into traffic. \n Response 2: I hope that happens tonight.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Why, you're such an empathic person. Like, you feel bad for Mr. Timmons even though I think he's a really bad guy who wants to invade people's bodies and make them into animal-human hybrids. \n Response 1: It comes from somewhere. His inner child is trying to fly and the world is clipping his wings. \n Response 2: I have been a daughter. I've been the best daughter, I thought.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I can't believe I'm about to say this. But, this place needs the word of God. Ye all are a mess. \n Response 1: If we just climb in the back of their pickup truck, they might not notice that we're in there. \n Response 2: Ruth, it gladdens my heart to hear you say such a thing. And, to say ye all instead of you all is so biblical.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I was a criminal and your husband beat me up. He was awake the whole time. He certainly wasn't asleep. \n Response 1: Is that how I got all these bruises on my fists? I thought this was from walking on my hands. \n Response 2: Yeah, I remember that. You sure picked the wrong room to break into.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: In conclusion we will make things better if you will go along without our legislation. \n Response 1: You mean he was until the whole doping thing right?  \n Response 2: Mmhmm we've heard it all before, we've heard it twice.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I look you up and down, from the top of your head to the bottom of your stilts. \n Response 1: No kidding, mom. \n Response 2: And I make sure my legs look good first, and then I take that energy to my midsection an use it. Wherever your eyes go, that's where I put my energy.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: There's also a layer of butter lettuce on this sandwich. \n Response 1: You know, honestly, that's a really nice offer, but I was thinking what if I just went in the cave. The mystic cave. I just love diamonds and I love dark spaces. Maybe I'll just live in the cave and be a creature. \n Response 2: Oh, two kinds of lettuce, two kinds of crunch.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I love you dad. \n Response 1: I love you too honey. \n Response 2: I love you so much it hurts. Me and your mother marvel at what you have become. You're going to have a wonderful journey with this girl. I feel it deep inside. A wonderful, magical journey.  And I'm, like I said, just so proud of how you turned out.  You go out and knock 'em dead Keith. Knock'em dead!",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Just between you and me, that Kyle looks nut balls. \n Response 1: Yes, so you feel like in the time you were there, you picked up a creole accent? \n Response 2: If you looked up the word nut balls in the dictionary, his face would be there.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Can I help you? \n Response 1: Hello, Rob.  Remember me?  I'm Ray. Ian. \n Response 2: Yeah, you can get your hand off my chest.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I think he's up to the task. I mean, he doesn't have limbs. He is a worm. But I think he can juggle. He says he can. \n Response 1: Oh my god, this woman is literally right next to my ear and she's screaming as if I'm millions of miles away. \n Response 2: Yorgy, what you do to us? Now you have to teach this armless thing to juggle.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Hey Kurt, how would you like to spend your final days with a good ole pal? \n Response 1: I reckon it's time for me to learn a little responsibility. \n Response 2: I'm almost 7. I feel like I'm pretty mature for my age though.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: It's hard to talk to people because of my dentures. \n Response 1: Is that what people tell you, they told me something completely different, something about halitosis... \n Response 2: They do, look, that fat guy is taking everything though.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Okay, wait.  I mean, we're on vacation.  Could I have mine as a White Russian?  Is it too early?? \n Response 1: No, I won't walk into that trap.  You try to get me to be right and, all of a sudden, the next thing I know, I'm on the dingy. \n Response 2: It's five o'clock somewhere.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Ah, well, Luigi, it's very nice, however, uh, I really asked that you stay below deck, as you know, because your appearance disturbs Pussibly.? \n Response 1: Well, that would explain why I keep drinking people's blood. \n Response 2: I can only look away in three directions, and I want to look where you're standing.  So, maybe you go?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: How can you have any compassion for Blackwater?? \n Response 1: And I'm filled with compassion. \n Response 2: In fairness, he's just a guy doing his job.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I mean, we all know you're here because your dad, like, owns the town, so yeah. \n Response 1: I feel great. \n Response 2: And he's playing Claudius.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Mom, sisters, guess what? I beat Judge Judy. I'm richer than she is. \n Response 1: At the beach? Is he working really hard at the beach? \n Response 2: Kylie, we're all very happy for you.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Try these snacks. I just fucked around real quick and made these things. Some kale, a little bit of spice, finished with a little bit of filet. \n Response 1: Oh my god, these are delicious. I hate all those foods you described, and yet this is delicious. \n Response 2: Idiots. We're gonna fuck with those guys.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Let's have a dance party. I haven't danced with a man in years and years. \n Response 1: Amazing. I'm going to give you $1000 for the counter. \n Response 2: One dance. Any song you want.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Kurt, please call me Dr. Fortuna. \n Response 1: I'm almost 7. I feel like I'm pretty mature for my age though. \n Response 2: I guess it does. It seems pretty messed up.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Hey, that's our father you're talking about. \n Response 1: Oh, yeah.  I have a lot of money. \n Response 2: I know, but why doesn't he have a regular job?  He wears that frilly apron around the house like a real Mr. Mom.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: You stole the Mona Lisa and are keeping it in your purse! \n Response 1: It's almost working out too well. This is suspicious. \n Response 2: It's true. I don't even like it but it was small enough to fit in the purse.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: We have some steamed milk for Lieutenant. \n Response 1: Ah, yes, that would be me. It helps with my nap time. \n Response 2: I am 1/4 giant. A true giant would have to fly in one of those double decker planes. I'm a 1/4 giant.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I feel like I sound more spooky when I whisper. \n Response 1: Yeah, I know. I feel pretty spooked out right now. Can you take it down a notch? \n Response 2: Well, I can't because of the yo-yo. It's a two handed trick, the destruction. But y'all can hold hands.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I wish you would have been able to take your cast off during our sexual relations. \n Response 1: I read about this in the people's almanac. It's combustion. \n Response 2: I have a secret. This is just a sock. My hand is really shaped like this. It's a huge keratin deposit like a horn or a hoof. ",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: My dream form is kind of harmless and cute. It's me on the top and a goat on the bottom. \n Response 1: A full goat? Like, you're just standing on a goat? \n Response 2: I'm not pointing fingers, that's for sure. I'm not. I'm only looking at one person though.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: So, you write us a new check, we'll open the bell house for one night and restore it to its former glory. Then that 80's radio can finally move on to the next dimension. \n Response 1: OK. Well, here's a check. I hope $300 Million is enough. \n Response 2: But, it was pretty cool because you got the bell house out of it.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Just one coaster, eh? We toss a lot of coasters around here. You gotta bring a whole backpack full. Mine are all made of corks. High end coasters. \n Response 1: Yeah, I'm here. Retired a couple weeks ago and finding myself just kind of, I don't know, looking for hobbies. \n Response 2: Frankly, I'm intimidated. But nevertheless, my enthusiasm remains. I want to toss these coasters.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: All right, next up we got William. William, the birthday boy William. They're saying it's a surprise for your birthday. \n Response 1: Well, the inn's closed for the night, but why don't you come stay with me? Always happy to have a logger in from another land to stay in my home and share in my hearth. \n Response 2: William, as a surprise for your birthday we put in some songs and you're not going to know which one it is until you get up there.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Yeah, I was in the corps and I was a POW. And my specific job in the corps was to be the person who kind of goes and lances blisters and boils on the seats of, uh, soldiers. \n Response 1: Can I ask you a question? Did you have to go through the whole training camp and the boot camp and all that? Since you were just lancing boils was yours slightly shorter? \n Response 2: Oh, Roger, you're back.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: We have confirmed that we will allow late play \"sesh.\" \n Response 1: My husband and I have enjoyed having you and experiencing human emotions. \n Response 2: So I'll be back later. I'll bring my horse over and then we can all just have like a late play sesh.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Well, these folks are looking for an anniversary gift for their parents. See the two people over there with the crowbars? They're really going at it. \n Response 1: Yeah, they haven't been happy for a long time. There's just a lot of misery. \n Response 2: Speaking of, I've murdered your father.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Denise, I called you into my office because I've been going through the transcripts of your 9-11 calls. Much like the radio, we can't have more than 2 seconds of dead air. \n Response 1: It was a prank. It was a power move. I was trying to see if he'd hang up first. \n Response 2: I don't know. We're supposed to get the waiter out of here? There's no one else in the restaurant and it's broad daylight.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: We don't have a jail in this town, so if we've never seen one, it's not real. \n Response 1: Well, believe this. You are guilty of committing a federal crime with tainted doughnuts. \n Response 2: He's a growing boy, I mean. He needs three or four dozen doughtnuts.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Dr. Phil, there is a family from Eudora on the phone. \n Response 1: Eudora? I used to work in Eudora. \n Response 2: That sounds great! You get a trip and you're on a trip and you're on a trip!",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Do you hear crying? \n Response 1: It sounded like a wailing sound, like a whine cry. \n Response 2: Me, too!  I've sweat out a whole person!",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Fred, you're in charge now. I guess we're just your helpers. If anything ever goes wrong, then just look for the helpers. \n Response 1: You know, I had it turned off. I was tired of everyone calling all the time. \n Response 2: OK. Thank you for helping me on what is one of the most tragic days of my life.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I heard the little guy say Dirt God. \n Response 1: Oh, don't listen to that guy, he smokes like two packs a day. \n Response 2: I know. I'm trying to tap onto the ceiling of this hell that we live in.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Oh, I'm just throwing up wine. \n Response 1: Well, I'd love to hear some old family stories. You know, I'm game to become a part of the family. \n Response 2: Just like when I proposed.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: So sorry, we'll leave the restroom. This is where we have our meetings. \n Response 1: We have our meetings in the girl's restroom. We were gonna do it in the boy's restroom, but it seemed too Fonz-y. \n Response 2: That's going to be like a couple minutes, because we're going to run out of air soon.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I didn't know that everyone that visits this dentist office has a lion's mane. \n Response 1: I do that procedure where you knock teeth out with a little hammer. \n Response 2: We have a dress code, so if the patient doesn't have a mane, we'll give them a fake one to put on.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Hey, I know you. You used to host Weekend Update on SNL. \n Response 1: I did, I did. I was very unpopular, man. \n Response 2: Yeah, you know I'm just like really '90s that way. You know, it might be 2017, but I'm still living in the '90s.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You know, I'm going to call you Swoop. \n Response 1: Alright, well that's better than Jim or whatever your name. is. \n Response 2: Oh, I understand. You don't want people to capture it on their cellular telephone.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Oh! How did I get here from over there? \n Response 1: And also, I can't get back up the pole. The fireman pole. And I can't find the stairs. \n Response 2: Omar! I don't know. It's happening again.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I said I was sorry. \n Response 1: Don't be sorry.  Just run over there and get me my pop before I die of thirst. \n Response 2: Don't be sorry.  Just run over there and get me my pop before I die of thirst.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Prostitute. Sex for money over here. Who wants it? You give me money, I'll give you sex. \n Response 1: That's what you're supposed to think, but it's not a regular old house, it's a former shipping container. \n Response 2: Hey, hang on there fella. This is my corner.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I can't wait to throw a drink in your face at the reunion show. \n Response 1: OK, Rodger. Be that way, but uh, if I see you I'm throwing a drink in your face first. \n Response 2: Is it still really a doughnut if there's meat in it?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: There's a man at the park handing out money that is unusual and I think that he may be a divine being, but also maybe not. But i just wanted to make you aware. Please don't tell anyone I told you this. \n Response 1: I said there was a chapel on the property, but it was a lie. \n Response 2: Lorraine, it's good that you brought this to me. I'm going to tell you something that I haven't told Mitch or Tom. That man that you saw, he is an angel. But not from Heaven. He's a Hell Angel.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: We got somebody googling forest, people. \n Response 1: At different altitudes. That's right. Small, medium, large. And I'll take all three sizes of Big Mac of that. \n Response 2: He's trying but all that he has managed to do is call 911.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I think it's on the creepy end. This machine's looking into your background. Now, five minutes ago, all of us were five strangers with out backs turned to one another and now this machine's going into your personal stuff. \n Response 1: Oh yes, you know, I saw his copper bust in the Museum of Contraptions. \n Response 2: I must protest. Of course, my Thompsjacks, he's a public figure. Everyone knows him from his work in the contraption field.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Oh, we had a favorite cow when I was growing up. It would sleep in the bed. We would put makeup on her. Her name was Jasmine. \n Response 1: Troy, I didn't realize you had a prosthetic arm. \n Response 2: She died because we had a human voice box implanted in her and it didn't quite take.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: That was your revenge for people laughing at you, killing yourself? \n Response 1: I killed myself and I was like, I'm going to hunt that fucking theater. But here's the thing: when you're a ghost, you don't get to choose where you haunt. It's randomly assigned. \n Response 2: Wait, are we supposed to be addressing all farmers as farmer-something. Like doctor or policeman?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: It's the first day of our business, Joshua. Are you excited? \n Response 1: I couldn't be more exciteder, if that were a word. \n Response 2: Oh, Janine of the Roxburys! I've heard of you.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: As you know, I'm happily married to Jonathan. \n Response 1: You're still happy after 30 years? \n Response 2: Oh, I picked them up. I've been keeping them.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Sea cows. \n Response 1: My mama kind of gave up the reigns real soon because she was a dreamer. She's a pretty woman. \n Response 2: Yeah, sea cows. They call them that because they sort of resemble a cow if it were swimming around in the sea. It doesn't mean they are cows.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: You know, I once constructed a crossword so they like to call me a wordsmith. That's why you're lucky to have me on your book. \n Response 1: That wasn't the arrangement. I've already said too much. \n Response 2: Well, I'm very lucky to have you on my book, Mr. President. Thank you very much. You know, this is a honor for me. I almost voted for you.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Hopper, will you kick these guys out? \n Response 1: They call me Hopper because I hop over the counter. \n Response 2: Lean against the Gucci glasses, then.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You see that lady over there? She's hammered. I'm about to give her her eighth rosé. \n Response 1: Oh, she's behind. I know you're still pretty new. That's Madam Lefaeux. \n Response 2: Yeah, this right now. You're talking to me.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: We gotta tough this party out as a family. \n Response 1: Daniel, they love you. Don't be nervous. \n Response 2: Alright, I'm not going to like it though. This fucking guy is the worst.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Right now, a tear is coming out of her eye, but it's mostly bile. \n Response 1: Did you hear his song? Of course a tear is coming out of my eye. That was a beautiful song. \n Response 2: Now I'm a drunk for life, too. Just like you.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: But you've got powers and shit. \n Response 1: You have pluck, you have arrows, you have cynicism!  \n Response 2: No that's not going to happen, we hate you, we think you're a super boring daughter.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: This wasted our time. When you think about it, a phone said he could help move boxes, but it's a phone! We got duped all along. \n Response 1: OK, he didn't do it on purpose. I'm sure. Right, Nooky? \n Response 2: Hey, don't just say bad things about coaster club.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Medicine and science are evil. Alka Seltzer's bubbles are soles of people. And, Pepto Bismol, you know how your poop is black when it comes out? That's the devil. \n Response 1: Oooh. I bet it's going to be in the history books now. \n Response 2: I'm so glad that I learned everything from you. Now I know what to look out for when I'm older.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Melissa, it's not that I wanted to be with you. It's that I didn't want you to be with anyone else. \n Response 1: Yes, I brought you back on my back. You hugged me and then I brought you back to this time period. \n Response 2: Well, that's fucked up. What kind of bullshit is that?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I didn't do anything. \n Response 1: I know we fight, but I don't mean it. You're quite a guy. No one else could have dealt with this. \n Response 2: Maybe you didn't, but I'm here to find out about a disturbance. Some neighbors called said they heard screaming and a loud crash.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: It's a powdery beer. \n Response 1: You have to mix it with saliva. \n Response 2: She believes in me, so she decided to let me do this on my own.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Every one of my stories begins with a crotch bulge. \n Response 1: I sent them out on an expedition to go collect ice. I haven't seen them since. \n Response 2: That's right you have been doing them like that since you were eleven!",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Oh, my God.  You guys are in that bathroom for a long time.  A long time! \n Response 1: We pray in there.  We pray in there.  It's our place of solitude.  Our sanctuary.  We pray that God will forgive us for all of our swears. \n Response 2: Don't thank me.  Thank your suppliers.  They're an important part of every chain.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I'd like to be seated near the end of the solar system. \n Response 1: That doesn't surprise me. So does everyone else. \n Response 2: If we can get through this conversation and come to an understanding, then I'll buy you one of those Peanuts characters that they sell.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Kendra, let me just take off my pants. \n Response 1: To be honest, his legs are the best part about him. \n Response 2: Oh, boy. You're like a regular Helen Thomas with all of these questions.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You got any money? \n Response 1: Three pennies and a ball of lint. \n Response 2: They give me fifty dollars when they turned me loose. I spent up some of it on ridin' the bus and eatin' french-fried potaters.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: You're not from around here, are you? \n Response 1: Why you say that?  Just because I help a lady with her package? \n Response 2: Why you say that?  Just because I help a lady with her package?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Madam, you should know better. A woman trying to move trunks, why the very idea is preposterous! \n Response 1: He also picked some pockets, too. \n Response 2: Well, the two gentlemen I implored for their services seem to have been engaged in a prior commitment.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Since the maze is gone, I guess you can't work here anymore. So, you can stay on my Jennifer convertible sofa. \n Response 1: Thank you, Kevin. You're a very forgiving person. \n Response 2: I love Nickelback. It's kind of the reason I got a job here at the corn maze.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I'm cleaning me glasses now. \n Response 1: I'm a man puppet with a woman's soul inside me. So I identify as a man now. \n Response 2: No one can see you, but thanks for narrating.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Now it stinks in here. \n Response 1: It's probably my shoe. I can't wait sometimes. \n Response 2: Yeah, I wish I could yo-yo, but I'd break a window.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: These look very expensive. \n Response 1: Yeah, they are. They're thirty percent handmade. \n Response 2: Sure, for example, Matt gets all his clothes from behind a Popeye's chicken.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I love you Caitlyn because you find me attractive. \n Response 1: Yes, you put the coozie on the cup. That's a real glass half full attitude. I like you. \n Response 2: Yeah, Dan you're hot as shit, but that does not a marriage make.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Dad, she's paying for a bike it diamonds? I mean, first of all, can we make change and, secondly, if we can't we're rich. \n Response 1: I don't need change. I have my dad's love, and I found it in this bike shop. I don't really care as long as I have a bike. \n Response 2: Me, too. My dad is just awful, it's clear. His only priority is beer.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Were you born here in Iceland? \n Response 1: Yes, although I know it's hard to tell because I'm such a woman of the world. But, yes I was born in the south and then moved to the north. I lived inside a glacier for a while. 'Twas very cold. But I always had a towel. \n Response 2: Oh, no, they are, I just meant quadruplets, you know like a metaphor.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Sometimes I throw my own gas in my face just to see if it stinks. \n Response 1: We try to keep it pretty chill for a plantation. \n Response 2: I do that too. It always does stink.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I talked it over with my Mom and Dad and we decided we'd like like to go into business with you. \n Response 1: Well, let me be honest with you, Ben. I went to your Mom and Dad's shop today and they treated me like a common citizen. \n Response 2: I'll tell you right now. If anyone can bring this guy down, there is a hefty prize on that guys head.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: The bottom of the snow globe says \"see other side\". Flip it over. \n Response 1: The other side says \"ask again later\". \n Response 2: This is a black barber. I was confused as hell. I don't know what that means.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Here's the thing. We walked into a room. He was sitting in a chair with a noose around his neck, just holding it in the air. I assumed he hanged himself because of the pain of the bullet. \n Response 1: I did too. Why would you have a rope if you didn't hang yourself? \n Response 2: And you were going to sing at his eulogy. Very ironic.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Is that a better car than a Porsche?  I'm not familiar with Volkswagon Golfs. \n Response 1: Well, that's a load off, because I don't know how I was going to make that happen supernaturally. \n Response 2: It's more practical, certainly.  Yeah.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I'm sorry, officers. I didn't know his room was this bad. \n Response 1: Are you sure he's just a little pudgy? This is a lot of food. \n Response 2: I can see your brush. You might want to cover that up.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Catarina, these four people is a rush. We're having a rush right now. \n Response 1: I hope that now this means we can limp together, side by side. \n Response 2: I feel like this is very good for us. Maybe we won't have to go out of business after all.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I hate Paul's intros. He's the worst at intros. \n Response 1: I was having a great day, but I just realized there's only one channel on television and that's going to ruin my life forever. \n Response 2: It's his favorite part, unfortunately. He makes a deal of it.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Elise, do you have a dream form? \n Response 1: I don't ever fully fall asleep. I sleep like a dolphin. I have one eye open and walk in a circle. \n Response 2: Right, and that's just to confirm we both don't know who fell asleep on stage.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I'd like to welcome a newcomer. He used to be an artist of the arts and now he's an artist of the word. \n Response 1: Yeah, check it out. I've been practicing for a week. \n Response 2: Hooray! This better rhyme, meat!",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I don't know. He just appeared as magic. \n Response 1: Well, don't just sit there, shoot him. \n Response 2: Well, don't just sit there, shoot him.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I'm a lonely guy in addition to being mysterious. \n Response 1: I don't think, after what we found in your jacket, anything could surprise me less. \n Response 2: I am building a piano that has a tack hammer. I am building a piano that speaks to the dead. And that's why I'm in a hurry. And I'm sorry that a piano, in and of itself, wasn't enough to let me cut the line, but apparently I've had to tell you the real truth.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Sandra, is this true? Are you part alien as well as being a chicken?? \n Response 1: We'll make a solemn promise. This does not leave this cold storage. \n Response 2: Why it's true! And these are my children. We call ourselves the Cold Storage Kids.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: My job is to get my beautiful son a date and help him have a wonderful night. \n Response 1: She's so good at that job. I mean, look at you. You're amazing. \n Response 2: There's some water and Ruffles in there.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You know, that cheese is practically all chemicals. \n Response 1: That's what makes it so good. You wanta hear what I saw today? \n Response 2: That's what makes it so good. You wanta hear what I saw today?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: This is very gross. \n Response 1: This is sick, and you know?  I need a cheeseburger.  I'll be back. \n Response 2: Oh, well I guess it's time we had that talk.  You're a very special girl, Elizabeth.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: What's he supposed to do, Jeremy? He's got a gun on you. \n Response 1: It's a Luger. It's a pistol from Nazi Germany. \n Response 2: Good, good. I'd like to sell it.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You were pretty popular. Didn't you run for some office? \n Response 1: Yeah I did, treasurer. Shouldn't you be studying or something. \n Response 2: Yeah, I did. Treasurer. Shouldn't you be studying or something.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I'd like to buy some shirts. \n Response 1: Okay, well as you can see we have racks and racks of flowing, short-sleeved shirts. \n Response 2: We're cool as long as nothing gets in the way of my self preservation.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: How is this fair because we're not magic at all \n Response 1: Oh you mean Billy and Daisy? They died. \n Response 2: It's fair because theres three of you and one of me!",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I thought Clark was a terrible drip. I'm surprised to hear that he came to life in any way. \n Response 1: I think it took losing for him to come out of his shell. \n Response 2: I do see you in this new light, where you are very flamey, but I feel like I need to see more fire in your eyes.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I've been waiting, apparently, fucking months for this God damn gasoline. \n Response 1: Oh, well, my favorite older thing was Josie and the Pussycats. \n Response 2: Please excuse your language.  You could be heard by God and have to go down the hole, down to hell.  If God hears but just one swear you know that the whole Earth could open and you could fall from space.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Wait a minute. Look out at the ocean. What's happening? I see children. \n Response 1: What time is it? I can't tell time and I'm afraid to look. Please tell me it hasn't been 212 days. \n Response 2: OK. Cran, why don't you go toss yourself into the ocean and you'll be out of the way?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Is there a skirt or a towel you could wrap around your mist? \n Response 1: Yeah, that is graphic. \n Response 2: OK. So, you're just taking an existing play and telling the story of going to see it.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: What do you want from me? \n Response 1: Just to walk with you.  I want to be your dad again. \n Response 2: Well, the man of the hour that we all would like to talk to about now has apparently skipped town.  And all of a sudden the Smithsonian's ambulence chaser is an expert on missing persons.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I don't know if you're a detective or a pervert. \n Response 1: That's for me to know and for you to find out. I'll see you. I mean call you. okay? \n Response 2: That's for me to know and for you to find out. I'll see you. I mean, call you, okay?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Maya, there's an egg salad sandwich in the car. We should rescue it. \n Response 1: I didn't get a chance to, so you're going to have to take those things out when I go back home tonight and move my things. \n Response 2: Yeah, egg salad sandwiches are like dogs. They can't be in hot cars for very long.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I am seventy-four years old. \n Response 1: Uh-huh. Still practice a lot of medicine? \n Response 2: What qualifies you as an expert in anesthetics?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Have not saints lips, and holy palmers too? \n Response 1: Ay, pilgrim, lips that they must use in prayer. \n Response 2: Ay, pilgrim, lips that they must use in prayer.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Do you see who that is outside? That idiot McCormick. \n Response 1: He's my friend, Alexandro McCormick. \n Response 2: It's a huge party out there. Is that a hearse?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: We have a problem with the cameras. There are zombies in the studio, I think. It's getting out of control. I need to borrow a dollar so I can blow them up right now. \n Response 1: Well, we just have to finish touching up your makeup, Roger and then we'll get the completed news script over to you, which I'm sure will come any second now. \n Response 2: Ken, do you think he bought it? Do you think Chuck bought that you were a zombie?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Yeah, I don't know where they are. Huh. And they told me to leave my phone at home. So I was going to text them, but... \n Response 1: Yeah. Yeah, yeah, yeah, yeah. I mean, those look like joggers, but they'll pass. You know, joggers are similar to sweat pants, but they're a little tighter and form fitting. I wanted sweat pants. \n Response 2: Oh, I've seen this before. You've been Phish ditched, man. Yeah. I've seen this at tons of concerts.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: You were dressed as kid this whole time? \n Response 1: It's probably soot. \n Response 2: I can't believe it, he was right under my nose.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Jared, I think you're letting that affect you and you shouldn't. It was unpleasant of course, but it's over. \n Response 1: I lost a wife, Marcus. \n Response 2: I have a song that might help clear this up.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: No, my, both thimbles got holes in them, so the the finger doesn't get too sweaty. \n Response 1: No, no, about your Twitter account. Do you want to have a Twitter account, an official account here for the aquarium? \n Response 2: Yeah, you gotta have your finger breathe when you're using the thimble.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Son, I want to warn you.  You may not like what you find. \n Response 1: Son, I had so much business to attend to.  Count stuff.  Biting people's necks. \n Response 2: Well, it's better than not knowing, and I want to know.  I'm going to be brave.  You know why?  Because I've seen exactly one television show in my life.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Now, if I remember, William - you lost your arm in the classic logger way, it got sawed off. But then Amos, what happened to you? \n Response 1: Mama pushed it uphill into the river. \n Response 2: I felt like, well now we're not twins. So I elected to have my arm removed by the logging machine. It was a sacrifice.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Here's the Poseidon's Delight. \n Response 1: Can we eat that? I'm asking the person with the gun. \n Response 2: OK, here. Take all my money.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Can you see my nose sticking out, sir? \n Response 1: Yes, I can cadet, very well done. You've passed my test. \n Response 2: You hardly ever hear people talk about mid term memory. There's short term, long term and then mid term, where you're just remembering stuff from a couple months ago.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Have you seen seen Hamilton? It's all the rave over in the states. \n Response 1: We did. We don't want to make you jealous, but we did see it. \n Response 2: Baby, that's what marriage is.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: We checked girl, but we didn't see a box for human. Gary's brother is a lawyer and he told us to be really thorough. \n Response 1: It sounds like that's what you're doing, and I think y'all are gonna make great parents. \n Response 2: Carolyn's opened up to you in a way we've never seen. She's adopted and we're constantly thinking about giving her back.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Five months from now, a baby is going to jump into your body and you're going to jump into somebody else's body. \n Response 1: Maybe, but I think it's scarier if I wear the mask. I am craving bananas now though. \n Response 2: I'm gonna be the first baby Executive TV Producer.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: The look on his face. It reminds me of that look that comes over Dean's face when he's done something terrible. \n Response 1: Oh, the kids are across the street at the ice cream shop. \n Response 2: You're right. It's a crow's body but with the face of our child.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I usually hope that people don't ask but everyone does ask. I think the curtains probably are the wrong color. It's very bright and catches the eye. \n Response 1: And those are reflectors on it. \n Response 2: It's so fibrous. I love it.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: My mother told me never to accept offers from strangers. \n Response 1: My name is Bobby.  Now I'm not a stranger anymore.  See how easy it is for us to get to know each other, beautiful? \n Response 2: My name is John.  Now I'm not a stranger anymore.  See how easy it is for us to get to know each other, beautiful?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: God damn it, Bruce. You have to go and find that woman. \n Response 1: Oh, yeah! I'm gonna get her! \n Response 2: She's finally grown into her hanker-chief shirt that she's worn for years. She was horrifically underdeveloped for quite a long time.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Folks, what you're seeing right now is our intern, Ken. He's also a time criminal. He's just come in with a machete and he has sliced Mary, the makeup lady's head off. This is unexpected to say the least. \n Response 1: In the future they do. It's a very thick newspaper. \n Response 2: You've got news! Run with the story! Murderous intern on the loose! Machete in Machete Falls!",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: What's that got to do with the radiator hose? \n Response 1: I don't know, but it's the reason I'm living here and you're just passing through.  Now you owe me a hundred-fifty dollars. \n Response 2: I don't know, but \"it's the reason I'm living here and you're just passing through.\"  Now you owe me a hundred-fifty dollars.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I'm working on it. \n Response 1: Then you'd better work on it in the car. We gotta go see the Judge. \n Response 2: I keep all my numbers in my head. I've never written any down.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Are you talking about that guy who pretended to be an Indian in a Popchips commercial? \n Response 1: Oh, and I'm a veterinarian school teacher. I teach about how to become a veterinarian. \n Response 2: Yes, the guy who went in front of Congress trying to get sex trafficking made legal.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: What can I say - your wife Doris loves buying cars. I buy them every day, so many cars. \n Response 1: Doris, if i go out there, and I expect to see a car, am I actually going to see a pile of chicken bones like every other time? \n Response 2: Well, it's funny, because you can't see what I'm doing because we're in a confessional booth.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Are you sleeping? \n Response 1: What? Never for you, my child. It's only been eleven hours since you started your confession. \n Response 2: I just figured, you know, am I going to spend my whole life waiting for this FedEx package? Maybe I should go and find it.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I'll give you fifty cents. \n Response 1: Fifty cents? Sweet job like that worth at least a buck. \n Response 2: That's a Franklin Mint piece. Eight dollars.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Trish, are you seeing anybody? \n Response 1: How about residually intoxicated? \n Response 2: This seems a little inappropriate with your wife and Monica here.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Oh, you were actually holding up a pen there. I wasn't sure. \n Response 1: This probably won't make sense to you. But,I'm like an invisible pen. I'll always be near by even if you can't see me. \n Response 2: You know what else is crazy? That kraut was my granddad. He got the pen and gave it to me.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Miss Pearl, hello. I was just getting ready to teach some white history. \n Response 1: He better be better than the last one because Reverend Malcolm Exercise was not very good at all. \n Response 2: I was going to show an episode of Good Times, but it's fine. Go ahead.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Listen, Cynthia, I love that you take your role of Juliet so, how do I say, uh, possessively, but as your nurse in the show and off the show... \n Response 1: Mostly sad ones of members of their pods being taken away and made to perform. \n Response 2: That's right.  I have many elements.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I'm prepared to do whatever it takes because my life here on top of this snow mountain is so precious.  \n Response 1: I think I'm having a stroke. \n Response 2: Luckily whatever it takes is just standing there and maybe shutting up.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Hi Irv. You've got a great body. \n Response 1: You wanna feel my callouses? \n Response 2: And your face is peeling away a little bit. I can see that now. Who are you?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: We just want a little help, park-to-park. There's a guy running around Universal calling himself JD the junior terrestrial. He looks like a potato sack with eyes drawn on. We want you to him by the long, glowing finger and get him out of our world. \n Response 1: Oh, I thought you were a mobster. You've got a real strong Italian look to you. \n Response 2: Alright, let me get the cocaine off of this hooker and we'll be right over.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Oh, wow. you're blushing. \n Response 1: I do so very easily. \n Response 2: You wouldn't dare.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: There's something very bizarre about this man, and I've never met him before. \n Response 1: Oh, that's important. A lot of people say a soul can't move on until that song's been sung. \n Response 2: No, I've never met him either. He doesn't know what an umbrella is and he doesn't know how to answer his cell phone or he doesn't understand when it's ringing.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: We're just about done grieving. Would you mind if our grieves overlap? \n Response 1: Oh, are they Jonathan? It's me, Kathrine. Do you remember this little face? This is your daughter, Alicia. \n Response 2: I guess that's all right. I'm usually a private griever.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I understand. I'm just real curious like you said. \n Response 1: I was the same way when I was you age. I guess that's what got me into this business. \n Response 2: I was the same way when I was your age. I guess that's what got me into this business.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: What if you just become, like, our snooty butler? \n Response 1: Whoa, yeah, like the guy. What was his name, from Fresh Prince of Bel Air? \n Response 2: We share the same mind. I mean, in a marital sense. Of course.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You're suggesting that we chain up these two people in a box and have them perform for people? \n Response 1: Don't be silly. We'll give them a leash and a diaper. \n Response 2: I had a poster of you on my wall. My mom's still got it.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: These kidneys are getting sticky. \n Response 1: Do you want to put them in my backpack? \n Response 2: Hey, little girl. Bonjour. I am le Frenchman. Are you alone in the streets of Paris?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Rudy, can you please just give us 10 more seconds before we go out on stage? \n Response 1: I hope this is important. I was working on a puzzle. \n Response 2: OK. I'll go count over here in the corner.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: You don't have that dead look in your eyes like the only thing you live for is to get through the day. \n Response 1: I just drove in this morning. \n Response 2: I just drove in this morning.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Son, I literally cannot remember. Are we at Disney Land or Disney World? How do I know the difference \n Response 1: Long story, but I love lighthouses. I've been painting them. Anyway, I'm just stopping in for the aesthetics. I'll let you get back to your business. \n Response 2: Here's how you know the difference. Disney World has Epcot Center and Disney Land got funnel cake.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: The child has a gun! Mr. Nelson, did you see that? \n Response 1: I did, and I admire the boy's moxie. \n Response 2: Now, this bangle dates back to - I want to say - the first century. So, it's actually quite valuable. It's very old. I would say at auction this would fetch 12 trillion pounds.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Your elbow is a wound that should be tended to. \n Response 1: So is your heart, dear. \n Response 2: Are you triggered, snowflake?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You're so tall. Aren't you afraid of being hit be lightening? \n Response 1: Well, so far we haven't experienced any of the hardships that you people experience all the time. So I haven't been struck by lightening. But I be you Adam's getting into some hijinks back in old times. \n Response 2: No kidding, Cheryl. You always think everything is about you.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: What the hell are you doing? \n Response 1: What does it look like I'm doing? I'm editing. \n Response 2: I'm trying to slash my wrists.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: How's your relationship with your parents?  \n Response 1: That was how we met. \n Response 2: You know, normally, customers don't ask me that question.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I think my new dream is that I want us to be in part of your family. \n Response 1: You know, I think I punctured my ear drum a few months ago on a boat ride. So, I'm having a hard time hearing. So, we'll just go our separate ways. \n Response 2: Yeah, why not? What's two more people.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Your future will be inexplicably tied to someone else's future in the labyrinth. \n Response 1: That's sort of our relationship. She'll say something that's just short of legitimate. Then, suddenly, I'm off on an adventure. \n Response 2: The labyrinth? I think she just put a curse on you.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: What happened to your hand? \n Response 1: Just a little accident. I went by your place, picked up your mall. Just bills, I'll take care of them. \n Response 2: I cut it shaving; I know, I gotta be more careful.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Kids at school call my hair the birds nest. \n Response 1: That's right they do. Do they love you Terry Brown? Do they love you more than anything? \n Response 2: Half, but aren't we being honest? We don't have to look for him anymore though.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Are you sure you won't go with me to watch my gig? \n Response 1: Are you ready to mingle? \n Response 2: My answer is yes. I have to get out of this parking garage at Best Buy!",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I just lost my job it was awful. \n Response 1: But my hazard light's are on and this is a special day for my son, he's getting his very first bulge sir! \n Response 2: Yeah I saw you getting fired, how long did it take to stop crying?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: All right, everything looks set. Can we just agree to have zero more fight exchanges? \n Response 1: Your obsession with toilets has grown tiresome. \n Response 2: Yeah, check my logs. My mission for today was zero fight exchanges, period.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: All right, well, you've been somewhat helpful. Please accept, as a gift, this calendar \n Response 1: Wow, with all the sexy police detectives. \n Response 2: My veins tell my story, my journey. You can see a lot through someone's veins.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I'm upset with you 'cause of this counter. You promised me it was going to be a soft counter, and I body slammed my son on the counter and he broke his back. \n Response 1: Did you read the tag? There's a tag on the underside of all of our soft counters. It says \"Too hard for human body slamming.\" \n Response 2: Are you sure? Because I'm very sleepy and big noises, loud noises, really upset me.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: What did you do to your hair? \n Response 1: It was making me nervous, so I chopped it off.  Big mistake, huh? \n Response 2: My truck overheated, so I opened the hood and my hair got caught in the fan belt. So I had to get a haircut.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I'm so glad you took that course on how to find love. \n Response 1: Yeah, I paid $2,000 and went to Pasadena. The guy with the spiked tips told me that all I had to do was be a terrible person and everything would go my way. \n Response 2: We pray in there.  We pray in there.  It's our place of solitude.  Our sanctuary.  We pray that God will forgive us for all of our swears.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Where was it, right around the corner? \n Response 1: There and many, many other places. \n Response 2: That is a downright lie. You take it back.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: It's a strange world isn't it? Do you know what building the woman lives in? \n Response 1: Yeah. It's close by. That's what's creepy. They've had her under surveillance for a couple of months, except I don't know what they've found out because my father isn't in charge of her. \n Response 2: Yeah. It's close by, that's what's creepy. They've had her under surveillance for a couple of months, except I don't know what they've found out because my father isn't in charge of her.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Hi, um, are you available to sell me a bike? \n Response 1: Yes. Welcome to DM Sliders. We're a family owned bike shop. \n Response 2: Here's the thing. If you're worried about the amount of people. There's one simple thing you have to do. Put a cockroach in there. It'll chase people out the door so we can have the world's fair. But also not have all the people of the earth, collapsing on the sidewalk.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: What happened to your hand? \n Response 1: I cut it shaving; I know, I gotta be more careful. \n Response 2: I cut it on an old rusty knife.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: We've got four hours of friendship under our belt. \n Response 1: Don't be alarmed. I've been entrusted by the Mayor of France to kill anyone that I see pickpocketing. And these two picketpocketed each other, so it's OK. \n Response 2: Here's to four more and then a whole lifetime together.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Hey, check out this video of this very stupid astronaut who kinda screwed up the speech he was trying to do, listen to this. \n Response 1: I stood up that whole plane. I was running up and down the aisle that whole trip. Seatbelts are a myth. I don't need to be strapped in. \n Response 2: That's hilarious, man, but I heard those guys died on the moon.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: You sure seen a lot for a blind man. \n Response 1: Just 'cause I ain't got eyes doesn't mean I can't see. \n Response 2: Just 'cause I ain't got eyes doesn't mean I can't see.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Excuse me, my wife and I have been waiting to get on the Ferris wheel. It's our anniversary. \n Response 1: Well, I mean, if we're not running away together, why not? \n Response 2: I'm trying to deal with this man, sir.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: By the way, thanks for letting me do these little ride alongs with you at work.  I hope you don't mind. \n Response 1: Well, otherwise I just look like a sad woman alone eating. \n Response 2: Yes, we heard there was a Dracula re up and we said, well, we have to see this for ourselves.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Wow, you look like you're only in your mid-forties. \n Response 1: Yeah, thanks. You know what they say, cocoa butter everyday keeps you looking young all day. \n Response 2: But it's the best place for my skill set.  ",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: It's a real challenge to spank someone with an oven mitt, I'll tell you that much. \n Response 1: Oh, we tried. That's why we made the note that they were gently used.  \n Response 2: Well, I'm all over ebay, I'll just say that. I know what something's worth.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Okay, everyone, Rubber Band here is going to juggle a tennis ball, a bowling pin, and a chainsaw. \n Response 1: That seems overly ambitious. At home he just did the three balls. \n Response 2: Just because the instructions were too small? Must be nice to be a millionaire and afford large print typewriter.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: We want to put it to those Ruskies. Let them know what's for. \n Response 1: I hate the Russians too. We got that in common. \n Response 2: I know. She doesn't really mean it though. That's a good thing that her feelings are hurt.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Just get back soon, or I start looking for a new groom. \n Response 1: Soon as I'm back, I'm gonna trade that in for a bigger rock. \n Response 2: Soon as I'm back, I'm gonna trade that in for a bigger rock.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: You'd like to get x-rays? Do you feel like there's something wrong with you? \n Response 1: I think we should let her go in. Before my husband was - you know - hit with the bone, he came up with this brilliant idea that we should invest in an x-ray machine. And I feel like it was expensive. So I feel like the more people that use it, the less stress I'd feel about it. \n Response 2: My husband and I are new in the area. We haven't come over and introduced ourselves. My husband, you may have heard about him. He's the neighbor who got the terrible bone injury. He was attacked by bone.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Help, help. Oh, former president Bill Clinton? \n Response 1: Well then you're in for a treat. I write mystery books that are secretly action books. \n Response 2: I'm just fresh out of office and I like to walk around saving lives because I just saw Batman Forever and I figured I can contribute to that conversation.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I'm an angel from heaven. \n Response 1: Hey, why don't you be the character of the guy, who puts his wallet in the stroke lady's mouth? \n Response 2: Wow, you're like a big ball of light. You're so luminous.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I'm an angel from heaven. \n Response 1: Wow, look at those gosimar wings. Can you really fly with those things? \n Response 2: Hey, why don't you be the character of the guy, who puts his wallet in the stroke lady's mouth?",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: William, as a surprise for your birthday we put in some songs and you're not going to know which one it is until you get up there. \n Response 1: It's my twin brother Amos. \n Response 2: We did a prank. I hope you don't gotta sing the national anthem of a country you don't know or the Greek alphabet.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Well he's awfully big for age five. \n Response 1: He's our big man, that's right. He has a thyroid disease. \n Response 2: That's true. I don't know why everyone just accepts it, it's really weird, but it makes our job easier.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: What should we do? Should we lock him up, or should we turn him over to the people? Let them decide what happens to him? \n Response 1: That was back when this was just an orange grove that people would tour. \n Response 2: I've always liked people-justice. Besides, it's almost our lunch.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Do you want me to go find Chuck for you? \n Response 1: Yes, I would Demetrius. How about we go together. It will be like old times. Remember? \n Response 2: You've got to be rude to the customer. That's our gimmick.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Are you a fast reader, Iris? \n Response 1: Oh, thanks Buddy. That's great. You stole these pint glasses from local bars because that's what we do at the age we are. \n Response 2: I'm super fast. It's one of my super human skills.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Is that an insult?  Are you insulting me. \n Response 1: Listen you stupid fuck, I want my car. \n Response 2: Listen you stupid fuck, I want my car.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Yeah, but don't pick me up. My father may think it's strange. I'll walk over to your house. I'll be there at eight o'clock. \n Response 1: Okay. You better get out before someone sees us. \n Response 2: Okay. You better get out before someone sees us.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: A man died because you mispronounced Heimlich. And yet other words you pronounce far too correctly. You see now why I cannot let you live? \n Response 1: I completely understand, Dr. Lecter. I will not fight you. \n Response 2: This is where people at least suggest the idea of washing dishes. Mostly they just sit here and we spray them a couple times.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: I'm wearing contacts, which I can take out for you if it makes you feel more comfortable. \n Response 1: Jesus, what a reveal. We've been shyamalamed. \n Response 2: Oh, my gosh. It changed my life.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Let's make it a decree. Wishing to learn to read is off-limits. \n Response 1: Honey, you better bow. This is her majesty, Kay. \n Response 2: Hooray. Cold Stone Creamery for all.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: What about your lemonade? You haven't gotten your lemonade yet. \n Response 1: I'm getting very, very impatient. But respectfully so. \n Response 2: I'm running, ma. I'm running.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: That was hot. \n Response 1: I'm smoking a cigarette on stilts. \n Response 2: I don't know I've just been watching what's happening, not who the people are. I find that's easier and when I'm doing my little covert tryst watching.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Look. The beard is going up, not down. \n Response 1: Please say we can smoke. Please say we can smoke. \n Response 2: I grew my pubes out super long, and then tied it to my stubble on my chin.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Yeah, you could ride. I mean, it's a coupe, some somebody's gonna have to get in the back. \n Response 1: That's right. We're on the same page. And I love that about us. \n Response 2: I'll do it. I'll get right in the back.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Yeah, I guess so.  What are you going to do now that you're home? \n Response 1: I have to help out in my father's hardware store. They're giving me sort of my own hours for a while, which is nice. \n Response 2: I have to help out in my father's hardware store. they're giving me sort of my own hours for a while. which is nice.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Let's kick his ass. \n Response 1: Cool off, we're seniors. \n Response 2: Shit, we're seniors, Ram. Too old for that crap. Let's give him a scare though.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: You really want to do this, don't you? \n Response 1: I don't want you to get involved, really, I mean, I do, but if something went wrong I mean, like you said, they may be involved in murder. \n Response 2: I don't want you to get involved, really. I mean, I do, but if something went wrong I mean, like you said, they may be involved in murder.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Did you know that 99% of the Geta consumed in the country is actually consumed in Cincinnati? It's a local delicacy. \n Response 1: Is that so? I'm not originally from there. My parents moved there after they retired. \n Response 2: I heard this happened last night. One of them fell asleep.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Can I help you? \n Response 1: Yeah, you can get your hand off my chest. \n Response 2: Yes, you have a suit I've had my eye on.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Were they wearing long coats? \n Response 1: Yep. Three of them in long coats, the fourth one didn't make it. \n Response 2: There's a baptism at three.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Can I just say, don't get rid of your arms. \n Response 1: Yes, you're a beacon with limbs. \n Response 2: But, look at you. You're still alive even though you're dead.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I'm a nurse. That doctor over there has no one to help him. \n Response 1: Tell him to shut up. I can't hear the opera. \n Response 2: We have a nurse. He doesn't. He's alone. He's a sad man by himself in the street.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I've just been having night terrors. I've been very scared at night. \n Response 1: Because there's no electricity around your house?  \n Response 2: But he's just a butler, not an officer.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Who put the coffee in this bathroom? \n Response 1: Yeah, I just feel like we needed to conclude that part of the story. \n Response 2: Oh, that must have been my mistake. I thought it was in the back room, but I lost my mind.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: I am seventy-four years old. \n Response 1: What qualifies you as an expert in anesthetics? \n Response 2: Uh-huh. Still practice a lot of medicine?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Being that this is an abandoned puppet theater, sometimes people come here to fuck and they leave their condoms around like it's the outside of an Australian animal sanctuary or something. \n Response 1: So you sleep in used condoms, and you're suggesting we do the same? \n Response 2: You slapped it on its ass and it just ran into traffic.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Don't worry I brought some sleeping bags for everyone. \n Response 1: Yeah, what are you going to do with this money if you win it? Are you just gonna lose it? \n Response 2: Oh, wait, they're puppet sized. I guess we'll put a foot in them?",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: You've just said you signed it. \n Response 1: Yes, I, yes, I signed it, yes. But I, I didn't write that figure. \n Response 2: Yes, I, yes, I signed it, yes. But I, I didn't write that figure.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: You told me before you were positive you saw the neighbors fighting. \n Response 1: Were you recording it? Good luck proving I said that. \n Response 2: I know, but now that the pressure's on, I'm thinking about it more. They closed the curtain. I don't know, maybe other people walked in.",
+            "output": [
+                "Response 2"
+            ]
+        },
+        {
+            "input": "Prompt: Can I help you? \n Response 1: Sure can. I'd like an Invicta 12-gauge pump with the twenty-inch barrel. \n Response 2: Yes, I'm Ed Wood.  I'm here about directing the Christine Jorgensen picture.",
+            "output": [
+                "Response 1"
+            ]
+        },
+        {
+            "input": "Prompt: Sorry, I'm just really pumped up for spring. \n Response 1: I pay her for private lessons out of my own paper money. My paper route money. \n Response 2: Well we earned it after living through that awful winter.",
+            "output": [
+                "Response 2"
+            ]
+        }
+    ]
+}
