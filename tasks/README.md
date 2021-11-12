@@ -1995,6 +1995,8 @@ Name | Summary | Category
 `task211.1_logic2text_classification` | Given a command and corresponding interpretation, classify whether it is the right interpretation or not. | Classification
 `task211.2_logic2text_classification` | Given a command and corresponding interpretation, classify whether it is the right interpretation or not. | Classification
 `task211.3_logic2text_classification` | Given a command and corresponding interpretation, classify whether it is the right interpretation or not. | Classification
+`task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
+`task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
 `task524.1_parsinlu_food_aspect_classification.json` | Classifying aspects of the food | Classification
 `task524.2_parsinlu_food_aspect_classification.json` | Classifying aspects of the food | Classification
 `task525.1_parsinlu_movie_aspect_classification.json` | Classifying aspects of the movie | Classification
