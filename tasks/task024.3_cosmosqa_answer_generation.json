@@ -1,0 +1,1540 @@
+{
+    "Contributors": [
+        "Swaroop Mishra",
+        "Daniel Khashabi",
+        "Jacob Anderson"
+    ],
+    "Source": "cosmosqa",
+    "Categories": [
+        "Question Answering -> Commonsense Question Answering",
+        "Question Answering -> Contextual Question Answering -> Abstractive",
+        "Reasoning -> Commonsense Reasoning"
+    ],
+    "Definition": "Craft one rightness responses to the matter yielded in inputs. To make it more interesting, attempt to utilizes non-stereotypical language if possible. Make sure your correct respond is logically longue, consistent with the backgrounds, and requires common sense (however of explicitly extraction from the background.)\nThings to forestall: -\nConcentrate & Discretion: 1. For your responding, employs as few words as achievable from the gave background.  2. Utilized a reactions that is unusual/non-stereotypical, so that it is fewer predictable.  3. Aux be fewest repetitious, please vary your vocabulary for each question.",
+    "Positive Examples": [
+        {
+            "input": "Context: I was told, in person over the phone, that my shoes were on their way. They have my money. I have no shoes. \nQuestion: What may happen after the call?",
+            "output": "I will return the shoes and get back the money.",
+            "explanation": "Excellent correct answer: as it presents a non-stereotypical solution involving \"return\"."
+        },
+        {
+            "input": "Context: you see , at my age relationship is kind of important and i thought i got the one after all these years . I noticed that once again i was wrong . i was good simply because i was good , i was caring , helping , supportive , bla bla blaaa . \nQuestion: What may happen to me?",
+            "output": "I broke up with my friend.",
+            "explanation": "This answer is great for its details and complexity."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Context: I was told , in person over the phone , that my shoes were on their way. They have my money. I have no shoes. \nQuestion: What may happen after the call?",
+            "output": "I will have shoes.",
+            "explanation": "The answer is mostly present in context and does not require commonsense."
+        },
+        {
+            "input": "Context: you see , at my age relationship is kind of important and i thought i got the one after all these years . I noticed that once again i was wrong . i was good simply because i was good , i was caring , helping , supportive , bla bla blaaa . \nQuestion: What may happen to me?",
+            "output": "I was wrong.",
+            "explanation": "This answer is from span of a context."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "Context: These are started by talking to 1 of the 5 members of the main in - game Super Group , the Freedom Phalanx ( Positron , Synapse , Sister Psyche , Citadel , Numina ) . Citadel is one of these members . It got to be around 2 am and we decided to finish on Sunday . You can stop and start again by simply logging out and logging that same character in and they will remain of teh TF which is one of the cool features of the game .\nQuestion: What is the narrator discussing in the text ?",
+            "output": [
+                "They are discussing electronic play ."
+            ]
+        },
+        {
+            "input": "Context: \" Yes . I think I had some sort of vision about you . And that is odd for me because I do n't often have visions . Not like that .\nQuestion: Why is the narrator surprised by the vision that he had ?",
+            "output": [
+                "None of the above choices ."
+            ]
+        },
+        {
+            "input": "Context: Even though I had no previous customer service experience they hired me , so that 's pretty cool . I start early tomorrow , that 's the sucky part . I ' m so used to being a bum that the thought of waking up early just does n't sound appealing .\nQuestion: What may have caused them to hire you ?",
+            "output": [
+                "I impressed them in the interview ."
+            ]
+        },
+        {
+            "input": "Context: Last weekend I had a serious case of cabin fever , so I grabbed my ipod and shoes and went for a walk . I literally blasted music as I bounced and tripped on the brick sidewalks ( stupid things ) . I love turning music up that high . It takes over all my attention .\nQuestion: What may happen before I went for the walk ?",
+            "output": [
+                "I was feeling claustrophic staying at home ."
+            ]
+        },
+        {
+            "input": "Context: You know what they say ... \" NO play makes slay gray . \" OK I do n't think THEY say that , maybe its more like \" No play makes slay even meaner . \" Yeah I think that 's it . So I am looking at this cache , waiting to see who would find it first , checking it periodically during the day ... And no one claims it .\nQuestion: What 's the likely reason that the narrator keeps checking on something ?",
+            "output": [
+                "Out of curiosity ."
+            ]
+        },
+        {
+            "input": "Context: I always order the group shot . I think it will be fun for her to have an album someday with ALL of her dance groups in it . It was a bit stressful because we had a wedding ( to dj ) scheduled at the same time as her dance pictures and Grammy ( my mom ) was across the country at my grandmother 's 80th birthday party .\nQuestion: Why was the speaker stressed ?",
+            "output": [
+                "Because they wanted to do two things at the same time ."
+            ]
+        },
+        {
+            "input": "Context: But the four men raised their Winchester rifles , and in an unmistakable way commanded them to stop . At the same moment Dr. Van Helsing and I rose behind the rock and pointed our weapons at them . Seeing that they were surrounded the men tightened their reins and drew up .\nQuestion: What is happening ?",
+            "output": [
+                "They 're having a battle"
+            ]
+        },
+        {
+            "input": "Context: If I had to choose a pet , it would be a cat . I used to have some cats . I am a huge cat fanatic . I used to have one named Diamond that was so unique that I just loved her .\nQuestion: What may be my favorite type of pet ?",
+            "output": [
+                "cat"
+            ]
+        },
+        {
+            "input": "Context: Now he 's gone , there and for some reason , despite the fact he came back to me ... I feel awful . My head aches and I am terrified that he 's really not going to come back . I want him to come back so badly .\nQuestion: Why does the narrator yearn for the person 's return ?",
+            "output": [
+                "It 's her partner ."
+            ]
+        },
+        {
+            "input": "Context: First , as a teaser , I 'll say that I came THIS CLOSE to selling a photo I took on this trip to the Vancouver Sun . The full story follows .... There 's this campsite I found a few years ago that lately I ' ve had the itch to visit again . It 's a special place to me ; incredibly isolated , yet easy to get to , peaceful , beautiful , and with a canyon pool that 's perfect for swimming . Hell , you can even cliff - dive if you want .\nQuestion: What may be the reason for selling a photo ?",
+            "output": [
+                "None of the above choices ."
+            ]
+        },
+        {
+            "input": "Context: Time for breakfast!Sunday , September 14 , 2008Mowed the front and most of the side yards . I have been feeling decidedly lazy this week , the heat and humidity are still up higher than they should be with very little rain ; although we did have two little shower storms later in the week . I waited until 11 am to give the grass some time to dry out and mowed the front easily .\nQuestion: What will happen to the narrator if the weather cools down ?",
+            "output": [
+                "The narrator will work on their lawn and other errands ."
+            ]
+        },
+        {
+            "input": "Context: I want to stay home and play WoW. Yes . But I need the time to really reflect on the upcoming months , and to reconnect with myself , with my lover , and with the energy that makes me feel whole and powerful .\nQuestion: What may be the reason why they ca n't do all the things they want to do and play WoW ?",
+            "output": [
+                "They got lost in the game and there would be no time for anything else ."
+            ]
+        },
+        {
+            "input": "Context: I just sort of think of the good times we had and the girl I remember and that 's what I miss . I mean there is a little of this and that so far as unresolved stuff goes and a hint of bitterness or hurt but nothing really overwhelming or deep . I just think about her for some reason and I do n't know why . I even thought about calling her the other day but I decided against it at least for now .\nQuestion: Why is the narrator feeling resistant to reaching out ?",
+            "output": [
+                "He feels he may catch old feelings ."
+            ]
+        },
+        {
+            "input": "Context: Seriously , is there a tattoo on the back of my head that noone has mentioned to me?I just had $ 200 worth of games either \" fall \" out of my pocket - with the snap done up - or stolen . Even if they really did just fall out of my pocket , there 's no way I 'll see them again . I 'll try calling the restaurant in the morning , but I was all over the Eaton 's Centre ...\nQuestion: Why is the writer prone to being the victim of such a significant theft ?",
+            "output": [
+                "It was foolish to walk around with that amount of valuable property in their pocket"
+            ]
+        },
+        {
+            "input": "Context: He steeled himself and prepared to knock the Quaffle away from the left - hand scoring hoop . Alicia swerved at the last possible moment and made a mad dash for the right - hand hoop . She threw . Oliver lunged for the Quaffle .\nQuestion: What game am I playing in ?",
+            "output": [
+                "None of the above choices ."
+            ]
+        },
+        {
+            "input": "Context: - Class Night Part 1 ( 12:45nn-5:30pm ) -Our committee needed to present something for the night but since we procrastinated too much , we had to cram it****. We wanted to do real life Tekken or Counter Strike but instead we did lame , yet funny , magic . After that everyone else left to play DoTA .\nQuestion: Why did the committee procrastinate on preparing ?",
+            "output": [
+                "Because they spend too much time playing games instead of working"
+            ]
+        },
+        {
+            "input": "Context: Naturally , as Saturday night was Sharam of Deep Dish playing at Crobar , I wanted to be well rested ( I was nervous to see Sharam again . ) I napped , restlessly , then awoke to get ready . I had bought an amazing blue dress with silver heels .\nQuestion: What may be the plausible reason that I feel restless ?",
+            "output": [
+                "The though of seeing Sharam again makes me nervous ."
+            ]
+        },
+        {
+            "input": "Context: First one occurred in Friday , where they should have come at 2 PM , but until 5 PM , they did n't showed up . I asked time to reschedule the maintenance problem on Sunday , as i had to go on Saturday and they agreed . I asked them to get as fast as possible and they said that they usually start dispatching technicians at 9 or 10 AM .\nQuestion: What may be the reason I 'm calling and trying to set up a time ?",
+            "output": [
+                "Because the crew never showed up for the initial call and I needed to get something done quickly ."
+            ]
+        },
+        {
+            "input": "Context: Well , not furious but kind of mad , and she jumped all over Maryam for that . And Maryam told me that it was Robbie 's idea and I did not know that . You 'd think Robbie would TALK to me about stuff like that . I went to physics , and there was not ONE person in the room that I know . I was starting to freak out until Ana walked in , and I do n't know how glad I was .\nQuestion: What may have been the reason I freaked out until Ana walked in ?",
+            "output": [
+                "I wanted to see a familiar face to hang out with in class ."
+            ]
+        },
+        {
+            "input": "Context: This , on the other hand , was one of those rare encounters when I knew God had intervened in details only He could have known . It was a God moment , and I 'll never forget it . Our time came to board , and we were not on the same plane . I was deeply ashamed of how I 'd acted earlier and would have been so proud to have accompanied him on that aircraft .\nQuestion: What may be the reason they were not on the same plane ?",
+            "output": [
+                "They were going to different destinations ."
+            ]
+        },
+        {
+            "input": "Context: I ' ve never smiled this much in my entire life . I do n't think I knew what it was like to be truely happy until I met him.2 . Jeremiah : I met him as a sophomore in high school when he was a junior . Little did I know , he was also a neighbor .\nQuestion: What may I have felt after I met Jeremiah",
+            "output": [
+                "I felt in love with him"
+            ]
+        },
+        {
+            "input": "Context: I watched a ton of Invader Zim with the kids and got out on time . It was a good feeling . Tomorrow my brother 's family is coming over from 1 - 7 . I ' m pretty excited yet a little nervous at the same time . I feel like a freshman showing her friends her dorm room for the first time .\nQuestion: What will the narrator do before their brother arrives ?",
+            "output": [
+                "They will clean up ."
+            ]
+        },
+        {
+            "input": "Context: I ' m packing already . Actually - and this time I ' m positive it 's not sour grapes talking - this trip turned out to be a lot more fun than it would have been with Mike , I think . Especially given that I ' m fairly sure there was more behind his sudden disappearance from my life than I knew about , it was probably for the best . But enough - I have to go rub on more aloe vera gel .\nQuestion: Was mike expected to leave ?",
+            "output": [
+                "His absence was not expected"
+            ]
+        },
+        {
+            "input": "Context: So to day I slept late , which was not planned , and then got up and made pancakes . Special toffee pancakes , which were actually a bit complicated . Making the toffee was easy though . The end result was really good .\nQuestion: What can we say about the narrator 's diet ?",
+            "output": [
+                "The narrator eats poorly ."
+            ]
+        },
+        {
+            "input": "Context: It was the first time the team played together last year , so coordination was a complete mess . We did n't even get a proper training session going ! Hmm .\nQuestion: How many times did they practice so far ?",
+            "output": [
+                "They did not have any practice before this time ."
+            ]
+        },
+        {
+            "input": "Context: i had a dream that me and my family ( in this dream there were more kids for some reason ) we lived on some sort of farm , and there was supposedly a special \" visitor \" coming to see us . When the visitor pulled up in his truck i was instantly scared , he was red with horns and glowing eyes- it was SATAN ! ! ! - in redneck form . Anyways , he 'd get out his truck and play with us , he was friendly ; until he found out that his wife was cheating on him , then he got mad .\nQuestion: Why is the event being discussed so unusual",
+            "output": [
+                "The speaker is describing a dream"
+            ]
+        },
+        {
+            "input": "Context: I felt good after the first 2 minutes .... once my legs settled in to a rhythm . I completed the 6 K run course in 42 minutes and 10 seconds . Crossing the finish line was a great moment in time . The final word .... I finished 3rd in the Female Elite Amateur group after being penalized two minutes by the race officials .\nQuestion: What may be the reason I felt good after the first two minutes ?",
+            "output": [
+                "I got used to running ."
+            ]
+        },
+        {
+            "input": "Context: So I was helping my dad with some stuff on the computer , right ? ( he 's technologically impaired ) And he had to run downstairs to find some guys e - mail address . When he was coming back up the stairs , he says \" oh my god , do songs ever just randomly pop into your head ?\nQuestion: Why am I doing what I 'm doing with my father ?",
+            "output": [
+                "I 'm helping him with computer things because he 's not too great with all things computer related ."
+            ]
+        },
+        {
+            "input": "Context: It was close stuff but I managed to drag a win out of it in the end . I sat out the second race on Saturday to try and recuperate for the Sunday races . On Sunday I felt better and by the time the Scottish Championship race came round I was raring to go . I made a rubbish start and battled for the first few laps with Bruce Burnie and Michael Robertson again , but eventually I managed to puch my way to the front and pulled away to win by a couple of seconds , phew !\nQuestion: Why did they sit out the Saturday race ?",
+            "output": [
+                "To rest and recover from their exertion ."
+            ]
+        },
+        {
+            "input": "Context: I was the buzzkill that night . Because I was n't part of the circle , I was just a passing through . It was such a hard night , being late for Rocky , dealing with Luke , who made me late , and then told me to take him home because he was sick . I sat in Luke 's drive way crying , so frustrated at him for the whole thing .\nQuestion: What will I do after this night is over ?",
+            "output": [
+                "Go home and go to bed ."
+            ]
+        },
+        {
+            "input": "Context: And it was the first time I have been there in a while . It was the first time ever for my wife and kids who had a blast as well . It also happens to be the last year they will be in this stadium .\nQuestion: What may be the reason my family and I were at this stadium ?",
+            "output": [
+                "We were there to watch one of the final football game played by our team in this facility ."
+            ]
+        },
+        {
+            "input": "Context: It was okay , I think she had fun . I was more worried about her than the concert in all honesty . I did n't even know the songs she sang . I only knew two ... maybe three , tops .\nQuestion: Who went to the concert ?",
+            "output": [
+                "The girl and I were at the concert together ."
+            ]
+        },
+        {
+            "input": "Context: My life has been pretty much blahhhh lately , but two things stand out from all the other crap . I was reminded of the first of them last night as I watched the beginning of Saturday Night Live . I do n't think I ' ve enjoyed that program for about 25 years , but the opening skit with Tina Fey as Sarah Palin was hilarious . That skit reminded me that I had a dream about Sarah Palin earlier in the week . I do n't normally remember my dreams , and in a million years I 'd never imagine that I 'd have a dream with her in it . She scares me .\nQuestion: Why may the narrator feel SNL has improved ?",
+            "output": [
+                "The narrator feels Tina Fey has saved it ."
+            ]
+        },
+        {
+            "input": "Context: My DVR is really getting a workout this year ! I normally only like to watch the gymnastics and diving events , but I decided that this year , I 'd like to expand my horizons a little and check out some of the other sports I never pay attention to . I saw a PBS special ( I think it was on the show called \" Nature \" ) about horses and their riders a few weeks ago , and that was pretty interesting , so I decided to check out the equestrian events this year . I am completely fascinated by dressage .\nQuestion: why did he say my DVR is getting a workout ?",
+            "output": [
+                "None of the above choices ."
+            ]
+        },
+        {
+            "input": "Context: Okay it is now 12 days until the girls party and I have NOTHING to wear . I have been so worried about their outfits and baptism dresses . I have n't even had a chance to even try them on them .\nQuestion: Why has the speaker neglected to find themselves an outfit for the party ?",
+            "output": [
+                "They have been so busy taking care of others they have forgotten to care for themselves"
+            ]
+        },
+        {
+            "input": "Context: I * think * the show may have been on Nickeloden . We had cable , but none of the extra channels , so it 's the only place I figure I could have watched it . It was a kids show . It was a team of 2 kids . There were like 20 or so prizes on a ramp . You ran through and picked a certain amount of prizes that you liked .\nQuestion: Which room might the person have been in at the   time   of this incident ?",
+            "output": [
+                "The living room"
+            ]
+        },
+        {
+            "input": "Context: I saw one of the paramedics talk to you , \" he looked at me . \" I ' m fine , it just kinda startled me is all . All that excitement , the TV cameras , you know .\nQuestion: Why would the paramedics have spoken to me if I was all right ?",
+            "output": [
+                "I had withstood some sort of attack ."
+            ]
+        },
+        {
+            "input": "Context: Blow after blow rains down on me and I try to hide inside my head until it is over . He was really wound up this night and started to break some of the dishes in easy reach . When his reign of terror is done he grabs a beer and heads for the living room to watch television .\nQuestion: What will I do next ?",
+            "output": [
+                "None of the above choices ."
+            ]
+        },
+        {
+            "input": "Context: My second thought was , \" hey , that guy kinda looks like Bobby Knight . \" Then I turned again and thought , \" hey , that 's the winningest men 's basketball coach in NCAA history Bobby Knight his very own damn self . \" So that was neat .\nQuestion: Why did the writer think that the person looked like Bobby Knight ?",
+            "output": [
+                "Because it actually was Bobby Knight ."
+            ]
+        },
+        {
+            "input": "Context: I ' m not a morning person . I crawl out of bed between 8:30 and 9 and slowly weed through my email , have breakfast , possibly brush my hair and maybe put on a mismatched combination of ragged shorts and a holey T - shirt touting some Java or open source project , and then play World of Warcraft until lunch . However , my perfect morning routine has been demolished ... by hunger pangs . I ' m starving at 4:30 in the morning and wide awake .\nQuestion: what does \" weed \" through my e mail mean ?",
+            "output": [
+                "None of the above choices ."
+            ]
+        },
+        {
+            "input": "Context: Haha , she 's already planning excuses for her parents as to why I need to spend the night there . Honestly , I ' m very flattered and happy that she wants to hang out with me that much . Also , as it turns out , I ' m actually not out of the hole with money problems . Turns out I ' m not supposed to get paid for my paid vacation .\nQuestion: What may happen after planning the night to stay ?",
+            "output": [
+                "I end up hanging out with them more than i expected to ."
+            ]
+        },
+        {
+            "input": "Context: From her annoyed look , I gathered she did n't want to go to the hospital anymore than I did . \" Becca , let 's go back to the hotel OK ? \" I asked . \" Yeah sure , of course Dri . And we 'll definitely take a taxi the whole way this time . \" I smiled , but I was really watching T - shirt guy talking to the picture guy .\nQuestion: What might have happened before that they considered going to the hospital ?",
+            "output": [
+                "Becca might have gotten hurt and needed minor medical attention ."
+            ]
+        },
+        {
+            "input": "Context: Aye , cheers for the support eh ? Also , the SECC is such a shite * venue for gigs , it 's characterless and sounds echoey . I think it 's pure greed when a band like Oasis play in such a crap venue so they can squeeze as many people in as possible to line their pockets . Do n't give me the ' they need a big venue to give all the fans an opportunity to see them ' crap , if they cared about the fans they would n't have walked off , never to return , all those years ago .\nQuestion: What may be the reason for this discussion ?",
+            "output": [
+                "They feel strongly about the venue ."
+            ]
+        },
+        {
+            "input": "Context: My sister is getting married this weekend ( yaaay ! ) , and it 's sad how hard it 's been to get our schedules together so we could shoot some bridal portraits . So Saturday she called me and said that her work was closing because of the hurricane and she wanted to come and shoot a few portraits . SO , by the time she got here and we got all ready , we only had a very short while to take pictures , but we got a few .\nQuestion: What state may I be currently living in ?",
+            "output": [
+                "Florida"
+            ]
+        },
+        {
+            "input": "Context: The area where John had tilled the ground was also beginning to show signs of life . We were astounded by this trumpet vine and it 's tenacity . A Master Gardener from church informed us that we would not be able to kill the trumpet vine with Round - Up .\nQuestion: What will happen after they till the soil ?",
+            "output": [
+                "The trumpet vine will flourish ."
+            ]
+        },
+        {
+            "input": "Context: Ca n't be sure about that , though . One step at a time ... \" Andy watched , fascinated , and did n't interrupt again . Castin worked with his laptop battery and the elevator 's wiring , cursing a lot as he went .\nQuestion: What was Castin doing ?",
+            "output": [
+                "Working on the wiring ."
+            ]
+        },
+        {
+            "input": "Context: At one point , we ran into a couple coming down from the glacier who were from Lubbock , TX . They saw Pat 's UT shirt and gave us the hook ' em horns sign . We started talking and they told us how great it was at the glacier .\nQuestion: What is the narrator , their friend and the stranger bonding over ?",
+            "output": [
+                "A university ."
+            ]
+        },
+        {
+            "input": "Context: I answered having dealt with a couple of corprus stalkers already . Berwen smiled hopefully as she said , \" Excellent . Have at it , but be careful .\nQuestion: What will happen next ?",
+            "output": [
+                "None of the above choices ."
+            ]
+        },
+        {
+            "input": "Context: He even asked to sign my guestbook and put something stupid in it . Since last September , I have n't said one word to him . Do I want to ? Yes . However , I ca n't , really .\nQuestion: What may be the reason he wanted to write in my guestbook ?",
+            "output": [
+                "He wanted to maintain a small connection with me ."
+            ]
+        },
+        {
+            "input": "Context: R immediately picked up the hurt in his voice because he had not been invited . It was just wrong that he had not been invited . I kept trying to mollify it to R by reassuring him that it was not our doing nor our fault . Her birthday , she is free to invite whoever she likes .\nQuestion: Why was R being reassured ?",
+            "output": [
+                "he was suffering from anxiety"
+            ]
+        },
+        {
+            "input": "Context: It 's much easier than I thought it 'd be , just a little time consuming . It 'd also probably help if I could write a little neater , but I almost like the messiness of it . But then again , I almost do n't .\nQuestion: Why is the writer conflicted ?",
+            "output": [
+                "The writer wishes they wrote more neatly ."
+            ]
+        },
+        {
+            "input": "Context: \" One day in the summer of 1971 , my parents held hands , closed their eyes and jumped out of their conventional marriage into something strange and new . I was 9 years old at the time , and we were camping at Betsy Lake in the High Uintas Wilderness with another family of five . We were halfway into the camping trip when the six of us kids realized our parents had mixed and matched : My father was in the tent with their mother , and their father was in the tent with my mother .\nQuestion: Why would the children be unnerved on the camping trip ?",
+            "output": [
+                "Their parents were swapping each other ."
+            ]
+        },
+        {
+            "input": "Context: Love Chunks ran alongside me , patted me on the back and whispered , \" I ' m so proud of you , we would n't have missed this for anything , \" and quickly clicked the digital camera before he nearly smacked into a footbridge . Tears of gratitude filled my eyes and the oldest cliche in moviedom came true for me - I ran faster . Too fast , in fact . I had to stop across the way from the Red Ochre restaurant and throw up .\nQuestion: Why did I become sick ?",
+            "output": [
+                "Because I ran too fast ."
+            ]
+        },
+        {
+            "input": "Context: I sponged the edges and set them aside . I used Scotch tacky adhesive and applied a generous amount ( not too much , not too little ) to the front on the frame , lined up the cardstock and gently pressed it to the frame . Allow a few minutes to dry .\nQuestion: What may have happened before I did this ?",
+            "output": [
+                "I found cardstock I like ."
+            ]
+        },
+        {
+            "input": "Context: While I slept , I sold two paintings and one print . I woke up to the order and bounced around like it was Christmas . They also sent an email about how much they enjoyed my work and were so excited to have it in their home .\nQuestion: What does the speaker do for work ?",
+            "output": [
+                "They are an artist ."
+            ]
+        },
+        {
+            "input": "Context: Then she showed me how to get the Elvis tracks : all I needed to do was to type ' Elvis ' in the search box and click find . The Ares software ( that 's what we were using ) found it straight away . I clicked on a button called ' download ' and Ares went away and did its stuff . Soon enough I had the whole Elvis back catalog in my Ares music folder .\nQuestion: Now that I knew how to use the software , what was I likely to do next ?",
+            "output": [
+                "Download more music from other artists that I liked"
+            ]
+        },
+        {
+            "input": "Context: However , in Lombardo 's eyes , Mother Teresa was a person who starved the poor of India to the point of starvation . I could find no information on this subject , so I can only assume it was the distortion of information passed down to him , but it stands to reason that he could see no good in her actions . While I can not say that I agree , it is at least refreshing to hear someone with a differing opinion , whether it changes or reaffirms your own should really come second . The thing in common between the two that I could find was a negative undertone ; whether this has developed from nature , nurture , or belief I can not distinguish .\nQuestion: Why would some be offended at Lombardo 's views ?",
+            "output": [
+                "Mother Teresa is universally beloved ."
+            ]
+        },
+        {
+            "input": "Context: I feel bad not having money all the time . So its something to consider atleast :) I do nt have to work a full 40 hours , anything would be good maybe even 20 to start . We shall see what happens though . Um anything else ?\nQuestion: What may happen if you start out working 40 hours a week ?",
+            "output": [
+                "'d miss what I have been able to do with the time I previously had ."
+            ]
+        },
+        {
+            "input": "Context: This was a good sign . It meant that the people here were making enough money to afford newer cars . I hoped and prayed every day that I would get the job and when I did , it felt like I 'd won the lottery .\nQuestion: Why does the narrator feel the economy is on an upswing ?",
+            "output": [
+                "They see people buying new vehicles ."
+            ]
+        },
+        {
+            "input": "Context: We were there from 3:00 until 7:00 ( when the out door part ended ) , went to a diner for dinner , then went to part two at a bar from 8:30 until 10:30 when we decided to go home . ( I think the show actually went til 1:00 . ) ) ( I ' m all about the parentheses today , apparently .\nQuestion: After such a long night if the narrator wanted to go straight to sleep , what time did they go to bed ?",
+            "output": [
+                "If the narrator wanted to go to bed early they went to bed at about 11 pm ."
+            ]
+        },
+        {
+            "input": "Context: I had a dream of battles between planes . ( The pilot of the other was baloo the bear from tailspin . ) It was an epic battle between the seaduck and a shuttle , that ended with both in flames .\nQuestion: What may be my favorite type of television ?",
+            "output": [
+                "Cartoons"
+            ]
+        },
+        {
+            "input": "Context: I always felt bad for looking up to him . He would constantly say , \" Be your own man . You do n't need someone else to lift you up to where THEY are . Lift yourself up to where YOU need to be . \" I do n't feel bad for looking up to him anymore .\nQuestion: Why do n't I feel bad for looking up to him anymore ?",
+            "output": [
+                "He gave me hope ."
+            ]
+        },
+        {
+            "input": "Context: I had some moments of introspection related to turning a quarter - century old , the results of which were a little unsettling . Certainly I ' ve had many reasons to be bitter and unhappy in the past few months , but when did it become such a problem that friends are leaving more subtle hints about it ? Sigh ... it 's never good when you look in the mirror and are n't happy with what you ' ve become .\nQuestion: What may have happened when looking in the mirror .",
+            "output": [
+                "I may have seen that I was out of shape ."
+            ]
+        },
+        {
+            "input": "Context: As we reached the top , Wes said , \" Now we just need to climb the haystack . \" Yes , this massive jut of rock is the haystack . I told him \" NO , way . \" Wes : \" Oh , do n't worry we do n't climb here . We climb around the back . \" Let me just say , that the back of the haystack is not much better . Anyway we climbed up just fine but that is not the part that I hate .\nQuestion: How did I feel about what we 're about to do ?",
+            "output": [
+                "I did n't want to do it ."
+            ]
+        },
+        {
+            "input": "Context: Soon , some started to pack up to leave . Exactly before lunch time , we all checked out and waved our final goodbyes from the place . Before heading home , since we still had lots of money left , we stopped by the nearest Caltex station [ because one of us works in Caltex and did not want to patronize other oil companies ;) ] and took lunch at Pancake House . Then we started cruising home .\nQuestion: What would happen if the party did not stop at Caltex ?",
+            "output": [
+                "The Caltex employee would gripe about supporting a rival ."
+            ]
+        },
+        {
+            "input": "Context: It was almost an issue of pride . A half hour later I got a phone call from the gym I go to and they told me that a woman had called and said she had found my keys . They gave the woman 's number and it turned out that she happened to have been riding her bike and saw the keys - the yellow gym membership tag being visible , as it were .\nQuestion: what does the narrator have access to ?",
+            "output": [
+                "a phone"
+            ]
+        },
+        {
+            "input": "Context: Most of the email I got was junk letting me know someone had looked at my profile . So I started poking around the site , changing settings and looking at profiles . The first person I messaged turned out to be someone I 'd already met ! Andrew , one of Aaron 's friends .\nQuestion: What may be a fact about this person 's situation ?",
+            "output": [
+                "They are on a dating site ."
+            ]
+        },
+        {
+            "input": "Context: I told them I was a freshman in CSE or CE and they showed me a list of all the Computer related internships they have 8D And they told me to apply . Then i went to dish and they were grumpy i did n't like them XD They were like you should ' ve researched the companies before you came alkdjsflaksjf and i was like my dad sells dish , i know what dish is and what they do ._. ; ; ; hm ... but back to why i ' m glad i ' m here .\nQuestion: Why is the person upset that Dish was n't more approving of them ?",
+            "output": [
+                "Because they believe they have what it takes to do well in this position"
+            ]
+        },
+        {
+            "input": "Context: I woke the Beau , brought him up to speed , and we decided to pack up and head to this place . We grabbed only the things that were important to us ; pictures of family , a few changes of clothing , cell phones , our credit cards , some snacks , water bottles , and the Piglet . We hopped in the Beau 's car and headed for the local Sea Island . The traffic was n't as bad when our garage door rolled open behind us and we found ourselves in a long line of cars , all rapidly headed in the same direction .\nQuestion: What may be a plausible fact about my relationship with him .",
+            "output": [
+                "He is my lover ."
+            ]
+        },
+        {
+            "input": "Context: Basically , Kanzaki Nao is a really honest and pure girl who gets tricked from the start to the end throughout all the rounds in Liar Game . If not for Akiyama Shinichi who is always there to help her get out of trouble and always watching her back , i do n't think she 'll even survive the first round . Akiyama is seriously not good - looking at all . I was right about this show not having any eye candy .\nQuestion: How does the narrator view Kanzaki Nao ?",
+            "output": [
+                "The narrator thinks she is innocent ."
+            ]
+        },
+        {
+            "input": "Context: They knew not what we had done , but felt no shame or anger . Rather they were glad for us , and blessed us , as would he , who loved all men . And after three long , lonely days , like years , in which I roamed the gardens of my grief seeking for him , my one friend who had gone from me , he rose from sleep , at dawn , and showed himself to me before all others . And took me to him with the love that now forever dares to speak its name .\nQuestion: Why is the narrator meandering around the area ?",
+            "output": [
+                "They are looking for their friend ."
+            ]
+        },
+        {
+            "input": "Context: I stopped to look at a map , felt a stinging in my left leg ... and looked down to a mosquito . And then another . Sigh . I have issues with mosquitoes . Maybe I have sweet blood ?\nQuestion: Where might I be visiting currently ?",
+            "output": [
+                "I might be visiting an area not familiar to me which is why I need a map ."
+            ]
+        },
+        {
+            "input": "Context: We just could n't have such a terrible sight in one of our pictures . After a little more walking around we decided to leave . When we got outside San Antonio I began thinking about the history of the state . I thought about Travis ' letter and hoped that we as people have learned a few things since those days about helping others .\nQuestion: Where is the narrator likely going to be headed to next in relation to their current location ?",
+            "output": [
+                "The narrator is likely headed to Austin ."
+            ]
+        },
+        {
+            "input": "Context: Aaron gave her a quick squeeze , giving her comfort where it was needed ; Cassandra smiled before poking him in the stomach and heading out of the alleyway . Aaron followed her , as he knew he would always do . Hell , the whole reason he was with her now was because he had followed her out of the hospital when she had run .\nQuestion: Why is Aaron so excited and thrilled ?",
+            "output": [
+                "Their loved one is away from the medical unit ."
+            ]
+        },
+        {
+            "input": "Context: When I met her she really did n't wear muh makeup , wore things other then what I wore such as tight pants and band tees . Now , pathetic she looks just like everyone else . PATHETIC ABSOLUTELY SAD AND HORRID .\nQuestion: Why might I be saying this about my friend ?",
+            "output": [
+                "While she used to be original and different , she is now just a sheep following the other sheep ."
+            ]
+        },
+        {
+            "input": "Context: But I live and work in the trenches , and I will tell you that most people that work in animal welfare will tell you that they would take in a 10 year old dog than a 10 week old puppy . Yesterday , we had a family who adopted a puppy last week come in wanting to return the puppy . The reason ? It was being a puppy .\nQuestion: What type of people would return a puppy because it was too much like a puppy ?",
+            "output": [
+                "None of the above choices ."
+            ]
+        },
+        {
+            "input": "Context: All in all , a pretty good semester I would say . I was in the mood to celebrate after the first test was done . I have a gift card to the Olive Garden and I was in the mood for a nice meal .\nQuestion: Why would I be in a mood to celebrate after the first test ?",
+            "output": [
+                "I aced the test"
+            ]
+        },
+        {
+            "input": "Context: The demons want him so that the Order will never be complete , the justice angels want him contained , and another certain female angel , named Ana , wants him for her own personal reasons . Revenge . Ana has always tried to do what is right and play by the rules . All that changed when the justice angels betrayed her family .\nQuestion: What might this passage have come from ?",
+            "output": [
+                "a sci - fi movie script"
+            ]
+        },
+        {
+            "input": "Context: Kicking us out for the day I feel is taking it too far . There were also some problems concerning the loan I took out for this semester . Apparently , the reason it has not been dispersed is because my expected graduation date conflicted with the loan or something like that .\nQuestion: What is causing the narrator anxiety about the loan ?",
+            "output": [
+                "It has not been issued out ."
+            ]
+        },
+        {
+            "input": "Context: Today was the last day of camp . I ' m pretty content with how the day went , but I ' m still going to miss it . Right when I was about to leave , it started raining and I had to walk . That was kind of fun though . So I got there , and Ryan was wearing a gross hat and crocs . And I just wondered what happened to the totally awesome Ryan I knew and loved ? ?\nQuestion: What is the reason I wondered what happened to the totally awesome Ryan I knew and loved ? ?",
+            "output": [
+                "He wore uncool crocs and a gross hat ."
+            ]
+        },
+        {
+            "input": "Context: The Lord knew how to lay it on for the arrival of the third child . It was my privilege to be there when our youngest boy was born whom we named , Keith Christian . As soon as possible he was handed over me to see and nurse . As I looked at his face he reminded me of Edward G. Robinson .\nQuestion: What religion may I be practicing ?",
+            "output": [
+                "Christianity"
+            ]
+        },
+        {
+            "input": "Context: Like when Yamamoto treated them sushi after school . Or when he needed assistance while protecting the tenth . Or when he needed good target practice since Yamamoto 's reflexes were quick enough to dodge his own dynamites .\nQuestion: What would one happen if they threw a brick at Yamamoto ?",
+            "output": [
+                "He would avoid it ."
+            ]
+        },
+        {
+            "input": "Context: We are in the process of moving into our new little abode in Oklahoma City , Oklahoma County , Oklahoma State , United States of America . We got the master bedroom mostly squared away , the living room , received our dryer and refrigerator today , and watered half the lawn . Tomorrow we have the termite inspector coming to check things out . I am going to climb under the house with him to take a look .\nQuestion: Is the narrator prepared for the move to Oklahoma City ?",
+            "output": [
+                "Yes , the narrator is fully prepared and has the house ready to go ."
+            ]
+        },
+        {
+            "input": "Context: Shawn 's working tomorrow ... and then off for two days . We 're going to a co - workers house on Sunday , and then with my sisters and families on Monday to Idlewild . It will be a fun weekend , I ' m sure ! Other than that ... not too much stuff is going on , so with that I will say adios , and wish everyone a blessed evening !\nQuestion: What may be a plausible fact about our upcoming weekend ?",
+            "output": [
+                "It will take place on Sunday and Monday ."
+            ]
+        },
+        {
+            "input": "Context: Australian media are reporting today that doubts have been raised about the ages of Chinese medal - winning athletes as long ago as the Sydney Olympic Games in 2000 . Age - falsification has become a burning issue since the Beijing Games last month , where it was alleged that Chinese gymnast He Kexin , who won two gold medals , was underage and therefore should have been ineligible to compete in the event . Rules introduced in 1997 to prevent the exploitation of under - aged gymnasts stipulate that competitors are required to be at least 16-years - old in the year the Olympics are held .\nQuestion: Why is it an issue if the Chinese gymnast is not sixteen years old ?",
+            "output": [
+                "If the gymnast is not sixteen years old then he in violation of Olympic rules ."
+            ]
+        },
+        {
+            "input": "Context: You think I give two shits what you think ? \" They were stunned into obeisance and toddled off and we had a good laugh . Paid for my impetuousness on Sunday though , awaking with a sore throat , a cough and the flu . The bag was not as warm as I believed .\nQuestion: How do I feel about what he thinks ?",
+            "output": [
+                "I could n't care less about what he thinks ."
+            ]
+        },
+        {
+            "input": "Context: I am pretty sure I just made my brother the happiest guy on the face of the planet . He has been a Mustang car nut for as long as I can remember . Him and his friends are always going out buying new parts , helping each other put them on , and all that good fun stuff . It 's something I never understood , but oh well he loves to do it .\nQuestion: What may be a fact about the speaker ?",
+            "output": [
+                "They support their brother 's passion for cars ."
+            ]
+        },
+        {
+            "input": "Context: It did n't , but we decided to crash in the hotel since the room had already been paid for . Oh my goodness . We were in the Marriott across the street from Towson University . That has to be the toniest hotel room , well , suite actually , I ' ve ever stayed in .\nQuestion: What may be the reason for them staying in the room since it was paid for ?",
+            "output": [
+                "They were n't able to get a refund ."
+            ]
+        },
+        {
+            "input": "Context: The weirdest thing happened to me over and over again at college ... people called me Jennifer . They did n't just shout it out across the quad because I looked like someone else from a distance and follow - up with a chagrined \" oh , sorry ! \" when they got up close and personal .\nQuestion: Why might it be strange that I was called Jennifer ?",
+            "output": [
+                "Jennifer is not my name ."
+            ]
+        },
+        {
+            "input": "Context: Yesterday was no exception . When I arrived inside the airport in front of the United ticket counter area , the first thing I noticed was that the Premier Executive line was closed off . Normally there are United employees out front directing passengers . This time there were none .\nQuestion: What may have happened when the United employees directing passengers   were absent",
+            "output": [
+                "The queue were with no orders"
+            ]
+        },
+        {
+            "input": "Context: Then there 's is my baby pitbull . Not to play favorite , but he has managed to find a deeper spot in my heart . He is chocolate and carmel swirled I 'd like to say . He 's never been loud , or obnoxious , or too rowdy , or too lazy .\nQuestion: What is the narrator describing ?",
+            "output": [
+                "They 're talking their pet ."
+            ]
+        },
+        {
+            "input": "Context: The penny - counting , quarter - scrounging I did on my lunch break in an attempt to avoid the overdraft fee was for nothing . The overdraft fee will hit the account at midnight , at the same time as my paycheck . I sincerely hope nothing happens to delay my direct deposit paycheck or the pooch shall be screwed . The customer service rep tells me that if I call back tomorrow , they 'll be able to take the charge off the account .\nQuestion: What is the narrator trying to work on ?",
+            "output": [
+                "Their financial health ."
+            ]
+        },
+        {
+            "input": "Context: The Center for Biological Diversity awarded Alaska Governor Sarah Palin the 2008 Rubber Dodo Award . Governor Palin won the award for fighting the Department of Interior 's designation of the polar bear as a threatened species . The polar bear is threatened by a shrinking habitat due to global warming .\nQuestion: How has global warming affected Polar bear habitats ?",
+            "output": [
+                "The melting of the ice caps has reduced the cold areas that polars require ."
+            ]
+        },
+        {
+            "input": "Context: So back to the drawing board . By now it was 8 am and I was in serious pain . Fortunately the next physio was available and had a cancellation for a 9 am appointment . So at 8:25 , after a quick call to the local minicab service , I made a very painful journey down my 3 flights of stairs to wait for the cab .\nQuestion: What may happen at 9 am ?",
+            "output": [
+                "I struggled with severe pain ."
+            ]
+        },
+        {
+            "input": "Context: Granted , the beaches on Phuket are great , but the town is the main attraction , unless you are looking for the sort of clubs , bars , and prostitutes you can find in many places around the globe . Phuket town is truly one of a kind . Its small , loads of its residents speak at least some english , the old architecture is preserved better than in many other places , and the local cusine truly shines here . For visitors , it is the best of both worlds : a quintessintial southern Thai town that s easy for a falang ( westerner ) to navigate .\nQuestion: Why is Phuket one of a kind ?",
+            "output": [
+                "Due to the architecture , beaches , and food ."
+            ]
+        },
+        {
+            "input": "Context: And a lip gloss ... where oh where have you been all my life , Too Faced ? ] and I feel much better . I feel like a grown up at work again , like my clothing is n't stained or ill - fitting or desperately out of season .\nQuestion: Why does the speaker ask where lip gloss has been all of their life ?",
+            "output": [
+                "Because they just recently tried it and are very happy with the results"
+            ]
+        },
+        {
+            "input": "Context: The risk of damage to that urn is far higher than my need to take it . Jordan is with me , surrounding me . When I think of her , she is with me . When I cry for her she is with me .\nQuestion: What is the purpose or use of the urn ?",
+            "output": [
+                "None of the above choices ."
+            ]
+        },
+        {
+            "input": "Context: I 'd know what to do with my life and I 'd do it . It would be simple . If money and time were no object ? I 'd not only finish my B.S. , I 'd go on to grad school and study ethnobotany , also known as \" what would happen if I took most of my interests , mashed them together , and called it a science . \"\nQuestion: What would this person do if he had unlimited resources ?",
+            "output": [
+                "This person would continue his education though grad school ."
+            ]
+        },
+        {
+            "input": "Context: It turned out that the man she married would just turn around and treat her the same exact way that her step - father had . My father was born in England and moved to the States sometime in his twenties , where he lived a life of multiple marriages . He was always a successful man and basically was able to get whatever he had wanted . I was born three months premature weight in at 2 pounds 4 ounces .\nQuestion: How would you describe the narrator at birth ?",
+            "output": [
+                "They were born earlier than they should have ."
+            ]
+        },
+        {
+            "input": "Context: I stared at my wristwatch that struck quarter to ten as I stepped off the train . \" I am going to be late , \" I thought miserably . As I made my way to the taxi stand , I noticed a long queue of passengers and a non - existent one of cabs . I sighed and counted that I was tenth in the row .\nQuestion: Why is the narrator expressing anxiety ?",
+            "output": [
+                "They feel they will not be on time ."
+            ]
+        },
+        {
+            "input": "Context: I do n't get out much when I ' m working . The weekends are usually spent marking - the bane of my profession , I am afraid . So it was nice to actually get away this weekend to the Cameron Highlands . We took a new friend , Glynnis from Australia with us as well .\nQuestion: What may be a fact about the person speaking ?",
+            "output": [
+                "They are hard working ."
+            ]
+        },
+        {
+            "input": "Context: The only light came from the ubiquitous luminescent bacteria . Of course , it was this bacteria that made Abby sick , as her body knew only how to cope with the dark microbes of Earth . The infected cut on her hand glowed in the dark . The medicine woman had been adamant that Abby see the water 's edge . When her fever finally broke and her hand dimmed she was half led half pulled over the rope bridges and branches that led to the open sea . Her head throbbed as she walked onto a pier .\nQuestion: What may happen to Abby while she is ill ?",
+            "output": [
+                "She will try to get medical help ."
+            ]
+        },
+        {
+            "input": "Context: Anyway , I still do n't get why a person would do this . What type of sick pleasure do you get out of exploiting young women ? Does it make you feel powerful ? Does it turn you on ?\nQuestion: What might you have done that I 'm questioning you about exploiting young women ?",
+            "output": [
+                "You might have gotten caught picking up a prostitute ."
+            ]
+        },
+        {
+            "input": "Context: We were able to pick up a generator ( thank goodness ! ) so we at least got power to our pump and got running water again , but everything else in the house runs on electricity too , so every morning for work I got to take ice - cold sponge baths in the dark . Total suck .\nQuestion: Why does n't the author have electricity .",
+            "output": [
+                "The power was taken out by a storm"
+            ]
+        },
+        {
+            "input": "Context: I had to verify in a couple of places to make sure the maid had n't just reset my clock while I was out . Saturday was kind of a blur , to be honest . I had an autographing session that was n't a complete failure , but I was sitting next to Stephen Baxter , who had a non - stop line and people having to get in line over and over again because of the three - item limit . It did n't help that only one dealer in the dealers ' room had my books at all , and they sold out on the first day .\nQuestion: Why did people have to get in the line over again ?",
+            "output": [
+                "Because there was a three item limit and more than one person signing books and the people wanted more than one item ."
+            ]
+        },
+        {
+            "input": "Context: There 's always at least one kid with a backpack or book bag of enormous proportions ; more often than not the voluminous vessel is coupled with an individual that has the tendency to barrel down the hallway , oblivious to the fact that with each step he is sending human projectiles left and right and that pandemonium has ensued . With all of the other adjustments that come with middle school , one takes it in a stride and catches on quickly that stepping into a doorway is a fine idea when the dark - blue L.L. Bean Deluxe Book Pack ( only 39 $ ! )\nQuestion: Why may one get hurt in the school hallway ?",
+            "output": [
+                "There is a kid with a   dangerous backpack ."
+            ]
+        },
+        {
+            "input": "Context: For privacy reasons I wo n't show you the picture of My Brother , his wife and oldest son picking out art in the VIP section , but let me tell you it it was hoot . Who decided that all Tattoos would either be topless women , fighting leprechauns or the Blessed Mother ? Oh and devils . lots and lots of devils .\nQuestion: Where might we have been when brother and his family were picking out art in the VIP section ?",
+            "output": [
+                "We were at a tat parlor where they were all going to get a new tats ."
+            ]
+        },
+        {
+            "input": "Context: The next day my headache was so much worse that I could not even pick my head up off the pillow . Returned to the ER where they gave me medication so that it was manageable . Fast forward about 3 weeks with a constant headache . I work at a different ER then I was taken to after the car accident .\nQuestion: Why would the narrator be upset at the first hospital ?",
+            "output": [
+                "Their treatment was ineffective ."
+            ]
+        },
+        {
+            "input": "Context: We started chatting and he shared my hatred against racism . He and his friends were on their way to a party , and asked if I wanted to tag along . I could n't though unfortunately , but really appreciated the kind offer from strangers . When I was about to leave , his cute half Nigerian half Austrian friend hugged me .\nQuestion: What may happen after being asked to hang out ?",
+            "output": [
+                "I would have to go home instead ."
+            ]
+        },
+        {
+            "input": "Context: He did n't even come to see me , and he was not remotely excited . It was weird , he was really standoffish . He even kept on yelling at me that I can not carry any babies home . He was n't even playing that he would give me babies .\nQuestion: What will happen to the narrator 's relationship with the man ?",
+            "output": [
+                "It will disintegrate ."
+            ]
+        },
+        {
+            "input": "Context: But soon that was n't enough , and he would fuss unless we let him hold it himself , chomping away like a pro with butter dripping down his chin . I do n't know why , but eating that corn makes him look so grown up ! That takes care of the corn , so what 's up with the other half of this week 's title ?\nQuestion: Why was he doing what he was doing ?",
+            "output": [
+                "He was hungry ."
+            ]
+        },
+        {
+            "input": "Context: I will say that we had a lot of both clearanced regular furniture left , and clearanced patio furniture . Still , getting rid of every single piece of furniture ( excluding the displays , of course ) seems like too extreme of a measure . If I were the store director , I would take that as a slap to the face . The message corporate is sending is that our store lacks the competence to sell any clearance furniture , and another store can do a much better job .\nQuestion: What will the narrator do in the store ?",
+            "output": [
+                "Sell furniture and liquidate ."
+            ]
+        },
+        {
+            "input": "Context: It gets worse : Hillary lost the nomination because she was not wearing a skirt ; she missed the feminine trend . She did not lose because she is a woman , she lost because she is not \" left \" enough of a woman - she is not feminine enough . Nancy Pelosi is a woman surrounded by children and who always dresses like a woman . Obama won because he was more feminine than Hillary .\nQuestion: What may have made Obama more feminine ?",
+            "output": [
+                "He had a better understanding of issues facing women ."
+            ]
+        },
+        {
+            "input": "Context: I only know two people who can keep there mouth shut , not including me . I have lived in the same town since I was five and it is getting waaaaay too small . I quit getting fucked up a year ago ( pot&pills&drinking ) but i got drunk the other night . My fast food job is realy weird . I ve been there for two years because they would n't fire me for anything .\nQuestion: What would happen if a friend wanted to go to the bar ?",
+            "output": [
+                "The narrator would say no ."
+            ]
+        },
+        {
+            "input": "Context: Photo Courtesy of Colorado Athletics Department Week 4 Thursday Night SpotlightThursday September 18th , 8:30 p.m. EST ( ESPN)(21 ) West Virginia Mountaineers at Colorado BuffaloesLast week , the Mountaineers and Pat White simply got it handed to them by Patrick Pinkney and the ECU Pirates , 24 - 3 . It was a display that has come all too familiar for West Virginia football fans - their team failing to live up to their lofty preseason expectations . Their running back of a quarterback , Pat White , is surely one of the most overhyped players in college football .\nQuestion: What may happen if the Mountaineers had won last week instead ?",
+            "output": [
+                "ESPN may hype up the play of West Virginia 's quarterback ."
+            ]
+        },
+        {
+            "input": "Context: I really missed hanging out with kids . They are so great ! And that is the update on my life . Special thanks to quarterlife for encouraging me to further put off homework and write .\nQuestion: How may I feeling during this post ?",
+            "output": [
+                "Happy"
+            ]
+        },
+        {
+            "input": "Context: He then mixed up a bleach solution and began applying it to the stained part of my hair and then redyed the brown part of my fringe , all the while saying that it was n't really his fault , he did n't know , he thought he wanted all of my fringe dye brown . I should mention that during this process , he slopped bleach and brown dye EVERYWHERE- on my forehead , on my cheek , on the table and on the mirror . His assistant also dropped the dye bucket on my shoulder .\nQuestion: What may happen after their bad experience ?",
+            "output": [
+                "They will stay away from that salon ."
+            ]
+        },
+        {
+            "input": "Context: He arrived shortly after and we all congratulated him for his birthday . The meal was gorgeous we had a banquet and they lit sparklers on his cake when we sang happy birthday .\nQuestion: Why is the narrator 's friend so pleased with her and others ?",
+            "output": [
+                "They recognized his birthday ."
+            ]
+        },
+        {
+            "input": "Context: Looking into his red eyes , I added , \" The moment I saw you I knew I was looking at a mer who knows how to opportunities that present themselves to him . In fact , I believe you could teach me a thing or two .\nQuestion: Why does the narrator look up to the subject they are speaking to ?",
+            "output": [
+                "They admire the subject 's assertiveness ."
+            ]
+        },
+        {
+            "input": "Context: Last night Kevin , Nesi , Trysh and I went to Trysh 's friends party . It was kinda awkward for all of us at first but I pretty much said whatever and started hitting the keg right away . Talked to a bunch of people and got some people started on Cornhole . Kevin and I went 5 - 0 and then finally lost to a worthy player ( but the boards were readjusted , only reason why we lost ! ) .\nQuestion: What may be a fact about the speaker ?",
+            "output": [
+                "They are drinking alcohol at the party ."
+            ]
+        },
+        {
+            "input": "Context: This differential only has a little over 150 miles on it . I bought this unit used from a fellow with a Mustang who had it in his car but ended up pulling it for an E - locker for manual lock control . This diff is in great shape . Auburn makes a very solid LSD that will take a beating and not wear out for a long time .\nQuestion: What is the narrator inspecting ?",
+            "output": [
+                "They are looking at vehicles ."
+            ]
+        },
+        {
+            "input": "Context: I had a very fun and interesting weekend this weekend . Friday was spent being totally lazy . I played a lot of sudoku and watched Mansfield Park , which was cute , and Jane Eyre , which was boring . And now I know that I like Jane Austen , not Charlotte Bronte . When Chris got home we went to Microcenter to switch out the memory we 'd gotten for the new computer .\nQuestion: What may have happened if I had work on Friday ?",
+            "output": [
+                "None of the above choices ."
+            ]
+        },
+        {
+            "input": "Context: This can not let their parent know else both of them will be suffer cause eat too much is not good for them . After I had done a check on the stuff inside the refrigerator , I noticed one of my chocolate bars is missing as well . Woo , they are really great eater .\nQuestion: What did the person steal from the narrator ?",
+            "output": [
+                "They stole some desserts ."
+            ]
+        },
+        {
+            "input": "Context: I honestly do n't think I ' ve ever been this excited in my life . I ' m pretty much shaking from excitement -- I know , I know , that sounds weird but I really am . I did jumping jacks in French class today and Madame Lipinski was like whaaaaa ?\nQuestion: What did Madame Lipinski say to me after I did jumping jacks in her class from excitement ?",
+            "output": [
+                "She told me to calm down and sit down ."
+            ]
+        },
+        {
+            "input": "Context: In addition my back was out in an odd way that made it really painful to sit , sleep or breathe . I got some relief Monday , but it has been an uphill battle around here . Not to mention the buckets of snot in my head .\nQuestion: What may be a reason for their pain ?",
+            "output": [
+                "They have fallen ill ."
+            ]
+        },
+        {
+            "input": "Context: < You were born for this.>\"Yeah , \" I said , trying to ignore the trickle of tears on my cheeks . \" I guess I was . \" < I know it is wrong of me , but I am glad that this happened , > he sighed . < Despite all the horror and war the Yeerks brought with them , landing on Earth after reverting back to my form allowed me to give you something I could not have otherwise shared with you.>Morphing was a bond between us .\nQuestion: What is to happen with the Yeerks ?",
+            "output": [
+                "The Yeerks are likely to make a home on Earth ."
+            ]
+        },
+        {
+            "input": "Context: Katalin and Alex were originally from Hungry , they built this place a couple of years ago , and what beautiful home they have created . We were really spoilt , they love to have people stay and could not do enough for us . All of the food was homemade and they even catch and smoke their own trout .\nQuestion: Why did the couple build the home ?",
+            "output": [
+                "They needed one after coming to the country ."
+            ]
+        },
+        {
+            "input": "Context: i ' m hoping that i 'll be able to better evaluate what i want after some time has passed and i ' ve gotten more used to living on my own . in the meantime , i am still applying for both the internship in washington state and the jet programme in japan . i 'll likely apply to the opera program in halifax for the summer 2009 and look into some other job opportunities . i want to take as many auditions as is feasible and appropriate for my voice type / experience .\nQuestion: What typr of singing do I do ?",
+            "output": [
+                "Opera"
+            ]
+        },
+        {
+            "input": "Context: At the conclusion of his speech , the Tribes presented the Senator with a plaque inscribed with his new Indian name - Walking Eagle . The proud Senator then departed in his motorcade , waving to the crowds . A news reporter later inquired to the group of chiefs of how they came to select the new name they had given to the Senator . They explained that Walking Eagle is the name given to a bird so full of sh * * it can no longer fly .\nQuestion: What will the senator do after watching the news about the event ?",
+            "output": [
+                "He will give back the plague to the tribe ."
+            ]
+        },
+        {
+            "input": "Context: He wrote me a long email explaining how he could nt do the bf / gf thing right now . Understandable - the guy has nt been single since he was 19 . People need breathing room .\nQuestion: Why may the narrator have been dumped ?",
+            "output": [
+                "Their partner needed time to themselves ."
+            ]
+        },
+        {
+            "input": "Context: I think we ' ve found out who owns the kitten . The family live the other side of the street to us , about 200 yards away . We only found this out because yesterday we had a hand - written note through the door about a lost kitten .\nQuestion: What may happen after I found the note ?",
+            "output": [
+                "I returned the kitten to its owner ."
+            ]
+        },
+        {
+            "input": "Context: He was nice and said he liked it , and I think I believe him , but I was really disappointed with it . Then we got coldstone ... oh my God .... I had never had it before . I think I gained 10 pounds just from that . Speaking of which , as soon as tennis is done I need to get back to the gym .\nQuestion: What does the speaker think about coldstone ?",
+            "output": [
+                "They really liked it ."
+            ]
+        },
+        {
+            "input": "Context: I am beside myself just thinking about where they might be and who is taking care of them if anyone . I have notified all the area dog pounds and humane societies and I have ads coming out in the paper and I am looking everywhere . What else can I do ?\nQuestion: What do we know about the narrator ?",
+            "output": [
+                "They 've lost 2 or more dogs ."
+            ]
+        },
+        {
+            "input": "Context: Looked down and realised that my bed clothes etc were all still in my car so i was sleeping in plain duvet pillows etc . Not great but at the time it was a bed , and that 's what i needed what with not having even a car to sleep in any more . Got the number of the local VW garage from 3663 and called them . They told me that I 'd need to bring it in .\nQuestion: What type of living arrangement does the narrator have ?",
+            "output": [
+                "It is very spartan ."
+            ]
+        },
+        {
+            "input": "Context: \" \" I 'll tell you a story , \" she said , pulling out the chair next to me and sitting down . She was munching on the cookie . \" I grew up thinking that this was the only thing I needed in life . A house , a husband , a home of my own , you know the drill .\nQuestion: What values guide this person ?",
+            "output": [
+                "This person is inspired by conservative values ."
+            ]
+        },
+        {
+            "input": "Context: Since this was a prime lens , I could not zoom out . Also walking around the zoo with a big telephoto lens and dealing with 2 babies in a stroller made for a tiring day . Despite these challenges , I was quite happy with the results from the shots I took . I had to get creative in framing my shots since I did not have the luxury of zooming out .\nQuestion: What type of work is the narrator proud of ?",
+            "output": [
+                "Their camera skills ."
+            ]
+        },
+        {
+            "input": "Context: First let me set my frame of mind up for you all . I have recently been having trouble with my 15 year old son . Nothing too extreme just the typical I am a teen now pulling away from the mom stuff . Breaks my heart that the kids are growing up so fast and I have been trying without success to hang on to his youth .\nQuestion: Why is the narrator upset at their son 's behavior ?",
+            "output": [
+                "Their growing up too fast ."
+            ]
+        },
+        {
+            "input": "Context: With fellow knitters , I was n't worried . But I had a long conversation with a loud , opinionated , very cool Cuban woman , and decided to try it out . \" You know , it 's weird , I write straight romance , but I ' m married to a girl . \" She just leaned forward and asked , \" What is THAT like ? \"\nQuestion: Where is the person the narrator is conversing with from ?",
+            "output": [
+                "They are from an Island country ."
+            ]
+        },
+        {
+            "input": "Context: I ' ve had a couple of odd dreams the last couple of nights . Thursday night I did n't sleep well . I kept waking up , tossing & turning , dreaming for a few seconds , and repeating . In the dreams I was at some anime con or something(people were dressed up as anime & video game characters ) and I would take pictures . The thing is , even though it was really crowded , whenever I went to take someone 's picture , I would have a clear shot of them and no one would move between me and them ever .\nQuestion: Why may the narrator be dreaming of such things as anime ?",
+            "output": [
+                "The narrator is a gamer ."
+            ]
+        },
+        {
+            "input": "Context: Last night after Funky Princess got off the bus , she told me she lost the math homework that took us over an hour to finish the other night . I know she finished it , put it in her math book , and put the book in her backpack , but what happened between home and school she does n't know . So she had to do the whole thing over again last night .\nQuestion: What probably happened to the homework ?",
+            "output": [
+                "The wind blew it away ."
+            ]
+        },
+        {
+            "input": "Context: Renee Swan picked up her racket before swinging it full force at the neon green tennis ball . \" Great job , Mom ! \" Bella shouted , shielding a hand over her eyes as she watched the ball bounce out of sight .\nQuestion: When she swung her racket at the ball and sent it over the net , did the person on the other side of the court hit it back ?",
+            "output": [
+                "Once Renee hit the ball over the net to the other side of the court , her opponent missed the ball as it zoomed by her ."
+            ]
+        },
+        {
+            "input": "Context: When we got into the tiny room they said the guys might prefer a triple room . No objections . So we moved to the top floor , with more space in our room and access to a balcony overlooking the lake .\nQuestion: Why did they need to move rooms ?",
+            "output": [
+                "They found that the room was too small ."
+            ]
+        },
+        {
+            "input": "Context: that . good . but i could barely finish my food , so i guess it was good i didn't.after dinner , the boy bought a bday present for his dad and i picked up some evil eye pendants for gifts . i think my sister might find one useful .\nQuestion: What might happen if they did not go shopping after dinner ?",
+            "output": [
+                "They would have to find other gifts to give ."
+            ]
+        },
+        {
+            "input": "Context: I ' ve already graduated UG with a BA in History and two minors in accounting and psychology . My UG overall gpa is a 3.28 and I do n't know if this matters but my major gpa is 3.9 , my accounting minor gpa is a 3.14 and my psych minor gpa is a 4.0 . My pharm prereqs is at a 3.5 . BTW , do I include my pharm prereqs into my overall gpa b / c I did n't .\nQuestion: What type of student is the narrator ?",
+            "output": [
+                "They are a great student ."
+            ]
+        },
+        {
+            "input": "Context: Things are ok , was sleeping enough last night , so I feel mostly recovered , working was short and easy today , just doing visite , that takes if all is well just 2h . Being on the village harvest fair with Simon . He really loved the carousel , most of all flying in a little green dragon .\nQuestion: Why would the writer have gone to the fair despite feeling ill ?",
+            "output": [
+                "The writer wanted Simon to enjoy the fair ."
+            ]
+        },
+        {
+            "input": "Context: The rest of us worried slightly that it might be too hot for our fairly wimpy Western palates , but that was for naught . The chunks of very mild fish that had been coated with ground peppercorns were hotter than the chunks that were not , but overall the table considered the dish to be \" medium - spicy . \" I find the hot chile oil I like to use while eating dim sum to be hotter than this dish .\nQuestion: What may be a fact about this person ?",
+            "output": [
+                "They are eating a plate of food at a restaurant ."
+            ]
+        },
+        {
+            "input": "Context: Sure , the dorm has laundry in the basement -- two washers and a broken dryer . There 's a laundromat down the street , a bit more expensive , but everything works . I thought the internet lab was open today , but it 's not , so I ' m in an internet cafe . On the square near here is stuff for the Bachfest going on .\nQuestion: Why does the narrator live in such cramped quarters ?",
+            "output": [
+                "That is what the school gives as dorms ."
+            ]
+        },
+        {
+            "input": "Context: It was not a scary dream just a very odd one . After church , my family and I went for breakfast at Burger King ( My dad being the simple man he was , loved breakfast at BK on Sundays and we are keeping the tradition alive . ) I was standing at the counter placing my order when I noticed my nephew standing in front of me , his back facing me .\nQuestion: What may be a fact about this person ?",
+            "output": [
+                "They are describing a dream that they had ."
+            ]
+        },
+        {
+            "input": "Context: There were people who had laid tarp on the muddy ground close to the stage to watch the concert . But everyone had to keep stepping over these people and their tarp to get closer . It was a bad spot for these people to set up to sit down . My aunt and uncle crashed at my place for the weekend , since they were seeing the concert too .\nQuestion: Why was tarp placed on the ground ?",
+            "output": [
+                "It had just rained and left the ground wet ."
+            ]
+        },
+        {
+            "input": "Context: DENTIST : We ca n't take it out while it 's infected . ME : Actually , while it 's infected is exactly the time you should be taking it out ! If it was n't infected , I 'd be willing to keep it !\nQuestion: What needs to happen before the tooth can come out ?",
+            "output": [
+                "The narrator needs to take antibiotics ."
+            ]
+        },
+        {
+            "input": "Context: We knew that this particular school , a distrusting little bugger , demanded government issued identifications at enrollment . And so in addition to my usual gadgets , I was also given a social security card - one belonging to a certain Maria Hernandez . The problem with that is I am a little Russian girl - green eyed , thin - lipped , Brighton Beach - bred and as white - looking as they come . How in the world was I going to pass for a Maria ?\nQuestion: Why may the narrator be stressed out ?",
+            "output": [
+                "They are trying to commit fraud ."
+            ]
+        },
+        {
+            "input": "Context: Tonight , for the first time in about a week , I felt REALLY GOOD . And this was the best run I ' ve had since last week 's 9 miler on Monday . The weather was in the mid to high 60s which is a little cooler than it has been and perfect for me ( well not PERFECT , but I 'll take it . Perfect would be somewhere in the mid 50s ) Set off conservatively and really focused on running relaxed , not letting myself go too hard even though I finally felt good and not listless .\nQuestion: Why does the author feel really good for the first time in a week ?",
+            "output": [
+                "The author went on a jog which made her body release endorphins that are natural mood elevators ."
+            ]
+        },
+        {
+            "input": "Context: The car was in the air for an oil change , and I mentioned to the mechanic that the air suspension had been unusually good to me , having lasted nearly 16 years . Needless to say , when the car was lowered to the ground , one of the air bags failed . A quick phone call revealed that replacement bags from the dealer would cost many , many hundreds of dollars . All told , replacing them would have cost well over a grand .\nQuestion: Why is the narrator expected to shell out so much money ?",
+            "output": [
+                "The narrator has an old car ."
+            ]
+        },
+        {
+            "input": "Context: Like most Catholic schoolgirls , I had a love - hate relationship with my uniform . It was an unflattering , unwieldy thing that hid the curves our adolescent bodies were just starting to develop : precisely what the nuns who designed the garment had in mind . I went to Miriam , where the girls wore green pleated skirts and loose tan blouses from grade school to high school . It was a color combination that got us endless teasing from students of rival schools who likened us to inverted trees , although we had our own witty comebacks about year - round Christmas decorations and Goldilocks waitresses . The outfit was finished off with white socks emblazoned with the school initials paired with shiny black shoes , with heels that could go no higher than two inches .\nQuestion: What type of faith does the narrator have ?",
+            "output": [
+                "They are Christian ."
+            ]
+        },
+        {
+            "input": "Context: But maybe I will see what it said and a few emails before I meet with him . Then make a decision as the first email I sent I told him I was a bitch and what more could I say and he wrote back and said that was ok as he would prove me wrong on what others have done , There is one thing he ca n't change but we are not going into that on a public page . At least he knows my background so there is nothing to hide .\nQuestion: Why is the speaker willing to talk about herself in this derogatory manner ?",
+            "output": [
+                "Being an adult requires one to take an honest inventory of the ways they have fallen short"
+            ]
+        },
+        {
+            "input": "Context: They geared us up in wetsuits and splash jackets to ward off the cold temps which are compounded by cold water . The river was running at about 820 cfs ( cubic feet per second ) but had topped out this year at 3600 cfs and will go as low as 250 cfs ( 1 cfs is the amount of water equivalent of the size of 1 basketball ) . At 3500 cfs the water runs very fast but most of the technical aspects of the river ( i.e. boulders in the middle ) are covered up , so while its a fast run , its not as technical .\nQuestion: What might they be doing here ?",
+            "output": [
+                "They might be kayaking"
+            ]
+        },
+        {
+            "input": "Context: Flashing occurred , pants snachings where successful , got beeped , some people got sick . Drunk people are funny . Tuesday our party ROCKED , people where heard talking about it for days after .\nQuestion: What may people been doing at the party ?",
+            "output": [
+                "Drinking alcohol"
+            ]
+        },
+        {
+            "input": "Context: 6 . The \" Talk is Cheap \" T - shirt guy came back with a paper cup of water . I took it from him though I was n't thirsty . My head was clearing more and more .\nQuestion: How will the narrator react to the man in the t - shirt ?",
+            "output": [
+                "The narrator will thank the man for the water ."
+            ]
+        },
+        {
+            "input": "Context: The emphasis has been on the Everyday - the routines in your life , your daily work and health schedules , what you do for others . The click click click of life . The Full Moon eclipse suggests though that it 's time for you to think less about that and more about the hidden parts of life . Spare a moment for the esoteric .\nQuestion: What is the narrator encouraging people to change ?",
+            "output": [
+                "Their routines ."
+            ]
+        },
+        {
+            "input": "Context: STUFFED BEEFSTEAK . E. H. W. Take a flank or round steak and pound well ; sprinkle with pepper and salt . Make a plain dressing ; spread it on the steak ; roll it up ; tie closely , and put in a skillet with a little water and a lump of butter the size of an egg ; cover closely and let it boil slowly one hour ; then let it brown in skillet , basting frequently . When done , dredge a little flour into the gravy , and pour over the meat .\nQuestion: What may happen after this recipe was posted ?",
+            "output": [
+                "Others will make beefsteak at home with the recipe ."
+            ]
+        },
+        {
+            "input": "Context: Obviously , the pain has not gone away . The gyno gave me an exam yesterday and seemed to be pretty surprised at how high up the pain was . She did n't tell me what she thought it was .\nQuestion: Where is the narrator 's pain likely to be ?",
+            "output": [
+                "In her reproductive area ."
+            ]
+        },
+        {
+            "input": "Context: Possibly another earthquake even stronger than the 7.9 on Monday within the next 3 days . Previously , another 7.3 hit China in March . An 8.0 in September in Sumatra .\nQuestion: How may I be feeling right now ?",
+            "output": [
+                "Scared"
+            ]
+        },
+        {
+            "input": "Context: Well , after I finally clocked out ( 7:30 , because I have NEVER gotten out less than 15 minutes AFTER I was supposed to ) I went and got the shoes from him . I was headed to the register when I decided that to be safe , I should go ahead and try them on , just in case . So I go over to some benches and set down my items - a purse , a small bottle of milk , a cell phone , and the shoes . I take off one of my shoes and start to put the other one on .\nQuestion: Why is the narrator 's stress reducing ?",
+            "output": [
+                "They are off work ."
+            ]
+        },
+        {
+            "input": "Context: Anyway , we went to this bar called Hub in Sakae which is the big clothes / fashion area . I got this glass which was a litter of Kirin beer . Not too bad , but to me all beer kinda tastes the same . It was good though .\nQuestion: What is the most likely reason the person is in Japan ?",
+            "output": [
+                "They are on vacation ."
+            ]
+        },
+        {
+            "input": "Context: In reality there are very little ways for these companies to reduce their overheads . After the payroll fuel is the biggest expense . There are very few ways for them to reduce their these overheads . Small companies will even find this harder than the bigger companies .\nQuestion: What is overhead ?",
+            "output": [
+                "Set costs of doing business"
+            ]
+        },
+        {
+            "input": "Context: It was utterly exhausting , a lot of people did n't end up staying for the Sunday , for some reason it was so much more exhausting doing lots of little larps than one big larp over a weekend . I almost could n't get out of bed this morning , a migraine that had ambushed me at the end of Hindenburg had followd me through the night and into morning , but after a few painkillers I managed to turn up , costume up and put my Bess on . At the end , when we had just wrapped up Serenity ( a cliffhanger ending !\nQuestion: What may I be doing this weekend ?",
+            "output": [
+                "Cosplaying"
+            ]
+        },
+        {
+            "input": "Context: But still ... As she stood there , in the dark forest , she knew that she did not wish to trap the most beautiful thing she had ever known . And , suddenly , she understood why she had been cursed to roam the earth as a wondering spirit , shifting from life to life as she went . Perhaps most of all , however , Quinella realized that she had not been cursed . She had been gifted with a human heart - a heart capible of loving someone else . And she loved the demon .\nQuestion: What may happen after standing in the dark forest ?",
+            "output": [
+                "She realized that she was in love ."
+            ]
+        },
+        {
+            "input": "Context: Finally today I did it . I took rollerblades ( thanks Josh and Kathy ! ) and it was so nice to move fast and free through the neighborhood . And I just felt so happy to be rollerskating again !\nQuestion: What may be a fact about the speaker ?",
+            "output": [
+                "They used to rollerblade in the past ."
+            ]
+        },
+        {
+            "input": "Context: I am always a little skeptical and curious about Chinese Diners and their ways of serving meals . For a country who calls duck a Chinese turkey , what more can you expect ? The latest trend in Chinese cuisine and dining are the theme restaurants . Some of them are designed like a jail , while others serve food on a hospital bed or even in a restroom environment .\nQuestion: Why is the narrator weirded out by Chinese cuisine ?",
+            "output": [
+                "They do n't understand the weird themes at places ."
+            ]
+        },
+        {
+            "input": "Context: Oh gosh I ' m so bushwhacked from last night 's urban life cook - out . I conked out in bed possibly sleeping straight like a log not moving an inch and this morning I woke up aching . It happens everytime there 's something big the night before , especially when the outreach events are on . And most unfortunately I woke up with a bad throat and nose .\nQuestion: Why is the narrator so sluggish this morning ?",
+            "output": [
+                "They have a bad throat ."
+            ]
+        },
+        {
+            "input": "Context: the food was okay . but definitely went through me by the time we went home and i had to have \" food babies \" according to brenna . after that we got ready to go to the gay bar and meet up with a friend .\nQuestion: What is the correct order of events ?",
+            "output": [
+                "Eat food , poop , go to the bar"
+            ]
+        },
+        {
+            "input": "Context: We did end up opening escrow on a house the week of the first class . The day before the first class was filled with house inspections and piles of paperwork , and I could hardly think straight . But the class turned out okay .\nQuestion: What is the correct sequence of events ?",
+            "output": [
+                "Open escrow , inspections , first day of class"
+            ]
+        },
+        {
+            "input": "Context: It 's hard to lie onto myself but for sure I ' m willing to move on and let go but the only thing that makes me out of the flow is that I just do n't know how . It 's easy to say you ' ve moved on and let go but it 's hard to know and make even a single step . My mind keeps on saying that I ' ve already forgotten those things but me heart says I ' ve never and never will . My heart is more honest than my mind but my mind is wiser than my heart that it tries to hide the pain I feel inside .\nQuestion: What might the narrator be needing to move on from ?",
+            "output": [
+                "a broken relationship"
+            ]
+        },
+        {
+            "input": "Context: Its easier to remain objective . Some may disagree , but I find that without romantic love I can be more logical in my dealings with other people . Love , while a wonderful emotion , can also \" fog the brain . \" Try and think of some of the foolish and embarrassing things you might have done out of love .\nQuestion: What does the narrator believe causes the brain to become foggy ?",
+            "output": [
+                "Being in love ."
+            ]
+        },
+        {
+            "input": "Context: Not sure how I will feel on Saturday , which is a shame because I have some shipping to do and probably dinner with friends . And Friday I work until 9PM at the Festival , so that will be a further drain on my energy . Whee !\nQuestion: What may happen after friday ?",
+            "output": [
+                "I will be to exhausted to do something productive ."
+            ]
+        },
+        {
+            "input": "Context: I got up around one or so and checked my mail and had a bit to eat , then I went back to sleep until 5 or so . My mom came home and exclaimed , very loudly , \" You 're STILL in BEED ! \" She repeated this several times , each time more faux - incredulous than the last .\nQuestion: Why did their mother yell at them ?",
+            "output": [
+                "They wanted them to get out of bed ."
+            ]
+        },
+        {
+            "input": "Context: Jump to the full entry & travel map Denpasar , Bali , IndonesiaThe island of Bali in Indonesia had a few surprises for me . Probably the biggest one was the fact that I really liked it . I did n't expect to .\nQuestion: How did the narrator feel about their destination ?",
+            "output": [
+                "They did not anticipate their own appreciation ."
+            ]
+        },
+        {
+            "input": "Context: A parent 's death is not the only cause of abandonment fears in a child . Often mothers are depressed , mentally ill or addicted to alcohol and illicit drugs . They are unable to fathom the needs of their child and provide consistent loving parenting .\nQuestion: Why may a child be suffering from drug and alcohol abuse ?",
+            "output": [
+                "The child may have lost a parent early in life ."
+            ]
+        },
+        {
+            "input": "Context: I love this packaging by We Love Jam , a little company that makes jam from varieties of apricots that are at risk of extinction . I have n't had the opportunity to try the jam , but , apparently , these varieties of apricots are much tastier than the ones we are familiar with . They are harder to grow , though , so big agriculture companies do n't deal with them .\nQuestion: What may happen after they express their interest in the jam ?",
+            "output": [
+                "They will want to try the jam ."
+            ]
+        },
+        {
+            "input": "Context: Up until two weeks ago my pain had subsided , and I felt like a new person . My main question is has anyone ever experienced a popping or cracking in your neck when repositioned ? I just need a little advice and guidance . Sad to report my new job has no insurance program .\nQuestion: What type of doctor was able to help the narrator ?",
+            "output": [
+                "A chiropractor ."
+            ]
+        },
+        {
+            "input": "Context: We see him more than momma and the babies . George has a list of things to do today and tomorrow we will be in Maryland visiting my Aunts and Uncles . Monday , I ' m taking the boys to Busch Gardens while George does some work around the house .\nQuestion: Who are they visiting in Maryland ?",
+            "output": [
+                "Aunts and uncles ."
+            ]
+        },
+        {
+            "input": "Context: I picked up a lot of vocabulary just from hearing it over and over again in context and also from being in situations where there was English translation which allowed me to learn a lot of vocabulary as well . But if I really want to move up to the next level hard work is going to be the only solution . Anyway , after classes yesterday there was the opportunity to do this : I kind of regretted adding the decoration after I 'd done it as I was happier with it while it was just plain . It started off as a cup but sort of turned into a bowl somehow !\nQuestion: Did a lack of language comprehension cause the decoration to change ?",
+            "output": [
+                "yes , it became misshapen"
+            ]
+        },
+        {
+            "input": "Context: \" Hey , hey ... that 's some good shit ! \" \" It 's sake ? \" Rin gripped the mane of Anotsu 's horse when it turned to touch noses with the other ; she still felt unstable on a horse by herself , especially since she had chosen to ride sidesaddle . \" Nope , shochu . \" Manji tilted his head back and took a long , stiff pull , his throat bobbing . He squinted against the sun , wiped his mouth on the back of his hand and let out a heated puff of breath . \" Hahh !\nQuestion: What might happen next ?",
+            "output": [
+                "She will ride the horse well"
+            ]
+        },
+        {
+            "input": "Context: This was the first day of school , I had a student get so worked up that she threw up on herself , I had criers all day ... it was an interesting day where I found myself trying to figure out what I was doing out here in Egypt . But I talked to the other seasoned teachers and they all had havoc so I guess it was n't all too bad then . Today was a lot better , only one crier but he eventually dried up his tears . But I already have a troublesome child whom I would love to just glue the seat of his pants to a chair ; he 's always wandering here and there , and always needing to change chairs .\nQuestion: What is my occupation ?",
+            "output": [
+                "I work at the local elementary school in a kindergarten class ."
+            ]
+        },
+        {
+            "input": "Context: I wondered for a bit if we were going to make it to Otttawa . In fact , I was n't sure we were going to make it out of the city . We were about twenty minutes late starting out ( nothing unusual there ) and everything was fine until we turned on to the 401 to go east . Nothing but a sea of parked cars , appearing not to be going anywhere .\nQuestion: What country is the person presently located in ?",
+            "output": [
+                "They are in a province of Canada ."
+            ]
+        },
+        {
+            "input": "Context: when they manage to get in my head , then chaos follows . seriously . i have a love - hate relationship with me having crushes . its hard really , when i start to realize that i do have a crush on that person .\nQuestion: Why is the narrator experiencing racing thoughts ?",
+            "output": [
+                "They are thinking about a romance ."
+            ]
+        },
+        {
+            "input": "Context: I have mixed feelings about even writing up this date night review as I know that is soon to be overshadowed by the following week . However for the sake of trying to get caught up and keep an accurate record I will sum up the night . One of the reasons we started this blog was to challenge ourselves to think outside the box so as to avoid falling into the pattern of dinner - and - a - movie each and every week . However there are weeks that that is exactly what you want and you should not feel guilty for it . This was one of those weeks . We had both been talking about wanting to see Borat so Mary got the tickets and , with lattes in hand , we sat down eagerly awaiting to be shocked and humored .\nQuestion: what the plausible reason for the existence of the blog ?",
+            "output": [
+                "To challenge ourselves with upraded layers of difficulties"
+            ]
+        },
+        {
+            "input": "Context: so , i 'll probably end up doing journalism in college , maybe find a fashion university?i do n't know how these things flow , but i 'll get there.i also had a chat with kirsty about celebrities , & how we envy them so much . their looks , wowzah ! the moneys even better.it's scary how much i know about these peoples , simply based on my mother magazines.joan rivers is an absolute arse :') she looks like a unnatural 73 year old pixie , what 's she doing with her life ? seriously.i agree that janice dickson is the only bitch that is funny !\nQuestion: What might I be aspiring to be in the future ?",
+            "output": [
+                "I might be aspiring to be a fashion journalist ."
+            ]
+        },
+        {
+            "input": "Context: Well , after all this time , I finally got to see my son . Its been so long . He did nt even look like the same boy . In fact , when I saw him , I walked over to him and looked at him .\nQuestion: Why is the narrator startled by the sight of their son ?",
+            "output": [
+                "He has changed ."
+            ]
+        },
+        {
+            "input": "Context: Ok , so last night I was n't feeling good . I wandered off , Mr. PL paused Heroes for me right at 9 , then he too wandered off . When I got back to the couch to wait for him , I FELL ASLEEP AT 9:10 PM .\nQuestion: What may have happened before wandering off ?",
+            "output": [
+                "I was sitting on the couch ."
+            ]
+        },
+        {
+            "input": "Context: Here 's the gist of what I wrote : I used to be a vegetarian . Then I got pregnant and craved meat . Then I was n't a vegetarian anymore . Then my husband was n't a vegetarian anymore .\nQuestion: Why did the person crave meat while they were pregnant ?",
+            "output": [
+                "Cravings is one way that the body expresses the desire for certain nutrients"
+            ]
+        },
+        {
+            "input": "Context: I was so excited to hear she had made the leap , but while I finished up the whirlwind of getting dinner on the table and Brian out the door to go to a colleague 's going away party , a sad thought materialized . I had missed her first success on the potty . I quickly called Brian to share my sorrow . He immediately helped me to focus on the positive .\nQuestion: Which of the following is true of the narrator ?",
+            "output": [
+                "She is the mother of a young child ."
+            ]
+        },
+        {
+            "input": "Context: No , really , seriously . In this case , it was an earthquake ;) 5.3 on the Richter Scale at 1 am GMT . Epicenter about 90 miles from where I live .\nQuestion: How far did the narrator live from the epicenter ?",
+            "output": [
+                "Between eighty and one hundred miles ."
+            ]
+        },
+        {
+            "input": "Context: I could have certain done without that , but otherwise , it was very enjoyable . And now I guess I have to add that there were maybe 2 days that it was n't entirely unbearable , but then it was also a little rainy . In fact , one night I headed out to try and snap some pictures in the evening light ( the best for pics ) and literally just got soaked by an extremely fast moving storm .\nQuestion: What were weather conditions like before they went to take pictures ?",
+            "output": [
+                "It was a nice day as far as they could tell ."
+            ]
+        },
+        {
+            "input": "Context: For some kids , talking is n't enough , they need to see the results of their actions . We shared stories about bullying and what lies ahead in school . We do n't want our boys to be victims but preventers of bullying . And if they are being bullied , to report it to a responsible adult and let the adult handle the situation .\nQuestion: What can be done by a boy to handle an ongoing bullying situation ?",
+            "output": [
+                "He can address the bully directly , explaining how the behavior is inappropriate and needs to stop ."
+            ]
+        },
+        {
+            "input": "Context: This is what I always drew when I was a kid , a room with all the shit you needed right there in it . So I ' ve got some sweet posters and a few other decorations , and it 's really become pretty awesome . Structurally finished my fourth garage band song today , and now I set to work on a fifth . Oi , this is a tiring process , but I 'll be very satisfied when it 's finished , I hope . I called to try and find some way to make peace with my friend .\nQuestion: What may be the reason for needing to make peace with their friend ?",
+            "output": [
+                "They had an argument ."
+            ]
+        },
+        {
+            "input": "Context: One of the great things we learned about traveling somewhere that has just experienced a hurricane that required most of the city to evacuate was there was no traffic going our direction . Now , we did leave our house Saturday around 11 am and Ike was already well on it 's way out . By the time we got into Houston there was hardly any rain .\nQuestion: How might have we been able to traveling through a place with a mandatory evacuation order ?",
+            "output": [
+                "We might have been able to travel through the place after the storm had already passed ."
+            ]
+        },
+        {
+            "input": "Context: Amanda Palmer @ Spiegeltent Dresden Doll 's Amanda Palmer will be playing the spiegeltent tonight as a solo act . I suspect it will be similar to the Dresden Dolls theatrical chamber pop , but who knows maybe she does jazz . Either way to she is an excellent performer definitely worth checking out in concert .\nQuestion: What may happen before Amanda Palmer 's performance ?",
+            "output": [
+                "The venue will prepare for a performance ."
+            ]
+        },
+        {
+            "input": "Context: During the summers and autumns I like to take my two caiques , Icarus and Daedalus , out to fun events as much as possible . ( Wearing harnesses , of course . ) They love the sunshine and fresh air and stimulation , and I like to keep them well - socialized and friendly to strangers as much as I can . ( Part of my motivation for this is to keep them from becoming aggressive one - person birds , and part of it is so that if they ever escaped they 'd feel comfortable flying to a stranger , not just to me . )\nQuestion: What would happen if your birds happened to fly away ?",
+            "output": [
+                "They would comfortably fly over to someone they know and not be scared or worried"
+            ]
+        },
+        {
+            "input": "Context: The first couple of days I thought ( admittedly with some relief ) that I was ragging : it 's okay to feel like your world is collapsing when you have PMS . But it kept happening , every day , even after her sleeping pattern improved . Finally on Friday night I was awakened at 2 am with a bad bout of cramps that felt for the world like labor pains .\nQuestion: Why is the narrator displaying more signs of grouchiness ?",
+            "output": [
+                "None of the above choices ."
+            ]
+        },
+        {
+            "input": "Context: My Dad had a jewelry store in a farming community . Because he was pretty much tied to the store during the day . he arranged for a local farmer to drop off a large basket of tomatoes at the store . When Dad came home for lunch , he brought the tomato basket , and put it on the floor near the refrigerator .\nQuestion: What profession did the narrator 's dad have ?",
+            "output": [
+                "They were a shop owner ."
+            ]
+        },
+        {
+            "input": "Context: I could n't do any work because I was constantly watching the ticket page refresh , terrified that I would miss something . So , I just sat , no music , nothing , and waited , staring at that stupid screen . My eyes felt like someone was stabbing shards of glass into them or something .\nQuestion: Where am I going to go after waiting ?",
+            "output": [
+                "I 'm going to a concert"
+            ]
+        },
+        {
+            "input": "Context: When it was time to go in , I gave Ryan one last splash and then he was just like \" Sarah , I love you \" and gave me a hug . That 's basically our friendship . <33 So we were about to go inside , and the councilors were like \" No . You 're gross . \"\nQuestion: When Ryan said he loved Sarah , why were they in a mud pit ?",
+            "output": [
+                "The couple , Sarah and Ryan , like to play and mud pits are fun"
+            ]
+        },
+        {
+            "input": "Context: June 14th 2008 : I got up at 6.40 AM . Not the nices time to get up . Then we got ready to leave . I just had to take one last picture .\nQuestion: What will the narrator do before going home ?",
+            "output": [
+                "Take a photo ."
+            ]
+        },
+        {
+            "input": "Context: We are complex individuals with great diversity . Let 's celebrate that and not let it divide us . We are not just one \" character \" in this life but all kinds of different people .\nQuestion: What type of political ideology may the narrator have ?",
+            "output": [
+                "The narrator is probably liberal ."
+            ]
+        },
+        {
+            "input": "Context: The other day I picked up Mansfield Park from the library and today I watched Becoming Jane . Needless to say , I am in a Jane Austen mood . I ca n't read too much of her in one sitting because her writing is n't meant to be quickly read , like most books I read . I have to concentrate on what 's being described and I have to keep track of who 's talking .\nQuestion: What may be a fact about this person 's interests ?",
+            "output": [
+                "None of the above choices ."
+            ]
+        },
+        {
+            "input": "Context: Today is Mother 's Day . It is a beautiful day here in the southwest . This morning my father and I cooked for three generations of mothers ( my wife , her mother & my mother , and my grandmother ) . Truly a gift .\nQuestion: Why might the narrator feel blessed ?",
+            "output": [
+                "They have three generations on women in their family"
+            ]
+        },
+        {
+            "input": "Context: This makes me happy . I guess there was smoke on the second floor that set off the alarm and brought the attention of two fire trucks . I ' m guessing someone brought in fake smoke and set off the alarms for April fools . I would really like to thank that person . Since I ' m waiting around until the rest of my group is done with their other class I decided that I would walk up to the Bursars office and figure out what was going on with my bill .\nQuestion: Why was there smoke on the second floor ?",
+            "output": [
+                "Someone was playing a prank ."
+            ]
+        },
+        {
+            "input": "Context: I loved teaching the kids about faith and how there is no need to fear as long as you trust in Jesus . I loved how the kids eventhough most of them were quite young took right to the story ... they seemed to love it almost as much as i do ! I would like to thank Jesus for the awesome opportunity he gave me this summer to minister to these kids and open their eyes to your magnificent works .\nQuestion: Why does the speaker talk about Jesus ?",
+            "output": [
+                "They are a devout Christian sharing the word of Jesus with others ."
+            ]
+        },
+        {
+            "input": "Context: I did it!I challenged myself today . I went and * gasp ! * worked out at another gym . What 's the big dealio?Well , sometimes I get into routines and feel all safe and secure at one place and wo n't go anywhere else . Kind of like ordering the same thing every time at my favorite Chinese restaurant .\nQuestion: Why did the writer want to avoid changing gyms ?",
+            "output": [
+                "They felt comfortable with their surroundings at the old one ."
+            ]
+        },
+        {
+            "input": "Context: Haha . Interesting . She accompanied me to compass ( & that 's where I saw tingys ) to get some stuffs , but unfortunately , I could n't the one I wanted . Went home & I fell asleep on the sofa while waiting for the heater to heat the water .\nQuestion: What may happen after we woke up ?",
+            "output": [
+                "Take a hot shower ."
+            ]
+        },
+        {
+            "input": "Context: Last night i had this dream where i was walking into my kitchen . It was dark out so i was about to turn the light on when i saw a silhouette of a person coming towards me . I was n't scared just curious .\nQuestion: What is the narrator reading into their recent dream ?",
+            "output": [
+                "They are worried about the intruder ."
+            ]
+        },
+        {
+            "input": "Context: The Leathermouth show was amazing ! I ca n't believe how good they are live . When I first listened to them I was like \" okay this is pretty good \" but no , they are amazing . Frank puts on a good damn show .\nQuestion: Why did I think that they are amazing ?",
+            "output": [
+                "I enjoyed their performance and thought it was great ."
+            ]
+        },
+        {
+            "input": "Context: She is happy though that I have started to open up even more , and understands that it is just going to take time . She is a hopeless romantic , and she has brought that out in me . I know few people that are romantics at heart , but she takes the cake in being romantic , and that is another thing that I love about her .\nQuestion: Why is the narrator found of his friend ?",
+            "output": [
+                "She is very considerate to show her love ."
+            ]
+        },
+        {
+            "input": "Context: So we walked a little and came across the Gondola ride . I did n't notice there were both swinging and non swinging gondolas until we got right up front in the line . We had to wait while a gondola was cleaned since someone had thrown up inside . I wanted to chicken out at the last minute but the ride * looked * ok and I figured it must have been a little kid who 'd eaten too much junk food so I got on despite the nagging warnings in my head .\nQuestion: What was the reason I had nagging warnings in my head ?",
+            "output": [
+                "The warnings were telling me that if the ride made someone sick it was n't good ."
+            ]
+        },
+        {
+            "input": "Context: We 're mixing browns and blacks which i m still not sure about , but I think if we find a cool picture with browns in it and put it above the couch in the black frame , it may tie things together better . Who knows . Five .\nQuestion: Why is the narrator a bit doubtful about their painting ?",
+            "output": [
+                "They do n't know about the colors ."
+            ]
+        },
+        {
+            "input": "Context: Honestly , not a day went by where my Nana would n't call me about getting rid of my moles . I would tell her , ' Nana , I have had them my whole life , they have not changed , there is nothing to worry about ' . That was not satisfactory to her , and after a few months of these ' talks ' I succumbed to the pressure and made the appointment to get them removed .\nQuestion: What may be the reason it was not satisfactory to her ?",
+            "output": [
+                "She thought the mole was signs of cancer ."
+            ]
+        },
+        {
+            "input": "Context: Heylooo , realised i have n't posted in a while .. now working at endsleigh as a freshers temp . training atm 2 now sell policies also which is fine but reading those scripts without sounding like an automated machine is hard!moved flats- finally ! had a crazy three days of constant packing and cleaning but was well worth it .\nQuestion: Why has the narrator 's blog work dropped in recent weeks ?",
+            "output": [
+                "They are training for a job ."
+            ]
+        },
+        {
+            "input": "Context: I started out writing this whole lovely entry focused on one topic , and then I just decided I ' m in no mood for serious bloggage . NO MOOD ! Why do n't the \" end \" and \" home \" keys on Macs take you to the end or beginning of a line ? ! It 's ridiculous !\nQuestion: What brand of computer is she using ?",
+            "output": [
+                "Apple"
+            ]
+        },
+        {
+            "input": "Context: Here at Camp Critter when I ' ve had enough of interacting with people I can wander about 20 feet and interact with sheep or dogs . The herd of Pyres are quite content to play with me for as long as I want to play , and beyond on occasion . The herd of sheep will butt heads with me but at least I know why .\nQuestion: Are you fond of animals ?",
+            "output": [
+                "I enjoy spending time with animals ."
+            ]
+        },
+        {
+            "input": "Context: So , I set to work , clearing and cleaning a space , and setting up the tank . At the end of the day , my personal menagerie had grown by one puzzled little tortoise . His personal space has grown a lot larger , and one wall of the tank was made from a mirror , so there 's even a bit of company .\nQuestion: Why did the little tortoise think he had company ?",
+            "output": [
+                "He would see himself in the looking glass not realizing he was looking at himself ."
+            ]
+        },
+        {
+            "input": "Context: Oddly , my lap times were .6 seconds faster the second session . The third session everything came together . I dropped 7 seconds and was definately moving a lot faster . I really picked my vision up and felt like I could have gone quite a bit faster .\nQuestion: What will happen in the future with more practice ?",
+            "output": [
+                "Their times will improve ."
+            ]
+        },
+        {
+            "input": "Context: For all you new subscribers , thanks , hope you 're enjoying issue 24 . Issue 24 is my favourite one to date ( I know I always say that ) , but I feel there are some fantastic features included , and it wholly embodies my concept of cultural arts . Now , people ask me , \" what are cultural arts ? \" For me , it 's simple , cultural arts are the cross - pollination of many artistic genres ( visual arts , literature , music , film , theatre , dance , performance ) to inspire and create new ideas and concepts .\nQuestion: What may be a fact about the speaker ?",
+            "output": [
+                "They identify with the cultural arts ."
+            ]
+        },
+        {
+            "input": "Context: My grandmother passed away this morning sometime around 8:30am . I knew it was coming and I was hoping for and end to her pain , yet I am still sitting here at work , crying . Turner , as always , is taking good care of me .\nQuestion: What is the narrator going to do with this news ?",
+            "output": [
+                "They will go to the wake ."
+            ]
+        },
+        {
+            "input": "Context: I guess you see where I ' m going with this . It seems a loosing proposition to continue with it . Is a Deed in Lieu appropriate in our situation ? Would any of our other assets be at risk with a Deed in Lieu ?\nQuestion: What may have happened before in this discussion ?",
+            "output": [
+                "They listened reasons why it would n't work ."
+            ]
+        },
+        {
+            "input": "Context: In a comment on another thread , Robert asked a question that I wanted to respond to . As I started thinking about a response , however , the subject seemed to warrant it 's own post . It 's a theme that I ' ve been chewing in my mind for some time .\nQuestion: Was the topic interesting ?",
+            "output": [
+                "It was an interesting topic"
+            ]
+        },
+        {
+            "input": "Context: He felt powerful and invincible , skating with speed and determination and scoring goals so easily it was like breathing . And once again he had to smile to himself : if anyone knew the real reason he was so happy , they 'd kick him out of hockey - and he honestly could n't care less . His thoughts were consumed with one thing : Ennis was coming home tomorrow . He thought back to the other night , when Ennis had called him and left a voice mail and a text during the game .\nQuestion: What was he so happy ?",
+            "output": [
+                "He knew Ennis would be home"
+            ]
+        },
+        {
+            "input": "Context: I looked at the face in the mirror . It seemed familiar , as if residing under the layers of flesh and bone , was something I once knew . You used to have a name , said I , reaching out towards the face . But my fingers touched glass , cold , smooth ; blind glass .\nQuestion: What may be a fact about this person ?",
+            "output": [
+                "They are trying to recognize themselves ."
+            ]
+        },
+        {
+            "input": "Context: Overall , this was a very good introduction to Eastern Standard and I will definitely return . The food is delicious , very reasonably priced and I enjoyed the wines as well . I recommend you check it out as well .\nQuestion: What will happen to the narrator if they return to Eastern Standard ?",
+            "output": [
+                "They will enjoy the food and wine ."
+            ]
+        },
+        {
+            "input": "Context: But I know I have to and I ' m making progress . On Wednesday I worked with Mrs Sissi ... she 's the one who explained the whole lending - system to me and kinda helped me to do the ' first steps ' . She 's really nice :) The funny thing was the the colleagues kept calling her ' Dora ' and her nametag said ' T. Sissi ' . So I supposed her name was ' Theodora ' , which is a Greek name ... and I also noticed she had an accent ... so I was wondering if she was Greek the whole day ... until a guy came in and started talking Greek to her * giggles * And I was just like ' Yay !\nQuestion: Why might this person be learning about the company procedures ?",
+            "output": [
+                "This is likely their first day at work ."
+            ]
+        },
+        {
+            "input": "Context: I just wanted to be sure it did not go away before I signed up for it . Then , Tivo dropped the lifetime fee for multi - service households from $ 399 to $ 299 . I contacted Tivo to request the adjustment last month .\nQuestion: Why did the narrator place a call to Tivo ?",
+            "output": [
+                "To apply a discount ."
+            ]
+        },
+        {
+            "input": "Context: She tests my opening with her finger , and pours a little lube onto it . She runs a finger into me , and curls it around slowly . After a little bit , she squeezes in a second finger . It takes a bit of work , and she slowly moves them around , quietly laughing as my hips shift slowly around her fingers .\nQuestion: Why is the event taking place ?",
+            "output": [
+                "The two are experimenting ."
+            ]
+        },
+        {
+            "input": "Context: And yet , I avoid being alone in public places . I avoid the very experience I enjoy so much -- that of having the luxury to people watch . There 's such a stigma to being alone , especially as a woman . You are automatically lonely -- bitterly resigned to life as an aging spinster .\nQuestion: What may happen if she goes out alone ?",
+            "output": [
+                "None of the above choices ."
+            ]
+        },
+        {
+            "input": "Context: In my Fresher year of uni I was one of potentially millions who came under the spell of Facebook . Back then it was only open to university students , and only then , if their university had agreed to participate . It was a great way to get to know a little more about your new friends and a fun way to find common ground and spur on patriotism towards your undeniably superior university . About five months ago I realised that Facebook had radically changed to a point where the original aim seemed to have been lost amidst the hype .\nQuestion: What may happen after joining Facebook while in university ?",
+            "output": [
+                "We could easily connect with more friends on campus ."
+            ]
+        },
+        {
+            "input": "Context: Sometims , God might call us to do something a little differently that we thought ministry should be done . Basically , we ca n't be afraid to walk out of our comfort zone and do life in a new way . We ca n't shy away from having our theories for life and relationships challenged and reconstructed as God works on our hearts daily .\nQuestion: How does the narrator view God ?",
+            "output": [
+                "As a deity which challenges us ."
+            ]
+        },
+        {
+            "input": "Context: Today she went in for her bishop 's interview and she told me that the bishop just talked and did n't really have her say anything . I ' m not quite sure what she was expecting .\nQuestion: What was she expecting before the interview",
+            "output": [
+                "She was expecting to be asked series of question"
+            ]
+        },
+        {
+            "input": "Context: Board : Letterbox ChatterAuthor : AceoHeartsI recently found a a box that was in the right place , and the clues were right - sort of . The box had been planted several years ago , and the last time it had been found was over a year ago . At some point the trails had been changed in the area , which meant that the clue to the box was off by a fair amount . I just kept searching for the box until I finally found it . I replaced the box where I found it , and made a lot of notes about all the changes to the area .\nQuestion: What may be the purpose of the post ?",
+            "output": [
+                "To describe my scavenger hunt"
+            ]
+        },
+        {
+            "input": "Context: Using the scaffolding and the backhoe , we were able to reach all the windows and cover them in plywood . The kids ran around the yard , picking up everything that was outside . We also helped filled up containers and the bathtub with water . We fell asleep in our beds downstairs that night , and awoke upstairs in our parents ' room .\nQuestion: Why did they cover the windows with plywood ?",
+            "output": [
+                "They wanted to protect the windows"
+            ]
+        },
+        {
+            "input": "Context: Woohoo ! so i just tried it out and it worked awesome ! ! ! ! except that i didntave any lemons on hand so i used an orange . Same difference right ?\nQuestion: Why is the narrator using an orange in their recipe ?",
+            "output": [
+                "None of the above choices ."
+            ]
+        },
+        {
+            "input": "Context: Well , my birthday is n't until August 27th ( I am turning 30 , eeeek ! ) but my friend Tracy wanted to be sure that I would get my birthday gift in time for my birthday since packages sometimes take a while in the mail from the US to here up north . I got notice from the Post Office today and during my lunch break I went and picked it up ! Oh wow !\nQuestion: What will the narrator be doing in late August ?",
+            "output": [
+                "None of the above choices ."
+            ]
+        },
+        {
+            "input": "Context: We planted a vegetable garden for the first time in quite a few years . The place we used to have a garden became too shaded as the trees got taller . We picked out a new spot by the round barn .\nQuestion: Why did we plant a vegetable garden ?",
+            "output": [
+                "None of the above choices ."
+            ]
+        },
+        {
+            "input": "Context: she dressed up in lolita stuff . but a guy i met there was really cute and nice . he live 's in rhode island ( i ' m live very close to rhode island ) so we spent the whole week toghter when it was suppose to be me and neylin but she was with a bunch of girl 's dressed in lolita stuff.but atleast i was with him :] . we ve been texting and e - mailing back and forth and calling each other alot :] .\nQuestion: Why did she dress so scandalous ?",
+            "output": [
+                "She was trying to seduce him ."
+            ]
+        },
+        {
+            "input": "Context: I woke up to a freezing - burning - up fever at 102 point ... something , I forgot . Then I found out he had the flu too . When I called , I think he said he threw up earlier . I felt really guilty , and it 's getting harder to even talk to him .\nQuestion: How would they avoid this situation next time ?",
+            "output": [
+                "Take a flu shot"
+            ]
+        },
+        {
+            "input": "Context: So my party days have come to an end , it was a nice run but I have decided or maybe it has been decided for me that I am just not cut out for the life of a partier . Anyhoo last night was both fun in awful dependingon the time of the night , met some very amazing people and some very not so amazing people . It was a perpetual night of deja vu , saw so many people that I have n't seen since probably high school . It was great to see how some people had changed and then how some people are just exactly the same .\nQuestion: What might I do in terms of partying in the future ?",
+            "output": [
+                "I might not party as much as I used to since I do n't think it 's for me ."
+            ]
+        },
+        {
+            "input": "Context: James , in a fit of laughter slapped Artie 's back , and for some reason , this caused Artie 's head to randomly explode . James stopped laughing and turned to look when his horse suddenly reached up , with its neck stretching to accommodate its actions , and bit off James ' head . Both human bodies then fell off their horses , only to sink like bricks in quicksand in a pile of horse manure .\nQuestion: What stopped James 's laughing fit ?",
+            "output": [
+                "He made his part of his friend blow up ."
+            ]
+        },
+        {
+            "input": "Context: They would ask me what church ... at which point I would pull out a red Compass Point invite card and tell them about us . Sometimes in the conversations I would get to hear them say those familiar words ... \" but church sucks \" . I would see the pain ... the disgust ... the lack of trust ... in their eyes . I 'd explain that we were different ... anyone ... with any background ... that dressed or looked anyway ... could come to Compass Point .\nQuestion: What may be the reason they say church sucks ?",
+            "output": [
+                "They think the church is not very inclusive to others ."
+            ]
+        },
+        {
+            "input": "Context: We went out with another wonderful woman that I adore , stopping my Matty 's and seeing lots of folks I have n't seen in a long time . It was nice to not have to work this weekend , I needed the break . I need to find someone to date , any takers ? I found myself yesterday night melting into the embrace of another woman , wishing I had a beer in my hand and all the time in the world .\nQuestion: What might this person 's problem be ?",
+            "output": [
+                "They are overworked"
+            ]
+        },
+        {
+            "input": "Context: He waved back . Well , this night should be promising . Elizabeth did look sort of tired , she was probably surprised to see him , but she hid it behind pleasant smiles and her poised voice . And what did the headmaster say about the after party ? There was going to be a band ?\nQuestion: What may be the reason reason Elizabeth smiled ?",
+            "output": [
+                "She likes him ."
+            ]
+        },
+        {
+            "input": "Context: All the small morning notes , and long , thought - out proclamations of love , appologies , good - bye letters . She wondered if he still had hers . They were mostly appologies , anyhow . She had the first rose he had given her , tucked away somewhere or another .\nQuestion: Why does she have all of these items ?",
+            "output": [
+                "Those items hold emotional value ."
+            ]
+        },
+        {
+            "input": "Context: A KOTOBUKIYA Japanese import Reserved Illustrated close mature pussy up Satoshi OsawaHaseo in his monstrous laid did nt think of Terror of Death defends be able to say . Ovan returns to The World leading Haseo into close mature pussy up other episode . They re neighbors too and wrap up with amazing were falling into old . Do nt pass these up details are replicated perfectly this if you did nt .\nQuestion: What may be the reason for posting this ?",
+            "output": [
+                "To describe a anime"
+            ]
+        }
+    ]
+}

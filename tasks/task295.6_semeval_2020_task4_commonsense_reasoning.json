@@ -1,0 +1,1814 @@
+{
+    "Contributors": [
+        "Abhijeet Nawale"
+    ],
+    "Source": [
+        "semeval 2020 task4 (Dataset-https://github.com/wangcunxiang/SemEval2020-Task4-Commonsense-Validation-and-Explanation/blob/master/ALL%20data/train.csv)"
+    ],
+    "Categories": [
+        "Classification"
+    ],
+    "Definition": "Given a logically incorrect statement and three reasons. Output \"A\", \"B\" or \"C\\ associated with the reason that explains why the statement is logically incorrect.",
+    "Positive Examples": [
+	{
+            "input": "Statement: He likes to wear blouse\nReasons: (A) Blouse looks better than shirt (B) Boys do not wear blouse (C) Blouse is easy to wear",
+            "output":"B",
+	    "explanation":"Boys don't wear blouse and thus Reason B is correct."
+        },
+        {
+            "input": "Statement: I ate a bike wheel\nReasons: (A) Bike wheels are round like some biscuits (B) Bike wheels are not food (C) Bike wheels can roll downhill like biscuits can",
+            "output": "B",
+	    "explanation":"Bike wheel are not food and so they can't be eaten. Thus Reason B is correct."
+        }
+	],
+    "Negative Examples": [
+	        {
+            "input": "Statement: ships are used to teleportation of materials and peoples\nReasons: (A) ships can occupy tons of materials since it have large cabins (B) with ships teleportation is not possible (C) ships are used to transport materials across sea",
+            "output":"A",
+	    "explanation":"Ships cannot be used for teleportation so Reason B is correct and the given output is wrong."
+        },
+        {
+            "input": "Statement: Weapons are used in marriage\nReasons: (A) Weapons have huge impact (B) Different type of weapons are available in market (C) Weapons have no use in marriage, its not a threat",
+            "output":"A",
+	    "explanation":"As there is no threat in marraige weapons are not used in marriage. Thus the correct output is C."
+        }
+	],
+    "Instances": [
+        {
+            "input": "Statement: A spaceship is a way to get from one side of a water way to another.\nReasons: (A) Spaceships are for space, not Earth. (B) Aliens are afraid of water. (C) Spaceships are not waterproof.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: All men bite dogs\nReasons: (A) men doesn't bite animals (B) All dogs have tails (C) Dogs have more teeth than men",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: The little boy ate the tree.\nReasons: (A) A little boy cannot eat a tree. (B) Trees can have edible parts but a tree itself is not edible. (C) A tree is not an edible food.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: she went to library to watch a movie.\nReasons: (A) one cannot watch a movie in a library. (B) movies are noisy where as silence prevails in library. (C) a movie cannot be seen in a library.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He liked the food made by the dog\nReasons: (A) Dog does not cook (B) Dog has four legs (C) Dog is brown color and food is of different color",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Bella loves to dance in a ballroom in her pink car.\nReasons: (A) You can not wear a car as a dress (B) A car is fun to ride in when you go to the ballroom (C) Pink is a girls favorite color on the road",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He caught a fishing rod with a fish\nReasons: (A) The fish did not like to catch fishing rods (B) A fish cannot be used to catch things like a fishing rod (C) The fish would not survive out of water",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Some dogs jump from one branch to another on a tree\nReasons: (A) Dogs are not able to jump between tree branches (B) Dogs have shorter tails than monkeys (C) Dogs bark when they see an unknown animal",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Eating a lot of sand can cause obesity\nReasons: (A) Sand is not metabolized by the body, and should not be eaten (B) Sand is found on beaches and in deserts (C) Sand is made mostly of silica.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Ten plus six equals ten\nReasons: (A) Ten is more than six and that four (B) Mathematics are not subjective and they follow rules that cannot be broken (C) If you do not sume six to ten, it equals ten",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Players play soccer with mountain shoes\nReasons: (A) Mountain shoes are not meant to be played in sports due to its weight (B) Sports shoes are smaller than mountain shoes (C) Sports shoes and mountain shoes can be of the same colour",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: A fan is a baby kangaroo\nReasons: (A) Fan has no family (B) Fan usually stay at one place kangaroo can move (C) Fan has no legs",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Mom put the baby down the water slide to walk to the park\nReasons: (A) You cannot use a water slide to get a baby to the park (B) Babies wear diapers and bunny ears not strollers (C) Water slides have bubbles and make you wet",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: My friend brushed her hair with a knife.\nReasons: (A) A knife is bigger than a pocket knife. (B) Knives are steel and brushes are plastic. (C) No one brushes their hair with a knife.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: You find wood in tears\nReasons: (A) There can be water in a chunk of wood (B) Wood is solid and tears not (C) Tears are composed by water, not wood",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: The doctor checked the temperature with stethoscope\nReasons: (A) Stethoscope is too costlier than thermometer (B) Stethoscope is used to listen to heartbeat (C) Stethoscope is hard to use",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Boats can row people.\nReasons: (A) Boats have no capability to row people. (B) Rows of boats can look pretty to some people. (C) If I lined up people with their boats, the predominant color would be blue.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: The  mat sat on the cat.\nReasons: (A) Mats are for sitting on. (B) A mat is inanimate and therefore can't sit on anything. (C) A mat is usually much bigger than a cat.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He drove the truck from continent to continent.\nReasons: (A) Their is no way to continually drive to all continents. (B) Trucks can be virtually any color. (C) A truck is considered a machine.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Silver is for making food\nReasons: (A) Food can be of silver colour (B) Silver is a metal not edible (C) There are silver jewelry with food shape",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: A car needs four wheels and a blender in order for it to be standard.\nReasons: (A) The blender makes more drinks than there are cupholder in the car. (B) The blender can only make frozen margaritas. (C) A blender is not a necessary part of a car.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: You can put beans in a can if you squash them at night.\nReasons: (A) If a can can cook beans then the beans will run away. (B) Beans learn to cook in a can. (C) Beans are hard unless cooked first.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: A paperclip cuts paper into pieces.\nReasons: (A) I took the paperclip off the paper and clipped out the section that I wanted. (B) A paper clip cannot cut paper. (C) Use the scissors to clip off the section that was bent by the paperclip.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: The ant rode the bike.\nReasons: (A) The ant is too small to ride a bike. (B) The ant has eyes but the bike does not. (C) The ant can see the bike, but the bike cannot see it.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: The sun made my t-shirt wet.\nReasons: (A) The sun does not emit water. (B) The sun is in space and the t-shirt is on earth. (C) The sun is made of gas and the shirt is made of cotton.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Clothes are no longer worn as much as in previous years\nReasons: (A) Clothes can be colorful (B) Clothes are still worn, and mostly considered mandatory (C) Clothes are made from various types of fabric",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Protecting irrelevant matters is a matter of survival.\nReasons: (A) Survival needs to be protected. (B) Irrelevant matters have nothing to do with survival. (C) Protection of survival is important.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: the student uses a wand to take the test\nReasons: (A) Wands do  not exist only in movies (B) The wands in harry potter are really cool to watch in action (C) The student has a wand for his halloween costume",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He went to theater to do a hair cut\nReasons: (A) Theater is a place to watch movie (B) Theater was too crowded (C) He did not buy theater tickets",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Permanent marker can be erased more easily than crayon\nReasons: (A) Permanent marker is very difficult to remove (B) Permanent markers smell good (C) Sharpie is a popular brand of permanent marker",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Seven quarters is equal to one whole.\nReasons: (A) Seven quarters is equal to more then one whole. (B) quarters an eighths are fractions. (C) One quarter is 2 eighths.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: A policeman carries a sword.\nReasons: (A) A sword wouldn't be effective in modern combat. (B) The sword is too heavy. (C) The sword is broken.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: The chicken laid a dog\nReasons: (A) Dog hates cat (B) Dog is not born for chicken (C) Dog plays with ball",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Eggs are usually used as cricket ball\nReasons: (A) Egg will broke if we use to play cricket (B) Eggs are round in shape (C) Eggs are very cheap",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He was doing exercise in fridge\nReasons: (A) He did not have fridge (B) Fridge is not a place to do exercise and he cannot fit inside fridge (C) Fridge was not empty",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: I have a flying car.\nReasons: (A) The car was practically flying down the interstate as the cops chased it. (B) I would prefer to commute by flying instead of by car. (C) Flying cars do not exist yet.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: An antelope is docked at the pier.\nReasons: (A) Antelopes do not float. (B) An antelope is an animal, not a boat. (C) Piers have no place for african animals.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Beef stew should be cooked at 3,250 degrees for 36 hours\nReasons: (A) This would incinerate the stew (B) The stew would be too cold (C) The stew would not feel comfortable",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: The keyboard makes a splashing sound when it is typed on.\nReasons: (A) Keyboards do not splash when typed on (B) The keyboard made a splashing sound when it was thrown into the bath. (C) The drink was splashed onto the keyboard.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Most families have their own train\nReasons: (A) Trains are too long to be parked at home (B) Only railway services own trains (C) Trains need railway tracks to operate",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Many Americans can eat at toll booths.\nReasons: (A) One can drive through at a restaurant and at a toll booth. (B) Food is not served at toll booths. (C) The ticket from the toll booth is less than the restaurant ticket.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Driver of a bus usually sits in the rearmost seat\nReasons: (A) Usually some passengers sit at the rearmost seat (B) It is difficult to see the road properly from the rearmost seat (C) Steering wheel and other controls are not accessible from the rearmost seat",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: I went inside the mirror.\nReasons: (A) People don't like mirrors. (B) A mirror reflects. (C) A person cannot go inside a mirror.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He replaced the bulb in the lamp with a salmon\nReasons: (A) Salmon are pink inside (B) Salmon does not work as a light bulb (C) Salmon swim very quickly",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: the first thing people usually do in the morning is eating a pot roast\nReasons: (A) Pot roast is full of fat (B) Pot roast is not good with coffee (C) Pot roast is a dish people prepare for lunch or dinner",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: Music feel alright with humans.\nReasons: (A) Humans make music right. (B) Music does not feel. (C) Right music to right humans.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: The Thief arrested the cops\nReasons: (A) A thief cannot arrest a cop (B) The cops were dancing with the thief (C) The thief is very hungry",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Since my friend is a recovering  alcoholic, she only drinks wine at restaurants.\nReasons: (A) Restaurants cannot serve wine because my friend is a recovering alcoholic. (B) Recovering alcoholics are not allowed to order items at restaurants. (C) Recovering alcoholics do not drink beverages with alcohol, thus she cannot order an alcoholic beverage like wine.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: They were catching fish in the cooker\nReasons: (A) Cooker is used to cook fish (B) Fish does not live in cooker (C) Cooker is made of steel",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: You are likely to meet a car accident inside home\nReasons: (A) People don't drive cars inside their home (B) Road is everywhere in the country (C) People drive cars fast on the roads",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He called his wife on her pen\nReasons: (A) Pen is not a communication device (B) His wife has too many pens (C) the pen is out of ink",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: My wall is African American.\nReasons: (A) The difference between and African white wall and an American white wall is that they are in different places. (B) My African American friend was leaning on my white wall. (C) Walls do not have a race.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: One thing you will see at a Tyre change shop is a juice maker\nReasons: (A) Juice makers are used for making fruit juices (B) Juice maker blades rotate in high speed (C) Juice makers needs power to operate",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He was playing games on his headphones\nReasons: (A) headphones were broken (B) Headphones are too costly (C) Headphones cannot run games software",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: Tom went to the job interview because he wanted soup\nReasons: (A) It's hard to eat soup with money (B) Soup is more liquid than money (C) You can't get soup from a job interview",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: She put an Indian in the oven.\nReasons: (A) An Indian cannot eat an oven. (B) Indians are bigger than an oven. (C) You cannot cook an Indian.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: Cyclists ride a zebra in a competition\nReasons: (A) Cyclists have to wait for pedestrians in a zebra path (B) A human(cyclist) can mount and ride a zebra (C) A zebra is an animal that is not allowed to mount",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: he cut the cheese with axe\nReasons: (A) axe is used to cut wood (B) axe and knife both have sharp edges (C) axe and knife both are made up from metal.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: he withdrew pen from the bank\nReasons: (A) a bank need to keep pen for their work (B) a bank has no safe lockers for pen (C) a bank doesn't deal with pens",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: The lion won in the election\nReasons: (A) Lion has more hair (B) Lion is mostly in brown color (C) Lion is an animal",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: It is desirable to put children's in jail at the age of six\nReasons: (A) children's never get jailed because of their age (B) There are lot of children's in jail (C) In jail they teach children's to become a good person",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: a game is meant simply to be viewed\nReasons: (A) the power of the rendering engine in the game console (B) a video game is to interact (C) \"artificial intelligence\" (AI) engines have been developed in many gaming environments",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: We need to breath Twinkies to live\nReasons: (A) Twinkies are too delicious (B) Twinkies are not essential to life and cannot be inhaled (C) Twinkies are yellow",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: The baby played with fire.\nReasons: (A) The fire is too colorful for the baby to play with. (B) Fire is dangerous for a baby to play with. (C) The baby needs a nap first.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He wrote a letter to his wife on a stove\nReasons: (A) Stove is too hot to hold (B) Stove is too big to write things on. (C) Stove is not a writable thing and we cannot write anything on stove with pen",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: A man went to the pool and deposited cash\nReasons: (A) If you put cash in a pool it will get wet (B) Pools are for swimming and not for depositing cash (C) Pool water is changed everyday before swimming",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He ate a tomato from the dirt\nReasons: (A) There can be dirt in a tomato (B) Tomatoes are held in fridges to be conserved (C) There are tomatoes without dirt in the fridge",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He pluck the flower from the stone\nReasons: (A) stone is bigger in size (B) Stone does not bore flower (C) He cannot reach the stone as it is far away",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He was so sad that he couldn't stop smiling.\nReasons: (A) He thought smiling was unprofessional. (B) He didn't want anyone to know how he was feeling. (C) People don't smile when they are sad.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: Books are suppose to eat\nReasons: (A) Books can use to play (B) Books carry knowledge (C) Books are made up of papers, paper can't eat",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: The babies have careers.\nReasons: (A) A baby can not have a career. (B) Babies are so cute when they sleep (C) My dog has beautiful babies",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Weightlifters do not use weights when lifting.\nReasons: (A) Weightlifters lift their body weight which is a weight (B) Weightlifters only lift chairs which are a weight. (C) The definition of weightlifter is someone who lifts objects of varying mass, without objects (weights) you can not be a weightlifter.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: you will find a shark in a mountain\nReasons: (A) sharks lives in the sea (B) a shark can't climb a mountain (C) animals in the mountain will eat shark",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: She took the wardrobe out of the clothes\nReasons: (A) She did not have the clothes with her (B) A wardrobe would not fit into clothes because it is much bigger (C) The wardrobe did not belong to her",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: The sailboat flew high into the sky.\nReasons: (A) The sailboat wasn't cleared for takeoff. (B) Sailboats are found in the water, not the sky. (C) The sailboat had damaged sails.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Stacey wanted to have some fun, so she went to church\nReasons: (A) Stacey lives near a church (B) Stacey likes going to church (C) church is a place for praying and contemplation, not fun",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He checked time on his shoe\nReasons: (A) Shoe cannot depict time (B) Shoe is in black color and he does not like black (C) Shoe is in the legs and it requires polishing",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Cockroaches are white insects\nReasons: (A) Cockroaches are a type of insect (B) There are insects that are not cockroaches which are white (C) Cockroaches that inhabit the soil are a type of insect with many legs and black or brown",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: A lion is a type of bird\nReasons: (A) Birds and mammalians are animals (B) Lions and flamingos have eyes (C) A lion is a mammalian in the scientific community",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: The man threw the garbage into his mouth\nReasons: (A) Eating garbage is dangerous (B) Garbage is in black bags (C) Everyone produces garbage",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: The people are quietly shouting\nReasons: (A) whispering can be quiet (B) shouting creates noise and it is usually loud (C) the people may be whispering instead of shouting",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: I buy paper towels and put them in the fridge.\nReasons: (A) Paper towels can not be drank. (B) Paper towels are usually white and a fridge is usually white. (C) Paper towels are a paper product. The moisture in the fridge will make them wet and ruin them.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: bridges are built to attract tourists\nReasons: (A) usually bridges are built to transportation (B) bridges attract lot of tourists in world (C) from the bridge we can see rivers closely",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: My favorite fruit is Meat.\nReasons: (A) Apple gives vitamin while meat gives protein. (B) Fruits like apple have seeds but meats are seedless. (C) Apples are gotten from trees whereas meat are gotten from Animals.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Bill has got two islands in Belgic\nReasons: (A) Islands are too expensive for a single person to own (B) Bill can inhabit an island in Belgic (C) Bill can travel to two islands in Belgic",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: She can see a ship in the pond\nReasons: (A) ship is always floating in water (B) usually a pond can not accommodate a ship (C) ship is used to transport goods",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: The pilot was flying the bike\nReasons: (A) Bike is very cheap (B) Bike did not have fuel (C) Bike cannot fly",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: Cars have got ten wheels\nReasons: (A) Normally, cars have got four wheels (B) Ten and four are correct numbers (C) 10 wheels are smaller than a four wheels car",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: My Dog eats wood for dinner.\nReasons: (A) wood is not edible and hence it is not given to a dog. (B) woods are not found in pet store while chicken preparation is found in pet store. (C) wood is used to play fetch with the dog.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: I will play the table in class tomorrow in front of students\nReasons: (A) A table is not an instrument that can be played in front of students (B) You can place a guitar instrument on a table in front of students (C) You can play in front of students sitting on a table in class",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: You will always find windows on a building\nReasons: (A) Some buildings don't have windows (B) windows are found on some buildings (C) some buildings have windows",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: The sun revolves around the Earth\nReasons: (A) the Sun is a star and the moon is a natural satellite (B) the Sun revolves around its own axis (C) The Sun emits its own light",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: She washes her hair everyday with a mild hair oil\nReasons: (A) Oils are good to apply on hair and conditions it it well (B) Most hair oils are sticky and glue like liquid similar to shampoos (C) Hair oil cannot be used to wash hair but to moisturize it",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: he put the books in the wine cellar\nReasons: (A) books are made of paper (B) books are not bottles of wine (C) books are rectangular and bottles are not.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: A library contains tons of drinks\nReasons: (A) A drink is smaller than a library (B) You can drink in a library (C) libraries do not have drinks in them because they are not made for the purpose of drinking",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: The dog was running in the sky\nReasons: (A) Dogs can't run through air in the sky (B) Dogs can't be in the sky (C) It's impossible for a dog to run in the sky",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: The kitten ran through the sun.\nReasons: (A) Kittens are very cute. (B) The sun is very hot. (C) There are no kittens on the sun.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He was eating a book\nReasons: (A) No one eats book (B) The book is too big to eat (C) The book has many pages",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: There are never any Sundays in July\nReasons: (A) You can`t eat pancakes on Sunday and Tuesday both. (B) The origins of the calendar happened on a Tuesday, not on Sunday. (C) July usually has 4 Sundays each month according to the calendar.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: he clicked the computer screen with dog\nReasons: (A) Dog is not a computer peripheral (B) Dogs are in different color (C) The computer wallpaper is good",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Work is going to make money.\nReasons: (A) Work does not make money. (B) Money and work going together. (C) Work without money is useless.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He listened to the music on the belt\nReasons: (A) Belt is mostly in black color (B) Belt is a fashion accessory (C) Belt comes in different model",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: She ate dirt for breakfast.\nReasons: (A) She is allergic to dirt. (B) People don't eat dirt because it tastes bad. (C) It wasn't the right kind of dirt.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: I walked on water\nReasons: (A) Water cannot be walked on (B) Water is blue and land is green (C) Water cannot walk on land",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: A lathe is only for making table legs.\nReasons: (A) You can do many things with a lathe. (B) A lathe is a very important carpenter's tool. (C) Table legs are available for purchase in many retailers.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: we can play cricket with the basket ball\nReasons: (A) Cricket bat used to hit small crock ball or rubber ball (B) basket ball is very big in size and used to play basket ball game (C) Basket ball need basket to play",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: She was frying the nuts in freezer\nReasons: (A) Freezer makes things cold (B) Freezer needs electricity (C) Freezer is too small",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: I will be at the club tomorrow for my antenatal.\nReasons: (A) Alcohol are sold in a club which are usually not healthy for women on antenatal. (B) A club is usually a noisy place wheres a hospital is always quiet. (C) A club has no antenatal medical personnel on duty.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: At night sunlight show their path\nReasons: (A) Sun light is very bright,we cant look directly in to sun (B) At night there wont be sun to get sunlight (C) Sunlight is essential for plants to grow",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: The horse barked at the dog\nReasons: (A) Horses are often found in fields while dogs are not (B) Horses do not make a barking sound (C) Horses and dogs don't naturally interact with eachother",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: It is likely that she will get into university with her fail in the qualifying exam\nReasons: (A) Universities admit only the students who pass in qualifying exam (B) She was sick and could not prepare well for the qualifying exam (C) She was busy with family functions during the qualifying exam",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: People who catch criminals for living are called fishermen\nReasons: (A) some criminals are fishermen (B) people who catch criminals for living are called police officers (C) many criminals can outrun fishermen",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: You would eat a horse because you are hungry\nReasons: (A) You would not eat a horse if you were hungry. (B) Horses can be trained. (C) Horses are vegetarians.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: No person would want to live with a cat\nReasons: (A) a cat is a pet while a rat is a pest (B) not every person likes cats (C) a cat can live at home as a pet",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: people usually eat soups with knives\nReasons: (A) Knives are flat and can't contain soup (B) knives are sharp (C) knives aren't ok for children",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: The ferry crossed the river on the car.\nReasons: (A) A ferry cannot fit on a car. (B) A ferry  is gray and cars are sometimes white. (C) A ferry cannot fly.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: I like to eat a bowl of pebbles during movie time\nReasons: (A) Most pebbles are small and looks like popcorn (B) Pebbles are small stones which cannot be eaten (C) Pebbles can be smooth to touch like popcorn",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: A pillow factory is a great place to find fresh produce.\nReasons: (A) Fresh produce doesn't sleep so they don't need pillows. (B) A pillow factory will only have materials for pillows. (C) Pillows don't eat fresh produce.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He saw a lion web\nReasons: (A) Lion does not like spider (B) Lion does not build web (C) Spider eats lion",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: I let the tiger drive my car.\nReasons: (A) The car does not have the right seat for a tiger to drive it. (B) Tigers cannot drive cars. (C) Clowns and Tigers both work at the circus.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: There was a horse hissing at a snake.\nReasons: (A) Horses prefer to neigh rather than hiss. (B) It is not common to see horses hiss. (C) Horses do not hiss.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: The universe is limited like a box.\nReasons: (A) The universe is colored pale turquoise and aquamarine. (B) The universe hasn't been fully discovered. (C) The cosmic colour was determined by combining light from over 200,000 galaxies within two billion light years of Earth.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: You can improve your wifi signal by removing your teeth between your device and router\nReasons: (A) removing your teeth is painful (B) Removing your teeth will have no effect on wifi signal (C) if you remove your teeth you will need dentures",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: We turn the AC on because we like to push buttons.\nReasons: (A) Buttons are fun to push. (B) AC units have buttons. (C) The AC was made to keep us cool not just to push buttons.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: The waiter brought a silver spoon to eat.\nReasons: (A) Silver spoon is too large to eat. (B) Silver spoon looks a french fries but it is in silver colour. (C) No one eat silver spoon as food.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: A fox is a bird\nReasons: (A) A fox can't fly (B) Fox eat birds (C) Fox has tail",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: George went to the basement to get some sun\nReasons: (A) the sun is further from George than the basement (B) the sun is bigger than the basement (C) the is no sun in the basement",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: Something you find in a living room is a cheetah\nReasons: (A) cheetah's do not live in living rooms (B) The white paint does not match cheetah (C) Cheetah are very fast in living rooms",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: we can eat a football\nReasons: (A) a football is too big to eat (B) a football is not something to eat (C) a football is inflated with air",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Learning a language is easy\nReasons: (A) Languages are very difficult to muster, especially when you are old (B) Cycling and learning a language are good for the brain (C) Cycling can be said in different ways depending on the language",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: A hot mug of coffee is a great way to go to sleep.\nReasons: (A) Coffee can be bought in the stores. (B) Coffee is usually brewed in a pot. (C) Coffee wakes you up.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: Computer use people to make money.\nReasons: (A) Computer does not make money. (B) People buy computers with money. (C) Computers and money work for people.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Bears eat benches\nReasons: (A) people sit on benches and give food to pigeons (B) Benches are not a food (C) honey would make the bench sticky",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: John likes to have arsenic after dinner.\nReasons: (A) Arsenic is usually a liquid and ice cream is a solid (B) Arsenic is poisonous. (C) Arsenic is too hot to drink",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: You would learn a language because i need to travel\nReasons: (A) Travelling to foreign country to learn new language (B) If i need to travel i would only learn the language (C) Because they don't understand other language",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Printers print in black paper\nReasons: (A) Printed ink is black (B) If paper were black, the ink would not be seen (C) Paper is whiter than ink",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: water is unwanted thing to body\nReasons: (A) water is used for washing (B) water is main particle in body (C) water is impure one",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Senators serve drinks to thirsty customers.\nReasons: (A) Senators have aides. (B) Senators have to wear nice clothes to work. (C) Senators do not have customers.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: The steel plank was floating on the lake\nReasons: (A) Steel plank cannot float on water (B) Steel is too costlier than wood (C) Steel is in gray color and water is colorless",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: The man hit a football for a home run.\nReasons: (A) Football players wear shoulder pads. (B) A home run is baseball not football. (C) Baseball players wear helmets.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: A doctor examines fruit\nReasons: (A) Humans and doctors eat fruit (B) A doctor studies the human illnesses (C) There can be illnesses produced by fruit",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He kept a cow on the shelf\nReasons: (A) Cows can cause damage to books (B) Cows cannot read any books (C) A cow does not fit on a shelf",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: We always go to hospital and play during school holidays\nReasons: (A) Children hospitals too have a lot of kids like in park (B) Hospital is a place to treat sick people and not a place to play (C) Most children does not like to go to hospitals",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: A purse is a fashionable way to carry around roller blades.\nReasons: (A) Roller blades are not something you carry with you. (B) The wheels on a roller blade are too round. (C) Purses don't have a place for the laces.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: The girl rides the dog.\nReasons: (A) a girl would not be able to ride a dog unless its trained , But dogs are not made to be rode. (B) a human is to big while a dog is way to small (C) A human can not ride a dog.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: john parked his car in the bathroom\nReasons: (A) cars cannot be parked inside a room in the house (B) cars get stuck in the windows (C) cars don't go well up the stairs",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He deposited money in the restaurant\nReasons: (A) Restaurant needs table reservation (B) Restaurant is crowded and has no space (C) Restaurant is not finance institution",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He travelled to Europe by bird.\nReasons: (A) You cannot travel by bird. (B) Birds cannot land at airports. (C) Birds do not travel to Europe.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Winter coats are helpful in summer.\nReasons: (A) A winter coat will help protect from cold temperatures, not hot. (B) Winter coats can be made out of fur. (C) You cannot make it colder outside by wearing a winter coat.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: She put a train in the car.\nReasons: (A) A train is much larger than a car. (B) Trains are usually iron while cars are steel. (C) A train cannot play with dogs.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: 12345 are the first letters of a standard English keyboard\nReasons: (A) 12345 is the opening to a popular nursery rhyme (B) 12345 are numbers (C) 12345 plus 8 is 12353",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: You can use a pool to place an elephant\nReasons: (A) Elephants need air to breath and they cannot swim (B) Elephants are smaller than a pool (C) A pool is not made for elephants",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: We can see stars at day\nReasons: (A) stars are located at sky (B) stars are easy to see (C) stars can be seen only at night",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He made real contact lenses with match sticks\nReasons: (A) contact lenses wouldn't fly properly (B) contact lenses cannot be kept in a match box (C) contact lenses must be easy to see through",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: A small rat chases a grey cat away\nReasons: (A) Cats are not afraid of rat, cats usually eat rat (B) Cats and rats can be seen everywhere (C) People keeps cats as pet",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He was washing his car with sandpaper\nReasons: (A) Sandpaper is too small to wash an entire car with (B) Sandpaper will ruin the paint on the car (C) You won't get the dirt of the car with sandpaper",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He asked his dog to help in his office work\nReasons: (A) Dog is brown in color and he like black (B) Dog is an animal and does not understand our language and cannot help in our office work (C) Dog has four legs and one tail",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: A refrigerator generates electricity\nReasons: (A) Most refrigerators are light colored (B) A refrigerator is for keeping the items cold (C) Generally refrigerators are taller than generators",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: The unicorn went down the hole.\nReasons: (A) The unicorn does not exist. (B) Unicorns have a single horn while rabbits have a puffy tail. (C) The unicorn has pink fur.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Food eat her a lot.\nReasons: (A) Food does not eat people. (B) Food and her are big. (C) She cooked a lot of food.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He poured coffee into pizza.\nReasons: (A) Pizza can have many toppings. (B) Coffee can be much too hot. (C) Pizza isn't suitable for drinking coffee.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: she put a crocodile into the fridge\nReasons: (A) crocodiles cannot eat fridge. (B) crocodiles are usually in stone color while fridge in grey (C) crocodile is much longer than fridge",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: Television watch him daily\nReasons: (A) Television is rectangular not circular in shape (B) Television are getting thinner day by day (C) Television cannot watch someone",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: Gunpowder can burn for hours\nReasons: (A) Gunpowder smells metallic (B) Gunpowder is dark grey (C) Gunpowder burns rapidly in seconds",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: A car is a musical instrument\nReasons: (A) Car horns are rarely used while driving (B) A car is a motor vehicle used for travel (C) Car audio has radio and music players only",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: The two children threw a knife back and forth.\nReasons: (A) The children were not good at catching. (B) The knife was too dull. (C) They would likely hurt themselves if they threw a knife back and forth.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: he bought a gift for his friend's funeral\nReasons: (A) No one buys gift for a funeral (B) He does not like his friend (C) His friend did not invite him",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: A person must eat more meat to have a longer life\nReasons: (A) Excessive meat intake causes health problems (B) People eat meat after cooking well (C) Meat is packed in plastic material",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He read a wardrobe in rhe table\nReasons: (A) Wardrobes cannot be read (B) Books can be placed in a wardrobe (C) Books contain more information to read than a wardrobe",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: he wrote with a car\nReasons: (A) a car is very big to hold (B) a car is not a writing tool (C) a car costs more than a pen",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: The policeman gave him a reward for speeding.\nReasons: (A) The policeman had already met his reward quota. (B) The policeman forgot the reward at the station. (C) Speeding is against the law, you wouldn't be rewarded for it.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He was playing a shoe\nReasons: (A) Shoe is in black color (B) No one plays with shoe because it is not a game (C) He does not have shoe",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: She went to the clothing store to have a surgery.\nReasons: (A) You can't have a surgery at a clothing store. (B) Hospitals are usually bigger than clothing stores. (C) There are usually more clothing stores than hospitals in a city.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: She drank air from her water-bottle\nReasons: (A) She does not like the taste of air very much (B) The water-bottle can only be filled with water (C) You cannot (usually) drink air as it is in gas form",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: She cooked rice in the bathtub.\nReasons: (A) Bathtubs are usually white while pans are aluminum. (B) Bathtubs are not for cooking food. (C) Bathtubs cannot eat rice.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He drives a steamship at his job in the stadium.\nReasons: (A) No water is in the stadium. (B) Steamships have engines. (C) Steamships can most often be found in the world in oceans.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He mowed the car in the morning.\nReasons: (A) The car cannot transport the lawn. (B) The car is usually reflective while the grass is usually green. (C) The car does not need to be mowed.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He wore a spoon\nReasons: (A) Spoon is made of steel (B) Spoon is not a cloth (C) Spoon is in gray color and he does not like gray",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He was eating spoon\nReasons: (A) No one eats spoon (B) He does not like the taste of spoon (C) Spoon is not hot",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: She went to the bookstore to get ready for her wedding.\nReasons: (A) Bookstores are silent and weddings are noisy. (B) Bookstores usually have books about weddings. (C) You can't get ready for a wedding in a bookstore.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: The chef cooked food on speaker\nReasons: (A) Speaker is coming in different size and different models (B) Speaker is an electronic device to produce sound and cannot cook food (C) Speaker runs on electricity with some source of audio input",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He puts nails on his sandwich\nReasons: (A) Nails cannot be eaten on a sandwich (B) Nails are typically gray and ham is pink. (C) nails aren't made of hamd",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: The street kicked the ball down.\nReasons: (A) The street would use both feet to kick the ball. (B) A ball cannot fly down a street. (C) A street cannot kick a ball.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: They were playing football in the fridge\nReasons: (A) Fridge is too small to play (B) Fridge is in blue color (C) Fridge is not a place",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: There are four mountains around the table\nReasons: (A) Mountains need a great space and cannot be so close to a table (B) There can be an scale mountain in a table (C) Four tables can be places in a mountain",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: You would apply for volunteer work because you want money\nReasons: (A) volunteering is a great way to raise money (B) in order to gain money, you must work (C) volunteers do not get paid",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: A total of 2000 Lions enrolled into the University of Portsmouth this year.\nReasons: (A) Lions are carnivores and a student can be their prey. (B) Students are humans with two legs while a Lion is an animal with four legs. (C) Any Lion found in any University premises other than the University Zoo will pose as a danger to the University.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He ate a mobile phone\nReasons: (A) Mobile phone is not eatable (B) A mobile phone is bigger than mouth (C) Mobile phones have radiation",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He checked the time in his pen\nReasons: (A) Pen comes in different color (B) Pen is cheap and clock is round (C) Pen is an object to write",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He needs to close his eyes to stop talking.\nReasons: (A) The two eyes are positioned above the one nose and one mouth. (B) We have only one mouth but two eyes. (C) We talk with our mouth.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: People built temple to watch movies\nReasons: (A) Temple is too crowded always (B) Temple is not a place to watch movies and no one plays movie there (C) The priest in temple does not like movies",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Home auto cleans itself.\nReasons: (A) Home can clean itself if it has hands. (B) Your home cannot clean itself. (C) Home can take help from another home to clean itself.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He waved hands at his bike\nReasons: (A) Bike is not a human and no one waves at bike (B) Bike is not turned on (C) Bike did not have fuel",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Pencils contain a chocolate core\nReasons: (A) Chocolate is not a good material for use in pencils (B) Chocolate is made from cocoa beans (C) Chocolate can be many colours",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: The Military ordered the President to Attack\nReasons: (A) The Military was humble enough to become a president (B) The President was fare than the military (C) The Military cannot order the President",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: staying healthy requires drinking more whiskey\nReasons: (A) whiskey costs more than food (B) whiskey is an inflammable liquid (C) drinking whiskey is not good for health",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: Cats are commonly kept as dogs.\nReasons: (A) Both cats and dogs are pets. (B) Cats have 4 paws. (C) Cats and dogs are two different kinds of animals.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: Water in solid form is liquid.\nReasons: (A) Liquids can be very messy. (B) Water has a high boiling point. (C) A liquid cannot be in a solid form.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He went to blood bank to eat food\nReasons: (A) Blood bank has very less variety of food (B) Blood bank has very less space to accommodate people (C) blood bank is the place to collect blood and store for treatment and is not a place serving food",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He stored rice in a pen drive\nReasons: (A) Rice is not an electronic data (B) Rice is in white color (C) He does not like rice",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He paid the bill with his nose\nReasons: (A) Nose is made of flesh (B) Nose is a part of body and not a monetary thing (C) He does not have nose",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Clothes wear me everyday.\nReasons: (A) Some of my clothes are wore out. (B) People commonly wear clothes, but clothes do not typically wear people. (C) Some days people buy me clothes to wear.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: a man drink beer in a hospital\nReasons: (A) hospital have generally cross sign. (B) hospital and bar both are places (C) hospital is for treatment of patient",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He got into the bathtub to sleep.\nReasons: (A) No one sleeps in a bathtub. (B) Bathtubs are typically white, while beds might be patterned. (C) Bathtubs are too heavy for beds.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He used warm clothing for sunbathing\nReasons: (A) Sun don't wear clothes (B) Sun never takes a bath (C) You can't wear clothes for sunbathing",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: A lion is something you will find at a mall\nReasons: (A) Zoo is located very far from all malls in the city (B) Lions lives in forests and zoos (C) Usually lions will not mix up with people in a mall",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Hybrid cars pollute a lot in the city\nReasons: (A) Hybrid cars are a minority among car types in the city (B) There are hybrid cars in the city polluting (C) Hybrid cars use electricity in the city and they pollute less than gasoline does",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: If you want to go to shopping then you should go to a police station\nReasons: (A) You cannot report a crime in a shopping mall (B) Cops are friendly persons to help us same as the shop keepers and helpers (C) You can go to a police station to report a crime not for shopping",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He was drinking cake to quench his thirst\nReasons: (A) Cake is round in shape (B) Cake is not liquid to drink (C) Cake comes in different flavor and bigger in size",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: The dog was chasing his wings\nReasons: (A) Dogs don't make their homes in trees (B) Dogs have just a tail but birds have wings and a tail (C) Dogs do not have wings",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: It is tuna day.\nReasons: (A) Tuna cannot eat Friday. (B) Tuna is a food while Friday is a special day for everyone. (C) Tuna is a food Friday is a day.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: The criminal was sentenced to 2 years in library.\nReasons: (A) A library is noted for housing books not criminals. (B) Prison officials are identified by their uniform while library officials are not uniformed. (C) Prisoners does not have the freedom people in the library has.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He was swimming in a ground\nReasons: (A) Ground is a flat surface and has no water (B) Ground is very huge (C) Ground has fenced wall",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Dogs like eating vegetables\nReasons: (A) A human being can eat sausages and vegetables (B) Vegetables and sausages are food (C) Dogs are carnivorous",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: She walked over the house\nReasons: (A) houses are square and people are rectangles (B) houses are much bigger than people (C) houses cannot step over people",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He murdered the fridge with rifle\nReasons: (A) He likes fridge (B) Fridge is bigger than him (C) Fridge is not a living thing",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: She killed an octopus when she went hunting.\nReasons: (A) Hunting is a controversial hobby. (B) The plural of octopus is octopi. (C) Octopi are not found when hunting.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He took his animal to a painter for treatment\nReasons: (A) Painter is someone who paints and he cannot treat animals (B) Painter was busy with his work (C) Painter did not like him",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: The horse barked because he heard people walking down the street.\nReasons: (A) Horses don't care where people walk. (B) Horses aren't house trained. (C) Horses aren't able to bark like dogs.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He wore glasses for finger\nReasons: (A) Glasses comes in different frame styles (B) Glasses are too costly (C) Glasses cannot be worn on finger",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: The fridge wants to go through the door.\nReasons: (A) Fridges are already cold. (B) Fridges have doors. (C) A fridge is not a sentient creature and cannot want anything.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He put a nuclear plant on the roof\nReasons: (A) A nuclear plant takes years to be build (B) A nuclear plant is larger than a house (C) a nuclear plants does not produces houses",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: door on the sewing machine. A door is too\nReasons: (A) Doors are wood while sewing machines are iron. (B) hard and big for a sewing machine. (C) A door cannot wear clothes.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Umbrellas are good means of communication\nReasons: (A) Umbrellas are used to cover from rain and sun (B) An umbrella looks similar to an inverted dish antenna (C) People carry umbrellas when they go out of home",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: she applied toothpaste on her face in summer\nReasons: (A) toothpaste is to clean teeth (B) toothpaste melts in summer (C) toothpaste is in red color and sun is in yellow color",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Girls have three boobs\nReasons: (A) Three boobs are more than two boobs (B) Every girl has to have two boobs due to biology (C) There are animals with more than two boobs",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: An infant needs sun, water and soil in order to flourish.\nReasons: (A) An infant has much different needs than a basil plant, and requires no soil to flourish. (B) Infants cry when they are thirsty. (C) An infant will get sunburned if left outside.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: The girl has severe blue skin in public.\nReasons: (A) Blue skin happens only in the movie \"The chocolate factory\". (B) Anxiety can make you feel like a certain color. (C) Any Human does not have blue skin.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: Chalk is a common food item at birthday parties.\nReasons: (A) Chalk is not a food item (B) Cake is sweeter then chalk. (C) You can draw a cake with chalk.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He went outside and put on his shoes\nReasons: (A) it was raining outside (B) his shoes were dirty on the outside (C) shoes should be worn before leaving the house",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: Michelle put a couch in the back of her car\nReasons: (A) A couch is larger than a car door (B) Couches cannot drive (C) Doors cannot detach from a car",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: The students went to the plumber to get the assignment corrected\nReasons: (A) Plumbers are always busy and costs more (B) Plumbing is a different profession which does not deal with students and their education. (C) The teacher does not stay near plumber",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He put the chair on the room\nReasons: (A) There was no space in the room (B) Is is non-sensical to put an object \"on\" a room (C) The top of the room was available",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: The newly married couple gave birth to a dog\nReasons: (A) Dog likes milk and they like curd (B) Dog is in different color (C) Dog cannot be born for human being",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He was travelling to office in his cooker\nReasons: (A) He does not have cooker (B) Cooker has less fuel (C) Cooker is not a vehicle",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: she was swimming in hot oil.\nReasons: (A) no one bath in hot oil (B) oil and water both are liquid. (C) both oil and water is transparent",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He unlocked the wall\nReasons: (A) Walls don't have locks (B) Doors are vertical and flat, and walls too (C) You can knock on doors and walls too",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He drove his car down the river.\nReasons: (A) A car would sink into the river. (B) The tires on his car are worn out. (C) The river flows north, he needs to go south.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: If a person wants to exercise, they go to a pizza parlor.\nReasons: (A) The pizza parlor is too far away. (B) A pizza parlor wouldn't have workout equipment, and sells fattening food. (C) The pizza parlor is painted white.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: She made a doll with oil.\nReasons: (A) Oil is more costly than cotton. (B) Oil is not a hard substance to make a doll. (C) Oil more greasy than cotton.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He used a handkerchief to cover the bed\nReasons: (A) A handkerchief is square whereas a bed is rectangle (B) A bed is much much larger than a handkerchief (C) A handkerchief is white whereas the bed is brown",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He used an eraser to write in a paper\nReasons: (A) Usually an eraser is much shorter than a pen (B) Most of the erasers are made of rubber (C) An eraser is used to erase something written in a paper",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He took his family to restaurant for movie\nReasons: (A) Restaurant does not play movies (B) Restaurant is fully crowder (C) He did not reserve table in restaurant",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He went to helmet to watch movie\nReasons: (A) He does not like helmet (B) Helmet is in black color and movie is colorful (C) Helmet is not a place to watch movie",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He gave her a rock for her birthday.\nReasons: (A) Her favorite color is red and the rock is gray. (B) A rock is not a good gift to give to somebody. (C) Rocks are not comfortable to lay on.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: A passport is necessary to travel from one restaurant to another.\nReasons: (A) Passports are only necessary for international travel. (B) Not everyone wno eats at restaurants has a passport. (C) If you don't have a passport you can't have a meal at a restaurant in a different country.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Water is a drink with brown colour\nReasons: (A) Water has got no color, it is transparent (B) Water can be drunk without being brown (C) Water is a type of drink which is not brown",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: The pen ran out of mayonnaise\nReasons: (A) mayonnaise is tasty (B) Pens do not contain mayonnaise (C) mayonnaise is white",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: After throwing a ball upwards, it will keep going up\nReasons: (A) On Earth, gravity usually brings objects back down (B) Throwing a ball is fun (C) Balls are sometimes red",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: His neighbor has donated his Sweat\nReasons: (A) His neighbor cannot get into the Oven (B) Sweat cannot be donated whereas Hardwork can be given (C) His neighbor is flying",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: She will give birth after 2 months of pregnancy\nReasons: (A) no one will give birth after 2 months of pregnancy (B) women usually give birth after 7 months of pregnancy (C) baby may be die if he comes out  before 7 months of pregnancy",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Corn grows on trees.\nReasons: (A) Corn is often eaten off the cob. (B) Corn comes in many varieties around the world. (C) Corn grows on stalks from the ground.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He poured a tall glass of mud.\nReasons: (A) Mud takes too long to pour. (B) You wouldn't drink a glass of mud (C) Mud is served in a bowl, not a glass.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: His reflection was invisible in the mirror.\nReasons: (A) There is no such thing as an invisible reflection. (B) Reflections are visible...never invisible. (C) You can only see a reflection if you are in front of the mirror.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: English is a universal bird\nReasons: (A) English is very easy to use (B) There are birds named English (C) English is a language",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: Chickens can fly long distances\nReasons: (A) Chickens can fly  depending on the breed (B) A chicken is a bird (C) Chickens can fly span distances",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He wore cooker to protect his head\nReasons: (A) Cooker is sold out in many shops (B) Cooker is very costly (C) Cooker is to cook food",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He was playing cards game with his bike\nReasons: (A) Bike does not have cards (B) No one can play games with bike as its not a person (C) He does not like his bike",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: She used a banana to call her mother\nReasons: (A) Phone receivers can be shaped like a banana (B) A banana can't be used to make a phone call, it's a fruit that you eat (C) Bananas are usually yellow some telephones are yellow",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: When driving, it's important to keep both feet on the steering wheel.\nReasons: (A) It would be unsafe and very difficult to drive with both feet on the steering wheel. (B) You need your feet free in case you need to run away. (C) You wouldn't be able to wave at your neighbor.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: I ride a leopard to work every day\nReasons: (A) Leopards are not used as vehicles (B) Leopard have four legs and a tail and a car has four wheels (C) a leopard cannot drive a car",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: She drove her car around the supermarket to collect groceries\nReasons: (A) A car cannot pay for shopping in a supermarket. (B) Cars run on fuel whereas supermarkets sell food. (C) You cannot access a supermarkets in a car.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: An ant is smaller then an atom.\nReasons: (A) Both atoms and ants are small. (B) Both atoms and ants exist on earth. (C) Atoms are much smaller then ants.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: Students teach teachers\nReasons: (A) students are not smart (B) Students learn and teachers teach (C) students are too young",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: A caterpillar ate a dog.\nReasons: (A) caterpillars are usually on trees and the dog is in the house. (B) A caterpillar is to small to eat a dog. (C) A tree is in the woods.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: A kite is crying in the air.\nReasons: (A) Kite is a non living thing it cannot cry. (B) kite is having tail. (C) kite looks like eagle.",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: He went to the super market to buy parents\nReasons: (A) He is too poor to afford parents (B) he forgot his purse at home (C) Parents are relations by blood and are not things sold in super market",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: About fifty people get in to a car\nReasons: (A) most people use car for transportation (B) travelling in car is comfortable (C) a car cannot accommodate more than five people",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: a dog wags its tail to call its mom.\nReasons: (A) phones are black and dogs a color blind (B) dogs cant use phones (C) dogs cant say hello",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: The school went to her\nReasons: (A) schools do not move (B) schools do not have legs to move (C) schools are built in the ground",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: My nose is stuffed with ham.\nReasons: (A) My Nose hurts when i go under water (B) Ham is great to stuff in my belly during the holidays. (C) Ham can not be stuffed in my nose.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: If you want to give something you should destroy it.\nReasons: (A) you cannot give something if you didn't destroy it (B) Give what you don't have and destroy what you have (C) If you have to give something you should have it, not that you destroy it.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He was watching his favorite show in oven\nReasons: (A) Oven is too small to play media (B) Oven is for cooking and cannot play media content (C) Oven is too costly to buy",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: Jonathan smells good when organic litter is near\nReasons: (A) Organic litter is a smelling trash because it has already been used and it is rotting (B) Jonathan can smell good when the litter is not near (C) Jonathan throws the litter that smells bad from his house every day",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Lightning is seen after thunder\nReasons: (A) Lightning has very bright flash (B) Light travels faster than sound (C) Lightning occurs for short time",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: It was raining and he was holding the mountain\nReasons: (A) Mountain is full of trees (B) No one can hold a mountain (C) Mountain has dangerous animals",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: The grass is purple when it rains.\nReasons: (A) Acidic rain can cause purple grass to grow. (B) Purple grass will sprout yellow flowers. (C) gRASS CAN not be purple unless you purposely die it purple.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: He sent an email from his fridge\nReasons: (A) Fridge does not work without electricity (B) Fridge cannot be used to send email (C) He did not have fridge",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: A barber shop is for dining out.\nReasons: (A) Barber shops are usually in the city. (B) A barber shop is not a restaurant. (C) Barber shops usually have a red, white, and blue pole near the entrance.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: The terrorist arrested the military.\nReasons: (A) Military dress is green and grey checked colour. (B) Terrorist cant able to arrest military. (C) Military wants to eat chicken",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: he was eating grass\nReasons: (A) No one eats grass (B) Grass is in green color (C) He does not like the taste of grass",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: Sometimes drinking alcohol helps concentrate in driving\nReasons: (A) Alcohol is available in bars near roads (B) People spend a lot of money for drinking alcohol (C) Alcohol in blood badly impact on driving ability",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: My cat is as big as elephant.\nReasons: (A) Elephant cannot eat cat. (B) Elephants are big while cats are small (C) There is no cat as big as elephant.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: A cat was driving the car\nReasons: (A) Cat is mostly white and car is mostly black (B) Cat is an animal and cannot drive (C) There are many cats in the street",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: She was wearing spoon for bad eyes\nReasons: (A) Spoon is in grey color (B) Spoon is an utensil which has nothing to do with eye (C) Spoon is made of steel",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He was painting the house with spoon\nReasons: (A) Spoon is too small to paint the big house (B) Spoon is an utensil and cannot be used to paint (C) Spoon is made of steel and house is make of brick",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: people jump from building to avoid stairs\nReasons: (A) its easy to jump from a building (B) jumping from buildings is injurious to health (C) jumping will get down you very fast",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: He rubs the lotion on the basket\nReasons: (A) Lotion is rubbed on people not baskets (B) The basket is too heavy for the lotion (C) Lotion is creamy not hard like the basket",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: To cook pasta you need poison.\nReasons: (A) Poison cannot start a flame and cook the pasta (B) Poison tastes worse than water. (C) Poison will harm or even kill you.",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: Phones grow on trees\nReasons: (A) Phones are an artificial material that nature does not produce (B) There are phones with cases with a tree picture (C) You can take a picture of a tree with a phone",
+            "output": [
+                "A"
+            ]
+        },
+        {
+            "input": "Statement: The weather is so hot that it began to snow.\nReasons: (A) Snow is usually white, and grass is usually green. (B) The heat would melt the snow. (C) The snow did not arrive on time.",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: A snow scraper is needed to power on the car\nReasons: (A) A snow scraper is not always held by the driver as a car key every day (B) A snow scraper and a car key are both allocated in a car (C) A snow scraper would only be needed if it were snowed, but not for power on the car",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: A mat is made of iron\nReasons: (A) Mat may have different shape just like iron (B) No one uses a mat of iron (C) Mats are used on floor",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: The driver started the car engine with pen\nReasons: (A) Pen is cheap and car comes in different color (B) Pen is an object to write (C) there are many shops where pen is sold",
+            "output": [
+                "B"
+            ]
+        },
+        {
+            "input": "Statement: She have wolf pet named muffin\nReasons: (A) Wolf kick the pet (B) Wolf is running while pet is in the house (C) Wolf cannot be pet",
+            "output": [
+                "C"
+            ]
+        },
+        {
+            "input": "Statement: she put a giraffe in the fridge.\nReasons: (A) a giraffes cannot eat fridges (B) giraffes are usually orange while fridges are brown (C) a giraffe is much taller than the fridge.",
+            "output": [
+                "C"
+            ]
+        }
+    ]
+}
