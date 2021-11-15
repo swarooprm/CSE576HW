@@ -1,0 +1,1694 @@
+{
+    "Contributors": [
+        "Subba Raja Kashyap Saligrama"
+    ],
+    "Source": [
+        "MATRES (http://cogcomp.org/papers/NingWuRo18.pdf, https://github.com/CogComp/MATRES)"
+    ],
+    "Categories": [
+        "Classification"
+    ],
+    "Definition": "Given a passage with some context and a verb separately in different lines, identify if the given verb can be anchored in time or not and answer \"Yes\" or \"No\" accordingly. A verb can be anchored in the real timeline if and only if the verb’s usage in the passage indicates that – the verb happened in the past or is happening now or surely happens in the future.",
+    "Positive Examples": [
+        {
+            "input": "Margalit Har-Shefi , 22 , has pleaded innocent to charges that she failed to report Yigal Amir 's plan to kill Rabin. She (took) the stand for more than four hours Friday in a Tel Aviv magistrate 's court . \n Verb: took",
+            "output": "Yes",
+            "explanation": "The verb 'took' in this sentence is anchorable because it happended in the past."
+        },
+        {
+            "input": "Amir , 27 , is serving a life sentence for the November 1995 assassination of Rabin at a Tel Aviv peace rally. Newspaper reports have said Amir was infatuated with Har-Shefi and may have been trying to (impress) her by killing the prime minister . \n Verb: impress",
+            "output": "No",
+            "explanation": "There is no surity to say that the given verb happens definetely at some point of time. So it is not anchorable."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Preliminary DNA tests link a missing anti-abortion activist to a strand of hair found near where a sniper shot and killed a Buffalo , N.Y. , doctor who performed abortions , a law enforcement official said Friday . The first round of DNA tests on the hair at the FBI Laboratory here established a high probability it came from the same person as a hair found in a New Jersey home where James C. Kopp , a 44-year-old anti-abortion protester , lived last year , the official (said) .  \n Verb :said",
+            "output": "No",
+            "explanation": "In this sentence, the saying action happened in the past, and it's anchorable."
+        },
+        {
+            "input": "She also denied accusations made by Amir 's brother , Hagai , that she joined an anti-Arab underground movement . </p><p>She said she gave the Amir brothers false information regarding the location of a weapons and ammunition cache when they asked her to (help) organize such a movement . \n Verb: help",
+            "output": "Yes",
+            "explanation": "There is no surity to say that the given verb happens definetely at some point of time. So it is not anchorable and the answer should be No."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "JERUSALEM ( AP ) _ (Taking) the stand in her own defense , a friend of Yitzhak Rabin 's assassin said Friday that she regretted calling the prime minister a traitor and praying for his death . \n Verb: Taking",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "JERUSALEM ( AP ) _ Taking the stand in her own defense , a friend of Yitzhak Rabin 's assassin (said) Friday that she regretted calling the prime minister a traitor and praying for his death . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "JERUSALEM ( AP ) _ Taking the stand in her own defense , a friend of Yitzhak Rabin 's assassin said Friday that she (regretted) calling the prime minister a traitor and praying for his death . \n Verb: regretted",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "JERUSALEM ( AP ) _ Taking the stand in her own defense , a friend of Yitzhak Rabin 's assassin said Friday that she regretted (calling) the prime minister a traitor and praying for his death . \n Verb: calling",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "JERUSALEM ( AP ) _ Taking the stand in her own defense , a friend of Yitzhak Rabin 's assassin said Friday that she regretted calling the prime minister a traitor and (praying) for his death . \n Verb: praying",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "JERUSALEM ( AP ) _ Taking the stand in her own defense , a friend of Yitzhak Rabin 's assassin said Friday that she regretted calling the prime minister a traitor and praying for his death . Margalit Har-Shefi , 22 , has (pleaded) innocent to charges that she failed to report Yigal Amir 's plan to kill Rabin . \n Verb: pleaded",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "JERUSALEM ( AP ) _ Taking the stand in her own defense , a friend of Yitzhak Rabin 's assassin said Friday that she regretted calling the prime minister a traitor and praying for his death . Margalit Har-Shefi , 22 , has pleaded innocent to charges that she (failed) to report Yigal Amir 's plan to kill Rabin . \n Verb: failed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "JERUSALEM ( AP ) _ Taking the stand in her own defense , a friend of Yitzhak Rabin 's assassin said Friday that she regretted calling the prime minister a traitor and praying for his death . Margalit Har-Shefi , 22 , has pleaded innocent to charges that she failed to (report) Yigal Amir 's plan to kill Rabin . \n Verb: report",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "JERUSALEM ( AP ) _ Taking the stand in her own defense , a friend of Yitzhak Rabin 's assassin said Friday that she regretted calling the prime minister a traitor and praying for his death . Margalit Har-Shefi , 22 , has pleaded innocent to charges that she failed to report Yigal Amir 's plan to (kill) Rabin . \n Verb: kill",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Margalit Har-Shefi , 22 , has pleaded innocent to charges that she failed to report Yigal Amir 's plan to kill Rabin . She (took) the stand for more than four hours Friday in a Tel Aviv magistrate 's court . \n Verb: took",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "She took the stand for more than four hours Friday in a Tel Aviv magistrate 's court . Amir , 27 , is (serving) a life sentence for the November 1995 assassination of Rabin at a Tel Aviv peace rally . \n Verb: serving",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Amir , 27 , is serving a life sentence for the November 1995 assassination of Rabin at a Tel Aviv peace rally . Newspaper reports have (said) Amir was infatuated with Har-Shefi and may have been trying to impress her by killing the prime minister . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Amir , 27 , is serving a life sentence for the November 1995 assassination of Rabin at a Tel Aviv peace rally . Newspaper reports have said Amir was (infatuated) with Har-Shefi and may have been trying to impress her by killing the prime minister . \n Verb: infatuated",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Amir , 27 , is serving a life sentence for the November 1995 assassination of Rabin at a Tel Aviv peace rally . Newspaper reports have said Amir was infatuated with Har-Shefi and may have been (trying) to impress her by killing the prime minister . \n Verb: trying",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Amir , 27 , is serving a life sentence for the November 1995 assassination of Rabin at a Tel Aviv peace rally . Newspaper reports have said Amir was infatuated with Har-Shefi and may have been trying to (impress) her by killing the prime minister . \n Verb: impress",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Amir , 27 , is serving a life sentence for the November 1995 assassination of Rabin at a Tel Aviv peace rally . Newspaper reports have said Amir was infatuated with Har-Shefi and may have been trying to impress her by (killing) the prime minister . \n Verb: killing",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Newspaper reports have said Amir was infatuated with Har-Shefi and may have been trying to impress her by killing the prime minister . Har-Shefi (acknowledged) she told police interrogators that Rabin was a traitor and that she prayed for him to have a heart attack and die . \n Verb: acknowledged",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Newspaper reports have said Amir was infatuated with Har-Shefi and may have been trying to impress her by killing the prime minister . Har-Shefi acknowledged she (told) police interrogators that Rabin was a traitor and that she prayed for him to have a heart attack and die . \n Verb: told",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Newspaper reports have said Amir was infatuated with Har-Shefi and may have been trying to impress her by killing the prime minister . Har-Shefi acknowledged she told police interrogators that Rabin was a traitor and that she (prayed) for him to have a heart attack and die . \n Verb: prayed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Newspaper reports have said Amir was infatuated with Har-Shefi and may have been trying to impress her by killing the prime minister . Har-Shefi acknowledged she told police interrogators that Rabin was a traitor and that she prayed for him to have a heart attack and (die) . \n Verb: die",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Har-Shefi acknowledged she told police interrogators that Rabin was a traitor and that she prayed for him to have a heart attack and die . She (said) Rabin 's murder was `` a black stain on Israel , '' Israel radio and Israel army radio reported . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Har-Shefi acknowledged she told police interrogators that Rabin was a traitor and that she prayed for him to have a heart attack and die . She said Rabin 's murder was `` a black stain on Israel , '' Israel radio and Israel army radio (reported) . \n Verb: reported",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "She said Rabin 's murder was `` a black stain on Israel , '' Israel radio and Israel army radio reported . Har-Shefi (said) she heard Amir talk about killing Rabin but did not tell the police because she did not believe he was serious . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "She said Rabin 's murder was `` a black stain on Israel , '' Israel radio and Israel army radio reported . Har-Shefi said she (heard) Amir talk about killing Rabin but did not tell the police because she did not believe he was serious . \n Verb: heard",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "She said Rabin 's murder was `` a black stain on Israel , '' Israel radio and Israel army radio reported . Har-Shefi said she heard Amir talk about (killing) Rabin but did not tell the police because she did not believe he was serious . \n Verb: killing",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "She said Rabin 's murder was `` a black stain on Israel , '' Israel radio and Israel army radio reported . Har-Shefi said she heard Amir talk about killing Rabin but did not (tell) the police because she did not believe he was serious . \n Verb: tell",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "She said Rabin 's murder was `` a black stain on Israel , '' Israel radio and Israel army radio reported . Har-Shefi said she heard Amir talk about killing Rabin but did not tell the police because she did not (believe) he was serious . \n Verb: believe",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Har-Shefi said she heard Amir talk about killing Rabin but did not tell the police because she did not believe he was serious . Instead , she (turned) to her community rabbi in the Jewish West Bank settlement of Beit El and told him about Amir 's statements . \n Verb: turned",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Har-Shefi said she heard Amir talk about killing Rabin but did not tell the police because she did not believe he was serious . Instead , she turned to her community rabbi in the Jewish West Bank settlement of Beit El and (told) him about Amir 's statements . \n Verb: told",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Instead , she turned to her community rabbi in the Jewish West Bank settlement of Beit El and told him about Amir 's statements . The rabbi (said) called the talk about killing Rabin `` nonsense , '' and said Jews are prohibited from killing one another , the radio reports said . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Instead , she turned to her community rabbi in the Jewish West Bank settlement of Beit El and told him about Amir 's statements . The rabbi said (called) the talk about killing Rabin `` nonsense , '' and said Jews are prohibited from killing one another , the radio reports said . \n Verb: called",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Instead , she turned to her community rabbi in the Jewish West Bank settlement of Beit El and told him about Amir 's statements . The rabbi said called the talk about (killing) Rabin `` nonsense , '' and said Jews are prohibited from killing one another , the radio reports said . \n Verb: killing",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Instead , she turned to her community rabbi in the Jewish West Bank settlement of Beit El and told him about Amir 's statements . The rabbi said called the talk about killing Rabin `` nonsense , '' and (said) Jews are prohibited from killing one another , the radio reports said . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Instead , she turned to her community rabbi in the Jewish West Bank settlement of Beit El and told him about Amir 's statements . The rabbi said called the talk about killing Rabin `` nonsense , '' and said Jews are (prohibited) from killing one another , the radio reports said . \n Verb: prohibited",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Instead , she turned to her community rabbi in the Jewish West Bank settlement of Beit El and told him about Amir 's statements . The rabbi said called the talk about killing Rabin `` nonsense , '' and said Jews are prohibited from killing one another , the radio reports (said) . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The rabbi said called the talk about killing Rabin `` nonsense , '' and said Jews are prohibited from killing one another , the radio reports said . Har-Shefi (described) Amir as an `` original thinker , '' as well as delusional and a liar . \n Verb: described",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Har-Shefi described Amir as an `` original thinker , '' as well as delusional and a liar . She also (denied) accusations made by Amir 's brother , Hagai , that she joined an anti-Arab underground movement . \n Verb: denied",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Har-Shefi described Amir as an `` original thinker , '' as well as delusional and a liar . She also denied accusations (made) by Amir 's brother , Hagai , that she joined an anti-Arab underground movement . \n Verb: made",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Har-Shefi described Amir as an `` original thinker , '' as well as delusional and a liar . She also denied accusations made by Amir 's brother , Hagai , that she (joined) an anti-Arab underground movement . \n Verb: joined",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "She also denied accusations made by Amir 's brother , Hagai , that she joined an anti-Arab underground movement . She (said) she gave the Amir brothers false information regarding the location of a weapons and ammunition cache when they asked her to help organize such a movement . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "She also denied accusations made by Amir 's brother , Hagai , that she joined an anti-Arab underground movement . She said she (gave) the Amir brothers false information regarding the location of a weapons and ammunition cache when they asked her to help organize such a movement . \n Verb: gave",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "She also denied accusations made by Amir 's brother , Hagai , that she joined an anti-Arab underground movement . She said she gave the Amir brothers false information regarding the location of a weapons and ammunition cache when they (asked) her to help organize such a movement . \n Verb: asked",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "She also denied accusations made by Amir 's brother , Hagai , that she joined an anti-Arab underground movement . She said she gave the Amir brothers false information regarding the location of a weapons and ammunition cache when they asked her to (help) organize such a movement . \n Verb: help",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "She also denied accusations made by Amir 's brother , Hagai , that she joined an anti-Arab underground movement . She said she gave the Amir brothers false information regarding the location of a weapons and ammunition cache when they asked her to help (organize) such a movement . \n Verb: organize",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Despite the recent possibility of military conflict with Iraq , oil prices have been (falling) , that 's because of a worldwide glut of oil . \n Verb: falling",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Despite the recent possibility of military conflict with Iraq , oil prices have been falling , that 's because of a worldwide glut of oil . Now with a diplomatic solution to the crisis seemingly at hand , get (set) for oil prices from the Brent north sea variety to light swede crude to fall further . \n Verb: set",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Despite the recent possibility of military conflict with Iraq , oil prices have been falling , that 's because of a worldwide glut of oil . Now with a diplomatic solution to the crisis seemingly at hand , get set for oil prices from the Brent north sea variety to light swede crude to (fall) further . \n Verb: fall",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Now with a diplomatic solution to the crisis seemingly at hand , get set for oil prices from the Brent north sea variety to light swede crude to fall further . Oil prices have (come) down from the middle of October from a twenty-two dollar barrel level down to the fourteen dollars we 're seeing today . \n Verb: come",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Now with a diplomatic solution to the crisis seemingly at hand , get set for oil prices from the Brent north sea variety to light swede crude to fall further . Oil prices have come down from the middle of October from a twenty-two dollar barrel level down to the fourteen dollars we 're (seeing) today . \n Verb: seeing",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Oil prices have come down from the middle of October from a twenty-two dollar barrel level down to the fourteen dollars we 're seeing today . That 's (built) up a heck of a momentum and that momentum will look to increase . \n Verb: built",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Oil prices have come down from the middle of October from a twenty-two dollar barrel level down to the fourteen dollars we 're seeing today . That 's built up a heck of a momentum and that momentum will (look) to increase . \n Verb: look",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Oil prices have come down from the middle of October from a twenty-two dollar barrel level down to the fourteen dollars we 're seeing today . That 's built up a heck of a momentum and that momentum will look to (increase) . \n Verb: increase",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "That 's built up a heck of a momentum and that momentum will look to increase . Ah next up is that thirteen dollar a barrel level we (saw) in the winter of nineteen ninety-four . \n Verb: saw",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Ah next up is that thirteen dollar a barrel level we saw in the winter of nineteen ninety-four . Weakened oil prices have already (made) life easier for motorists at the gas pump . \n Verb: made",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Weakened oil prices have already made life easier for motorists at the gas pump . Gas prices (fell) nearly two cents a gallon over the last two weeks . \n Verb: fell",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Gas prices fell nearly two cents a gallon over the last two weeks . That (according) to the Lundberg survey of ten thousand gas stations nationwide . \n Verb: according",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "NEW YORK _ A Brooklyn woman who was (watching) her clothes dry in a laundromat was killed Thursday evening when two would-be robbers emptied their pistols into the store , the police said . \n Verb: watching",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "NEW YORK _ A Brooklyn woman who was watching her clothes dry in a laundromat was (killed) Thursday evening when two would-be robbers emptied their pistols into the store , the police said . \n Verb: killed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "NEW YORK _ A Brooklyn woman who was watching her clothes dry in a laundromat was killed Thursday evening when two would-be robbers (emptied) their pistols into the store , the police said . \n Verb: emptied",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "NEW YORK _ A Brooklyn woman who was watching her clothes dry in a laundromat was killed Thursday evening when two would-be robbers emptied their pistols into the store , the police (said) . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "NEW YORK _ A Brooklyn woman who was watching her clothes dry in a laundromat was killed Thursday evening when two would-be robbers emptied their pistols into the store , the police said . The men (appeared) in the store at 469 Vermont St. in Brownsville around 7:15 p.m. , after the victim , Linda Sanders , 35 , had finished her cleaning and was waiting for her clothes to dry , detectives said . \n Verb: appeared",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "NEW YORK _ A Brooklyn woman who was watching her clothes dry in a laundromat was killed Thursday evening when two would-be robbers emptied their pistols into the store , the police said . The men appeared in the store at 469 Vermont St. in Brownsville around 7:15 p.m. , after the victim , Linda Sanders , 35 , had (finished) her cleaning and was waiting for her clothes to dry , detectives said . \n Verb: finished",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "NEW YORK _ A Brooklyn woman who was watching her clothes dry in a laundromat was killed Thursday evening when two would-be robbers emptied their pistols into the store , the police said . The men appeared in the store at 469 Vermont St. in Brownsville around 7:15 p.m. , after the victim , Linda Sanders , 35 , had finished her (cleaning) and was waiting for her clothes to dry , detectives said . \n Verb: cleaning",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "NEW YORK _ A Brooklyn woman who was watching her clothes dry in a laundromat was killed Thursday evening when two would-be robbers emptied their pistols into the store , the police said . The men appeared in the store at 469 Vermont St. in Brownsville around 7:15 p.m. , after the victim , Linda Sanders , 35 , had finished her cleaning and was (waiting) for her clothes to dry , detectives said . \n Verb: waiting",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "NEW YORK _ A Brooklyn woman who was watching her clothes dry in a laundromat was killed Thursday evening when two would-be robbers emptied their pistols into the store , the police said . The men appeared in the store at 469 Vermont St. in Brownsville around 7:15 p.m. , after the victim , Linda Sanders , 35 , had finished her cleaning and was waiting for her clothes to dry , detectives (said) . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The men appeared in the store at 469 Vermont St. in Brownsville around 7:15 p.m. , after the victim , Linda Sanders , 35 , had finished her cleaning and was waiting for her clothes to dry , detectives said . `` It (looks) as though they panicked , '' a detective , speaking on condition of anonymity , said of the robbers . \n Verb: looks",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The men appeared in the store at 469 Vermont St. in Brownsville around 7:15 p.m. , after the victim , Linda Sanders , 35 , had finished her cleaning and was waiting for her clothes to dry , detectives said . `` It looks as though they (panicked) , '' a detective , speaking on condition of anonymity , said of the robbers . \n Verb: panicked",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The men appeared in the store at 469 Vermont St. in Brownsville around 7:15 p.m. , after the victim , Linda Sanders , 35 , had finished her cleaning and was waiting for her clothes to dry , detectives said . `` It looks as though they panicked , '' a detective , (speaking) on condition of anonymity , said of the robbers . \n Verb: speaking",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The men appeared in the store at 469 Vermont St. in Brownsville around 7:15 p.m. , after the victim , Linda Sanders , 35 , had finished her cleaning and was waiting for her clothes to dry , detectives said . `` It looks as though they panicked , '' a detective , speaking on condition of anonymity , (said) of the robbers . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "`` It looks as though they panicked , '' a detective , speaking on condition of anonymity , said of the robbers . `` They (intended) to rob the place . \n Verb: intended",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "`` They intended to rob the place . There were four or five people inside , and they just (started) firing . '' \n Verb: started",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "There were four or five people inside , and they just started firing . '' Ms. Sanders was (hit) several times and was pronounced dead at the scene . \n Verb: hit",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "There were four or five people inside , and they just started firing . '' Ms. Sanders was hit several times and was (pronounced) dead at the scene . \n Verb: pronounced",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Ms. Sanders was hit several times and was pronounced dead at the scene . The other customers (fled) , and the police said it did not appear that anyone else was injured . \n Verb: fled",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Ms. Sanders was hit several times and was pronounced dead at the scene . The other customers fled , and the police (said) it did not appear that anyone else was injured . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Ms. Sanders was hit several times and was pronounced dead at the scene . The other customers fled , and the police said it did not (appear) that anyone else was injured . \n Verb: appear",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Ms. Sanders was hit several times and was pronounced dead at the scene . The other customers fled , and the police said it did not appear that anyone else was (injured) . \n Verb: injured",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The other customers fled , and the police said it did not appear that anyone else was injured . The men (took) no money from their victim or from the establishment , said Detective Joseph Pentangelo , a Police Department spokesman . \n Verb: took",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The other customers fled , and the police said it did not appear that anyone else was injured . The men took no money from their victim or from the establishment , (said) Detective Joseph Pentangelo , a Police Department spokesman . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The men took no money from their victim or from the establishment , said Detective Joseph Pentangelo , a Police Department spokesman . Victor Miranda , who (lives) in Ms. Sanders ' apartment building at 405 Williams Ave. , said the laundry machines in the building were removed a few years ago to make room for management offices . \n Verb: lives",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The men took no money from their victim or from the establishment , said Detective Joseph Pentangelo , a Police Department spokesman . Victor Miranda , who lives in Ms. Sanders ' apartment building at 405 Williams Ave. , (said) the laundry machines in the building were removed a few years ago to make room for management offices . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The men took no money from their victim or from the establishment , said Detective Joseph Pentangelo , a Police Department spokesman . Victor Miranda , who lives in Ms. Sanders ' apartment building at 405 Williams Ave. , said the laundry machines in the building were (removed) a few years ago to make room for management offices . \n Verb: removed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The men took no money from their victim or from the establishment , said Detective Joseph Pentangelo , a Police Department spokesman . Victor Miranda , who lives in Ms. Sanders ' apartment building at 405 Williams Ave. , said the laundry machines in the building were removed a few years ago to (make) room for management offices . \n Verb: make",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The British government has formally (called) for Sinn Fein , the IRA 's political wing , to be expelled from the multiparty peace talks on northern Ireland . \n Verb: called",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The British government has formally called for Sinn Fein , the IRA 's political wing , to be (expelled) from the multiparty peace talks on northern Ireland . \n Verb: expelled",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The British government has formally called for Sinn Fein , the IRA 's political wing , to be expelled from the multiparty peace talks on northern Ireland . The move had been widely (expected) after northern Ireland police said they believe the IRA was behind two killings in Belfast last week . \n Verb: expected",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The British government has formally called for Sinn Fein , the IRA 's political wing , to be expelled from the multiparty peace talks on northern Ireland . The move had been widely expected after northern Ireland police (said) they believe the IRA was behind two killings in Belfast last week . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The British government has formally called for Sinn Fein , the IRA 's political wing , to be expelled from the multiparty peace talks on northern Ireland . The move had been widely expected after northern Ireland police said they (believe) the IRA was behind two killings in Belfast last week . \n Verb: believe",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The move had been widely expected after northern Ireland police said they believe the IRA was behind two killings in Belfast last week . Sinn Fein chairman Mitchell McLaughlin (says) the party will challenge the move by legal means if they have to . \n Verb: says",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The move had been widely expected after northern Ireland police said they believe the IRA was behind two killings in Belfast last week . Sinn Fein chairman Mitchell McLaughlin says the party will (challenge) the move by legal means if they have to . \n Verb: challenge",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Sinn Fein chairman Mitchell McLaughlin says the party will challenge the move by legal means if they have to . We 're going to (fight) it . \n Verb: fight",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "We 're going to fight it . And uh we 've already (challenged) , very strongly , the uh the terms in which this has been presented . \n Verb: challenged",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "We 're going to fight it . And uh we 've already challenged , very strongly , the uh the terms in which this has been (presented) . \n Verb: presented",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "And uh we 've already challenged , very strongly , the uh the terms in which this has been presented . But we 're (challenging) it on the ground that uh the RUC uh have offered an opinion , and this opinion is going to be used as a mechanism for ejecting us from the talks , and uh that 's a very serious . \n Verb: challenging",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "And uh we 've already challenged , very strongly , the uh the terms in which this has been presented . But we 're challenging it on the ground that uh the RUC uh have (offered) an opinion , and this opinion is going to be used as a mechanism for ejecting us from the talks , and uh that 's a very serious . \n Verb: offered",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "And uh we 've already challenged , very strongly , the uh the terms in which this has been presented . But we 're challenging it on the ground that uh the RUC uh have offered an opinion , and this opinion is going to be (used) as a mechanism for ejecting us from the talks , and uh that 's a very serious . \n Verb: used",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "And uh we 've already challenged , very strongly , the uh the terms in which this has been presented . But we 're challenging it on the ground that uh the RUC uh have offered an opinion , and this opinion is going to be used as a mechanism for (ejecting) us from the talks , and uh that 's a very serious . \n Verb: ejecting",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "But we 're challenging it on the ground that uh the RUC uh have offered an opinion , and this opinion is going to be used as a mechanism for ejecting us from the talks , and uh that 's a very serious . Any decision to (expel) Sinn Fein must be agreed jointly by the governments of both Britain and the Irish Republic . \n Verb: expel",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "But we 're challenging it on the ground that uh the RUC uh have offered an opinion , and this opinion is going to be used as a mechanism for ejecting us from the talks , and uh that 's a very serious . Any decision to expel Sinn Fein must be (agreed) jointly by the governments of both Britain and the Irish Republic . \n Verb: agreed",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The lights are out and the heat is off and those vital signs are not likely to (change) much over the next several days for p - people in parts of the northeastern US and eastern Canada . \n Verb: change",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The lights are out and the heat is off and those vital signs are not likely to change much over the next several days for p - people in parts of the northeastern US and eastern Canada . A powerful ice storm (continues) to maintain its grip . \n Verb: continues",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The lights are out and the heat is off and those vital signs are not likely to change much over the next several days for p - people in parts of the northeastern US and eastern Canada . A powerful ice storm continues to (maintain) its grip . \n Verb: maintain",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "A powerful ice storm continues to maintain its grip . Yesterday New York governor George Pataki (toured) five counties that have been declared under a state of emergency . \n Verb: toured",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "A powerful ice storm continues to maintain its grip . Yesterday New York governor George Pataki toured five counties that have been (declared) under a state of emergency . \n Verb: declared",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Yesterday New York governor George Pataki toured five counties that have been declared under a state of emergency . He (added) one more today . \n Verb: added",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "He added one more today . Helicopters are (flying) over northern New York today trying to locate people stranded without food , heat or medicine . \n Verb: flying",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "He added one more today . Helicopters are flying over northern New York today (trying) to locate people stranded without food , heat or medicine . \n Verb: trying",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "He added one more today . Helicopters are flying over northern New York today trying to (locate) people stranded without food , heat or medicine . \n Verb: locate",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "He added one more today . Helicopters are flying over northern New York today trying to locate people (stranded) without food , heat or medicine . \n Verb: stranded",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Helicopters are flying over northern New York today trying to locate people stranded without food , heat or medicine . In Maine , about a half million people still do n't (have) power and they 're going to have to live without it for a while . \n Verb: have",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Helicopters are flying over northern New York today trying to locate people stranded without food , heat or medicine . In Maine , about a half million people still do n't have power and they 're going to have to (live) without it for a while . \n Verb: live",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "BUDAPEST , Hungary ( AP ) _ Tired of being sidelined , Hungarian astronaut Bertalan Farkas is (leaving) for the United States to start a new career , he said Saturday . \n Verb: leaving",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "BUDAPEST , Hungary ( AP ) _ Tired of being sidelined , Hungarian astronaut Bertalan Farkas is leaving for the United States to (start) a new career , he said Saturday . \n Verb: start",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "BUDAPEST , Hungary ( AP ) _ Tired of being sidelined , Hungarian astronaut Bertalan Farkas is leaving for the United States to start a new career , he (said) Saturday . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "BUDAPEST , Hungary ( AP ) _ Tired of being sidelined , Hungarian astronaut Bertalan Farkas is leaving for the United States to start a new career , he said Saturday . `` Being 48 is too early to be retired , '' a fit-looking Farkas (said) on state TV 's morning talk show . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "`` Being 48 is too early to be retired , '' a fit-looking Farkas said on state TV 's morning talk show . With American astronaut Jon McBride , Farkas (set) up an American-Hungarian joint venture called Orion 1980 , manufacturing space-travel related technology . \n Verb: set",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "With American astronaut Jon McBride , Farkas set up an American-Hungarian joint venture called Orion 1980 , manufacturing space-travel related technology . Farkas will (move) to the company 's U.S. headquarters . \n Verb: move",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Farkas will move to the company 's U.S. headquarters . Farkas , an air force captain , was (sent) into space on board the Soyuz 36 on May 26 , 1980 . \n Verb: sent",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Farkas , an air force captain , was sent into space on board the Soyuz 36 on May 26 , 1980 . He (spent) six days aboard the Salyut 6 spacecraft with three Soviet astronauts , Valery Kubasov , Leonid Popov and Valery Riumin . \n Verb: spent",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "He spent six days aboard the Salyut 6 spacecraft with three Soviet astronauts , Valery Kubasov , Leonid Popov and Valery Riumin . McBride , 54 , of Lewisburg , West Virginia , was part of a seven-member crew aboard the Orbiter Challenger in October 1984 and later (served) as assistant administrator for congressional relations for NASA . \n Verb: served",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "McBride , 54 , of Lewisburg , West Virginia , was part of a seven-member crew aboard the Orbiter Challenger in October 1984 and later served as assistant administrator for congressional relations for NASA . Farkas (expressed) the hope he one day follow in the footsteps of fellow astronaut John Glenn , who at 77 is about to go into space again . \n Verb: expressed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "McBride , 54 , of Lewisburg , West Virginia , was part of a seven-member crew aboard the Orbiter Challenger in October 1984 and later served as assistant administrator for congressional relations for NASA . Farkas expressed the hope he one day (follow) in the footsteps of fellow astronaut John Glenn , who at 77 is about to go into space again . \n Verb: follow",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "McBride , 54 , of Lewisburg , West Virginia , was part of a seven-member crew aboard the Orbiter Challenger in October 1984 and later served as assistant administrator for congressional relations for NASA . Farkas expressed the hope he one day follow in the footsteps of fellow astronaut John Glenn , who at 77 is about to (go) into space again . \n Verb: go",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Farkas expressed the hope he one day follow in the footsteps of fellow astronaut John Glenn , who at 77 is about to go into space again . On May 22 , 1995 , Farkas was (made) a brigadier general , and the following year he was appointed military attache at the Hungarian embassy in Washington . \n Verb: made",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Farkas expressed the hope he one day follow in the footsteps of fellow astronaut John Glenn , who at 77 is about to go into space again . On May 22 , 1995 , Farkas was made a brigadier general , and the following year he was (appointed) military attache at the Hungarian embassy in Washington . \n Verb: appointed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "On May 22 , 1995 , Farkas was made a brigadier general , and the following year he was appointed military attache at the Hungarian embassy in Washington . However , (cited) by District of Columbia traffic police in December for driving under the influence of alcohol , Farkas was ordered home and retired . \n Verb: cited",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "On May 22 , 1995 , Farkas was made a brigadier general , and the following year he was appointed military attache at the Hungarian embassy in Washington . However , cited by District of Columbia traffic police in December for (driving) under the influence of alcohol , Farkas was ordered home and retired . \n Verb: driving",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "On May 22 , 1995 , Farkas was made a brigadier general , and the following year he was appointed military attache at the Hungarian embassy in Washington . However , cited by District of Columbia traffic police in December for driving under the influence of alcohol , Farkas was (ordered) home and retired . \n Verb: ordered",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "On May 22 , 1995 , Farkas was made a brigadier general , and the following year he was appointed military attache at the Hungarian embassy in Washington . However , cited by District of Columbia traffic police in December for driving under the influence of alcohol , Farkas was ordered home and (retired) . \n Verb: retired",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "ISTANBUL , Turkey ( AP ) _ Some 1,500 ethnic Albanians (marched) Sunday in downtown Istanbul , burning Serbian flags to protest the killings of ethnic Albanians by Serb police in southern Serb Kosovo province . \n Verb: marched",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "ISTANBUL , Turkey ( AP ) _ Some 1,500 ethnic Albanians marched Sunday in downtown Istanbul , burning Serbian flags to (protest) the killings of ethnic Albanians by Serb police in southern Serb Kosovo province . \n Verb: protest",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "ISTANBUL , Turkey ( AP ) _ Some 1,500 ethnic Albanians marched Sunday in downtown Istanbul , burning Serbian flags to protest the killings of ethnic Albanians by Serb police in southern Serb Kosovo province . The police (barred) the crowd from reaching the Yugoslavian consulate in downtown Istanbul , but allowed them to demonstrate on nearby streets . \n Verb: barred",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "ISTANBUL , Turkey ( AP ) _ Some 1,500 ethnic Albanians marched Sunday in downtown Istanbul , burning Serbian flags to protest the killings of ethnic Albanians by Serb police in southern Serb Kosovo province . The police barred the crowd from (reaching) the Yugoslavian consulate in downtown Istanbul , but allowed them to demonstrate on nearby streets . \n Verb: reaching",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "ISTANBUL , Turkey ( AP ) _ Some 1,500 ethnic Albanians marched Sunday in downtown Istanbul , burning Serbian flags to protest the killings of ethnic Albanians by Serb police in southern Serb Kosovo province . The police barred the crowd from reaching the Yugoslavian consulate in downtown Istanbul , but (allowed) them to demonstrate on nearby streets . \n Verb: allowed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "ISTANBUL , Turkey ( AP ) _ Some 1,500 ethnic Albanians marched Sunday in downtown Istanbul , burning Serbian flags to protest the killings of ethnic Albanians by Serb police in southern Serb Kosovo province . The police barred the crowd from reaching the Yugoslavian consulate in downtown Istanbul , but allowed them to (demonstrate) on nearby streets . \n Verb: demonstrate",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The police barred the crowd from reaching the Yugoslavian consulate in downtown Istanbul , but allowed them to demonstrate on nearby streets . `` Stop the (bloodshed) in Kosovo , '' the protesters chanted . \n Verb: bloodshed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The police barred the crowd from reaching the Yugoslavian consulate in downtown Istanbul , but allowed them to demonstrate on nearby streets . `` Stop the bloodshed in Kosovo , '' the protesters (chanted) . \n Verb: chanted",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "`` Stop the bloodshed in Kosovo , '' the protesters chanted . Meanwhile in the capital , Ankara , a few hundred ethnic Albanians (laid) a black wreath at the gate of Yugoslavian embassy . \n Verb: laid",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Ethnic Albanians comprise 90 percent of the population in Kosovo , but Serbs maintain control through a large military and police presence . Serbian police (say) they are trying to eliminate the pro-independence Kosovo Liberation Army and restore order . \n Verb: say",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Ethnic Albanians comprise 90 percent of the population in Kosovo , but Serbs maintain control through a large military and police presence . Serbian police say they are (trying) to eliminate the pro-independence Kosovo Liberation Army and restore order . \n Verb: trying",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Ethnic Albanians comprise 90 percent of the population in Kosovo , but Serbs maintain control through a large military and police presence . Serbian police say they are trying to (eliminate) the pro-independence Kosovo Liberation Army and restore order . \n Verb: eliminate",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Ethnic Albanians comprise 90 percent of the population in Kosovo , but Serbs maintain control through a large military and police presence . Serbian police say they are trying to eliminate the pro-independence Kosovo Liberation Army and (restore) order . \n Verb: restore",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Serbian police say they are trying to eliminate the pro-independence Kosovo Liberation Army and restore order . At least 51 people were (reported) killed in clashes between Serb police and ethnic Albanians in the troubled region in recent days . \n Verb: reported",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Serbian police say they are trying to eliminate the pro-independence Kosovo Liberation Army and restore order . At least 51 people were reported (killed) in clashes between Serb police and ethnic Albanians in the troubled region in recent days . \n Verb: killed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "At least 51 people were reported killed in clashes between Serb police and ethnic Albanians in the troubled region in recent days . Turkey , (worried) about civil war in Kosovo spilling to the whole Balkans , urged all Balkan states to sign a joint declaration that the Kosovo crisis be solved peacefully and without any change of borders . \n Verb: worried",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "At least 51 people were reported killed in clashes between Serb police and ethnic Albanians in the troubled region in recent days . Turkey , worried about civil war in Kosovo spilling to the whole Balkans , (urged) all Balkan states to sign a joint declaration that the Kosovo crisis be solved peacefully and without any change of borders . \n Verb: urged",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "At least 51 people were reported killed in clashes between Serb police and ethnic Albanians in the troubled region in recent days . Turkey , worried about civil war in Kosovo spilling to the whole Balkans , urged all Balkan states to (sign) a joint declaration that the Kosovo crisis be solved peacefully and without any change of borders . \n Verb: sign",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "At least 51 people were reported killed in clashes between Serb police and ethnic Albanians in the troubled region in recent days . Turkey , worried about civil war in Kosovo spilling to the whole Balkans , urged all Balkan states to sign a joint declaration that the Kosovo crisis be (solved) peacefully and without any change of borders . \n Verb: solved",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "MOSCOW ( AP ) _ Presidents Leonid Kuchma of Ukraine and Boris Yeltsin of Russia (signed) an economic cooperation plan Friday , and Yeltsin claimed they resolved even more nagging problems . \n Verb: signed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "MOSCOW ( AP ) _ Presidents Leonid Kuchma of Ukraine and Boris Yeltsin of Russia signed an economic cooperation plan Friday , and Yeltsin (claimed) they resolved even more nagging problems . \n Verb: claimed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "MOSCOW ( AP ) _ Presidents Leonid Kuchma of Ukraine and Boris Yeltsin of Russia signed an economic cooperation plan Friday , and Yeltsin claimed they (resolved) even more nagging problems . \n Verb: resolved",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "MOSCOW ( AP ) _ Presidents Leonid Kuchma of Ukraine and Boris Yeltsin of Russia signed an economic cooperation plan Friday , and Yeltsin claimed they resolved even more nagging problems . Russia and Ukraine share similar cultures and languages , and Ukraine was (ruled) from Moscow for centuries . \n Verb: ruled",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Russia and Ukraine share similar cultures and languages , and Ukraine was ruled from Moscow for centuries . But while the two Slavic neighbors see themselves as natural partners , their relations since the breakup of the Soviet Union have been (bedeviled) by a number of disputes _ Black Sea naval bases , border problems and Ukraine 's natural gas debts . \n Verb: bedeviled",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "But while the two Slavic neighbors see themselves as natural partners , their relations since the breakup of the Soviet Union have been bedeviled by a number of disputes _ Black Sea naval bases , border problems and Ukraine 's natural gas debts . `` We have (covered) the entire list of questions and discussed how we will be tackling them , '' Yeltsin was quoted as saying by the ITAR-Tass news agency . \n Verb: covered",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "But while the two Slavic neighbors see themselves as natural partners , their relations since the breakup of the Soviet Union have been bedeviled by a number of disputes _ Black Sea naval bases , border problems and Ukraine 's natural gas debts . `` We have covered the entire list of questions and (discussed) how we will be tackling them , '' Yeltsin was quoted as saying by the ITAR-Tass news agency . \n Verb: discussed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "But while the two Slavic neighbors see themselves as natural partners , their relations since the breakup of the Soviet Union have been bedeviled by a number of disputes _ Black Sea naval bases , border problems and Ukraine 's natural gas debts . `` We have covered the entire list of questions and discussed how we will be (tackling) them , '' Yeltsin was quoted as saying by the ITAR-Tass news agency . \n Verb: tackling",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "But while the two Slavic neighbors see themselves as natural partners , their relations since the breakup of the Soviet Union have been bedeviled by a number of disputes _ Black Sea naval bases , border problems and Ukraine 's natural gas debts . `` We have covered the entire list of questions and discussed how we will be tackling them , '' Yeltsin was (quoted) as saying by the ITAR-Tass news agency . \n Verb: quoted",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "But while the two Slavic neighbors see themselves as natural partners , their relations since the breakup of the Soviet Union have been bedeviled by a number of disputes _ Black Sea naval bases , border problems and Ukraine 's natural gas debts . `` We have covered the entire list of questions and discussed how we will be tackling them , '' Yeltsin was quoted as (saying) by the ITAR-Tass news agency . \n Verb: saying",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "`` We have covered the entire list of questions and discussed how we will be tackling them , '' Yeltsin was quoted as saying by the ITAR-Tass news agency . `` I must (say) there are no unsettled problems any more . \n Verb: say",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "`` I must say there are no unsettled problems any more . We have (solved) them all . '' \n Verb: solved",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "We have solved them all . '' But his sweeping statement contained no details , and gave no indication of how the disputes could be (resolved) . \n Verb: resolved",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "But his sweeping statement contained no details , and gave no indication of how the disputes could be resolved . Their solution would (require) a compromise between the two nations ' parliaments . \n Verb: require",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Their solution would require a compromise between the two nations ' parliaments . A major dispute concerns a broad political treaty calling for border demarcation , which the two presidents (signed) last May . \n Verb: signed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "A major dispute concerns a broad political treaty calling for border demarcation , which the two presidents signed last May . In effect , the treaty amounts to Russian recognition of Ukraine 's sovereignty and borders , and the Ukrainian parliament has already (ratified) it . \n Verb: ratified",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "In effect , the treaty amounts to Russian recognition of Ukraine 's sovereignty and borders , and the Ukrainian parliament has already ratified it . However , Russia has (stalled) ratification , trying to tie it to an agreement that would permit the Russian navy to use a naval base on Ukraine 's Crimean peninsula for at least 20 more years . \n Verb: stalled",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "In effect , the treaty amounts to Russian recognition of Ukraine 's sovereignty and borders , and the Ukrainian parliament has already ratified it . However , Russia has stalled ratification , (trying) to tie it to an agreement that would permit the Russian navy to use a naval base on Ukraine 's Crimean peninsula for at least 20 more years . \n Verb: trying",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In effect , the treaty amounts to Russian recognition of Ukraine 's sovereignty and borders , and the Ukrainian parliament has already ratified it . However , Russia has stalled ratification , trying to (tie) it to an agreement that would permit the Russian navy to use a naval base on Ukraine 's Crimean peninsula for at least 20 more years . \n Verb: tie",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In effect , the treaty amounts to Russian recognition of Ukraine 's sovereignty and borders , and the Ukrainian parliament has already ratified it . However , Russia has stalled ratification , trying to tie it to an agreement that would (permit) the Russian navy to use a naval base on Ukraine 's Crimean peninsula for at least 20 more years . \n Verb: permit",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "In effect , the treaty amounts to Russian recognition of Ukraine 's sovereignty and borders , and the Ukrainian parliament has already ratified it . However , Russia has stalled ratification , trying to tie it to an agreement that would permit the Russian navy to (use) a naval base on Ukraine 's Crimean peninsula for at least 20 more years . \n Verb: use",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "However , Russia has stalled ratification , trying to tie it to an agreement that would permit the Russian navy to use a naval base on Ukraine 's Crimean peninsula for at least 20 more years . In their joint statement (issued) after the talks , Yeltsin and Kuchma called for the fastest possible ratification of the treaty , saying it would create a `` strong legal foundation '' for bilateral ties and help stability in Europe . \n Verb: issued",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "However , Russia has stalled ratification , trying to tie it to an agreement that would permit the Russian navy to use a naval base on Ukraine 's Crimean peninsula for at least 20 more years . In their joint statement issued after the talks , Yeltsin and Kuchma (called) for the fastest possible ratification of the treaty , saying it would create a `` strong legal foundation '' for bilateral ties and help stability in Europe . \n Verb: called",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "However , Russia has stalled ratification , trying to tie it to an agreement that would permit the Russian navy to use a naval base on Ukraine 's Crimean peninsula for at least 20 more years . In their joint statement issued after the talks , Yeltsin and Kuchma called for the fastest possible ratification of the treaty , (saying) it would create a `` strong legal foundation '' for bilateral ties and help stability in Europe . \n Verb: saying",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "However , Russia has stalled ratification , trying to tie it to an agreement that would permit the Russian navy to use a naval base on Ukraine 's Crimean peninsula for at least 20 more years . In their joint statement issued after the talks , Yeltsin and Kuchma called for the fastest possible ratification of the treaty , saying it would (create) a `` strong legal foundation '' for bilateral ties and help stability in Europe . \n Verb: create",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "However , Russia has stalled ratification , trying to tie it to an agreement that would permit the Russian navy to use a naval base on Ukraine 's Crimean peninsula for at least 20 more years . In their joint statement issued after the talks , Yeltsin and Kuchma called for the fastest possible ratification of the treaty , saying it would create a `` strong legal foundation '' for bilateral ties and (help) stability in Europe . \n Verb: help",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In their joint statement issued after the talks , Yeltsin and Kuchma called for the fastest possible ratification of the treaty , saying it would create a `` strong legal foundation '' for bilateral ties and help stability in Europe . Kuchma (assured) Yeltsin that Ukraine would not join NATO , Yeltsin 's spokesman Sergei Yastrzhembsky said , according to the Interfax news agency . \n Verb: assured",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "In their joint statement issued after the talks , Yeltsin and Kuchma called for the fastest possible ratification of the treaty , saying it would create a `` strong legal foundation '' for bilateral ties and help stability in Europe . Kuchma assured Yeltsin that Ukraine would not (join) NATO , Yeltsin 's spokesman Sergei Yastrzhembsky said , according to the Interfax news agency . \n Verb: join",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In their joint statement issued after the talks , Yeltsin and Kuchma called for the fastest possible ratification of the treaty , saying it would create a `` strong legal foundation '' for bilateral ties and help stability in Europe . Kuchma assured Yeltsin that Ukraine would not join NATO , Yeltsin 's spokesman Sergei Yastrzhembsky (said) , according to the Interfax news agency . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "In their joint statement issued after the talks , Yeltsin and Kuchma called for the fastest possible ratification of the treaty , saying it would create a `` strong legal foundation '' for bilateral ties and help stability in Europe . Kuchma assured Yeltsin that Ukraine would not join NATO , Yeltsin 's spokesman Sergei Yastrzhembsky said , (according) to the Interfax news agency . \n Verb: according",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Kuchma assured Yeltsin that Ukraine would not join NATO , Yeltsin 's spokesman Sergei Yastrzhembsky said , according to the Interfax news agency . The Russian leadership has staunchly (opposed) the western alliance 's expansion into Eastern Europe . \n Verb: opposed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The Russian leadership has staunchly opposed the western alliance 's expansion into Eastern Europe . In their joint statement , (released) by the Kremlin , the two leaders also pledged to consult each other regularly on their approaches to relations with NATO and , in particular , their action within the framework of NATO 's Partnership for Peace program . \n Verb: released",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The Russian leadership has staunchly opposed the western alliance 's expansion into Eastern Europe . In their joint statement , released by the Kremlin , the two leaders also (pledged) to consult each other regularly on their approaches to relations with NATO and , in particular , their action within the framework of NATO 's Partnership for Peace program . \n Verb: pledged",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "The Russian leadership has staunchly opposed the western alliance 's expansion into Eastern Europe . In their joint statement , released by the Kremlin , the two leaders also pledged to (consult) each other regularly on their approaches to relations with NATO and , in particular , their action within the framework of NATO 's Partnership for Peace program . \n Verb: consult",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In their joint statement , released by the Kremlin , the two leaders also pledged to consult each other regularly on their approaches to relations with NATO and , in particular , their action within the framework of NATO 's Partnership for Peace program . Last year , Russian officials (assailed) Ukraine for holding joint naval exercises with NATO in the Black Sea _ an area Moscow considers its own turf . \n Verb: assailed",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "In their joint statement , released by the Kremlin , the two leaders also pledged to consult each other regularly on their approaches to relations with NATO and , in particular , their action within the framework of NATO 's Partnership for Peace program . Last year , Russian officials assailed Ukraine for (holding) joint naval exercises with NATO in the Black Sea _ an area Moscow considers its own turf . \n Verb: holding",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Last year , Russian officials assailed Ukraine for holding joint naval exercises with NATO in the Black Sea _ an area Moscow considers its own turf . Kuchma has (said) repeatedly that Ukraine would remain neutral for the foreseeable future . \n Verb: said",
+            "output": [
+                "Yes"
+            ]
+        },
+        {
+            "input": "Kuchma has said repeatedly that Ukraine would remain neutral for the foreseeable future . Yeltsin and Kuchma also called for (developing) the stagnant relations between the members of the Commonwealth of Independent States , a loose coalition of former Soviet republics . \n Verb: developing",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In the past , Russia has often claimed that Ukraine was undermining efforts at closer cooperation within the CIS . A major goal of Kuchma 's four-day state visit was the signing of a 10-year economic program aimed at (doubling) the two nations ' trade turnover , which fell to dlrs 14 billion last year , down dlrs 2.5 billion from 1996 . \n Verb: doubling",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The program also calls for coordination of economic reforms and joint improvement of social programs in the two countries , where many people have become impoverished during the chaotic post-Soviet transition to capitalism . Kuchma also planned to (visit) Russian gas giant Gazprom , most likely to discuss Ukraine 's dlrs 1.2 billion debt to the company . \n Verb: visit",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The program also calls for coordination of economic reforms and joint improvement of social programs in the two countries , where many people have become impoverished during the chaotic post-Soviet transition to capitalism . Kuchma also planned to visit Russian gas giant Gazprom , most likely to (discuss) Ukraine 's dlrs 1.2 billion debt to the company . \n Verb: discuss",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "ADDIS ABABA , Ethiopia ( AP ) _ The Organization of African Unity said Friday it would (investigate) the Hutu-organized genocide of more than 500,000 minority Tutsis in Rwanda nearly four years ago . \n Verb: investigate",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "ADDIS ABABA , Ethiopia ( AP ) _ The Organization of African Unity said Friday it would investigate the Hutu-organized genocide of more than 500,000 minority Tutsis in Rwanda nearly four years ago . Foreign ministers of member-states meeting in the Ethiopian capital agreed to set up a seven-member panel to (investigate) who shot down Rwandan President Juvenal Habyarimana 's plane on April 6 , 1994 . \n Verb: investigate",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "It also reignited the civil war . The panel also will (look) at the exodus of about 2 million Rwanda Hutus to neighboring countries where they lived in U.N. - run refugee camps for 2 1/2 years . \n Verb: look",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The panel also will look at the exodus of about 2 million Rwanda Hutus to neighboring countries where they lived in U.N. - run refugee camps for 2 1/2 years . The investigation will (consider) the role of `` internal and external forces prior to the genocide and subsequently , and the role of the United Nations and its agencies and the OAU before , during and after the genocide , '' the OAU said . \n Verb: consider",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The investigation will consider the role of `` internal and external forces prior to the genocide and subsequently , and the role of the United Nations and its agencies and the OAU before , during and after the genocide , '' the OAU said . The panel will be (based) in Addis Ababa , and will finish its investigation within a year , it said . \n Verb: based",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The panel will be based in Addis Ababa , and will finish its investigation within a year , it said . It is to be (funded) by voluntary contributions from within and outside the continent . \n Verb: funded",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Steve Hurst has that . The US military buildup in the Persian gulf continues apace , more planes (headed) from the united states and senior officials say Iraq 's president Saddam Hussein can expect punishing air strikes to continue well into the future if he does n't stop building biological and chemical weapons . \n Verb: headed",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Steve Hurst has that . The US military buildup in the Persian gulf continues apace , more planes headed from the united states and senior officials say Iraq 's president Saddam Hussein can (expect) punishing air strikes to continue well into the future if he does n't stop building biological and chemical weapons . \n Verb: expect",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Steve Hurst has that . The US military buildup in the Persian gulf continues apace , more planes headed from the united states and senior officials say Iraq 's president Saddam Hussein can expect punishing air strikes to (continue) well into the future if he does n't stop building biological and chemical weapons . \n Verb: continue",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Steve Hurst has that . The US military buildup in the Persian gulf continues apace , more planes headed from the united states and senior officials say Iraq 's president Saddam Hussein can expect punishing air strikes to continue well into the future if he does n't (stop) building biological and chemical weapons . \n Verb: stop",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Steve Hurst has that . The US military buildup in the Persian gulf continues apace , more planes headed from the united states and senior officials say Iraq 's president Saddam Hussein can expect punishing air strikes to continue well into the future if he does n't stop (building) biological and chemical weapons . \n Verb: building",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The US military buildup in the Persian gulf continues apace , more planes headed from the united states and senior officials say Iraq 's president Saddam Hussein can expect punishing air strikes to continue well into the future if he does n't stop building biological and chemical weapons . Saddam will know by our actions and our warning that we will be (prepared) to act again if we have evidence he is trying to rebuild his weapons of mass destruction capabilities . \n Verb: prepared",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The US military buildup in the Persian gulf continues apace , more planes headed from the united states and senior officials say Iraq 's president Saddam Hussein can expect punishing air strikes to continue well into the future if he does n't stop building biological and chemical weapons . Saddam will know by our actions and our warning that we will be prepared to (act) again if we have evidence he is trying to rebuild his weapons of mass destruction capabilities . \n Verb: act",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Saddam will know by our actions and our warning that we will be prepared to act again if we have evidence he is trying to rebuild his weapons of mass destruction capabilities . In a bit of television diplomacy , Iraq 's deputy foreign minister responded from Baghdad in less than one hour , saying Washington would (break) international law by attacking without UN approval . \n Verb: break",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In a bit of television diplomacy , Iraq 's deputy foreign minister responded from Baghdad in less than one hour , saying Washington would break international law by attacking without UN approval . The united states is not (authorized) to use force before going to the council . \n Verb: authorized",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In a bit of television diplomacy , Iraq 's deputy foreign minister responded from Baghdad in less than one hour , saying Washington would break international law by attacking without UN approval . The united states is not authorized to (use) force before going to the council . \n Verb: use",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The united states is not authorized to use force before going to the council . President Clinton , meantime , glossed over stern warnings from Moscow on Thursday that US air strikes against Iraq could (do) serious harm to relations with the Kremlin . \n Verb: do",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "President Clinton , meantime , glossed over stern warnings from Moscow on Thursday that US air strikes against Iraq could do serious harm to relations with the Kremlin . We 're trying to (find) a diplomatic solution . \n Verb: find",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "We 're trying to find a diplomatic solution . And I hope that , whatever (happens) today , that our relationships with Russia will continue to be productive and constructive and strong , because that 's very important to the future of our peoples . \n Verb: happens",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "We 're trying to find a diplomatic solution . And I hope that , whatever happens today , that our relationships with Russia will (continue) to be productive and constructive and strong , because that 's very important to the future of our peoples . \n Verb: continue",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "One contrary view of the issue presented itself to the president as he arrived in Philadelphia later in the day . Nevertheless , the president said Washington would (use) force if diplomacy fails to force Saddam Hussein to back down . \n Verb: use",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "One contrary view of the issue presented itself to the president as he arrived in Philadelphia later in the day . Nevertheless , the president said Washington would use force if diplomacy fails to (force) Saddam Hussein to back down . \n Verb: force",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Nevertheless , the president said Washington would use force if diplomacy fails to force Saddam Hussein to back down . The Russian foreign minister , meanwhile , sought to soften the harsh words of his military counterpart , saying on Friday that Russia now feels the US must (hold) off at least until UN secretary general Kofi Annan visits Baghdad in a last-ditch effort at diplomacy . \n Verb: hold",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Annan has no trip planned so far . Meanwhile , secretary of state Madeleine Albright , Berger and defense secretary William Cohen announced plans to (travel) to an unnamed city in the US heartland next week , to explain to the American people just why military force will be necessary if diplomacy fails . \n Verb: travel",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Annan has no trip planned so far . Meanwhile , secretary of state Madeleine Albright , Berger and defense secretary William Cohen announced plans to travel to an unnamed city in the US heartland next week , to (explain) to the American people just why military force will be necessary if diplomacy fails . \n Verb: explain",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Annan has no trip planned so far . Meanwhile , secretary of state Madeleine Albright , Berger and defense secretary William Cohen announced plans to travel to an unnamed city in the US heartland next week , to explain to the American people just why military force will be necessary if diplomacy (fails) . \n Verb: fails",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The company 's sales force applauded the shake up . It 's not something we 're not (used) to in the industry . \n Verb: used",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "And on that basis Keating was released from prison before he was eligible for parole . Now the ninth US circuit court of appeals has ruled that the original appeal was flawed since it brought up issues that had not been (raised) before . \n Verb: raised",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Now the ninth US circuit court of appeals has ruled that the original appeal was flawed since it brought up issues that had not been raised before . That means the convictions stand , a ruling likely to (send) Keating 's lawyers back to state court where they must start over with a new appeal . \n Verb: send",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Now the ninth US circuit court of appeals has ruled that the original appeal was flawed since it brought up issues that had not been raised before . That means the convictions stand , a ruling likely to send Keating 's lawyers back to state court where they must (start) over with a new appeal . \n Verb: start",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "NEWARK , N.J. _ A new Essex County task force began delving Thursday into the slayings of 14 black women over the last five years in the Newark area , as law-enforcement officials acknowledged that they needed to work harder to (solve) the cases of murdered women . \n Verb: solve",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "NEWARK , N.J. _ A new Essex County task force began delving Thursday into the slayings of 14 black women over the last five years in the Newark area , as law-enforcement officials acknowledged that they needed to work harder to solve the cases of murdered women . The police and prosecutors said they had identified different suspects in six of the cases and had yet to (find) any pattern linking the killings or the victims , several of whom were believed to be prostitutes . \n Verb: find",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Eight of the 14 killings since 1993 were already under investigation by the Newark Police Department , Glenn said . Of the eight victims , three were stabbed , two were strangled , two were beaten to death and one was asphyxiated , he said , and these different methods of killing and other evidence seem to (indicate) that the eight cases are not related . \n Verb: indicate",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Eight of the 14 killings since 1993 were already under investigation by the Newark Police Department , Glenn said . Of the eight victims , three were stabbed , two were strangled , two were beaten to death and one was asphyxiated , he said , and these different methods of killing and other evidence seem to indicate that the eight cases are not (related) . \n Verb: related",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Of the eight victims , three were stabbed , two were strangled , two were beaten to death and one was asphyxiated , he said , and these different methods of killing and other evidence seem to indicate that the eight cases are not related . But with the task-force investigation just getting under way , officials have been careful not to (draw) any firm conclusions , leaving open the possibility of a serial killer in some of the cases . \n Verb: draw",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "There have been no arrests in any of the slayings . `` I have n't (seen) a pattern yet , '' said Patricia Hurt , the Essex County prosecutor , who created the task force on Tuesday . \n Verb: seen",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "There were more accounts of people fleeing from the villages near where the offensive was taking place . They were too afraid to (stay) , fearing the forces may also move their operations further afield . \n Verb: stay",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "There were more accounts of people fleeing from the villages near where the offensive was taking place . They were too afraid to stay , fearing the forces may also (move) their operations further afield . \n Verb: move",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "They were too afraid to stay , fearing the forces may also move their operations further afield . By mid afternoon , official Serb sources were saying the operation was over , but that has not yet been (confirmed) from Belgrade , the capital of Serbia , which is where the whole attack is thought to have been planned . \n Verb: confirmed",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "THE HAGUE , Netherlands ( AP ) _ The World Court Friday rejected U.S. and British objections to a Libyan World Court case that has blocked the trial of two Libyans suspected of blowing up a Pan Am jumbo jet over Scotland in 1988 . Libya , which brought the case to the United Nations ' highest judicial body in its dispute with the United States and Britain , hailed the ruling and said it would (press) anew for a trial in a third neutral country . \n Verb: press",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Libya , which brought the case to the United Nations ' highest judicial body in its dispute with the United States and Britain , hailed the ruling and said it would press anew for a trial in a third neutral country . Both U.S. and British officials filed objections to the court 's jurisdiction in 1995 , claiming Security Council resolutions imposed on Lybia to (force) the suspects ' extradition overruled a 1971 Convention which gives Libya the right to try the men . \n Verb: force",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "CBS News first reported last night that the tomb may contain the remains of Air Force pilot Michael Blassie . There was a suspicion the body (was) Blassie because his uniform and ID card were found near the body in Vietnam . \n Verb: was",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Iraq 's Saddam Hussein , facing U.S. and Arab troops at the Saudi border , today sought peace on another front by promising to (withdraw) from Iranian territory and release soldiers captured during the Iran-Iraq war . \n Verb: withdraw",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Iraq 's Saddam Hussein , facing U.S. and Arab troops at the Saudi border , today sought peace on another front by promising to withdraw from Iranian territory and release soldiers captured during the Iran-Iraq war . Also today , King Hussein of Jordan arrived in Washington seeking to (mediate) the Persian Gulf crisis . \n Verb: mediate",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Also today , King Hussein of Jordan arrived in Washington seeking to mediate the Persian Gulf crisis . President Bush on Tuesday said the United States may (extend) its naval quarantine to Jordan 's Red Sea port of Aqaba to shut off Iraq 's last unhindered trade route . \n Verb: extend",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Also today , King Hussein of Jordan arrived in Washington seeking to mediate the Persian Gulf crisis . President Bush on Tuesday said the United States may extend its naval quarantine to Jordan 's Red Sea port of Aqaba to (shut) off Iraq 's last unhindered trade route . \n Verb: shut",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In another mediation effort , the Soviet Union said today it had sent an envoy to the Middle East on a series of stops to include Baghdad . Soviet officials also said Soviet women , children and invalids would be (allowed) to leave Iraq . \n Verb: allowed",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In another mediation effort , the Soviet Union said today it had sent an envoy to the Middle East on a series of stops to include Baghdad . Soviet officials also said Soviet women , children and invalids would be allowed to (leave) Iraq . \n Verb: leave",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In a letter to President Hashemi Rafsanjani of Iran , read by a broadcaster over Baghdad radio , Saddam said he will begin withdrawing troops from Iranian territory on Friday and release Iranian prisoners of war . Iran said an Iraqi diplomatic delegation was en route to Tehran to deliver Saddam 's message , which it said it would (review) `` with optimism . '' \n Verb: review",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The move seemed aimed at heading off more trouble with Iran , which had condemned Iraq 's invasion of Kuwait on Aug. 2 but also criticized the multinational force dispatched to Saudi Arabia . Saddam said he sought to `` (turn) the gulf into a lake of peace free of foreign fleets and forces that harbor ill intentions against us . '' \n Verb: turn",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Saddam said he sought to `` turn the gulf into a lake of peace free of foreign fleets and forces that harbor ill intentions against us . '' In other developments : The Pentagon said that Defense Secretary Dick Cheney is (considering) urging Bush to order a national callup of armed forces reserves for active duty because of the drain on units sending soldiers abroad . \n Verb: considering",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Saddam said he sought to `` turn the gulf into a lake of peace free of foreign fleets and forces that harbor ill intentions against us . '' In other developments : The Pentagon said that Defense Secretary Dick Cheney is considering urging Bush to (order) a national callup of armed forces reserves for active duty because of the drain on units sending soldiers abroad . \n Verb: order",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In other developments : The Pentagon said that Defense Secretary Dick Cheney is considering urging Bush to order a national callup of armed forces reserves for active duty because of the drain on units sending soldiers abroad . Bush can (call) up to 200,000 reservists for up to 180 days without seeking congressional approval . \n Verb: call",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Soviet Foreign Ministry spokesman Yuri Gremitskikh said special ambassador Mikhail Sytenko left Tuesday for consultations with the governments of Syria , Jordan , Egypt and other Arab countries . Sytenko , a former deputy secretary-general of the United Nations , is also expected to (visit) Baghdad , Gremitskikh said at a regular news briefing today . \n Verb: visit",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The outlook darkened for about 3,000 Americans caught in Iraq and Kuwait when Saddam sent his forces into the small , oil-rich sultanate . The Iraqi ambassador to Greece said in Athens the Americans and other stranded foreigners could (leave) `` as soon as the threats from the United States and its allies are eliminated . '' \n Verb: leave",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The outlook darkened for about 3,000 Americans caught in Iraq and Kuwait when Saddam sent his forces into the small , oil-rich sultanate . The Iraqi ambassador to Greece said in Athens the Americans and other stranded foreigners could leave `` as soon as the threats from the United States and its allies are (eliminated) . '' \n Verb: eliminated",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The Iraqi ambassador to Greece said in Athens the Americans and other stranded foreigners could leave `` as soon as the threats from the United States and its allies are eliminated . '' ABC quoted an Iraqi Foreign Ministry official in Baghdad as saying Americans in Iraq are `` restrictees '' who will (stay) there until the crisis ends . \n Verb: stay",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The Iraqi ambassador to Greece said in Athens the Americans and other stranded foreigners could leave `` as soon as the threats from the United States and its allies are eliminated . '' ABC quoted an Iraqi Foreign Ministry official in Baghdad as saying Americans in Iraq are `` restrictees '' who will stay there until the crisis (ends) . \n Verb: ends",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "ABC quoted an Iraqi Foreign Ministry official in Baghdad as saying Americans in Iraq are `` restrictees '' who will stay there until the crisis ends . The Soviet Foreign Ministry said Soviet women , children and invalids would be (permitted) to leave Iraq . \n Verb: permitted",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Nearly 9,000 Soviets were among the hundreds of thousands of foreigners trapped in Iraq and Kuwait . Iraq has agreed to allow all 880 Soviets in Kuwait to (leave) , but only by a 1,200-mile road route through Iraq and to the Iraq-Jordan border . \n Verb: leave",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Banks remained closed . The Iraqi ambassador to Venezuela said on Tuesday that Iraq would (retaliate) against Venezuela and other OPEC oil cartel members if they boost oil production to fill the gap created by blocked supplies from Iraq and Kuwait . \n Verb: retaliate",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Banks remained closed . The Iraqi ambassador to Venezuela said on Tuesday that Iraq would retaliate against Venezuela and other OPEC oil cartel members if they (boost) oil production to fill the gap created by blocked supplies from Iraq and Kuwait . \n Verb: boost",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Banks remained closed . The Iraqi ambassador to Venezuela said on Tuesday that Iraq would retaliate against Venezuela and other OPEC oil cartel members if they boost oil production to (fill) the gap created by blocked supplies from Iraq and Kuwait . \n Verb: fill",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Egyptian and Moroccan troops are already there . The predominantly Moslem nation of Bangladesh said today its troops would (join) multinational forces in Saudi Arabia . \n Verb: join",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Crown Prince Hassan , King Hussein 's brother and political adviser , was asked today about the message the king was said to be carrying . In an interview from Jordan on ABC , he declined to discuss details , but said : `` I do n't (think) that his majesty would be traveling at this crucial moment if the Iraqi leadership did not have a rational approach to the future . '' \n Verb: think",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In an interview from Jordan on ABC , he declined to discuss details , but said : `` I do n't think that his majesty would be traveling at this crucial moment if the Iraqi leadership did not have a rational approach to the future . '' A CBS News report citing unidentified Jordanian sources said that Saddam 's message called for an international conference to be convened to (discuss) an Iraqi withdrawal from Kuwait . \n Verb: discuss",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "A CBS News report citing unidentified Jordanian sources said that Saddam 's message called for an international conference to be convened to discuss an Iraqi withdrawal from Kuwait . In exchange , the buildup of U.S. forces in the region would (halt) . \n Verb: halt",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "In exchange , the buildup of U.S. forces in the region would halt . Bush , however , says he sees no short-term hope for a diplomatic solution to the gulf crisis _ at least until economic sanctions force Saddam to (withdraw) his army . \n Verb: withdraw",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Bush , however , says he sees no short-term hope for a diplomatic solution to the gulf crisis _ at least until economic sanctions force Saddam to withdraw his army . Bush held out the prospect of more aid to Jordan if it (cooperates) with the trade embargo . \n Verb: cooperates",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The United States has provided most of the naval vessels so far to block Iraqi trade , with Britain , West Germany and Australia among the other nations lending support at sea . The embargo is meant to (cripple) Iraq by cutting off its exports of oil and imports of food and military supplies . \n Verb: cripple",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "U.S. allies and other U.N. members have objected that the Security Council embargo resolution did not specifically authorize such a naval operation . Bush told a news conference on Tuesday that the naval barricade now in force might be (extended) to Jordan 's Aqaba `` if it is a hole through which commerce flows '' in and out of Iraq . \n Verb: extended",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Bush told a news conference on Tuesday that the naval barricade now in force might be extended to Jordan 's Aqaba `` if it is a hole through which commerce flows '' in and out of Iraq . In Saudi Arabia , today is the eighth day of `` Desert Shield , '' the operation designed to (confront) an estimated 200,000 Iraqi soldiers now in Kuwait . \n Verb: confront",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Iraq boasts an army of 1 million members . At least 50,000 U.S. troops are (expected) to be committed to Desert Shield within weeks , including Marines , Army air assault forces , paratroopers and infantry . \n Verb: expected",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Iraq boasts an army of 1 million members . At least 50,000 U.S. troops are expected to be (committed) to Desert Shield within weeks , including Marines , Army air assault forces , paratroopers and infantry . \n Verb: committed",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "It just went down . The controller at Boston center tries to (raise) TWA eight hundred . \n Verb: raise",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "With growing opportunities for work drawing more people into the labor force , the unemployment rate remained at 4.7 percent last month , just a notch above its quarter-century low . The demand for workers also led employers to (raise) wages again last month . \n Verb: raise",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "But economists said the wage increase was not enough to raise any concerns about higher inflation . And because the Federal Reserve has made clear that it expects the economy to (slow) in coming months as ripple effects from Asia reach the United States , investors disregarded the large jobs gains , betting that neither a rise in interest rates nor resurgent inflation is looming . \n Verb: slow",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "`` The bottom line is that we 've got a lovely economy . '' With potential inflation counterbalanced by worries about possible price declines , the Fed and its chairman , Alan Greenspan , have suggested that they intend to (keep) interest rates unchanged until the economy tilts clearly in one direction or another . \n Verb: keep",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Lower rates have helped invigorate housing and other interest-sensitive sectors of the economy by making loans more affordable , and have allowed companies to continue investing heavily in more efficient equipment . The likelihood that the federal budget will soon (move) from deficit into surplus has further improved the outlook . \n Verb: move",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The increase reflected the strength of the housing industry , which has been helped not just by declining interest rates but also by unusually warm weather . Service industries also showed solid job gains , as did manufacturers , two areas (expected) to be hardest hit when the effects of the Asian crisis hit the American economy . \n Verb: expected",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The increase reflected the strength of the housing industry , which has been helped not just by declining interest rates but also by unusually warm weather . Service industries also showed solid job gains , as did manufacturers , two areas expected to be hardest (hit) when the effects of the Asian crisis hit the American economy . \n Verb: hit",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The increase reflected the strength of the housing industry , which has been helped not just by declining interest rates but also by unusually warm weather . Service industries also showed solid job gains , as did manufacturers , two areas expected to be hardest hit when the effects of the Asian crisis (hit) the American economy . \n Verb: hit",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Service industries also showed solid job gains , as did manufacturers , two areas expected to be hardest hit when the effects of the Asian crisis hit the American economy . The major harm from Asia is likely to come from the plunge in the value of many Asian currencies relative to the dollar , a situation that is (expected) to lead to a surge of inexpensive imports into the United States , hurting American competitors . \n Verb: expected",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "Service industries also showed solid job gains , as did manufacturers , two areas expected to be hardest hit when the effects of the Asian crisis hit the American economy . The major harm from Asia is likely to come from the plunge in the value of many Asian currencies relative to the dollar , a situation that is expected to (lead) to a surge of inexpensive imports into the United States , hurting American competitors . \n Verb: lead",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "The major harm from Asia is likely to come from the plunge in the value of many Asian currencies relative to the dollar , a situation that is expected to lead to a surge of inexpensive imports into the United States , hurting American competitors . And the weakness of the Asian economies is also likely to (lead) to decreased demand for American exports . \n Verb: lead",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "`` The economy has been running on the fumes of the strength from before the Asia shock , '' McCulley said . `` Those fumes will (exhaust) themselves , and the manufacturing sector is going to start getting beat up in the spring . '' \n Verb: exhaust",
+            "output": [
+                "No"
+            ]
+        },
+        {
+            "input": "`` The economy has been running on the fumes of the strength from before the Asia shock , '' McCulley said . `` Those fumes will exhaust themselves , and the manufacturing sector is going to (start) getting beat up in the spring . '' \n Verb: start",
+            "output": [
+                "No"
+            ]
+        }
+    ]
+}
