@@ -9,38 +9,31 @@
         "Classification"
     ],
     "Definition": "In this task, you will be presented with a context from an academic paper and a question based on the context. You have to classify the questions into \"Extractive\", \"Abstractive\", or \"Yes-no\" questions. Extractive questions can be answered by concatenating extracts taken from a context into a summary while answering abstractive questions involves paraphrasing the context using novel sentences. Yes-no question is a question whose expected answer is one of two choices, one that affirms the question and one that denies the question. Typically, the choices are either yes or no.",
-    "Alternate definitions":[
-        "You will be given a context from an academic paper and a question based on the context in this exercise. The questions must be classified as \"Extractive\", \"Abstractive\", or \"Yes-no\" questions. Answering extractive questions entails concatenating excerpts from a context into a summary, whereas answering abstractive questions entails rewriting the context with new phrases. A yes-no question is one in which the intended response is one of two options: one that affirms the question or one that denies it. In most cases, the options are yes or no.",
-
-        "You'll be given a context from an academic publication and a question to answer based on it in this exercise. You must divide the questions into three categories: \"Extractive\", \"Abstractive\", or \"Yes-no\" Answering extractive questions entails concatenating excerpts from a context into a summary, whereas answering abstractive questions entails rewriting the context with unique sentences. A yes-no question has two possible answers: affirmative or negative. There are usually only two options: yes or no.",
-
-        "You will be given a context from an academic paper and a question to answer based on the context in this exercise. You must categorize the questions as \"Extractive\", \"Abstractive\", or \"Yes-no\" Answering extractive questions entails concatenating excerpts from a context into a summary, whereas answering abstractive questions necessitates summarizing the context using unique sentences. A yes-no question is one in which the expected response is one of two options: affirmative or negative. Usually, the options are yes or no."
-    ],
     "Positive Examples": [
         {
-            "input": "Based on two previously annotated lists, we created a dataset of Twitter accounts. We used a list of 180 Twitter accounts from BIBREF1 for the non-factual accounts. For the factual accounts, however, we use a list of another 32 Twitter accounts from BIBREF19 that have been verified by independent third parties. \n Question: How did they obtain the dataset?",
+            "input": "We build a dataset of Twitter accounts based on two lists annotated in previous works. For the non-factual accounts, we rely on a list of 180 Twitter accounts from BIBREF1. On the other hand, for the factual accounts, we use a list with another 32 Twitter accounts from BIBREF19 that are considered trustworthy by independent third parties. \n Question: How did they obtain the dataset?",
             "output": "Extractive",
             "explanation": "The answer to this question has been explicitly mentioned in the context, so the question is extractive."
         },
         {
-            "input": "The BLEU score is used to assess the performance of our pointer generator. RNNLM BIBREF23 is used to train the baseline language model. The assessment employs a perplexity metric.\n\n \n Question: Did they use other evaluation metrics?",
+            "input": "We evaluate our pointer-generator performance using BLEU score. The baseline language model is trained using RNNLM BIBREF23 . Perplexity measure is used in the evaluation.\n\n \n Question: Did they use other evaluation metrics?",
             "output": "Yes\u2013no",
             "explanation": "This is a good example, and the given question is a yes-no question."
         },
         {
-            "input": "We pre-process papers by eliminating all numerals and interjections, as shown in the sample above.\n Question: what processing was done on the speeches before being parsed?",
+            "input": "As in the example above, we pre-process documents by removing all numbers and interjections. \n Question: what processing was done on the speeches before being parsed?",
             "output": "Abstractive",
             "explanation": "Answering this question needs paraphrasing the context, so this question is abstractive."
         }
     ],
     "Negative Examples": [
         {
-            "input": "In order to create the English version, we conducted a thorough manual study as well as an automated review of three widely used TS datasets from two distinct areas. In order to create the English version, we conducted a thorough manual study as well as an automated review of three widely used TS datasets from two distinct areas. The German version is currently being evaluated. \n Question: What are the corpora used for the task?",
+            "input": "For the English version, we performed both a thorough manual analysis and automatic evaluation across three commonly used TS datasets from two different domains  For the English version, we performed both a thorough manual analysis and automatic evaluation across three commonly used TS datasets from two different domains  The evaluation of the German version is in progress. \n Question: What are the corpora used for the task?",
             "output": "Yes-no",
             "explanation": "This question is extractive, and it's not a yes-no question."
         },
         {
-            "input": "We used movie reviews from a famous website as the initial dataset in Turkish. The total number of reviews in this movie corpus is 20,244 with an average of 39 words per review. Each of these reviews has a star rating, which indicates how positive or negative the reviewer feels about it. These polarity ratings range from 0.5 to 5, with intervals of 0.5. If the score is equal to or less than 2.5, we consider the review to be negative. If it is equal to or more than 4, on the other hand, it is presumed to be positive. Only 7,020 negative and 7,020 favorable reviews were chosen at random and processed. \n Question: What details are given about the movie domain dataset?",
+            "input": "For Turkish, as the first dataset, we utilised the movie reviews which are collected from a popular website. The number of reviews in this movie corpus is 20,244 and the average number of words in reviews is 39. Each of these reviews has a star-rating score which is indicative of sentiment. These polarity scores are between the values 0.5 and 5, at intervals of 0.5. We consider a review to be negative it the score is equal to or lower than 2.5. On the other hand, if it is equal to or higher than 4, it is assumed to be positive. We have randomly selected 7,020 negative and 7,020 positive reviews and processed only them. \n Question: What details are given about the movie domain dataset?",
             "output": "Extractive",
             "explanation": "This question is Abstractive because we need to paraphrase the context to get to the answer."
         }

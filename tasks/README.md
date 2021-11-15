@@ -198,10 +198,25 @@ Name | Summary | Category
 `task429.2_senteval_tense.json` | Checking the tense of a particular sentence | Classification
 `task430.2_senteval_subject_count.json` | Confirming whether a subject is singular or plural | Classification
 `task431.2_senteval_object_count.json` | Confirming whether an object is singular or plural | Classification
+`task456.2_matres_intentional_classification.json` | Deciding whether there exists a verb implying intention or not | Classification
+`task457.2_matres_conditional_classification.json` | Deciding whether there exists a verb implying hypothetical condition or not | Classification
+`task458.2_matres_negation_classification.json` | Deciding whether there exists a negation in a given sentence or not | Classification
+`task459.2_matres_static_classification.json` | Checking if a given verb is static or not | Classification
+`task460.2_qasper_answer_generation.json` | Generating answers based on qasper dataset | Answer Generation
+`task461.2_qasper_question_generation.json` | Generating questions based on qasper dataset | Question Generation
+`task462.2_qasper_classification.json` | Classifying a given question into abstractive or extractive type | Classification
+`task463.2_parsinlu_entailment_classification.json` | Determine whether a given hypothesis is valid or not | Classification
+`task464.2_parsinlu_entailment_sentence_generation.json` | Generate a hypothesis based on label and premise | Sentence Generation
+`task465.2_parsinlu_qqp_classification.json` | Determine whether a given sentence is paraphrase or not | Classification
+`task466.2_parsinlu_qqp_text_modification.json` | Make a paraphrase of a given sentence | Text Modification
+`task467.2_parsinlu_rc_answer_generation.json` | Generate answers to a given question | Answer Generation
+`task468.2_parsinlu_rc_question_generation.json` | Generate a question that can be answered from given passage | Question Generation
 `task469.2_mrqa_answer_generation.json` | Generate an answer based on the question provided from the passaage | Answer Generation
 `task470.2_mrqa_question_generation.json` | Generate a question based on the given passage | Question Generation
 `task471.2_haspart_answer_generation.json` | Generate an entity that is part of a given entity | Answer Generation
 `task472.2_haspart_classification.json` | Determine if an entity is part of another given entity | Classification
+`task473.2_parsinlu_mc_classification.json` | Classify the answers based on given options | Classification
+`task474.2_parsinlu_mc_classification.json` | Classify the given question into different types | Classification
 `task428.3_senteval_inversion.json` | Seeing if something is inverted or not | Classification
 `task429.3_senteval_tense.json` | Checking the tense of a particular sentence | Classification
 `task430.3_senteval_subject_count.json` | Confirming whether a subject is singular or plural | Classification
@@ -210,6 +225,14 @@ Name | Summary | Category
 `task470.3_mrqa_question_generation.json` | Generate a question based on the given passage | Question Generation
 `task471.3_haspart_answer_generation.json` | Generate an entity that is part of a given entity | Answer Generation
 `task472.3_haspart_classification.json` | Determine if an entity is part of another given entity | Classification
+`task428.4_senteval_inversion.json` | Seeing if something is inverted or not | Classification
+`task429.4_senteval_tense.json` | Checking the tense of a particular sentence | Classification
+`task430.4_senteval_subject_count.json` | Confirming whether a subject is singular or plural | Classification
+`task431.4_senteval_object_count.json` | Confirming whether an object is singular or plural | Classification
+`task469.4_mrqa_answer_generation.json` | Generate an answer based on the question provided from the passaage | Answer Generation
+`task470.4_mrqa_question_generation.json` | Generate a question based on the given passage | Question Generation
+`task471.4_haspart_answer_generation.json` | Generate an entity that is part of a given entity | Answer Generation
+`task472.4_haspart_classification.json` | Determine if an entity is part of another given entity | Classification
 `task212.1_logic2text_classification` | Given a command, classify the command in one of seven logic types. | Classification
 `task212.2_logic2text_classification` | Given a command, classify the command in one of seven logic types. | Classification
 `task212.3_logic2text_classification` | Given a command, classify the command in one of seven logic types. | Classification
@@ -1994,103 +2017,423 @@ Name | Summary | Category
 `task211.1_logic2text_classification` | Given a command and corresponding interpretation, classify whether it is the right interpretation or not. | Classification
 `task211.2_logic2text_classification` | Given a command and corresponding interpretation, classify whether it is the right interpretation or not. | Classification
 `task211.3_logic2text_classification` | Given a command and corresponding interpretation, classify whether it is the right interpretation or not. | Classification
+`task235_iirc_question_from_subtext_answer_generation` | Given a context statement, further information on a linked term in the statement, and an answer term, generate a question that can use the information provided to obtain the given answer | Answer Generation
+`task235.1_iirc_question_from_subtext_answer_generation` | Given a context statement, further information on a linked term in the statement, and an answer term, generate a question that can use the information provided to obtain the given answer | Answer Generation
+`task235.2_iirc_question_from_subtext_answer_generation` | Given a context statement, further information on a linked term in the statement, and an answer term, generate a question that can use the information provided to obtain the given answer | Answer Generation
+`task235.3_iirc_question_from_subtext_answer_generation` | Given a context statement, further information on a linked term in the statement, and an answer term, generate a question that can use the information provided to obtain the given answer | Answer Generation
+`task235.4_iirc_question_from_subtext_answer_generation` | Given a context statement, further information on a linked term in the statement, and an answer term, generate a question that can use the information provided to obtain the given answer | Answer Generation
+`task235.5_iirc_question_from_subtext_answer_generation` | Given a context statement, further information on a linked term in the statement, and an answer term, generate a question that can use the information provided to obtain the given answer | Answer Generation
+`task236_iirc_question_from_passage_answer_generation` | Given a context passage, further information on a linked term in the statement, and an answer term, generate a question that can use the information provided to obtain the given answer | Answer Generation
+`task236.1_iirc_question_from_passage_answer_generation` | Given a context passage, further information on a linked term in the statement, and an answer term, generate a question that can use the information provided to obtain the given answer | Answer Generation
+`task236.2_iirc_question_from_passage_answer_generation` | Given a context passage, further information on a linked term in the statement, and an answer term, generate a question that can use the information provided to obtain the given answer | Answer Generation
+`task236.3_iirc_question_from_passage_answer_generation` | Given a context passage, further information on a linked term in the statement, and an answer term, generate a question that can use the information provided to obtain the given answer | Answer Generation
+`task236.4_iirc_question_from_passage_answer_generation` | Given a context passage, further information on a linked term in the statement, and an answer term, generate a question that can use the information provided to obtain the given answer | Answer Generation
+`task236.5_iirc_question_from_passage_answer_generation` | Given a context passage, further information on a linked term in the statement, and an answer term, generate a question that can use the information provided to obtain the given answer | Answer Generation
+`task237_iirc_answer_from_subtext_answer_generation` | Given a context statement, further information on a linked term in the statement, and a question, generate an answer that can use the information provided to solve the question| Answer Generation
+`task237.1_iirc_answer_from_subtext_answer_generation` | Given a context statement, further information on a linked term in the statement, and a question, generate an answer that can use the information provided to solve the question| Answer Generation
+`task237.2_iirc_answer_from_subtext_answer_generation` | Given a context statement, further information on a linked term in the statement, and a question, generate an answer that can use the information provided to solve the question| Answer Generation
+`task237.3_iirc_answer_from_subtext_answer_generation` | Given a context statement, further information on a linked term in the statement, and a question, generate an answer that can use the information provided to solve the question| Answer Generation
+`task237.4_iirc_answer_from_subtext_answer_generation` | Given a context statement, further information on a linked term in the statement, and a question, generate an answer that can use the information provided to solve the question| Answer Generation
+`task237.5_iirc_answer_from_subtext_answer_generation` | Given a context statement, further information on a linked term in the statement, and a question, generate an answer that can use the information provided to solve the question| Answer Generation
+`task238_iirc_answer_from_passage_answer_generation` | Given a context passage, further information on a linked term in the statement, and a question, generate an answer that can use the information provided to solve the question| Answer Generation
+`task238.1_iirc_answer_from_passage_answer_generation` | Given a context passage, further information on a linked term in the statement, and a question, generate an answer that can use the information provided to solve the question| Answer Generation
+`task238.2_iirc_answer_from_passage_answer_generation` | Given a context passage, further information on a linked term in the statement, and a question, generate an answer that can use the information provided to solve the question| Answer Generation
+`task238.3_iirc_answer_from_passage_answer_generation` | Given a context passage, further information on a linked term in the statement, and a question, generate an answer that can use the information provided to solve the question| Answer Generation
+`task238.4_iirc_answer_from_passage_answer_generation` | Given a context passage, further information on a linked term in the statement, and a question, generate an answer that can use the information provided to solve the question| Answer Generation
+`task238.5_iirc_answer_from_passage_answer_generation` | Given a context passage, further information on a linked term in the statement, and a question, generate an answer that can use the information provided to solve the question| Answer Generation
+`task239_tweetqa_answer_generation` | Given a context paragraph of the tweet and question, generate a correct answer. | Answer Generation
+`task239.1_tweetqa_answer_generation` | Given a context paragraph of the tweet and question, generate a correct answer. | Answer Generation
+`task239.2_tweetqa_answer_generation` | Given a context paragraph of the tweet and question, generate a correct answer. | Answer Generation
+`task239.3_tweetqa_answer_generation` | Given a context paragraph of the tweet and question, generate a correct answer. | Answer Generation
+`task239.4_tweetqa_answer_generation` | Given a context paragraph of the tweet and question, generate a correct answer. | Answer Generation
+`task239.5_tweetqa_answer_generation` | Given a context paragraph of the tweet and question, generate a correct answer. | Answer Generation
+`task240_tweetqa_question_generation` | Given a context paragraph of the tweet and answer, generate a correct question. | Question Generation
+`task240.1_tweetqa_question_generation` | Given a context paragraph of the tweet and answer, generate a correct question. | Question Generation
+`task240.2_tweetqa_question_generation` | Given a context paragraph of the tweet and answer, generate a correct question. | Question Generation
+`task240.3_tweetqa_question_generation` | Given a context paragraph of the tweet and answer, generate a correct question. | Question Generation
+`task240.4_tweetqa_question_generation` | Given a context paragraph of the tweet and answer, generate a correct question. | Question Generation
+`task240.5_tweetqa_question_generation` | Given a context paragraph of the tweet and answer, generate a correct question. | Question Generation
+`task241_tweetqa_classification` | Given a context paragraph of the tweet, question and corresponding answer, generate a label whether the answer is right or wrong. | Classification
+`task241.1_tweetqa_classification` | Given a context paragraph of the tweet, question and corresponding answer, generate a label whether the answer is right or wrong. | Classification
+`task241.2_tweetqa_classification` | Given a context paragraph of the tweet, question and corresponding answer, generate a label whether the answer is right or wrong. | Classification
+`task241.3_tweetqa_classification` | Given a context paragraph of the tweet, question and corresponding answer, generate a label whether the answer is right or wrong. | Classification
+`task241.4_tweetqa_classification` | Given a context paragraph of the tweet, question and corresponding answer, generate a label whether the answer is right or wrong. | Classification
+`task241.5_tweetqa_classification` | Given a context paragraph of the tweet, question and corresponding answer, generate a label whether the answer is right or wrong. | Classification
+`task242_tweetqa_classification` | Given a context paragraph of the tweet, question and corresponding answer, generate a label whether the context is helpful in answering question or not. | Classification
+`task242.1_tweetqa_classification` | Given a context paragraph of the tweet, question and corresponding answer, generate a label whether the context is helpful in answering question or not. | Classification
+`task242.2_tweetqa_classification` | Given a context paragraph of the tweet, question and corresponding answer, generate a label whether the context is helpful in answering question or not. | Classification
+`task242.3_tweetqa_classification` | Given a context paragraph of the tweet, question and corresponding answer, generate a label whether the context is helpful in answering question or not. | Classification
+`task242.4_tweetqa_classification` | Given a context paragraph of the tweet, question and corresponding answer, generate a label whether the context is helpful in answering question or not. | Classification
+`task242.5_tweetqa_classification` | Given a context paragraph of the tweet, question and corresponding answer, generate a label whether the context is helpful in answering question or not. | Classification
+`task243_count_elements_in_set_intersection` | Count the number of elements in the intersection of two given sets. | Counting
+`task243.1_count_elements_in_set_intersection` | Count the number of elements in the intersection of two given sets. | Counting
+`task243.2_count_elements_in_set_intersection` | Count the number of elements in the intersection of two given sets. | Counting
+`task243.3_count_elements_in_set_intersection` | Count the number of elements in the intersection of two given sets. | Counting
+`task243.4_count_elements_in_set_intersection` | Count the number of elements in the intersection of two given sets. | Counting
+`task243.5_count_elements_in_set_intersection` | Count the number of elements in the intersection of two given sets. | Counting
+`task244_count_elements_in_set_union` |  Count the number of elements in the union of two given sets. | Counting
+`task244.1_count_elements_in_set_union` |  Count the number of elements in the union of two given sets. | Counting
+`task244.2_count_elements_in_set_union` |  Count the number of elements in the union of two given sets. | Counting
+`task244.3_count_elements_in_set_union` |  Count the number of elements in the union of two given sets. | Counting
+`task244.4_count_elements_in_set_union` |  Count the number of elements in the union of two given sets. | Counting
+`task244.5_count_elements_in_set_union` |  Count the number of elements in the union of two given sets. | Counting
+`task245_check_presence_in_set_intersection` | Check the presence of an element in the intersection of two given sets. | Answer Generation
+`task245.1_check_presence_in_set_intersection` | Check the presence of an element in the intersection of two given sets. | Answer Generation
+`task245.2_check_presence_in_set_intersection` | Check the presence of an element in the intersection of two given sets. | Answer Generation
+`task245.3_check_presence_in_set_intersection` | Check the presence of an element in the intersection of two given sets. | Answer Generation
+`task245.4_check_presence_in_set_intersection` | Check the presence of an element in the intersection of two given sets. | Answer Generation
+`task245.5_check_presence_in_set_intersection` | Check the presence of an element in the intersection of two given sets. | Answer Generation
+`task246_dream_question_generation` | Given a conversation, generate a multiple-choice question based on it. | Question Generation
+`task246.1_dream_question_generation` | Given a conversation, generate a multiple-choice question based on it. | Question Generation
+`task246.2_dream_question_generation` | Given a conversation, generate a multiple-choice question based on it. | Question Generation
+`task246.3_dream_question_generation` | Given a conversation, generate a multiple-choice question based on it. | Question Generation
+`task246.4_dream_question_generation` | Given a conversation, generate a multiple-choice question based on it. | Question Generation
+`task246.5_dream_question_generation` | Given a conversation, generate a multiple-choice question based on it. | Question Generation
+`task247_dream_answer_generation` | Given a conversation and a question, answer the question based on the conversation. | Answer Generation
+`task247.1_dream_answer_generation` | Given a conversation and a question, answer the question based on the conversation. | Answer Generation
+`task247.2_dream_answer_generation` | Given a conversation and a question, answer the question based on the conversation. | Answer Generation
+`task247.3_dream_answer_generation` | Given a conversation and a question, answer the question based on the conversation. | Answer Generation
+`task247.4_dream_answer_generation` | Given a conversation and a question, answer the question based on the conversation. | Answer Generation
+`task247.5_dream_answer_generation` | Given a conversation and a question, answer the question based on the conversation. | Answer Generation
+`task248_dream_classification` | Given a conversation and a question, classify the question. | Classification
+`task248.1_dream_classification` | Given a conversation and a question, classify the question. | Classification
+`task248.2_dream_classification` | Given a conversation and a question, classify the question. | Classification
+`task248.3_dream_classification` | Given a conversation and a question, classify the question. | Classification
+`task248.4_dream_classification` | Given a conversation and a question, classify the question. | Classification
+`task248.5_dream_classification` | Given a conversation and a question, classify the question. | Classification
+`task249_enhanced_wsc_pronoun_disambiguation` | Given a sentence and a pronoun, decide which one of the choices the pronoun is referring to. | Answer Generation, Pronoun Disambiguation
+`task249.1_enhanced_wsc_pronoun_disambiguation` | Given a sentence and a pronoun, decide which one of the choices the pronoun is referring to. | Answer Generation, Pronoun Disambiguation
+`task249.2_enhanced_wsc_pronoun_disambiguation` | Given a sentence and a pronoun, decide which one of the choices the pronoun is referring to. | Answer Generation, Pronoun Disambiguation
+`task249.3_enhanced_wsc_pronoun_disambiguation` | Given a sentence and a pronoun, decide which one of the choices the pronoun is referring to. | Answer Generation, Pronoun Disambiguation
+`task249.4_enhanced_wsc_pronoun_disambiguation` | Given a sentence and a pronoun, decide which one of the choices the pronoun is referring to. | Answer Generation, Pronoun Disambiguation
+`task249.5_enhanced_wsc_pronoun_disambiguation` | Given a sentence and a pronoun, decide which one of the choices the pronoun is referring to. | Answer Generation, Pronoun Disambiguation
+`task250_spl_translation_en_ar` | Translate English questions to Arabic while preserving named entities in the original language. | Translation
+`task250.1_spl_translation_en_ar` | Translate English questions to Arabic while preserving named entities in the original language. | Translation
+`task250.2_spl_translation_en_ar` | Translate English questions to Arabic while preserving named entities in the original language. | Translation
+`task250.3_spl_translation_en_ar` | Translate English questions to Arabic while preserving named entities in the original language. | Translation
+`task250.4_spl_translation_en_ar` | Translate English questions to Arabic while preserving named entities in the original language. | Translation
+`task250.5_spl_translation_en_ar` | Translate English questions to Arabic while preserving named entities in the original language. | Translation
+`task251_spl_translation_en_fi` | Translate English questions to Finnish while preserving named entities in the original language. | Translation
+`task251.1_spl_translation_en_fi` | Translate English questions to Finnish while preserving named entities in the original language. | Translation
+`task251.2_spl_translation_en_fi` | Translate English questions to Finnish while preserving named entities in the original language. | Translation
+`task251.3_spl_translation_en_fi` | Translate English questions to Finnish while preserving named entities in the original language. | Translation
+`task251.4_spl_translation_en_fi` | Translate English questions to Finnish while preserving named entities in the original language. | Translation
+`task251.5_spl_translation_en_fi` | Translate English questions to Finnish while preserving named entities in the original language. | Translation
+`task252_spl_translation_en_tr` | Translate English questions to Turkish while preserving named entities in the original language. | Translation
+`task252.1_spl_translation_en_tr` | Translate English questions to Turkish while preserving named entities in the original language. | Translation
+`task252.2_spl_translation_en_tr` | Translate English questions to Turkish while preserving named entities in the original language. | Translation
+`task252.3_spl_translation_en_tr` | Translate English questions to Turkish while preserving named entities in the original language. | Translation
+`task252.4_spl_translation_en_tr` | Translate English questions to Turkish while preserving named entities in the original language. | Translation
+`task252.5_spl_translation_en_tr` | Translate English questions to Turkish while preserving named entities in the original language. | Translation
+`task253_spl_translation_en_zh` | Translate English questions to Chinese while preserving named entities in the original language. | Translation
+`task253.1_spl_translation_en_zh` | Translate English questions to Chinese while preserving named entities in the original language. | Translation
+`task253.2_spl_translation_en_zh` | Translate English questions to Chinese while preserving named entities in the original language. | Translation
+`task253.3_spl_translation_en_zh` | Translate English questions to Chinese while preserving named entities in the original language. | Translation
+`task253.4_spl_translation_en_zh` | Translate English questions to Chinese while preserving named entities in the original language. | Translation
+`task253.5_spl_translation_en_zh` | Translate English questions to Chinese while preserving named entities in the original language. | Translation
+`task254_spl_translation_fi_en` | Translate Finnish questions to English while preserving named entities in the original language. | Translation
+`task254.1_spl_translation_fi_en` | Translate Finnish questions to English while preserving named entities in the original language. | Translation
+`task254.2_spl_translation_fi_en` | Translate Finnish questions to English while preserving named entities in the original language. | Translation
+`task254.3_spl_translation_fi_en` | Translate Finnish questions to English while preserving named entities in the original language. | Translation
+`task254.4_spl_translation_fi_en` | Translate Finnish questions to English while preserving named entities in the original language. | Translation
+`task254.5_spl_translation_fi_en` | Translate Finnish questions to English while preserving named entities in the original language. | Translation
+`task255_spl_translation_it_en` | Translate Italian questions to English while preserving named entities in the original language. | Translation
+`task255.1_spl_translation_it_en` | Translate Italian questions to English while preserving named entities in the original language. | Translation
+`task255.2_spl_translation_it_en` | Translate Italian questions to English while preserving named entities in the original language. | Translation
+`task255.3_spl_translation_it_en` | Translate Italian questions to English while preserving named entities in the original language. | Translation
+`task255.4_spl_translation_it_en` | Translate Italian questions to English while preserving named entities in the original language. | Translation
+`task255.5_spl_translation_it_en` | Translate Italian questions to English while preserving named entities in the original language. | Translation
+`task256_spl_translation_de_en` | Translate German questions to English while preserving named entities in the original language. | Translation
+`task256.1_spl_translation_de_en` | Translate German questions to English while preserving named entities in the original language. | Translation
+`task256.2_spl_translation_de_en` | Translate German questions to English while preserving named entities in the original language. | Translation
+`task256.3_spl_translation_de_en` | Translate German questions to English while preserving named entities in the original language. | Translation
+`task256.4_spl_translation_de_en` | Translate German questions to English while preserving named entities in the original language. | Translation
+`task256.5_spl_translation_de_en` | Translate German questions to English while preserving named entities in the original language. | Translation
+`task257_spl_translation_ar_en` | Translate Arabic questions to English while preserving named entities in the original language. | Translation
+`task257.1_spl_translation_ar_en` | Translate Arabic questions to English while preserving named entities in the original language. | Translation
+`task257.2_spl_translation_ar_en` | Translate Arabic questions to English while preserving named entities in the original language. | Translation
+`task257.3_spl_translation_ar_en` | Translate Arabic questions to English while preserving named entities in the original language. | Translation
+`task257.4_spl_translation_ar_en` | Translate Arabic questions to English while preserving named entities in the original language. | Translation
+`task257.5_spl_translation_ar_en` | Translate Arabic questions to English while preserving named entities in the original language. | Translation
+`task524.1_parsinlu_food_aspect_classification.json` | Classifying aspects of the food | Classification
+`task524.2_parsinlu_food_aspect_classification.json` | Classifying aspects of the food | Classification
+`task525.1_parsinlu_movie_aspect_classification.json` | Classifying aspects of the movie | Classification
+`task525.2_parsinlu_movie_aspect_classification.json` | Classifying aspects of the movie | Classification
+`task526.1_parsinlu_movie_overal_classification.json` | Classifying movie based on sentiment towards it | Classification
+`task526.2_parsinlu_movie_overal_classification.json` | Classifying movie based on sentiment towards it | Classification
+`task527.1_parsinlu_food_overal_classification.json` | Classifying a food item based on sentiment towards it | Classification
+`task527.2_parsinlu_food_overal_classification.json` | Classifying a food item based on sentiment towards it | Classification
+`task528.1_parsinlu_movie_aspect_detection.json` | Detecting various aspects in a movie | Answer Generation
+`task528.2_parsinlu_movie_aspect_detection.json` | Detecting various aspects in a movie | Answer Generation
+`task529.1_parsinlu_food_aspect_detection.json` | Detecting various aspects in a food item | Answer Generation
+`task529.2_parsinlu_food_aspect_detection.json` | Detecting various aspects in a food item | Answer Generation
+`task530.1_europarl_en_es_translation.json` | Translation of sentence from english to spanish | Language Translation
+`task530.2_europarl_en_es_translation.json` | Translation of sentence from english to spanish | Language Translation
+`task531.1_europarl_es_en_translation.json` | Translation of sentence from spanish to english | Language Translation
+`task531.2_europarl_es_en_translation.json` | Translation of sentence from spanish to english | Language Translation
+`task532.1_europarl_en-es_classification.json` | Classifying whether a translation is correct or not | Classification
+`task532.2_europarl_en-es_classification.json` | Classifying whether a translation is correct or not | Classification
+`task533.1_europarl_es-en_language_identification.json` | Identifying language of a sentence | Answer Generation
+`task533.2_europarl_es-en_language_identification.json` | Identifying language of a sentence | Answer Generation
+`task534.1_farstail_entailment.json` | Classify if two sentences agree, disagree or neither with each other  | Classification
+`task534.2_farstail_entailment.json` | Classify if two sentences agree, disagree or neither with each other   | Classification
+`task535.1_spl_translation_ch_en.json` | Translation of sentence from Chinese to english | Language Translation
+`task535.2_spl_translation_ch_en.json` | Translation of sentence from Chinese to english | Language Translation
+`task536.1_spl_translation_vi_en.json` | Translation of sentence from Viatnamese to english | Language Translation
+`task536.2_spl_translation_vi_en.json` | Translation of sentence from Viatnamese to english | Language Translation
+`task537.1_spl_translation_th_en.json` | Translation of sentence from Thai to english | Language Translation
+`task537.2_spl_translation_th_en.json` | Translation of sentence from Thai to english | Language Translation
+`task538.1_spl_translation_bu_en.json` | Translation of sentence from Burmese to english | Language Translation
+`task538.2_spl_translation_bu_en.json` | Translation of sentence from Burmese to english | Language Translation
+`task539.1_spl_translation_ma_en.json` | Translation of sentence from Malay to english | Language Translation
+`task539.2_spl_translation_ma_en.json` | Translation of sentence from Malay to english | Language Translation
+`task540.1_spl_translation_la_en.json` | Translation of sentence from Laotian to english | Language Translation
+`task540.2_spl_translation_la_en.json` | Translation of sentence from Laotian to english | Language Translation
+`task541.1_spl_translation_kh_en.json` | Translation of sentence from Khmer to english | Language Translation
+`task541.2_spl_translation_kh_en.json` | Translation of sentence from Khmer to english | Language Translation
+`task542.1_spl_translation_ja_en.json` | Translation of sentence from Japanese to english | Language Translation
+`task542.2_spl_translation_ja_en.json` | Translation of sentence from Japanese to english | Language Translation
+`task543.1_spl_translation_bh_en.json` | Translation of sentence from Bahasa Indonesian to english | Language Translation
+`task543.2_spl_translation_bh_en.json` | Translation of sentence from Bahasa Indonesian to english | Language Translation
+`task544.1_spl_translation_hi_en.json` | Translation of sentence from Hindi to english | Language Translation
+`task544.2_spl_translation_hi_en.json` | Translation of sentence from Hindi to english | Language Translation
+`task545.1_spl_translation_fi_en.json` | Translation of sentence from Filipino to english | Language Translation
+`task545.2_spl_translation_fi_en.json` | Translation of sentence from Filipino to english | Language Translation
+`task546.1_spl_translation_bg_en.json` | Translation of sentence from Bengali to english | Language Translation
+`task546.2_spl_translation_bg_en.json` | Translation of sentence from Bengali to english | Language Translation
+`task524.3_parsinlu_food_aspect_classification.json` | Classifying aspects of the food | Classification
+`task524.4_parsinlu_food_aspect_classification.json` | Classifying aspects of the food | Classification
+`task524.5_parsinlu_food_aspect_classification.json` | Classifying aspects of the food | Classification
+`task524.6_parsinlu_food_aspect_classification.json` | Classifying aspects of the food | Classification
+`task524.7_parsinlu_food_aspect_classification.json` | Classifying aspects of the food | Classification
+`task525.3_parsinlu_movie_aspect_classification.json` | Classifying aspects of the movie | Classification
+`task525.4_parsinlu_movie_aspect_classification.json` | Classifying aspects of the movie | Classification
+`task525.5_parsinlu_movie_aspect_classification.json` | Classifying aspects of the movie | Classification
+`task525.6_parsinlu_movie_aspect_classification.json` | Classifying aspects of the movie | Classification
+`task525.7_parsinlu_movie_aspect_classification.json` | Classifying aspects of the movie | Classification
+`task526.3_parsinlu_movie_overal_classification.json` | Classifying movie based on sentiment towards it | Classification
+`task526.4_parsinlu_movie_overal_classification.json` | Classifying movie based on sentiment towards it | Classification
+`task526.5_parsinlu_movie_overal_classification.json` | Classifying movie based on sentiment towards it | Classification
+`task526.6_parsinlu_movie_overal_classification.json` | Classifying movie based on sentiment towards it | Classification
+`task526.7_parsinlu_movie_overal_classification.json` | Classifying movie based on sentiment towards it | Classification
+`task527.3_parsinlu_food_overal_classification.json` | Classifying a food item based on sentiment towards it | Classification
+`task527.4_parsinlu_food_overal_classification.json` | Classifying a food item based on sentiment towards it | Classification
+`task527.5_parsinlu_food_overal_classification.json` | Classifying a food item based on sentiment towards it | Classification
+`task527.6_parsinlu_food_overal_classification.json` | Classifying a food item based on sentiment towards it | Classification
+`task527.7_parsinlu_food_overal_classification.json` | Classifying a food item based on sentiment towards it | Classification
+`task528.3_parsinlu_movie_aspect_detection.json` | Detecting various aspects in a movie | Answer Generation
+`task528.4_parsinlu_movie_aspect_detection.json` | Detecting various aspects in a movie | Answer Generation
+`task528.5_parsinlu_movie_aspect_detection.json` | Detecting various aspects in a movie | Answer Generation
+`task528.6_parsinlu_movie_aspect_detection.json` | Detecting various aspects in a movie | Answer Generation
+`task528.7_parsinlu_movie_aspect_detection.json` | Detecting various aspects in a movie | Answer Generation
+`task529.3_parsinlu_food_aspect_detection.json` | Detecting various aspects in a food item | Answer Generation
+`task529.4_parsinlu_food_aspect_detection.json` | Detecting various aspects in a food item | Answer Generation
+`task529.5_parsinlu_food_aspect_detection.json` | Detecting various aspects in a food item | Answer Generation
+`task529.6_parsinlu_food_aspect_detection.json` | Detecting various aspects in a food item | Answer Generation
+`task529.7_parsinlu_food_aspect_detection.json` | Detecting various aspects in a food item | Answer Generation
+`task530.3_europarl_en_es_translation.json` | Translation of sentence from english to spanish | Language Translation
+`task530.4_europarl_en_es_translation.json` | Translation of sentence from english to spanish | Language Translation
+`task530.5_europarl_en_es_translation.json` | Translation of sentence from english to spanish | Language Translation
+`task530.6_europarl_en_es_translation.json` | Translation of sentence from english to spanish | Language Translation
+`task530.7_europarl_en_es_translation.json` | Translation of sentence from english to spanish | Language Translation
+`task531.3_europarl_es_en_translation.json` | Translation of sentence from spanish to english | Language Translation
+`task531.4_europarl_es_en_translation.json` | Translation of sentence from spanish to english | Language Translation
+`task531.5_europarl_es_en_translation.json` | Translation of sentence from spanish to english | Language Translation
+`task531.6_europarl_es_en_translation.json` | Translation of sentence from spanish to english | Language Translation
+`task531.7_europarl_es_en_translation.json` | Translation of sentence from spanish to english | Language Translation
+`task532.3_europarl_en-es_classification.json` | Classifying whether a translation is correct or not | Classification
+`task532.4_europarl_en-es_classification.json` | Classifying whether a translation is correct or not | Classification
+`task532.5_europarl_en-es_classification.json` | Classifying whether a translation is correct or not | Classification
+`task532.6_europarl_en-es_classification.json` | Classifying whether a translation is correct or not | Classification
+`task532.7_europarl_en-es_classification.json` | Classifying whether a translation is correct or not | Classification
+`task533.3_europarl_es-en_language_identification.json` | Identifying language of a sentence | Answer Generation
+`task533.4_europarl_es-en_language_identification.json` | Identifying language of a sentence | Answer Generation
+`task533.5_europarl_es-en_language_identification.json` | Identifying language of a sentence | Answer Generation
+`task533.6_europarl_es-en_language_identification.json` | Identifying language of a sentence | Answer Generation
+`task533.7_europarl_es-en_language_identification.json` | Identifying language of a sentence | Answer Generation
+`task534.3_farstail_entailment.json` | Classify if two sentences agree, disagree or neither with each other  | Classification
+`task534.4_farstail_entailment.json` | Classify if two sentences agree, disagree or neither with each other  | Classification
+`task534.5_farstail_entailment.json` | Classify if two sentences agree, disagree or neither with each other  | Classification
+`task534.6_farstail_entailment.json` | Classify if two sentences agree, disagree or neither with each other  | Classification
+`task534.7_farstail_entailment.json` | Classify if two sentences agree, disagree or neither with each other  | Classification
+`task535.3_spl_translation_ch_en.json` | Translation of sentence from Chinese to english | Language Translation
+`task535.4_spl_translation_ch_en.json` | Translation of sentence from Chinese to english | Language Translation
+`task535.5_spl_translation_ch_en.json` | Translation of sentence from Chinese to english | Language Translation
+`task535.6_spl_translation_ch_en.json` | Translation of sentence from Chinese to english | Language Translation
+`task535.7_spl_translation_ch_en.json` | Translation of sentence from Chinese to english | Language Translation
+`task536.3_spl_translation_vi_en.json` | Translation of sentence from Viatnamese to english | Language Translation
+`task536.4_spl_translation_vi_en.json` | Translation of sentence from Viatnamese to english | Language Translation
+`task536.5_spl_translation_vi_en.json` | Translation of sentence from Viatnamese to english | Language Translation
+`task536.6_spl_translation_vi_en.json` | Translation of sentence from Viatnamese to english | Language Translation
+`task536.7_spl_translation_vi_en.json` | Translation of sentence from Viatnamese to english | Language Translation
+`task537.3_spl_translation_th_en.json` | Translation of sentence from Thai to english | Language Translation
+`task537.4_spl_translation_th_en.json` | Translation of sentence from Thai to english | Language Translation
+`task537.5_spl_translation_th_en.json` | Translation of sentence from Thai to english | Language Translation
+`task537.6_spl_translation_th_en.json` | Translation of sentence from Thai to english | Language Translation
+`task537.7_spl_translation_th_en.json` | Translation of sentence from Thai to english | Language Translation
+`task538.3_spl_translation_bu_en.json` | Translation of sentence from Burmese to english | Language Translation
+`task538.4_spl_translation_bu_en.json` | Translation of sentence from Burmese to english | Language Translation
+`task538.5_spl_translation_bu_en.json` | Translation of sentence from Burmese to english | Language Translation
+`task538.6_spl_translation_bu_en.json` | Translation of sentence from Burmese to english | Language Translation
+`task538.7_spl_translation_bu_en.json` | Translation of sentence from Burmese to english | Language Translation
+`task539.3_spl_translation_ma_en.json` | Translation of sentence from Malay to english | Language Translation
+`task539.4_spl_translation_ma_en.json` | Translation of sentence from Malay to english | Language Translation
+`task539.5_spl_translation_ma_en.json` | Translation of sentence from Malay to english | Language Translation
+`task539.6_spl_translation_ma_en.json` | Translation of sentence from Malay to english | Language Translation
+`task539.7_spl_translation_ma_en.json` | Translation of sentence from Malay to english | Language Translation
+`task540.3_spl_translation_la_en.json` | Translation of sentence from Laotian to english | Language Translation
+`task540.4_spl_translation_la_en.json` | Translation of sentence from Laotian to english | Language Translation
+`task540.5_spl_translation_la_en.json` | Translation of sentence from Laotian to english | Language Translation
+`task540.6_spl_translation_la_en.json` | Translation of sentence from Laotian to english | Language Translation
+`task540.7_spl_translation_la_en.json` | Translation of sentence from Laotian to english | Language Translation
+`task541.3_spl_translation_kh_en.json` | Translation of sentence from Khmer to english | Language Translation
+`task541.4_spl_translation_kh_en.json` | Translation of sentence from Khmer to english | Language Translation
+`task541.5_spl_translation_kh_en.json` | Translation of sentence from Khmer to english | Language Translation
+`task541.6_spl_translation_kh_en.json` | Translation of sentence from Khmer to english | Language Translation
+`task541.7_spl_translation_kh_en.json` | Translation of sentence from Khmer to english | Language Translation
+`task542.3_spl_translation_ja_en.json` | Translation of sentence from Japanese to english | Language Translation
+`task542.4_spl_translation_ja_en.json` | Translation of sentence from Japanese to english | Language Translation
+`task542.5_spl_translation_ja_en.json` | Translation of sentence from Japanese to english | Language Translation
+`task542.6_spl_translation_ja_en.json` | Translation of sentence from Japanese to english | Language Translation
+`task542.7_spl_translation_ja_en.json` | Translation of sentence from Japanese to english | Language Translation
+`task543.3_spl_translation_bh_en.json` | Translation of sentence from Bahasa Indonesian to english | Language Translation
+`task543.4_spl_translation_bh_en.json` | Translation of sentence from Bahasa Indonesian to english | Language Translation
+`task543.5_spl_translation_bh_en.json` | Translation of sentence from Bahasa Indonesian to english | Language Translation
+`task543.6_spl_translation_bh_en.json` | Translation of sentence from Bahasa Indonesian to english | Language Translation
+`task543.7_spl_translation_bh_en.json` | Translation of sentence from Bahasa Indonesian to english | Language Translation
+`task544.3_spl_translation_hi_en.json` | Translation of sentence from Hindi to english | Language Translation
+`task544.4_spl_translation_hi_en.json` | Translation of sentence from Hindi to english | Language Translation
+`task544.5_spl_translation_hi_en.json` | Translation of sentence from Hindi to english | Language Translation
+`task544.6_spl_translation_hi_en.json` | Translation of sentence from Hindi to english | Language Translation
+`task544.7_spl_translation_hi_en.json` | Translation of sentence from Hindi to english | Language Translation
+`task545.3_spl_translation_fi_en.json` | Translation of sentence from Filipino to english | Language Translation
+`task545.4_spl_translation_fi_en.json` | Translation of sentence from Filipino to english | Language Translation
+`task545.5_spl_translation_fi_en.json` | Translation of sentence from Filipino to english | Language Translation
+`task545.6_spl_translation_fi_en.json` | Translation of sentence from Filipino to english | Language Translation
+`task545.7_spl_translation_fi_en.json` | Translation of sentence from Filipino to english | Language Translation
+`task546.3_spl_translation_bg_en.json` | Translation of sentence from Bengali to english | Language Translation
+`task546.4_spl_translation_bg_en.json` | Translation of sentence from Bengali to english | Language Translation
+`task546.5_spl_translation_bg_en.json` | Translation of sentence from Bengali to english | Language Translation
+`task546.6_spl_translation_bg_en.json` | Translation of sentence from Bengali to english | Language Translation
+`task546.7_spl_translation_bg_en.json` | Translation of sentence from Bengali to english | Language Translation
+`task524_parsinlu_food_aspect_classification.json` | Classifying aspects of the food | Classification
+`task525_parsinlu_movie_aspect_classification.json` | Classifying aspects of the movie | Classification
+`task526_parsinlu_movie_overal_classification.json` | Classifying movie based on sentiment towards it | Classification
+`task527_parsinlu_food_overal_classification.json` | Classifying a food item based on sentiment towards it | Classification
+`task528_parsinlu_movie_aspect_detection.json` | Detecting various aspects in a movie | Answer Generation
+`task529_parsinlu_food_aspect_detection.json` | Detecting various aspects in a food item | Answer Generation
+`task530_europarl_en_es_translation.json` | Translation of sentence from english to spanish | Language Translation
+`task531_europarl_es_en_translation.json` | Translation of sentence from spanish to english | Language Translation
+`task532_europarl_en-es_classification.json` | Classifying whether a translation is correct or not | Classification
+`task533_europarl_es-en_language_identification.json` | Identifying language of a sentence | Answer Generation
+`task534_farstail_entailment.json` | Classify if two sentences agree, disagree or neither with each other  | Classification
+`task535_spl_translation_ch_en.json` | Translation of sentence from Chinese to english | Language Translation
+`task536_spl_translation_vi_en.json` | Translation of sentence from Viatnamese to english | Language Translation
+`task537_spl_translation_th_en.json` | Translation of sentence from Thai to english | Language Translation
+`task538_spl_translation_bu_en.json` | Translation of sentence from Burmese to english | Language Translation
+`task539_spl_translation_ma_en.json` | Translation of sentence from Malay to english | Language Translation
+`task540_spl_translation_la_en.json` | Translation of sentence from Laotian to english | Language Translation
+`task541_spl_translation_kh_en.json` | Translation of sentence from Khmer to english | Language Translation
+`task542_spl_translation_ja_en.json` | Translation of sentence from Japanese to english | Language Translation
+`task543_spl_translation_bh_en.json` | Translation of sentence from Bahasa Indonesian to english | Language Translation
+`task544_spl_translation_hi_en.json` | Translation of sentence from Hindi to english | Language Translation
+`task545_spl_translation_fi_en.json` | Translation of sentence from Filipino to english | Language Translation
+`task546_spl_translation_bg_en.json` | Translation of sentence from Bengali to english | Language Translation
+`task168.1_strategyqa_question_decomposition` | Given a yes/no question, its answer, and additional information, decompose the question. | Question Decomposition
+`task168.2_strategyqa_question_decomposition` | Given a yes/no question, its answer, and additional information, decompose the question. | Question Decomposition
+`task168.3_strategyqa_question_decomposition` | Given a yes/no question, its answer, and additional information, decompose the question. | Question Decomposition
+`task168.4_strategyqa_question_decomposition` | Given a yes/no question, its answer, and additional information, decompose the question. | Question Decomposition
+`task168_strategyqa_question_decomposition`  Given a yes/no question, its answer, and additional information, decompose the question. | Question Decomposition
+`task169.1_strategyqa_sentence_generation` | Given a question, write the facts one needs to know in order to answer the question. | Sentence Generation
+`task169.2_strategyqa_sentence_generation` | Given a question, write the facts one needs to know in order to answer the question. | Sentence Generation
+`task169.3_strategyqa_sentence_generation` | Given a question, write the facts one needs to know in order to answer the question. | Sentence Generation
+`task169.4_strategyqa_sentence_generation` | Given a question, write the facts one needs to know in order to answer the question. | Sentence Generation
+`task169_strategyqa_sentence_generation` | Given a question, write the facts one needs to know in order to answer the question. | Sentence Generation
+`task170.1_hotpotqa_answer_generation` | Given a set of context and supporting facts, answer the question asked. | Answer Generation
+`task170.2_hotpotqa_answer_generation` | Given a set of context and supporting facts, answer the question asked. | Answer Generation
+`task170.3_hotpotqa_answer_generation` | Given a set of context and supporting facts, answer the question asked. | Answer Generation
+`task170.4_hotpotqa_answer_generation` | Given a set of context and supporting facts, answer the question asked. | Answer Generation
+`task170_hotpotqa_answer_generation` | Given a set of context and supporting facts, answer the question asked. | Answer Generation
+`task171.1_spl_translation_en_es` | Translate English questions to Spanish while preserving named entities in the original language. | Translation
+`task171.2_spl_translation_en_es` | Translate English questions to Spanish while preserving named entities in the original language. | Translation
+`task171_spl_translation_en_es` | Translate English questions to Spanish while preserving named entities in the original language. | Translation
+`task172.1_spl_translation_en_fa` | Translate English questions to Farsi while preserving named entities in the original language. | Translation
+`task172.2_spl_translation_en_fa` | Translate English questions to Farsi while preserving named entities in the original language. | Translation
+`task172_spl_translation_en_fa` | Translate English questions to Farsi while preserving named entities in the original language. | Translation
+`task173.1_spl_translation_en_it` | Translate English questions to Italian while preserving named entities in the original language. | Translation
+`task173.2_spl_translation_en_it` | Translate English questions to Italian while preserving named entities in the original language. | Translation
+`task173_spl_translation_en_it` | Translate English questions to Italian while preserving named entities in the original language. | Translation
+`task174.1_spl_translation_en_ja` | Translate English questions to Japanese while preserving named entities in the original language. | Translation
+`task174.2_spl_translation_en_ja` | Translate English questions to Japanese while preserving named entities in the original language. | Translation
+`task174_spl_translation_en_ja` | Translate English questions to Japanese while preserving named entities in the original language. | Translation
+`task175.1_spl_translation_en_pl` | Translate English questions to Polish while preserving named entities in the original language. | Translation
+`task175.2_spl_translation_en_pl` | Translate English questions to Polish while preserving named entities in the original language. | Translation
+`task175_spl_translation_en_pl` | Translate English questions to Polish while preserving named entities in the original language. | Translation
+`task176.1_break_decompose_questions` | Break a question into the steps needed to answer the question. | Question Decomposition
+`task176.2_break_decompose_questions` | Break a question into the steps needed to answer the question. | Question Decomposition
+`task176.3_break_decompose_questions` | Break a question into the steps needed to answer the question. | Question Decomposition
+`task176.4_break_decompose_questions` | Break a question into the steps needed to answer the question. | Question Decomposition
+`task176_break_decompose_questions` | Break a question into the steps needed to answer the question. | Question Decomposition
+`task177.1_para-nmt_paraphrasing` | Given a sentence, rephrase it using another words while retaining meaning same as input. | Text Modification
+`task177.2_para-nmt_paraphrasing` | Given a sentence, rephrase it using another words while retaining meaning same as input. | Text Modification
+`task177.3_para-nmt_paraphrasing` | Given a sentence, rephrase it using another words while retaining meaning same as input. | Text Modification
+`task177.4_para-nmt_paraphrasing` | Given a sentence, rephrase it using another words while retaining meaning same as input. | Text Modification
+`task177_para-nmt_paraphrasing` | Given a sentence, rephrase it using another words while retaining meaning same as input. | Text Modification
+`task178.1_quartz_question_answering` |   Given a question, select the correct answer from the given options using an explanation. | Answer Generation
+`task178.2_quartz_question_answering` |   Given a question, select the correct answer from the given options using an explanation. | Answer Generation
+`task178.3_quartz_question_answering` |   Given a question, select the correct answer from the given options using an explanation. | Answer Generation
+`task178_quartz_question_answering` |   Given a question, select the correct answer from the given options using an explanation. | Answer Generation
+`task179.1_participant_extraction` |	Given a sentence from a medical study paper, select the tokens representing information about participants.	| Entity Detection
+`task179.2_participant_extraction` |	Given a sentence from a medical study paper, select the tokens representing information about participants.	| Entity Detection
+`task179.3_participant_extraction` |	Given a sentence from a medical study paper, select the tokens representing information about participants.	| Entity Detection
+`task179.4_participant_extraction` |	Given a sentence from a medical study paper, select the tokens representing information about participants.	| Entity Detection
+`task179_participant_extraction` |	Given a sentence from a medical study paper, select the tokens representing information about participants.	| Entity Detection
+`task180.1_intervention_extraction` |	Given a sentence from a medical study paper, select the tokens representing information about intervention in the study. | Entity Detection
+`task180.2_intervention_extraction` |	Given a sentence from a medical study paper, select the tokens representing information about intervention in the study. | Entity Detection
+`task180.3_intervention_extraction` |	Given a sentence from a medical study paper, select the tokens representing information about intervention in the study. | Entity Detection
+`task180.4_intervention_extraction` |	Given a sentence from a medical study paper, select the tokens representing information about intervention in the study. | Entity Detection
+`task180_intervention_extraction` |	Given a sentence from a medical study paper, select the tokens representing information about intervention in the study. | Entity Detection
+`task181.1_outcome_extraction` | Given a sentence from a medical study paper, select the tokens representing information about outcome of the study.|  Entity Detection
+`task181.2_outcome_extraction` | Given a sentence from a medical study paper, select the tokens representing information about outcome of the study.|  Entity Detection
+`task181.3_outcome_extraction` | Given a sentence from a medical study paper, select the tokens representing information about outcome of the study.|  Entity Detection
+`task181.4_outcome_extraction` | Given a sentence from a medical study paper, select the tokens representing information about outcome of the study.|  Entity Detection
+`task181_outcome_extraction` | Given a sentence from a medical study paper, select the tokens representing information about outcome of the study.|  Entity Detection
+`task182.1_duorc_question_generation` | 	Writing a question based on a given plot | Question Generation
+`task182.2_duorc_question_generation` | 	Writing a question based on a given plot | Question Generation
+`task182.3_duorc_question_generation` | 	Writing a question based on a given plot | Question Generation
+`task182_duorc_question_generation` | 	Writing a question based on a given plot | Question Generation
+`task183.1_rhyme_generation` | Given an input word, generate a list of words that rhyme exactly with the input.	|  Answer Generation
+`task183.2_rhyme_generation` | Given an input word, generate a list of words that rhyme exactly with the input.	|  Answer Generation
+`task183.3_rhyme_generation` | Given an input word, generate a list of words that rhyme exactly with the input.	|  Answer Generation
+`task183.4_rhyme_generation` | Given an input word, generate a list of words that rhyme exactly with the input.	|  Answer Generation
+`task183_rhyme_generation` | Given an input word, generate a list of words that rhyme exactly with the input.	|  Answer Generation
+`task184.1_break_generate_question` | 	Generate a question based on the given steps used to answer it.	| Question Generation
+`task184.2_break_generate_question` | 	Generate a question based on the given steps used to answer it.	| Question Generation
+`task184_break_generate_question` | 	Generate a question based on the given steps used to answer it.	| Question Generation
+`task184.1_snli_entailment_to_neutral_text_modification` |	Given two sentences that agree with each other, modify the second sentence so that they do not clearly agree or disagree.	| Answer Generation
+`task184.2_snli_entailment_to_neutral_text_modification` |	Given two sentences that agree with each other, modify the second sentence so that they do not clearly agree or disagree.	| Answer Generation
+`task184.3_snli_entailment_to_neutral_text_modification` |	Given two sentences that agree with each other, modify the second sentence so that they do not clearly agree or disagree.	| Answer Generation
+`task184.4_snli_entailment_to_neutral_text_modification` |	Given two sentences that agree with each other, modify the second sentence so that they do not clearly agree or disagree.	| Answer Generation
+`task184_snli_entailment_to_neutral_text_modification` |	Given two sentences that agree with each other, modify the second sentence so that they do not clearly agree or disagree.	| Answer Generation
+`task185.1_snli_contradiction_to_neutral_text_modification` | Given two sentences that don't agree with each other, modify the second sentence so that they do not clearly agree or disagree. | Answer Generation
+`task185.2_snli_contradiction_to_neutral_text_modification` | Given two sentences that don't agree with each other, modify the second sentence so that they do not clearly agree or disagree. | Answer Generation
+`task185.3_snli_contradiction_to_neutral_text_modification` | Given two sentences that don't agree with each other, modify the second sentence so that they do not clearly agree or disagree. | Answer Generation
+`task185.4_snli_contradiction_to_neutral_text_modification` | Given two sentences that don't agree with each other, modify the second sentence so that they do not clearly agree or disagree. | Answer Generation
+`task185_snli_contradiction_to_neutral_text_modification` | Given two sentences that don't agree with each other, modify the second sentence so that they do not clearly agree or disagree. | Answer Generation
+`task186.1_snli_contradiction_to_entailment_text_modification` | Given two sentences that don't agree with each other, modify the second sentence so that they clearly agree with each other. | Answer Generation
+`task186.2_snli_contradiction_to_entailment_text_modification` | Given two sentences that don't agree with each other, modify the second sentence so that they clearly agree with each other. | Answer Generation
+`task186.3_snli_contradiction_to_entailment_text_modification` | Given two sentences that don't agree with each other, modify the second sentence so that they clearly agree with each other. | Answer Generation
+`task186.4_snli_contradiction_to_entailment_text_modification` | Given two sentences that don't agree with each other, modify the second sentence so that they clearly agree with each other. | Answer Generation
+`task186_snli_contradiction_to_entailment_text_modification` | Given two sentences that don't agree with each other, modify the second sentence so that they clearly agree with each other. | Answer Generation
+`task187.1_snli_entailment_to_contradiction_text_modification` | Given two sentences that agree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
+`task187.2_snli_entailment_to_contradiction_text_modification` | Given two sentences that agree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
+`task187.3_snli_entailment_to_contradiction_text_modification` | Given two sentences that agree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
+`task187.4_snli_entailment_to_contradiction_text_modification` | Given two sentences that agree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
+`task187_snli_entailment_to_contradiction_text_modification` | Given two sentences that agree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
+`task188.1_snli_neutral_to_entailment_text_modification` |	Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly agree. | Answer Generation
+`task188.2_snli_neutral_to_entailment_text_modification` |	Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly agree. | Answer Generation
+`task188.3_snli_neutral_to_entailment_text_modification` |	Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly agree. | Answer Generation
+`task188.4_snli_neutral_to_entailment_text_modification` |	Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly agree. | Answer Generation
+`task188_snli_neutral_to_entailment_text_modification` |	Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly agree. | Answer Generation
 `task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
-"task168.1_strategyqa_question_decomposition" | Given a yes/no question, its answer, and additional information, decompose the question. | Question Decomposition
-"task168.2_strategyqa_question_decomposition" | Given a yes/no question, its answer, and additional information, decompose the question. | Question Decomposition
-"task168.3_strategyqa_question_decomposition" | Given a yes/no question, its answer, and additional information, decompose the question. | Question Decomposition
-"task168.4_strategyqa_question_decomposition" | Given a yes/no question, its answer, and additional information, decompose the question. | Question Decomposition
-"task168_strategyqa_question_decomposition" | Given a yes/no question, its answer, and additional information, decompose the question. | Question Decomposition
-"task169.1_strategyqa_sentence_generation" | Given a question, write the facts one needs to know in order to answer the question. | Sentence Generation
-"task169.2_strategyqa_sentence_generation" | Given a question, write the facts one needs to know in order to answer the question. | Sentence Generation
-"task169.3_strategyqa_sentence_generation" | Given a question, write the facts one needs to know in order to answer the question. | Sentence Generation
-"task169.4_strategyqa_sentence_generation" | Given a question, write the facts one needs to know in order to answer the question. | Sentence Generation
-"task169_strategyqa_sentence_generation" | Given a question, write the facts one needs to know in order to answer the question. | Sentence Generation
-"task170.1_hotpotqa_answer_generation" | Given a set of context and supporting facts, answer the question asked. | Answer Generation
-"task170.2_hotpotqa_answer_generation" | Given a set of context and supporting facts, answer the question asked. | Answer Generation
-"task170.3_hotpotqa_answer_generation" | Given a set of context and supporting facts, answer the question asked. | Answer Generation
-"task170.4_hotpotqa_answer_generation" | Given a set of context and supporting facts, answer the question asked. | Answer Generation
-"task170_hotpotqa_answer_generation" | Given a set of context and supporting facts, answer the question asked. | Answer Generation
-
-"task171.1_spl_translation_en_es" | Translate English questions to Spanish while preserving named entities in the original language. | Translation
-"task171.2_spl_translation_en_es" | Translate English questions to Spanish while preserving named entities in the original language. | Translation
-"task171_spl_translation_en_es" | Translate English questions to Spanish while preserving named entities in the original language. | Translation
-"task172.1_spl_translation_en_fa" | Translate English questions to Farsi while preserving named entities in the original language. | Translation
-"task172.2_spl_translation_en_fa" | Translate English questions to Farsi while preserving named entities in the original language. | Translation
-"task172_spl_translation_en_fa" | Translate English questions to Farsi while preserving named entities in the original language. | Translation
-"task173.1_spl_translation_en_it" | Translate English questions to Italian while preserving named entities in the original language. | Translation
-"task173.2_spl_translation_en_it" | Translate English questions to Italian while preserving named entities in the original language. | Translation
-"task173_spl_translation_en_it" | Translate English questions to Italian while preserving named entities in the original language. | Translation
-"task174.1_spl_translation_en_ja" | Translate English questions to Japanese while preserving named entities in the original language. | Translation
-"task174.2_spl_translation_en_ja" | Translate English questions to Japanese while preserving named entities in the original language. | Translation
-"task174_spl_translation_en_ja" | Translate English questions to Japanese while preserving named entities in the original language. | Translation
-"task175.1_spl_translation_en_pl" | Translate English questions to Polish while preserving named entities in the original language. | Translation
-"task175.2_spl_translation_en_pl" | Translate English questions to Polish while preserving named entities in the original language. | Translation
-"task175_spl_translation_en_pl" | Translate English questions to Polish while preserving named entities in the original language. | Translation
-"task176.1_break_decompose_questions" | Break a question into the steps needed to answer the question. | Question Decomposition
-"task176.2_break_decompose_questions" | Break a question into the steps needed to answer the question. | Question Decomposition
-"task176.3_break_decompose_questions" | Break a question into the steps needed to answer the question. | Question Decomposition
-"task176.4_break_decompose_questions" | Break a question into the steps needed to answer the question. | Question Decomposition
-"task176_break_decompose_questions" | Break a question into the steps needed to answer the question. | Question Decomposition
-
-"task177.1_para-nmt_paraphrasing" | Given a sentence, rephrase it using another words while retaining meaning same as input. | Text Modification
-"task177.2_para-nmt_paraphrasing" | Given a sentence, rephrase it using another words while retaining meaning same as input. | Text Modification
-"task177.3_para-nmt_paraphrasing" | Given a sentence, rephrase it using another words while retaining meaning same as input. | Text Modification
-"task177.4_para-nmt_paraphrasing" | Given a sentence, rephrase it using another words while retaining meaning same as input. | Text Modification
-"task177_para-nmt_paraphrasing" | Given a sentence, rephrase it using another words while retaining meaning same as input. | Text Modification
-"task178.1_quartz_question_answering" |   Given a question, select the correct answer from the given options using an explanation. | Answer Generation
-"task178.2_quartz_question_answering" |   Given a question, select the correct answer from the given options using an explanation. | Answer Generation
-"task178.3_quartz_question_answering" |   Given a question, select the correct answer from the given options using an explanation. | Answer Generation
-"task178_quartz_question_answering" |   Given a question, select the correct answer from the given options using an explanation. | Answer Generation
-"task179.1_participant_extraction" |	Given a sentence from a medical study paper, select the tokens representing information about participants.	| Entity Detection
-"task179.2_participant_extraction" |	Given a sentence from a medical study paper, select the tokens representing information about participants.	| Entity Detection
-"task179.3_participant_extraction" |	Given a sentence from a medical study paper, select the tokens representing information about participants.	| Entity Detection
-"task179.4_participant_extraction" |	Given a sentence from a medical study paper, select the tokens representing information about participants.	| Entity Detection
-"task179_participant_extraction" |	Given a sentence from a medical study paper, select the tokens representing information about participants.	| Entity Detection
-"task180.1_intervention_extraction" |	Given a sentence from a medical study paper, select the tokens representing information about intervention in the study. | Entity Detection
-"task180.2_intervention_extraction" |	Given a sentence from a medical study paper, select the tokens representing information about intervention in the study. | Entity Detection
-"task180.3_intervention_extraction" |	Given a sentence from a medical study paper, select the tokens representing information about intervention in the study. | Entity Detection
-"task180.4_intervention_extraction" |	Given a sentence from a medical study paper, select the tokens representing information about intervention in the study. | Entity Detection
-"task180_intervention_extraction" |	Given a sentence from a medical study paper, select the tokens representing information about intervention in the study. | Entity Detection
-"task181.1_outcome_extraction" | Given a sentence from a medical study paper, select the tokens representing information about outcome of the study.|  Entity Detection
-"task181.2_outcome_extraction" | Given a sentence from a medical study paper, select the tokens representing information about outcome of the study.|  Entity Detection
-"task181.3_outcome_extraction" | Given a sentence from a medical study paper, select the tokens representing information about outcome of the study.|  Entity Detection
-"task181.4_outcome_extraction" | Given a sentence from a medical study paper, select the tokens representing information about outcome of the study.|  Entity Detection
-"task181_outcome_extraction" | Given a sentence from a medical study paper, select the tokens representing information about outcome of the study.|  Entity Detection
-"task182.1_duorc_question_generation" | 	Writing a question based on a given plot | Question Generation
-"task182.2_duorc_question_generation" | 	Writing a question based on a given plot | Question Generation
-"task182.3_duorc_question_generation" | 	Writing a question based on a given plot | Question Generation
-"task182_duorc_question_generation" | 	Writing a question based on a given plot | Question Generation
-"task183.1_rhyme_generation" | Given an input word, generate a list of words that rhyme exactly with the input.	|  Answer Generation
-"task183.2_rhyme_generation" | Given an input word, generate a list of words that rhyme exactly with the input.	|  Answer Generation
-"task183.3_rhyme_generation" | Given an input word, generate a list of words that rhyme exactly with the input.	|  Answer Generation
-"task183.4_rhyme_generation" | Given an input word, generate a list of words that rhyme exactly with the input.	|  Answer Generation
-"task183_rhyme_generation" | Given an input word, generate a list of words that rhyme exactly with the input.	|  Answer Generation
-"task184.1_break_generate_question" | 	Generate a question based on the given steps used to answer it.	| Question Generation
-"task184.2_break_generate_question" | 	Generate a question based on the given steps used to answer it.	| Question Generation
-"task184_break_generate_question" | 	Generate a question based on the given steps used to answer it.	| Question Generation
-"task184.1_snli_entailment_to_neutral_text_modification" |	Given two sentences that agree with each other, modify the second sentence so that they do not clearly agree or disagree.	| Answer Generation
-"task184.2_snli_entailment_to_neutral_text_modification" |	Given two sentences that agree with each other, modify the second sentence so that they do not clearly agree or disagree.	| Answer Generation
-"task184.3_snli_entailment_to_neutral_text_modification" |	Given two sentences that agree with each other, modify the second sentence so that they do not clearly agree or disagree.	| Answer Generation
-"task184.4_snli_entailment_to_neutral_text_modification" |	Given two sentences that agree with each other, modify the second sentence so that they do not clearly agree or disagree.	| Answer Generation
-"task184_snli_entailment_to_neutral_text_modification" |	Given two sentences that agree with each other, modify the second sentence so that they do not clearly agree or disagree.	| Answer Generation
-"task185.1_snli_contradiction_to_neutral_text_modification" | Given two sentences that don't agree with each other, modify the second sentence so that they do not clearly agree or disagree. | Answer Generation
-"task185.2_snli_contradiction_to_neutral_text_modification" | Given two sentences that don't agree with each other, modify the second sentence so that they do not clearly agree or disagree. | Answer Generation
-"task185.3_snli_contradiction_to_neutral_text_modification" | Given two sentences that don't agree with each other, modify the second sentence so that they do not clearly agree or disagree. | Answer Generation
-"task185.4_snli_contradiction_to_neutral_text_modification" | Given two sentences that don't agree with each other, modify the second sentence so that they do not clearly agree or disagree. | Answer Generation
-"task185_snli_contradiction_to_neutral_text_modification" | Given two sentences that don't agree with each other, modify the second sentence so that they do not clearly agree or disagree. | Answer Generation
-"task186.1_snli_contradiction_to_entailment_text_modification" | Given two sentences that don't agree with each other, modify the second sentence so that they clearly agree with each other. | Answer Generation
-"task186.2_snli_contradiction_to_entailment_text_modification" | Given two sentences that don't agree with each other, modify the second sentence so that they clearly agree with each other. | Answer Generation
-"task186.3_snli_contradiction_to_entailment_text_modification" | Given two sentences that don't agree with each other, modify the second sentence so that they clearly agree with each other. | Answer Generation
-"task186.4_snli_contradiction_to_entailment_text_modification" | Given two sentences that don't agree with each other, modify the second sentence so that they clearly agree with each other. | Answer Generation
-"task186_snli_contradiction_to_entailment_text_modification" | Given two sentences that don't agree with each other, modify the second sentence so that they clearly agree with each other. | Answer Generation
-"task187.1_snli_entailment_to_contradiction_text_modification" | Given two sentences that agree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
-"task187.2_snli_entailment_to_contradiction_text_modification" | Given two sentences that agree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
-"task187.3_snli_entailment_to_contradiction_text_modification" | Given two sentences that agree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
-"task187.4_snli_entailment_to_contradiction_text_modification" | Given two sentences that agree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
-"task187_snli_entailment_to_contradiction_text_modification" | Given two sentences that agree with each other, modify the second sentence so that they clearly do not agree. | Answer Generation
-"task188.1_snli_neutral_to_entailment_text_modification" |	Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly agree. | Answer Generation
-"task188.2_snli_neutral_to_entailment_text_modification" |	Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly agree. | Answer Generation
-"task188.3_snli_neutral_to_entailment_text_modification" |	Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly agree. | Answer Generation
-"task188.4_snli_neutral_to_entailment_text_modification" |	Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly agree. | Answer Generation
-"task188_snli_neutral_to_entailment_text_modification" |	Given two sentences that do not clearly agree or disagree with each other, modify the second sentence so that they clearly agree. | Answer Generation
