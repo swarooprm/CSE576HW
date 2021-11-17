@@ -1,0 +1,1238 @@
+{
+    "Contributors": [
+        "Ishan Purohit"
+    ],
+    "Source": [
+        "CODA-19 (Dataset - https://github.com/windx0303/CODA-19/tree/master/data) (Paper - https://aclanthology.org/2020.nlpcovid19-acl.6.pdf)"
+    ],
+    "Categories": [
+        "Text Generation"
+    ],
+    "Definition": "In this task, you will receive a paragraph (from the research paper) and your task is to classify each sentence of the paragraph (let's assume a sentence) into the following categories: background, purpose, method, find / post, or other. Return the output in this format: 1 - category _ of the sentence 1, 2 - category _ of the sentence 2,..., n - category _ of the sentence; the number indicating the order of the sentence.",
+    "Positive Examples": [
+        {
+            "input": " This study was conducted to investigate the correlation between antibiotic consumption and the incidence of health-care-associated infections (HCAIs) caused by methicillin-resistant Staphylococcus aureus (MRSA) (HCAI-MRSA) and vancomycin-resistant enterococci (VREs) (HCAI-VREs) at a university hospital in Taiwan during the period from 2000 to 2010. Methods Data on annual patient-days and annual consumption (defined daily dose/1000 patient-days) of glycopeptides (vancomycin and teicoplanin), linezolid, fusidic acid, tigecycline, and daptomycin were analyzed. Yearly aggregated data on the number of nonduplicate clinical MRSA and VRE isolates causing HCAI were collected.",
+            "output": "0 - purpose, 1 - method, 2 - method",
+            "explanation": "The first statement describes the reason for the study being conducted and the other 2 statements explain the methods involved to achieve the same."
+        },
+        {
+            "input": "In many infectious diseases caused by either viruses or bacteria, pathogen glycoproteins play important roles during the infection cycle, ranging from entry to successful intracellular replication and host immune evasion. Dengue is no exception. Dengue virus glycoproteins, envelope protein (E) and non-structural protein 1 (NS1) are two popular sub-unit vaccine candidates. E protein on the virion surface is the major target of neutralizing antibodies. NS1 which is secreted during DENV infection has been shown to induce a variety of host responses through its binding to several host factors. However, despite their critical role in disease and protection, the glycosylated variants of these two proteins and their biological importance have remained understudied. In this review, we seek to provide a comprehensive summary of the current knowledge on protein glycosylation in DENV, and its role in virus biogenesis, host cell receptor interaction and disease pathogenesis.",
+            "output": "1 - background, 2 - background, 3 - background, 4 - background, 5 - background, 6 - background, 7 - background, 8 - background, 9 - background, 10 - background, 11 - purpose, 12 - purpose, 13 - purpose",
+            "explanation": "The paragraph contains 13 sentences. The first 10 sentences provide background information about how some infectious diseases are caused by bacteria and viruses. The last 3 sentences talk about the purpose of the study."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Journal of Microbiology, Immunology and Infection (2015) 48, 431e436 aureus;",
+            "output": "0 - background",
+            "explanation": "The given information is other and not background. It gives no imformation about anything except a simple statement."
+        },
+        {
+            "input": "Upon recognition of the host, bacterial pathogens activate a genetic virulence program to establish their replicative niche. In this study, we selected for mutants in the model intracellular pathogen Listeria monocytogenes that did not up-regulate virulence factors during infection. The screen identified genes involved in sensing the host cell and suggests a model in which expression of virulence factors is spatially and temporally compartmentalized via regulation of transcription and translation.",
+            "output": "1 - background, 2 - finding, 3 - finding, 4 - finding",
+            "explanation": "Here, the first sentence does not represent the background information. However, it is finding because it provides additional information to research. So, the correct label for the first sentence should be 'finding'."
+        }
+    ],
+    "Instances": [
+        {
+            "input": " Venezuelan equine encephalitis virus (VEEV) belongs to the Alphavirus group. Several species of this family are also pathogenic to humans and are recognized as potential agents of biological warfare and terrorism. The objective of this work was the generation of recombinant antibodies for the detection of VEEV after a potential bioterrorism assault or an natural outbreak of VEEV.",
+            "output": [
+                "0 - background, 1 - background, 2 - purpose"
+            ]
+        },
+        {
+            "input": "In this work, human anti-VEEV single chain Fragments variable (scFv) were isolated for the first time from a human naïve antibody gene library using optimized selection processes. In total eleven different scFvs were identified and their immunological specificity was assessed. The specific detection of the VEEV strains TC83, H12/93 and 230 by the selected antibody fragments was proved. Active as well as formalin inactivated virus particles were recognized by the selected antibody fragments which could be also used for Western blot analysis of VEEV proteins and immunohistochemistry of VEEV infected cells. The anti-VEEV scFv phage clones did not show any cross-reactivity with Alphavirus species of the Western equine encephalitis virus (WEEV) and Eastern equine encephalitis virus (EEEV) antigenic complex, nor did they react with Chikungunya virus (CHIKV), if they were used as detection reagent.",
+            "output": [
+                "0 - method, 1 - method, 2 - finding, 3 - finding, 4 - finding"
+            ]
+        },
+        {
+            "input": " For the first time, this study describes the selection of antibodies against a human pathogenic virus from a human naïve scFv antibody gene library using complete, active virus particles as antigen. The broad and sensitive applicability of scFv-presenting phage for the immunological detection and diagnosis of Alphavirus species was demonstrated. The selected antibody fragments will improve the fast identification of VEEV in case of a biological warfare or terroristic attack or a natural outbreak.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding"
+            ]
+        },
+        {
+            "input": " 2.03,2.36; p,0.001). The majority (.97%) of particles captured from either the vuvuzela or shouting were between 0.5 and 5 microns in diameter. Mean peak airflows recorded for the vuvuzela and shouting were 6.1 and 1.8 litres per second respectively. We conclude that plastic blowing horns (vuvuzelas) have the capacity to propel extremely large numbers of aerosols into the atmosphere of a size able to penetrate the lower lung. Some respiratory pathogens are spread via contaminated aerosols emitted by infected persons. Further investigation is required to assess the potential of the vuvuzela to contribute to the transmission of aerosol borne diseases. We recommend, as a precautionary measure, that people with respiratory infections should be advised not to blow their vuvuzela in enclosed spaces and where there is a risk of infecting others.",
+            "output": [
+                "0 - background, 1 - background, 2 - method, 3 - method, 4 - method, 5 - method, 6 - background, 7 - finding, 8 - finding, 9 - finding, 10 - finding, 11 - finding, 12 - finding"
+            ]
+        },
+        {
+            "input": "m The translation flame-monitoring mechanism has been suggested earlier, based on transient complementary contacts, between mRNA and rRNA. Recent studies related to the frame-monitoring mechanism are reviewed. The mechanism is well supported by both new experimental and sequence analysis data. Experiments are suggested for further elucidation of the structural details of the mRNA-rRNA interaction in the ribosome. frame monitoring / mRNA-rRNA interaction / ribosome",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - finding, 4 - finding"
+            ]
+        },
+        {
+            "input": "Epidemiologists aim to inform the design of public health interventions with evidence on the evolution, emergence and spread of infectious diseases. Sequencing of pathogen genomes, together with date, location, clinical manifestation and other relevant data about sample origins, can contribute to describing nearly every aspect of transmission dynamics, including local transmission and global spread. The analyses of these data have implications for all levels of clinical and public health practice, from institutional infection control to policies for surveillance, prevention and treatment. This review highlights the range of epidemiological questions that can be addressed from the combination of genome sequence and traditional 'line lists' (tables of epidemiological data where each line includes demographic and clinical features of infected individuals). We identify opportunities for these data to inform interventions that reduce disease incidence and prevalence. By considering current limitations of, and challenges to, interpreting these data, we aim to outline a research agenda to accelerate the genomics-driven transformation in public health microbiology.",
+            "output": [
+                "0 - background, 1 - background, 2 - finding, 3 - finding, 4 - finding, 5 - finding"
+            ]
+        },
+        {
+            "input": "Treatment with first-generation antihistamines reduces sneezing, rhinorrhea, nasal mucus weight, and, in some instances, cough in subjects with experimental or natural colds; however, treatment with second-generation antihistamines has not been effective for these complaints in trials in subjects with natural colds. This article reports the negative results of a clinical trial with loratadine, a second-generation antihistamine, in adults in the rhinovirus challenge model. This finding in the highly controlled setting of the challenge model confirms the earlier negative studies with second-generation antihistamines in natural colds. First-generation antihistamines block both histaminic and muscarinic receptors as well as passing the blood-brain barrier. Secondgeneration antihistamines mainly block histaminic receptors and do not pass the blood-brain barrier. The effectiveness of first-generation antihistamines in blocking sneezing in colds may be due primarily to neuropharmacological manipulation of histaminic and muscarinic receptors in the medulla.",
+            "output": [
+                "0 - background, 1 - purpose, 2 - finding, 3 - finding, 4 - finding, 5 - finding"
+            ]
+        },
+        {
+            "input": "The individual symptoms of a common cold are due to multiple and somewhat specific pathways of inflammation [1]. Sneezing has been generally thought to result from the release of histamine from nasal mast cells and basophils, which are activated by a cold virus infection. Supporting this belief is the finding that intranasal challenge with histamine in normal volunteers elicited sneezing whereas intranasal exposure to other",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding"
+            ]
+        },
+        {
+            "input": " Infectious acute respiratory disease (ARD) is a significant cause of worldwide morbidity, disproportionately affecting individuals living in crowded conditions, such as found at military training centers, school dormitories, and correctional facilities. Vaccines have been used to protect against ARD; however, these are not always available or effective.",
+            "output": [
+                "0 - background, 1 - background"
+            ]
+        },
+        {
+            "input": "The medical literature on preventive nonvaccine ARD interventions (NOVARDIs) for infectious diseases, which addressed personal measures, administrative controls, and engineering controls, was studied during 2000 to 2004. Population-based studies in community settings (non-health care) were reviewed in detail to evaluate the effectiveness of NOVARDIs. Budgetary and logistic factors as well as acceptance were considered in formulating recommendations for implementation of NOVARDIs in military training centers.",
+            "output": [
+                "0 - method, 1 - purpose, 2 - method"
+            ]
+        },
+        {
+            "input": "Thirty-eight population-based studies contained in 35 publications were examined. Three studies contained information on multiple NOVARDIs. Nine studies supported the use of personal measures relating to hand hygiene. Ten studies supported administrative controls such as cohorting military training units to reduce contact between units (4 studies), providing adequate personal space to reduce crowding (5), and cloth barriers between beds (1); and 14 studies supported the use of engineering controls such as increased indoor air dilution and ventilation (2), dust suppression (4), and air sterilization (8).",
+            "output": [
+                "0 - method, 1 - finding, 2 - finding, 3 - finding"
+            ]
+        },
+        {
+            "input": " Promoting hand hygiene and reducing crowding through the provision of adequate living space and cohorting of training units may offer benefits in respiratory disease control. These interventions, along with UV lights and air dilution/ventilation, deserve further evaluation in controlled studies to assess their efficacy. NOVARDIs could benefit military and other populations living in close contact. (Am J Prev Med 2005;28(3)305-316)",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding, 3 - other"
+            ]
+        },
+        {
+            "input": "The goal of this study was to determine whether the use of nesting material or polycarbonate shelters, as enrichment devices would have an impact on endpoints commonly measured during the conduct of the National Toxicology Program (NTP) 13-week studies. The study design was consistent with the NTP 13-week toxicity studies. Harlan Sprague Dawley (HSD) rats and their offspring, and B6C3F1/N mice were assigned to control (unenriched) and enriched experimental groups. Body weight, food and water consumption, behavioral observations, fecal content, clinical pathology, gross pathology, organ weights, and histopathology were evaluated. Enriched male mice and male and female rats exhibited decreased feed intake without a subsequent decrease in body weight; this may have been the result of the nesting material reducing the effect of cold stress thereby allowing for more efficient use of feed. There were statistical differences in some hematological parameters, however these were not considered physiologically relevant since all values were within the normal range. Gross pathology and histopathological findings were background changes and were not considered enrichment-related. Nesting material and shelters were used frequently and consistently and allowed animals to display species typical behavior. There was no significant impact on commonly measured endpoints in HSD rats and B6C3F1/N mice given enrichment devices.",
+            "output": [
+                "0 - purpose, 1 - method, 2 - method, 3 - method, 4 - finding, 5 - finding, 6 - finding, 7 - finding, 8 - finding"
+            ]
+        },
+        {
+            "input": " challenges of the working environment, problems impacting on the quality of nursing care, fear, anxiety, stress and risk of contracting infection, nurses' perceptions towards patients, support structure available in the hospital, and support needs for the nurses. Therefore, there is an urgent need to address the challenges experienced by nurses caring for communicable diseases through provision of a positive practice work environment.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - purpose, 4 - method, 5 - method, 6 - method, 7 - method, 8 - method, 9 - method, 10 - finding, 11 - finding"
+            ]
+        },
+        {
+            "input": "Nipah virus (NiV) and Hendra virus (HeV) are closely related, recently emerged paramyxoviruses that are capable of causing considerable morbidity and mortality in several mammalian species, including humans. Henipavirus-specific vaccines are still commercially unavailable, and development of novel antiviral strategies to prevent lethal infections due to henipaviruses is highly desirable. Here we describe the development of adeno-associated virus (AAV) vaccines expressing the NiV G protein. Characterization of these vaccines in mice demonstrated that a single intramuscular AAV injection was sufficient to induce a potent and longlasting antibody response. Translational studies in hamsters further demonstrated that all vaccinated animals were protected against lethal challenge with NiV. In addition, this vaccine induced a cross-protective immune response that was able to protect 50% of the animals against a challenge by HeV. This study presents a new efficient vaccination strategy against henipaviruses and opens novel perspectives on the use of AAV vectors as vaccines against emergent diseases.",
+            "output": [
+                "0 - background, 1 - background, 2 - purpose, 3 - finding, 4 - finding, 5 - finding, 6 - finding"
+            ]
+        },
+        {
+            "input": " (1) nominal breathing (up to 20 breaths per minute) and coughing (20 times per hour); (2) nominal breathing and sneezing (4 times per hour); and (3) nominal breathing only. Each scenario was implemented with one or seven infectious passengers expelling air and sneezes or coughs at the stated frequencies. Scenario 2 was implemented with two additional cases in which one infectious passenger expelled 20 and 50 sneezes per hour, respectively. All computations were based on 90 minutes of sampling using specifications from a COTS aerosol collector and biosensor. Only biosensors that could provide an answer in under 20 minutes without any manual preparation steps were included. The principal finding was that the steady-state bacteria concentrations in aircraft would be high enough to be detected in the case where seven infectious passengers are exhaling under scenarios 1 and 2 and where one infectious passenger is actively exhaling in scenario 2. Breathing alone failed to generate sufficient bacterial particles for detection, and none of the scenarios generated sufficient viral particles for detection to be feasible. These results suggest that more sensitive sensors than the COTS devices currently available and/or sampling of individual passengers would be needed for the detection of bacteria and viruses in aircraft.",
+            "output": [
+                "0 - background, 1 - purpose, 2 - method, 3 - method, 4 - method, 5 - method, 6 - method, 7 - method, 8 - finding, 9 - finding, 10 - finding"
+            ]
+        },
+        {
+            "input": "| Despite the success of the WHO-led smallpox eradication programme a quarter of a century ago, there remains considerable fear that variola virus, or other related pathogenic poxviruses such as monkeypox, could re-emerge and spread disease in the human population. Even today, we are still mostly ignorant about why most poxvirus infections of vertebrate hosts show strict species specificity, or how zoonotic poxvirus infections occur when poxviruses occasionally leap into novel host species. Poxvirus tropism at the cellular level seems to be regulated by intracellular events downstream of virus binding and entry, rather than at the level of specific host receptors as is the case for many other viruses. This review summarizes our current understanding of poxvirus tropism and host range, and discusses the prospects of exploiting host-restricted poxvirus vectors for vaccines, gene therapy or tissue-targeted oncolytic viral therapies for the treatment of human cancers.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - purpose"
+            ]
+        },
+        {
+            "input": "ZOONOSIS",
+            "output": [
+                "0 - other"
+            ]
+        },
+        {
+            "input": " Healthcare-associated infections are an important cause of morbidity and mortality, are among the most common adverse events in healthcare, and of them, pneumonia is the most commonly reported. Our objective was to evaluate the incidence and clinical outcome of respiratory viruses in hospital-acquired pneumonia (HAP).",
+            "output": [
+                "0 - background, 1 - purpose"
+            ]
+        },
+        {
+            "input": " This was a prospective cohort study, include patients aged between 0 and 18 who fulfilled Centers for Diseases Control and Prevention (CDC) criteria for HAP. Demographic and clinical data were obtained, and a nasopharyngeal swab specimen was taken for the detection of respiratory viruses. All included patients were monitored until discharge to collect data on the need for mechanical ventilation, intensive care unit (ICU) admission, and mortality. All-cause 30-day mortality was also ascertained.",
+            "output": [
+                "0 - method, 1 - method, 2 - method, 3 - method"
+            ]
+        },
+        {
+            "input": " Four thousand three hundred twenty-seven patients were followed for 42,658 patient-days and 5,150 ventilator-days. Eighty-eight patients (2.03%) met the CDC criteria for HAP, 63 patients were included, and clinical and epidemiological characteristics showed no statistically significant differences between patients with virus associated healthcare-associated pneumonia (VAHAP) and those with non-viral healthcare-associated pneumonia (NVHAP). At least one respiratory virus was detected in 65% [95% CI (53-77)] of episodes of HAP, with a single viral pathogen observed in 53.9% and coinfection with 2 viruses in 11.1% of cases. The outcome in terms of ICU admission, mechanical ventilation and the 30-day mortality did not show a significant difference between groups.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding, 3 - finding"
+            ]
+        },
+        {
+            "input": " In two-thirds of the patients a respiratory virus was identified. There was no difference in mortality or the rest of the clinical outcome variables. About half of the patients required mechanical ventilation and 10% died, which emphasizes the importance of considering these pathogens in nosocomial infections, since their identification can influence the decrease in hospital costs and be taken into account in infection control policies.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding"
+            ]
+        },
+        {
+            "input": " Over the past decade, a number of high-impact natural hazard events, together with the increased recognition of pandemic risks, have intensified interest in health systems' ability to prepare for, and cope with, \"surges\" (sudden large-scale escalations) in treatment needs. In this article, we identify key concepts and components associated with this emerging research theme. We consider the requirements for a standardized conceptual framework for future research capable of informing policy to reduce the morbidity and mortality impacts of such incidents. Here our objective is to appraise the consistency and utility of existing conceptualizations of health systems' surge capacity and their components, with a view to standardizing concepts and measurements to enable future research to generate a cumulative knowledge base for policy and practice.",
+            "output": [
+                "0 - background, 1 - purpose, 2 - purpose, 3 - purpose"
+            ]
+        },
+        {
+            "input": "A systematic review of the literature on concepts of health systems' surge capacity, with a narrative summary of key concepts relevant to public health.",
+            "output": [
+                "0 - method"
+            ]
+        },
+        {
+            "input": "The academic literature on surge capacity demonstrates considerable variation in its conceptualization, terms, definitions, and applications. This, together with an absence of detailed and comparable data, has hampered efforts to develop standardized conceptual models, measurements, and metrics. Some degree of consensus is evident for the components of surge capacity, but more work is needed to integrate them. The overwhelming concentration in the United States complicates the generalizability of existing approaches and findings.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding, 3 - finding"
+            ]
+        },
+        {
+            "input": "The concept of surge capacity is a useful addition to the study of health systems' disaster and/or pandemic planning, mitigation, and response,",
+            "output": [
+                "0 - finding"
+            ]
+        },
+        {
+            "input": "Neurons of the mammalian central nervous system (CNS) are an essential and largely nonrenewable cell population. Thus, viral infections that result in neuronal depletion, either by viral lysis or by induction of the cytolytic immune response, would likely lead to profound neurologic impairment. However, many viral infections that result in tissue destruction elsewhere in the host produce few overt symptoms in the CNS, despite readily detectable virus expression. This observation has lead to the speculation that neurons possess strategies to limit the replication and spread of otherwise cytopathic viruses. These strategies either favor the clearance of virus in the absence of appreciable neuronal loss or promote the establishment of noncytolytic persistent infections. This review discusses some of these strategies, with an emphasis on how such survival techniques lessen the potential for CNS neuropathology.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - finding, 4 - finding, 5 - finding"
+            ]
+        },
+        {
+            "input": " Virus Particle versus Infectious Particle",
+            "output": [
+                "0 - background"
+            ]
+        },
+        {
+            "input": " calving rate 1 (cows that calved from the initial number of pregnant cows) and calving rate 2 (cows that calved from cows pregnant at reexamination). In farm A, the percentages of early pregnancy loss were 11.5% (19 of 165) and 13.2% (24 of 182) for the CON and the ASP groups, respectively (P ¼ 0.64). In farm B, the percentage of early pregnancy loss was 11.2% (19 of 170) for the CON group and 8.8% (14 of 159; P ¼ 0.48) for the ASP group. In farm A, the percentage of late pregnancy loss was 7.6% (11 of 145) for the CON group and 5.5% (8 of 155; P ¼ 0.39) for the ASP group. In farm B, the percentage of late pregnancy loss was 3.7% (5 of 137) for the CON group and 6.3% (8 of 127; P ¼ 0.32) for the ASP group. In farm A, early pregnancy loss was higher than late pregnancy loss (12.4% vs. 6.3%; P ¼ 0.01), and in farm B, the same tendency was detected (10.0% vs. 4.9%, for early and late pregnancy loss, respectively; P ¼ 0.02). In farm A, calving rate 1 was 81.2% (134 of 165) for the CON group and 80.8% (147 of 182; P ¼ 0.92) for the ASP group. Calving rate 2 for the same groups was 92.4% (134 of 145) and 94.8% (147 of 155), respectively (P ¼ 0.68). In farm B, calving rate 1 was 77.7% (132 of 170) for the CON group and 74.8% (119 of 159; P ¼ 0.55) for the ASP group. Calving rates 2 for the same groups were 87.4% (132 of 151) and 82.1% (119 of 145), respectively (P ¼ 0.20). Two female calves with atresia coli were",
+            "output": [
+                "0 - purpose, 1 - method, 2 - method, 3 - method, 4 - method, 5 - method, 6 - method, 7 - method, 8 - finding, 9 - finding, 10 - finding, 11 - finding, 12 - finding, 13 - finding, 14 - finding, 15 - finding, 16 - finding, 17 - finding"
+            ]
+        },
+        {
+            "input": "The envelope spike (S) proteins of MERS-CoV and SARS-CoV determine the virus host tropism and entry into host cells, and constitute a promising target for the development of prophylactics and therapeutics. Here, we present high-resolution structures of the trimeric MERS-CoV and SARS-CoV S proteins in its pre-fusion conformation by single particle cryo-electron microscopy. The overall structures resemble that from other coronaviruses including HKU1, MHV and NL63 reported recently, with the exception of the receptor binding domain (RBD). We captured two states of the RBD with receptor binding region either buried (lying state) or exposed (standing state), demonstrating an inherently flexible RBD readily recognized by the receptor. Further sequence conservation analysis of six human-infecting coronaviruses revealed that the fusion peptide, HR1 region and the central helix are potential targets for eliciting broadly neutralizing antibodies.",
+            "output": [
+                "0 - background, 1 - purpose, 2 - background, 3 - finding, 4 - finding"
+            ]
+        },
+        {
+            "input": "Lipid rafts (LRs) play crucial roles in complex physiological processes, modulating innate and acquired immune responses to pathogens. The transmembrane C-type lectins human dendritic cell-specific intercellular adhesion molecule-3-grabbing nonintegrin (DC-SIGN) and its mouse homolog SIGN-R1 are distributed in LRs and expressed on splenic marginal zone (MZ) macrophages. The DC-SIGN-C1q or SIGN-R1-C1q complex could mediate the immunoglobulin (Ig)-independent classical complement pathway against Streptococcus pneumoniae. Precise roles of LRs during this complement pathway are unknown. Here we show that LRs are indispensable for accelerating the DC-SIGN-or SIGN-R1-mediated classical complement pathway against S. pneumoniae, thus facilitating rapid clearance of the pathogen. The trimolecular complex of SIGN-R1-C1q-C4 was exclusively enriched in LRs of splenic MZ macrophages and their localization was essential for activating C3 catabolism and enhancing pneumococcal clearance, which were abolished in SIGN-R1-knockout mice. However, DC-SIGN replacement on splenic MZ macrophage's LRs of SIGN-R1-depleted mice reversed these defects. Disruption of LRs dramatically reduced pneumococcal uptake and decomposition. Additionally, DC-SIGN, C1q, C4, and C3 were obviously distributed in splenic LRs of cadavers. Therefore, LRs on splenic SIGN-R1 + or DC-SIGN + macrophages could provide spatially confined and optimal bidirectional platforms, not only for usual intracellular events, for example recognition and phagocytosis of pathogens, but also an unusual extracellular event such as the complement system. These findings improve our understanding of the orchestrated roles of the spleen, unraveling a new innate immune system initiated from splenic MZ LRs, and yielding answers to several long-standing problems, including the need to understand the profound role of LRs in innate immunity, the need to identify how such a small portion of splenic SIGN-R1 + macrophages (<0.05% of splenic macrophages) effectively resist S. pneumoniae, and the need to understand how LRs can promote the protective function of DC-SIGN against S. pneumoniae in the human spleen.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - finding, 5 - finding, 6 - finding, 7 - finding, 8 - finding, 9 - finding, 10 - finding"
+            ]
+        },
+        {
+            "input": "Two serological tests were used to examine the antigenic relationships between murine hepatitis viruses that cause different diseases in mice. Antisera prepared by immunization of mice with the individual viruses were tested for their ability to neutralize both the homologous immunogen and the other viruses. By a plaque reduction neutralization test, each antiserum was found to be specific for the immunizing virus; however, there was substantial cross-reactivity, indicating the viruses were closely related. By kinetic neutralization, two of the viruses tested, MHV-JtIM and MHV-2, were found to be antigenically distinct. MHV-3 and MHV-A59 were found to be antigenieally very similar but distinct. These data show that kinetic neutralization is a more precise method for determining the antigenic relationships between murine coronaviruses.",
+            "output": [
+                "0 - method, 1 - method, 2 - method, 3 - finding, 4 - finding, 5 - finding"
+            ]
+        },
+        {
+            "input": "PA-X, a fusion protein belonging to influenza A viruses (IAVs), integrating the N-terminal 191 amino acids of PA gene and the ribosomal frame-shifting product that lengthens out to 41 or 61 amino acids. Since its discovery in 2012, multiple functions have been attributed to this small protein, including a process, where wide-spread protein synthesis in infected host cells is shut down (called host shutoff), and viral replication, polymerase activity, viral-induced cell apoptosis, PA nuclear localization, and virulence are modulated. However, many of its proposed functions may be specific to strain, subtype, host, or cell line. In this review, we start by describing the well-defined global host-shutoff ability of PA-X and the potential mechanisms underlying it. We move on to the role played by PA-X in modulating innate and acquired immune responses in the host. We then systematically discuss the role played by PA-X in modulating the virulence of influenza viruses of different subtypes and host origins, and finish with a general overview of the research advances made in identifying the host cell partners that interact with PA-X. To uncover possible clues about the differential effects of PA-X in modulating viral virulence, we focus on systemically evaluating polymorphisms in PA-X from various viral subtypes and hosts, including avian and human H5N1, H5N6, H9N2, and H7N9 viruses. Finally, we conclude with a proposition regarding the possible future research directions for this important protein.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - method, 4 - method, 5 - method, 6 - finding, 7 - finding"
+            ]
+        },
+        {
+            "input": "Staffing patterns and nurses' working conditions are risk factors for healthcare-associated infections as well as occupational injuries and infections. Staffing shortages, especially of nurses, have been identified as one of the major factors expected to constrain hospitals' ability to deal with future outbreaks of emerging infections. These problems are compounded by a global nursing shortage. Understanding and improving nurses' working conditions can potentially decrease the incidence of many infectious diseases. Relevant research is reviewed, and policy options are discussed.",
+            "output": [
+                "0 - background, 1 - background, 2 - finding, 3 - finding, 4 - finding"
+            ]
+        },
+        {
+            "input": "Cystoisosporosis is a leading diarrheal disease in suckling piglets. With the confirmation of resistance against the only available drug toltrazuril, there is a substantial need for novel therapeutics to combat the infection and its negative effects on animal health. In closely related apicomplexan species, bumped kinase inhibitors (BKIs) targeting calcium-dependent protein kinase 1 (CDPK1) were shown to be effective in inhibiting host-cell invasion and parasite growth. Therefore, the gene coding for Cystoisospora suis CDPK1 (CsCDPK1) was identified and cloned to investigate activity and thermal stabilization of the recombinant CsCDPK1 enzyme by BKI 1369. In this comprehensive study, the efficacy, safety and pharmacokinetics of BKI 1369 in piglets experimentally infected with Cystoisospora suis (toltrazuril-sensitive, Wien-I and toltrazuril-resistant, Holland-I strains) were determined in vivo and in vitro using an established animal infection model and cell culture, respectively. BKI 1369 inhibited merozoite proliferation in intestinal porcine epithelial cells-1 (IPEC-1) by at least 50% at a concentration of 40 nM, and proliferation was almost completely inhibited (> 95%) at 200 nM. Nonetheless, exposure of infected cultures to 200 nM BKI 1369 for five days did not induce structural alterations in surviving merozoites as confirmed by transmission electron microscopy. Five-day treatment with BKI 1369 (10 mg/kg BW twice a day) effectively suppressed oocyst excretion and diarrhea and improved body weight gains in treated piglets without obvious side effects for both toltrazuril-sensitive, Wien-I and resistant, Holland-I C. suis strains. The plasma concentration of BKI 1369 in piglets increased to 11.7 μM during treatment, suggesting constant drug accumulation and exposure of parasites to the drug. Therefore, oral applications of BKI 1369 could potentially be a therapeutic alternative against porcine cystoisosporosis. For use in pigs, future studies on BKI 1369 should be directed towards ease of drug handling and minimizing treatment frequencies.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - purpose, 5 - finding, 6 - finding, 7 - finding, 8 - finding, 9 - finding, 10 - finding"
+            ]
+        },
+        {
+            "input": "1-11 SIGNIFICANCE A lung niche-like microenvironment was created ex vivo inside the pneumosphere. Pneumospheres have a distinctive secretomic profile compared with two-dimensional culture. Three-dimensional culture switch significantly affects lung progenitor phenotype. Lung progenitors in pneumospheres were more committed toward epithelial lineages.",
+            "output": [
+                "0 - background, 1 - background, 2 - purpose, 3 - method, 4 - method, 5 - finding, 6 - finding, 7 - finding, 8 - finding, 9 - finding, 10 - finding, 11 - finding, 12 - finding"
+            ]
+        },
+        {
+            "input": "The autophagy pathway likely evolved not only to maintain cellular and tissue homeostasis but also to protect cells against microbial attack. This conserved mechanism by which cytoplasmic cargo is delivered to the endolysosomal system is now recognized as a central player in coordinating the host response to diverse intracellular pathogens, including viruses. As an endolysosomal delivery system, autophagy functions in the transfer of viruses from the cytoplasm to the lysosome where they are degraded, in the transfer of viral nucleic acids to endosomal sensors for the activation of innate immunity, and in the transfer of endogenous viral antigens to MHC class II compartments for the activation of adaptive immunity. Viruses have, in turn, evolved different strategies to antagonize, and potentially, to exploit the host autophagic machinery. Moreover, through mechanisms not yet well understood, autophagy may dampen host innate immune and inflammatory responses to viral infection. This review highlights the roles of autophagy in antiviral immunity, viral strategies to evade autophagy, and potential negative feedback functions of autophagy in the host antiviral response.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - background, 5 - purpose"
+            ]
+        },
+        {
+            "input": " 397-402] BMB Rep. 2019; 52(6) 397-402 www.bmbreports.org",
+            "output": [
+                "0 - background, 1 - method, 2 - finding, 3 - finding, 4 - finding, 5 - finding, 6 - other"
+            ]
+        },
+        {
+            "input": "publicly funded repositories, such as the WHO COVID database with rights for unrestricted research re-use and analyses in any form or by any means with acknowledgement of the original source. These permissions are granted for free by Elsevier for as long as the COVID-19 resource centre remains active. The Range of Possible Terms and Meanings Is Vast 43 F ! G U R E 4.1 Relative size of vocabularies.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background"
+            ]
+        },
+        {
+            "input": "The first thing to note is that somehow society works despite the fact that most of us understand between 2% and 4% of the vocabulary we supposedly share. What is not shown here is an extreme skew toward the most commonly used words, which is where we do most of our communicating. I'll use the same scales as we explore specialized vocabularies in business, but for now, file this away.",
+            "output": [
+                "0 - background, 1 - background, 2 - background"
+            ]
+        },
+        {
+            "input": "A dialect is a regional variation of a language, distinguished often by differences in pronunciation and vocabulary. For instance, we might speak of a Cockney British dialect. As we will see, businesses (more specifically their industries) create their own unique dialects.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding"
+            ]
+        },
+        {
+            "input": "The consequences of natural infections by bovine virus diarrhoea virus (BVDV) in a dairy herd comprising approximately 60 cows were studied over a 3 year period. The outcome of 39 pregnancies after artificial insemination or natural service during a 4 month period of risk for contracting BVDV was nine abortions, one mummified foetus, one stillbirth, three calves that died within I week of age, 12 calves persistently infected (PI) with BVDV (11 males and one female) and 13 non-PI calves. Retrospective studies showed that only two of the 13 dams (15.4%) ofnon-PI calves had been inseminated once, which is a significantly (P< 0.001 ) lower rate than for 192 other gestations (66.7%) during the 3 year period.",
+            "output": [
+                "0 - method, 1 - finding, 2 - finding"
+            ]
+        },
+        {
+            "input": "The gestational duration of multiparous cows (but not of heifers ) was longer (P < 0.01 ) for five cows with PI calves (mean + SD 287.6 + 9.5 days) than for 53 other gestations in 35 cows (280.6 + 3.8 days). Five of the 12 dams of the PI calves had not expelled the foetal membranes within 2 days after calving, which is a higher (P<0.001) incidence than the seven cases of retained placenta observed after 198 other calvings. Furthermore, there was a 4.4-fold higher risk (P < 0.01 ) of treatment for enteritis and/or pneumonia in calves and a 6.0-fold higher risk of calf mortality associated with the introduction of BVDV. The mean heart girth of the PI calves was less (P< 0.05) than that of non-PI calves, at both 80 and 180 days of age.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding, 3 - finding"
+            ]
+        },
+        {
+            "input": "Contact history is crucial during an infectious disease outbreak and vital when seeking to understand and predict the spread of infectious diseases in human populations. e transmission connectivity networks of people infected with highly contagious Middle East respiratory syndrome coronavirus (MERS-CoV) in Saudi Arabia were assessed to identify super-spreading events among the infected patients between 2012 and 2016. Of the 1379 MERS cases recorded during the study period, 321 (23.3%) cases were linked to hospital infection, out of which 203 (14.7%) cases occurred among healthcare workers. ere were 1113 isolated cases while the number of recorded contacts per MERS patient is between 1 (n � 210) and 17 (n � 1), with a mean of 0.27 (SD � 0.76). Five super-important nodes were identified based on their high number of connected contacts worthy of prioritization (at least degree of 5). e number of secondary cases in each SSE varies (range, 5-17). e eigenvector centrality was significantly (p < 0.05) associated with place of exposure, with hospitals having on average significantly higher eigenvector centrality than other places of exposure. Results suggested that being a healthcare worker has a higher eigenvector centrality score on average than being nonhealthcare workers. Pathogenic droplets are easily transmitted within a confined area of hospitals; therefore, control measures should be put in place to curtail the number of hospital visitors and movements of nonessential staff within the healthcare facility with MERS cases.",
+            "output": [
+                "0 - background, 1 - background, 2 - finding, 3 - finding, 4 - finding, 5 - finding, 6 - finding, 7 - finding, 8 - finding"
+            ]
+        },
+        {
+            "input": "Duckweeds are small, floating aquatic plants with a number of useful characteristics, including edibility, fastgrowing, and a clonal proliferation. Duckweed is also fed to animals as a diet complement because of its high nutritional value. Porcine epidemic diarrhea virus (PEDV) is a major causative agent of fatal diarrhea in piglets and is a serious problem in the hog-raising industry. In this study, we assessed the feasibility of producing a protective antigen for the PEDV spike protein 1 using duckweed, Lemna minor. Stably transformed Lemna were obtained by co-cultivation with A. tumefaciens EHA105 harboring the PEDV spike protein gene. Transgene integration and expression of the PEDV spike protein 1 gene were confirmed by genomic PCR and RT-PCR and western blot analysis of transgenic Lemna, respectively. This is the first report of the expression of a vaccine antigen against an animal infectious disease in duckweed.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - purpose, 4 - method, 5 - method, 6 - finding"
+            ]
+        },
+        {
+            "input": " aquatic plant, porcine diarrhea, spike protein, transformation, vaccine Hort. Environ. Biotechnol. 52(5)511-515. 2011.",
+            "output": [
+                "0 - finding, 1 - other, 2 - other, 3 - other, 4 - other"
+            ]
+        },
+        {
+            "input": "h i g h l i g h t s",
+            "output": [
+                "0 - background"
+            ]
+        },
+        {
+            "input": "• Propose two parameters, denoting different isolating rates on latent period and invasion period respectively. • Propose the method of delivering specific messages. • Experiments on different complex networks show that the method has great performance. • A location-based social network is used in the experiments, which is justified to have 30% similarity with the real world.",
+            "output": [
+                "0 - purpose, 1 - purpose, 2 - background, 3 - background"
+            ]
+        },
+        {
+            "input": "The model provides two novel strategies for the preventive control of epidemic diseases. One approach is related to the different isolating rates in latent period and invasion period. Experiments show that the increasing of isolating rates in invasion period, as long as over 0.5, contributes little to the preventing of epidemic; the improvement of isolation rate in latent period is key to control the disease spreading. Another is a specific mechanism of message delivering and forwarding. Information quality and information accumulating process are also considered there. Macroscopically, diseases are easy to control as long as the immune messages reach a certain quality. Individually, the accumulating messages bring people with certain immunity to the disease. Also, the model is performed on the classic complex networks like scale-free network and small-world network, and locationbased social networks. Results show that the proposed measures demonstrate superior performance and significantly reduce the negative impact of epidemic disease.",
+            "output": [
+                "0 - method, 1 - finding, 2 - finding, 3 - finding, 4 - finding, 5 - finding, 6 - finding, 7 - finding, 8 - finding"
+            ]
+        },
+        {
+            "input": "The rapid diffusion of social media is ushering in a new era of crisis communication. To enhance our understanding of the social-mediated dialogue between organizations and their publics in crises of China, this study conducts a content analysis of 61 relevant journal articles published in 2006-2018. Results of this research present an overview of ongoing research trends such as theoretical frameworks and methodological preferences. This research also explores how the unique Chinese social media characteristics affect the dialogue between types of organizations and their publics. Contextual factors such as face and favor, relationship (Guanxi) and sentiment (Renqing), and the centralized political system that may facilitate/inhibit dialogue in crises of China are identified as well. Finally, this study suggests promising new directions such as a scholarly assessment tool for the social-mediated crisis communication research in China.",
+            "output": [
+                "0 - background, 1 - background, 2 - finding, 3 - finding, 4 - finding, 5 - finding"
+            ]
+        },
+        {
+            "input": "The emergence of the highly pathogenic SARS coronavirus (SARS-CoV) has reignited interest in coronavirus biology and pathogenesis. An emerging theme in coronavirus pathogenesis is that the interaction between specific viral genes and the host immune system, specifically the innate immune system, functions as a key determinant in regulating virulence and disease outcomes. Using SARS-CoV as a model, we will review the current knowledge of the interplay between coronavirus infection and the host innate immune system in vivo, and then discuss the mechanisms by which specific gene products antagonize the host innate immune response in cell culture models. Our data suggests that the SARS-CoV uses specific strategies to evade and antagonize the sensing and signaling arms of the interferon pathway. We summarize by identifying future points of consideration that will contribute greatly to our understanding of the molecular mechanisms governing coronavirus pathogenesis and virulence, and the development of severe disease in humans and animals.",
+            "output": [
+                "0 - background, 1 - background, 2 - purpose, 3 - finding, 4 - finding"
+            ]
+        },
+        {
+            "input": "17 (4XBB), NVPro44-h (4XBC) and NVPro44-o (4XBD).",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - purpose, 4 - purpose, 5 - other, 6 - other, 7 - method"
+            ]
+        },
+        {
+            "input": "We initially focused on the design of peptidyl transition state inhibitors of NV 3CLpro that incorporate in their structure a recognition element (a peptidyl fragment) that is congruent with the known substrate specificity of the enzyme (vide supra) and a warhead (aldehyde or α-ketoamide), latent warhead (bisulfite adduct) or transition state mimic (α- Kankanamalage et al. The synthesized compounds were evaluated for their inhibitory activity against NV 3CLpro, as well as their anti-norovirus activity in a cell-based replicon system, as previously Kankanamalage et al. In order to evaluate the specific interactions between the enzyme and the αhydroxyphosphonate inhibitors, inhibitor 17 was incubated with NV 3CLpro in Tris buffer, pH 8.0. Surprisingly, the enzyme-inhibitor complex formed corresponded to the complex formed between aldehyde 16 and 3CL protease. The formation of this complex indicates initial non-enzymatic (buffer)-or enzyme-catalyzed conversion of α-hydroxyphosphonate 17 to the corresponding aldehyde 16, followed by the formation of a tetrahedral adduct with the active site cysteine (Cys139). Studies aimed at ascertaining the validity of this hypothesis are in progress. The ensemble of hydrogen bonding and hydrophobic interactions Kankanamalage et al. ",
+            "output": [
+                "0 - method, 1 - method, 2 - method, 3 - finding, 4 - finding, 5 - finding, 6 - finding"
+            ]
+        },
+        {
+            "input": "Background-Graphics are increasingly used to represent the spread of infectious diseases (e.g., influenza, Zika, Ebola); however, the impact of using graphics to adequately inform the general population is unknown.",
+            "output": [
+                "0 - background"
+            ]
+        },
+        {
+            "input": "Objective-To examine whether three ways of visually presenting data (heat map, dot map, or picto-trendline)-all depicting the same information regarding the spread of a hypothetical outbreak of influenza-influence intent to vaccinate, risk perception, and knowledge.",
+            "output": [
+                "0 - purpose"
+            ]
+        },
+        {
+            "input": "Design-Survey with participants randomized to receive a simulated news article accompanied by one of the three graphics that communicated prevalence of influenza and number of influenzarelated deaths.",
+            "output": [
+                "0 - method"
+            ]
+        },
+        {
+            "input": "Participants-16,510 adults living in 11 countries selected using stratified random sampling based on age and gender Measurements-After reading the article and viewing the presented graphic, participants completed a survey that measured interest in vaccination, perceived risk of contracting disease, knowledge gained, interest in additional information about the disease, and perception of the graphic.",
+            "output": [
+                "0 - method"
+            ]
+        },
+        {
+            "input": "Results-Heat maps and picto-trendlines were evaluated more positively than dot maps. Heat maps were more effective than picto-trendlines and no different from dot maps at increasing interest in vaccination, perceived risk of contracting disease, and interest in additional information about the disease. Heat maps and picto-trendlines were more successful at conveying knowledge than dot maps. Overall, heat maps were the only graphic to be superior in every outcome.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding, 3 - finding"
+            ]
+        },
+        {
+            "input": "Conclusion-Heat maps are a viable option to promote interest in and concern about infectious diseases.",
+            "output": [
+                "0 - finding"
+            ]
+        },
+        {
+            "input": "The cancer diagnostic is a complex process and, sometimes, the specific markers can interfere or produce negative results. Thus, new simple and fast theoretical models are required. One option is the complex network graphs theory that permits us to describe any real system, from the small molecules to the complex genetic, neural or social networks by transforming real properties in topological indices. This work converts the protein primary structure data in specific Randic's star networks topological indices using the new sequence to star networks (S2SNet) application. A set of 1054 proteins were selected from previous works and contains proteins related or not with two types of cancer, human breast cancer (HBC) and human colon cancer (HCC). The general discriminant analysis method generates an input-coded multi-target classification model with the training/predicting set accuracies of 90.0% for the forward stepwise model type. In addition, a protein subset was modified by single amino acid mutations with higher log-odds PAM250 values and tested with the new classification if can be related with HBC or HCC. In conclusion, we shown that, using simple input data such is the primary protein sequence and the simples linear analysis, it is possible to obtain accurate classification models that can predict if a new protein related with two types of cancer. These results promote the use of the S2SNet in clinical proteomics.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - method, 4 - method, 5 - finding, 6 - finding, 7 - finding, 8 - finding"
+            ]
+        },
+        {
+            "input": "A pan-viral DNA microarray, the Virochip (University of California, San Francisco), was used to detect human parainfluenzavirus 4 (HPIV-4) infection in an immunocompetent adult presenting with a life-threatening acute respiratory illness. The virus was identified in an endotracheal aspirate specimen, and the microarray results were confirmed by specific polymerase chain reaction and serological analysis for HPIV-4. Conventional clinical laboratory testing using an extensive panel of microbiological tests failed to yield a diagnosis. This case suggests that the potential severity of disease caused by HPIV-4 in adults may be greater than previously appreciated and illustrates the clinical utility of a microarray for broad-based viral pathogen screening.",
+            "output": [
+                "0 - background, 1 - method, 2 - finding, 3 - finding"
+            ]
+        },
+        {
+            "input": " Sawicki SG, Sawicki DL, Younker D, Meyer Y, Thiel V, et al. (2005) Functional and genetic analysis of coronavirus replicase-transcriptase proteins. PLoS Pathog 1(4) e39.",
+            "output": [
+                "0 - background, 1 - background, 2 - finding, 3 - finding, 4 - finding, 5 - finding, 6 - finding, 7 - finding, 8 - other, 9 - other"
+            ]
+        },
+        {
+            "input": "Peptide based-vaccines are becoming one of the most widely investigated prophylactic and therapeutic health care interventions against a variety of diseases, including cancer. However, the lack of a safe and highly efficient adjuvant (immune stimulant) is regarded as the biggest obstacle to vaccine development. The incorporation of a peptide antigen in a nanostructure-based delivery system was recently shown to overcome this obstacle. Nanostructures are often formed from antigens conjugated to molecules such as polymers, lipids, and peptide, with the help of selfassembly phenomenon. This review describes the application of self-assembly process for the production of peptide-based vaccine candidates and the ability of these nanostructures to stimulate humoral and cellular immune responses.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - purpose"
+            ]
+        },
+        {
+            "input": "T stimulate a cytotoxic T lymphocyte response to eliminate cells that are already infected [8] [9] [10] . Therapeutic vaccines are a growing pharmaceutical sector. Sipuleucel-T (Provenge®) was approved by Food and Drug Administration (FDA) in 2010 for prostate cancer [11, 12] and talimogene laherparepvec (T-VEC) (Imlygic™) was introduced against metastatic melanoma in 2015 [13] [14] [15] .",
+            "output": [
+                "0 - background, 1 - background, 2 - background"
+            ]
+        },
+        {
+            "input": "Despite their advantages, vaccines also have some drawbacks. Traditional vaccines based on attenuated and inactivated pathogens may revert to virulent form [16, 17] , cause autoimmunity or strong allergic responses [18, 19] . Additionally, the production and stability of this type of vaccine is often challenging. Subunit vaccines contain a small fragment of the whole pathogenic organism, for instance a recombinant protein, peptide, carbohydrate [20] [21] [22] [23] . Recombinant protein-based vaccines cause fewer adverse effects, but the difficulty with protein extraction and possible contamination during production are significant disadvantages. Recombinant vaccine can also trigger undesired immune responses. To avoid these obstacles minimal fragment of protein caring immunological information (peptide epitope) can be used for vaccine design [3] . However, peptide-based vaccines still have their own Achilles' heel. Peptides themselves are usually not immunogenic [3, 24] ; therefore, the use of immunostimulating agents (adjuvants) are essential for the success of this vaccine formulation [25] .",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - background, 5 - background, 6 - background, 7 - background, 8 - background"
+            ]
+        },
+        {
+            "input": "Adjuvants are compounds that are able to evoke or enhance the immune response against co-delivered antigens [26] [27] [28] . A number of adjuvants have already been developed, for example Freund's adjuvant, lipid A, cholera toxin, aluminum salts, cytokines, liposomes, saponins, and CpG oligodeoxynucleotides [29] [30] [31] . However, the immunostimulating properties of these adjuvants are often poor or their toxicity is significant, therefore most of them are not suitable for human treatment. Thus, safer and more efficient adjuvants are urgently required [27] .",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background"
+            ]
+        },
+        {
+            "input": "Nanotechnology is one of the most quickly growing fields of science and engineering. It has been widely applied in materials, electronics, manufacturing, agricultural science, chemistry and bioscience [32] [33] [34] [35] [36] [37] . In bioscience, nanotechnology is used to create sensors, medical imaging and diagnostic tools, and for drug delivery. The most widely used nanostructures in this field are nanoparticles. Nanoparticles are often defined as particles with diameters ranging from 1 to 100 nm [24, 38] , while particles with diameter within the range of 100 to 1000 nm are considered sub-micro particles. However, following common understanding of \"nano-size\" range, nanostructures in this article are defined as any nanometer-sized object ranging from 1 to 1000 nm [39, 40] .",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - background, 5 - background"
+            ]
+        },
+        {
+            "input": "Nanoparticles are especially useful in vaccine design. Many pathogens are within the nanometer range, nanoparticles are usually taken up efficiently by antigen-presenting cells (APCs) [41] . APCs are the key element of the primary innate immune system [42] and are responsible for triggering further adaptive immune responses. Therefore nanostructures often have immunostimulating properties and help to trigger immune reactions against the antigens they delivered (Fig. 1) [24, 43, 44] . Moreover, the surface of nanostructures can be modified with a specific targeting moiety for better APC recognition and uptake [45] [46] [47] .",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - background"
+            ]
+        },
+        {
+            "input": " (1) mechanically breaking a large material into nanostructures, or (2) building up nanostructures from basic segments, often via a self-assembly process [48] . The first approach uses external forces like grinding, milling, or high pressure to break down the original material [49] [50] [51] . This process adds additional complexity to producing a nanostructure and the harsh conditions used to break down the initial component may damage the antigen. Nanostructures produced by this method typically have a low loading capacity and are often not biodegradable and thus may accumulate in the human tissues. Meanwhile, self-assembly-based strategies for production of nanoparticle vaccines can overcome these problems.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - background"
+            ]
+        },
+        {
+            "input": "Here, we highlight how the use of carrier-antigen conjugates forming self-assembling nanostructures can be effectively combined with the rational vaccine design. The formation of self-assembled nanoparticles from carrier-antigen (peptide epitopes) conjugates, and their ability to generate humoral/cellular immune responses are discussed (Fig. 1) . Extensive reviews on non-conjugated selfassembled antigen carrier, such as liposomes, can be found in the recent literature [52] [53] [54] [55] . Similarly, virus-like particles (VLPs), which are formed by self-assembly processes, have been reviewed extensively in the recent literature [56-58] and therefore are Fig. 1. Schematic representation of the self-assembled peptide subunit vaccines and the immune responses induced upon immunization with these nanostructures. G. Zhao et al.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding, 3 - finding, 4 - finding, 5 - finding"
+            ]
+        },
+        {
+            "input": "Veal calf hemorrhagic enteritis, a condition that has no identified specific etiology, is a fatal syndrome of veal calves and has recently become a major concern of the veal calf industry in the midwestern United States. To determine the possible role of common enteric pathogens in this disease, 40 veal calves with hemorrhagic enteritis (cases) and 25 dairy calves diagnosed with enteric infection (control) were investigated. The veal calves were negative for several known enteric pathogens except for pathogenic Escherichia coil isolates that expressed multiple virulence attributes. To determine whether such isolates have a significant association with hemorrhagic enteritis in veal calves, we compared the prevalence of pathogenic E. coli in the 40 veal calves with the prevalence of similar E. coil in the dairy calves that were diagnosed with colibacillosis within the same season of the year. Escherichia coil isolates from the two groups of calves were tested for several properties orE. coil related to pathogenicity, i.e. production of verotoxins, heat-stable enterotoxin (STa), heat-labile enterotoxin, enterohemolysin, K99 fimbrial antigens, hemagglutination activity, and attachment to Hep-2 tissue culture cells. Escherichia coil that produce ST a were more commonly isolated from veal calves with hemorrhagic enteritis (45%) than from dairy calves with enteritis (12%) ( P < 0.05 ). Various patterns of attachment of E. coil to Hep-2 tissue culture cells were studied. The E. coil that demonstrated aggregative patterns of attachment were more commonly represented in veal calves (32%) than in dairy calves (8%). We observed that there was no correlation between STa production and K99 pill expression among the enterotoxigenic E. coli (ETEC) isolates that were recovered from veal calves.",
+            "output": [
+                "0 - background, 1 - purpose, 2 - finding, 3 - purpose, 4 - method, 5 - method, 6 - finding, 7 - finding, 8 - finding, 9 - finding"
+            ]
+        },
+        {
+            "input": "This may indicate the emergence of K99-negative ETEC, probably as a result of the wide use of K99based vaccines.",
+            "output": [
+                "0 - finding"
+            ]
+        },
+        {
+            "input": "Ontario nurses were employed as the front-line workers when SARS descended upon Toronto in March 2003. Once the crisis had subsided, many nurses remarked that SARS had forever altered their chosen profession; employment, which they once viewed as relatively safe, had been transformed into potentially life-threatening. This discussion provides descriptions of these expressions through nurses who experienced the crisis and chose to go on the public record. Secondly, it compares the subjective perceptions of those nurses to those held by nurses who worked through historical epidemics of unknown or contested epidemiology. The historical literature on nursing in yellow fever, cholera and influenza epidemics has been employed to offer insight. The goal is to determine whether the SARS outbreak was a unique experience for nurses or whether similar experiences were shared by nurses in the past? In summary, the reactions of nurses when confronted with the possibility of contracting a deadly disease remain altogether human, not dissimilar in past or present. Nurses' responses to SARS can be usefully studied within a larger historical vision of crisis nursing, and information or impressions from earlier crises are potentially of interest to the nursing profession.",
+            "output": [
+                "0 - background, 1 - background, 2 - purpose, 3 - purpose, 4 - method, 5 - purpose, 6 - finding, 7 - finding"
+            ]
+        },
+        {
+            "input": " clinical article.",
+            "output": [
+                "0 - background, 1 - background, 2 - other"
+            ]
+        },
+        {
+            "input": " Production of native antigens for serodiagnosis of helminthic infections is laborious and hampered by batchto-batch variation. For serodiagnosis of echinococcosis, especially cystic disease, most screening tests rely on crude or purified Echinococcus granulosus hydatid cyst fluid. To resolve limitations associated with native antigens in serological tests, the use of standardized and highly pure antigens produced by chemical synthesis offers considerable advantages, provided appropriate diagnostic sensitivity and specificity is achieved.",
+            "output": [
+                "0 - background, 1 - background, 2 - background"
+            ]
+        },
+        {
+            "input": " Making use of the growing collection of genomic and proteomic data, we applied a set of bioinformatic selection criteria to a collection of protein sequences including conceptually translated nucleotide sequence data of two related tapeworms, Echinococcus multilocularis and Echinococcus granulosus. Our approach targeted alphahelical coiled-coils and intrinsically unstructured regions of parasite proteins potentially exposed to the host immune system. From 6 proteins of E. multilocularis and 5 proteins of E. granulosus, 45 peptides between 24 and 30 amino acids in length were designed. These peptides were chemically synthesized, spotted on microarrays and screened for reactivity with sera from infected humans. Peptides reacting above the cut-off were validated in enzyme-linked immunosorbent assays (ELISA). Peptides identified failed to differentiate between E. multilocularis and E. granulosus infection. The peptide performing best reached 57% sensitivity and 94% specificity. This candidate derived from Echinococcus multilocularis antigen B8/1 and showed strong reactivity to sera from patients infected either with E. multilocularis or E. granulosus.",
+            "output": [
+                "0 - method, 1 - method, 2 - method, 3 - method, 4 - method, 5 - finding, 6 - finding, 7 - finding"
+            ]
+        },
+        {
+            "input": " This study provides proof of principle for the discovery of diagnostically relevant peptides by bioinformatic selection complemented with screening on a high-throughput microarray platform. Our data showed that a single peptide cannot provide sufficient diagnostic sensitivity whereas pooling several peptide antigens improved sensitivity; thus combinations of several peptides may lead the way to new diagnostic tests that replace, or at least complement conventional immunodiagnosis of echinococcosis. Our strategy could prove useful for diagnostic developments in other pathogens.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding"
+            ]
+        },
+        {
+            "input": "A rapid diagnostic method based on the melting curve SYBR Green I real-time PCR analysis was developed to detect and differentiate Newcastle disease virus (NDV) strains. Degenerated primers based on the cleavage site sequence of the F0 gene were designed to detect specific sequences characteristic of virulent and avirulent strains of NDV.",
+            "output": [
+                "0 - background, 1 - background"
+            ]
+        },
+        {
+            "input": "Eighteen strains of NDV from four lineages were identified and grouped into virulent and avirulent strains. Peaks on the melting temperature graph with melting temperature values between 80.00 and 83.80 • C were observed for lentogenic (avirulent) strains. T m values higher than 83.80 were observed for virulent (mesogenic and velogenic) strains. The detection limit of real-time PCR was 2 × 10 2 plasmid copies per reaction or 10 2 EID 50 for velogenic strains and 10 3 EID 50 for lentogenic strains.",
+            "output": [
+                "0 - method, 1 - method, 2 - method, 3 - method"
+            ]
+        },
+        {
+            "input": "The results obtained in this study demonstrate the possible applications for melting curve real-time PCR analysis in laboratory practice for the diagnosis and differentiation of avirulent and virulent strains of Newcastle disease virus.",
+            "output": [
+                "0 - finding"
+            ]
+        },
+        {
+            "input": "In response to viral infections, the mammalian innate immune system induces the production of the second messenger 2'-5' oligoadenylate (2-5A) to activate latent ribonuclease L (RNase L) that restricts viral replication and promotes apoptosis. A subset of rotaviruses and coronaviruses encode 2',5'-phosphodiesterase enzymes that hydrolyze 2-5A, thereby inhibiting RNase L activation. We report the crystal structure of the 2',5'-phosphodiesterase domain of group A rotavirus protein VP3 at 1.39 Å resolution. The structure exhibits a 2H phosphoesterase fold and reveals conserved active site residues, providing insights into the mechanism of 2-5A degradation in viral evasion of host innate immunity.",
+            "output": [
+                "0 - background, 1 - background, 2 - method, 3 - finding"
+            ]
+        },
+        {
+            "input": " handwashing more than 10 times daily (odds ratio 0.45, 95% confidence interval 0.36 to 0.57; number needed to treat=4, 95% confidence interval 3.65 to 5.52), wearing masks (0.320.25 to 0.40; NNT=6, 4.54 to 8.03), wearing N95 masks (0.090.03 to 0.30; NNT=3, 2.37 to 4.06), wearing gloves (0.430.29 to 0.65; NNT=5, 4.15 to 15.41), wearing gowns (0.230.14 to 0.37; NNT=5, 3.37 to 7.12), and handwashing, masks, gloves, and gowns combined (0.090.02 to 0.35; NNT=3, 2.66 to 4.97). The combination was also effective in interrupting the spread of influenza within households. The highest quality cluster randomised trials suggested that spread of respiratory viruses can be prevented by hygienic measures in younger children and within households. Evidence that the more uncomfortable and expensive N95 masks were superior to simple surgical masks was limited, but they caused skin irritation. The incremental effect of adding virucidals or antiseptics to normal handwashing to reduce respiratory disease remains uncertain. Global measures, such as screening at entry ports, were not properly evaluated. Evidence was limited for social distancing being effective, especially if related to risk of exposure-that is, the higher the risk the longer the distancing period. Conclusion Routine long term implementation of some of the measures to interrupt or reduce the spread of respiratory viruses might be difficult. However, many simple and low cost interventions reduce the transmission of epidemic respiratory viruses. More resources should be invested into studying which physical interventions are the most effective, flexible, and cost effective means of minimising the impact of acute respiratory tract infections.",
+            "output": [
+                "0 - purpose, 1 - method, 2 - method, 3 - method, 4 - method, 5 - method, 6 - method, 7 - method, 8 - finding, 9 - finding, 10 - finding, 11 - finding, 12 - finding, 13 - finding, 14 - finding, 15 - finding, 16 - finding, 17 - finding, 18 - finding"
+            ]
+        },
+        {
+            "input": "Human bocavirus was detected in 57 (18.3%) of 312 children with acute respiratory infection (ARI) who required hospitalization in Jordan. It was also detected in 30 (21.7%) of 138 children with severe ARI, in 27 (15.5%) of 174 with mild or moderate disease, and in 41 (72%) of 57 with other pathogens.",
+            "output": [
+                "0 - finding, 1 - finding"
+            ]
+        },
+        {
+            "input": "A series of novel 5-pyrazoline substituted 4-thiazolidinones have been synthesized. Target compounds were evaluated for their anticancer activity in vitro within DTP NCI protocol. Among the tested compounds, the derivatives 4d and 4f were found to be the most active, which demonstrated certain sensitivity profile toward the leukemia subpanel cell lines with GI 50 value ranges of 2.12e4.58 mM (4d) and 1.64e3.20 mM (4f). The screening of antitrypanosomal and antiviral activities of 5-(3-naphthalen-2yl-5-aryl-4,5-dihydropyrazol-1-yl)-thiazolidine-2,4-diones was carried out with the promising influence of the mentioned compounds on Trypanosoma brucei, but minimal effect on SARS coronavirus and influenza types A and B viruses.",
+            "output": [
+                "0 - method, 1 - method, 2 - finding, 3 - finding"
+            ]
+        },
+        {
+            "input": " The Iberian lynx (Lynx pardinus) is considered the most endangered felid species in the world. In order to save this species, the Spanish authorities implemented a captive breeding program recruiting lynxes from the wild. In this context, a retrospective survey on prevalence of selected feline pathogens in free-ranging lynxes was initiated.",
+            "output": [
+                "0 - background, 1 - background, 2 - purpose"
+            ]
+        },
+        {
+            "input": "Programmed ribosomal frameshifting (PRF) serves as an intrinsic translational regulation mechanism employed by some viruses to control the ratio between structural and enzymatic proteins. Most viral mRNAs which use PRF adapt an H-type pseudoknot to stimulate −1 PRF. The relationship between the thermodynamic stability and the frameshifting efficiency of pseudoknots has not been fully understood. Recently, single-molecule force spectroscopy has revealed that the frequency of −1 PRF correlates with the unwinding forces required for disrupting pseudoknots, and that some of the unwinding work dissipates irreversibly due to the torsional restraint of pseudoknots. Complementary to single-molecule techniques, computational modeling provides insights into global motions of the ribosome, whose structural transitions during frameshifting have not yet been elucidated in atomic detail. Taken together, recent advances in biophysical tools may help to develop antiviral therapies that target the ubiquitous −1 PRF mechanism among viruses.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - finding, 5 - finding"
+            ]
+        },
+        {
+            "input": " hospital characteristics, infection control department, external environment, and project planning. The study conducted a survey among ICPs from 425 hospitals in Taiwan. A total of 227 valid questionnaire responses were returned from the ICPs from 90 hospitals. Among these responses, 55.00% are from medical centers and 47.83% are from regional hospitals. After analyzing the responses through the discriminant analysis method, the study found that ''Hospital Resource Support,\" ''Colleagues' Attitude,\" and ''Users' Participation\" are the three factors that significantly impact the professionals' willingness for adopting KM in infection control departments. This study not only provides the healthcare industry an understanding about introduction and impact of KM, which can assist in their decision making, but also emphasizes the importance of use of actual data in the study of research framework for introduction of KM in healthcare industry. Therefore, this study presents important results in both practical and academic aspects.",
+            "output": [
+                "0 - background, 1 - purpose, 2 - method, 3 - method, 4 - method, 5 - finding, 6 - finding, 7 - finding, 8 - finding"
+            ]
+        },
+        {
+            "input": " Multicenter, prospective case series of adult patients with laboratory diagnosis of ZIKAV in 16 ICUs in 8 countries.",
+            "output": [
+                "0 - background, 1 - background, 2 - method, 3 - method"
+            ]
+        },
+        {
+            "input": " one by a trained pediatrician and one by a parent. The real-time polymerase chain reaction influenza virus detection rates were similar in the samples collected using the two methods (Cohen's kappa = 0.86), as were the cycle threshold values. In comparison with the pediatrician-collected samples, the sensitivity and specificity of the parental collections were respectively 89.3% (95% confidence interval [CI] 77.8-100%) and 97.7% (95% CI 95.5-100%), and the positive and negative predictive values were respectively 86.2% (95% CI 73.7-95.1%) and 98.2% (95% CI 96.4-100%). The children were significantly more satisfied with the parental collections (median values ± standard deviation, 1.59 ± 0.55 vs 3.51 ± 0.36; p < 0.0001). These findings show that mid-turbinate nasal flocked swabs specifically designed for infants and children can be used by parents without reducing the influenza virus detection rate. Moreover, the direct involvement of parents significantly increases patient acceptance, thus simplifying collection and suggesting that this novel swab design should be considered for epidemiological surveys and vaccine efficacy studies. Table 2 Cycle threshold (CT) value in the paired samples positive after both pediatrician and parental collection. Virus CT value Pediatrician collection Parental collection Influenza A (n = 5) 29.77 ± 5.45 29.17 ± 4.68 Influenza B (n = 20) 28.59 ± 3.82 29.43 ± 4.27",
+            "output": [
+                "0 - purpose, 1 - method, 2 - finding, 3 - finding, 4 - finding, 5 - finding, 6 - finding, 7 - finding, 8 - finding"
+            ]
+        },
+        {
+            "input": "Mean values ± standard deviation (SD). No significant difference between the two methods of collection.",
+            "output": [
+                "0 - finding, 1 - finding"
+            ]
+        },
+        {
+            "input": "Bacterial and viral infections occur early and recurrently in life and thereby impose a substantial disease burden. Besides causing clinical symptoms, a potential role of infection in the development of the asthma syndrome later in life has also been suggested. However, whether bacterial and viral infections unmask host factors in children at risk of asthma or whether they directly cause asthma remains unclear; both viewpoints could be justifi ed, but the underlying mechanisms are complex and poorly understood. Recently, the role of the bacterial microbiome has been emphasised. But data are still sparse and future studies are needed for defi nitive conclusions to be made. In this Review, we discuss present knowledge of viruses and bacteria that infect and colonise the respiratory tract and mucosal surfaces, including their timepoint of action, host factors related to infection, and their eff ect on childhood asthma. Childhood asthma could be the result of a combination of altered host susceptibility and infectious agents.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - background, 5 - purpose, 6 - finding"
+            ]
+        },
+        {
+            "input": "Usefulness of Pidotimod and its role as immunostimulant, has been discussed, we know, for several decades. Nevertheless, there is still much to know. Understanding its mechanisms and its potential usefulness in airway infections and its prevention, asthma both Th2 and non Th2 type, bronchiectasis, as adjuvant in vaccination and in allergen immunotherapy still remains to clearly unveil. The aim of this paper was to provide a useful updated review of the role of the main available immunostimulants, giving particular focus on Pidotimod use and its potentials utility in respiratory diseases. Pidotimod showed its usefulness in reducing need for antibiotics in airway infections, increasing the level of immunoglobulins (IgA, IgM, IgG) and T-lymphocyte subsets (CD3+, CD4+) endowed with immunomodulatory activity that affect both innate and adaptive immune responses. Higher expression of TLR2 and of HLA-DR molecules, induction of dendritic cell maturation and release of pro-inflammatory molecules, stimulation of T lymphocyte proliferation and differentiation toward a Th1 phenotype, as well as an increase of the phagocytosis have been demonstrated to be associated with Pidotimod in in vitro studies. All these activities are potentially useful for several respiratory conditions such as asthma, COPD, and recurrent respiratory tract infections.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - purpose, 4 - finding, 5 - finding, 6 - finding"
+            ]
+        },
+        {
+            "input": "Chikungunya virus (CHIKV) is a mosquito-borne alphavirus that re-emerged in 2004 and has caused massive outbreaks in recent years. The lack of a licensed vaccine or treatment options emphasize the need to obtain more insight into the viral life cycle and CHIKV-host interactions. Infectious cDNA clones are important tools for such studies, and for mechanism of action studies on antiviral compounds. Existing CHIKV cDNA clones are based on a single genome from an individual clinical isolate, which is expected to have evolved specific characteristics in response to the host environment, and possibly also during subsequent cell culture passaging. To obtain a virus expected to have the general characteristics of the recent E1-226V CHIKV isolates, we have constructed a new CHIKV full-length cDNA clone, CHIKV LS3, based on the consensus sequence of their aligned genomes. Here we report the characterization of this synthetic virus and a green fluorescent protein-expressing variant (CHIKV LS3-GFP). Their characteristics were compared to those of natural strain ITA07-RA1, which was isolated during the 2007 outbreak in Italy. In cell culture the synthetic viruses displayed phenotypes comparable to the natural isolate, and in a mouse model they caused lethal infections that were indistinguishable from infections with a natural strain. Compared to ITA07-RA1 and clinical isolate NL10/152, the synthetic viruses displayed similar sensitivities to several antiviral compounds. 3-deaza-adenosine was identified as a new inhibitor of CHIKV replication. Cyclosporin A had no effect on CHIKV replication, suggesting that cyclophilins -opposite to what was found for other +RNA viruses-do not play an essential role in CHIKV replication. The characterization of the consensus sequence-based synthetic viruses and their comparison to natural isolates demonstrated that CHIKV LS3 and LS3-GFP are suitable and representative tools to study CHIKV-host interactions, screen for antiviral compounds and unravel their mode of action.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - background, 5 - finding, 6 - finding, 7 - finding, 8 - finding, 9 - finding, 10 - finding, 11 - finding"
+            ]
+        },
+        {
+            "input": " As the gatekeepers of rural residents' health, teams of village doctors play a vital role in improving rural residents' health. However, the high turnover of village doctors, both individually and collectively, threaten the stability of village medical teams. This research evaluated the influence of job satisfaction, resilience, and work engagement on the village doctors' turnover intention, and explored the mediating role of work engagement and resilience between job satisfaction and the turnover intention of village doctors in China. Methods A quantitative study using a self-administered questionnaire containing mostly structured items was conducted among village doctors with a sample size of 2693 from 1345 rural clinics in Shandong province, China, during May and June 2019. All variables including demographic characteristics, job satisfaction, resilience, work engagement and turnover intention were based on available literature, and measured on a 5-or 6-point Likert scale. Such statistical methods as one-way ANOVA, bivariate correlation, exploratory factor analysis (EFA), and Structural Equation Modelling (SEM) were used.",
+            "output": [
+                "0 - background, 1 - background, 2 - purpose, 3 - method, 4 - method, 5 - method"
+            ]
+        },
+        {
+            "input": " Up to 46.9% of the subjects had a higher turnover intention and more than 26.3% of them had a medium turnover intention. The job satisfaction of village doctors could not only have a direct negative effect on turnover intention (β = − 0.37, p < 0.001), but also have an indirect effect through work engagement (β = − 0.04,=< 0.001). Meanwhile, work engagement also had a direct negative impact on turnover intention (β = − 0.13, p < 0.001), and resilience had an indirect negative impact on turnover intention through work engagement (β = − 0.09, p < 0.001). The above results of this study strongly confirmed that job satisfaction, resilience, and work engagement were early, powerful predicators of village doctors' turnover intention.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding, 3 - finding"
+            ]
+        },
+        {
+            "input": " According to the results, the following should be taken seriously to improve job satisfaction reasonable and fair income, effective promotion mechanism, fair social old-age security, reasonable workload, and strong psychological coping mechanisms for work stress. The turnover intention of village doctors could be reduced through improving job satisfaction, resilience and work engagement.",
+            "output": [
+                "0 - finding, 1 - finding"
+            ]
+        },
+        {
+            "input": " 5 triphosphate RNA Immunorecognition of RNA RNA virus RIG-I MDA5 Lgp2 Intracellular bacteria a b s t r a c t Initiating the immune response to invading pathogens, the innate immune system is constituted of immune receptors (pattern recognition receptors, PRR) that sense microbe-associated molecular patterns (MAMPs). Detection of pathogens triggers intracellular defense mechanisms, such as the secretion of cytokines or chemokines to alarm neighboring cells and attract or activate immune cells. The innate immune response to viruses is mostly based on PRRs that detect the unusual structure, modification or location of viral nucleic acids. Most of the highly pathogenic and emerging viruses are RNA genomebased viruses, which can give rise to zoonotic and epidemic diseases or cause viral hemorrhagic fever. As viral RNA is located in the same compartment as host RNA, PRRs in the cytosol have to discriminate between viral and endogenous RNA by virtue of their structure or modification. This challenging task is taken on by the homologous cytosolic DExD/H-box family helicases RIG-I and MDA5, which control the innate immune response to most RNA viruses. This review focuses on the molecular basis for RIG-I like receptor (RLR) activation by synthetic and natural ligands and will discuss controversial ligand definitions.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - background, 5 - background, 6 - purpose"
+            ]
+        },
+        {
+            "input": " 19-27. 15. Gu J, Gong E, Zhang B, et al. Multiple organ infection and the pathogenesis of SARS. J Exp Med 2005; 202(3) 415-24. All rights reserved. No reuse allowed without permission.",
+            "output": [
+                "0 - other, 1 - other, 2 - other, 3 - other, 4 - other, 5 - other, 6 - other"
+            ]
+        },
+        {
+            "input": "author/funder, who has granted medRxiv a license to display the preprint in perpetuity.",
+            "output": [
+                "0 - other"
+            ]
+        },
+        {
+            "input": "The antiproliferative effects of bestatin and actinonin on U937 and K562 cells have been compared with their inhibitory activity on cell surface aminopeptidases. The results strongly suggest that the inhibition of cell surface aminopeptidases cannot be the main reason for the inhibition of cell proliferation. This was confirmed by studying the effect of buthionine sulfoximine",
+            "output": [
+                "0 - background, 1 - finding, 2 - finding"
+            ]
+        },
+        {
+            "input": "propanoic acid) and verapamil on the inhibition of cell proliferation by bestatin and actinonin. BSO and MK-571, which inhibit the efflux of drugs mediated by multidrug resistance-associated protein (MRP), increased the action of both inhibitors, indicating that the latter enter the cells and that their export is mediated by MRP in both cell lines. Verapamil significantly increased the inhibitory activity of bestatin on K562 cells, indicating that the intracellular concentration of bestatin can be mediated also by P-glycoprotein. q",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding, 3 - other"
+            ]
+        },
+        {
+            "input": "This paper describes the isolation of porcine epidemic diarrhea (PED) virus in Vero and porcine cell cultures, and the in¯uence of age on disease in experimental infection. PED virus was isolated from the small intestine of piglets inoculated with PED samples and cultured in Vero, porcine bladder and kidney cells propagated in collagen-coated tissue culture plates in maintenance medium (MM) containing trypsin. In porcine bladder and kidney cell cultures inoculated with isolated PED virus, cytopathic effects (CPE) including cell fusion were detected. Speci®c brilliant¯uorescence was observed in the cytoplasm of these cells. Two-and 7-day old, and 2-, 4-, 8-and 12-week old speci®c pathogen-free (SPF) pigs were orally inoculated with PED virus isolated from an outbreak. All 2-and 7-day old pigs inoculated developed severe watery diarrhea from post-inoculation day (PID) 1 and died between PID 3 and 4. Although three of ®ve 2-week old pigs developed diarrhea on PID 1±4, they eventually recovered. In the 4-week old group, three of ®ve pigs had mild diarrhea for 1±2 days. None of the 8-and 12-week old pigs showed any clinical signs. Antibodies against PED virus were detected in all surviving pigs by virus neutralization (VN) test and immuno¯uorescence assay (IFA). Therefore, there is an age-dependent resistance to pathogenic PED virus infection in pigs. #",
+            "output": [
+                "0 - purpose, 1 - background, 2 - finding, 3 - finding, 4 - method, 5 - finding, 6 - finding, 7 - finding, 8 - finding, 9 - finding, 10 - finding, 11 - other"
+            ]
+        },
+        {
+            "input": " Transmission of respiratory infections poses a major public health challenge during the Hajj and Umrah in the Kingdom of Saudi Arabia. Acquisition of Streptococcus pneumoniae during Hajj has been studied in the past and recommendations for vaccination against S. pneumoniae have been made for high risk groups. Methods The purpose of this study was to assess the knowledge and attitudes of French Hajj pilgrims towards pneumococcal vaccination. Adult pilgrims departing from Marseille, France to Mecca for the 2014 Hajj season were administered a face-to-face questionnaire to ascertain their knowledge and attitudes towards pneumococcal vaccination before departing for Hajj. Results A total of 300 participants took part. Their overall knowledge about the severity of pneumonia and the existence of the vaccine was very low. Out of 101 participants who had an indication for pneumococcal vaccination, irrespective of their travel status, only 7% were advised to have the vaccine by their general practitioner. Conclusions These results reinforce the need for better dissemination of information either before or during the pre-travel counselling. The visit to the travel clinic for receiving the * Corresponding author. þ33 (0) 4 91 96 35 35, þ33 (0) 4 91 96 35 36; fax þ33 (0) 4 91 96 89 38.",
+            "output": [
+                "0 - background, 1 - background, 2 - method, 3 - method, 4 - finding, 5 - finding, 6 - finding, 7 - finding, 8 - finding, 9 - finding"
+            ]
+        },
+        {
+            "input": "Travel Medicine and Infectious Disease (2015) 13, 251e255 mandatory meningococcal vaccination for Hajj is a good opportunity to update routine immunizations, including pneumococcal vaccination. ª",
+            "output": [
+                "0 - finding, 1 - other"
+            ]
+        },
+        {
+            "input": "In this study, we reported for the first time the existence of complemented palindrome small RNAs 26 (cpsRNAs) and proposed cpsRNAs and palindrome small RNAs (psRNAs) as a novel class of small RNAs. 27",
+            "output": [
+                "0 - finding, 1 - other"
+            ]
+        },
+        {
+            "input": "The first discovered cpsRNA UCUUUAACAAGCUUGUUAAAGA from SARS coronavirus named SARS-28",
+            "output": [
+                "0 - finding"
+            ]
+        },
+        {
+            "input": "CoV-cpsR-22 contained 22 nucleotides perfectly matching its reverse complementary sequence. Further 29 sequence analysis supported that SARS-CoV-cpsR-22 originated from bat betacoronavirus. The results of 30 RNAi experiments showed that one 19-nt segment of SARS-CoV-cpsR-22 significantly induced cell 31 apoptosis. These results suggested that SARS-CoV-cpsR-22 could play a role in SARS-CoV infection or 32 pathogenicity. The discovery of psRNAs and cpsRNAs paved the way to find new markers for pathogen 33 detection and reveal the mechanisms in the infection or pathogenicity from a different point of view. The 34 discovery of psRNAs and cpsRNAs also broaden the understanding of palindrome motifs in animal of plant 35 genomes.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding, 3 - finding, 4 - finding, 5 - finding"
+            ]
+        },
+        {
+            "input": "Virus infection initiates a number of cellular stress responses that modulate gene regulation and compartmentalization of RNA. Viruses must control host gene expression and the localization of viral RNAs to be successful parasites. RNA granules such as stress granules and P-bodies contain translationally silenced messenger ribonucleoproteins (mRNPs) and serve as extensions of translation regulation in cells, storing transiently repressed mRNAs. New reports show a growing number of virus families modulate RNA granule function to maximize replication efficiency. This review summarizes recent advances in understanding the relationship between viruses and mRNA stress granules in animal cells and will discuss important questions that remain in this emerging field.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - purpose"
+            ]
+        },
+        {
+            "input": "Determining reference values for hematological and biochemical parameters of Asian house shrew (Suncus murinus) is important for wildlife research to protect human health in surrounding communities. This study aimed to establish the reference values for selected hematology and serum clinical chemistry analyses that may contribute to research on shrew in future.",
+            "output": [
+                "0 - background, 1 - purpose"
+            ]
+        },
+        {
+            "input": "Blood samples (n=51) were collected from shrews between July and December 2015, Bangladesh, to estimate the levels of hemoglobin (Hb), packed cell volume (PCV), total leukocyte count (TLC), total erythrocyte count (TEC), lymphocyte, monocyte, neutrophil, eosinophil, basophil, calcium, phosphorus (P), sodium (Na), chloride (Cl), urea, glucose, total protein (TP), creatinine, and alanine transaminase (ALT).",
+            "output": [
+                "0 - method"
+            ]
+        },
+        {
+            "input": "Although the values did not differ significantly among sexes, age was found to be a significant factor. Hb, PCV, TEC, glucose, and P were higher in males; eosinophil, Na, Cl, TP, and ALT were higher among females. Adults had significantly greater urea and glucose (p<0.05) while juveniles had insignificantly higher values for TLC, PCV, neutrophil, P, and TP.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding"
+            ]
+        },
+        {
+            "input": "This study provides the first reference values for this species in Bangladesh and can be used to guide wildlife research studies.",
+            "output": [
+                "0 - finding"
+            ]
+        },
+        {
+            "input": "Highlights d N 1 -2 0 O-methylation is crucial to block RIG-I activation by viral and self RNA d Self-RNA exclusion is singularly governed by the conserved H830 in RIG-I d H830A alteration leads to indiscriminate recognition of endogenous RNA by RIG-I d Cellular N 1 -2 0 O-methyltransferase knockdown renders endogenous RNA stimulatory SUMMARY",
+            "output": [
+                "0 - background"
+            ]
+        },
+        {
+            "input": "The cytosolic helicase retinoic acid-inducible gene-I (RIG-I) initiates immune responses to most RNA viruses by detecting viral 5 0 -triphosphorylated RNA (pppRNA). Although endogenous mRNA is also 5 0 -triphosphorylated, backbone modifications and the 5 0 -ppp-linked methylguanosine ( m7 G) cap prevent immunorecognition. Here we show that the methylation status of endogenous capped mRNA at the 5 0 -terminal nucleotide (N 1 ) was crucial to prevent RIG-I activation.",
+            "output": [
+                "0 - background, 1 - background, 2 - finding"
+            ]
+        },
+        {
+            "input": "Moreover, we identified a single conserved amino acid (H830) in the RIG-I RNA binding pocket as the mediator of steric exclusion of N 1 -2 0 O-methylated RNA. H830A alteration (RIG-I(H830A)) restored binding of N 1 -2 0 O-methylated pppRNA. Consequently, endogenous mRNA activated the RIG-I(H830A) mutant but not wild-type RIG-I. Similarly, knockdown of the endogenous N 1 -2 0 O-methyltransferase led to considerable RIG-I stimulation in the absence of exogenous stimuli. Studies involving yellow-fever-virus-encoded 2 0 O-methyltransferase and RIG-I(H830A) revealed that viruses exploit this mechanism to escape RIG-I. Our data reveal a new role for cap N 1 -2 0 O-methylation in RIG-I tolerance of self-RNA.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding, 3 - finding, 4 - finding, 5 - finding"
+            ]
+        },
+        {
+            "input": "Asthma is a highly prevalent chronic respiratory disease affecting 300 million people worldwide. A significant fraction of the cost and morbidity of asthma derives from acute care for asthma exacerbations. In the United States alone, there are approximately 15.0 million outpatient visits, 2 million emergency room visits, and 500,000 hospitalizations each year for management of acute asthma. Common respiratory viruses, especially rhinoviruses, cause the majority of exacerbations in children and adults. Infection of airway epithelial cells with rhinovirus causes the release of proinflammatory cytokines and chemokines, as well as recruitment of inflammatory cells, particularly neutrophils, lymphocytes, and eosinophils. The host response to viral infection is likely to influence susceptibility to asthma exacerbation.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - background, 5 - background"
+            ]
+        },
+        {
+            "input": " cigarette smoking, medication noncompliance, psychosocial factors, and co-morbidities such as gastroesophageal reflux disease, rhinosinusitis, obesity, and intolerance to non-steroidal antiinflammatory medications; as well as intrinsic factors such as deficient epithelial cell production of the anti-viral type I interferons (IFN-α and IFN-β). A better understanding of the biologic mechanisms of host susceptibility to recurrent exacerbations will be important for developing more effective preventions and treatments aimed at reducing the significant cost and morbidity associated with this important global health problem.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding"
+            ]
+        },
+        {
+            "input": " John V. Fahy, M.D., M.Sc., Box 0130,",
+            "output": [
+                "0 - other"
+            ]
+        },
+        {
+            "input": "Identification of the full complement of genes and other functional elements in any virus is crucial to fully understand its molecular biology and guide the development of effective control strategies. RNA viruses have compact multifunctional genomes that frequently contain overlapping genes and non-coding functional elements embedded within protein-coding sequences. Overlapping features often escape detection because it can be difficult to disentangle the multiple roles of the constituent nucleotides via mutational analyses, while high-throughput experimental techniques are often unable to distinguish functional elements from incidental features. However, RNA viruses evolve very rapidly so that, even within a single species, substitutions rapidly accumulate at neutral or near-neutral sites providing great potential for comparative genomics to distinguish the signature of purifying selection. Computationally identified features can then be efficiently targeted for experimental analysis. Here we analyze alignments of protein-coding virus sequences to identify regions where there is a statistically significant reduction in the degree of variability at synonymous sites, a characteristic signature of overlapping functional elements. Having previously tested this technique by experimental verification of discoveries in selected viruses, we now analyze sequence alignments for ∼700 RNA virus species to identify hundreds of such regions, many of which have not been previously described.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - background, 5 - purpose, 6 - finding"
+            ]
+        },
+        {
+            "input": "Cryptosporidiosis is one of the most common zoonosis worldwide, causing intestinal infection to both humans and livestock. The purpose of this study was to assess whether the level of anti-C. parvum IgG antibodies transferred through colostrum from dams to newborn calves impacts the susceptibility to cryptosporidiosis. A number of 50 dams and their healthy newborns were included in the study. Colostrum samples were collected within 12 h after birth and anti-C. parvum IgG antibody levels were determined by single radial immunodiffusion. The health condition of the newborns was daily monitored, and fecal samples were collected at first diarrheic episode of a calf. In all dams, the anti-C. parvum IgG antibody concentration in colostrum varied between 570 and 4070 mg/dl; in dams who gave birth to calves with diarrhea and were C. parvum-positive, the antibody concentration in colostrum varied between 680 and 3680 mg/dl (Table 1 ). The point-biserial correlation showed a negative correlation between the levels of anti-C. parvum antibodies and manifestation of clinical cryptosporidiosis (r=-0.425). Our findings highlight the importance of IgG levels in colostrum received by neonatal calves during their first day of life for prevention of C. parvum infection.",
+            "output": [
+                "0 - background, 1 - purpose, 2 - purpose, 3 - method, 4 - method, 5 - method, 6 - method, 7 - finding, 8 - finding, 9 - finding, 10 - finding, 11 - finding"
+            ]
+        },
+        {
+            "input": "publicly funded repositories, such as the WHO COVID database with rights for unrestricted research re-use and analyses in any form or by any means with acknowledgement of the original source. These permissions are granted for free by Elsevier for as long as the COVID-19 resource centre remains active. between virus names and species names would be to change the current names of virus species into nonlatinized binomial names. Such a system, which has been advocated by plant virologists for many years, consists in replacing the word 'virus' appearing at the end of the existing species name by the genus name which also ends in '-virus'. Measles virus then becomes Measles morbillivirus, Hepatitis A virus becomes Hepatitis A hepatovirus, and Tobacco mosaic virus becomes Tobacco mosaic tobamovirus. The advantage of such a system, which could be implemented without problems for about 98% of all virus species names, is that inclusion of the genus name in the species name provides additional information about the properties of the virus. A changeover to binomial species names would not affect the common names of viruses in English or other languages since names such as measles virus or 'virus de la rougeole' would remain the same. The ICTV is currently debating the possibility of introducing binomial species names and some decision is likely to be made in the near future.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - background, 5 - background, 6 - background, 7 - background"
+            ]
+        },
+        {
+            "input": "Given that the common names of viruses are used repeatedly in scientific texts there is a need for abbreviating them and the ICTV has published several lists of recommended acronyms for virus names. Since the names of virus species are used only very seldom in publications, there is no need to abbreviate them. If binomial names of virus species were introduced in the future, the abbreviations of common names of viruses will of course not be affected.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding"
+            ]
+        },
+        {
+            "input": "The sensitivities and specificities of an immunofluorescence assay and an enzyme immunoassay for detection of antibodies specific for severe acute respiratory syndrome coronavirus (SARS-CoV) were compared for 148 laboratory-confirmed SARS cases. The appearance and persistence of SARS-CoV-specific antibodies were assessed, with immunoglobulin G detected in 59% of samples collected within 14 days and persisting for 60 to 95 days after the onset of illness.",
+            "output": [
+                "0 - method, 1 - method"
+            ]
+        },
+        {
+            "input": "Non-PCR-based target amplification technologies, including transcription-mediated amplification (TMA), nucleic acid sequence-based amplification (NASBA), and strand displacement amplification (SDA), are currently the basis for a broad range of clinical infectious-disease molecular diagnostics. These amplification technologies are very sensitive and specific and can be used in combination with traditional end-point or \"real-time\" detection formats. For several nucleic acid targets, TMA, NASBA, and SDA have certain advantages over PCR-based applications. This two-part article will review the molecular basis of each technology and how the technology has been applied to clinical diagnostic systems. The articles will describe the current testing platforms available, U.S. Food and Drug Administration (FDA)-and non-FDA-approved assays, and availability of analytespecific reagents. In addition, an open-platform system is described that utilizes standardized reagents and methods and allows the user to develop in-house protocols. Finally, applications for the future are discussed.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - purpose, 4 - purpose, 5 - purpose, 6 - purpose"
+            ]
+        },
+        {
+            "input": "Microbiology Newsletter 122 0196-4399/00 (see frontmatter)",
+            "output": [
+                "0 - other"
+            ]
+        },
+        {
+            "input": "Mouse adenovirus type 1 (MAV-1) causes acute and persistent infections in mice, with high levels of virus found in the brain, spinal cord and spleen in acute infections. MAV-1 infects endothelial cells throughout the mouse, and monocytes/macrophages have also been implicated as targets of the virus. Here we determined the extent and functional importance of macrophage infection by MAV-1. Bone marrow-derived macrophages expressed MAV-1 mRNAs and proteins upon ex vivo infection. Adherent peritoneal macrophages from infected mice expressed viral mRNAs and produced infectious virus. Infected chemokine (C-C motif) receptor 2 (CCR2) knockout mice, which are defective for macrophage recruitment, did not show differences in survival or MAV-1 load compared to controls. In contrast, macrophage depletion using clodronate-loaded liposomes resulted in increased virus replication in spleens of a MAV-1-resistant mouse strain, BALB/cJ. Thus macrophages serve both as targets of infection and as effectors of the host response.",
+            "output": [
+                "0 - background, 1 - background, 2 - purpose, 3 - finding, 4 - finding, 5 - finding, 6 - finding, 7 - finding"
+            ]
+        },
+        {
+            "input": "Respiratory diseases are a very common source of morbidity and mortality among children. Health care providers often face a dilemma when encountering a febrile infant or child with respiratory tract infection. The reason expressed by many clinicians is the trouble to confirm whether the fever is caused by a virus or a bacterium. The aim of this review is to update the current evidence on the virus-induced bacterial infection. We present several clinical as well in vitro studies that support the correlation between virus and secondary bacterial infections. In addition, we discuss the pathophysiology and prevention modes of the virus-bacterium coexistence. A search of the PubMed and MEDLINE databases was carried out for published articles covering bacterial infections associated with respiratory viruses. This review should provide clinicians with a comprehensive idea of the range of bacterial and viral coinfections or secondary infections that could present with viral respiratory illness.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - purpose, 4 - background, 5 - background, 6 - finding, 7 - finding"
+            ]
+        },
+        {
+            "input": " Infections are often associated to comorbidity that increases the risk of medical conditions which can lead to further morbidity and mortality. SARS is a threat which is similar to MERS virus, but the comorbidity is the key aspect to underline their different impacts. One UK doctor says \"I'd rather have HIV than diabetes\" as life expectancy among diabetes patients is lower than that of HIV. However, HIV has a comorbidity impact on the diabetes. Results We present a quantitative framework to compare and explore comorbidity between diseases. By using neighbourhood based benchmark and topological methods, we have built comorbidity relationships network based on the OMIM and our identified significant genes. Then based on the gene expression, PPI and signalling pathways data, we investigate the comorbidity association of these 2 infective pathologies with other 7 diseases (heart failure, kidney disorder, breast cancer, neurodegenerative disorders, bone diseases, Type 1 and Type 2 diabetes). Phenotypic association is measured by calculating both the Relative Risk as the quantified measures of comorbidity tendency of two disease pairs and the φ-correlation to measure the robustness of the comorbidity associations. The differential gene expression profiling strongly suggests that the response of SARS affected patients seems to be mainly an innate inflammatory response and statistically dysregulates a large number of genes, pathways and PPIs subnetworks in different pathologies such as chronic heart failure (21 genes), breast cancer (16 genes) and bone diseases (11 genes). HIV-1 induces comorbidities relationship with many other diseases, particularly strong correlation with the neurological, cancer, metabolic and immunological diseases. Similar comorbidities risk is observed from the clinical information. Moreover, SARS and HIV infections dysregulate 4 genes (ANXA3, GNS, HIST1H1C, RASA3) and 3 genes (HBA1, TFRC, GHITM) respectively that affect the ageing process. It is notable that HIV and SARS similarly dysregulated 11 genes and 3 pathways. Only 4 significantly dysregulated genes are common between SARS-CoV and MERS-CoV, including NFKBIA that is a key regulator of immune responsiveness implicated in susceptibility to infectious and inflammatory diseases.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - finding, 5 - method, 6 - method, 7 - finding, 8 - finding, 9 - finding, 10 - finding, 11 - finding, 12 - finding, 13 - finding"
+            ]
+        },
+        {
+            "input": "Our method presents a ripe opportunity to use data-driven approaches for advancing our current knowledge on disease mechanism and predicting disease comorbidities in a quantitative way.",
+            "output": [
+                "0 - finding"
+            ]
+        },
+        {
+            "input": "Immunization of pigs with a modified live porcine reproductive and respiratory syndrome virus (PRRSV) vaccine initially elicits a weak interferon (IFN)-g response. To improve the immune response, an adjuvant consisting of plasmid encoding either porcine interleukin (IL)-12 or IFN-a was co-administered during vaccination. In the presence of either adjuvant, at least a threefold increase in the primary virus-specific IFN-g response was observed. While this enhancement was only transient (1 week) when the IL-12 expressing plasmid was used, the effect was not only still apparent at 6 weeks after vaccination in the presence of the IFN-a expressing plasmid but even after challenge with a virulent genetically divergent PRRSV. In contrast, no effect of either adjuvant on the production of anti-virus antibodies was noticed throughout the study. Despite the apparent augmentation of a T helper (Th) 1 type response by the inclusion of IFN-a or IL-12 during vaccination, this modulation did not necessarily correlate with a reduction in viremia. Since a similar increase in the degree of the IFN-g response to the PRRSV vaccine could be achieved by substituting polyinosinic-polycytidylic acid in lieu of either cytokine, exposure to PRRSV in the presence of a variety of Th 1 polarizing molecules can positively influence the development of the cell-mediated immune response of swine to this pathogen. Conceivably, such intervention could be applied to improve the formulation of anti-PRRSV vaccines. #",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - finding, 5 - finding, 6 - finding, 7 - finding, 8 - other"
+            ]
+        },
+        {
+            "input": " 570, 2176) and 766 (95% CI 587, 946) cases, respectively, while these were kept to be 102 and 47 cases, respectively. Based on an analysis of illness onset data on board, the risk of infection among passengers without close contact was considered to be very limited. Movement restriction greatly reduced the number of infections from 5 February onwards.",
+            "output": [
+                "0 - background, 1 - background, 2 - method, 3 - background, 4 - background, 5 - background, 6 - finding, 7 - finding"
+            ]
+        },
+        {
+            "input": "Previous estimates of a generic level phylogeny for the ubiquitous parasitoid wasp subfamily Microgastrinae (Hymenoptera) have been problematic due to short internal branches deep in the phylogeny. These short branches might be attributed to a rapid radiation among the taxa, the use of genes that are unsuitable for the levels of divergence being examined, or insuYcient quantity of data. We added over 1200 nucleotides from four nuclear genes to a dataset derived from three genes to produce a dataset of over 3000 nucleotides per taxon. While the number of well-supported short branches in the phylogeny increased, we still did not obtain strong bootstrap support for every node. Parametric and nonparametric bootstrap simulations projected that an enormous, and likely unobtainable, amount of data would be required to get bootstrap support greater than 50% for every node. However, a marked increase in the number of well-supported nodes was seen when we conducted a Bayesian analysis of a combined dataset generated from morphological characters added to the seven gene dataset. Our results suggest that, in some cases, combining morphological and genetic characters may be the most practical way to increase support for short branches deep in a phylogeny.",
+            "output": [
+                "0 - background, 1 - background, 2 - method, 3 - finding, 4 - finding, 5 - finding, 6 - finding"
+            ]
+        },
+        {
+            "input": "Graphical Abstract Highlights d TRIM25 binds to influenza ribonucleoproteins (vRNPs) in the nucleus d On vRNPs, TRIM25 acts as a clamp to inhibit viral RNA chain elongation d TRIM25 restriction of influenza RNA synthesis can be reconstituted in vitro d Influenza NS1 protein antagonizes this anti-influenza activity of TRIM25 SUMMARY TRIM25 is an E3 ubiquitin ligase that activates RIG-I to promote the antiviral interferon response. The NS1 protein from all strains of influenza A virus binds TRIM25, although not all virus strains block the interferon response, suggesting alternative mechanisms for TRIM25 action. Here we present a nuclear role for TRIM25 in specifically restricting influenza A virus replication. TRIM25 inhibits viral RNA synthesis through a direct mechanism that is independent of its ubiquitin ligase activity and the interferon pathway. This activity can be inhibited by the viral NS1 protein. TRIM25 inhibition of viral RNA synthesis results from its binding to viral ribonucleoproteins (vRNPs), the structures containing individual viral RNA segments, the viral polymerase, and multiple viral nucleoproteins. TRIM25 binding does not inhibit initiation of capped-RNA-primed viral mRNA synthesis by the viral polymerase. Rather, the onset of RNA chain elongation is inhibited because TRIM25 prohibits the movement of RNA into the polymerase complex.",
+            "output": [
+                "0 - background, 1 - background, 2 - purpose, 3 - finding, 4 - finding, 5 - finding, 6 - finding, 7 - finding"
+            ]
+        },
+        {
+            "input": " Hepatitis C Virus (HCV)-related liver disease progresses more rapidly in individuals co-infected with Human Immunodeficiency Virus-1 (HIV), although the underlying immunologic mechanisms are unknown. We examined whether HIV-specific T-cells are identified in the liver of HCV/HIV co-infected individuals and promote liver inflammation through bystander immune responses.",
+            "output": [
+                "0 - background, 1 - background"
+            ]
+        },
+        {
+            "input": " Ex-vivo intra-hepatic lymphocytes from HCV mono-infected and HCV/HIV co-infected individuals were assessed for immune responses to HIV and HCV antigens by polychromatic flow cytometry.",
+            "output": [
+                "0 - method"
+            ]
+        },
+        {
+            "input": " HCV/HIV liver biopsies had similar frequencies of lymphocytes but lower percentages of CD4 + T-cells compared to HCV biopsies. In co-infection, intra-hepatic HIV-specific CD8 + and CD4 + T-cells producing IFN-c and TNF-a were detected and were comparable in frequency to those that were HCV-specific. In co-infected individuals, viral-specific CD8 + T-cells produced more of the fibrogenic cytokine, TNF-a. In both mono-and co-infected individuals, intra-hepatic HCV-specific Tcells were poorly functional compared to HIV-specific T-cells. In co-infection, HAART was not associated with a reconstitution of intra-hepatic CD4 + T-cells and was associated with reduction in both HIV and HCV-specific intra-hepatic cytokine responses.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding, 3 - finding, 4 - finding"
+            ]
+        },
+        {
+            "input": "The role of type I IFNs in protecting against coronavirus (CoV) infections is not fully understood. While CoVs are poor inducers of type I IFNs in tissue culture, several studies have demonstrated the importance of the type I IFN response in controlling MHV infection in animals. The protective effectors against MHV infection are, however, still unknown.",
+            "output": [
+                "0 - background, 1 - background, 2 - background"
+            ]
+        },
+        {
+            "input": "In order to get more insight into the antiviral gene expression induced in the brains of MHVinfected mice, we performed whole-genome expression profiling. Three different mouse strains, differing in their susceptibility to infection with MHV, were used. In BALB/c mice, which display high viral loads but are able to control the infection, 57 and 121 genes were significantly differentially expressed (≥ 1.5 fold change) upon infection at 2 and 5 days post infection, respectively. Functional association network analyses demonstrated a strong type I IFN response, with Irf1 and Irf7 as the central players. At 5 days post infection, a type II IFN response also becomes apparent. Both the type I and II IFN response, which were more pronounced in mice with a higher viral load, were not observed in 129SvEv mice, which are much less susceptible to infection with MHV. 129SvEv mice lacking the type I interferon receptor (IFNAR-/-), however, were not able to control the infection. Gene expression profiling of these mice identified type I IFN-independent responses to infection, with IFN-γ as the central player. As the BALB/c and the IFNAR-/-129SvEv mice demonstrated very similar viral loads in their brains, we also compared their gene expression profiles upon infection with MHV in order to identify type I IFN-dependent transcriptional responses. Many known IFN-inducible genes were detected, several of which have previously been shown to play an important protective role against virus infections. We speculate that the additional type I IFNdependent genes that we discovered may also be important for protection against MHV infection.",
+            "output": [
+                "0 - background, 1 - method, 2 - method, 3 - background, 4 - background, 5 - background, 6 - background, 7 - background, 8 - finding, 9 - finding, 10 - finding"
+            ]
+        },
+        {
+            "input": "Transcriptional profiling of mice infected with MHV demonstrated the induction of a robust IFN response, which correlated with the viral load. Profiling of IFNAR-/-mice allowed us to identify type I IFN-independent and -dependent responses. Overall, this study broadens our present knowledge of the type I and II IFN-mediated effector responses during CoV infection in vivo.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding"
+            ]
+        },
+        {
+            "input": "The current COVID-19 pandemic is stretching the global supply situation for face masks and PPE beyond production capacity. This is a call for the R&D community, particularly in the polymer degradation and stability arena, to engage and collaborate with virology and bio-medical experts. We require comparative R&D for extended, reuse and recyclability options, as well as large scale approaches and methods that could quickly be applied on the local level by the public who are not experts and may only have limited resources.",
+            "output": [
+                "0 - background, 1 - background, 2 - background"
+            ]
+        },
+        {
+            "input": "Infectious bronchitis virus (IBV), the first coronavirus described, has been a continuing problem in poultry for more than 70 years. IBV, causing a highly contagious respiratory disease in chickens, resembles the recently described severe acute respiratory syndrome virus in pathogenesis and genome organization. While previous studies demonstrated that effector and memory CD8 C T lymphocytes are critical in controlling acute IBV infection and disease in chickens, here chicken anti-IBV antibody (IgG) secreting cells (ASC) in both peripheral blood mononuclear cells (PBMC) and spleens collected following IBV Gray infection were evaluated using an ELISPOT assay. The ASC in peripheral blood and spleens can be detected from 3 to 7 days post-infection (p.i.), which is 3-7 days earlier than anti-IBV IgG detected in the serum. The ASC frequency reached a maximum at 7-10 days p.i., and decreased more than 90% in the spleen and 70% in PBMC by 14 days p.i. The ASC levels in the PBMC then decreased gradually to 0.5 ASC/10 6 over the next 8 weeks. The higher concentration of about 20 ASC/10 6 cells in spleens may, at least partially, account for the presence of antibody in the serum although bone marrow ASC were not determined. In vitro stimulation of PBMC and splenocytes with IBV antigen demonstrated that memory B cells can be activated to secrete antibody by 3 weeks p.i. ELISPOT detection of primary B cells could be useful in the early detection of infection following infection with respiratory coronaviruses. q",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - finding, 4 - finding, 5 - finding, 6 - finding, 7 - finding, 8 - other"
+            ]
+        },
+        {
+            "input": "//ees.elsevier.com/ thelancet/ www.thelancet.com Published online March 23, 2020 https//doi.org/10.1016/S0140-6736(20)30690-5 1",
+            "output": [
+                "0 - background, 1 - background, 2 - background"
+            ]
+        },
+        {
+            "input": "appears to be higher than previously estimated, with a crude case-fatality rate of almost 4%. 6 We declare no competing interests.",
+            "output": [
+                "0 - finding, 1 - finding"
+            ]
+        },
+        {
+            "input": "The etiology of Kawasaki disease (KD), the leading cause of acquired heart disease in children, is currently unknown. Epidemiology supports a relationship of KD to an infectious disease. Several pathological mechanisms are being considered, including a superantigen response, direct invasion by an infectious etiology or an autoimmune phenomenon. Treating affected patients with intravenous immunoglobulin is effective at reducing the rates of coronary aneurysms. However, the role of B cells and antibodies in KD pathogenesis remains unclear. Murine models are not clear on the role for B cells and antibodies in pathogenesis. Studies on rare aneurysm specimens reveal plasma cell infiltrates. Antibodies generated from these aneurysmal plasma cell infiltrates showed cross-reaction to intracellular inclusions in the bronchial epithelium of a number of pathologic specimens from children with KD. These antibodies have not defined an etiology. Notably, a number of autoantibody responses have been reported in children with KD. Recent studies show acute B cell responses are similar in children with KD compared to children with infections, lending further support of an infectious disease cause of KD. Here, we will review and discuss the inconsistencies in the literature in relation to B cell responses, specific antibodies, and a potential role for humoral immunity in KD pathogenesis or diagnosis.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - background, 5 - background, 6 - background, 7 - background, 8 - background, 9 - background, 10 - background, 11 - purpose"
+            ]
+        },
+        {
+            "input": "Currently, there is no registered treatment for infections with emerging zoonotic coronaviruses like SARS-and MERS-coronavirus. We here report that in cultured cells low-micromolar concentrations of alisporivir, a non-immunosuppressive cyclosporin A-analog, inhibit the replication of four different coronaviruses, including MERS-and SARS-coronavirus. Ribavirin was found to further potentiate the antiviral effect of alisporivir in these cell culture-based infection models, but this combination treatment was unable to improve the outcome of SARS-CoV infection in a mouse model. Nevertheless, our data provide a basis to further explore the potential of Cyp inhibitors as host-directed, broad-spectrum inhibitors of coronavirus replication.",
+            "output": [
+                "0 - background, 1 - purpose, 2 - finding, 3 - finding"
+            ]
+        },
+        {
+            "input": " relationship to in vivo persistence and disease . Microbial Pathogenesis 1990 ; 8  71-82 .",
+            "output": [
+                "0 - other, 1 - other, 2 - other, 3 - other, 4 - other, 5 - other, 6 - other"
+            ]
+        },
+        {
+            "input": "Canine distemper virus (CDV) causes an encephalomyelitis in dogs which varies with the viral strain . The CDV Cornell A75-17 strain produces a delayed, subacute to chronic, demyelinating CNS disease . In contrast, the Snyder Hill (CDV-SH) strain-associated neurological disease is more acute in onset, is usually non-demyelinating and primarily produces lesions in the gray matter . In these studies we describe the effects of these two virulent and one avirulent CDV strain, Rockborn (CDV-RO), on astrocytes in dissociated canine brain cell cultures . In multiple replicate experiments, astrocytes were infected most rapidly by CDV-RO [100% of astrocytes were infected by 14 days post-inoculation (p .i .)] . This strain caused severe cytopathic effect (CPE) and cytolysis . CDV-SH similarly produced a rapid infection of the astrocytes . In contrast . CDV A75-17 infected less than 25% of the astrocyte population during the first 28 days p .i . (±7 days) ; after 28 days p .i ., a rapid rise in astrocyte infection occurred . Both virulent viruses caused astrocytic syncytial formation but did not cause cytolysis of the astrocyte population as was observed with the attenuated virus . Titers of infectious virus, released into the supernatant fluid, reflected the degree of astrocyte infection . Virus released by the cultures late in CDV A75-17 infection showed enhanced ability to infect newly derived astrocytes ; in contrast, brain cell passaged CDV-SH did not show increased growth in these cells . These results show that (1) there is a difference in growth rate, CPE and capacity for adaptation of three different CDV strains in astrocytes in vitro, and (2) some aspects of the disease (such as persistence in white matter) produced by the virulent strains in vivo may be related to the course of astrocyte infection observed in vitro .",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - purpose, 4 - finding, 5 - finding, 6 - other, 7 - finding, 8 - finding, 9 - finding, 10 - finding, 11 - finding, 12 - finding, 13 - finding, 14 - finding, 15 - finding, 16 - finding, 17 - finding, 18 - finding"
+            ]
+        },
+        {
+            "input": "Cordyceps sinensis, one of the best known traditional Chinese medicines and health foods, has been highly valued for the treatment of a wide range of diseases and reported to have antioxidant properties. In the present study, the antioxidant activities of hot-water extracts from natural and cultured mycelia of C. sinensis were investigated and evaluated using six in vitro assays, including inhibition of linoleic acid peroxidation; scavenging abilities on DPPHd, hydroxyl and superoxide anion radicals; the reducing power and the chelating ability on ferrous ions. Among these assays, the extracts showed the best effect on the inhibition of linoleic peroxidation with the lowest IC50 values and with an inhibition rate over 90% at concentration of 0.8-1.6 mg/ml, more stable than that of a-tocopherol, a recognised natural antioxidant. The scavenging activities on superoxide anion and hydroxyl radicals of the two extracts were slightly lower than that of butylated hydroxytoluene. DPPHd scavenging activities of both extracts reached over 80% inhibition at 4-8 mg/ml. Both extracts showed moderate reducing power and ferrous ion chelating activity. The IC50 value of the extract from cultured mycelia in all the tests, except for linoleic acid peroxidation, was significantly lower than that of natural mycelia. There was no evident correlation between the antioxidant activity and the content of protein, polysaccharides and mannitol of extracts from C. sinensis; the antioxidant activity may be due to a combined effect of these or some other compounds. These results suggested that both the extracts from cultured and natural mycelia have direct and potent antioxidant activities and that the cultured mycelia of the fungus could be used for the antioxidant activity to reduce the human demands on the natural resources of the fungus, an endangered species.",
+            "output": [
+                "0 - background, 1 - purpose, 2 - finding, 3 - finding, 4 - finding, 5 - finding, 6 - finding, 7 - finding, 8 - finding"
+            ]
+        },
+        {
+            "input": "Vitamin A (VA) has pleiotropic effects on the immune system and is critical for mucosal immune function and intestinal lymphocyte trafficking. We hypothesized that oral VA supplementation of porcine epidemic diarrhea virus (PEDV)infected pregnant gilts would enhance the gut-mammary gland-secretory IgA axis to boost lactogenic immunity and passive protection of nursing piglets against PEDV challenge. Gilts received daily oral retinyl acetate (30 000 IU) starting at gestation day 76 throughout lactation. At 3-4 weeks pre-partum, VA-supplemented (PEDV + VA) and non-supplemented (PEDV) gilts were PEDV or mock inoculated (mock + VA and mock, respectively). PEDV + VA gilts had decreased mean PEDV RNA shedding titers and diarrhea scores. To determine if lactogenic immunity correlated with protection, all piglets were PEDV-challenged at 3-5 days post-partum. The survival rate of PEDV + VA litters was 74.2% compared with 55.9% in PEDV litters. Mock and mock + VA litter survival rates were 5.7% and 8.3%, respectively. PEDV + VA gilts had increased PEDV IgA antibody secreting cells and PEDV IgA antibodies in serum pre-partum and IgA + β7 + (gut homing) cells in milk post piglet challenge compared with PEDV gilts. Our findings suggest that oral VA supplementation may act as an adjuvant during pregnancy, enhancing maternal IgA and lactogenic immune protection in nursing piglets.",
+            "output": [
+                "0 - background, 1 - purpose, 2 - method, 3 - method, 4 - finding, 5 - finding, 6 - finding, 7 - finding, 8 - finding, 9 - finding"
+            ]
+        },
+        {
+            "input": " Respiratory tract infections are the most common infection affecting Hajj pilgrims, and the``Hajj cough'' is considered by pilgrims almost de rigueur. Methods French pilgrims were recruited between January 2012-December 2014 and information on demographics, medical history, compliance with preventive measures and health problems during travel were collected.",
+            "output": [
+                "0 - background, 1 - method"
+            ]
+        },
+        {
+            "input": " A total of 382 pilgrims were included with 39.3% aged Z65 years and 55.1% suffering from a chronic disease, most frequently hypertension and diabetes. The prevalence of cough was 80.9% and a high proportion presented with associated sore throat (91.0%), rhinitis (78.7%) and hoarseness (63.0%). Myalgia was reported in 48.3% of cases and subjective fever in 47.3%. The incubation time of respiratory symptoms was 7.7 days (range 0-25 days) and 51.9% of pilgrims presenting with a cough during their stay were still symptomatic on return. Among pilgrims with a cough, 69.4% took antibiotics. The prevalence of cough was significantly higher among females than men, but age, chronic conditions and preventive measures had no significant effect.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding, 3 - finding, 4 - finding, 5 - finding"
+            ]
+        },
+        {
+            "input": "The Hajj cough is highly common, likely a result of crowded conditions at religious places. Pilgrims should be advised to carry symptomatic relief for the Hajj cough such as cough suppressant, soothing throat lozenges and paracetamol. Use of antibiotics should be discouraged.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding"
+            ]
+        },
+        {
+            "input": "Human parainfluenza virus type 3 (HPIV3) is an important cause of lower respiratory tract illness in children, yet a licensed vaccine or antiviral drug is not available. We evaluated the safety, tolerability, infectivity, and immunogenicity of two intranasal, live-attenuated HPIV3 vaccines, designated rHPIV3-N B and rB/HPIV3, that were cDNA-derived chimeras of HPIV3 and bovine PIV3 (BPIV3). These were evaluated in adults, HPIV3 seropositive children, and HPIV3 seronegative children. A total of 112 subjects participated in these studies. Both rB/HPIV3 and rHPIV3-N B were highly restricted in replication in adults and seropositive children but readily infected seronegative children, who shed mean peak virus titers of 10 2.8 vs. 10 3.7 pfu/mL, respectively. Although rB/HPIV3 was more restricted in replication in seronegative children than rHPIV3-N B , it induced significantly higher titers of hemagglutination inhibition (HAI) antibodies against HPIV3. Taken together, these data suggest that the rB/HPIV3 vaccine is the preferred candidate for further clinical development.",
+            "output": [
+                "0 - background, 1 - background, 2 - method, 3 - method, 4 - finding, 5 - finding, 6 - finding"
+            ]
+        },
+        {
+            "input": "Clinical Signs As with other animals, infection with Giardia sp. is most often asymptomatic and self-limiting",
+            "output": [
+                "0 - background"
+            ]
+        },
+        {
+            "input": "The Common Marmoset in Captivity and Biomedical Research",
+            "output": [
+                "0 - other"
+            ]
+        },
+        {
+            "input": " electron microscopy, immune electron microscopy, immunofluoreseence in cell culture, two enzyme immunoassays (Rotazyme, Enzygnost) and a latex agglutination test (Rotalex). Specimens were collected from 112 children with diarrhoea. The relative sensitivities of the different assays for human rotavirus were as follows electron microscopy, 84%; immunofluorescence, 86 %; Rotalex, 88 %; Rotazyme, 89 %; immune electron microscopy, 93 %; Enzygnost, 98 %. According to our findings Enzygnost is the most sensitive method, but Rotalex is more valuable for screening a small number of faecal samples. No false-positive results were observed in the two enzyme immunoassays or in Rotalex.",
+            "output": [
+                "0 - background, 1 - method, 2 - finding, 3 - finding, 4 - finding"
+            ]
+        },
+        {
+            "input": " El-Shall N.A., Shewita R.S., Abd El-Hack M.E., AlKahtane A., Alarifi S., Alkahtani S., Abdel-Daim M.M. & Sedeik M.E., Effect of essential oils on the immune response to some viral vaccines in broiler chickens, with special reference to Newcastle disease virus, Poultry Science (2020), doi https//doi.(Mohamed E. Abd El-Hack). 21 (1952±28.82) did not significantly (p>0.05) improve growth performance compared to 41 the non-treated birds (NC and VC) (1970±19.56 and 1904±38.66). Essential oils 42 showed an antiviral effect on vNDv in vivo (in chickens) as a preventive measure 43 (PRV) as well as some therapeutic effect (TTT) through decreasing the viral shedding 44 titres (loNC 0 ), mortality rate, and severity of clinical signs and post mortem lesions, in 45 addition to serum malondialdhyde (MDA) level. Regarding the other viruses, the EOs 46",
+            "output": [
+                "0 - other, 1 - other, 2 - finding, 3 - finding, 4 - finding"
+            ]
+        },
+        {
+            "input": "mixture did not improve the immune response to the AI and IB vaccines but age (2108±341.05). The studied EOs mixture showed an immune stimulating response 49 to ND and IBD vaccines, antiviral effect against ND virus especially if administered 50 before the challenge, however it did not have a growth promoting effect. 51 52",
+            "output": [
+                "0 - finding, 1 - finding, 2 - other"
+            ]
+        },
+        {
+            "input": "Background. The emerging zoonotic paramyxovirus Nipah virus (NiV) causes severe respiratory and neurological disease in humans, with high fatality rates. Nipah virus can be transmitted via person-to-person contact, posing a high risk for epidemic outbreaks. However, a broadly applicable approach for human NiV outbreaks in field settings is lacking.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background"
+            ]
+        },
+        {
+            "input": "Methods. We engineered new antiviral lipopeptides and analyzed in vitro fusion inhibition to identify an optimal candidate for prophylaxis of NiV infection in the lower respiratory tract, and we assessed antiviral efficiency in 2 different animal models.",
+            "output": [
+                "0 - method, 1 - method"
+            ]
+        },
+        {
+            "input": "Results. We show that lethal NiV infection can be prevented with lipopeptides delivered via the respiratory route in both hamsters and nonhuman primates. By targeting retention of peptides for NiV prophylaxis in the respiratory tract, we avoid its systemic delivery in individuals who need only prevention, and thus we increase the safety of treatment and enhance utility of the intervention.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding"
+            ]
+        },
+        {
+            "input": "Conclusions. The experiments provide a proof of concept for the use of antifusion lipopeptides for prophylaxis of lethal NiV. These results advance the goal of rational development of potent lipopeptide inhibitors with desirable pharmacokinetic and biodistribution properties and a safe effective delivery method to target NiV and other pathogenic viruses.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding"
+            ]
+        },
+        {
+            "input": "A high diversity of corona-and paramyxoviruses have been detected in different bat species at study sites worldwide, including Africa, however no biosurveillance studies from Rwanda have been reported. In this study, samples from bats collected from caves in Ruhengeri, Rwanda, were tested for the presence of corona-and paramyxoviral RNA using reverse transcription PCR assays. Positive results were further characterized by DNA sequencing and phylogenetic analysis. In addition to morphological identification of bat species, we also did molecular confirmation of species identities, contributing to the known genetic database available for African bat species. We detected a novel Betacoronavirus in two Geoffroy's horseshoe bats (Rhinolophus clivosus) bats. We also detected several different paramyxoviral species from various insectivorous bats. One of these viral species was found to be homologous to the genomes of viruses belonging to the Jeilongvirus genus. Additionally, a Henipavirus-related sequence was detected in an Egyptian rousette fruit bat (Rousettus aegyptiacus). These results expand on the known diversity of corona-and paramyxoviruses and their geographical distribution in Africa.",
+            "output": [
+                "0 - background, 1 - method, 2 - method, 3 - method, 4 - finding, 5 - finding, 6 - finding, 7 - finding, 8 - finding"
+            ]
+        },
+        {
+            "input": " bioRxiv preprint 39 Coronaviruses, categorized into the order Nidovirales family Coronaviridae and 40 subfamily Coronavirinae, are a large group of viral pathogens with a wide host range 1 . 41 Their infections in humans, other mammals and birds can cause respiratory, hepatic, 42 enteric and neurological diseases with varying severity 2 . The severe acute respiratory 43 syndrome coronavirus (SARS-CoV) and Middle East respiratory syndrome coronavirus 44 (MERS-CoV) have posed severe threats to human health in the 21 st century 1,3 . In the 45 meantime, coronaviruses infecting domestic animals also bring substantial economic 46 losses 4 . For example, the swine acute diarrhea syndrome coronavirus (SADS-CoV) 47 (also known as SeACoV and PEAV) isolated in 2017 caused outbreaks of severe watery 48 diarrhea of suckling piglets with a mortality up to 90% in several commercial pig farms 49 in Guangdong Province of China 5-10 . SADS-CoV is an α-coronavirus and other 50 representative members in the α-genus are porcine epidemic diarrhea virus 51 (PEDV), porcine transmissible gastroenteritis coronavirus (TGEV), porcine respiratory 52 coronavirus (PRCV), human NL63 and 229E coronaviruses (HCoV-NL63 and HCoV-53 229E) 1 . Representative members in other three genera include mouse hepatitis 54 coronavirus (MHV), bovine coronavirus (BCoV), SARS-CoV, MERS-CoV, HCoV-55 OC43 and HCoV-HKU1 in the β-genus, avian infectious bronchitis virus (IBV) in the 56 γ-genus and porcine deltacoronavirus (PdCoV) in the δ-genus 1 . 57 Cross-species transmission promoted by genetic recombination and/or mutations 58 underlies the host range expansion of coronaviruses 3,11-13 . Bats are the natural reservoir 59 of more than 30 different α-and β-coronaviruses that have great potential for 60 interspecies transmission by recombination and/or mutation 12,14-16 . Data on genetic 61 evolution, receptor binding and pathogenesis have demonstrated that human SARS-62 CoV and MERS-CoV most likely originate from bats 1 . Palm civets and dromedary 63 camels are the intermediate hosts of SARS-CoV and MERS-CoV from bats to humans 1 , 64",
+            "output": [
+                "0 - background, 1 - background, 2 - purpose, 3 - finding, 4 - method, 5 - finding, 6 - finding, 7 - finding, 8 - finding, 9 - finding, 10 - finding, 11 - finding, 12 - finding, 13 - finding, 14 - finding, 15 - finding, 16 - finding, 17 - finding, 18 - finding"
+            ]
+        },
+        {
+            "input": "respectively. The newly identified porcine SADS-CoV isolates are also found to share 65 ~95% sequence identity with Rhinolophus bat coronavirus HKU2, and this further 66 stressed the severe results of coronavirus spillover from bats to domestic animals 5-10 .",
+            "output": [
+                "0 - finding, 1 - finding"
+            ]
+        },
+        {
+            "input": "Emergencies in theriogenology practice go beyond just saving the life of the patient, but also preserving its reproductive abilities. Camelid emergency medicine is a relatively new field. This paper discusses the most common reproductive emergencies, their diagnosis, treatment, and prognosis in male and female camelids. The conclusions drawn are based primarily on clinical observations by the authors over the last 25 years. Special consideration is given to peculiarities of the species, particularly in the choice of obstetrical manipulations and therapies. #",
+            "output": [
+                "0 - background, 1 - background, 2 - purpose, 3 - finding, 4 - finding, 5 - other"
+            ]
+        },
+        {
+            "input": "24 A subset of intracellular mono-ADP-ribosyltransferases diphtheria toxin-like (ARTDs, aka 25 mono-PARPs) is induced by type I interferons. Some of these mono-ARTDs feature antiviral 26 activity while certain RNA viruses, including Chikungunya virus (CHIKV), encode mono-ADP-27 ribosylhydrolases, suggesting a role for mono-ADP-ribosylation (MARylation) in host-virus 28 conflicts. CHIKV expresses four non-structural proteins (nsP1-nsP4), with nsP3 containing a 29 macrodomain that hydrolyzes and thereby reverses protein MARylation in vitro and in cells. 30 This de-MARylation activity is essential as hydrolase inactivating mutations result in 31 replication defective virus. However, the substrates of MARylation during CHIKV infection 32 are unknown and thus it is unclear how the macrodomain contributes to virus replication 33 and how mono-ARTD-dependent MARylation confers antiviral immunity. We identified 34 ARTD10 and ARTD12 as restriction factors for CHIKV replication in a catalytic activity-35 dependent manner. CHIKV replication requires processing of the non-structural polyprotein 36 nsP1-4 by the nsP2-encoded protease and the assembly of the four individual nsPs into a 37 functional replication complex. Expression of ARTD10 and ARTD12 resulted in a reduction 38 of processed nsPs. Similarly, MAR hydrolase inactive CHIKV replicon mutants revealed a 39 decrease in processed nsPs, comparable to an nsP2 protease defective mutant. This 40 suggested that the macrodomain contributes to nsP2 protease activity. In support, a 41 hydrolase-deficient virus was complemented by a protease-deficient virus. We 42 hypothesized that MARylation regulates the proteolytic function of nsP2. Indeed, we found 43 that nsP2 is MARylated by ARTD10. This inhibited nsP2 protease activity, thereby preventing 44 polyprotein processing and consequently virus replication. This inhibition was antagonized 45 by the MAR hydrolase activity of nsP3. Together, our findings provide a mechanistic 46 explanation for the need of the viral MAR hydrolase for efficient replication of CHIKV. 47 Author Summary 48 Infectious diseases still pose major health threats. Especially fast evolving viruses find ever 49 new strategies to manipulate the immune response. With climate warming and increased 50 human mobility vector-borne pathogens like Chikungunya virus (CHIKV) spread and cause 51 world-wide epidemics. Beyond the acute phase, CHIKV patients regularly suffer from chronic 52 rheumatism. This entails a decline in life quality and an economic burden. To date no drugs 53 are approved and the mode of pathogenesis remains elusive. Here we describe a mechanistic 54 function of the CHIKV nsP3 macrodomain. We found that the viral nsP2 is mono-ADP-55 ribosylated interfering with its auto-proteolytic function. The nsP3 macrodomain removes this 56 modification and restores the protease activity that is essential for replication. Because 57 macrodomains are highly conserved they might represent broad antiviral targets. 58 59 Introduction 60 Upon viral infection host cells initiate an antiviral immune response. Because the regulation 61 of protein function through post-translational modifications (PTMs) is among the quickest 62 mechanisms to adapt to challenges such as viral infections, PTMs display an essential part of 63 antiviral signaling. Viruses have developed multifaceted strategies to evade or even hijack 64 cellular mechanisms, e.g. encoding proteins that regulate PTMs and thereby counteract the 65 antiviral reaction of the host [1-5]. Recent findings have elaborated on the role of intracellular 66 ADP-ribosylation at the host-pathogen interface [6-12]. ADP-ribosylation is an ancient PTM of 67 proteins and intracellularly mainly catalyzed by members of the ADP-ribosyltransferase 68 diphtheria toxin-like (ARTD) family (also known as poly-ADP-ribosylpolymerases (PARPs)), 69",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - background, 5 - finding, 6 - finding, 7 - finding, 8 - finding, 9 - finding, 10 - finding, 11 - finding, 12 - finding, 13 - finding, 14 - finding, 15 - finding, 16 - finding, 17 - finding, 18 - finding, 19 - finding, 20 - finding, 21 - finding, 22 - finding, 23 - finding, 24 - finding, 25 - finding, 26 - finding, 27 - finding, 28 - finding, 29 - finding, 30 - finding"
+            ]
+        },
+        {
+            "input": " bioRxiv preprint 4 catalytic features the ARTDs are subdivided into three classes. The first class contains ARTD1, 72 2, 5, and 6, which are capable of transferring multiple ADP-ribose moieties in an iterative 73 process and thereby forming long polymers. This results in poly-ADP-ribosylation (PARylation) 74 of substrate proteins. The second and largest class is defined by members that are restricted 75 to mono-ADP-ribosylation (MARylation) (ARTD3, 4,(7)(8)(9)(10)(11)(12)(14)(15)(16)(17), whereas the third 76 group is defined by ARTD13, which lacks the ability to bind NAD + and thus is catalytically 77 inactive [18]. 78 79 PARylation, arguably best known for its function in DNA damage response, has also been 80 linked to chromatin organization, ribosome biogenesis, telomere maintenance, signaling 81 processes and cell death [1, 19, 20]. In contrast functions of MARylation are less well 82 understood but expanding with links to DNA damage repair, gene expression, signaling, stress 83 response and cell death [1, 21]. Recent findings indicate a role for MARylation in host-84 pathogen conflicts [1, 21, 22]. The expression of several mono-ARTDs is triggered by type I 85 interferons (IFNs) or pathogen-associated molecular patterns (PAMPs), like LPS, as part of an 86 innate immune response to pathogens [6, 8, 11,[23][24][25]. Among these mono-ARTDs are ARTD7, 87 ARTD10 and ARTD12, which have been identified to mediate clearance of Venezuelan Equine 88",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding, 3 - finding, 4 - finding, 5 - finding, 6 - finding, 7 - finding, 8 - finding, 9 - finding, 10 - finding, 11 - finding"
+            ]
+        },
+        {
+            "input": "Encephalitis Virus (VEEV) by interfering with viral replication [7, 8]. In line with this, Zika virus 89 replication is restricted by ARTD12 [26] . In addition to these molecular and cell-based studies, 90 evolutionary analysis suggests a role for several ARTD family members at the host-pathogen 91 interface, among them the macrodomain containing ARTDs (ARTD7-9) and ARTD13 [27]. 92",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding, 3 - other"
+            ]
+        },
+        {
+            "input": "Although catalytically inactive, the latter is best studied for being restrictive for viral 93 replication by recognizing foreign CG-rich RNA through its Zinc finger domains [28, 29]. 94 95 . CC-BY-NC-ND 4.0",
+            "output": [
+                "0 - finding, 1 - other, 2 - other"
+            ]
+        },
+        {
+            "input": " The aim of this study was to detect the associations between bovine herpesvirus 1 (BHV-1) status of a herd and respiratory disease (BRD) occurrence and reproductive performance in pregnant heifers and cows. The association between management-related factors and higher BRD occurrence was also estimated. Methods Serum samples, collected from cows and youngstock from 103 dairy cattle herds, were analyzed for antibodies against BHV-1, bovine respiratory syncytial virus (BRSV), bovine viral diarrhoea virus (BVDV), and Mycoplasma bovis. A questionnaire was used to collect data concerning herd management factors and reproductive performance, as well as the occurrence of clinical signs of respiratory disease in the last two years, as evaluated by the veterinarian or farm manager. Multiple correspondence analysis (MCA) and logistic regression analysis were performed to identify and quantify the risk factors. Results A low to moderate prevalence (1-49%) of BRSV antibodies among youngstock was associated with a high occurrence of respiratory disease (OR = 6.2, p = 0.010) in cows and in-calf heifers. Employees of the farm may participate in the spread of such disease. Larger herd size, loose-housing of cows, housing youngstock separately from cows until pregnancy, and purchasing new animals were factors possibly related to a high occurrence of respiratory disease symptoms in pregnant heifers and cows. The highest risk of abortions (> 1.3%) and increased insemination index (number of inseminations per pregnancy) (> 1.9) occurred in herds with a moderate prevalence of BHV-1 antibodies (1-49%) in cows. Conclusions BHV-1 was not associated with acute respiratory disease in adult dairy cattle, however was significantly related to reproductive performance. BRSV possesses the main role in respiratory disease complex in adult dairy cattle.",
+            "output": [
+                "0 - purpose, 1 - purpose, 2 - method, 3 - method, 4 - method, 5 - finding, 6 - finding, 7 - finding, 8 - finding, 9 - finding, 10 - finding"
+            ]
+        },
+        {
+            "input": "In spite of significant advancements and success in antiretroviral therapies directed against HIV infection, there is no cure for HIV, which scan persist in a human body in its latent form and become reactivated under favorable conditions. Therefore, novel antiretroviral drugs with different modes of actions are still a major focus for researchers. In particular, novel lead structures are being sought from natural sources. So far, a number of compounds from marine organisms have been identified as promising therapeutics for HIV infection. Therefore, in this paper, we provide an overview of marine natural products that were first identified in the period between 2013 and 2018 that could be potentially used, or further optimized, as novel antiretroviral agents. This pipeline includes the systematization of antiretroviral activities for several categories of marine structures including chitosan and its derivatives, sulfated polysaccharides, lectins, bromotyrosine derivatives, peptides, alkaloids, diterpenes, phlorotannins, and xanthones as well as adjuvants to the HAART therapy such as fish oil. We critically discuss the structures and activities of the most promising new marine anti-HIV compounds.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - purpose, 5 - method, 6 - finding"
+            ]
+        },
+        {
+            "input": "A.A.Q); m.mckay@ust.hk (M.R.M.) † These authors contributed equally to this work.",
+            "output": [
+                "0 - other"
+            ]
+        },
+        {
+            "input": " The beginning of 2020 has seen the emergence of COVID-19 outbreak caused by a novel coronavirus, Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2). There is an imminent need to better understand this new virus and to develop ways to control its spread. In this study, we sought to gain insights for vaccine design against SARS-CoV-2 by considering the high genetic similarity between SARS-CoV-2 and SARS-CoV, which caused the outbreak in 2003, and leveraging existing immunological studies of SARS-CoV. By screening the experimentally-determined SARS-CoV-derived B cell and T cell epitopes in the immunogenic structural proteins of SARS-CoV, we identified a set of B cell and T cell epitopes derived from the spike (S) and nucleocapsid (N) proteins that map identically to SARS-CoV-2 proteins. As no mutation has been observed in these identified epitopes among the 120 available SARS-CoV-2 sequences (as of 21 February 2020), immune targeting of these epitopes may potentially offer protection against this novel virus. For the T cell epitopes, we performed a population coverage analysis of the associated MHC alleles and proposed a set of epitopes that is estimated to provide broad coverage globally, as well as in China. Our findings provide a screened set of epitopes that can help guide experimental efforts towards the development of vaccines against SARS-CoV-2.",
+            "output": [
+                "0 - background, 1 - background, 2 - purpose, 3 - method, 4 - finding, 5 - finding, 6 - finding"
+            ]
+        },
+        {
+            "input": " Prospective observational study of all patients who were admitted to six hospitals in Edmonton, AL, Canada, with a diagnosis of CAP from November 15, 2000, to November 14, 2002. Pneumonia was defined as two or more respiratory symptoms and signs and an opacity on a chest radiograph as interpreted by the attending physician. Results A total of 3,043 patients were enrolled in the study, 246 of whom died (8.1%). On multivariate analysis, increasing pneumonia severity score, increasing age, site of care, consultation with a respirologist or infectious diseases physician, and functional status at the time of admission were all independently predictive of mortality. Increasing pneumonia severity risk score, increasing age, site of hospitalization, functional status, and consultation with an infectious diseases physician or a respirologist were independently associated with both early (< 5 days) and late (> 5 days) mortality. In contrast, partial or complete use of the pneumonia pathway was associated with decreased early mortality, but had no effect on late mortality. A low lymphocyte count and a high serum potassium level were associated with early but not with late mortality. The type of antibiotic therapy had an effect on late but not on early mortality. Conclusions Functional status at the time of hospital admission is a powerful predictor of mortality and should be incorporated into any scores or models that are used to predict mortality. While there are some common predictors of early and late in-hospital mortality, early mortality is not affected by the timing or type of antibiotic therapy, whereas late mortality is influenced by the type of antibiotic therapy. Hyperkalemia and lymphopenia are associated with early mortality.",
+            "output": [
+                "0 - background, 1 - method, 2 - method, 3 - finding, 4 - finding, 5 - finding, 6 - finding, 7 - finding, 8 - finding, 9 - finding, 10 - finding, 11 - finding"
+            ]
+        },
+        {
+            "input": " CAP ϭ community-acquired pneumonia; CI ϭ confidence interval; FSA ϭ forward sortation area; HRCT ϭ high-resolution CT; OR ϭ odds ratio C ommunity-acquired pneumonia (CAP) is a common illness with an incidence rate of approximately 11.6/1,000 adults per year, 1 of which approx-",
+            "output": [
+                "0 - finding"
+            ]
+        },
+        {
+            "input": " (a) a simple formula is derived to calculate the content of the four bases (A, G, C and T) from the coordinates of nodes on the curves; and (b) a 12-component characteristic vector is constructed to compare similarity among DNA sequences from different species based on the geometrical centers of the 3D curves. As examples, we examine similarity among the coding sequences of the first exon of betaglobin gene from eleven species and validate similarity of cDNA sequences of beta-globin gene from eight species.",
+            "output": [
+                "0 - purpose, 1 - method, 2 - method, 3 - method"
+            ]
+        },
+        {
+            "input": "Bacille Calmette-Guérin (BCG) is an attenuated strain of Mycobacterium bovis currently used as a vaccine against tuberculosis. Global distribution and propagation of BCG has contributed to the in vitro evolution of the vaccine strain and is thought to partially account for the different outcomes of BCG vaccine trials. Previous efforts by several molecular techniques effectively identified large sequence polymorphisms among BCG daughter strains, but lacked the resolution to identify smaller changes. In this study, we have used a NimbleGen tiling array for whole genome comparison of 13 BCG strains. Using this approach, in tandem with DNA resequencing, we have identified six novel large sequence polymorphisms including four deletions and two duplications in specific BCG strains. Moreover, we have uncovered various polymorphisms in the phoP-phoR locus. Importantly, these polymorphisms affect genes encoding established virulence factors including cell wall complex lipids, ESX secretion systems, and the PhoP-PhoR two-component system. Our study demonstrates that major virulence factors are different among BCG strains, which provide molecular mechanisms for important vaccine phenotypes including adverse effect profile, tuberculin reactivity and protective efficacy. These findings have important implications for the development of a new generation of vaccines.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - purpose, 4 - background, 5 - finding, 6 - finding, 7 - finding, 8 - finding"
+            ]
+        },
+        {
+            "input": " odds ratio = 0.95, 95% confidence interval (CI) 0.26, 3.48; season two odds ratio = 1.07, 95% CI 0.59, 1.96; pooled odds ratio = 1.07, 95% CI 0.63, 1.80). Because influenza vaccination appeared not to be associated with a clinically relevant reduction in severe morbidity, other measures need to be explored. case-control studies; immunization; influenza; lung diseases; middle age; vaccines Abbreviations CI, confidence interval; COPD, chronic obstructive pulmonary disease.",
+            "output": [
+                "0 - background, 1 - background, 2 - method, 3 - method, 4 - background, 5 - finding, 6 - finding, 7 - finding"
+            ]
+        },
+        {
+            "input": " Molecular polymerase chain reaction (PCR) based assays are increasingly used to diagnose viral respiratory infections and conduct epidemiology studies. Molecular assays have generally been evaluated by comparing them to conventional direct fluorescent antibody (DFA) or viral culture techniques, with few published direct comparisons between molecular methods or between institutions. We sought to perform a real-world comparison of two molecular respiratory viral diagnostic methods between two experienced respiratory virus research laboratories. Methods We tested nasal and throat swab specimens obtained from 225 infants with respiratory illness for 11 common respiratory viruses using both a multiplex assay (Respiratory MultiCode-PLx Assay [RMA]) and individual real-time RT-PCR (RT-rtPCR).",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - method"
+            ]
+        },
+        {
+            "input": " Both assays detected viruses in more than 70% of specimens, but there was discordance. The RMA assay detected significantly more human metapneumovirus (HMPV) and respiratory syncytial virus (RSV), while RT-rtPCR detected significantly more influenza A. We speculated that primer differences accounted for these discrepancies and redesigned the primers and probes for influenza A in the RMA assay, and for HMPV and RSV in the RT-rtPCR assay. The tests were then repeated and again compared. The new primers led to improved detection of HMPV and RSV by RT-rtPCR assay, but the RMA assay remained similar in terms of influenza detection.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding, 3 - finding, 4 - finding"
+            ]
+        },
+        {
+            "input": "Given the absence of a gold standard, clinical and research laboratories should regularly correlate the results of molecular assays with other PCR based assays, other laboratories, and with standard virologic methods to ensure consistency and accuracy.",
+            "output": [
+                "0 - finding"
+            ]
+        },
+        {
+            "input": "Porcine epidemic diarrhea virus (PEDV) is a porcine enteropathogenic coronavirus that has received increasing attention since the emergence of a PEDV variant worldwide. Previous studies have shown that PEDV ORF3 encodes an ion channel protein. However, its influence on cell cycle and subcellular structure still require more research. In this study, we developed a Vero cell line that stably expresses PEDV ORF3 gene. Subcellular localization and influences of PEDV ORF3 on host cells were investigated. We further verified whether or not this gene enhances virus production. The results showed that PEDV ORF3 protein localizes in the cytoplasm and affects cell cycle progression by prolonging the S phase. In addition, the ORF3-expressing Vero cells had more vesicles than the host Vero cells. Furthermore, the attenuated PEDV rather than virulent PEDV could grow better in ORF3-expressing Vero cells. The expression level of the PEDV nucleocapsid protein also increased. These results provided information on the function of PEDV ORF3 and were helpful in understanding the mechanisms of PEDV replication.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - purpose, 4 - method, 5 - method, 6 - finding, 7 - finding, 8 - finding, 9 - finding, 10 - finding"
+            ]
+        },
+        {
+            "input": "G quadruplexes (G4s), which are known to have important roles in regulation of key biological processes in both normal and pathological cells, are the most actively studied non canonical structures of nucleic acids. In this review, we summarize the results of studies published in recent years that change significantly scientific views on various aspects of our understanding of quadruplexes. Modern notions on the polymorphism of DNA quadruplexes, on factors affecting thermo dynamics and kinetics of G4 folding-unfolding, on structural organization of multiquadruplex systems, and on conforma tional features of RNA G4s and hybrid DNA-RNA G4s are discussed. Here we report the data on location of G4 sequence motifs in the genomes of eukaryotes, bacteria, and viruses, characterize G4 specific small molecule ligands and proteins, as well as the mechanisms of their interactions with quadruplexes. New information on the structure and stability of G4s in telomeric DNA and oncogene promoters is discussed as well as proof being provided on the occurrence of G quadruplexes in cells. Prominence is given to novel experimental techniques (single molecule manipulations, optical and magnetic tweez ers, original chemical approaches, G4 detection in situ, in cell NMR spectroscopy) that facilitate breakthroughs in the investigation of the structure and functions of G quadruplexes.",
+            "output": [
+                "0 - background, 1 - purpose, 2 - purpose, 3 - finding, 4 - finding, 5 - finding"
+            ]
+        },
+        {
+            "input": "The evolutionarily conserved human polymerase delta (POLD1) gene encodes the large p125 subunit which provides the essential catalytic activities of polymerase δ (Polδ), mediated by 5′-3′ DNA polymerase and 3′-5′ exonuclease moieties. POLD1 associates with three smaller subunits (POLD2, POLD3, POLD4), which together with Replication Factor C and Proliferating Nuclear Cell Antigen constitute the polymerase holoenzyme. Polδ function is essential for replication, with a primary role as the replicase for the lagging strand. Polδ also has an important proofreading ability conferred by the exonuclease activity, which is critical for ensuring replicative fidelity, but also serves to repair DNA lesions arising as a result of exposure to mutagens. Polδ has been shown to be important for multiple forms of DNA repair, including nucleotide excision repair, double strand break repair, base excision repair, and mismatch repair. A growing number of studies in the past decade have linked germline and sporadic mutations in POLD1 and the other subunits of Polδ with human pathologies. Mutations in Polδ in mice and humans lead to genomic instability, mutator phenotype and tumorigenesis. The advent of genome sequencing techniques has identified damaging mutations in the proofreading domain of POLD1 as the underlying cause of some inherited cancers, and suggested that mutations in POLD1 may influence therapeutic management. In addition, mutations in POLD1 have been identified in the developmental disorders of mandibular hypoplasia, deafness, progeroid features and lipodystrophy and atypical Werner syndrome, while changes in expression or activity of POLD1 have been linked to senescence and aging. Intriguingly, some recent evidence suggests that POLD1 function may also be altered in diabetes. We provide an overview of critical Polδ activities in the context of these pathologic conditions.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - background, 5 - background, 6 - background, 7 - background, 8 - background, 9 - finding, 10 - purpose"
+            ]
+        },
+        {
+            "input": " Systemic lupus erythematosus (SLE) is associated with immunogenetic factors. This study was planned to test for the association of TNF-α − 308 and IFN-γ +874 gene polymorphisms with susceptibility and severity of SLE in Egyptian cases. Subjects and methods This is a case controlled study including 125 Egyptian cases with SLE in addition to 112 healthy unrelated individuals from the same locality. For all participants, TNF-α − 308 G NA and IFN-γ + 874 ANT genetic polymorphisms were characterized using the PCR technique. Results Cases with SLE showed a significantly higher TNF-α −308 A allele carriage rate (AA + GA genotypes) compared to controls (26.4% vs. 12.5%, p = 0.009, OR = 2.51, 95% CI = 1.26-4.99). These cases showed also a significantly higher carriage rate for the IFN-γ +874 T allele (AT + TT genotypes) compared to controls (47.2% vs. 32.1%, p = 0.02, OR = 1.89, 95% CI = 1.11-3.21). Comparing age, gender, and disease severity presented by nephritis class, activity and chronicity indices in cases carrying the TNF-α −308 A allele and in cases carrying IFN-γ +874 T allele versus others showed no significant difference (p N 0.05). Conclusions TNF-α −308 A and IFN-γ +874 T allele carriage are associated with susceptibility but not severity of SLE in Egyptian subjects.",
+            "output": [
+                "0 - background, 1 - purpose, 2 - method, 3 - method, 4 - finding, 5 - finding, 6 - finding, 7 - finding"
+            ]
+        },
+        {
+            "input": "A decline in protective immune responses following vaccination is one of the main features of immunosenescence. Improved vaccine candidates for elderly adults are thus urgently needed. For scientific and regulatory requirements, such new vaccines must first be evaluated at the preclinical level, and there is a continuing quest for the ideal animal model with which to perform such studies. The main advantages and limitations of murine models, those most commonly used for human vaccine research, and of large animal models are reviewed and discussed.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background"
+            ]
+        },
+        {
+            "input": "Viral epitranscriptomics is a newly emerging field that has identified unique roles for RNA modifications in modulating life cycles of RNA viruses. Despite the observation of a handful of modified viral RNAs five decades ago, very little was known about how these modifications regulate viral life cycles, until recently. Here we review the pro-and anti-viral effects of methyl-6-adenosine in distinct viral life cycles, the role of 2 0 O-methyl modifications in RNA stability and innate immune sensing, and functions of adenosine to inosine modifications in retroviral life cycles. With roles for over 100 modifications in RNA still unknown, this is a rapidly emerging field that is destined to suggest novel antiviral therapies. Cell Host & Microbe 21, June 14, 2017 ª 2017 Elsevier Inc. 661",
+            "output": [
+                "0 - background, 1 - background, 2 - purpose, 3 - purpose, 4 - other"
+            ]
+        },
+        {
+            "input": "Figure 1. Adenosine Modifications and the Respective Enzymes that Facilitate These Chemical Modifications N 6 -methyladenosine and N 6 ,2-O-dimethyladenosine are reversible RNA modifications, while inosine and 2 0 -O-methyladenosine seem to be irreversible. Of the modifications listed, only 2 0 -O-methyltransferases are encoded by viral genes (WNV, West Nile virus; DV, dengue virus; H-CoV, human coronavirus), further supporting the important role for this modification in modulating viral sensing by innate immune pathways.",
+            "output": [
+                "0 - other, 1 - finding, 2 - finding"
+            ]
+        },
+        {
+            "input": "Strict interventions were successful to control the novel coronavirus (COVID-19) outbreak in China. As transmission intensifies in other countries, the interplay between age, contact patterns, social distancing, susceptibility to infection and disease, and COVID-19 dynamics remains unclear. To answer these questions, we analyze contact surveys data for Wuhan and Shanghai before and during the outbreak and contact tracing information from Hunan Province. Daily contacts were reduced 7-9 fold during the COVID-19 social distancing period, with most interactions restricted to the household. Children 0-14 years were 59% (95% CI 7-82%) less susceptible than individuals 65 years and over. A transmission model calibrated against these data indicates that social distancing alone, as implemented in China during the outbreak, is sufficient to control COVID-19. While proactive school closures cannot interrupt transmission on their own, they reduce peak incidence by half and delay the epidemic. These findings can help guide global intervention policies.",
+            "output": [
+                "0 - background, 1 - background, 2 - purpose, 3 - finding, 4 - finding, 5 - finding, 6 - finding, 7 - finding"
+            ]
+        },
+        {
+            "input": "The large outbreak of coronavirus disease 2019 (COVID-19) that started in Wuhan, China has now spread to many countries worldwide. Current epidemiologic knowledge suggests that relatively few cases are seen among children, which limits opportunities to address pediatric specific issues on infection control and the children's contribution to viral spread in the community. Here, we report the first pediatric case of COVID-19 in Korea. The 10-year-old girl was a close contact of her uncle and mother who were confirmed to have COVID-19. In this report, we present mild clinical course of her pneumonia that did not require antiviral treatment and serial viral test results from multiple specimens. Lastly, we raise concerns on the optimal strategy of self-quarantine and patient care in a negative isolation room for children.",
+            "output": [
+                "0 - background, 1 - background, 2 - purpose, 3 - finding, 4 - purpose, 5 - purpose"
+            ]
+        },
+        {
+            "input": " NC_045512.2, the conformational and linear B cell epitopes of the surface protein were predicted separately by various prediction methods. Furthermore, the conservation of the epitopes, the adaptability and other evolutionary characteristics were also analyzed. 7 epitopes were predicted, including 5 linear epitopes and 2 conformational epitopes, one of the linear and one of the conformational were coincide.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - background"
+            ]
+        },
+        {
+            "input": "The epitope D mutated easily, but the other epitopes were very conservative and the epitope C was the most conservative. It is worth mentioning that all of the 6 dominated epitopes were absolutely conservative in nearly 1000 SARS-CoV-2 genomes, and they deserved further study. The findings would facilitate the vaccine development, had the potential to be directly applied on the treatment in this disease, but also have the potential to prevent the possible threats caused by other types of coronavirus.",
+            "output": [
+                "0 - background, 1 - background, 2 - finding"
+            ]
+        },
+        {
+            "input": "Results",
+            "output": [
+                "0 - finding"
+            ]
+        },
+        {
+            "input": " bioRxiv preprint 0.079( Figure S1A ). On the basis of hydrophilicity, it also showed amphoteric properties. There was an outside-in transmembrane helix in 23 residues from position 1214 th to position 1236 th at the N-terminal( Figure S2A ). The protein instability index was 33.01, which revealed the S protein was stable. The E protein has an average hydrophilic index of 1.128( Figure S1B ). It was hydrophobic. An inside-out transmembrane helix in 23 residues from position 12 th to position 34 th at the N-terminal was predicted( Figure S2B ). The protein instability index was 38.68, which revealed the E protein was stable. The M protein has an average hydrophilic index of 0.446( Figure   S1C ). On the basis of hydrophobicity, it also showed amphoteric properties. There were two outside-in transmembrane helices, one was in 20 residues from position 20 th to position 39 th , the another one was in 23 residues from position 78 th to position 100 th , and an inside-out transmembrane helix in 20 residues from position 51 st to position 73 rd , at the N-terminal( Figure S2C ). The protein instability index was 39.14, which revealed the M protein was stable.",
+            "output": [
+                "0 - method, 1 - finding, 2 - other, 3 - other, 4 - finding, 5 - finding, 6 - finding, 7 - finding, 8 - finding, 9 - finding, 10 - finding, 11 - finding, 12 - finding, 13 - finding, 14 - finding, 15 - finding"
+            ]
+        },
+        {
+            "input": " 6acc.1), with the sequence identity of 76.47% and the GMQE score of 0.73. According to the evaluation of the structure by Ramachandran plot (Figure 1A) , 99.3% of the residues were located in the most favoured regions and the allowed regions0.7% of the residues were located in the disallowed regions, the high-energy regions (Table 1) , which was possibly due to some energy was spent in the protein processing to make these residues enter the high-energy regions [5] . The result generally showed that the structure was reliable. The structure of S protein( Figure 1B) of SARS-CoV-2 is a trimer, which can be divided into a tightly curled tail and a distributed head. The head is mainly composed of β-sheet, irregular curl and turn, which is exposed to the envelope of the virus, contributes to the formation of epitopes. The tail is mainly composed of several α-helices, part of which is embedded in the envelope, hinders the formation of epitopes.",
+            "output": [
+                "0 - finding, 1 - finding, 2 - finding, 3 - finding, 4 - finding, 5 - finding"
+            ]
+        },
+        {
+            "input": " 5x29.1), with the sequence identity of 91.38% and author/funder. All rights reserved. No reuse allowed without permission.",
+            "output": [
+                "0 - finding, 1 - other, 2 - other"
+            ]
+        },
+        {
+            "input": "Remyelination is the phenomenon by which new myelin sheaths are generated around axons in the adult central nervous system (CNS). This follows the pathological loss of myelin in diseases like multiple sclerosis (MS). Remyelination can restore conduction properties to axons (thereby restoring neurological function) and is increasingly believed to exert a neuroprotective role on axons. Remyelination occurs in many MS lesions but becomes increasingly incomplete/inadequate and eventually fails in the majority of lesions and patients. EVorts to understand the causes for this failure of regeneration have fueled research into the biology of remyelination and the complex, interdependent cellular and molecular factors that regulate this process. Examination of the mechanisms of repair of experimental lesions has demonstrated that remyelination occurs in two major phases. The first consists of colonization of lesions by oligodendrocyte progenitor cells (OPCs), the second the diVerentiation of OPCs into myelinating oligodendrocytes that contact demyelinated INTERNATIONAL REVIEW OF 589 NEUROBIOLOGY, VOL. 79",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - background, 5 - finding, 6 - finding, 7 - other"
+            ]
+        },
+        {
+            "input": "In recent years, several studies based on the interaction of self-assembling short peptides derived from viroporins with model membranes, have improved our understanding of the molecular mechanism of corona virus (CoV) infection under physiological conditions. In this study, we have characterized the mechanism of membrane interaction of a short, 9-residue peptide TK9 (T 55 VYVYSRVK 63 ) that had been derived from the carboxyl terminal of the Severe Acute Respiratory Syndrome (SARS) corona virus (SARS CoV) envelope (E) protein. The peptide has been studied for its physical changes in the presence of both zwitterionic DPC and negatively charged SDS model membrane micelles, respectively, with the help of a battery of biophysical techniques including two-dimensional solution state NMR spectroscopy. Interestingly, in both micellar environments, TK9 adopted an alpha helical conformation; however, the helical propensities were much higher in the case of DPC compared to those of SDS micelle, suggesting that TK9 has more specificity towards eukaryotic cell membrane than the bacterial cell membrane. The orientation of the peptide TK9 also varies in the different micellar environments. The peptide's affinity was further manifested by its pronounced membrane disruption ability towards the mammalian compared to the bacterial membrane mimic. Collectively, the in-depth structural information on the interaction of TK9 with different membrane environments explains the host specificity and membrane orientation owing to subsequent membrane disruption implicated in the viral pathogenesis.",
+            "output": [
+                "0 - background, 1 - purpose, 2 - background, 3 - finding, 4 - finding, 5 - finding, 6 - finding"
+            ]
+        },
+        {
+            "input": "The past decade has seen an explosion in the field of in vitro disease modelling, in particular the development of organoids. These selforganizing tissues derived from stem cells provide a unique system to examine mechanisms ranging from organ development to homeostasis and disease. Because organoids develop according to intrinsic developmental programmes, the resultant tissue morphology recapitulates organ architecture with remarkable fidelity. Furthermore, the fact that these tissues can be derived from human progenitors allows for the study of uniquely human processes and disorders. This article and accompanying poster highlight the currently available methods, particularly those aimed at modelling human biology, and provide an overview of their capabilities and limitations. We also speculate on possible future technological advances that have the potential for great strides in both disease modelling and future regenerative strategies.",
+            "output": [
+                "0 - background, 1 - background, 2 - background, 3 - background, 4 - purpose, 5 - purpose"
+            ]
+        }
+    ]
+}

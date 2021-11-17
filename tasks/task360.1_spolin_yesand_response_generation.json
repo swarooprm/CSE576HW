@@ -1,0 +1,932 @@
+{
+    "Contributors": [
+        "Maitreya Patel"
+    ],
+    "Source": [
+        "Grounding Conversations with Improvised Dialogues; Paper Link: https://arxiv.org/pdf/2004.09544.pdf"
+    ],
+    "Categories": [
+        "Classification"
+    ],
+    "Definition": "#Given the sentence, #generate \"yes, and\" #response. \"#Yes, and\" is a rule-of-thumb in improvisational comedy that suggests that a #participant in a #dialogue should accept what another #participant has stated (\"#Yes\") and then expand on that #line of thought or #context (\"and...\"). 1 In short, a \"#Yes, and\" is a #dialogue ##exchange in which a #speaker responds by #adding new information on top of the #information/setting that was constructed by another #speaker. Note that a \"#Yes, and\" does not require someone explicitly ##saying 'yes, and...' as part of a #dialogue ##exchange, although it could be the #case if it #agrees with the #description above. There are many ways in which a #response could implicitly/explicitly #agree to the #prompt without specifically ##saying 'yes, and...'.",
+    "Positive Examples": [
+        {
+            "input": "Everyone keeps getting hit with bones. The children are out to get us.",
+            "output": "Do you think there's a gang of kids with bones running around?",
+            "explanation": "This response is a direct question with respect to the statement."
+        },
+        {
+            "input": "What color cream does this doughnut have?",
+            "output": "That is a mocha cream. And then the one to the right of it is a dulce de leche, and then just down there's a strawberry.",
+            "explanation": "This is a direct answer to a questioned asked."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "This marble on this floor is going to be hard on your client's knees. Do ya'll know that?",
+            "output": "I also think that we need to move them to areas where people aren't constantly suffering from allergies.  They might spend more time outside playing with the frisbees.",
+            "explanation": "Ther is no connection between the 2 assertions."
+        },
+        {
+            "input": "It seems like you two might know each other, Barb.",
+            "output": "Oh what's this, a Venmo credit card? That's new.",
+            "explanation": "The response is a credit card to a question of familiarity which is a bad response."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "OK, it's the big day guys. Yorgy, how is the juggling coming along with Rubber Band?",
+            "output": [
+                "He's a quick learner, papa."
+            ]
+        },
+        {
+            "input": "He had the strength of ten men until, like that biblical hero, they clipped his toenails.",
+            "output": [
+                "And his teeth. You said they took out his teeth. That's a terrible thing to do."
+            ]
+        },
+        {
+            "input": "You just take one shoe off and then you put it on. Then you sing a song about it.",
+            "output": [
+                "A song? Fred, where do you get these funny ideas?"
+            ]
+        },
+        {
+            "input": "Yes. Welcome to DM Sliders. We're a family owned bike shop.",
+            "output": [
+                "OK, never mind. I'm just going to go. I'm having problems with my family, so when I hear the word \"family\" it kind of makes me not want to spend my money here."
+            ]
+        },
+        {
+            "input": "You're a curious man. You're willing to jeopardize Jacqueline's life in order to satisfy your own curiosity.",
+            "output": [
+                "You come to me with some wild story about her being in danger. Naturally, I want to know what kind of danger. I want to know where she is."
+            ]
+        },
+        {
+            "input": "Elizabeth, I warned you that this would happen.  You didn't heed my advice.",
+            "output": [
+                "Get closer.  I can't hear you with our bellies touching.  We're so far apart."
+            ]
+        },
+        {
+            "input": "Arthur, the council has spoken, and you've been flushed.",
+            "output": [
+                "Look, I didn't come here to make friends. I came here to win. I didn't win, and here's why: I'm better than everybody else, and they're all stupid people."
+            ]
+        },
+        {
+            "input": "How're you doing, Mrs. Sinclair?",
+            "output": [
+                "Well, I'm fine ever since you broke my daughter's heart and sent her down a trajectory of, well, you're looking at it."
+            ]
+        },
+        {
+            "input": "Thanks Mrs. Kleinman.",
+            "output": [
+                "You're mom's awesome, Rob."
+            ]
+        },
+        {
+            "input": "Everyone loves the pirate ship. It gives them that funny feeling in their stomach.",
+            "output": [
+                "Yeah, but they're basically just experiencing motion sickness. We need more."
+            ]
+        },
+        {
+            "input": "You're not exactly what I'd call an experienced tracker.",
+            "output": [
+                "Well, some tracker you are, following a couple little horses. Anybody can do that."
+            ]
+        },
+        {
+            "input": "That guy is probably going to fix the broken tv later.",
+            "output": [
+                "Maybe.  Or, maybe he'll make it into one of them fishtanks with the deadly eels.  I heard it's complicated because you've got to de electrify them or people die doing that."
+            ]
+        },
+        {
+            "input": "Daniel, I want a bottle of that barbecue sauce.",
+            "output": [
+                "Well, let me get a spatula and my right arm. I'll get one filled up for you."
+            ]
+        },
+        {
+            "input": "At least you were never lonely.",
+            "output": [
+                "I didn't say that. Growing up in an orphanage, you're always lonely. You're just never alone."
+            ]
+        },
+        {
+            "input": "I'm out, I don't give a crap of what people think about me.",
+            "output": [
+                "But you're not, and people can be really harsh, okay? That's all."
+            ]
+        },
+        {
+            "input": "Cactus-shooting a man in the back is not very noble.",
+            "output": [
+                "That is not a man, Captain God. That is vomit accidentally born with two legs."
+            ]
+        },
+        {
+            "input": "Did you give that woman permission for a temperance rally?",
+            "output": [
+                "Yes and no. That is, I had no idea it would get outta hand, so to speak, sir."
+            ]
+        },
+        {
+            "input": "Sorry, folks, I didn't mean to startle you. I'm Ranger Brad.",
+            "output": [
+                "Thank goodness. It's only a forest ranger, honey."
+            ]
+        },
+        {
+            "input": "You're saying that I've halo'd innocent people?",
+            "output": [
+                "I'm saying that every so often those accused of a precrime might, just might, have an alternate future."
+            ]
+        },
+        {
+            "input": "Anybody seen Ben Rumson?",
+            "output": [
+                "He left here about 20 minutes ago."
+            ]
+        },
+        {
+            "input": "Maybe it's because of this tissue that children are immune to the signal.",
+            "output": [
+                "Wow, so once we're old enough to reproduce, the aliens can reproduce through us."
+            ]
+        },
+        {
+            "input": "Sir, uh, my name is Tim. I'm with the park.",
+            "output": [
+                "I can see your name tag."
+            ]
+        },
+        {
+            "input": "You say you perform in the Miami area?",
+            "output": [
+                "Yes, around here.  I was a mayishan in Cuba before I come here.  Manuel the Mayishan was my name."
+            ]
+        },
+        {
+            "input": "Have we met? I don't recall.",
+            "output": [
+                "We just did. I told you my name's Chili Palmer."
+            ]
+        },
+        {
+            "input": "But why? What is ailing her?",
+            "output": [
+                "Her heart. lt's tired, worn-out."
+            ]
+        },
+        {
+            "input": "There's another mysterious ingredient I cannot place.",
+            "output": [
+                "Some people call it Dorito Dust!"
+            ]
+        },
+        {
+            "input": "I don't know. Where's Ma? What have they done with her?",
+            "output": [
+                "She's all right. Quick. In the baggage room, out of sight."
+            ]
+        },
+        {
+            "input": "Welcome to our racially integrated Chinese restaurant. Would you like a hamburger chop suey?",
+            "output": [
+                "Uh, sure. Do you have something in a noodle to go with it?"
+            ]
+        },
+        {
+            "input": "I know, I just. You never called and I didn't want to assume.",
+            "output": [
+                "You didn't have to assume anything. I said. I kissed you with my mouth. I knew what I was doing."
+            ]
+        },
+        {
+            "input": "Honesty through paranoia. Why do you smell like shoe polish?",
+            "output": [
+                "I had to use shoe polish to make that sign. The smell won't come off."
+            ]
+        },
+        {
+            "input": "Please, Rose. I'm curious, that's all, I have a natural curiosity, it's only human. You're my friend, aren't you? Don't you like me?  I like you, Rose, a lot -- in fact, I love you.",
+            "output": [
+                "Well, you're sweet, but you don't really love me."
+            ]
+        },
+        {
+            "input": "Easy. We're surrounded by something the likes none of you have ever seen before. Some kind of animals. Real fast, volatile, predators. ONE went through three of your patrons like they were Kleenex.",
+            "output": [
+                "So, your dead hubby shot me twice, three of my customers have been eaten, and there are angry creatures outside?"
+            ]
+        },
+        {
+            "input": "Looks like he's been dead about eight hours.",
+            "output": [
+                "He died of exposure."
+            ]
+        },
+        {
+            "input": "Ed, you're 30.  Your father didn't make lieutenant until he was 33.",
+            "output": [
+                "I know that, sir.  I also know that when he made lieutenant, it was as a detective."
+            ]
+        },
+        {
+            "input": "Who the fuck are you? You've never spoken.",
+            "output": [
+                "This is Steve. He's Steve Dons."
+            ]
+        },
+        {
+            "input": "Well, if I'm not sophisticated enough for you, why do we spend all this time together?",
+            "output": [
+                "Your sophistication or lack of it is irrelevant to me."
+            ]
+        },
+        {
+            "input": "Look, I'm trying to sell my body for money over here.",
+            "output": [
+                "That's what I'm trying to do, but this is my here corner. "
+            ]
+        },
+        {
+            "input": "He's telling stories over there. That's not even part of the miniature golf experience.",
+            "output": [
+                "For free. And it's stories about the golf. It's stories about each hole."
+            ]
+        },
+        {
+            "input": "Go to my house. We'll call the state force from there.",
+            "output": [
+                "I'll be there in 5 minutes."
+            ]
+        },
+        {
+            "input": "He ditched you.  You should've married me, you know.",
+            "output": [
+                "You never asked me, and every time I brought it up you'd get drowsy and fall asleep."
+            ]
+        },
+        {
+            "input": "It's her wedding day.",
+            "output": [
+                "Yeah, and it's my wedding day as well. It's my important day as well."
+            ]
+        },
+        {
+            "input": "Look, I don't mean to seem crazy, okay? But shit comes alive in here at night. Who's to say at some point you weren't a crack rock in an envelope or a box that somebody mailed to somebody and you somehow got stuck as anthropomorphic crack rock.",
+            "output": [
+                "I'd be lying if I said that hadn't crossed my mind at some point too. That you were a crack rock."
+            ]
+        },
+        {
+            "input": "Excuse me. Theresa, was it?  There are no holes in my research.",
+            "output": [
+                "No offense.  There are just some things we need that you probably didn't know to ask."
+            ]
+        },
+        {
+            "input": "Maybe that pentangle was for something supernatural.",
+            "output": [
+                "I see and they were too embarrassed to talk about it, because they felt so silly."
+            ]
+        },
+        {
+            "input": "Oh, give me a break, Stacy. You're much prettier than them.",
+            "output": [
+                "Yeah but they look more sophisticated. You'd probably think they'd be better in bed."
+            ]
+        },
+        {
+            "input": "Why do you look different?",
+            "output": [
+                "Oh, I shaved my thing."
+            ]
+        },
+        {
+            "input": "Do you know what the residue of Sir Charles Baskerville's estate was?",
+            "output": [
+                "Close to a million."
+            ]
+        },
+        {
+            "input": "They certainly tried to. I could feel their greedy eyes all over me and my bag of money.",
+            "output": [
+                "Oh, yeah. They look like a rough bunch.  Here, give them some cookies."
+            ]
+        },
+        {
+            "input": "What if somebody decides to sue us? Did you ever stop to think about that?",
+            "output": [
+                "You don't have to worry about being sued or being ruined, if this turns out to be what I think it is, because there won't be anybody here."
+            ]
+        },
+        {
+            "input": "So, you feel full?",
+            "output": [
+                "Yeah, oatmeal's filling."
+            ]
+        },
+        {
+            "input": "I hear that. There's some days where I can't even get out of bed in the morning and the thought of drinking my morning coffee makes me just want to rip and arm off, you know?",
+            "output": [
+                "Maybe we should run you through the machine as well. That seems like potential depression, which we can see on an x-ray scan."
+            ]
+        },
+        {
+            "input": "The body was identified along proper Bowling Congress guidelines for processing a bowling related fatality.",
+            "output": [
+                "I'm the next of kin. I should've seen him."
+            ]
+        },
+        {
+            "input": "Honey, church will be fine.",
+            "output": [
+                "But what if he dies and has to go to the Pet Sematary?"
+            ]
+        },
+        {
+            "input": "Are you sure you parked it there?",
+            "output": [
+                "Of course, I'm sure. Ah, Christ, the puberty police are back."
+            ]
+        },
+        {
+            "input": "They'd come after us and we'd have to run again as long as we live.",
+            "output": [
+                "No, we wouldn't. Not if they didn't know where to find us."
+            ]
+        },
+        {
+            "input": "That's their newest one. That holds 10 million bushels.",
+            "output": [
+                "That's a lot of biscuits."
+            ]
+        },
+        {
+            "input": "This man is your half brother. You're in love with your half brother.",
+            "output": [
+                "Wow, that got worse than I thought it would get. Incestuous murder cannibalism."
+            ]
+        },
+        {
+            "input": "You have a writer's tongue.",
+            "output": [
+                "And you have a lover's tongue."
+            ]
+        },
+        {
+            "input": "Oh! What was your regiment?",
+            "output": [
+                "I was in the Warwickshire. 10th Battalion."
+            ]
+        },
+        {
+            "input": "Well, I'd like to think people know who I am. I do have a commercial out there.",
+            "output": [
+                "Everyone loves that commercial."
+            ]
+        },
+        {
+            "input": "Thanks again, El. You sure that's all I can give you?",
+            "output": [
+                "Oh, yes. The caterer should have everything. I just thought a few extras would be nice."
+            ]
+        },
+        {
+            "input": "Sweetie, I know you're still a baby, and you might not be able to understand these concepts that we're trying to explain to you.",
+            "output": [
+                "Of course he doesn't.  He's just a dumb baby.  Listen to him making those noises.  He honestly thinks he's talking right now.  That's terrible."
+            ]
+        },
+        {
+            "input": "Well, why not?  I'm feeling magnanimous tonight.  The successful conclusion of this case draws the curtain on my career as a jurist. I'm retiring to take a new role in the private sector.",
+            "output": [
+                "Yeah?  Well, don't expect the Toons to give you a gold watch."
+            ]
+        },
+        {
+            "input": "I don't drink coffee.  On the other hand, since you insist, if you offered me a cold lemonade. I wouldn't say no.",
+            "output": [
+                "Good. Lemonade it is.  I'm Paul."
+            ]
+        },
+        {
+            "input": "Oh. So what did you do after you gave up on acting?",
+            "output": [
+                "Well, I went to law school, if you can believe that."
+            ]
+        },
+        {
+            "input": "I'm terribly sorry, you're wearing a scarf wrapped around your head.",
+            "output": [
+                "Yep. I'm a Muslim woman. Why would you think I was a man? What man is wearing a scarf wrapped around his head?"
+            ]
+        },
+        {
+            "input": "Well, enjoy, and perhaps we'll see you again some time, Dude.",
+            "output": [
+                "Yeah sure, if I'm ever in the neighborhood, need to use the john."
+            ]
+        },
+        {
+            "input": "Well, this child is now inflicted with a new disorder. It's traumatic soap opera amnesia. There's no cure.",
+            "output": [
+                "This is so much worse than if he had no relationship with his father."
+            ]
+        },
+        {
+            "input": "Circuit City is almost out of business? Really? No one told me this. I just bought stock.",
+            "output": [
+                "This is the last one. We applied and got jobs here."
+            ]
+        },
+        {
+            "input": "Why did you skip the blood test?",
+            "output": [
+                "I didn't want to get kicked out of school for dusting."
+            ]
+        },
+        {
+            "input": "I don't know how to read. I didn't want to tell you and I'm embarrassed about it. I don't know how to read, Daryl.",
+            "output": [
+                "We've been married for ten years. When were you planning on telling me? Is that why we wrote our own vows and yours were so awkward?"
+            ]
+        },
+        {
+            "input": "Improving. We're improving this neighborhood. They'll be places for you to live.",
+            "output": [
+                "Just stay on your side of the track. That's right. One day we're gonna have a house with a wall. Just you wait and see."
+            ]
+        },
+        {
+            "input": "I'm working on it.",
+            "output": [
+                "Then you'd better work on it in the car. We gotta go see the Judge."
+            ]
+        },
+        {
+            "input": "There's the ballet, and next week there'll be the Wimbledon tennis.",
+            "output": [
+                "Oh, darling, I am afraid we are going to miss the matches."
+            ]
+        },
+        {
+            "input": "The donor.  Maybe he's alive inside the game.",
+            "output": [
+                "And maybe you've been taking too many drugs."
+            ]
+        },
+        {
+            "input": "Shabat Shalom, mama. I brought some Manischewitz. The black label.",
+            "output": [
+                "I can see. And you also brought a nice girl to come eat by us."
+            ]
+        },
+        {
+            "input": "We should figure out what it is we want from my boss when we see him. Dorothy, what do you want?",
+            "output": [
+                "I want a nice dog that doesn't follow me when I pee."
+            ]
+        },
+        {
+            "input": "You tried to drown me.",
+            "output": [
+                "And you tried to run me over with your little car."
+            ]
+        },
+        {
+            "input": "C'mon, man, I'm just asking for one Superbowl ring.",
+            "output": [
+                "In exchange for eternal damnation of your soul? You're too nice of a guy for me to want to do that to you, Mr. Marino."
+            ]
+        },
+        {
+            "input": "Do you stay long in Meryton, Mr Wickham?",
+            "output": [
+                "All winter, I'm happy to say. I've taken a commission in Colonel Forster's regiment."
+            ]
+        },
+        {
+            "input": "We live in a place that's so interesting and strange that a raccoon stole my bicycle. I think that's proof positive, right now, that we live in a very special place that might have a diamond mine.",
+            "output": [
+                "Yeah, and how would you explain a raccoon just getting up and riding a bike? Maybe Samantha and I should run away together and try to find the diamond mine."
+            ]
+        },
+        {
+            "input": "Why can't you break down and call me Mike?",
+            "output": [
+                "I couldn't possibly break down. I was raised on a pedestal."
+            ]
+        },
+        {
+            "input": "God, it is filled with blood. And somehow it's overflowing.",
+            "output": [
+                "And, I gotta say this again, I'm just a social media manager, but you pick up a lot about the fish stuff when you're, you know, managing these accounts. Some of this is manatee blood. Most of it, and this is gonna sound crazy but I promise you this is true. It's sea horse blood."
+            ]
+        },
+        {
+            "input": "You say these creatures were brought back from the Churchill?",
+            "output": [
+                "Yes, sir, but not this one. She's a victim of the creatures."
+            ]
+        },
+        {
+            "input": "I like men.",
+            "output": [
+                "Not the ones I've met. You'll be much happier once you accept that all the romantic notions you've had your entire life are crap."
+            ]
+        },
+        {
+            "input": "Ms. Metcalf's relationship with the deceased speaks directly to motive.",
+            "output": [
+                "I'll allow general references to their past, but defense motion is granted."
+            ]
+        },
+        {
+            "input": "Edfu Ahmad. He is Egyptian?",
+            "output": [
+                "According to him, a direct descendant of Ameti."
+            ]
+        },
+        {
+            "input": "He believes in you.",
+            "output": [
+                "But it's true. I have faith, James."
+            ]
+        },
+        {
+            "input": "You guys aren't missing much. The apples aren't so great.",
+            "output": [
+                "When you say that it makes me want to eat one."
+            ]
+        },
+        {
+            "input": "Right.  So, you have a new place, you've started working a bit. I'm sure you'll be meeting some new people.",
+            "output": [
+                "Actually, I have met someone. There's a woman I think I like."
+            ]
+        },
+        {
+            "input": "You did all this for me?",
+            "output": [
+                "Most of it.  I just hate to see you in this situation."
+            ]
+        },
+        {
+            "input": "Well, Destructacon 5000, you have quite a head on your shoulders, I dare to coin.",
+            "output": [
+                "Yes, I am programmed to answer any question."
+            ]
+        },
+        {
+            "input": "Yeah. To go to school and, you know, paint, performances, paint.",
+            "output": [
+                "You have to go. You always did such, uh, you know, great work. I still have some of those drawings that you'd do in study hall."
+            ]
+        },
+        {
+            "input": "You ran full basketball plays on a plane?",
+            "output": [
+                "Of course we did. It's a huge plane."
+            ]
+        },
+        {
+            "input": "Oh my God, he's back.",
+            "output": [
+                "In many ways, Bob's Big Boy never left, sir. He's always offered the same high quality meals at competitive prices."
+            ]
+        },
+        {
+            "input": "The population will stabilize eventually. They'll adapt to fit different roles.",
+            "output": [
+                "Either that, or the government will firebomb it back to the Stone Age."
+            ]
+        },
+        {
+            "input": "Rick! Rick, you took a bad fall, man. Hey, look at your back.",
+            "output": [
+                "Look at my board! It was the only thing I had left."
+            ]
+        },
+        {
+            "input": "This isn't some Miracle on 34th Street bullshit. Do you have magical powers to make dreams come true or not?",
+            "output": [
+                "Karen, I do. I do have magical powers. I can do anything right now. Look, there's my thumb. There it's not."
+            ]
+        },
+        {
+            "input": "I haven't seen you since the wedding, Jeez, you look great.",
+            "output": [
+                "I do? Oh, isn't that sweet, thank you. I have to confess something to you. I must have been pretty plowed at your wedding. I really don't have the faintest idea who you are."
+            ]
+        },
+        {
+            "input": "You mean you're going to stay up all night?",
+            "output": [
+                "Mom, how else are we gonna see the sunrise?"
+            ]
+        },
+        {
+            "input": "You told him you liked him.",
+            "output": [
+                "That was before he lost my carpet cleaning van."
+            ]
+        },
+        {
+            "input": "Do what I asked you to do.  Change my flavor profile.",
+            "output": [
+                "Okay, first of all, you're human.  Second of all, you want to add a waddle."
+            ]
+        },
+        {
+            "input": "I hope you feel better now.",
+            "output": [
+                "Yes, but my head is about to explode. Do you have something for the headache?"
+            ]
+        },
+        {
+            "input": "Ranch's father called him kid before he disappeared in a storm drain.",
+            "output": [
+                "His father disappeared into a storm drain? That's the craziest thing I'v ever heard and I've seen some crazy things."
+            ]
+        },
+        {
+            "input": "I've already gotten started, hope that's OK.",
+            "output": [
+                "Yes, uh, you didn't need to. The robe should be closed until I say it's time to disrobe, but. That's OK."
+            ]
+        },
+        {
+            "input": "Eddie, how could you do it? Your brother's girlfriend.",
+            "output": [
+                "Hey, he cheated on her."
+            ]
+        },
+        {
+            "input": "I was goin' after 'em when I was waylaid.",
+            "output": [
+                "Well, you'll start waylaying a new job if you don't get movin'. Go on!"
+            ]
+        },
+        {
+            "input": "I'm Bob, by the way.",
+            "output": [
+                "Oh, my manners have completely left me."
+            ]
+        },
+        {
+            "input": "Oh, yeah, it was a terrible car. The frame is plastic.",
+            "output": [
+                "They had a four-cylinder Volvo engine in that model DeLorean."
+            ]
+        },
+        {
+            "input": "What do you two fight about?",
+            "output": [
+                "I guess it's not really fighting. She just wants me to leave here, go back to school, get some direction."
+            ]
+        },
+        {
+            "input": "I felt limited. I felt confined. I felt like I was suffocating.",
+            "output": [
+                "I see. So more like a tight rope walker who secretly wants to be a trapeze artist."
+            ]
+        },
+        {
+            "input": "So, you're Marcus' dad.",
+            "output": [
+                "Yeah, I guess so. And this is my girlfriend, Lindsey."
+            ]
+        },
+        {
+            "input": "He warned you some day you might have to act for the good of the people, even if it was against Congress.  George, the time has come for you to declare yourself king of America.  Listen to me, the whole army would rise up as one and place you on a throne!  George, you must declare yourself with us or against us.",
+            "output": [
+                "Is this a coup?  Alexander, are you trying to tell me that I might be assassinated if I don't agree?"
+            ]
+        },
+        {
+            "input": "Stop crying, Dashutka! We'll run away to the squatters' land!",
+            "output": [
+                "They'll find us, Roman, and they'll kill us. Nikifor will!"
+            ]
+        },
+        {
+            "input": "Oh, it's like old times seein' you again.",
+            "output": [
+                "I came just as soon as I got your message."
+            ]
+        },
+        {
+            "input": "That's right. Believe you can fly with your new wings.",
+            "output": [
+                "Oh, wow, I'm doing it. Bye!"
+            ]
+        },
+        {
+            "input": "Does Brumby get a kick out of that crap?",
+            "output": [
+                "Especially when I play the lead."
+            ]
+        },
+        {
+            "input": "Murnice, I'm ruining your  grief with my sexcapades. You must have known Wrinkle Pants, as well.",
+            "output": [
+                "He was an opening act for Streets. So, people got to laugh and then dance all in one night of entertainment."
+            ]
+        },
+        {
+            "input": "Yes, very fine. But not all of the pieces look old. Some were carved recently and look like images used by the Thuggees to worship the goddess Kali.",
+            "output": [
+                "Dr. Jones, you know very well that the Thuggee cult has been dead for nearly a century."
+            ]
+        },
+        {
+            "input": "What did he do to you? Talk back?",
+            "output": [
+                "No, nothing personal. Just, he's been around hijacking tools and equipment."
+            ]
+        },
+        {
+            "input": "Father Durning asked us to speak to you, Miss Paige.",
+            "output": [
+                "Us? Who's us? I thought you were a priest."
+            ]
+        },
+        {
+            "input": "Why? It was a bar fight.",
+            "output": [
+                "Tommy, you went after that guy like you had nothing to lose, but you had everything to lose."
+            ]
+        },
+        {
+            "input": "Tell me everything you know about her. Who did she have contacts with?",
+            "output": [
+                "Cassiopeia? She was having an affair with Erich \"the Ironhand\"."
+            ]
+        },
+        {
+            "input": "The strong rule the weak! That�s how your God made the world.",
+            "output": [
+                "He makes us strong only for a while, so we can help each other."
+            ]
+        },
+        {
+            "input": "I just want to say if this does not work out I promise to to personally show up to each of your homes and apologize for my life not working out the way that it should.",
+            "output": [
+                "You know what, come tell us at the community pool."
+            ]
+        },
+        {
+            "input": "Aren't I going to be me?",
+            "output": [
+                "You'll always be you, just another kind of you."
+            ]
+        },
+        {
+            "input": "How can you just wake up one day and have that?",
+            "output": [
+                "Well, you can't, but, uh, you described blunt trauma to the head, disturbing hallucinations. You're hearing voices."
+            ]
+        },
+        {
+            "input": "I've already apologized vehemently about mispronouncing Heimlich.",
+            "output": [
+                "A man died because you mispronounced the word. And yet other words you pronounce far too correctly. You see now why I cannot let you live?"
+            ]
+        },
+        {
+            "input": "What can you tell us about these 4 creeps, Domino?",
+            "output": [
+                "Apparently, they call themselves the First Ladies."
+            ]
+        },
+        {
+            "input": "Listen, all we have to do is land at Cable Junction and wait.",
+            "output": [
+                "Yeah, and how are we gonna do that floating on this garbage?"
+            ]
+        },
+        {
+            "input": "What have you got in your hair, girl?",
+            "output": [
+                "My rose. It's kind of like a motto. People will say, there comes Rose with her rose."
+            ]
+        },
+        {
+            "input": "Do you think they bought it?",
+            "output": [
+                "Oh, yeah. I got them thinking Ordell's real nervous. They love thinking he's scared of them."
+            ]
+        },
+        {
+            "input": "What kind of jokes about you bein' with women, Antwone?",
+            "output": [
+                "Jokes like me bein' a virgin."
+            ]
+        },
+        {
+            "input": "If it's any comfort to you, I don't think you're crazy.",
+            "output": [
+                "Thanks.  Coming from you that really means a lot to me."
+            ]
+        },
+        {
+            "input": "I need another one. I signed the wrong name.",
+            "output": [
+                "Make sure it goes up to the third floor file, because you have a transaction to make."
+            ]
+        },
+        {
+            "input": "That is refreshing. I feel much better now and am ready to go out on camera.",
+            "output": [
+                "See, now you look like a mime, just like me under the mask."
+            ]
+        },
+        {
+            "input": "I know.  I like your little outfit.",
+            "output": [
+                "It's amazing what you can do with a parachute and some starch."
+            ]
+        },
+        {
+            "input": "Yes.  I feel realy rested, too. Theo?",
+            "output": [
+                "I guess.  Oh, your hair!  It looks good."
+            ]
+        },
+        {
+            "input": "You're really staring deeply into my eyes right now, and I don't really know what to make of that.",
+            "output": [
+                "Well, we're a very honest store with honest working people here, and we operate on that honesty first policy."
+            ]
+        },
+        {
+            "input": "How Iong does it take for a rocking chair to stop rocking?",
+            "output": [
+                "Around four to five minutes."
+            ]
+        },
+        {
+            "input": "Have you seen this gentlemen? Do you have any idea of his most recent whereabouts?",
+            "output": [
+                "Pat? Last I heard he was running a jamon iberico shop in Madrid."
+            ]
+        },
+        {
+            "input": "Hey, our boss was just here. Where did she go?",
+            "output": [
+                "The fries are going to start burning again."
+            ]
+        },
+        {
+            "input": "He must have had a heart attack, or perhaps the fumes. When the plane landed he was dead.",
+            "output": [
+                "We were just going to bury him when you came along."
+            ]
+        },
+        {
+            "input": "Shots on me, shots all around.",
+            "output": [
+                "Thank you, Mr. Buffett. You're so generous."
+            ]
+        },
+        {
+            "input": "First we have to know, your marriage. Was it happy?",
+            "output": [
+                "Yes, I loved my husband Frank. He was an ex-marine."
+            ]
+        },
+        {
+            "input": "The Stay-Puft Marshmallow Man!  He was on all the packages we used to buy when I was a kid.  We used to roast Stay-Puft marshmallows at Camp Waconda!",
+            "output": [
+                "Great!  The marshmallows are about to get their revenge."
+            ]
+        },
+        {
+            "input": "There's not an abundance of liquid here in Death Valley.",
+            "output": [
+                "It's hard to be an alcoholic here."
+            ]
+        },
+        {
+            "input": "I did it myself. I read a magazine article about how to maximize small spaces.",
+            "output": [
+                "Well it certainly looks bigger that it seems."
+            ]
+        },
+        {
+            "input": "It's been a very strange day.",
+            "output": [
+                "And getting stranger. Where do I meet this Cowboy? I mean do I have to ride out to the range?"
+            ]
+        }
+    ]
+}
