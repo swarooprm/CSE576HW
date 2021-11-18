@@ -15,6 +15,7 @@ expected_keys = [
     'Categories',
     'Source'
 ]
+
 with open("tasks/README.md", 'r') as readmef:
     task_readme_content = " ".join(readmef.readlines())
 files = [f for f in listdir(tasks_path) if isfile(join(tasks_path, f))]
@@ -25,7 +26,7 @@ for file in files:
         print(f" --> testing file: {file}")
         assert '.json' in file, 'the file does not seem to have a .json in it: ' + file
         file_path = tasks_path + file
-        with open(file_path, 'r') as f:
+        with open(file_path, 'r', encoding='utf-8-sig') as f:
             data = json.load(f)
             for key in expected_keys:
                 assert key in data, f'did not find the key: {key}'
