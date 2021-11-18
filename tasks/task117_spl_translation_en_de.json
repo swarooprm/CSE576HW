@@ -1,6 +1,6 @@
 {
     "Contributors": [
-        "Prutha Gaherwar"
+        "Mehrad Moradshahi"
     ],
     "Source": [
         "Semantic Parser Localizer (https:\/\/github.com\/stanford-oval\/SPL)"
@@ -10,29 +10,49 @@
     ],
     "Input_language": "English",
     "Output_language": "German",
-    "Definition": "Translate the inquiries about restaurants from natural English language to naturally spoken German language. Unidetifiable words or words with all caps font from the English language should not be modified",
+    "Definition": "The provided file includes inquiries about restaurants, and we ask you to translate those to the German language. Please bear in mind the following guidlines while doing the translation: 1) We are looking for the most naturally written and formal form of each sentence in your language. We are *NOT* looking for colloquial forms of the sentence. We are looking for formal form which is how you would type your queries in a text-based virtual assistant. 2) The words between quotation marks are named entities and *SHOULD NOT* be translated. We expect you to keep those values intact and include the quotation marks around them as well. 3) The fully capitalized words like DATE_0, or DURATION_0 *SHOULD NOT* be translated. Please keep them as they are in the translations. 4) Please do not localize measurement units like miles to kilometers during your translation. miles should be translated to its equivalent in your language. 5) Note the input is all lowercased except for special placeholders. Please do the same in your translations.",
     "Positive Examples": [
         {
-            "input": "what 's the telephone number of the \" arby 's \" on \" sherman in muskegon , mi \" ?",
-            "output": "welche telefonnummer hat \" arby 's \" auf \" sherman in muskegon , mi \"?",
-            "explanation": "The input sentence is correctly translated"
+            "input": "are there any \" italian \" restaurants nearby with 8 star reviews ?",
+            "output": "gibt es hier in der nähe \" italian \" restaurants mit 8-sterne-bewertungen?",
+            "explanation": "The translation correctly preserves \" italian \" entity and is accurate"
         },
         {
-            "input": "what is the price range for \" pizza ranch \" ?",
-            "output": "welche preisspanne hat \" pizza ranch \"?",
+            "input": "what kind of food does this restaurant serve ?",
+            "output": "welche art von essen serviert dieses restaurant?",
             "explanation": "The translation is fluent, formal, and accurate"
+        },
+        {
+            "input": "what is the telephone number and location of the nearest \" chinese \" restaurant ?",
+            "output": "wo befindet sich das nächste \" chinese \" restaurant und welche telefonnummer hat es?",
+            "explanation": "The translation correctly preserves \" chinese \" entity. It's also fluent, correct, and lowercased."
         }
     ],
     "Negative Examples": [
         {
-            "input": "where is the closest \"wendy 's\" ?",
+            "input": "where is the closest \" wendy 's \" ?",
             "output": "wo ist das nächste wendy 's?",
             "explanation": "Translation contain the entity \" wendy 's \" but quotation marks are dropped"
         },
         {
             "input": "show me the closest \" mcdonald 's \"",
-            "output": "Can you show me the closest \" mcdonald 's \" ?",
-            "explanation": "The output is just a paraphrased input sentence in English"
+            "output": "Zeige mir den nächsten \" Mcdonald 's \".",
+            "explanation": "The output is not lowercased"
+        },
+        {
+            "input": "display all review descriptions authored by \" jennifer \" .",
+            "output": "zeige alle von \" jennifer \" verfassten an.",
+            "explanation": "Translation of review descriptions is omitted from the output"
+        },
+        {
+            "input": "what is the phone number for \" noodle nirvana \" ?",
+            "output": "was ist die telefonnummer für \" Nudel-Nirvana \" ?",
+            "explanation": "The restaurant name \" noodle nirvana \" is translated to \" Nudel-Nirvana \" instead of being kept intact"
+        },
+        {
+            "input": "can you tell me the rating of \" gold mirror \" in \" san francisco \" ?",
+            "output": "zeige mir die bewertung von \" san francisco \" in \" gold mirror \".",
+            "explanation": "The position of entities is switched in the output"
         }
     ],
     "Instances": [
@@ -67,10 +87,10 @@
             ]
         },
         {
-            "input": "are there any \" italian \" restaurants nearby with 8 star reviews ?",
+            "input": "what 's the telephone number of the \" arby 's \" on \" sherman in muskegon , mi \" ?",
             "output": [
-				"gibt es hier in der nähe \" italian \" restaurants mit 8-sterne-bewertungen?"
-			]
+                "welche telefonnummer hat \" arby 's \" auf \" sherman in muskegon , mi \"?"
+            ]
         },
         {
             "input": "what is the closest \" italian \" restaurant with at least a 4 star rating ?",
@@ -295,10 +315,10 @@
             ]
         },
         {
-            "input": "what kind of food does this restaurant serve ?",
+            "input": "what is the price range for \" pizza ranch \" ?",
             "output": [
-				"welche art von essen serviert dieses restaurant?"
-			]
+                "welche preisspanne hat \" pizza ranch \"?"
+            ]
         },
         {
             "input": "show description of the closest 1 star restaurant .",
