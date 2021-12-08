@@ -2483,3 +2483,9 @@ Name | Summary | Category
 `task119.1_semeval_2019_task10_geometric_mathematical_answer_generation.json` | Generating answers | Math Question Answering
 `task119.1_zest_text_modification.json` | Generating answers | Text Modification
 `task120.1_zest_text_modification.json` | Generating answers | Text Modification
+`task681_mkqa_question_answer.json` | Generating answers | Answer Generation
+`task681.1_mkqa_question_answer.json` | Generating answers | Answer Generation
+`task681.2_mkqa_question_answer.json` | Generating answers | Answer Generation
+`task681.3_mkqa_question_answer.json` | Generating answers | Answer Generation
+`task682_mkqa_question_translation.json` | Question Translation | Translation
+`task682.1_mkqa_question_translation.json` | Question Translation | Translation
