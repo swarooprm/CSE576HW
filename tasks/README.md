@@ -3,20 +3,20 @@
 This directory contains the tasks that are part of this benchmark. 
 
 
-Name | Summary | Category | Domain | Input Language | Output Language
----- | ----------- | -------- | ----- | ----- | ----- 
+Name | Summary | Category 
+---- | ----------- | -------- 
 `task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
 `task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
-`task001_quoref_question_generation`	| Writing questions that require tracking entity references.	| Contextual Question Generation	| Wikipedia	| English	| English
-`task001_quoref_question_generation_var_1`	| Writing questions that require tracking entity references.	| Contextual Question Generation	| Wikipedia	| English	| English
-`task001_quoref_question_generation_var_2`	| Writing questions that require tracking entity references.	| Contextual Question Generation	| Wikipedia	| English	| English
-`task001_quoref_question_generation_var_3`	| Writing questions that require tracking entity references.	| Contextual Question Generation	| Wikipedia	| English	| English
-`task001_quoref_question_generation_var_4`	| Writing questions that require tracking entity references.	| Contextual Question Generation	| Wikipedia	| English	| English
-`task002_quoref_answer_generation`	| Answering questions that require tracking entity references.	| Answer Generation -> Contextual Question Answering	| Wikipedia	| English	| English
-`task002_quoref_answer_generation_var_1`	| Answering questions that require tracking entity references.	| Answer Generation -> Contextual Question Answering	| Wikipedia	| English	| English
-`task002_quoref_answer_generation_var_2`	| Answering questions that require tracking entity references.	| Answer Generation -> Contextual Question Answering	| Wikipedia	| English	| English
-`task002_quoref_answer_generation_var_3`	| Answering questions that require tracking entity references.	| Answer Generation -> Contextual Question Answering	| Wikipedia	| English	| English
-`task002_quoref_answer_generation_var_4`	| Answering questions that require tracking entity references.	| Answer Generation -> Contextual Question Answering	| Wikipedia	| English	| English
+`task001_quoref_question_generation`	| Writing questions that require tracking entity references.	| Contextual Question Generation	
+`task001_quoref_question_generation_var_1`	| Writing questions that require tracking entity references.	| Contextual Question Generation	
+`task001_quoref_question_generation_var_2`	| Writing questions that require tracking entity references.	| Contextual Question Generation	
+`task001_quoref_question_generation_var_3`	| Writing questions that require tracking entity references.	| Contextual Question Generation
+`task001_quoref_question_generation_var_4`	| Writing questions that require tracking entity references.	| Contextual Question Generation
+`task002_quoref_answer_generation`	| Answering questions that require tracking entity references.	| Answer Generation -> Contextual Question Answering
+`task002_quoref_answer_generation_var_1`	| Answering questions that require tracking entity references.	| Answer Generation -> Contextual Question Answering
+`task002_quoref_answer_generation_var_2`	| Answering questions that require tracking entity references.	| Answer Generation -> Contextual Question Answering
+`task002_quoref_answer_generation_var_3`	| Answering questions that require tracking entity references.	| Answer Generation -> Contextual Question Answering
+`task002_quoref_answer_generation_var_4`	| Answering questions that require tracking entity references.	| Answer Generation -> Contextual Question Answering
 `task003_mctaco_question_generation_event_duration`	| Writing questions that involve commonsense understanding of "event duration". | Question Generation
 `task003_mctaco_question_generation_event_duration_var_1`	| Writing questions that involve commonsense understanding of "event duration". | Question Generation
 `task003_mctaco_question_generation_event_duration_var_2`	| Writing questions that involve commonsense understanding of "event duration". | Question Generation
