@@ -5,6 +5,8 @@ This directory contains the tasks that are part of this benchmark.
 
 Name | Summary | Category | Domain | Input Language | Output Language
 ---- | ----------- | -------- | ----- | ----- | ----- 
+`task1001_squad1.1_question_generation` | Generating guestions (based on SQuAD 1.1) | Question Generation  
+`task1002_squad1.1_answer_generation` | Generating answers to SQuAD 1.1 questions | Answer Generation
 `task001_quoref_question_generation`	| Writing questions that require tracking entity references.	| Contextual Question Generation	| Wikipedia	| English	| English
 `task001_quoref_question_generation_var_1`	| Writing questions that require tracking entity references.	| Contextual Question Generation	| Wikipedia	| English	| English
 `task001_quoref_question_generation_var_2`	| Writing questions that require tracking entity references.	| Contextual Question Generation	| Wikipedia	| English	| English
