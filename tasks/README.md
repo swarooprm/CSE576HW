@@ -3,7 +3,7 @@
 This directory contains the tasks that are part of this benchmark. 
 
 
-Name | Summary | Category 
+Name | Summary | Category
 ---- | ----------- | --------
 `task001_quoref_question_generation`	| Writing questions that require tracking entity references.	| Contextual Question Generation
 `task001_quoref_question_generation_var_1`	| Writing questions that require tracking entity references.	| Contextual Question Generation
