@@ -10,11 +10,11 @@ Name | Summary | Category
 `task001_quoref_question_generation_var_2`	| Writing questions that require tracking entity references.	| Contextual Question Generation
 `task001_quoref_question_generation_var_3`	| Writing questions that require tracking entity references.	| Contextual Question Generation
 `task001_quoref_question_generation_var_4`	| Writing questions that require tracking entity references.	| Contextual Question Generation
-`task002_quoref_answer_generation`	| Answering questions that require tracking entity references.	| Answer Generation -> Contextual Question Answering
-`task002_quoref_answer_generation_var_1`	| Answering questions that require tracking entity references.	| Answer Generation -> Contextual Question Answering
-`task002_quoref_answer_generation_var_2`	| Answering questions that require tracking entity references.	| Answer Generation -> Contextual Question Answering
-`task002_quoref_answer_generation_var_3`	| Answering questions that require tracking entity references.	| Answer Generation -> Contextual Question Answering
-`task002_quoref_answer_generation_var_4`	| Answering questions that require tracking entity references.	| Answer Generation -> Contextual Question Answering
+`task002_quoref_answer_generation`	| Answering questions that require tracking entity references.	| Answer Generation
+`task002_quoref_answer_generation_var_1`	| Answering questions that require tracking entity references.	| Answer Generation
+`task002_quoref_answer_generation_var_2`	| Answering questions that require tracking entity references.	| Answer Generation
+`task002_quoref_answer_generation_var_3`	| Answering questions that require tracking entity references.	| Answer Generation
+`task002_quoref_answer_generation_var_4`	| Answering questions that require tracking entity references.	| Answer Generation
 `task003_mctaco_question_generation_event_duration`	| Writing questions that involve commonsense understanding of "event duration". | Question Generation
 `task003_mctaco_question_generation_event_duration_var_1`	| Writing questions that involve commonsense understanding of "event duration". | Question Generation
 `task003_mctaco_question_generation_event_duration_var_2`	| Writing questions that involve commonsense understanding of "event duration". | Question Generation
