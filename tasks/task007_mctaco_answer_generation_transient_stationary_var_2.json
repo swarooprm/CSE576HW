@@ -1,0 +1,678 @@
+{
+    "Contributors": [
+        "Sree Vidya Akkiraju"
+    ],
+    "Source": [
+        "mctaco - https://huggingface.co/datasets/mc_taco "
+    ],
+    "Categories": [
+        "Answer Generation"
+    ],
+    "Definition": "Answer a question on the status of an event using a sentence as a guide. The status of events is described here in order to determine whether an event is stable (remains constant) or transient (changes over time) (changes with time). Some of the questions may have more than one incorrect answer; we just need one. We favor short and straightforward \"solutions\" to long and complicated ones.",
+    "Positive Examples": [
+        {
+            "input": "Sentence: He says that instead of everyone dying , they could keep at least one of their princes alive . \nQuestion: Is he still keeping one prince alive?",
+            "output": "yes",
+            "explanation": "Answer can be implied from the given sentence, so this is correct."
+        },
+        {
+            "input": "Sentence: The postwar period began, however, with millions of displaced people homeless and starving. \nQuestion: Was the postwar period happening 20 years later?",
+            "output": "no",
+            "explanation": "It can be inferred from the given sentence, so this is correct question."
+        }
+    ],
+    "Negative Examples": [
+        {
+            "input": "Sentence: The report of American 11 heading south was the first; Delta 1989 was the second. \nQuestion: Is American 11 still heading south?",
+            "output": "Yes.",
+            "explanation": "Probably in the first quarter of 1989, it must be yes but otherwise, 'No' would have been a good answer to the given question."
+        }
+    ],
+    "Instances": [
+        {
+            "input": "Sentence: A statue, by James Earle Fraser, was dedicated on May 17, 1923, on the south terrace of the Treasury Building, in Washington. \nQuestion: Has the statue always been there?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: A. DeConcini Federal Courthouse, 405 W. Congress St. Deconcini was one of the organization's early board members. \nQuestion: Is the board still active?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: About 30% of Ratners's profit already is derived from the U.S. \nQuestion: Is Ratners's profit derived from the U.S. today?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: Advocating civil disobedience, he led his famous Salt March to the sea, to scoop up salt and circumvent the hated British salt tax. \nQuestion: Did the British continue to tax salt?",
+            "output": [
+                "no they stopped it that month"
+            ]
+        },
+        {
+            "input": "Sentence: All the puppies at the dog pound need a loving home. \nQuestion: Will they still need homes tomorrow?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: Another unit was added on to the communal dwelling each time a marriage created a new family. \nQuestion: Are new units permanent?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: At 9:21, it advised the Dulles terminal control facility, and Dulles urged its controllers to look for primary targets. \nQuestion: Were the controller already looking for primary targets before being urged to do so?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: At least some FAA officials in Boston Center and the New England Region knew that a hijacker on board American 11 had said \"we have some planes.\" \nQuestion: Will the plane still be hijacked next week?",
+            "output": [
+                "yes",
+                "no",
+                "no the hijacker was arrested",
+                "no the hijacker was caught"
+            ]
+        },
+        {
+            "input": "Sentence: Bringing my face close to the shoes, I breathed deeply of air that my parents had trapped while closing up that symbol of their love for me. \nQuestion: Is he still holding the shoes in his face?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: Britain finally ceded the island to Spain in the year 1802, under the terms of the Treaty of Amiens. \nQuestion: How many times did the British cede the Island?",
+            "output": [
+                "0.33 times",
+                "they only ceded the island once",
+                "they fought over it 3 different times",
+                "they fought over it 9 different times",
+                "once",
+                "they fought over it 0.33 different times",
+                "they fought over it 1 different times",
+                "they fought over it 27 different times",
+                "27 times",
+                "9 times"
+            ]
+        },
+        {
+            "input": "Sentence: Britain seized Gibraltar\u2002\u2014\u2002in the name of the Hapsburg claimant\u2002\u2014\u2002and retained it when the war was over. \nQuestion: Does Gibraltar enjoy freedom as a British territory?",
+            "output": [
+                "yes",
+                " it's a part of european union"
+            ]
+        },
+        {
+            "input": "Sentence: But Judge Thornton declared in court, \"When these orders are entered, you don't just do whatever you damn well please and ignore them.\" \nQuestion: Was the judge still talking about this during the next case?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: By the beginning of the fourth century the Algarve had a bishop in place, based in Faro. \nQuestion: Did the bishop's position remain open after his tenure?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: Carl Laemmle, head of Universal Studios, gave Einstein a tour of his studio and introduced him to Chaplin. \nQuestion: Was he still being introduced an hour later?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: Church is brought back to life , but is an evil shell of himself . \nQuestion: Will Church live forever?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: Concerning the Georgetown Hoya interview where Heston was asked about Rolland, you write: \"There is no indication that [Heston] recognized Kayla Rolland's case.\" \nQuestion: Did the Rolland case initiate before the interview?",
+            "output": [
+                "yes",
+                "yes since this interview was about it",
+                "no",
+                "yes since the interview was regarding it",
+                "yes since the interview was concerning it",
+                "yes since the interview was about it",
+                "no it had yet to start",
+                "no it has yet to start"
+            ]
+        },
+        {
+            "input": "Sentence: Concerning the Georgetown Hoya interview where Heston was asked about Rolland, you write: \"There is no indication that [Heston] recognized Kayla Rolland's case.\" \nQuestion: Is Kayla Rolland's case still active?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: Dam Square was landlocked for the first time in its history. \nQuestion: Was it always located there",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: Durer rejected Alberti's concept of an objective beauty, proposing a relativist notion of beauty based on variety. \nQuestion: Did philosophers still hold Alberti's concept in high regard after Durer's alternate proposal?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: During the fight , Hughes and Holly find out that the diamond on Yonggary's forehead is the device giving the aliens control of Yonggary . \nQuestion: Were Hughes and Holly still hurt after the fight?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: Einstein discovered Louis de Broglie's work, and supported his ideas, which were received skeptically at first. \nQuestion: Does Einstein still support Louis' work?",
+            "output": [
+                "he would if he were never alive"
+            ]
+        },
+        {
+            "input": "Sentence: Einstein was displeased with quantum theory and mechanics (the very theory he helped create), despite its acceptance by other physicists, stating that God \"is not playing at dice.\" \nQuestion: Has Einstein always known about quantum theory?",
+            "output": [
+                "until he was two weeks old",
+                "since he was two weeks old",
+                "no",
+                "he knew about it",
+                " since he was two seconds old",
+                "until he was two years old",
+                "he knew about it",
+                " since he was two hours old",
+                "he knew about it",
+                " since he was two weeks old",
+                "since he was two seconds old"
+            ]
+        },
+        {
+            "input": "Sentence: Eventually, the shelter received word that the alleged hijacker 5 miles away had been a medevac helicopter. \nQuestion: Was the hijack still in process when they received word?",
+            "output": [
+                "some women have no trouble eventually conceiving again"
+            ]
+        },
+        {
+            "input": "Sentence: For example, what if you place a cake in the oven and you leave it in too long? \nQuestion: Would the cake still be in the oven the next day?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: From Hunter Huss, she moved on to pursue a degree at Pfeiffer University in Misenheimer. \nQuestion: Is she still a student at Pfeiffer University?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: Hamilton attacked his political opponents as demanding freedom for themselves and refusing to allow it to blacks. \nQuestion: Was freedom for blacks granted after Hamilton's attacks?",
+            "output": [
+                "he changed his vote to yes"
+            ]
+        },
+        {
+            "input": "Sentence: He also had orang laut pirates patrolling the seas to extort tribute from passing ships. \nQuestion: Did he get pirates other than the orang laut to patrol beforehand?",
+            "output": [
+                "yes",
+                "he had no prior experience",
+                "he said also",
+                "he had no time to work",
+                "they extort  you"
+            ]
+        },
+        {
+            "input": "Sentence: He claimed it was more important for Muslims to kill Americans than to kill other infidels.\" \nQuestion: Were his claims still taken seriously after the war?",
+            "output": [
+                "housewives kill",
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: He has not told his wife that he was fired and is simply serving out his tenure at the agency while looking for a new position . \nQuestion: Will he still be serving out his tenure next year?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: He would splash and play until he was ready to go back home, where he would sleep for hours, having worn himself out playing. \nQuestion: Was he still worn out after sleeping?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: His people had tried and tried to break him, but he was wild at heart. \nQuestion: Did his people stop trying to break him?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: Hitherward they came, Meeting our faces from the middle point, With us beyond but with a larger stride. \nQuestion: Will they still be coming for the rest of eternity?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: Horton has argued from this that he would be comfortable with a multiracial society, and that this distinguished him from his contemporaries. \nQuestion: Does Horton still believe his contemporaries are uncomfortable with a multiracial society?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: However, more recently, it has been suggested that it may date from earlier than Abdalonymus' death. \nQuestion: Is Abdalonymus still dead?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: If you have ever heard, \"Eat a good breakfast\", thats why. \nQuestion: Can you eat a good breakfast tomorrow?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: In 1996 the WHO found that much of the population existed in a state of ``semi-starvation.'' \nQuestion: Does the population exist in a state of semi starvation today?",
+            "output": [
+                "no",
+                " everyone never has enough to eat"
+            ]
+        },
+        {
+            "input": "Sentence: In Melaka and throughout the peninsula, Islam thrived as a strong, male-dominated religion of individuality, offering dynamic leadership and preaching brotherhood and self-reliance\u2002\u2014\u2002all qualities ideally suited to the coastal trade. \nQuestion: What happened after Islam became popular in the region?",
+            "output": [
+                "they drank liquor",
+                "it died off",
+                "it expanded even further",
+                "other religious faiths were ostracized",
+                "it spread even further",
+                "they drank alcohol",
+                "it died out",
+                "it died down"
+            ]
+        },
+        {
+            "input": "Sentence: In actual practice, however, we act too often as if we only cared for economic values. \nQuestion: Do we only care about economic values today?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: In the mean time fate had avenged Law on one of his lesser enemies. \nQuestion: Is he still an enemy?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: In the nose, mucus and hairs trap any dust or other particles in the air. \nQuestion: Is the dust still in the mucus?",
+            "output": [
+                "but it stays there permanently"
+            ]
+        },
+        {
+            "input": "Sentence: In the opening scene , Randy Morton describes a typical Friday afternoon at the Waldorf . \nQuestion: Is he still at the Waldorf?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: It refers to a woman who is dangerously attractive, and lures men to their downfall with her sexual attractiveness. \nQuestion: Is she sexually attractive today?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: It seemed strange to him, but not as strange as it was to see Linda the brown chicken in the living room last spring. \nQuestion: Is Linda the brown chicken still in the living room?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: It too has many Continents are much older than ocean basins. \nQuestion: Do the Continents still exist today?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: It's hail crackled across the comm, and Tara spun to retake her seat at the helm. \nQuestion: Will the hail storm ever end?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: It's just this hard when I try to answer the question: Why do older Oklahomans need lawyers? \nQuestion: Did Oklahomans need lawyers when they were younger?",
+            "output": [
+                "yes",
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: Jerry swims in circles until Tom's head has done a 360 , and is then grabbed again . \nQuestion: Is Jerry still swimming in circles?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: Magnets are able to place a force on certain materials. \nQuestion: Are magnets still able to place a force on certain materials today?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: Mama kept her mink jacket, a family hand-me-down, safe from time in a stopbox, and lent the capturador to my uncle for his stamp collection. \nQuestion: Will the mink jacket stay in the stopbox?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: Meridian National Corp. said it sold 750,000 shares of its common stock to the McAlpine family interests, for $1 million, or $1.35 a share. \nQuestion: Will the price of the shares remain the same?",
+            "output": [
+                "no it will probably go up"
+            ]
+        },
+        {
+            "input": "Sentence: Not that he devised flint and steel, matches, or any other way of creating fire. \nQuestion: Is he still trying to make a fire?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: One result was two NSC-led interagency trips to Persian Gulf states in 1999 and 2000. \nQuestion: Is the NSC still in the Persian Gulf?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: Only certain animals were able to get at the plants hidden nectar. \nQuestion: Does the plant always have nectar?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: Our emphasis has been on having our potential clients know about us and deliver services to them, Dudovitz said. \nQuestion: Do the clients learn about the company before becoming clients?",
+            "output": [
+                "yes",
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: Our emphasis has been on having our potential clients know about us and deliver services to them, Dudovitz said. \nQuestion: Is Dudovitz working for the company when he calls on potential clients?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: Police Captain Richard Brookwell calls Cross and his partner , Tommy Kane , to the crime scene . \nQuestion: Will the group be calling Cross and his partner over to the crime scene tomorrow?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: Portuguese explorers then embarked upon Macau (now Macao), the Congo, and various other parts of Africa, including the Sudan. \nQuestion: Did the explorers remain in the Sudan?",
+            "output": [
+                "no they continued on"
+            ]
+        },
+        {
+            "input": "Sentence: Previously, it offered $13.65 a share in cash, or $29 million. \nQuestion: Does it offer $13.65 in cash today?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: Radio Televizioni Shqiptar (RTSH) is the public radio and TV broadcaster of Albania, founded by King Zog in 1938. \nQuestion: Is King Zog still living?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: Ransome looks after her as well as for young Fern Simon , who has declared her love for him . \nQuestion: Will Ransome and Fern's relationship last?",
+            "output": [
+                "her organization has no immediate comment"
+            ]
+        },
+        {
+            "input": "Sentence: Sarah is dating the curator Michael Pierce , a single father who is away from the museum that night . \nQuestion: Will Michael be back tomorrow?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: Separately, Citadel posted a third-quarter net loss of $2.3 million, or 68 cents a share, versus net income of $5.3 million, or $1.61 a share, a year earlier. \nQuestion: Did Citadel report their earnings before the third quarter was completed?",
+            "output": [
+                "yes at the beginning of the month",
+                "yes at the beginning of the season",
+                "yes at the start of the year",
+                "yes at the end of the year",
+                "yes at the beginning of the year",
+                "yes at the beginning of the second",
+                "none after it ended"
+            ]
+        },
+        {
+            "input": "Sentence: She added a special growing mix from the garden store to make the soil better. \nQuestion: Was the garden store always there?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: She began to tell the story of Majestic, the wild horse who could not be calmed. \nQuestion: Is the horse calm today?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: She had gotten out of her last day of school and was free for the summer. \nQuestion: Is she still free for the summer?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: She later adopted the stage name Fontaine -- the name of her mother's second husband. \nQuestion: Is she known as Fontaine today?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: Shelly went to every cage and looked each puppy in the eyes and talked to each one. \nQuestion: Was Shelly talking to puppies the next day?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: Since then, she has earned promotions from managing attorney, senior attorney, then director of the Council on Aging project. \nQuestion: Will she be earning promotions in 10 years?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: So from now on, Marsha takes extra special care to make sure Joey is safe and sound at all times. \nQuestion: Is Joey safe and sound today?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: Taj Jackson told the magazine: \"My mom made sure that we had a real childhood, with birthday parties, baseball, family outings, all that stuff.\" \nQuestion: Is Taj Jackson still a child?",
+            "output": [
+                "yes",
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: That amount is convertible into shares of Meridian common stock at $2 a share during its one-year term. \nQuestion: Was the amount convertible into 2 dollar shares last year?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: The Portuguese Crown, delighted with its first important discovery, immediately embarked on a program of colonization. \nQuestion: Do the original colonies still exist?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: The Serbian, who beat Tsonga in the 2008 Australian Open final, ended the dream run of Australian 18-year-old Bernard Tomic. \nQuestion: Are they still running the race now?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: The Shang Dynasty gave rise to the concept of one Chinese nation under one government. \nQuestion: Was China united under one government before the Shang Dynasty gave rise to the concept?",
+            "output": [
+                "maybe"
+            ]
+        },
+        {
+            "input": "Sentence: The Spanish immediately began subjugating the Arawak population, many of whom died under the yoke of oppression and of diseases carried by the Europeans. \nQuestion: Did the Spanish subjugate the Arawak population forever?",
+            "output": [
+                "maybe"
+            ]
+        },
+        {
+            "input": "Sentence: The issues I've dealt with through the years have been on the side of helping people maintain the basics of life - home, healt h care, jobs and family.\" \nQuestion: Are they still helping people?",
+            "output": [
+                "yes",
+                "no they stopped after a week",
+                "no",
+                "no they started before a week",
+                "no they started after a week",
+                "no they stopped before a week",
+                "yes they are",
+                "no they stopped after a minute",
+                "indeed they are",
+                "yeah they are",
+                "no they started after a hour",
+                "no they started after a year",
+                "no they stopped once a hour",
+                "no they stopped after a month",
+                "no they stopped once a week",
+                "no they stopped after a year"
+            ]
+        },
+        {
+            "input": "Sentence: The lightscreen provided had informed me when and where official meals were taking place, but I hadn't bothered to acknowledge the invitations. \nQuestion: Is the lightscreen still providing the information?",
+            "output": [
+                "maybe"
+            ]
+        },
+        {
+            "input": "Sentence: The site of Nueva Sevilla proved to be unhealthy and mosquito-ridden, and in 1534 the Spanish founded Villa de la Vega, today known as Spanish Town. \nQuestion: Did the Spanish stay in Nueva Sevilla after founding Villa de la Vega?",
+            "output": [
+                "spanish authorities clear the price for the treatment"
+            ]
+        },
+        {
+            "input": "Sentence: The suggestion that you are some one else is the thing to strive for, not the concealment of who you really are. \nQuestion: Are people still striving to conceal who they are?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: There are now more protons than electrons inside the atom. \nQuestion: Will there be more electrons in the atom tomorrow?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: There was even a tiny room in the back of one of the closets. \nQuestion: Was the room still there after the house was remodeled?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: They also argued that Hall's litigious style hampered their ability to garner funds from Congress. \nQuestion: Is Hall still serving?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: They are able to study the DNA of the organism that no longer lives on Earth. \nQuestion: Are they still studying the DNA?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: They are very flat areas and they have very rich soils. \nQuestion: Will the soil remain rich after the land is used for cultivation?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: They like to play hopscotch or jump rope but that day they wanted to play tag. \nQuestion: Were they playing tag the next day?",
+            "output": [
+                "no"
+            ]
+        },
+        {
+            "input": "Sentence: They need only position themselves near a company's satellite dish and wait. \nQuestion: Are they positioned now?",
+            "output": [
+                "they hurting themselves"
+            ]
+        },
+        {
+            "input": "Sentence: This approach has been echoed by Lev Landau and Evgeny Lifshitz, and others, and has become standard. \nQuestion: Is the approach accepted by others?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: This aversion to war also led Einstein to befriend author Upton Sinclair and film star Charlie Chaplin, both noted for their pacifism. \nQuestion: Is Einstein still friends with the authors?",
+            "output": [
+                "he would be if he was still alive"
+            ]
+        },
+        {
+            "input": "Sentence: This is an astonishing new record for a coin, he said. \nQuestion: Is the record still going to be established tomorrow?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: This led to the discovery that the Earths crust was broken up into regions, or plates. \nQuestion: Will the Earth's crust be broken up into regions 100 years from now?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: Tocqueville was a classical liberal who advocated parliamentary government, but was skeptical of the extremes of democracy. \nQuestion: Is Tocqueville still skeptical of democratic extremes?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: W. Mark Goode, president of Micronyx Inc., a Richardson, Texas, firm that makes computer-security products, provided a new definition for Mikhail Gorbachev's campaign for greater openness, known commonly as glasnost. \nQuestion: Is W. Mark Goode still the president of Micronyx?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: We may promise \"justice for all,\" but for those who can't afford a lawyer, that promise is often a lie. \nQuestion: Is justice for all promised today?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: When Mary called Max's name he left the squirrel and happily returned to Mary, wagging his tail as he went. \nQuestion: Does Mary still have Max today?",
+            "output": [
+                "yes"
+            ]
+        },
+        {
+            "input": "Sentence: Where before they had marched in regiments, practiced in ranks and followed their leaders' commands, the words now escaped in their true forms, unhindered by any stricture. \nQuestion: Had they worked together in an unstructured environment before the strict structured one?",
+            "output": [
+                "no",
+                "they merge their activities in the field",
+                "they throw their hat in the ring"
+            ]
+        },
+        {
+            "input": "Sentence: and jumped up and down on the side walk trying to get him to see them. \nQuestion: Had he tried to show him earlier also?",
+            "output": [
+                "yes"
+            ]
+        }
+    ]
+}
